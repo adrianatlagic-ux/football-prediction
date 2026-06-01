@@ -6,7 +6,7 @@ import numpy as np
 from pathlib import Path
 
 from .data_loader import load_completed_matches
-from .feature_engineering import build_features, build_prediction_row, get_feature_columns
+from .feature_engineering import build_features, build_prediction_row, get_feature_columns, encode_result
 from .models.ensemble_model import EnsemblePredictor
 from .evaluation import evaluate
 
@@ -26,6 +26,9 @@ class FootballPredictor:
     def train(self, since_year: int = 1990, test_size: float = 0.2) -> dict:
         df_raw = load_completed_matches()
         df_raw = df_raw[df_raw["date"].dt.year >= since_year].reset_index(drop=True)
+        df_raw["result"] = df_raw.apply(
+            lambda r: encode_result(r["home_goals"], r["away_goals"]), axis=1
+        )
         self._history = df_raw
 
         print(f"Building features for {len(df_raw):,} matches since {since_year}...")
