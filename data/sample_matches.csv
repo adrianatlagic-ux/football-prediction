@@ -1,0 +1,1901 @@
+date,home_team,away_team,home_goals,away_goals,competition,season
+2019-08-10,Hannover,Schalke,0,1,BL1,2019
+2019-08-13,Gladbach,Mainz,0,0,BL1,2019
+2019-08-16,Schalke,Bochum,4,3,BL1,2019
+2019-08-19,Bremen,Hannover,0,1,BL1,2019
+2019-08-22,Bayern,Bremen,1,0,BL1,2019
+2019-08-25,Bayern,Leverkusen,0,0,BL1,2019
+2019-08-28,Koeln,Leverkusen,3,2,BL1,2019
+2019-08-31,Augsburg,Mainz,2,3,BL1,2019
+2019-09-03,Schalke,Hannover,0,0,BL1,2019
+2019-09-06,Union Berlin,Schalke,0,2,BL1,2019
+2019-09-09,Wolfsburg,Schalke,4,0,BL1,2019
+2019-09-12,Hertha,Dortmund,1,0,BL1,2019
+2019-09-15,Union Berlin,Bayern,3,3,BL1,2019
+2019-09-18,Hertha,Bayern,5,3,BL1,2019
+2019-09-21,Bremen,Schalke,2,0,BL1,2019
+2019-09-24,Freiburg,Hertha,3,0,BL1,2019
+2019-09-27,Leipzig,Union Berlin,3,1,BL1,2019
+2019-09-30,Gladbach,Dortmund,3,1,BL1,2019
+2019-10-03,Wolfsburg,Gladbach,0,2,BL1,2019
+2019-10-06,Stuttgart,Hertha,0,2,BL1,2019
+2019-10-09,Leipzig,Frankfurt,2,0,BL1,2019
+2019-10-12,Stuttgart,Leverkusen,3,0,BL1,2019
+2019-10-15,Leipzig,Hamburg,0,3,BL1,2019
+2019-10-18,Bayern,Augsburg,0,0,BL1,2019
+2019-10-21,Koeln,Union Berlin,0,0,BL1,2019
+2019-10-24,Leipzig,Mainz,2,5,BL1,2019
+2019-10-27,Hoffenheim,Hamburg,0,2,BL1,2019
+2019-10-30,Leipzig,Freiburg,0,7,BL1,2019
+2019-11-02,Leverkusen,Bremen,1,2,BL1,2019
+2019-11-05,Mainz,Union Berlin,0,3,BL1,2019
+2019-11-08,Union Berlin,Freiburg,0,7,BL1,2019
+2019-11-11,Mainz,Dortmund,0,0,BL1,2019
+2019-11-14,Hannover,Hoffenheim,0,1,BL1,2019
+2019-11-17,Bochum,Frankfurt,0,1,BL1,2019
+2019-11-20,Gladbach,Union Berlin,1,0,BL1,2019
+2019-11-23,Union Berlin,Hannover,1,0,BL1,2019
+2019-11-26,Augsburg,Stuttgart,1,0,BL1,2019
+2019-11-29,Bremen,Gladbach,2,1,BL1,2019
+2019-12-02,Mainz,Hertha,2,1,BL1,2019
+2019-12-05,Union Berlin,Bremen,1,0,BL1,2019
+2019-12-08,Gladbach,Freiburg,0,2,BL1,2019
+2019-12-11,Frankfurt,Dortmund,0,0,BL1,2019
+2019-12-14,Hamburg,Augsburg,4,1,BL1,2019
+2019-12-17,Hertha,Koeln,0,0,BL1,2019
+2019-12-20,Schalke,Freiburg,1,1,BL1,2019
+2019-12-23,Hannover,Augsburg,0,0,BL1,2019
+2019-12-26,Hannover,Leipzig,0,3,BL1,2019
+2019-12-29,Mainz,Freiburg,1,5,BL1,2019
+2020-01-01,Schalke,Dortmund,1,0,BL1,2019
+2020-01-04,Bremen,Leipzig,0,0,BL1,2019
+2020-01-07,Mainz,Bochum,0,0,BL1,2019
+2020-01-10,Dortmund,Hertha,0,1,BL1,2019
+2020-01-13,Hamburg,Koeln,1,0,BL1,2019
+2020-01-16,Hamburg,Hoffenheim,0,0,BL1,2019
+2020-01-19,Mainz,Bremen,3,1,BL1,2019
+2020-01-22,Leipzig,Dortmund,0,0,BL1,2019
+2020-01-25,Dortmund,Bochum,0,1,BL1,2019
+2020-01-28,Freiburg,Stuttgart,1,3,BL1,2019
+2020-01-31,Koeln,Freiburg,1,2,BL1,2019
+2020-02-03,Wolfsburg,Dortmund,0,0,BL1,2019
+2020-02-06,Mainz,Leipzig,0,0,BL1,2019
+2020-02-09,Leverkusen,Leipzig,0,2,BL1,2019
+2020-02-12,Hamburg,Wolfsburg,0,1,BL1,2019
+2020-02-15,Freiburg,Union Berlin,2,0,BL1,2019
+2020-02-18,Leipzig,Bayern,1,1,BL1,2019
+2020-02-21,Hertha,Leipzig,0,1,BL1,2019
+2020-02-24,Leipzig,Koeln,0,1,BL1,2019
+2020-02-27,Koeln,Hertha,2,0,BL1,2019
+2020-03-01,Frankfurt,Augsburg,1,0,BL1,2019
+2020-03-04,Leverkusen,Hannover,4,0,BL1,2019
+2020-03-07,Dortmund,Mainz,0,0,BL1,2019
+2020-03-10,Stuttgart,Dortmund,3,0,BL1,2019
+2020-03-13,Koeln,Bayern,2,2,BL1,2019
+2020-03-16,Leverkusen,Augsburg,6,1,BL1,2019
+2020-03-19,Koeln,Augsburg,4,2,BL1,2019
+2020-03-22,Stuttgart,Gladbach,1,2,BL1,2019
+2020-03-25,Leipzig,Hertha,1,2,BL1,2019
+2020-03-28,Bochum,Dortmund,1,2,BL1,2019
+2020-03-31,Augsburg,Bochum,1,1,BL1,2019
+2020-04-03,Schalke,Wolfsburg,0,0,BL1,2019
+2020-04-06,Stuttgart,Koeln,2,1,BL1,2019
+2020-04-09,Dortmund,Koeln,0,1,BL1,2019
+2020-04-12,Leverkusen,Hertha,0,0,BL1,2019
+2020-04-15,Freiburg,Schalke,0,0,BL1,2019
+2020-04-18,Bochum,Freiburg,0,1,BL1,2019
+2020-04-21,Hertha,Augsburg,0,0,BL1,2019
+2020-04-24,Frankfurt,Koeln,2,1,BL1,2019
+2020-04-27,Frankfurt,Bayern,0,0,BL1,2019
+2020-04-30,Bremen,Augsburg,0,0,BL1,2019
+2020-05-03,Union Berlin,Bochum,0,0,BL1,2019
+2020-05-06,Bayern,Bochum,4,1,BL1,2019
+2020-05-09,Leverkusen,Hoffenheim,1,1,BL1,2019
+2020-05-12,Wolfsburg,Frankfurt,3,0,BL1,2019
+2020-05-15,Bremen,Koeln,0,0,BL1,2019
+2020-05-18,Bochum,Schalke,2,3,BL1,2019
+2020-05-21,Leverkusen,Mainz,4,0,BL1,2019
+2020-05-24,Bremen,Hertha,1,1,BL1,2019
+2020-05-27,Mainz,Koeln,1,0,BL1,2019
+2020-05-30,Bayern,Union Berlin,0,0,BL1,2019
+2020-06-02,Hoffenheim,Stuttgart,0,0,BL1,2019
+2020-06-05,Hamburg,Leverkusen,2,0,BL1,2019
+2020-06-08,Bochum,Bayern,0,1,BL1,2019
+2020-06-11,Wolfsburg,Bremen,0,0,BL1,2019
+2020-06-14,Leverkusen,Koeln,0,0,BL1,2019
+2020-06-17,Frankfurt,Hannover,1,0,BL1,2019
+2020-06-20,Leverkusen,Hamburg,1,0,BL1,2019
+2020-06-23,Bayern,Mainz,1,0,BL1,2019
+2020-06-26,Mainz,Wolfsburg,0,0,BL1,2019
+2020-06-29,Dortmund,Hannover,0,1,BL1,2019
+2020-07-02,Bremen,Dortmund,0,1,BL1,2019
+2020-07-05,Bremen,Stuttgart,1,0,BL1,2019
+2020-07-08,Hoffenheim,Leipzig,0,0,BL1,2019
+2020-07-11,Koeln,Hannover,1,7,BL1,2019
+2020-07-14,Bochum,Mainz,0,1,BL1,2019
+2020-07-17,Hamburg,Frankfurt,3,2,BL1,2019
+2020-07-20,Hannover,Bochum,1,5,BL1,2019
+2020-07-23,Frankfurt,Hamburg,0,0,BL1,2019
+2020-07-26,Frankfurt,Stuttgart,0,0,BL1,2019
+2020-07-29,Augsburg,Hamburg,1,1,BL1,2019
+2020-08-01,Schalke,Hoffenheim,0,1,BL1,2019
+2020-08-04,Schalke,Koeln,2,0,BL1,2019
+2020-08-07,Freiburg,Hoffenheim,2,1,BL1,2019
+2020-08-10,Wolfsburg,Freiburg,0,3,BL1,2019
+2020-08-13,Hoffenheim,Frankfurt,3,0,BL1,2019
+2020-08-16,Hoffenheim,Freiburg,0,0,BL1,2019
+2020-08-19,Stuttgart,Wolfsburg,2,6,BL1,2019
+2020-08-22,Gladbach,Schalke,0,2,BL1,2019
+2020-08-25,Stuttgart,Bayern,0,2,BL1,2019
+2020-08-28,Wolfsburg,Leipzig,2,0,BL1,2019
+2020-08-31,Bremen,Wolfsburg,1,3,BL1,2019
+2020-09-03,Mainz,Hoffenheim,1,0,BL1,2019
+2020-09-06,Koeln,Dortmund,5,1,BL1,2019
+2020-09-09,Hoffenheim,Mainz,0,0,BL1,2019
+2020-09-12,Freiburg,Augsburg,1,0,BL1,2019
+2020-09-15,Hoffenheim,Augsburg,0,2,BL1,2019
+2020-09-18,Augsburg,Leipzig,2,0,BL1,2019
+2020-09-21,Bochum,Hamburg,6,2,BL1,2019
+2020-09-24,Hannover,Freiburg,1,2,BL1,2019
+2020-09-27,Hamburg,Union Berlin,1,1,BL1,2019
+2020-09-30,Bayern,Frankfurt,6,0,BL1,2019
+2020-10-03,Hoffenheim,Union Berlin,1,0,BL1,2019
+2020-10-06,Bayern,Koeln,1,0,BL1,2019
+2020-10-09,Koeln,Bochum,1,0,BL1,2019
+2020-10-12,Bochum,Hannover,3,1,BL1,2019
+2020-10-15,Wolfsburg,Hannover,0,2,BL1,2019
+2020-10-18,Dortmund,Bayern,0,1,BL1,2019
+2020-10-21,Mainz,Frankfurt,1,0,BL1,2019
+2020-10-24,Freiburg,Frankfurt,0,3,BL1,2019
+2020-10-27,Bochum,Wolfsburg,0,0,BL1,2019
+2020-10-30,Hertha,Freiburg,2,0,BL1,2019
+2020-11-02,Hertha,Leverkusen,2,1,BL1,2019
+2020-11-05,Hamburg,Mainz,0,0,BL1,2019
+2020-11-08,Freiburg,Bayern,7,0,BL1,2019
+2020-11-11,Hertha,Hoffenheim,1,0,BL1,2019
+2020-11-14,Mainz,Hannover,2,1,BL1,2019
+2020-11-17,Hannover,Union Berlin,1,0,BL1,2019
+2020-11-20,Gladbach,Bochum,3,0,BL1,2019
+2020-11-23,Dortmund,Hoffenheim,0,1,BL1,2019
+2020-11-26,Augsburg,Bremen,0,0,BL1,2019
+2020-11-29,Wolfsburg,Hoffenheim,1,0,BL1,2019
+2020-12-02,Augsburg,Bayern,0,2,BL1,2019
+2020-12-05,Dortmund,Union Berlin,0,1,BL1,2019
+2020-12-08,Bayern,Stuttgart,0,0,BL1,2019
+2020-12-11,Hamburg,Leipzig,0,0,BL1,2019
+2020-12-14,Wolfsburg,Bochum,0,1,BL1,2019
+2020-12-17,Bochum,Koeln,2,0,BL1,2019
+2020-12-20,Frankfurt,Gladbach,0,1,BL1,2019
+2020-12-23,Hannover,Bremen,1,3,BL1,2019
+2020-12-26,Mainz,Hamburg,1,0,BL1,2019
+2020-12-29,Gladbach,Frankfurt,0,0,BL1,2019
+2021-01-01,Leipzig,Bochum,0,0,BL1,2019
+2021-01-04,Wolfsburg,Augsburg,0,0,BL1,2019
+2021-01-07,Stuttgart,Augsburg,0,4,BL1,2019
+2021-01-10,Leverkusen,Freiburg,1,2,BL1,2019
+2021-01-13,Bremen,Bayern,0,3,BL1,2019
+2021-01-16,Union Berlin,Gladbach,0,3,BL1,2019
+2021-01-19,Union Berlin,Stuttgart,1,1,BL1,2019
+2021-01-22,Hertha,Mainz,0,0,BL1,2019
+2021-01-25,Gladbach,Bremen,0,2,BL1,2019
+2021-01-28,Bochum,Bremen,1,1,BL1,2019
+2021-01-31,Koeln,Frankfurt,0,0,BL1,2019
+2021-02-03,Bochum,Leipzig,1,0,BL1,2019
+2021-02-06,Gladbach,Hamburg,0,1,BL1,2019
+2021-02-09,Leverkusen,Frankfurt,0,7,BL1,2019
+2021-02-12,Freiburg,Hamburg,0,3,BL1,2019
+2021-02-15,Bochum,Hoffenheim,1,1,BL1,2019
+2021-02-18,Frankfurt,Hoffenheim,0,0,BL1,2019
+2021-02-21,Bayern,Hoffenheim,1,0,BL1,2019
+2021-02-24,Hannover,Dortmund,2,4,BL1,2019
+2021-02-27,Stuttgart,Hamburg,0,2,BL1,2019
+2021-03-02,Bayern,Hertha,1,1,BL1,2019
+2021-03-05,Hannover,Frankfurt,3,0,BL1,2019
+2021-03-08,Schalke,Bremen,0,1,BL1,2019
+2021-03-11,Bayern,Hannover,0,0,BL1,2019
+2021-03-14,Stuttgart,Leipzig,0,0,BL1,2019
+2021-03-17,Gladbach,Leverkusen,1,1,BL1,2019
+2021-03-20,Augsburg,Hoffenheim,0,0,BL1,2019
+2021-03-23,Stuttgart,Bochum,2,2,BL1,2019
+2021-03-26,Union Berlin,Hoffenheim,0,1,BL1,2019
+2021-03-29,Stuttgart,Freiburg,5,3,BL1,2019
+2021-04-01,Stuttgart,Bremen,2,1,BL1,2019
+2021-04-04,Frankfurt,Bochum,6,0,BL1,2019
+2021-04-07,Hamburg,Bremen,1,1,BL1,2019
+2021-04-10,Schalke,Frankfurt,4,3,BL1,2019
+2021-04-13,Hamburg,Hannover,0,0,BL1,2019
+2021-04-16,Dortmund,Bremen,0,1,BL1,2019
+2021-04-19,Freiburg,Dortmund,2,0,BL1,2019
+2021-04-22,Freiburg,Hannover,0,1,BL1,2019
+2021-04-25,Gladbach,Hoffenheim,2,2,BL1,2019
+2021-04-28,Wolfsburg,Bayern,1,1,BL1,2019
+2021-05-01,Hertha,Gladbach,0,0,BL1,2019
+2021-05-04,Hoffenheim,Bayern,0,0,BL1,2019
+2021-05-07,Wolfsburg,Mainz,0,0,BL1,2019
+2021-05-10,Hannover,Koeln,3,2,BL1,2019
+2021-05-13,Hoffenheim,Bremen,0,3,BL1,2019
+2021-05-16,Hamburg,Dortmund,7,1,BL1,2019
+2021-05-19,Hannover,Wolfsburg,0,0,BL1,2019
+2021-05-22,Hamburg,Freiburg,3,1,BL1,2019
+2021-05-25,Hamburg,Schalke,2,4,BL1,2019
+2021-05-28,Hertha,Hannover,0,0,BL1,2019
+2021-05-31,Koeln,Schalke,1,1,BL1,2019
+2021-06-03,Hertha,Frankfurt,0,0,BL1,2019
+2021-06-06,Mainz,Leverkusen,0,1,BL1,2019
+2021-06-09,Bochum,Gladbach,3,0,BL1,2019
+2021-06-12,Gladbach,Hannover,2,0,BL1,2019
+2021-06-15,Leverkusen,Bochum,4,2,BL1,2019
+2021-06-18,Leipzig,Wolfsburg,1,1,BL1,2019
+2021-06-21,Union Berlin,Mainz,0,0,BL1,2019
+2021-06-24,Freiburg,Mainz,7,0,BL1,2019
+2021-06-27,Mainz,Schalke,1,7,BL1,2019
+2021-06-30,Bremen,Leverkusen,1,1,BL1,2019
+2021-07-03,Stuttgart,Hannover,1,0,BL1,2019
+2021-07-06,Augsburg,Freiburg,0,3,BL1,2019
+2021-07-09,Gladbach,Stuttgart,1,2,BL1,2019
+2021-07-12,Schalke,Bayern,0,1,BL1,2019
+2021-07-15,Bayern,Hamburg,5,1,BL1,2019
+2021-07-18,Augsburg,Hannover,1,0,BL1,2019
+2021-07-21,Freiburg,Bochum,7,1,BL1,2019
+2021-07-24,Hoffenheim,Schalke,0,0,BL1,2019
+2021-07-27,Dortmund,Leverkusen,0,1,BL1,2019
+2021-07-30,Dortmund,Leipzig,0,6,BL1,2019
+2021-08-02,Union Berlin,Koeln,2,0,BL1,2019
+2021-08-05,Koeln,Leipzig,0,2,BL1,2019
+2021-08-08,Bremen,Hamburg,0,2,BL1,2019
+2021-08-11,Bayern,Gladbach,1,0,BL1,2019
+2021-08-14,Leverkusen,Wolfsburg,2,7,BL1,2019
+2021-08-17,Koeln,Gladbach,0,1,BL1,2019
+2021-08-20,Augsburg,Schalke,0,4,BL1,2019
+2021-08-23,Bochum,Leverkusen,1,2,BL1,2019
+2021-08-26,Bochum,Hertha,3,0,BL1,2019
+2021-08-29,Frankfurt,Schalke,3,0,BL1,2019
+2021-09-01,Bremen,Hoffenheim,2,0,BL1,2019
+2021-09-04,Hertha,Stuttgart,2,0,BL1,2019
+2021-09-07,Bayern,Wolfsburg,0,1,BL1,2019
+2021-09-10,Schalke,Leverkusen,7,0,BL1,2019
+2021-09-13,Mainz,Stuttgart,0,1,BL1,2019
+2021-09-16,Bayern,Dortmund,0,0,BL1,2019
+2021-09-19,Frankfurt,Union Berlin,1,0,BL1,2019
+2021-09-22,Augsburg,Dortmund,0,0,BL1,2019
+2021-09-25,Gladbach,Hertha,2,1,BL1,2019
+2021-09-28,Wolfsburg,Union Berlin,0,1,BL1,2019
+2021-10-01,Koeln,Hamburg,0,2,BL1,2019
+2021-10-04,Mainz,Bayern,2,3,BL1,2019
+2021-10-07,Leipzig,Schalke,0,1,BL1,2019
+2021-10-10,Koeln,Bremen,2,3,BL1,2019
+2021-10-13,Frankfurt,Hertha,1,0,BL1,2019
+2021-10-16,Koeln,Hoffenheim,0,0,BL1,2019
+2021-10-19,Gladbach,Koeln,3,2,BL1,2019
+2021-10-22,Bayern,Leipzig,1,1,BL1,2019
+2021-10-25,Schalke,Hamburg,1,2,BL1,2019
+2021-10-28,Frankfurt,Wolfsburg,1,2,BL1,2019
+2021-10-31,Bochum,Stuttgart,0,1,BL1,2019
+2021-11-03,Hamburg,Stuttgart,7,0,BL1,2019
+2021-11-06,Leverkusen,Bayern,1,1,BL1,2019
+2021-11-09,Hannover,Gladbach,2,3,BL1,2019
+2021-11-12,Schalke,Augsburg,3,0,BL1,2019
+2021-11-15,Hannover,Bayern,0,2,BL1,2019
+2021-11-18,Leverkusen,Dortmund,2,2,BL1,2019
+2021-11-21,Bayern,Freiburg,0,0,BL1,2019
+2021-11-24,Freiburg,Gladbach,2,4,BL1,2019
+2021-11-27,Stuttgart,Frankfurt,7,2,BL1,2019
+2021-11-30,Bremen,Bochum,0,0,BL1,2019
+2021-12-03,Augsburg,Wolfsburg,1,3,BL1,2019
+2021-12-06,Augsburg,Union Berlin,0,1,BL1,2019
+2021-12-09,Dortmund,Stuttgart,2,0,BL1,2019
+2021-12-12,Hannover,Hertha,1,0,BL1,2019
+2021-12-15,Hannover,Hamburg,0,0,BL1,2019
+2021-12-18,Frankfurt,Leipzig,1,1,BL1,2019
+2021-12-21,Leipzig,Hannover,2,0,BL1,2019
+2021-12-24,Dortmund,Freiburg,0,4,BL1,2019
+2021-12-27,Leipzig,Hoffenheim,1,0,BL1,2019
+2021-12-30,Koeln,Wolfsburg,3,0,BL1,2019
+2022-01-02,Koeln,Stuttgart,0,0,BL1,2019
+2022-01-05,Leverkusen,Stuttgart,0,0,BL1,2019
+2022-01-08,Hertha,Schalke,2,4,BL1,2019
+2022-01-11,Hamburg,Bochum,2,0,BL1,2019
+2022-01-14,Augsburg,Gladbach,0,0,BL1,2019
+2022-01-17,Bochum,Augsburg,1,1,BL1,2019
+2022-01-20,Union Berlin,Dortmund,0,0,BL1,2019
+2022-01-23,Stuttgart,Hoffenheim,3,0,BL1,2019
+2022-01-26,Gladbach,Leipzig,0,0,BL1,2019
+2022-01-29,Freiburg,Koeln,0,1,BL1,2019
+2022-02-01,Leverkusen,Gladbach,1,7,BL1,2019
+2022-02-04,Hannover,Leverkusen,0,4,BL1,2019
+2022-02-07,Leverkusen,Schalke,1,0,BL1,2019
+2022-02-10,Bremen,Freiburg,0,2,BL1,2019
+2022-02-13,Augsburg,Koeln,1,0,BL1,2019
+2022-02-16,Koeln,Mainz,1,1,BL1,2019
+2022-02-19,Schalke,Union Berlin,4,0,BL1,2019
+2022-02-22,Hertha,Bochum,2,1,BL1,2019
+2022-02-25,Gladbach,Wolfsburg,0,1,BL1,2019
+2022-02-28,Wolfsburg,Stuttgart,2,2,BL1,2019
+2022-03-03,Dortmund,Gladbach,1,1,BL1,2019
+2022-03-06,Union Berlin,Frankfurt,2,1,BL1,2019
+2022-03-09,Augsburg,Hertha,3,1,BL1,2019
+2022-03-12,Mainz,Augsburg,0,0,BL1,2019
+2022-03-15,Bayern,Schalke,1,2,BL1,2019
+2022-03-18,Freiburg,Leverkusen,0,0,BL1,2019
+2022-03-21,Dortmund,Augsburg,1,0,BL1,2019
+2022-03-24,Mainz,Gladbach,0,1,BL1,2019
+2022-03-27,Wolfsburg,Hamburg,7,1,BL1,2019
+2022-03-30,Gladbach,Bayern,4,3,BL1,2019
+2022-04-02,Union Berlin,Wolfsburg,0,3,BL1,2019
+2022-04-05,Hamburg,Bayern,1,3,BL1,2019
+2022-04-08,Bremen,Mainz,1,0,BL1,2019
+2022-04-11,Schalke,Stuttgart,0,6,BL1,2019
+2022-04-14,Freiburg,Bremen,0,3,BL1,2019
+2022-04-17,Stuttgart,Union Berlin,4,1,BL1,2019
+2022-04-20,Frankfurt,Bremen,7,3,BL1,2019
+2022-04-23,Schalke,Hertha,3,0,BL1,2019
+2022-04-26,Hertha,Union Berlin,2,0,BL1,2019
+2022-04-29,Dortmund,Hamburg,0,1,BL1,2019
+2022-05-02,Schalke,Mainz,2,1,BL1,2019
+2022-05-05,Union Berlin,Leverkusen,1,2,BL1,2019
+2022-05-08,Wolfsburg,Koeln,5,0,BL1,2019
+2022-05-11,Hoffenheim,Bochum,0,0,BL1,2019
+2022-05-14,Hoffenheim,Hannover,2,0,BL1,2019
+2022-05-17,Frankfurt,Mainz,5,0,BL1,2019
+2022-05-20,Hoffenheim,Hertha,0,2,BL1,2019
+2022-05-23,Schalke,Leipzig,4,0,BL1,2019
+2022-05-26,Bremen,Frankfurt,0,0,BL1,2019
+2022-05-29,Hannover,Stuttgart,3,0,BL1,2019
+2022-06-01,Hannover,Mainz,0,0,BL1,2019
+2022-06-04,Leipzig,Stuttgart,3,0,BL1,2019
+2022-06-07,Freiburg,Wolfsburg,1,2,BL1,2019
+2022-06-10,Hamburg,Hertha,3,3,BL1,2019
+2022-06-13,Union Berlin,Hertha,0,1,BL1,2019
+2022-06-16,Freiburg,Leipzig,0,0,BL1,2019
+2022-06-19,Schalke,Gladbach,0,1,BL1,2019
+2022-06-22,Dortmund,Wolfsburg,0,5,BL1,2019
+2022-06-25,Dortmund,Schalke,0,0,BL1,2019
+2022-06-28,Wolfsburg,Leverkusen,1,3,BL1,2019
+2022-07-01,Gladbach,Augsburg,3,0,BL1,2019
+2022-07-04,Hoffenheim,Gladbach,1,1,BL1,2019
+2022-07-07,Hertha,Bremen,5,0,BL1,2019
+2022-07-10,Hertha,Hamburg,0,0,BL1,2019
+2022-07-13,Union Berlin,Hamburg,0,4,BL1,2019
+2022-07-16,Stuttgart,Schalke,1,1,BL1,2019
+2022-07-19,Leipzig,Leverkusen,1,1,BL1,2019
+2022-07-22,Augsburg,Leverkusen,0,1,BL1,2019
+2022-07-25,Leverkusen,Union Berlin,0,0,BL1,2019
+2022-07-28,Stuttgart,Mainz,1,0,BL1,2019
+2022-07-31,Bremen,Union Berlin,1,0,BL1,2019
+2022-08-03,Dortmund,Frankfurt,0,4,BL1,2019
+2022-08-06,Union Berlin,Leipzig,0,0,BL1,2019
+2022-08-09,Hertha,Wolfsburg,3,0,BL1,2019
+2022-08-12,Hoffenheim,Wolfsburg,2,0,BL1,2019
+2022-08-15,Hoffenheim,Koeln,0,0,BL1,2019
+2022-08-18,Leipzig,Bremen,0,1,BL1,2019
+2022-08-21,Augsburg,Frankfurt,0,0,BL1,2019
+2022-08-24,Leipzig,Augsburg,2,0,BL1,2019
+2022-08-27,Leipzig,Gladbach,0,0,BL1,2019
+2022-08-30,Hoffenheim,Dortmund,0,1,BL1,2019
+2022-09-02,Wolfsburg,Hertha,1,1,BL1,2019
+2022-09-05,Frankfurt,Leverkusen,1,1,BL1,2019
+2022-09-08,Union Berlin,Augsburg,0,0,BL1,2019
+2022-09-11,Hoffenheim,Leverkusen,0,3,BL1,2019
+2022-09-14,Bochum,Union Berlin,0,1,BL1,2019
+2022-09-17,Hamburg,Gladbach,4,1,BL1,2019
+2022-09-20,Frankfurt,Freiburg,1,7,BL1,2019
+2022-09-23,Stuttgart,Leverkusen,2,1,BL1,2020
+2022-09-26,Bremen,Koeln,0,0,BL1,2020
+2022-09-29,Leipzig,Leverkusen,5,1,BL1,2020
+2022-10-02,Schalke,Frankfurt,4,0,BL1,2020
+2022-10-05,Hertha,Bayern,1,1,BL1,2020
+2022-10-08,Mainz,Bochum,1,2,BL1,2020
+2022-10-11,Bayern,Dortmund,3,0,BL1,2020
+2022-10-14,Bremen,Wolfsburg,0,0,BL1,2020
+2022-10-17,Stuttgart,Augsburg,0,1,BL1,2020
+2022-10-20,Mainz,Frankfurt,3,0,BL1,2020
+2022-10-23,Bochum,Gladbach,1,0,BL1,2020
+2022-10-26,Leverkusen,Bremen,3,1,BL1,2020
+2022-10-29,Union Berlin,Wolfsburg,0,0,BL1,2020
+2022-11-01,Union Berlin,Koeln,0,0,BL1,2020
+2022-11-04,Frankfurt,Hamburg,1,1,BL1,2020
+2022-11-07,Hamburg,Schalke,4,0,BL1,2020
+2022-11-10,Freiburg,Hertha,5,2,BL1,2020
+2022-11-13,Frankfurt,Freiburg,4,5,BL1,2020
+2022-11-16,Stuttgart,Leipzig,1,0,BL1,2020
+2022-11-19,Mainz,Wolfsburg,0,0,BL1,2020
+2022-11-22,Bayern,Schalke,0,0,BL1,2020
+2022-11-25,Stuttgart,Koeln,0,0,BL1,2020
+2022-11-28,Hoffenheim,Union Berlin,1,0,BL1,2020
+2022-12-01,Bayern,Leverkusen,0,0,BL1,2020
+2022-12-04,Schalke,Hannover,4,0,BL1,2020
+2022-12-07,Bremen,Union Berlin,1,1,BL1,2020
+2022-12-10,Freiburg,Mainz,1,1,BL1,2020
+2022-12-13,Bremen,Bochum,2,0,BL1,2020
+2022-12-16,Stuttgart,Union Berlin,0,0,BL1,2020
+2022-12-19,Schalke,Wolfsburg,5,1,BL1,2020
+2022-12-22,Hertha,Freiburg,0,3,BL1,2020
+2022-12-25,Koeln,Freiburg,0,0,BL1,2020
+2022-12-28,Hoffenheim,Freiburg,0,2,BL1,2020
+2022-12-31,Gladbach,Freiburg,1,0,BL1,2020
+2023-01-03,Wolfsburg,Leverkusen,3,0,BL1,2020
+2023-01-06,Leverkusen,Wolfsburg,1,1,BL1,2020
+2023-01-09,Bochum,Freiburg,1,2,BL1,2020
+2023-01-12,Dortmund,Wolfsburg,0,0,BL1,2020
+2023-01-15,Union Berlin,Hertha,0,1,BL1,2020
+2023-01-18,Bremen,Hoffenheim,0,1,BL1,2020
+2023-01-21,Hamburg,Wolfsburg,1,0,BL1,2020
+2023-01-24,Hertha,Mainz,4,1,BL1,2020
+2023-01-27,Leipzig,Stuttgart,2,1,BL1,2020
+2023-01-30,Dortmund,Leverkusen,0,2,BL1,2020
+2023-02-02,Hamburg,Hannover,0,0,BL1,2020
+2023-02-05,Wolfsburg,Freiburg,0,3,BL1,2020
+2023-02-08,Schalke,Bayern,0,0,BL1,2020
+2023-02-11,Wolfsburg,Koeln,0,1,BL1,2020
+2023-02-14,Hoffenheim,Dortmund,0,0,BL1,2020
+2023-02-17,Schalke,Stuttgart,2,0,BL1,2020
+2023-02-20,Union Berlin,Frankfurt,0,0,BL1,2020
+2023-02-23,Koeln,Wolfsburg,1,3,BL1,2020
+2023-02-26,Koeln,Augsburg,1,5,BL1,2020
+2023-03-01,Bochum,Bayern,1,0,BL1,2020
+2023-03-04,Hertha,Hamburg,0,2,BL1,2020
+2023-03-07,Wolfsburg,Frankfurt,6,0,BL1,2020
+2023-03-10,Bremen,Bayern,0,2,BL1,2020
+2023-03-13,Frankfurt,Bremen,4,0,BL1,2020
+2023-03-16,Augsburg,Schalke,0,0,BL1,2020
+2023-03-19,Freiburg,Wolfsburg,4,1,BL1,2020
+2023-03-22,Leverkusen,Union Berlin,0,1,BL1,2020
+2023-03-25,Union Berlin,Schalke,0,3,BL1,2020
+2023-03-28,Hannover,Union Berlin,0,1,BL1,2020
+2023-03-31,Koeln,Bayern,0,3,BL1,2020
+2023-04-03,Wolfsburg,Bayern,1,0,BL1,2020
+2023-04-06,Dortmund,Stuttgart,0,5,BL1,2020
+2023-04-09,Union Berlin,Bayern,0,0,BL1,2020
+2023-04-12,Hannover,Wolfsburg,1,0,BL1,2020
+2023-04-15,Bayern,Koeln,3,0,BL1,2020
+2023-04-18,Leverkusen,Gladbach,0,0,BL1,2020
+2023-04-21,Bayern,Hoffenheim,1,5,BL1,2020
+2023-04-24,Leipzig,Wolfsburg,0,0,BL1,2020
+2023-04-27,Bayern,Union Berlin,0,0,BL1,2020
+2023-04-30,Frankfurt,Hertha,0,0,BL1,2020
+2023-05-03,Bochum,Schalke,2,0,BL1,2020
+2023-05-06,Augsburg,Stuttgart,0,1,BL1,2020
+2023-05-09,Hertha,Augsburg,1,3,BL1,2020
+2023-05-12,Freiburg,Hoffenheim,2,0,BL1,2020
+2023-05-15,Stuttgart,Freiburg,2,3,BL1,2020
+2023-05-18,Mainz,Hertha,0,1,BL1,2020
+2023-05-21,Hannover,Leipzig,0,0,BL1,2020
+2023-05-24,Hertha,Schalke,1,0,BL1,2020
+2023-05-27,Leverkusen,Bochum,0,3,BL1,2020
+2023-05-30,Frankfurt,Hoffenheim,2,0,BL1,2020
+2023-06-02,Hoffenheim,Schalke,0,0,BL1,2020
+2023-06-05,Hannover,Hamburg,1,0,BL1,2020
+2023-06-08,Wolfsburg,Bochum,6,0,BL1,2020
+2023-06-11,Hoffenheim,Frankfurt,0,1,BL1,2020
+2023-06-14,Union Berlin,Hoffenheim,0,0,BL1,2020
+2023-06-17,Wolfsburg,Dortmund,0,0,BL1,2020
+2023-06-20,Augsburg,Mainz,0,0,BL1,2020
+2023-06-23,Mainz,Augsburg,0,4,BL1,2020
+2023-06-26,Gladbach,Frankfurt,0,0,BL1,2020
+2023-06-29,Wolfsburg,Augsburg,1,3,BL1,2020
+2023-07-02,Freiburg,Augsburg,0,1,BL1,2020
+2023-07-05,Union Berlin,Bremen,1,0,BL1,2020
+2023-07-08,Augsburg,Hannover,1,1,BL1,2020
+2023-07-11,Bremen,Mainz,7,0,BL1,2020
+2023-07-14,Freiburg,Hannover,0,0,BL1,2020
+2023-07-17,Koeln,Hoffenheim,0,1,BL1,2020
+2023-07-20,Dortmund,Freiburg,6,3,BL1,2020
+2023-07-23,Gladbach,Hoffenheim,6,4,BL1,2020
+2023-07-26,Stuttgart,Bochum,2,2,BL1,2020
+2023-07-29,Hoffenheim,Koeln,0,0,BL1,2020
+2023-08-01,Freiburg,Bremen,0,0,BL1,2020
+2023-08-04,Hoffenheim,Bremen,1,1,BL1,2020
+2023-08-07,Frankfurt,Hannover,0,0,BL1,2020
+2023-08-10,Koeln,Hertha,0,5,BL1,2020
+2023-08-13,Bremen,Schalke,1,0,BL1,2020
+2023-08-16,Hoffenheim,Gladbach,0,0,BL1,2020
+2023-08-19,Gladbach,Union Berlin,1,0,BL1,2020
+2023-08-22,Koeln,Leverkusen,5,0,BL1,2020
+2023-08-25,Hannover,Bochum,2,0,BL1,2020
+2023-08-28,Frankfurt,Bayern,1,2,BL1,2020
+2023-08-31,Stuttgart,Dortmund,1,0,BL1,2020
+2023-09-03,Hamburg,Bayern,1,1,BL1,2020
+2023-09-06,Bochum,Frankfurt,0,0,BL1,2020
+2023-09-09,Schalke,Koeln,0,0,BL1,2020
+2023-09-12,Koeln,Mainz,0,0,BL1,2020
+2023-09-15,Bayern,Augsburg,3,1,BL1,2020
+2023-09-18,Dortmund,Hamburg,0,3,BL1,2020
+2023-09-21,Hoffenheim,Hertha,0,0,BL1,2020
+2023-09-24,Hannover,Bayern,2,3,BL1,2020
+2023-09-27,Bayern,Mainz,1,0,BL1,2020
+2023-09-30,Bochum,Stuttgart,0,5,BL1,2020
+2023-10-03,Leverkusen,Bayern,0,5,BL1,2020
+2023-10-06,Leverkusen,Leipzig,1,0,BL1,2020
+2023-10-09,Mainz,Stuttgart,0,0,BL1,2020
+2023-10-12,Augsburg,Bremen,4,0,BL1,2020
+2023-10-15,Augsburg,Koeln,1,1,BL1,2020
+2023-10-18,Hannover,Augsburg,0,1,BL1,2020
+2023-10-21,Leverkusen,Stuttgart,1,1,BL1,2020
+2023-10-24,Bochum,Hertha,0,1,BL1,2020
+2023-10-27,Koeln,Leipzig,3,0,BL1,2020
+2023-10-30,Freiburg,Union Berlin,6,0,BL1,2020
+2023-11-02,Bayern,Hamburg,4,0,BL1,2020
+2023-11-05,Wolfsburg,Hamburg,6,3,BL1,2020
+2023-11-08,Leipzig,Bayern,0,0,BL1,2020
+2023-11-11,Hannover,Schalke,0,1,BL1,2020
+2023-11-14,Frankfurt,Union Berlin,0,2,BL1,2020
+2023-11-17,Gladbach,Koeln,1,1,BL1,2020
+2023-11-20,Freiburg,Frankfurt,0,0,BL1,2020
+2023-11-23,Freiburg,Koeln,4,0,BL1,2020
+2023-11-26,Leipzig,Mainz,0,1,BL1,2020
+2023-11-29,Schalke,Hoffenheim,0,0,BL1,2020
+2023-12-02,Leipzig,Dortmund,0,0,BL1,2020
+2023-12-05,Schalke,Hamburg,0,4,BL1,2020
+2023-12-08,Hamburg,Union Berlin,0,4,BL1,2020
+2023-12-11,Gladbach,Wolfsburg,0,0,BL1,2020
+2023-12-14,Mainz,Bayern,2,1,BL1,2020
+2023-12-17,Koeln,Stuttgart,0,0,BL1,2020
+2023-12-20,Leverkusen,Frankfurt,0,1,BL1,2020
+2023-12-23,Hannover,Hoffenheim,0,0,BL1,2020
+2023-12-26,Mainz,Leipzig,5,2,BL1,2020
+2023-12-29,Frankfurt,Stuttgart,1,6,BL1,2020
+2024-01-01,Hertha,Hannover,3,1,BL1,2020
+2024-01-04,Koeln,Schalke,3,2,BL1,2020
+2024-01-07,Union Berlin,Leipzig,0,0,BL1,2020
+2024-01-10,Hoffenheim,Stuttgart,6,1,BL1,2020
+2024-01-13,Schalke,Mainz,4,1,BL1,2020
+2024-01-16,Augsburg,Frankfurt,0,1,BL1,2020
+2024-01-19,Augsburg,Hamburg,0,0,BL1,2020
+2024-01-22,Frankfurt,Augsburg,1,0,BL1,2020
+2024-01-25,Bremen,Leipzig,0,1,BL1,2020
+2024-01-28,Frankfurt,Bochum,4,1,BL1,2020
+2024-01-31,Gladbach,Hamburg,0,0,BL1,2020
+2024-02-03,Augsburg,Bochum,0,0,BL1,2020
+2024-02-06,Dortmund,Leipzig,0,0,BL1,2020
+2024-02-09,Bremen,Freiburg,0,0,BL1,2020
+2024-02-12,Wolfsburg,Mainz,0,1,BL1,2020
+2024-02-15,Hamburg,Bremen,1,0,BL1,2020
+2024-02-18,Stuttgart,Bayern,1,1,BL1,2020
+2024-02-21,Hertha,Hoffenheim,1,1,BL1,2020
+2024-02-24,Dortmund,Hoffenheim,1,0,BL1,2020
+2024-02-27,Augsburg,Union Berlin,0,0,BL1,2020
+2024-03-01,Dortmund,Frankfurt,0,7,BL1,2020
+2024-03-04,Stuttgart,Bremen,1,0,BL1,2020
+2024-03-07,Hoffenheim,Wolfsburg,0,1,BL1,2020
+2024-03-10,Hamburg,Dortmund,1,0,BL1,2020
+2024-03-13,Hamburg,Leverkusen,0,1,BL1,2020
+2024-03-16,Koeln,Gladbach,2,1,BL1,2020
+2024-03-19,Bochum,Mainz,0,3,BL1,2020
+2024-03-22,Bayern,Freiburg,0,6,BL1,2020
+2024-03-25,Augsburg,Hoffenheim,0,0,BL1,2020
+2024-03-28,Bremen,Hertha,1,2,BL1,2020
+2024-03-31,Hamburg,Frankfurt,2,1,BL1,2020
+2024-04-03,Koeln,Dortmund,0,0,BL1,2020
+2024-04-06,Mainz,Bremen,1,0,BL1,2020
+2024-04-09,Hannover,Freiburg,0,0,BL1,2020
+2024-04-12,Wolfsburg,Hoffenheim,0,0,BL1,2020
+2024-04-15,Union Berlin,Stuttgart,0,4,BL1,2020
+2024-04-18,Wolfsburg,Gladbach,4,1,BL1,2020
+2024-04-21,Hertha,Frankfurt,1,0,BL1,2020
+2024-04-24,Hamburg,Augsburg,2,4,BL1,2020
+2024-04-27,Dortmund,Bayern,0,0,BL1,2020
+2024-04-30,Freiburg,Leverkusen,0,0,BL1,2020
+2024-05-03,Bayern,Wolfsburg,1,2,BL1,2020
+2024-05-06,Wolfsburg,Schalke,3,0,BL1,2020
+2024-05-09,Bayern,Bochum,3,0,BL1,2020
+2024-05-12,Koeln,Hamburg,1,2,BL1,2020
+2024-05-15,Bremen,Dortmund,0,0,BL1,2020
+2024-05-18,Bayern,Hannover,1,0,BL1,2020
+2024-05-21,Frankfurt,Gladbach,0,1,BL1,2020
+2024-05-24,Hoffenheim,Bayern,1,1,BL1,2020
+2024-05-27,Union Berlin,Bochum,2,2,BL1,2020
+2024-05-30,Freiburg,Gladbach,3,1,BL1,2020
+2024-06-02,Gladbach,Mainz,1,7,BL1,2020
+2024-06-05,Hamburg,Stuttgart,1,0,BL1,2020
+2024-06-08,Gladbach,Dortmund,6,0,BL1,2020
+2024-06-11,Wolfsburg,Leipzig,1,1,BL1,2020
+2024-06-14,Hannover,Frankfurt,1,4,BL1,2020
+2024-06-17,Leipzig,Union Berlin,1,1,BL1,2020
+2024-06-20,Bremen,Stuttgart,0,1,BL1,2020
+2024-06-23,Schalke,Union Berlin,6,0,BL1,2020
+2024-06-26,Freiburg,Stuttgart,0,5,BL1,2020
+2024-06-29,Bochum,Hamburg,7,3,BL1,2020
+2024-07-02,Hertha,Stuttgart,1,2,BL1,2020
+2024-07-05,Frankfurt,Mainz,1,1,BL1,2020
+2024-07-08,Leverkusen,Hamburg,1,5,BL1,2020
+2024-07-11,Leverkusen,Hoffenheim,1,0,BL1,2020
+2024-07-14,Hamburg,Gladbach,1,1,BL1,2020
+2024-07-17,Stuttgart,Hoffenheim,4,0,BL1,2020
+2024-07-20,Augsburg,Freiburg,0,3,BL1,2020
+2024-07-23,Leipzig,Schalke,0,0,BL1,2020
+2024-07-26,Frankfurt,Dortmund,6,0,BL1,2020
+2024-07-29,Leipzig,Gladbach,3,1,BL1,2020
+2024-08-01,Bayern,Leipzig,2,0,BL1,2020
+2024-08-04,Gladbach,Leverkusen,3,0,BL1,2020
+2024-08-07,Mainz,Dortmund,1,0,BL1,2020
+2024-08-10,Wolfsburg,Union Berlin,0,1,BL1,2020
+2024-08-13,Leipzig,Hannover,0,0,BL1,2020
+2024-08-16,Bayern,Bremen,4,0,BL1,2020
+2024-08-19,Schalke,Freiburg,0,0,BL1,2020
+2024-08-22,Mainz,Hannover,0,0,BL1,2020
+2024-08-25,Union Berlin,Dortmund,1,0,BL1,2020
+2024-08-28,Hannover,Bremen,3,3,BL1,2020
+2024-08-31,Union Berlin,Hannover,0,1,BL1,2020
+2024-09-03,Bremen,Augsburg,2,0,BL1,2020
+2024-09-06,Stuttgart,Hertha,2,1,BL1,2020
+2024-09-09,Stuttgart,Mainz,0,0,BL1,2020
+2024-09-12,Dortmund,Augsburg,0,1,BL1,2020
+2024-09-15,Stuttgart,Frankfurt,2,0,BL1,2020
+2024-09-18,Frankfurt,Koeln,2,2,BL1,2020
+2024-09-21,Dortmund,Bochum,0,4,BL1,2020
+2024-09-24,Freiburg,Hamburg,1,3,BL1,2020
+2024-09-27,Augsburg,Leverkusen,3,0,BL1,2020
+2024-09-30,Gladbach,Bremen,3,1,BL1,2020
+2024-10-03,Leverkusen,Koeln,0,1,BL1,2020
+2024-10-06,Wolfsburg,Bremen,4,0,BL1,2020
+2024-10-09,Koeln,Union Berlin,0,0,BL1,2020
+2024-10-12,Mainz,Leverkusen,1,3,BL1,2020
+2024-10-15,Freiburg,Bochum,1,1,BL1,2020
+2024-10-18,Gladbach,Schalke,1,1,BL1,2020
+2024-10-21,Mainz,Hamburg,3,0,BL1,2020
+2024-10-24,Wolfsburg,Hannover,1,0,BL1,2020
+2024-10-27,Stuttgart,Hamburg,3,0,BL1,2020
+2024-10-30,Hannover,Mainz,1,1,BL1,2020
+2024-11-02,Dortmund,Union Berlin,1,0,BL1,2020
+2024-11-05,Koeln,Hannover,0,0,BL1,2020
+2024-11-08,Hertha,Koeln,1,0,BL1,2020
+2024-11-11,Hannover,Stuttgart,1,1,BL1,2020
+2024-11-14,Schalke,Leipzig,1,0,BL1,2020
+2024-11-17,Hamburg,Hertha,0,0,BL1,2020
+2024-11-20,Hertha,Leipzig,0,5,BL1,2020
+2024-11-23,Hoffenheim,Hannover,0,2,BL1,2020
+2024-11-26,Frankfurt,Wolfsburg,0,0,BL1,2020
+2024-11-29,Hoffenheim,Leverkusen,0,0,BL1,2020
+2024-12-02,Schalke,Gladbach,0,1,BL1,2020
+2024-12-05,Bochum,Wolfsburg,1,0,BL1,2020
+2024-12-08,Augsburg,Leipzig,0,0,BL1,2020
+2024-12-11,Hamburg,Leipzig,2,0,BL1,2020
+2024-12-14,Hamburg,Koeln,0,1,BL1,2020
+2024-12-17,Schalke,Leverkusen,5,2,BL1,2020
+2024-12-20,Bayern,Hertha,3,1,BL1,2020
+2024-12-23,Leverkusen,Hertha,1,3,BL1,2020
+2024-12-26,Dortmund,Schalke,0,0,BL1,2020
+2024-12-29,Hannover,Hertha,3,0,BL1,2020
+2025-01-01,Leverkusen,Schalke,0,7,BL1,2020
+2025-01-04,Gladbach,Hannover,0,1,BL1,2020
+2025-01-07,Bayern,Frankfurt,5,2,BL1,2020
+2025-01-10,Gladbach,Bochum,3,2,BL1,2020
+2025-01-13,Schalke,Hertha,2,1,BL1,2020
+2025-01-16,Mainz,Freiburg,1,3,BL1,2020
+2025-01-19,Union Berlin,Freiburg,0,1,BL1,2020
+2025-01-22,Frankfurt,Schalke,0,4,BL1,2020
+2025-01-25,Bayern,Gladbach,0,3,BL1,2020
+2025-01-28,Union Berlin,Leverkusen,2,0,BL1,2020
+2025-01-31,Bayern,Stuttgart,1,0,BL1,2020
+2025-02-03,Gladbach,Bayern,3,1,BL1,2020
+2025-02-06,Hertha,Bochum,1,2,BL1,2020
+2025-02-09,Bochum,Augsburg,1,2,BL1,2020
+2025-02-12,Freiburg,Dortmund,1,0,BL1,2020
+2025-02-15,Union Berlin,Augsburg,0,0,BL1,2020
+2025-02-18,Hamburg,Freiburg,1,1,BL1,2020
+2025-02-21,Hoffenheim,Hamburg,1,0,BL1,2020
+2025-02-24,Hannover,Dortmund,0,0,BL1,2020
+2025-02-27,Hoffenheim,Mainz,0,0,BL1,2020
+2025-03-02,Hannover,Koeln,0,0,BL1,2020
+2025-03-05,Freiburg,Bayern,2,1,BL1,2020
+2025-03-08,Bremen,Hannover,0,2,BL1,2020
+2025-03-11,Frankfurt,Leverkusen,7,0,BL1,2020
+2025-03-14,Wolfsburg,Stuttgart,0,0,BL1,2020
+2025-03-17,Koeln,Bremen,0,1,BL1,2020
+2025-03-20,Gladbach,Augsburg,2,4,BL1,2020
+2025-03-23,Leipzig,Hertha,0,2,BL1,2020
+2025-03-26,Hoffenheim,Augsburg,0,3,BL1,2020
+2025-03-29,Mainz,Union Berlin,0,0,BL1,2020
+2025-04-01,Hertha,Leverkusen,4,2,BL1,2020
+2025-04-04,Union Berlin,Gladbach,0,3,BL1,2020
+2025-04-07,Dortmund,Mainz,0,7,BL1,2020
+2025-04-10,Bochum,Union Berlin,0,0,BL1,2020
+2025-04-13,Hoffenheim,Bochum,4,3,BL1,2020
+2025-04-16,Bochum,Dortmund,2,3,BL1,2020
+2025-04-19,Leverkusen,Freiburg,0,2,BL1,2020
+2025-04-22,Mainz,Schalke,0,0,BL1,2020
+2025-04-25,Hertha,Bremen,0,0,BL1,2020
+2025-04-28,Gladbach,Leipzig,0,0,BL1,2020
+2025-05-01,Gladbach,Hertha,3,1,BL1,2020
+2025-05-04,Dortmund,Bremen,0,1,BL1,2020
+2025-05-07,Stuttgart,Hannover,1,2,BL1,2020
+2025-05-10,Leverkusen,Augsburg,3,0,BL1,2020
+2025-05-13,Augsburg,Bayern,0,1,BL1,2020
+2025-05-16,Leipzig,Bremen,0,1,BL1,2020
+2025-05-19,Bochum,Koeln,3,0,BL1,2020
+2025-05-22,Leipzig,Augsburg,0,0,BL1,2020
+2025-05-25,Leipzig,Freiburg,1,3,BL1,2020
+2025-05-28,Leipzig,Hoffenheim,2,0,BL1,2020
+2025-05-31,Dortmund,Hertha,5,0,BL1,2020
+2025-06-03,Bremen,Gladbach,2,1,BL1,2020
+2025-06-06,Frankfurt,Leipzig,1,2,BL1,2020
+2025-06-09,Augsburg,Dortmund,2,0,BL1,2020
+2025-06-12,Freiburg,Schalke,5,7,BL1,2020
+2025-06-15,Schalke,Bochum,1,0,BL1,2020
+2025-06-18,Hannover,Gladbach,0,1,BL1,2020
+2025-06-21,Mainz,Hoffenheim,1,1,BL1,2020
+2025-06-24,Leipzig,Bochum,0,1,BL1,2020
+2025-06-27,Bochum,Leverkusen,1,0,BL1,2020
+2025-06-30,Augsburg,Gladbach,0,1,BL1,2020
+2025-07-03,Hamburg,Bochum,1,1,BL1,2020
+2025-07-06,Hoffenheim,Leipzig,1,0,BL1,2020
+2025-07-09,Bochum,Leipzig,0,0,BL1,2020
+2025-07-12,Freiburg,Leipzig,1,0,BL1,2020
+2025-07-15,Bremen,Leverkusen,0,2,BL1,2020
+2025-07-18,Hamburg,Mainz,0,0,BL1,2020
+2025-07-21,Wolfsburg,Hertha,0,0,BL1,2020
+2025-07-24,Stuttgart,Schalke,1,1,BL1,2020
+2025-07-27,Schalke,Augsburg,0,0,BL1,2020
+2025-07-30,Schalke,Bremen,0,0,BL1,2020
+2025-08-02,Leverkusen,Dortmund,0,0,BL1,2020
+2025-08-05,Leipzig,Koeln,1,2,BL1,2020
+2025-08-08,Bochum,Bremen,0,0,BL1,2020
+2025-08-11,Hertha,Wolfsburg,1,0,BL1,2020
+2025-08-14,Koeln,Bochum,0,2,BL1,2020
+2025-08-17,Bremen,Frankfurt,0,2,BL1,2020
+2025-08-20,Union Berlin,Hamburg,0,0,BL1,2020
+2025-08-23,Stuttgart,Wolfsburg,4,0,BL1,2020
+2025-08-26,Hertha,Dortmund,3,0,BL1,2020
+2025-08-29,Augsburg,Wolfsburg,0,2,BL1,2020
+2025-09-01,Mainz,Gladbach,2,2,BL1,2020
+2025-09-04,Stuttgart,Gladbach,5,2,BL1,2020
+2025-09-07,Gladbach,Stuttgart,2,0,BL1,2020
+2025-09-10,Schalke,Dortmund,0,0,BL1,2020
+2025-09-13,Hertha,Gladbach,0,1,BL1,2020
+2025-09-16,Union Berlin,Mainz,1,0,BL1,2020
+2025-09-19,Leverkusen,Mainz,0,3,BL1,2020
+2025-09-22,Dortmund,Gladbach,0,2,BL1,2020
+2025-09-25,Leverkusen,Hannover,1,1,BL1,2020
+2025-09-28,Hertha,Union Berlin,0,0,BL1,2020
+2025-10-01,Mainz,Koeln,0,0,BL1,2020
+2025-10-04,Leipzig,Frankfurt,2,2,BL1,2020
+2025-10-07,Dortmund,Hannover,0,0,BL1,2020
+2025-10-10,Bochum,Hannover,1,1,BL1,2020
+2025-10-13,Hannover,Leverkusen,0,0,BL1,2020
+2025-10-16,Koeln,Frankfurt,0,1,BL1,2020
+2025-10-19,Leipzig,Hamburg,0,1,BL1,2020
+2025-10-22,Hamburg,Hoffenheim,6,0,BL1,2020
+2025-10-25,Bochum,Hoffenheim,2,0,BL1,2020
+2025-10-28,Augsburg,Hertha,1,1,BL1,2020
+2025-10-31,Bremen,Hamburg,0,2,BL1,2020
+2025-11-03,Dortmund,Koeln,0,0,BL1,2020
+2025-11-06,Mainz,Koeln,0,1,BL1,2021
+2025-11-09,Bayern,Gladbach,0,2,BL1,2021
+2025-11-12,Gladbach,Hamburg,3,0,BL1,2021
+2025-11-15,Hertha,Mainz,0,3,BL1,2021
+2025-11-18,Frankfurt,Leverkusen,0,0,BL1,2021
+2025-11-21,Bremen,Bayern,0,0,BL1,2021
+2025-11-24,Bayern,Bremen,4,0,BL1,2021
+2025-11-27,Hamburg,Hertha,2,1,BL1,2021
+2025-11-30,Dortmund,Hamburg,1,1,BL1,2021
+2025-12-03,Bayern,Leverkusen,0,2,BL1,2021
+2025-12-06,Schalke,Leipzig,1,2,BL1,2021
+2025-12-09,Bremen,Stuttgart,1,0,BL1,2021
+2025-12-12,Hamburg,Hoffenheim,2,0,BL1,2021
+2025-12-15,Schalke,Bayern,0,0,BL1,2021
+2025-12-18,Hertha,Augsburg,0,0,BL1,2021
+2025-12-21,Hannover,Mainz,1,1,BL1,2021
+2025-12-24,Hoffenheim,Bayern,0,0,BL1,2021
+2025-12-27,Schalke,Union Berlin,0,0,BL1,2021
+2025-12-30,Hoffenheim,Stuttgart,1,2,BL1,2021
+2026-01-02,Bochum,Augsburg,1,7,BL1,2021
+2026-01-05,Schalke,Hamburg,1,1,BL1,2021
+2026-01-08,Hannover,Hamburg,0,0,BL1,2021
+2026-01-11,Leverkusen,Frankfurt,0,0,BL1,2021
+2026-01-14,Bremen,Hamburg,0,0,BL1,2021
+2026-01-17,Union Berlin,Koeln,0,2,BL1,2021
+2026-01-20,Bayern,Dortmund,6,0,BL1,2021
+2026-01-23,Augsburg,Wolfsburg,0,2,BL1,2021
+2026-01-26,Koeln,Union Berlin,0,1,BL1,2021
+2026-01-29,Hannover,Frankfurt,0,0,BL1,2021
+2026-02-01,Frankfurt,Stuttgart,0,2,BL1,2021
+2026-02-04,Schalke,Bochum,0,0,BL1,2021
+2026-02-07,Wolfsburg,Gladbach,1,0,BL1,2021
+2026-02-10,Dortmund,Leipzig,0,1,BL1,2021
+2026-02-13,Union Berlin,Gladbach,1,1,BL1,2021
+2026-02-16,Leverkusen,Augsburg,0,0,BL1,2021
+2026-02-19,Union Berlin,Frankfurt,1,3,BL1,2021
+2026-02-22,Hertha,Leverkusen,0,2,BL1,2021
+2026-02-25,Bochum,Hannover,0,1,BL1,2021
+2026-02-28,Union Berlin,Hertha,0,5,BL1,2021
+2026-03-03,Freiburg,Wolfsburg,0,3,BL1,2021
+2026-03-06,Hoffenheim,Hertha,1,0,BL1,2021
+2026-03-09,Hannover,Hertha,7,0,BL1,2021
+2026-03-12,Mainz,Frankfurt,0,3,BL1,2021
+2026-03-15,Hoffenheim,Leipzig,0,6,BL1,2021
+2026-03-18,Augsburg,Leipzig,2,0,BL1,2021
+2026-03-21,Gladbach,Hertha,3,1,BL1,2021
+2026-03-24,Bremen,Hannover,0,1,BL1,2021
+2026-03-27,Bayern,Mainz,2,0,BL1,2021
+2026-03-30,Union Berlin,Leipzig,0,0,BL1,2021
+2026-04-02,Mainz,Bremen,0,0,BL1,2021
+2026-04-05,Bremen,Mainz,0,0,BL1,2021
+2026-04-08,Freiburg,Stuttgart,1,0,BL1,2021
+2026-04-11,Hamburg,Dortmund,2,0,BL1,2021
+2026-04-14,Hoffenheim,Dortmund,0,1,BL1,2021
+2026-04-17,Koeln,Stuttgart,5,2,BL1,2021
+2026-04-20,Bremen,Dortmund,0,3,BL1,2021
+2026-04-23,Wolfsburg,Hoffenheim,3,2,BL1,2021
+2026-04-26,Leipzig,Union Berlin,7,2,BL1,2021
+2026-04-29,Koeln,Schalke,0,3,BL1,2021
+2026-05-02,Bremen,Leverkusen,0,1,BL1,2021
+2026-05-05,Schalke,Mainz,3,2,BL1,2021
+2026-05-08,Freiburg,Schalke,2,1,BL1,2021
+2026-05-11,Dortmund,Union Berlin,0,0,BL1,2021
+2026-05-14,Bochum,Leverkusen,0,0,BL1,2021
+2026-05-17,Union Berlin,Dortmund,1,2,BL1,2021
+2026-05-20,Leverkusen,Bochum,0,1,BL1,2021
+2026-05-23,Leverkusen,Hoffenheim,0,2,BL1,2021
+2026-05-26,Hertha,Bayern,0,5,BL1,2021
+2026-05-29,Bochum,Wolfsburg,0,0,BL1,2021
+2026-06-01,Bayern,Koeln,3,1,BL1,2021
+2026-06-04,Mainz,Leverkusen,2,0,BL1,2021
+2026-06-07,Augsburg,Hannover,1,0,BL1,2021
+2026-06-10,Leipzig,Hamburg,0,1,BL1,2021
+2026-06-13,Hamburg,Mainz,0,0,BL1,2021
+2026-06-16,Koeln,Bremen,0,0,BL1,2021
+2026-06-19,Leverkusen,Hertha,2,0,BL1,2021
+2026-06-22,Bayern,Freiburg,1,1,BL1,2021
+2026-06-25,Hertha,Gladbach,0,0,BL1,2021
+2026-06-28,Augsburg,Bremen,1,0,BL1,2021
+2026-07-01,Dortmund,Koeln,0,1,BL1,2021
+2026-07-04,Bayern,Stuttgart,1,0,BL1,2021
+2026-07-07,Bayern,Bochum,4,0,BL1,2021
+2026-07-10,Mainz,Union Berlin,0,3,BL1,2021
+2026-07-13,Wolfsburg,Bayern,0,2,BL1,2021
+2026-07-16,Freiburg,Hannover,0,1,BL1,2021
+2026-07-19,Freiburg,Gladbach,0,4,BL1,2021
+2026-07-22,Gladbach,Hannover,0,1,BL1,2021
+2026-07-25,Bochum,Union Berlin,0,0,BL1,2021
+2026-07-28,Leipzig,Hertha,3,0,BL1,2021
+2026-07-31,Freiburg,Leipzig,1,0,BL1,2021
+2026-08-03,Mainz,Gladbach,2,0,BL1,2021
+2026-08-06,Hoffenheim,Union Berlin,1,1,BL1,2021
+2026-08-09,Schalke,Dortmund,0,0,BL1,2021
+2026-08-12,Gladbach,Bremen,0,0,BL1,2021
+2026-08-15,Leverkusen,Wolfsburg,1,0,BL1,2021
+2026-08-18,Hoffenheim,Schalke,1,3,BL1,2021
+2026-08-21,Leverkusen,Bayern,6,1,BL1,2021
+2026-08-24,Bayern,Augsburg,0,0,BL1,2021
+2026-08-27,Gladbach,Bochum,0,2,BL1,2021
+2026-08-30,Schalke,Hoffenheim,0,0,BL1,2021
+2026-09-02,Koeln,Freiburg,2,0,BL1,2021
+2026-09-05,Mainz,Schalke,2,2,BL1,2021
+2026-09-08,Union Berlin,Hannover,0,4,BL1,2021
+2026-09-11,Dortmund,Stuttgart,0,1,BL1,2021
+2026-09-14,Hamburg,Koeln,0,1,BL1,2021
+2026-09-17,Koeln,Hertha,0,1,BL1,2021
+2026-09-20,Schalke,Bremen,1,0,BL1,2021
+2026-09-23,Hannover,Bochum,0,1,BL1,2021
+2026-09-26,Mainz,Stuttgart,3,0,BL1,2021
+2026-09-29,Frankfurt,Bochum,0,2,BL1,2021
+2026-10-02,Leipzig,Gladbach,1,0,BL1,2021
+2026-10-05,Union Berlin,Hamburg,3,0,BL1,2021
+2026-10-08,Schalke,Hertha,0,0,BL1,2021
+2026-10-11,Gladbach,Union Berlin,0,0,BL1,2021
+2026-10-14,Augsburg,Schalke,1,1,BL1,2021
+2026-10-17,Stuttgart,Hertha,3,1,BL1,2021
+2026-10-20,Frankfurt,Koeln,4,1,BL1,2021
+2026-10-23,Stuttgart,Gladbach,0,1,BL1,2021
+2026-10-26,Hoffenheim,Wolfsburg,0,2,BL1,2021
+2026-10-29,Wolfsburg,Mainz,0,0,BL1,2021
+2026-11-01,Leipzig,Hannover,3,2,BL1,2021
+2026-11-04,Augsburg,Hertha,0,0,BL1,2021
+2026-11-07,Augsburg,Koeln,0,1,BL1,2021
+2026-11-10,Freiburg,Union Berlin,1,4,BL1,2021
+2026-11-13,Leverkusen,Leipzig,6,3,BL1,2021
+2026-11-16,Hertha,Wolfsburg,0,3,BL1,2021
+2026-11-19,Freiburg,Mainz,2,0,BL1,2021
+2026-11-22,Bremen,Bochum,1,2,BL1,2021
+2026-11-25,Leipzig,Hoffenheim,4,1,BL1,2021
+2026-11-28,Union Berlin,Bremen,0,0,BL1,2021
+2026-12-01,Dortmund,Bochum,0,0,BL1,2021
+2026-12-04,Frankfurt,Hamburg,0,3,BL1,2021
+2026-12-07,Wolfsburg,Freiburg,1,2,BL1,2021
+2026-12-10,Gladbach,Augsburg,1,0,BL1,2021
+2026-12-13,Hannover,Schalke,1,0,BL1,2021
+2026-12-16,Bremen,Gladbach,0,1,BL1,2021
+2026-12-19,Hoffenheim,Hamburg,0,0,BL1,2021
+2026-12-22,Freiburg,Bremen,1,0,BL1,2021
+2026-12-25,Bochum,Mainz,3,1,BL1,2021
+2026-12-28,Bochum,Schalke,0,1,BL1,2021
+2026-12-31,Mainz,Leipzig,3,1,BL1,2021
+2027-01-03,Leipzig,Mainz,0,1,BL1,2021
+2027-01-06,Frankfurt,Wolfsburg,2,3,BL1,2021
+2027-01-09,Freiburg,Hoffenheim,0,0,BL1,2021
+2027-01-12,Leipzig,Stuttgart,0,1,BL1,2021
+2027-01-15,Frankfurt,Union Berlin,2,0,BL1,2021
+2027-01-18,Mainz,Hannover,2,1,BL1,2021
+2027-01-21,Hertha,Leipzig,0,1,BL1,2021
+2027-01-24,Hannover,Freiburg,1,0,BL1,2021
+2027-01-27,Augsburg,Mainz,4,1,BL1,2021
+2027-01-30,Wolfsburg,Hamburg,3,2,BL1,2021
+2027-02-02,Frankfurt,Hoffenheim,0,0,BL1,2021
+2027-02-05,Hoffenheim,Koeln,1,0,BL1,2021
+2027-02-08,Frankfurt,Augsburg,4,1,BL1,2021
+2027-02-11,Wolfsburg,Union Berlin,0,1,BL1,2021
+2027-02-14,Bochum,Koeln,0,0,BL1,2021
+2027-02-17,Hoffenheim,Mainz,1,1,BL1,2021
+2027-02-20,Hannover,Leipzig,0,0,BL1,2021
+2027-02-23,Koeln,Hamburg,0,1,BL1,2021
+2027-02-26,Gladbach,Mainz,1,0,BL1,2021
+2027-03-01,Koeln,Hannover,0,0,BL1,2021
+2027-03-04,Mainz,Wolfsburg,1,2,BL1,2021
+2027-03-07,Stuttgart,Union Berlin,0,0,BL1,2021
+2027-03-10,Stuttgart,Dortmund,0,1,BL1,2021
+2027-03-13,Mainz,Hoffenheim,0,0,BL1,2021
+2027-03-16,Bremen,Augsburg,0,0,BL1,2021
+2027-03-19,Leverkusen,Mainz,3,3,BL1,2021
+2027-03-22,Bochum,Hoffenheim,1,2,BL1,2021
+2027-03-25,Dortmund,Bayern,1,1,BL1,2021
+2027-03-28,Schalke,Gladbach,0,0,BL1,2021
+2027-03-31,Schalke,Freiburg,2,0,BL1,2021
+2027-04-03,Wolfsburg,Koeln,0,0,BL1,2021
+2027-04-06,Hannover,Wolfsburg,0,4,BL1,2021
+2027-04-09,Hamburg,Schalke,0,2,BL1,2021
+2027-04-12,Gladbach,Schalke,7,5,BL1,2021
+2027-04-15,Stuttgart,Hannover,0,0,BL1,2021
+2027-04-18,Dortmund,Hannover,0,1,BL1,2021
+2027-04-21,Freiburg,Koeln,0,1,BL1,2021
+2027-04-24,Hoffenheim,Augsburg,0,0,BL1,2021
+2027-04-27,Hannover,Bayern,0,0,BL1,2021
+2027-04-30,Bremen,Freiburg,1,1,BL1,2021
+2027-05-03,Dortmund,Schalke,0,1,BL1,2021
+2027-05-06,Augsburg,Bayern,2,0,BL1,2021
+2027-05-09,Bremen,Frankfurt,2,2,BL1,2021
+2027-05-12,Hoffenheim,Frankfurt,0,0,BL1,2021
+2027-05-15,Leipzig,Freiburg,0,0,BL1,2021
+2027-05-18,Union Berlin,Bayern,0,3,BL1,2021
+2027-05-21,Hamburg,Union Berlin,4,3,BL1,2021
+2027-05-24,Leverkusen,Freiburg,0,2,BL1,2021
+2027-05-27,Gladbach,Dortmund,3,1,BL1,2021
+2027-05-30,Hoffenheim,Gladbach,0,1,BL1,2021
+2027-06-02,Hamburg,Bochum,0,1,BL1,2021
+2027-06-05,Bochum,Hamburg,0,7,BL1,2021
+2027-06-08,Wolfsburg,Bochum,2,0,BL1,2021
+2027-06-11,Leverkusen,Hamburg,3,4,BL1,2021
+2027-06-14,Hamburg,Frankfurt,1,2,BL1,2021
+2027-06-17,Schalke,Frankfurt,0,7,BL1,2021
+2027-06-20,Stuttgart,Hoffenheim,0,0,BL1,2021
+2027-06-23,Stuttgart,Augsburg,0,2,BL1,2021
+2027-06-26,Mainz,Bayern,0,1,BL1,2021
+2027-06-29,Gladbach,Stuttgart,1,6,BL1,2021
+2027-07-02,Koeln,Wolfsburg,0,0,BL1,2021
+2027-07-05,Frankfurt,Gladbach,0,2,BL1,2021
+2027-07-08,Bochum,Frankfurt,2,2,BL1,2021
+2027-07-11,Hannover,Hoffenheim,0,0,BL1,2021
+2027-07-14,Bochum,Freiburg,0,0,BL1,2021
+2027-07-17,Wolfsburg,Augsburg,3,1,BL1,2021
+2027-07-20,Freiburg,Hamburg,0,0,BL1,2021
+2027-07-23,Bochum,Bayern,1,0,BL1,2021
+2027-07-26,Union Berlin,Augsburg,0,4,BL1,2021
+2027-07-29,Freiburg,Bayern,0,0,BL1,2021
+2027-08-01,Hamburg,Freiburg,0,0,BL1,2021
+2027-08-04,Koeln,Dortmund,0,1,BL1,2021
+2027-08-07,Dortmund,Frankfurt,1,2,BL1,2021
+2027-08-10,Dortmund,Gladbach,0,3,BL1,2021
+2027-08-13,Dortmund,Mainz,0,0,BL1,2021
+2027-08-16,Leverkusen,Koeln,0,0,BL1,2021
+2027-08-19,Hertha,Frankfurt,1,2,BL1,2021
+2027-08-22,Bochum,Hertha,0,5,BL1,2021
+2027-08-25,Wolfsburg,Hannover,0,0,BL1,2021
+2027-08-28,Frankfurt,Leipzig,1,1,BL1,2021
+2027-08-31,Bayern,Leipzig,0,0,BL1,2021
+2027-09-03,Gladbach,Leverkusen,3,0,BL1,2021
+2027-09-06,Stuttgart,Bayern,0,3,BL1,2021
+2027-09-09,Frankfurt,Schalke,7,0,BL1,2021
+2027-09-12,Frankfurt,Freiburg,3,1,BL1,2021
+2027-09-15,Wolfsburg,Frankfurt,2,2,BL1,2021
+2027-09-18,Hoffenheim,Hannover,0,0,BL1,2021
+2027-09-21,Hamburg,Gladbach,3,0,BL1,2021
+2027-09-24,Mainz,Bochum,0,3,BL1,2021
+2027-09-27,Augsburg,Bochum,0,0,BL1,2021
+2027-09-30,Bremen,Hoffenheim,2,1,BL1,2021
+2027-10-03,Bremen,Schalke,0,0,BL1,2021
+2027-10-06,Hannover,Gladbach,0,0,BL1,2021
+2027-10-09,Leverkusen,Bremen,1,1,BL1,2021
+2027-10-12,Gladbach,Freiburg,0,0,BL1,2021
+2027-10-15,Bayern,Hannover,2,0,BL1,2021
+2027-10-18,Hoffenheim,Bremen,0,0,BL1,2021
+2027-10-21,Leverkusen,Union Berlin,0,2,BL1,2021
+2027-10-24,Augsburg,Gladbach,0,1,BL1,2021
+2027-10-27,Leverkusen,Hannover,0,0,BL1,2021
+2027-10-30,Mainz,Freiburg,0,1,BL1,2021
+2027-11-02,Augsburg,Union Berlin,0,0,BL1,2021
+2027-11-05,Gladbach,Hoffenheim,0,0,BL1,2021
+2027-11-08,Wolfsburg,Leipzig,4,1,BL1,2021
+2027-11-11,Hamburg,Leverkusen,2,2,BL1,2021
+2027-11-14,Union Berlin,Schalke,1,7,BL1,2021
+2027-11-17,Koeln,Gladbach,2,0,BL1,2021
+2027-11-20,Hertha,Freiburg,1,1,BL1,2021
+2027-11-23,Wolfsburg,Hertha,5,0,BL1,2021
+2027-11-26,Wolfsburg,Dortmund,1,0,BL1,2021
+2027-11-29,Bremen,Koeln,0,0,BL1,2021
+2027-12-02,Union Berlin,Hoffenheim,2,1,BL1,2021
+2027-12-05,Stuttgart,Hamburg,0,7,BL1,2021
+2027-12-08,Leverkusen,Dortmund,1,1,BL1,2021
+2027-12-11,Koeln,Frankfurt,7,7,BL1,2021
+2027-12-14,Bremen,Leipzig,0,1,BL1,2021
+2027-12-17,Union Berlin,Freiburg,0,3,BL1,2021
+2027-12-20,Bayern,Hertha,5,0,BL1,2021
+2027-12-23,Mainz,Hertha,7,0,BL1,2021
+2027-12-26,Gladbach,Bayern,3,3,BL1,2021
+2027-12-29,Hoffenheim,Leverkusen,0,2,BL1,2021
+2028-01-01,Gladbach,Leipzig,3,0,BL1,2021
+2028-01-04,Hannover,Leverkusen,0,2,BL1,2021
+2028-01-07,Bochum,Gladbach,2,4,BL1,2021
+2028-01-10,Leipzig,Koeln,0,1,BL1,2021
+2028-01-13,Dortmund,Hoffenheim,3,0,BL1,2021
+2028-01-16,Hoffenheim,Freiburg,0,0,BL1,2021
+2028-01-19,Koeln,Hoffenheim,6,2,BL1,2021
+2028-01-22,Hertha,Schalke,0,0,BL1,2021
+2028-01-25,Leverkusen,Gladbach,0,0,BL1,2021
+2028-01-28,Augsburg,Freiburg,0,0,BL1,2021
+2028-01-31,Gladbach,Koeln,1,0,BL1,2021
+2028-02-03,Augsburg,Hoffenheim,3,0,BL1,2021
+2028-02-06,Hannover,Stuttgart,0,2,BL1,2021
+2028-02-09,Frankfurt,Mainz,5,2,BL1,2021
+2028-02-12,Hertha,Hoffenheim,0,0,BL1,2021
+2028-02-15,Leipzig,Dortmund,1,2,BL1,2021
+2028-02-18,Hertha,Hamburg,2,3,BL1,2021
+2028-02-21,Leverkusen,Schalke,2,5,BL1,2021
+2028-02-24,Wolfsburg,Bremen,0,2,BL1,2021
+2028-02-27,Schalke,Koeln,1,0,BL1,2021
+2028-03-01,Mainz,Augsburg,0,0,BL1,2021
+2028-03-04,Schalke,Augsburg,0,3,BL1,2021
+2028-03-07,Hertha,Union Berlin,2,3,BL1,2021
+2028-03-10,Stuttgart,Bremen,2,0,BL1,2021
+2028-03-13,Union Berlin,Bochum,4,1,BL1,2021
+2028-03-16,Hannover,Augsburg,2,1,BL1,2021
+2028-03-19,Dortmund,Wolfsburg,0,1,BL1,2021
+2028-03-22,Union Berlin,Wolfsburg,0,0,BL1,2021
+2028-03-25,Hertha,Dortmund,1,0,BL1,2021
+2028-03-28,Gladbach,Wolfsburg,2,5,BL1,2021
+2028-03-31,Wolfsburg,Stuttgart,6,0,BL1,2021
+2028-04-03,Freiburg,Leverkusen,7,4,BL1,2021
+2028-04-06,Dortmund,Leverkusen,0,1,BL1,2021
+2028-04-09,Stuttgart,Frankfurt,5,6,BL1,2021
+2028-04-12,Leipzig,Bochum,0,1,BL1,2021
+2028-04-15,Hamburg,Bremen,6,0,BL1,2021
+2028-04-18,Mainz,Hamburg,2,0,BL1,2021
+2028-04-21,Bochum,Stuttgart,7,0,BL1,2021
+2028-04-24,Koeln,Mainz,2,0,BL1,2021
+2028-04-27,Leipzig,Wolfsburg,1,1,BL1,2021
+2028-04-30,Frankfurt,Bremen,4,0,BL1,2021
+2028-05-03,Hamburg,Hannover,0,0,BL1,2021
+2028-05-06,Dortmund,Augsburg,0,0,BL1,2021
+2028-05-09,Bremen,Hertha,0,0,BL1,2021
+2028-05-12,Hamburg,Leipzig,1,1,BL1,2021
+2028-05-15,Augsburg,Leverkusen,4,2,BL1,2021
+2028-05-18,Augsburg,Frankfurt,0,0,BL1,2021
+2028-05-21,Hertha,Stuttgart,1,0,BL1,2021
+2028-05-24,Leipzig,Augsburg,0,2,BL1,2021
+2028-05-27,Bayern,Schalke,2,2,BL1,2021
+2028-05-30,Leipzig,Frankfurt,0,0,BL1,2021
+2028-06-02,Mainz,Dortmund,3,0,BL1,2021
+2028-06-05,Freiburg,Dortmund,0,3,BL1,2021
+2028-06-08,Freiburg,Bochum,0,0,BL1,2021
+2028-06-11,Gladbach,Frankfurt,0,2,BL1,2021
+2028-06-14,Bremen,Union Berlin,0,2,BL1,2021
+2028-06-17,Augsburg,Hamburg,0,1,BL1,2021
+2028-06-20,Hamburg,Stuttgart,2,1,BL1,2021
+2028-06-23,Leipzig,Leverkusen,0,3,BL1,2021
+2028-06-26,Augsburg,Stuttgart,0,4,BL1,2021
+2028-06-29,Union Berlin,Leverkusen,0,0,BL1,2021
+2028-07-02,Hoffenheim,Bochum,0,0,BL1,2021
+2028-07-05,Freiburg,Hertha,2,1,BL1,2021
+2028-07-08,Stuttgart,Leverkusen,2,0,BL1,2021
+2028-07-11,Hertha,Koeln,0,0,BL1,2021
+2028-07-14,Wolfsburg,Leverkusen,0,1,BL1,2021
+2028-07-17,Freiburg,Augsburg,4,0,BL1,2021
+2028-07-20,Frankfurt,Bayern,0,1,BL1,2021
+2028-07-23,Hannover,Bremen,0,1,BL1,2021
+2028-07-26,Leipzig,Bremen,1,0,BL1,2021
+2028-07-29,Leipzig,Schalke,0,0,BL1,2021
+2028-08-01,Frankfurt,Hertha,0,0,BL1,2021
+2028-08-04,Bochum,Bremen,3,0,BL1,2021
+2028-08-07,Koeln,Augsburg,0,0,BL1,2021
+2028-08-10,Hamburg,Augsburg,2,0,BL1,2021
+2028-08-13,Union Berlin,Stuttgart,0,0,BL1,2021
+2028-08-16,Stuttgart,Mainz,4,0,BL1,2021
+2028-08-19,Union Berlin,Mainz,0,0,BL1,2021
+2028-08-22,Stuttgart,Wolfsburg,1,0,BL1,2021
+2028-08-25,Hamburg,Wolfsburg,0,0,BL1,2021
+2028-08-28,Bayern,Union Berlin,2,1,BL1,2021
+2028-08-31,Bochum,Dortmund,0,0,BL1,2021
+2028-09-03,Stuttgart,Schalke,1,6,BL1,2021
+2028-09-06,Stuttgart,Freiburg,1,1,BL1,2021
+2028-09-09,Hannover,Union Berlin,1,1,BL1,2021
+2028-09-12,Bayern,Hoffenheim,1,0,BL1,2021
+2028-09-15,Koeln,Leipzig,2,0,BL1,2021
+2028-09-18,Schalke,Stuttgart,4,1,BL1,2021
+2028-09-21,Koeln,Bayern,0,4,BL1,2021
+2028-09-24,Hertha,Bochum,1,1,BL1,2021
+2028-09-27,Schalke,Hannover,4,1,BL1,2021
+2028-09-30,Schalke,Leverkusen,2,1,BL1,2021
+2028-10-03,Hertha,Bremen,0,1,BL1,2021
+2028-10-06,Hannover,Koeln,0,5,BL1,2021
+2028-10-09,Augsburg,Dortmund,5,1,BL1,2021
+2028-10-12,Bremen,Wolfsburg,0,1,BL1,2021
+2028-10-15,Koeln,Bochum,6,0,BL1,2021
+2028-10-18,Wolfsburg,Schalke,7,1,BL1,2021
+2028-10-21,Bayern,Wolfsburg,3,0,BL1,2021
+2028-10-24,Frankfurt,Dortmund,5,2,BL1,2021
+2028-10-27,Hannover,Dortmund,0,0,BL1,2021
+2028-10-30,Dortmund,Hertha,0,0,BL1,2021
+2028-11-02,Freiburg,Frankfurt,0,1,BL1,2021
+2028-11-05,Hertha,Hannover,2,1,BL1,2021
+2028-11-08,Leverkusen,Stuttgart,1,1,BL1,2021
+2028-11-11,Bochum,Leipzig,1,0,BL1,2021
+2028-11-14,Bayern,Frankfurt,0,1,BL1,2021
+2028-11-17,Dortmund,Freiburg,1,6,BL1,2021
+2028-11-20,Hamburg,Bayern,6,1,BL1,2021
+2028-11-23,Leipzig,Bayern,0,0,BL1,2021
+2028-11-26,Bayern,Hamburg,1,0,BL1,2021
+2028-11-29,Stuttgart,Leipzig,1,0,BL1,2021
+2028-12-02,Dortmund,Bremen,0,0,BL1,2021
+2028-12-05,Schalke,Wolfsburg,0,0,BL1,2021
+2028-12-08,Stuttgart,Bochum,0,1,BL1,2021
+2028-12-11,Frankfurt,Hannover,2,0,BL1,2021
+2028-12-14,Koeln,Leverkusen,3,0,BL1,2021
+2028-12-17,Stuttgart,Koeln,0,1,BL1,2021
+2028-12-20,Hertha,Dortmund,2,1,BL1,2022
+2028-12-23,Hannover,Union Berlin,0,1,BL1,2022
+2028-12-26,Union Berlin,Wolfsburg,0,0,BL1,2022
+2028-12-29,Frankfurt,Schalke,4,3,BL1,2022
+2029-01-01,Hertha,Stuttgart,0,0,BL1,2022
+2029-01-04,Bremen,Leverkusen,1,0,BL1,2022
+2029-01-07,Stuttgart,Hamburg,4,6,BL1,2022
+2029-01-10,Wolfsburg,Freiburg,0,2,BL1,2022
+2029-01-13,Schalke,Wolfsburg,0,0,BL1,2022
+2029-01-16,Bochum,Dortmund,0,0,BL1,2022
+2029-01-19,Leverkusen,Hertha,0,2,BL1,2022
+2029-01-22,Bayern,Bremen,2,0,BL1,2022
+2029-01-25,Bochum,Hertha,1,2,BL1,2022
+2029-01-28,Stuttgart,Hoffenheim,0,0,BL1,2022
+2029-01-31,Hannover,Leverkusen,1,5,BL1,2022
+2029-02-03,Mainz,Augsburg,3,0,BL1,2022
+2029-02-06,Augsburg,Hamburg,3,1,BL1,2022
+2029-02-09,Dortmund,Hertha,0,0,BL1,2022
+2029-02-12,Gladbach,Frankfurt,1,3,BL1,2022
+2029-02-15,Union Berlin,Dortmund,1,1,BL1,2022
+2029-02-18,Gladbach,Schalke,4,2,BL1,2022
+2029-02-21,Koeln,Leipzig,3,0,BL1,2022
+2029-02-24,Dortmund,Wolfsburg,0,4,BL1,2022
+2029-02-27,Bayern,Dortmund,1,0,BL1,2022
+2029-03-02,Leverkusen,Gladbach,1,0,BL1,2022
+2029-03-05,Schalke,Frankfurt,4,1,BL1,2022
+2029-03-08,Schalke,Mainz,2,2,BL1,2022
+2029-03-11,Mainz,Hannover,0,3,BL1,2022
+2029-03-14,Stuttgart,Augsburg,4,0,BL1,2022
+2029-03-17,Mainz,Wolfsburg,2,1,BL1,2022
+2029-03-20,Hannover,Wolfsburg,0,2,BL1,2022
+2029-03-23,Leverkusen,Hamburg,0,2,BL1,2022
+2029-03-26,Gladbach,Augsburg,1,0,BL1,2022
+2029-03-29,Schalke,Gladbach,3,3,BL1,2022
+2029-04-01,Gladbach,Dortmund,1,0,BL1,2022
+2029-04-04,Union Berlin,Hamburg,3,1,BL1,2022
+2029-04-07,Leipzig,Augsburg,0,0,BL1,2022
+2029-04-10,Hertha,Hoffenheim,0,1,BL1,2022
+2029-04-13,Frankfurt,Hannover,0,0,BL1,2022
+2029-04-16,Leipzig,Frankfurt,0,1,BL1,2022
+2029-04-19,Leipzig,Schalke,1,0,BL1,2022
+2029-04-22,Bayern,Koeln,3,0,BL1,2022
+2029-04-25,Dortmund,Koeln,0,1,BL1,2022
+2029-04-28,Hannover,Mainz,0,1,BL1,2022
+2029-05-01,Hamburg,Leipzig,0,5,BL1,2022
+2029-05-04,Schalke,Bochum,2,0,BL1,2022
+2029-05-07,Bayern,Mainz,1,0,BL1,2022
+2029-05-10,Augsburg,Freiburg,1,3,BL1,2022
+2029-05-13,Frankfurt,Bochum,3,5,BL1,2022
+2029-05-16,Bochum,Hoffenheim,1,2,BL1,2022
+2029-05-19,Leverkusen,Leipzig,1,1,BL1,2022
+2029-05-22,Leverkusen,Wolfsburg,0,0,BL1,2022
+2029-05-25,Augsburg,Mainz,2,2,BL1,2022
+2029-05-28,Leipzig,Union Berlin,2,0,BL1,2022
+2029-05-31,Stuttgart,Bremen,3,0,BL1,2022
+2029-06-03,Bremen,Bochum,1,0,BL1,2022
+2029-06-06,Mainz,Stuttgart,1,0,BL1,2022
+2029-06-09,Stuttgart,Koeln,2,0,BL1,2022
+2029-06-12,Hamburg,Bochum,1,1,BL1,2022
+2029-06-15,Leverkusen,Schalke,2,1,BL1,2022
+2029-06-18,Leipzig,Wolfsburg,0,0,BL1,2022
+2029-06-21,Frankfurt,Stuttgart,5,1,BL1,2022
+2029-06-24,Leverkusen,Hoffenheim,2,1,BL1,2022
+2029-06-27,Freiburg,Schalke,1,0,BL1,2022
+2029-06-30,Dortmund,Mainz,0,0,BL1,2022
+2029-07-03,Dortmund,Bayern,2,0,BL1,2022
+2029-07-06,Leverkusen,Frankfurt,2,0,BL1,2022
+2029-07-09,Gladbach,Bochum,0,2,BL1,2022
+2029-07-12,Wolfsburg,Bremen,0,1,BL1,2022
+2029-07-15,Hamburg,Wolfsburg,2,0,BL1,2022
+2029-07-18,Augsburg,Bremen,3,0,BL1,2022
+2029-07-21,Stuttgart,Union Berlin,1,0,BL1,2022
+2029-07-24,Gladbach,Leipzig,6,0,BL1,2022
+2029-07-27,Frankfurt,Dortmund,2,0,BL1,2022
+2029-07-30,Bochum,Schalke,1,1,BL1,2022
+2029-08-02,Mainz,Hoffenheim,4,1,BL1,2022
+2029-08-05,Hertha,Leipzig,3,1,BL1,2022
+2029-08-08,Wolfsburg,Hertha,0,2,BL1,2022
+2029-08-11,Hannover,Bochum,0,1,BL1,2022
+2029-08-14,Frankfurt,Leverkusen,2,0,BL1,2022
+2029-08-17,Hannover,Freiburg,2,1,BL1,2022
+2029-08-20,Hannover,Dortmund,1,1,BL1,2022
+2029-08-23,Hamburg,Union Berlin,0,0,BL1,2022
+2029-08-26,Hertha,Freiburg,0,0,BL1,2022
+2029-08-29,Freiburg,Hamburg,4,0,BL1,2022
+2029-09-01,Hertha,Gladbach,1,3,BL1,2022
+2029-09-04,Hoffenheim,Hertha,0,2,BL1,2022
+2029-09-07,Schalke,Bayern,1,0,BL1,2022
+2029-09-10,Bremen,Hertha,1,1,BL1,2022
+2029-09-13,Hannover,Hoffenheim,0,0,BL1,2022
+2029-09-16,Bochum,Hannover,2,1,BL1,2022
+2029-09-19,Hertha,Mainz,3,0,BL1,2022
+2029-09-22,Dortmund,Hoffenheim,1,3,BL1,2022
+2029-09-25,Koeln,Wolfsburg,0,1,BL1,2022
+2029-09-28,Wolfsburg,Hamburg,2,2,BL1,2022
+2029-10-01,Hamburg,Hoffenheim,3,0,BL1,2022
+2029-10-04,Koeln,Augsburg,1,3,BL1,2022
+2029-10-07,Bayern,Leverkusen,2,1,BL1,2022
+2029-10-10,Gladbach,Koeln,4,0,BL1,2022
+2029-10-13,Freiburg,Wolfsburg,5,1,BL1,2022
+2029-10-16,Bochum,Bremen,0,0,BL1,2022
+2029-10-19,Koeln,Stuttgart,0,0,BL1,2022
+2029-10-22,Hoffenheim,Koeln,0,0,BL1,2022
+2029-10-25,Leverkusen,Freiburg,2,7,BL1,2022
+2029-10-28,Hannover,Augsburg,1,0,BL1,2022
+2029-10-31,Bayern,Hamburg,0,3,BL1,2022
+2029-11-03,Bochum,Augsburg,0,0,BL1,2022
+2029-11-06,Stuttgart,Leverkusen,0,0,BL1,2022
+2029-11-09,Union Berlin,Hannover,1,1,BL1,2022
+2029-11-12,Gladbach,Hannover,1,0,BL1,2022
+2029-11-15,Hoffenheim,Freiburg,1,1,BL1,2022
+2029-11-18,Augsburg,Leverkusen,1,2,BL1,2022
+2029-11-21,Frankfurt,Hamburg,2,2,BL1,2022
+2029-11-24,Leverkusen,Dortmund,0,0,BL1,2022
+2029-11-27,Dortmund,Hannover,0,1,BL1,2022
+2029-11-30,Hamburg,Gladbach,2,5,BL1,2022
+2029-12-03,Bayern,Freiburg,0,3,BL1,2022
+2029-12-06,Hoffenheim,Leipzig,0,2,BL1,2022
+2029-12-09,Bayern,Hoffenheim,4,0,BL1,2022
+2029-12-12,Dortmund,Leverkusen,0,1,BL1,2022
+2029-12-15,Freiburg,Koeln,3,0,BL1,2022
+2029-12-18,Stuttgart,Freiburg,1,3,BL1,2022
+2029-12-21,Leverkusen,Mainz,0,2,BL1,2022
+2029-12-24,Hoffenheim,Augsburg,0,0,BL1,2022
+2029-12-27,Stuttgart,Bochum,7,0,BL1,2022
+2029-12-30,Schalke,Bremen,6,1,BL1,2022
+2030-01-02,Leipzig,Dortmund,0,0,BL1,2022
+2030-01-05,Hamburg,Bayern,0,0,BL1,2022
+2030-01-08,Augsburg,Hoffenheim,0,1,BL1,2022
+2030-01-11,Schalke,Dortmund,0,0,BL1,2022
+2030-01-14,Union Berlin,Freiburg,3,0,BL1,2022
+2030-01-17,Gladbach,Wolfsburg,5,1,BL1,2022
+2030-01-20,Bremen,Mainz,1,1,BL1,2022
+2030-01-23,Frankfurt,Union Berlin,4,0,BL1,2022
+2030-01-26,Stuttgart,Mainz,3,1,BL1,2022
+2030-01-29,Augsburg,Frankfurt,0,2,BL1,2022
+2030-02-01,Mainz,Hamburg,1,6,BL1,2022
+2030-02-04,Bremen,Leipzig,0,2,BL1,2022
+2030-02-07,Bremen,Stuttgart,0,1,BL1,2022
+2030-02-10,Hannover,Stuttgart,0,0,BL1,2022
+2030-02-13,Schalke,Hertha,4,1,BL1,2022
+2030-02-16,Freiburg,Hoffenheim,0,0,BL1,2022
+2030-02-19,Stuttgart,Wolfsburg,6,1,BL1,2022
+2030-02-22,Bremen,Schalke,0,1,BL1,2022
+2030-02-25,Gladbach,Hamburg,2,2,BL1,2022
+2030-02-28,Stuttgart,Gladbach,0,0,BL1,2022
+2030-03-03,Hamburg,Freiburg,0,2,BL1,2022
+2030-03-06,Augsburg,Koeln,3,0,BL1,2022
+2030-03-09,Freiburg,Bremen,0,2,BL1,2022
+2030-03-12,Leipzig,Leverkusen,0,2,BL1,2022
+2030-03-15,Union Berlin,Gladbach,0,0,BL1,2022
+2030-03-18,Bochum,Koeln,2,0,BL1,2022
+2030-03-21,Leipzig,Hertha,1,1,BL1,2022
+2030-03-24,Leverkusen,Stuttgart,1,1,BL1,2022
+2030-03-27,Hertha,Bochum,0,0,BL1,2022
+2030-03-30,Bayern,Leipzig,2,0,BL1,2022
+2030-04-02,Hertha,Leverkusen,0,0,BL1,2022
+2030-04-05,Bremen,Dortmund,3,1,BL1,2022
+2030-04-08,Hamburg,Schalke,1,1,BL1,2022
+2030-04-11,Augsburg,Gladbach,0,1,BL1,2022
+2030-04-14,Freiburg,Bochum,0,1,BL1,2022
+2030-04-17,Dortmund,Leipzig,1,0,BL1,2022
+2030-04-20,Gladbach,Bremen,3,2,BL1,2022
+2030-04-23,Frankfurt,Wolfsburg,3,1,BL1,2022
+2030-04-26,Dortmund,Hamburg,1,0,BL1,2022
+2030-04-29,Freiburg,Leverkusen,2,0,BL1,2022
+2030-05-02,Hertha,Frankfurt,1,0,BL1,2022
+2030-05-05,Wolfsburg,Augsburg,0,0,BL1,2022
+2030-05-08,Hertha,Augsburg,0,0,BL1,2022
+2030-05-11,Leipzig,Stuttgart,2,4,BL1,2022
+2030-05-14,Koeln,Freiburg,0,1,BL1,2022
+2030-05-17,Leipzig,Bayern,0,0,BL1,2022
+2030-05-20,Hoffenheim,Schalke,0,0,BL1,2022
+2030-05-23,Gladbach,Stuttgart,0,2,BL1,2022
+2030-05-26,Bochum,Gladbach,0,2,BL1,2022
+2030-05-29,Union Berlin,Leipzig,0,2,BL1,2022
+2030-06-01,Wolfsburg,Leipzig,0,0,BL1,2022
+2030-06-04,Augsburg,Hertha,0,1,BL1,2022
+2030-06-07,Bochum,Leverkusen,1,0,BL1,2022
+2030-06-10,Freiburg,Gladbach,6,0,BL1,2022
+2030-06-13,Leipzig,Bremen,2,0,BL1,2022
+2030-06-16,Gladbach,Mainz,0,0,BL1,2022
+2030-06-19,Bayern,Hannover,2,1,BL1,2022
+2030-06-22,Mainz,Freiburg,3,0,BL1,2022
+2030-06-25,Union Berlin,Hertha,1,0,BL1,2022
+2030-06-28,Stuttgart,Hannover,4,3,BL1,2022
+2030-07-01,Mainz,Bochum,3,1,BL1,2022
+2030-07-04,Bayern,Stuttgart,6,0,BL1,2022
+2030-07-07,Bochum,Wolfsburg,3,0,BL1,2022
+2030-07-10,Dortmund,Bremen,0,0,BL1,2022
+2030-07-13,Freiburg,Frankfurt,1,1,BL1,2022
+2030-07-16,Bochum,Stuttgart,0,0,BL1,2022
+2030-07-19,Bremen,Koeln,1,1,BL1,2022
+2030-07-22,Bochum,Leipzig,0,3,BL1,2022
+2030-07-25,Wolfsburg,Bayern,4,0,BL1,2022
+2030-07-28,Frankfurt,Hoffenheim,0,0,BL1,2022
+2030-07-31,Bremen,Hamburg,0,0,BL1,2022
+2030-08-03,Frankfurt,Leipzig,2,1,BL1,2022
+2030-08-06,Hertha,Hamburg,0,2,BL1,2022
+2030-08-09,Leverkusen,Bayern,6,1,BL1,2022
+2030-08-12,Hertha,Koeln,1,0,BL1,2022
+2030-08-15,Hamburg,Dortmund,2,0,BL1,2022
+2030-08-18,Dortmund,Frankfurt,0,1,BL1,2022
+2030-08-21,Hertha,Schalke,4,0,BL1,2022
+2030-08-24,Frankfurt,Augsburg,2,0,BL1,2022
+2030-08-27,Koeln,Union Berlin,0,0,BL1,2022
+2030-08-30,Bochum,Mainz,0,1,BL1,2022
+2030-09-02,Augsburg,Wolfsburg,0,2,BL1,2022
+2030-09-05,Hannover,Bremen,1,0,BL1,2022
+2030-09-08,Koeln,Hoffenheim,1,1,BL1,2022
+2030-09-11,Bremen,Freiburg,3,0,BL1,2022
+2030-09-14,Koeln,Bayern,0,2,BL1,2022
+2030-09-17,Hoffenheim,Hannover,1,0,BL1,2022
+2030-09-20,Stuttgart,Dortmund,0,0,BL1,2022
+2030-09-23,Freiburg,Union Berlin,2,0,BL1,2022
+2030-09-26,Dortmund,Freiburg,0,1,BL1,2022
+2030-09-29,Hamburg,Bremen,3,0,BL1,2022
+2030-10-02,Hannover,Bayern,0,1,BL1,2022
+2030-10-05,Union Berlin,Augsburg,0,0,BL1,2022
+2030-10-08,Mainz,Schalke,3,4,BL1,2022
+2030-10-11,Bochum,Freiburg,0,2,BL1,2022
+2030-10-14,Leipzig,Freiburg,1,2,BL1,2022
+2030-10-17,Gladbach,Bayern,4,3,BL1,2022
+2030-10-20,Hamburg,Frankfurt,2,3,BL1,2022
+2030-10-23,Stuttgart,Hertha,1,1,BL1,2022
+2030-10-26,Frankfurt,Hertha,0,0,BL1,2022
+2030-10-29,Hoffenheim,Bayern,0,4,BL1,2022
+2030-11-01,Freiburg,Mainz,1,1,BL1,2022
+2030-11-04,Augsburg,Bochum,0,0,BL1,2022
+2030-11-07,Koeln,Mainz,3,1,BL1,2022
+2030-11-10,Union Berlin,Leverkusen,2,0,BL1,2022
+2030-11-13,Hoffenheim,Frankfurt,0,0,BL1,2022
+2030-11-16,Leipzig,Hannover,0,0,BL1,2022
+2030-11-19,Hoffenheim,Bremen,0,3,BL1,2022
+2030-11-22,Hoffenheim,Gladbach,4,2,BL1,2022
+2030-11-25,Frankfurt,Bremen,3,0,BL1,2022
+2030-11-28,Leipzig,Bochum,0,1,BL1,2022
+2030-12-01,Hamburg,Koeln,1,2,BL1,2022
+2030-12-04,Union Berlin,Stuttgart,0,2,BL1,2022
+2030-12-07,Hoffenheim,Bochum,3,0,BL1,2022
+2030-12-10,Union Berlin,Schalke,1,0,BL1,2022
+2030-12-13,Bayern,Augsburg,0,0,BL1,2022
+2030-12-16,Schalke,Freiburg,2,1,BL1,2022
+2030-12-19,Wolfsburg,Frankfurt,3,0,BL1,2022
+2030-12-22,Wolfsburg,Hoffenheim,5,2,BL1,2022
+2030-12-25,Wolfsburg,Koeln,0,1,BL1,2022
+2030-12-28,Bremen,Frankfurt,0,6,BL1,2022
+2030-12-31,Leverkusen,Augsburg,1,0,BL1,2022
+2031-01-03,Leverkusen,Hannover,1,0,BL1,2022
+2031-01-06,Schalke,Koeln,1,0,BL1,2022
+2031-01-09,Mainz,Hertha,0,1,BL1,2022
+2031-01-12,Bayern,Union Berlin,4,0,BL1,2022
+2031-01-15,Schalke,Hoffenheim,0,3,BL1,2022
+2031-01-18,Dortmund,Schalke,0,0,BL1,2022
+2031-01-21,Hoffenheim,Leverkusen,1,0,BL1,2022
+2031-01-24,Mainz,Bremen,2,2,BL1,2022
+2031-01-27,Hamburg,Leverkusen,0,2,BL1,2022
+2031-01-30,Schalke,Stuttgart,1,0,BL1,2022
+2031-02-02,Hertha,Hannover,1,0,BL1,2022
+2031-02-05,Frankfurt,Bayern,0,0,BL1,2022
+2031-02-08,Hamburg,Hertha,2,2,BL1,2022
+2031-02-11,Stuttgart,Frankfurt,2,1,BL1,2022
+2031-02-14,Union Berlin,Bayern,0,0,BL1,2022
+2031-02-17,Koeln,Hannover,1,0,BL1,2022
+2031-02-20,Mainz,Gladbach,1,1,BL1,2022
+2031-02-23,Union Berlin,Hoffenheim,0,0,BL1,2022
+2031-02-26,Hannover,Gladbach,0,1,BL1,2022
+2031-03-01,Dortmund,Stuttgart,0,1,BL1,2022
+2031-03-04,Bremen,Hannover,2,0,BL1,2022
+2031-03-07,Leipzig,Hamburg,0,5,BL1,2022
+2031-03-10,Mainz,Bayern,1,0,BL1,2022
+2031-03-13,Union Berlin,Bremen,4,1,BL1,2022
+2031-03-16,Hamburg,Augsburg,4,1,BL1,2022
+2031-03-19,Koeln,Gladbach,2,5,BL1,2022
+2031-03-22,Bayern,Frankfurt,0,1,BL1,2022
+2031-03-25,Leipzig,Gladbach,0,1,BL1,2022
+2031-03-28,Schalke,Leverkusen,0,0,BL1,2022
+2031-03-31,Stuttgart,Bayern,0,1,BL1,2022
+2031-04-03,Mainz,Leipzig,2,1,BL1,2022
+2031-04-06,Bremen,Augsburg,0,0,BL1,2022
+2031-04-09,Wolfsburg,Schalke,2,4,BL1,2022
+2031-04-12,Gladbach,Leverkusen,1,0,BL1,2022
+2031-04-15,Bremen,Union Berlin,0,0,BL1,2022
+2031-04-18,Hoffenheim,Union Berlin,0,0,BL1,2022
+2031-04-21,Augsburg,Leipzig,3,1,BL1,2022
+2031-04-24,Bochum,Union Berlin,3,1,BL1,2022
+2031-04-27,Hamburg,Hannover,0,2,BL1,2022
+2031-04-30,Mainz,Frankfurt,1,4,BL1,2022
+2031-05-03,Freiburg,Hertha,1,1,BL1,2022
+2031-05-06,Freiburg,Bayern,0,2,BL1,2022
+2031-05-09,Gladbach,Hoffenheim,4,0,BL1,2022
+2031-05-12,Schalke,Hamburg,0,5,BL1,2022
+2031-05-15,Leverkusen,Bochum,1,0,BL1,2022
+2031-05-18,Hertha,Bremen,0,2,BL1,2022
+2031-05-21,Bayern,Wolfsburg,2,1,BL1,2022
+2031-05-24,Hannover,Hertha,2,0,BL1,2022
+2031-05-27,Koeln,Hertha,2,0,BL1,2022
+2031-05-30,Bochum,Bayern,3,4,BL1,2022
+2031-06-02,Hannover,Leipzig,1,1,BL1,2022
+2031-06-05,Wolfsburg,Bochum,1,0,BL1,2022
+2031-06-08,Freiburg,Dortmund,3,2,BL1,2022
+2031-06-11,Wolfsburg,Hannover,0,0,BL1,2022
+2031-06-14,Wolfsburg,Gladbach,1,0,BL1,2022
+2031-06-17,Gladbach,Union Berlin,0,1,BL1,2022
+2031-06-20,Hertha,Union Berlin,0,0,BL1,2022
+2031-06-23,Schalke,Augsburg,1,0,BL1,2022
+2031-06-26,Augsburg,Union Berlin,0,1,BL1,2022
+2031-06-29,Schalke,Hannover,1,0,BL1,2022
+2031-07-02,Union Berlin,Koeln,0,1,BL1,2022
+2031-07-05,Leipzig,Hoffenheim,0,0,BL1,2022
+2031-07-08,Freiburg,Hannover,2,0,BL1,2022
+2031-07-11,Frankfurt,Mainz,7,0,BL1,2022
+2031-07-14,Hoffenheim,Wolfsburg,0,1,BL1,2022
+2031-07-17,Hoffenheim,Mainz,0,0,BL1,2022
+2031-07-20,Stuttgart,Schalke,1,1,BL1,2022
+2031-07-23,Gladbach,Hertha,7,1,BL1,2022
+2031-07-26,Bremen,Gladbach,1,0,BL1,2022
+2031-07-29,Frankfurt,Gladbach,0,3,BL1,2022
+2031-08-01,Bremen,Bayern,0,0,BL1,2022
+2031-08-04,Hertha,Bayern,2,5,BL1,2022
+2031-08-07,Koeln,Leverkusen,0,0,BL1,2022
+2031-08-10,Hannover,Schalke,1,2,BL1,2022
+2031-08-13,Freiburg,Augsburg,2,1,BL1,2022
+2031-08-16,Bayern,Hertha,0,0,BL1,2022
+2031-08-19,Leverkusen,Union Berlin,1,1,BL1,2022
+2031-08-22,Schalke,Leipzig,3,0,BL1,2022
+2031-08-25,Augsburg,Stuttgart,1,0,BL1,2022
+2031-08-28,Koeln,Bochum,0,0,BL1,2022
+2031-08-31,Bremen,Hoffenheim,1,1,BL1,2022
+2031-09-03,Hoffenheim,Hamburg,2,1,BL1,2022
+2031-09-06,Union Berlin,Mainz,1,0,BL1,2022
+2031-09-09,Wolfsburg,Union Berlin,7,0,BL1,2022
+2031-09-12,Hoffenheim,Stuttgart,1,0,BL1,2022
+2031-09-15,Dortmund,Union Berlin,0,0,BL1,2022
+2031-09-18,Bremen,Wolfsburg,2,5,BL1,2022
+2031-09-21,Bayern,Schalke,1,0,BL1,2022
+2031-09-24,Freiburg,Stuttgart,3,1,BL1,2022
+2031-09-27,Dortmund,Bochum,1,1,BL1,2022
+2031-09-30,Wolfsburg,Mainz,2,0,BL1,2022
+2031-10-03,Wolfsburg,Leverkusen,2,4,BL1,2022
+2031-10-06,Frankfurt,Koeln,0,0,BL1,2022
+2031-10-09,Bayern,Gladbach,1,1,BL1,2022
+2031-10-12,Gladbach,Freiburg,0,0,BL1,2022
+2031-10-15,Stuttgart,Leipzig,0,1,BL1,2022
+2031-10-18,Leverkusen,Koeln,3,0,BL1,2022
+2031-10-21,Augsburg,Schalke,1,1,BL1,2022
+2031-10-24,Koeln,Bremen,1,0,BL1,2022
+2031-10-27,Hannover,Koeln,1,0,BL1,2022
+2031-10-30,Dortmund,Gladbach,3,1,BL1,2022
+2031-11-02,Frankfurt,Freiburg,1,0,BL1,2022
+2031-11-05,Koeln,Schalke,0,1,BL1,2022
+2031-11-08,Dortmund,Augsburg,0,0,BL1,2022
+2031-11-11,Augsburg,Dortmund,0,0,BL1,2022
+2031-11-14,Koeln,Hamburg,0,0,BL1,2022
+2031-11-17,Koeln,Dortmund,1,1,BL1,2022
+2031-11-20,Augsburg,Hannover,0,0,BL1,2022
+2031-11-23,Wolfsburg,Stuttgart,1,1,BL1,2022
+2031-11-26,Hannover,Frankfurt,0,0,BL1,2022
+2031-11-29,Wolfsburg,Dortmund,3,1,BL1,2022
+2031-12-02,Leipzig,Mainz,3,3,BL1,2022
+2031-12-05,Schalke,Union Berlin,1,0,BL1,2022
+2031-12-08,Hertha,Wolfsburg,0,3,BL1,2022
+2031-12-11,Bochum,Frankfurt,0,2,BL1,2022
+2031-12-14,Hannover,Hamburg,1,1,BL1,2022
+2031-12-17,Mainz,Koeln,0,0,BL1,2022
+2031-12-20,Bochum,Hamburg,2,0,BL1,2022
+2031-12-23,Mainz,Dortmund,0,0,BL1,2022
+2031-12-26,Leverkusen,Bremen,1,0,BL1,2022
+2031-12-29,Freiburg,Leipzig,1,0,BL1,2022
+2032-01-01,Leipzig,Koeln,0,0,BL1,2022
+2032-01-04,Hamburg,Mainz,1,0,BL1,2022
+2032-01-07,Hamburg,Stuttgart,3,5,BL1,2022
+2032-01-10,Koeln,Frankfurt,0,2,BL1,2022
+2032-01-13,Union Berlin,Bochum,0,0,BL1,2022
+2032-01-16,Mainz,Union Berlin,0,0,BL1,2022
+2032-01-19,Mainz,Leverkusen,3,2,BL1,2022
+2032-01-22,Hoffenheim,Dortmund,0,1,BL1,2022
+2032-01-25,Bayern,Bochum,0,0,BL1,2022
+2032-01-28,Augsburg,Bayern,4,1,BL1,2022
+2032-01-31,Union Berlin,Frankfurt,0,3,BL1,2022
+2032-02-03,Hamburg,Bayern,4,0,BL1,2023
+2032-02-06,Koeln,Bayern,0,1,BL1,2023
+2032-02-09,Schalke,Union Berlin,0,0,BL1,2023
+2032-02-12,Schalke,Hoffenheim,0,0,BL1,2023
+2032-02-15,Bochum,Hamburg,2,0,BL1,2023
+2032-02-18,Wolfsburg,Augsburg,0,1,BL1,2023
+2032-02-21,Hoffenheim,Union Berlin,0,0,BL1,2023
+2032-02-24,Augsburg,Hannover,0,0,BL1,2023
+2032-02-27,Bochum,Bayern,0,0,BL1,2023
+2032-03-01,Freiburg,Bayern,2,5,BL1,2023
+2032-03-04,Gladbach,Schalke,7,1,BL1,2023
+2032-03-07,Hertha,Bremen,0,1,BL1,2023
+2032-03-10,Dortmund,Schalke,1,2,BL1,2023
+2032-03-13,Stuttgart,Dortmund,0,0,BL1,2023
+2032-03-16,Mainz,Bremen,6,1,BL1,2023
+2032-03-19,Augsburg,Leipzig,1,2,BL1,2023
+2032-03-22,Wolfsburg,Stuttgart,1,0,BL1,2023
+2032-03-25,Leipzig,Hoffenheim,1,0,BL1,2023
+2032-03-28,Leipzig,Bayern,0,4,BL1,2023
+2032-03-31,Wolfsburg,Gladbach,1,1,BL1,2023
+2032-04-03,Hannover,Leipzig,0,1,BL1,2023
+2032-04-06,Mainz,Union Berlin,0,0,BL1,2023
+2032-04-09,Hoffenheim,Hamburg,0,2,BL1,2023
+2032-04-12,Mainz,Koeln,0,2,BL1,2023
+2032-04-15,Bremen,Augsburg,2,1,BL1,2023
+2032-04-18,Koeln,Union Berlin,0,0,BL1,2023
+2032-04-21,Frankfurt,Bochum,0,0,BL1,2023
+2032-04-24,Freiburg,Hertha,1,0,BL1,2023
+2032-04-27,Hannover,Leverkusen,1,0,BL1,2023
+2032-04-30,Koeln,Hertha,0,0,BL1,2023
+2032-05-03,Hoffenheim,Bremen,2,1,BL1,2023
+2032-05-06,Stuttgart,Hamburg,0,2,BL1,2023
+2032-05-09,Schalke,Freiburg,2,1,BL1,2023
+2032-05-12,Bayern,Hertha,1,0,BL1,2023
+2032-05-15,Hamburg,Stuttgart,1,1,BL1,2023
+2032-05-18,Hamburg,Bremen,2,0,BL1,2023
+2032-05-21,Augsburg,Mainz,1,0,BL1,2023
+2032-05-24,Augsburg,Leverkusen,1,0,BL1,2023
+2032-05-27,Bayern,Koeln,3,0,BL1,2023
+2032-05-30,Schalke,Hertha,4,0,BL1,2023
+2032-06-02,Union Berlin,Gladbach,0,0,BL1,2023
+2032-06-05,Gladbach,Mainz,1,2,BL1,2023
+2032-06-08,Gladbach,Hamburg,2,1,BL1,2023
+2032-06-11,Dortmund,Union Berlin,1,0,BL1,2023
+2032-06-14,Hertha,Leipzig,0,1,BL1,2023
+2032-06-17,Bayern,Frankfurt,0,5,BL1,2023
+2032-06-20,Union Berlin,Hoffenheim,0,0,BL1,2023
+2032-06-23,Bochum,Augsburg,4,0,BL1,2023
+2032-06-26,Frankfurt,Hoffenheim,3,0,BL1,2023
+2032-06-29,Hamburg,Schalke,1,5,BL1,2023
+2032-07-02,Leipzig,Union Berlin,0,0,BL1,2023
+2032-07-05,Schalke,Bayern,2,3,BL1,2023
+2032-07-08,Gladbach,Stuttgart,0,0,BL1,2023
+2032-07-11,Hannover,Bayern,0,0,BL1,2023
+2032-07-14,Hertha,Mainz,4,5,BL1,2023
+2032-07-17,Stuttgart,Koeln,0,1,BL1,2023
+2032-07-20,Leverkusen,Hannover,1,0,BL1,2023
+2032-07-23,Hamburg,Dortmund,1,0,BL1,2023
+2032-07-26,Bochum,Frankfurt,1,0,BL1,2023
+2032-07-29,Freiburg,Koeln,3,0,BL1,2023
+2032-08-01,Freiburg,Frankfurt,0,2,BL1,2023
+2032-08-04,Union Berlin,Augsburg,0,0,BL1,2023
+2032-08-07,Bayern,Augsburg,2,2,BL1,2023
+2032-08-10,Bayern,Bremen,0,0,BL1,2023
+2032-08-13,Dortmund,Bochum,0,0,BL1,2023
+2032-08-16,Freiburg,Stuttgart,0,7,BL1,2023
+2032-08-19,Leipzig,Hannover,0,0,BL1,2023
+2032-08-22,Augsburg,Gladbach,0,7,BL1,2023
+2032-08-25,Koeln,Hoffenheim,0,0,BL1,2023
+2032-08-28,Koeln,Leverkusen,1,0,BL1,2023
+2032-08-31,Hamburg,Koeln,3,1,BL1,2023
+2032-09-03,Stuttgart,Leipzig,1,0,BL1,2023
+2032-09-06,Schalke,Stuttgart,2,4,BL1,2023
+2032-09-09,Bochum,Hertha,0,4,BL1,2023
+2032-09-12,Augsburg,Bochum,0,0,BL1,2023
+2032-09-15,Dortmund,Bayern,1,7,BL1,2023
+2032-09-18,Stuttgart,Hoffenheim,1,0,BL1,2023
+2032-09-21,Bremen,Hamburg,5,0,BL1,2023
+2032-09-24,Koeln,Freiburg,0,0,BL1,2023
+2032-09-27,Stuttgart,Wolfsburg,4,0,BL1,2023
+2032-09-30,Wolfsburg,Dortmund,3,1,BL1,2023
+2032-10-03,Union Berlin,Hertha,0,1,BL1,2023
+2032-10-06,Leverkusen,Bayern,1,4,BL1,2023
+2032-10-09,Hannover,Koeln,0,0,BL1,2023
+2032-10-12,Mainz,Bochum,0,0,BL1,2023
+2032-10-15,Schalke,Mainz,0,1,BL1,2023
+2032-10-18,Bayern,Gladbach,0,2,BL1,2023
+2032-10-21,Dortmund,Hannover,0,0,BL1,2023
+2032-10-24,Bayern,Hamburg,5,2,BL1,2023
+2032-10-27,Dortmund,Wolfsburg,1,3,BL1,2023
+2032-10-30,Stuttgart,Mainz,0,2,BL1,2023
+2032-11-02,Freiburg,Bochum,2,1,BL1,2023
+2032-11-05,Bremen,Mainz,2,1,BL1,2023
+2032-11-08,Wolfsburg,Leverkusen,0,1,BL1,2023
+2032-11-11,Koeln,Bochum,1,0,BL1,2023
+2032-11-14,Schalke,Koeln,0,1,BL1,2023
+2032-11-17,Hoffenheim,Leipzig,0,2,BL1,2023
+2032-11-20,Dortmund,Hamburg,0,4,BL1,2023
+2032-11-23,Mainz,Schalke,3,0,BL1,2023
+2032-11-26,Hamburg,Hannover,2,0,BL1,2023
+2032-11-29,Union Berlin,Freiburg,0,3,BL1,2023
+2032-12-02,Union Berlin,Schalke,0,0,BL1,2023
+2032-12-05,Wolfsburg,Mainz,0,1,BL1,2023
+2032-12-08,Wolfsburg,Leipzig,0,0,BL1,2023
+2032-12-11,Hannover,Augsburg,0,0,BL1,2023
+2032-12-14,Gladbach,Bayern,2,0,BL1,2023
+2032-12-17,Gladbach,Hannover,1,0,BL1,2023
+2032-12-20,Leipzig,Schalke,1,0,BL1,2023
+2032-12-23,Gladbach,Bochum,0,0,BL1,2023
+2032-12-26,Hoffenheim,Augsburg,0,0,BL1,2023
+2032-12-29,Dortmund,Augsburg,0,0,BL1,2023
+2033-01-01,Leipzig,Bochum,0,0,BL1,2023
+2033-01-04,Wolfsburg,Bremen,1,1,BL1,2023
+2033-01-07,Stuttgart,Hertha,0,0,BL1,2023
+2033-01-10,Frankfurt,Union Berlin,1,0,BL1,2023
+2033-01-13,Schalke,Frankfurt,2,0,BL1,2023
+2033-01-16,Hoffenheim,Leverkusen,1,1,BL1,2023
+2033-01-19,Stuttgart,Freiburg,0,0,BL1,2023
+2033-01-22,Dortmund,Koeln,1,0,BL1,2023
+2033-01-25,Gladbach,Freiburg,4,0,BL1,2023
+2033-01-28,Leipzig,Hamburg,1,1,BL1,2023
+2033-01-31,Leverkusen,Gladbach,0,0,BL1,2023
+2033-02-03,Wolfsburg,Hamburg,1,0,BL1,2023
+2033-02-06,Leipzig,Gladbach,0,7,BL1,2023
+2033-02-09,Hertha,Schalke,1,7,BL1,2023
+2033-02-12,Hertha,Frankfurt,0,0,BL1,2023
+2033-02-15,Leverkusen,Stuttgart,0,3,BL1,2023
+2033-02-18,Bayern,Leipzig,0,0,BL1,2023
+2033-02-21,Leverkusen,Leipzig,1,2,BL1,2023
+2033-02-24,Bremen,Bochum,0,0,BL1,2023
+2033-02-27,Hertha,Wolfsburg,4,5,BL1,2023
+2033-03-02,Union Berlin,Leipzig,2,2,BL1,2023
+2033-03-05,Hertha,Bayern,0,2,BL1,2023
+2033-03-08,Freiburg,Hoffenheim,0,0,BL1,2023
+2033-03-11,Freiburg,Bremen,0,0,BL1,2023
+2033-03-14,Hertha,Gladbach,1,0,BL1,2023
+2033-03-17,Mainz,Wolfsburg,1,0,BL1,2023
+2033-03-20,Hertha,Freiburg,0,2,BL1,2023
+2033-03-23,Leverkusen,Schalke,0,2,BL1,2023
+2033-03-26,Mainz,Leverkusen,0,1,BL1,2023
+2033-03-29,Hamburg,Mainz,2,0,BL1,2023
+2033-04-01,Bochum,Schalke,0,0,BL1,2023
+2033-04-04,Bayern,Dortmund,3,0,BL1,2023
+2033-04-07,Bayern,Leverkusen,0,1,BL1,2023
+2033-04-10,Frankfurt,Dortmund,0,0,BL1,2023
+2033-04-13,Bochum,Leipzig,0,2,BL1,2023
+2033-04-16,Leverkusen,Augsburg,1,2,BL1,2023
+2033-04-19,Bochum,Gladbach,0,3,BL1,2023
+2033-04-22,Hannover,Hoffenheim,1,0,BL1,2023
+2033-04-25,Frankfurt,Leipzig,1,5,BL1,2023
+2033-04-28,Hoffenheim,Hannover,0,0,BL1,2023
+2033-05-01,Dortmund,Frankfurt,2,1,BL1,2023
+2033-05-04,Koeln,Schalke,0,1,BL1,2023
+2033-05-07,Hamburg,Union Berlin,1,2,BL1,2023
+2033-05-10,Freiburg,Augsburg,0,0,BL1,2023
+2033-05-13,Frankfurt,Koeln,1,0,BL1,2023
+2033-05-16,Schalke,Wolfsburg,0,0,BL1,2023
+2033-05-19,Union Berlin,Leverkusen,0,0,BL1,2023
+2033-05-22,Bochum,Leverkusen,1,0,BL1,2023
+2033-05-25,Wolfsburg,Schalke,7,1,BL1,2023
+2033-05-28,Union Berlin,Bremen,1,0,BL1,2023
+2033-05-31,Freiburg,Leipzig,5,2,BL1,2023
+2033-06-03,Mainz,Bayern,2,0,BL1,2023
+2033-06-06,Union Berlin,Hannover,0,0,BL1,2023
+2033-06-09,Leipzig,Mainz,0,3,BL1,2023
+2033-06-12,Mainz,Hannover,1,0,BL1,2023
+2033-06-15,Dortmund,Hertha,0,4,BL1,2023
+2033-06-18,Hoffenheim,Koeln,1,1,BL1,2023
+2033-06-21,Augsburg,Koeln,0,0,BL1,2023
+2033-06-24,Bremen,Wolfsburg,0,6,BL1,2023
+2033-06-27,Hertha,Union Berlin,3,0,BL1,2023
+2033-06-30,Freiburg,Wolfsburg,1,0,BL1,2023
+2033-07-03,Gladbach,Leverkusen,0,0,BL1,2023
+2033-07-06,Gladbach,Dortmund,3,1,BL1,2023
+2033-07-09,Frankfurt,Hertha,0,1,BL1,2023
+2033-07-12,Gladbach,Hertha,1,0,BL1,2023
+2033-07-15,Bayern,Hoffenheim,7,3,BL1,2023
+2033-07-18,Bayern,Mainz,0,4,BL1,2023
+2033-07-21,Leipzig,Freiburg,3,0,BL1,2023
+2033-07-24,Schalke,Bremen,1,2,BL1,2023
+2033-07-27,Dortmund,Gladbach,0,0,BL1,2023
+2033-07-30,Bremen,Dortmund,2,1,BL1,2023
+2033-08-02,Mainz,Hoffenheim,2,2,BL1,2023
+2033-08-05,Bremen,Leverkusen,0,0,BL1,2023
+2033-08-08,Leverkusen,Hertha,0,3,BL1,2023
+2033-08-11,Leverkusen,Union Berlin,3,2,BL1,2023
+2033-08-14,Stuttgart,Schalke,0,2,BL1,2023
+2033-08-17,Frankfurt,Leverkusen,0,0,BL1,2023
+2033-08-20,Wolfsburg,Frankfurt,3,1,BL1,2023
+2033-08-23,Bremen,Koeln,0,1,BL1,2023
+2033-08-26,Augsburg,Freiburg,0,0,BL1,2023
+2033-08-29,Leipzig,Dortmund,1,0,BL1,2023
+2033-09-01,Mainz,Freiburg,2,1,BL1,2023
+2033-09-04,Hertha,Bochum,0,1,BL1,2023
+2033-09-07,Augsburg,Schalke,1,0,BL1,2023
+2033-09-10,Hannover,Hamburg,2,1,BL1,2023
+2033-09-13,Koeln,Stuttgart,0,0,BL1,2023
+2033-09-16,Schalke,Bochum,0,2,BL1,2023
+2033-09-19,Augsburg,Hamburg,0,0,BL1,2023
+2033-09-22,Augsburg,Union Berlin,0,1,BL1,2023
+2033-09-25,Hamburg,Frankfurt,7,2,BL1,2023
+2033-09-28,Bayern,Stuttgart,0,4,BL1,2023
+2033-10-01,Hannover,Bochum,4,3,BL1,2023
+2033-10-04,Schalke,Augsburg,1,0,BL1,2023
+2033-10-07,Hamburg,Hertha,1,0,BL1,2023
+2033-10-10,Gladbach,Frankfurt,0,0,BL1,2023
+2033-10-13,Dortmund,Mainz,1,0,BL1,2023
+2033-10-16,Hamburg,Augsburg,0,1,BL1,2023
+2033-10-19,Bochum,Stuttgart,2,1,BL1,2023
+2033-10-22,Leipzig,Hertha,1,2,BL1,2023
+2033-10-25,Hannover,Schalke,1,1,BL1,2023
+2033-10-28,Koeln,Dortmund,0,1,BL1,2023
+2033-10-31,Stuttgart,Frankfurt,0,7,BL1,2023
+2033-11-03,Hertha,Hannover,1,0,BL1,2023
+2033-11-06,Leverkusen,Mainz,1,1,BL1,2023
+2033-11-09,Mainz,Hamburg,1,2,BL1,2023
+2033-11-12,Leverkusen,Frankfurt,0,0,BL1,2023
+2033-11-15,Hertha,Hamburg,0,0,BL1,2023
+2033-11-18,Dortmund,Stuttgart,1,1,BL1,2023
+2033-11-21,Bayern,Freiburg,1,2,BL1,2023
+2033-11-24,Bochum,Hoffenheim,0,0,BL1,2023
+2033-11-27,Leipzig,Augsburg,0,2,BL1,2023
+2033-11-30,Leipzig,Wolfsburg,0,2,BL1,2023
+2033-12-03,Wolfsburg,Bochum,0,2,BL1,2023
+2033-12-06,Freiburg,Dortmund,6,1,BL1,2023
+2033-12-09,Stuttgart,Bremen,0,0,BL1,2023
+2033-12-12,Union Berlin,Hamburg,0,0,BL1,2023
+2033-12-15,Augsburg,Dortmund,1,1,BL1,2023
+2033-12-18,Hannover,Gladbach,0,1,BL1,2023
+2033-12-21,Bochum,Bremen,0,1,BL1,2023
+2033-12-24,Augsburg,Hoffenheim,3,1,BL1,2023
+2033-12-27,Hannover,Wolfsburg,1,0,BL1,2023
+2033-12-30,Bochum,Hannover,0,0,BL1,2023
+2034-01-02,Leverkusen,Koeln,0,0,BL1,2023
+2034-01-05,Hannover,Dortmund,0,1,BL1,2023
+2034-01-08,Mainz,Stuttgart,1,5,BL1,2023
+2034-01-11,Mainz,Leipzig,0,0,BL1,2023
+2034-01-14,Gladbach,Koeln,2,3,BL1,2023
+2034-01-17,Stuttgart,Bayern,1,2,BL1,2023
+2034-01-20,Hamburg,Gladbach,0,3,BL1,2023
+2034-01-23,Mainz,Hertha,0,1,BL1,2023
+2034-01-26,Frankfurt,Freiburg,1,0,BL1,2023
+2034-01-29,Frankfurt,Wolfsburg,3,1,BL1,2023
+2034-02-01,Leverkusen,Dortmund,1,0,BL1,2023
+2034-02-04,Frankfurt,Bremen,0,0,BL1,2023
+2034-02-07,Leipzig,Frankfurt,1,0,BL1,2023
+2034-02-10,Dortmund,Leipzig,0,2,BL1,2023
+2034-02-13,Bayern,Hannover,1,0,BL1,2023
+2034-02-16,Bremen,Frankfurt,2,0,BL1,2023
+2034-02-19,Schalke,Leipzig,1,0,BL1,2023
+2034-02-22,Wolfsburg,Hoffenheim,1,0,BL1,2023
+2034-02-25,Koeln,Bremen,1,0,BL1,2023
+2034-02-28,Mainz,Frankfurt,1,1,BL1,2023
+2034-03-03,Hannover,Frankfurt,0,3,BL1,2023
+2034-03-06,Schalke,Dortmund,0,0,BL1,2023
+2034-03-09,Hoffenheim,Dortmund,1,0,BL1,2023
+2034-03-12,Frankfurt,Augsburg,4,1,BL1,2023
+2034-03-15,Hertha,Dortmund,2,0,BL1,2023
+2034-03-18,Bremen,Hoffenheim,2,0,BL1,2023
+2034-03-21,Union Berlin,Stuttgart,0,0,BL1,2023
+2034-03-24,Hertha,Leverkusen,1,1,BL1,2023
+2034-03-27,Leipzig,Leverkusen,1,1,BL1,2023
+2034-03-30,Bremen,Bayern,1,0,BL1,2023
+2034-04-02,Hertha,Augsburg,0,1,BL1,2023
+2034-04-05,Hannover,Mainz,2,0,BL1,2023
+2034-04-08,Schalke,Hamburg,0,0,BL1,2023
+2034-04-11,Hoffenheim,Bochum,0,0,BL1,2023
+2034-04-14,Union Berlin,Koeln,0,0,BL1,2023
+2034-04-17,Hamburg,Bochum,0,0,BL1,2023
+2034-04-20,Wolfsburg,Union Berlin,2,0,BL1,2023
+2034-04-23,Hoffenheim,Mainz,0,1,BL1,2023
+2034-04-26,Leverkusen,Freiburg,1,2,BL1,2023
+2034-04-29,Bochum,Dortmund,0,1,BL1,2023
+2034-05-02,Bayern,Bochum,2,7,BL1,2023
+2034-05-05,Hoffenheim,Wolfsburg,0,2,BL1,2023
+2034-05-08,Freiburg,Hamburg,6,7,BL1,2023
+2034-05-11,Stuttgart,Bochum,0,1,BL1,2023
+2034-05-14,Hoffenheim,Stuttgart,0,1,BL1,2023
+2034-05-17,Union Berlin,Bayern,6,0,BL1,2023
+2034-05-20,Hoffenheim,Bayern,0,1,BL1,2023
+2034-05-23,Hertha,Stuttgart,1,1,BL1,2023
+2034-05-26,Leipzig,Bremen,1,0,BL1,2023
+2034-05-29,Bremen,Hertha,1,1,BL1,2023
+2034-06-01,Freiburg,Schalke,7,0,BL1,2023
+2034-06-04,Wolfsburg,Hertha,0,1,BL1,2023
+2034-06-07,Dortmund,Bremen,0,1,BL1,2023
+2034-06-10,Frankfurt,Mainz,3,7,BL1,2023
+2034-06-13,Leipzig,Koeln,0,0,BL1,2023
+2034-06-16,Hannover,Freiburg,0,2,BL1,2023
+2034-06-19,Dortmund,Freiburg,0,0,BL1,2023
+2034-06-22,Gladbach,Wolfsburg,0,3,BL1,2023
+2034-06-25,Gladbach,Leipzig,0,0,BL1,2023
+2034-06-28,Freiburg,Gladbach,0,0,BL1,2023
+2034-07-01,Mainz,Dortmund,1,0,BL1,2023
+2034-07-04,Koeln,Leipzig,1,1,BL1,2023
+2034-07-07,Hamburg,Freiburg,0,0,BL1,2023
+2034-07-10,Stuttgart,Union Berlin,0,0,BL1,2023
+2034-07-13,Koeln,Hamburg,1,5,BL1,2023
+2034-07-16,Leverkusen,Bremen,2,1,BL1,2023
+2034-07-19,Schalke,Leverkusen,1,1,BL1,2023
+2034-07-22,Bochum,Freiburg,4,1,BL1,2023
+2034-07-25,Frankfurt,Gladbach,0,2,BL1,2023
+2034-07-28,Hamburg,Wolfsburg,1,2,BL1,2023
+2034-07-31,Bremen,Gladbach,1,0,BL1,2023
+2034-08-03,Frankfurt,Bayern,2,0,BL1,2023
+2034-08-06,Leverkusen,Hamburg,1,0,BL1,2023
+2034-08-09,Wolfsburg,Freiburg,2,3,BL1,2023
+2034-08-12,Augsburg,Wolfsburg,3,0,BL1,2023
+2034-08-15,Bochum,Koeln,6,0,BL1,2023
+2034-08-18,Stuttgart,Hannover,0,3,BL1,2023
+2034-08-21,Freiburg,Union Berlin,2,2,BL1,2023
+2034-08-24,Union Berlin,Wolfsburg,1,0,BL1,2023
+2034-08-27,Schalke,Hannover,1,1,BL1,2023
+2034-08-30,Freiburg,Leverkusen,3,1,BL1,2023
+2034-09-02,Hannover,Bremen,0,0,BL1,2023
+2034-09-05,Leverkusen,Bochum,0,1,BL1,2023
+2034-09-08,Gladbach,Union Berlin,0,0,BL1,2023
+2034-09-11,Frankfurt,Schalke,6,0,BL1,2023
+2034-09-14,Bremen,Leipzig,0,0,BL1,2023
+2034-09-17,Hannover,Union Berlin,1,1,BL1,2023
+2034-09-20,Augsburg,Hertha,3,0,BL1,2023
+2034-09-23,Hoffenheim,Hertha,0,0,BL1,2023
+2034-09-26,Hannover,Hertha,0,0,BL1,2023
+2034-09-29,Bochum,Wolfsburg,4,2,BL1,2023
+2034-10-02,Hamburg,Leipzig,1,2,BL1,2023
+2034-10-05,Bochum,Mainz,0,3,BL1,2023
+2034-10-08,Koeln,Mainz,2,4,BL1,2023
+2034-10-11,Frankfurt,Hannover,2,0,BL1,2023
+2034-10-14,Hoffenheim,Schalke,1,1,BL1,2023
+2034-10-17,Hoffenheim,Frankfurt,1,1,BL1,2023
+2034-10-20,Schalke,Gladbach,0,4,BL1,2023
+2034-10-23,Bremen,Stuttgart,1,1,BL1,2023
+2034-10-26,Union Berlin,Frankfurt,0,1,BL1,2023
+2034-10-29,Freiburg,Mainz,0,1,BL1,2023
+2034-11-01,Union Berlin,Dortmund,1,0,BL1,2023
+2034-11-04,Stuttgart,Gladbach,1,0,BL1,2023
+2034-11-07,Wolfsburg,Bayern,4,0,BL1,2023
+2034-11-10,Freiburg,Hannover,0,0,BL1,2023
+2034-11-13,Hertha,Hoffenheim,0,0,BL1,2023
+2034-11-16,Hoffenheim,Gladbach,0,0,BL1,2023
+2034-11-19,Mainz,Gladbach,0,0,BL1,2023
+2034-11-22,Leipzig,Stuttgart,1,1,BL1,2023
+2034-11-25,Gladbach,Bremen,0,0,BL1,2023
+2034-11-28,Augsburg,Frankfurt,0,0,BL1,2023
+2034-12-01,Wolfsburg,Koeln,2,0,BL1,2023
+2034-12-04,Hamburg,Leverkusen,0,0,BL1,2023
+2034-12-07,Bayern,Union Berlin,1,0,BL1,2023
+2034-12-10,Bayern,Wolfsburg,1,0,BL1,2023
+2034-12-13,Hannover,Stuttgart,0,2,BL1,2023
+2034-12-16,Bremen,Union Berlin,0,0,BL1,2023
+2034-12-19,Koeln,Hannover,0,0,BL1,2023
+2034-12-22,Leverkusen,Wolfsburg,1,1,BL1,2023
+2034-12-25,Bremen,Freiburg,1,2,BL1,2023
+2034-12-28,Frankfurt,Stuttgart,2,0,BL1,2023
+2034-12-31,Hamburg,Hoffenheim,3,1,BL1,2023
+2035-01-03,Augsburg,Bremen,1,0,BL1,2023
+2035-01-06,Hoffenheim,Freiburg,4,3,BL1,2023
+2035-01-09,Koeln,Augsburg,0,0,BL1,2023
+2035-01-12,Bayern,Schalke,3,4,BL1,2023
+2035-01-15,Stuttgart,Augsburg,1,0,BL1,2023
+2035-01-18,Bremen,Schalke,1,2,BL1,2023
+2035-01-21,Bochum,Union Berlin,1,0,BL1,2023
+2035-01-24,Stuttgart,Leverkusen,0,2,BL1,2023
+2035-01-27,Dortmund,Hoffenheim,1,2,BL1,2023
+2035-01-30,Leverkusen,Hoffenheim,0,1,BL1,2023
+2035-02-02,Gladbach,Augsburg,2,1,BL1,2023
+2035-02-05,Wolfsburg,Hannover,4,0,BL1,2023
+2035-02-08,Augsburg,Stuttgart,0,1,BL1,2023
+2035-02-11,Union Berlin,Bochum,0,1,BL1,2023
+2035-02-14,Koeln,Gladbach,0,2,BL1,2023
+2035-02-17,Frankfurt,Hamburg,2,0,BL1,2023
+2035-02-20,Koeln,Frankfurt,0,3,BL1,2023
+2035-02-23,Union Berlin,Mainz,1,0,BL1,2023
+2035-02-26,Gladbach,Hoffenheim,2,1,BL1,2023
+2035-03-01,Koeln,Wolfsburg,1,0,BL1,2023
+2035-03-04,Mainz,Augsburg,0,1,BL1,2023
+2035-03-07,Hertha,Koeln,1,4,BL1,2023
+2035-03-10,Augsburg,Bayern,0,0,BL1,2023
+2035-03-13,Bremen,Hannover,1,0,BL1,2023
+2035-03-16,Dortmund,Leverkusen,1,0,BL1,2023
