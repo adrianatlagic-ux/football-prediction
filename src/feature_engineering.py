@@ -3,12 +3,21 @@ from __future__ import annotations
 import pandas as pd
 import numpy as np
 
-FORM_WINDOW = 5
+FORM_WINDOW = 10
 H2H_WINDOW = 10
+
+
+def encode_result(home_goals: float, away_goals: float) -> str:
+    if home_goals > away_goals:
+        return "H"
+    if home_goals < away_goals:
+        return "A"
+    return "D"
 
 
 def build_features(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy().sort_values("date").reset_index(drop=True)
+    df["result"] = df.apply(lambda r: encode_result(r["home_goals"], r["away_goals"]), axis=1)
     records = []
 
     for idx, row in df.iterrows():
@@ -19,6 +28,7 @@ def build_features(df: pd.DataFrame) -> pd.DataFrame:
             "home_team": row["home_team"],
             "away_team": row["away_team"],
             "result": row["result"],
+            "is_neutral": int(row.get("neutral", False) == True or row.get("neutral") == "TRUE"),
         }
         features.update(_team_form(past, row["home_team"], prefix="home"))
         features.update(_team_form(past, row["away_team"], prefix="away"))
@@ -27,9 +37,20 @@ def build_features(df: pd.DataFrame) -> pd.DataFrame:
         features.update(_goal_stats(past, row["away_team"], prefix="away"))
         records.append(features)
 
-    result = pd.DataFrame(records)
-    result = result.fillna(0)
+    result = pd.DataFrame(records).fillna(0)
     return result
+
+
+def build_prediction_row(df_history: pd.DataFrame, home_team: str, away_team: str, neutral: bool = True) -> pd.DataFrame:
+    features = {
+        "is_neutral": int(neutral),
+    }
+    features.update(_team_form(df_history, home_team, prefix="home"))
+    features.update(_team_form(df_history, away_team, prefix="away"))
+    features.update(_h2h_stats(df_history, home_team, away_team))
+    features.update(_goal_stats(df_history, home_team, prefix="home"))
+    features.update(_goal_stats(df_history, away_team, prefix="away"))
+    return pd.DataFrame([features])
 
 
 def get_feature_columns(df: pd.DataFrame) -> list[str]:
@@ -48,13 +69,19 @@ def _team_results(past: pd.DataFrame, team: str) -> pd.Series:
 def _team_form(past: pd.DataFrame, team: str, prefix: str) -> dict:
     pts = _team_results(past, team).tail(FORM_WINDOW)
     if pts.empty:
-        return {f"{prefix}_form_pts": 0.0, f"{prefix}_form_wins": 0.0, f"{prefix}_form_draws": 0.0}
+        return {
+            f"{prefix}_form_pts": 0.0,
+            f"{prefix}_form_wins": 0.0,
+            f"{prefix}_form_draws": 0.0,
+            f"{prefix}_games_played": 0.0,
+        }
     wins = (pts == 3).sum()
     draws = (pts == 1).sum()
     return {
         f"{prefix}_form_pts": pts.mean(),
         f"{prefix}_form_wins": wins / len(pts),
         f"{prefix}_form_draws": draws / len(pts),
+        f"{prefix}_games_played": len(pts),
     }
 
 
@@ -65,17 +92,20 @@ def _h2h_stats(past: pd.DataFrame, home: str, away: str) -> dict:
     )
     h2h = past.loc[mask].tail(H2H_WINDOW)
     if h2h.empty:
-        return {"h2h_home_wins": 0.0, "h2h_draws": 0.0, "h2h_away_wins": 0.0}
+        return {"h2h_home_wins": 0.0, "h2h_draws": 0.0, "h2h_away_wins": 0.0, "h2h_games": 0.0}
 
     total = len(h2h)
-    home_wins = ((h2h["home_team"] == home) & (h2h["result"] == "H")).sum() + \
-                ((h2h["away_team"] == home) & (h2h["result"] == "A")).sum()
+    home_wins = (
+        ((h2h["home_team"] == home) & (h2h["result"] == "H")).sum() +
+        ((h2h["away_team"] == home) & (h2h["result"] == "A")).sum()
+    )
     draws = (h2h["result"] == "D").sum()
     away_wins = total - home_wins - draws
     return {
         "h2h_home_wins": home_wins / total,
         "h2h_draws": draws / total,
         "h2h_away_wins": away_wins / total,
+        "h2h_games": float(total),
     }
 
 
@@ -94,9 +124,13 @@ def _goal_stats(past: pd.DataFrame, team: str, prefix: str) -> dict:
     ]).tail(FORM_WINDOW)
 
     if scored.empty:
-        return {f"{prefix}_avg_scored": 0.0, f"{prefix}_avg_conceded": 0.0, f"{prefix}_clean_sheets": 0.0}
+        return {
+            f"{prefix}_avg_scored": 0.0,
+            f"{prefix}_avg_conceded": 0.0,
+            f"{prefix}_clean_sheets": 0.0,
+        }
     return {
-        f"{prefix}_avg_scored": scored.mean(),
-        f"{prefix}_avg_conceded": conceded.mean(),
-        f"{prefix}_clean_sheets": (conceded == 0).mean(),
+        f"{prefix}_avg_scored": float(scored.mean()),
+        f"{prefix}_avg_conceded": float(conceded.mean()),
+        f"{prefix}_clean_sheets": float((conceded == 0).mean()),
     }
