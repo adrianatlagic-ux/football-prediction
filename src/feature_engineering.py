@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import pandas as pd
 import numpy as np
+from .fifa_rankings import get_ranking, get_points, get_ranking_diff, get_points_diff
 
 FORM_WINDOW = 10
 H2H_WINDOW = 10
@@ -35,6 +36,12 @@ def build_features(df: pd.DataFrame) -> pd.DataFrame:
         features.update(_h2h_stats(past, row["home_team"], row["away_team"]))
         features.update(_goal_stats(past, row["home_team"], prefix="home"))
         features.update(_goal_stats(past, row["away_team"], prefix="away"))
+        features["home_fifa_ranking"] = get_ranking(row["home_team"])
+        features["away_fifa_ranking"] = get_ranking(row["away_team"])
+        features["ranking_diff"] = get_ranking_diff(row["home_team"], row["away_team"])
+        features["home_fifa_points"] = get_points(row["home_team"])
+        features["away_fifa_points"] = get_points(row["away_team"])
+        features["points_diff"] = get_points_diff(row["home_team"], row["away_team"])
         records.append(features)
 
     result = pd.DataFrame(records).fillna(0)
@@ -50,6 +57,12 @@ def build_prediction_row(df_history: pd.DataFrame, home_team: str, away_team: st
     features.update(_h2h_stats(df_history, home_team, away_team))
     features.update(_goal_stats(df_history, home_team, prefix="home"))
     features.update(_goal_stats(df_history, away_team, prefix="away"))
+    features["home_fifa_ranking"] = get_ranking(home_team)
+    features["away_fifa_ranking"] = get_ranking(away_team)
+    features["ranking_diff"] = get_ranking_diff(home_team, away_team)
+    features["home_fifa_points"] = get_points(home_team)
+    features["away_fifa_points"] = get_points(away_team)
+    features["points_diff"] = get_points_diff(home_team, away_team)
     return pd.DataFrame([features])
 
 

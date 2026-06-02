@@ -7,6 +7,7 @@ from pathlib import Path
 
 from .data_loader import load_completed_matches
 from .feature_engineering import build_features, build_prediction_row, get_feature_columns, encode_result
+from .fifa_rankings import get_ranking, get_points
 from .models.ensemble_model import EnsemblePredictor
 from .evaluation import evaluate
 
@@ -58,6 +59,8 @@ class FootballPredictor:
         X = X[self._feature_cols]
         result = self.model.predict_match(X)
 
+        explanation = self._explain(home_team, away_team, X)
+
         return {
             "home_team": home_team,
             "away_team": away_team,
@@ -66,6 +69,46 @@ class FootballPredictor:
             "probability_home_win": result["probability_home_win"],
             "probability_draw": result["probability_draw"],
             "probability_away_win": result["probability_away_win"],
+            "explanation": explanation,
+        }
+
+    def _explain(self, home: str, away: str, X: pd.DataFrame) -> dict:
+        row = X.iloc[0]
+        return {
+            "fifa_ranking": {
+                home: get_ranking(home),
+                away: get_ranking(away),
+            },
+            "fifa_points": {
+                home: get_points(home),
+                away: get_points(away),
+            },
+            "form_last_10_avg_pts": {
+                home: round(row.get("home_form_pts", 0), 2),
+                away: round(row.get("away_form_pts", 0), 2),
+            },
+            "win_rate_last_10": {
+                home: f"{row.get('home_form_wins', 0):.0%}",
+                away: f"{row.get('away_form_wins', 0):.0%}",
+            },
+            "avg_goals_scored": {
+                home: round(row.get("home_avg_scored", 0), 2),
+                away: round(row.get("away_avg_scored", 0), 2),
+            },
+            "avg_goals_conceded": {
+                home: round(row.get("home_avg_conceded", 0), 2),
+                away: round(row.get("away_avg_conceded", 0), 2),
+            },
+            "clean_sheet_rate": {
+                home: f"{row.get('home_clean_sheets', 0):.0%}",
+                away: f"{row.get('away_clean_sheets', 0):.0%}",
+            },
+            "h2h_last_10": {
+                f"{home} wins": f"{row.get('h2h_home_wins', 0):.0%}",
+                "draws": f"{row.get('h2h_draws', 0):.0%}",
+                f"{away} wins": f"{row.get('h2h_away_wins', 0):.0%}",
+                "total_h2h_games": int(row.get("h2h_games", 0)),
+            },
         }
 
     def save(self, path: str | Path) -> None:
