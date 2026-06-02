@@ -8,6 +8,7 @@ from pathlib import Path
 from .data_loader import load_completed_matches
 from .feature_engineering import build_features, build_prediction_row, get_feature_columns, encode_result
 from .fifa_rankings import get_ranking, get_points
+from .poisson_model import predict_scorelines
 from .models.ensemble_model import EnsemblePredictor
 from .evaluation import evaluate
 
@@ -60,6 +61,7 @@ class FootballPredictor:
         result = self.model.predict_match(X)
 
         explanation = self._explain(home_team, away_team, X)
+        score_pred = predict_scorelines(self._history, home_team, away_team)
 
         return {
             "home_team": home_team,
@@ -69,6 +71,7 @@ class FootballPredictor:
             "probability_home_win": result["probability_home_win"],
             "probability_draw": result["probability_draw"],
             "probability_away_win": result["probability_away_win"],
+            "score_prediction": score_pred,
             "explanation": explanation,
         }
 
