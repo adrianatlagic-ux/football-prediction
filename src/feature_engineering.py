@@ -3,9 +3,13 @@ from __future__ import annotations
 import pandas as pd
 import numpy as np
 from .fifa_rankings import get_ranking, get_points, get_ranking_diff, get_points_diff
+from .market_values import get_market_value_normalized, get_market_value_ratio
 
 FORM_WINDOW = 10
 H2H_WINDOW = 10
+
+# WM 2026 Gastgeber-Nationen mit echtem Heimvorteil
+WC2026_HOST_NATIONS = {"United States", "USA", "Mexico", "Canada"}
 
 
 def encode_result(home_goals: float, away_goals: float) -> str:
@@ -23,13 +27,17 @@ def build_features(df: pd.DataFrame) -> pd.DataFrame:
 
     for idx, row in df.iterrows():
         past = df.iloc[:idx]
+        is_neutral = int(row.get("neutral", False) == True or row.get("neutral") == "TRUE")
         features = {
             "match_id": idx,
             "date": row["date"],
             "home_team": row["home_team"],
             "away_team": row["away_team"],
             "result": row["result"],
-            "is_neutral": int(row.get("neutral", False) == True or row.get("neutral") == "TRUE"),
+            "is_neutral": is_neutral,
+            "home_is_host": int(row["home_team"] in WC2026_HOST_NATIONS and is_neutral == 0),
+            "away_is_host": int(row["away_team"] in WC2026_HOST_NATIONS and is_neutral == 0),
+            "both_wm_teams": int(row.get("both_wm_teams", 1)),
         }
         features.update(_team_form(past, row["home_team"], prefix="home"))
         features.update(_team_form(past, row["away_team"], prefix="away"))
@@ -42,6 +50,9 @@ def build_features(df: pd.DataFrame) -> pd.DataFrame:
         features["home_fifa_points"] = get_points(row["home_team"])
         features["away_fifa_points"] = get_points(row["away_team"])
         features["points_diff"] = get_points_diff(row["home_team"], row["away_team"])
+        features["home_market_value"] = get_market_value_normalized(row["home_team"])
+        features["away_market_value"] = get_market_value_normalized(row["away_team"])
+        features["market_value_ratio"] = get_market_value_ratio(row["home_team"], row["away_team"])
         records.append(features)
 
     result = pd.DataFrame(records).fillna(0)
@@ -51,6 +62,9 @@ def build_features(df: pd.DataFrame) -> pd.DataFrame:
 def build_prediction_row(df_history: pd.DataFrame, home_team: str, away_team: str, neutral: bool = True) -> pd.DataFrame:
     features = {
         "is_neutral": int(neutral),
+        "home_is_host": int(home_team in WC2026_HOST_NATIONS and not neutral),
+        "away_is_host": int(away_team in WC2026_HOST_NATIONS and not neutral),
+        "both_wm_teams": 1,  # bei WM-Vorhersagen immer 1
     }
     features.update(_team_form(df_history, home_team, prefix="home"))
     features.update(_team_form(df_history, away_team, prefix="away"))
@@ -63,6 +77,9 @@ def build_prediction_row(df_history: pd.DataFrame, home_team: str, away_team: st
     features["home_fifa_points"] = get_points(home_team)
     features["away_fifa_points"] = get_points(away_team)
     features["points_diff"] = get_points_diff(home_team, away_team)
+    features["home_market_value"] = get_market_value_normalized(home_team)
+    features["away_market_value"] = get_market_value_normalized(away_team)
+    features["market_value_ratio"] = get_market_value_ratio(home_team, away_team)
     return pd.DataFrame([features])
 
 
@@ -79,6 +96,13 @@ def _team_results(past: pd.DataFrame, team: str) -> pd.Series:
     return pd.concat([home_pts, away_pts]).sort_index()
 
 
+def _decay_weights(n: int, half_life: int = 5) -> np.ndarray:
+    """Exponentieller Decay: älteste Spiele zählen weniger. half_life in Spielen."""
+    indices = np.arange(n)
+    weights = np.exp(np.log(0.5) / half_life * (n - 1 - indices))
+    return weights / weights.sum()
+
+
 def _team_form(past: pd.DataFrame, team: str, prefix: str) -> dict:
     pts = _team_results(past, team).tail(FORM_WINDOW)
     if pts.empty:
@@ -88,12 +112,13 @@ def _team_form(past: pd.DataFrame, team: str, prefix: str) -> dict:
             f"{prefix}_form_draws": 0.0,
             f"{prefix}_games_played": 0.0,
         }
-    wins = (pts == 3).sum()
-    draws = (pts == 1).sum()
+    w = _decay_weights(len(pts))
+    wins = float(np.dot((pts.values == 3).astype(float), w))
+    draws = float(np.dot((pts.values == 1).astype(float), w))
     return {
-        f"{prefix}_form_pts": pts.mean(),
-        f"{prefix}_form_wins": wins / len(pts),
-        f"{prefix}_form_draws": draws / len(pts),
+        f"{prefix}_form_pts": float(np.dot(pts.values.astype(float), w)),
+        f"{prefix}_form_wins": wins,
+        f"{prefix}_form_draws": draws,
         f"{prefix}_games_played": len(pts),
     }
 
@@ -141,9 +166,13 @@ def _goal_stats(past: pd.DataFrame, team: str, prefix: str) -> dict:
             f"{prefix}_avg_scored": 0.0,
             f"{prefix}_avg_conceded": 0.0,
             f"{prefix}_clean_sheets": 0.0,
+            f"{prefix}_avg_goal_diff": 0.0,
         }
+    w = _decay_weights(len(scored))
+    goal_diff = scored.values - conceded.values
     return {
-        f"{prefix}_avg_scored": float(scored.mean()),
-        f"{prefix}_avg_conceded": float(conceded.mean()),
-        f"{prefix}_clean_sheets": float((conceded == 0).mean()),
+        f"{prefix}_avg_scored": float(np.dot(scored.values.astype(float), w)),
+        f"{prefix}_avg_conceded": float(np.dot(conceded.values.astype(float), w)),
+        f"{prefix}_clean_sheets": float(np.dot((conceded.values == 0).astype(float), w)),
+        f"{prefix}_avg_goal_diff": float(np.dot(goal_diff.astype(float), w)),
     }

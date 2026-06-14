@@ -17,9 +17,9 @@ class EnsemblePredictor(BasePredictor):
         self.weights = weights or [0.5, 0.5]
         assert len(self.weights) == len(self.predictors)
 
-    def fit(self, X: pd.DataFrame, y: pd.Series) -> "EnsemblePredictor":
+    def fit(self, X: pd.DataFrame, y: pd.Series, sample_weight: np.ndarray | None = None) -> "EnsemblePredictor":
         for p in self.predictors:
-            p.fit(X, y)
+            p.fit(X, y, sample_weight=sample_weight)
         return self
 
     def predict_proba(self, X: pd.DataFrame) -> np.ndarray:

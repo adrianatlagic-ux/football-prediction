@@ -1,0 +1,301 @@
+{
+  "home_team": "Brazil",
+  "away_team": "Morocco",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4801,
+  "probability_draw": 0.3203,
+  "probability_away_win": 0.1996,
+  "score_prediction": {
+    "home_xg": 1.34,
+    "away_xg": 1.38,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.4801,
+    "probability_draw": 0.3203,
+    "probability_away_win": 0.1996,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1133
+      },
+      {
+        "score": "1:0",
+        "probability": 0.1003
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0818
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0505
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0365
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8004,
+        "home_or_away": 0.6797,
+        "draw_or_away": 0.5199
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7678,
+          "under": 0.2322
+        },
+        {
+          "line": 2.5,
+          "over": 0.499,
+          "under": 0.501
+        },
+        {
+          "line": 3.5,
+          "over": 0.2875,
+          "under": 0.7125
+        }
+      ],
+      "btts": {
+        "yes": 0.5756,
+        "no": 0.4244
+      },
+      "win_margin": {
+        "home_1plus": 0.4801,
+        "home_2plus": 0.2252,
+        "home_3plus": 0.0797,
+        "away_1plus": 0.1996,
+        "away_2plus": 0.0961,
+        "away_3plus": 0.0351
+      },
+      "scenario": "Brazil are favored to win."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.01,
+    "total_xg": 2.72,
+    "first_goal": {
+      "Brazil_scores_first": 0.46,
+      "Morocco_scores_first": 0.474,
+      "no_goals": 0.066,
+      "expected_minute": 33
+    },
+    "halftime_xg": {
+      "Brazil": 0.63,
+      "Morocco": 0.65
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.279
+      },
+      {
+        "score": "0:1",
+        "probability": 0.181
+      },
+      {
+        "score": "1:0",
+        "probability": 0.176
+      },
+      {
+        "score": "1:1",
+        "probability": 0.114
+      },
+      {
+        "score": "0:2",
+        "probability": 0.059
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Brazil": 0.181,
+        "Morocco": 0.186
+      },
+      "16-30'": {
+        "Brazil": 0.208,
+        "Morocco": 0.214
+      },
+      "31-45'": {
+        "Brazil": 0.241,
+        "Morocco": 0.248
+      },
+      "46-60'": {
+        "Brazil": 0.194,
+        "Morocco": 0.2
+      },
+      "61-75'": {
+        "Brazil": 0.248,
+        "Morocco": 0.255
+      },
+      "76-90'": {
+        "Brazil": 0.268,
+        "Morocco": 0.276
+      }
+    },
+    "comeback_probability": {
+      "Brazil": 0.027,
+      "Morocco": 0.028
+    },
+    "late_drama_probability": 0.42,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.257
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.215
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Morocco trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.091
+      },
+      {
+        "szenario": "Morocco dominiert früh",
+        "beschreibung": "Morocco geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.059
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 49,
+        "away": 51
+      },
+      "shots": {
+        "home": 13,
+        "away": 14
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 6
+      },
+      "corners": {
+        "home": 5,
+        "away": 6
+      },
+      "passes": {
+        "home": 255,
+        "away": 265
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Brazil and Morocco is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 24,
+        "type": "goal",
+        "team": "Brazil",
+        "headline": "GOAL! Brazil!",
+        "description": "Brazil score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 27,
+        "type": "chance",
+        "team": "Morocco",
+        "headline": "Big chance for Morocco!",
+        "description": "Morocco create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 55,
+        "type": "goal",
+        "team": "Morocco",
+        "headline": "GOAL! Morocco!",
+        "description": "Morocco score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 60,
+        "type": "goal",
+        "team": "Brazil",
+        "headline": "GOAL! Brazil!",
+        "description": "Brazil score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 62,
+        "type": "chance",
+        "team": "Brazil",
+        "headline": "Big chance for Brazil!",
+        "description": "Brazil create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 64,
+        "type": "chance",
+        "team": "Brazil",
+        "headline": "Big chance for Brazil!",
+        "description": "Brazil create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Brazil": 6,
+      "Morocco": 8
+    },
+    "fifa_points": {
+      "Brazil": 1816.0,
+      "Morocco": 1784.0
+    },
+    "form_last_10_avg_pts": {
+      "Brazil": 1.92,
+      "Morocco": 2.43
+    },
+    "win_rate_last_10": {
+      "Brazil": "60%",
+      "Morocco": "71%"
+    },
+    "avg_goals_scored": {
+      "Brazil": 1.63,
+      "Morocco": 1.82
+    },
+    "avg_goals_conceded": {
+      "Brazil": 1.32,
+      "Morocco": 0.88
+    },
+    "clean_sheet_rate": {
+      "Brazil": "32%",
+      "Morocco": "47%"
+    },
+    "h2h_last_10": {
+      "Brazil wins": "67%",
+      "draws": "0%",
+      "Morocco wins": "33%",
+      "total_h2h_games": 3
+    }
+  }
+}

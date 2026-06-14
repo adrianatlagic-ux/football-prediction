@@ -1,0 +1,309 @@
+{
+  "home_team": "South Korea",
+  "away_team": "Czech Republic",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4475,
+  "probability_draw": 0.2865,
+  "probability_away_win": 0.266,
+  "score_prediction": {
+    "home_xg": 2.0,
+    "away_xg": 1.07,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.4475,
+    "probability_draw": 0.2865,
+    "probability_away_win": 0.266,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.0771
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0724
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0625
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0514
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0482
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.734,
+        "home_or_away": 0.7135,
+        "draw_or_away": 0.5525
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8122,
+          "under": 0.1878
+        },
+        {
+          "line": 2.5,
+          "over": 0.5668,
+          "under": 0.4332
+        },
+        {
+          "line": 3.5,
+          "over": 0.3512,
+          "under": 0.6488
+        }
+      ],
+      "btts": {
+        "yes": 0.5971,
+        "no": 0.4029
+      },
+      "win_margin": {
+        "home_1plus": 0.4475,
+        "home_2plus": 0.2749,
+        "home_3plus": 0.1353,
+        "away_1plus": 0.266,
+        "away_2plus": 0.1031,
+        "away_3plus": 0.0292
+      },
+      "scenario": "South Korea are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.3,
+    "total_xg": 3.07,
+    "first_goal": {
+      "South Korea_scores_first": 0.621,
+      "Czech Republic_scores_first": 0.332,
+      "no_goals": 0.046,
+      "expected_minute": 29
+    },
+    "halftime_xg": {
+      "South Korea": 0.94,
+      "Czech Republic": 0.5
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.237
+      },
+      {
+        "score": "1:0",
+        "probability": 0.223
+      },
+      {
+        "score": "0:1",
+        "probability": 0.119
+      },
+      {
+        "score": "1:1",
+        "probability": 0.112
+      },
+      {
+        "score": "2:0",
+        "probability": 0.105
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "South Korea": 0.27,
+        "Czech Republic": 0.144
+      },
+      "16-30'": {
+        "South Korea": 0.31,
+        "Czech Republic": 0.166
+      },
+      "31-45'": {
+        "South Korea": 0.36,
+        "Czech Republic": 0.193
+      },
+      "46-60'": {
+        "South Korea": 0.29,
+        "Czech Republic": 0.155
+      },
+      "61-75'": {
+        "South Korea": 0.37,
+        "Czech Republic": 0.198
+      },
+      "76-90'": {
+        "South Korea": 0.4,
+        "Czech Republic": 0.214
+      }
+    },
+    "comeback_probability": {
+      "South Korea": 0.037,
+      "Czech Republic": 0.021
+    },
+    "late_drama_probability": 0.459,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.215
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.193
+      },
+      {
+        "szenario": "South Korea dominiert früh",
+        "beschreibung": "South Korea geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.106
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "South Korea trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.094
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 55,
+        "away": 45
+      },
+      "shots": {
+        "home": 17,
+        "away": 11
+      },
+      "shots_on_target": {
+        "home": 7,
+        "away": 4
+      },
+      "corners": {
+        "home": 7,
+        "away": 5
+      },
+      "passes": {
+        "home": 286,
+        "away": 234
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between South Korea and Czech Republic is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 14,
+        "type": "chance",
+        "team": "South Korea",
+        "headline": "Big chance for South Korea!",
+        "description": "South Korea create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 17,
+        "type": "chance",
+        "team": "South Korea",
+        "headline": "Big chance for South Korea!",
+        "description": "South Korea create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 30,
+        "type": "goal",
+        "team": "South Korea",
+        "headline": "GOAL! South Korea!",
+        "description": "South Korea score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 46,
+        "type": "goal",
+        "team": "South Korea",
+        "headline": "GOAL! South Korea!",
+        "description": "South Korea score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 62,
+        "type": "goal",
+        "team": "Czech Republic",
+        "headline": "GOAL! Czech Republic!",
+        "description": "Czech Republic score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 72,
+        "type": "chance",
+        "team": "Czech Republic",
+        "headline": "Big chance for Czech Republic!",
+        "description": "Czech Republic create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 83,
+        "type": "chance",
+        "team": "Czech Republic",
+        "headline": "Big chance for Czech Republic!",
+        "description": "Czech Republic create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "South Korea": 25,
+      "Czech Republic": 41
+    },
+    "fifa_points": {
+      "South Korea": 1512.0,
+      "Czech Republic": 1256.0
+    },
+    "form_last_10_avg_pts": {
+      "South Korea": 1.8,
+      "Czech Republic": 1.75
+    },
+    "win_rate_last_10": {
+      "South Korea": "58%",
+      "Czech Republic": "44%"
+    },
+    "avg_goals_scored": {
+      "South Korea": 1.65,
+      "Czech Republic": 1.44
+    },
+    "avg_goals_conceded": {
+      "South Korea": 1.25,
+      "Czech Republic": 1.61
+    },
+    "clean_sheet_rate": {
+      "South Korea": "33%",
+      "Czech Republic": "36%"
+    },
+    "h2h_last_10": {
+      "South Korea wins": "33%",
+      "draws": "33%",
+      "Czech Republic wins": "33%",
+      "total_h2h_games": 3
+    }
+  }
+}

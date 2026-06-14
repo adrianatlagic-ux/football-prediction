@@ -24,6 +24,7 @@ FIFA_RANKINGS = {
     "Switzerland": 19,
     "Denmark": 20,
     "IR Iran": 21,
+    "Iran": 21,
     "Turkey": 22,
     "Ecuador": 23,
     "Austria": 24,
@@ -61,7 +62,7 @@ FIFA_RANKINGS = {
     "Bosnia and Herzegovina": 65,
     "Cape Verde": 69,
     "Ghana": 74,
-    "Curacao": 82,
+    "Curaçao": 82,
     "Haiti": 83,
     "New Zealand": 85,
 }
@@ -88,6 +89,7 @@ FIFA_POINTS = {
     "Switzerland": 1608,
     "Denmark": 1592,
     "IR Iran": 1576,
+    "Iran": 1576,
     "Turkey": 1560,
     "Ecuador": 1544,
     "Austria": 1528,
@@ -125,7 +127,7 @@ FIFA_POINTS = {
     "Bosnia and Herzegovina": 880,
     "Cape Verde": 816,
     "Ghana": 720,
-    "Curacao": 624,
+    "Curaçao": 624,
     "Haiti": 608,
     "New Zealand": 480,
 }

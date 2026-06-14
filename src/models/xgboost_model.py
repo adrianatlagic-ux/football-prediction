@@ -24,9 +24,9 @@ class XGBoostPredictor(BasePredictor):
         self._le = LabelEncoder()
         self._le.classes_ = np.array(self.CLASSES)
 
-    def fit(self, X: pd.DataFrame, y: pd.Series) -> "XGBoostPredictor":
+    def fit(self, X: pd.DataFrame, y: pd.Series, sample_weight: np.ndarray | None = None) -> "XGBoostPredictor":
         y_enc = self._le.transform(y)
-        self.model.fit(X, y_enc, verbose=False)
+        self.model.fit(X, y_enc, sample_weight=sample_weight, verbose=False)
         return self
 
     def predict(self, X: pd.DataFrame) -> np.ndarray:

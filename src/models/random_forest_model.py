@@ -21,9 +21,9 @@ class RandomForestPredictor(BasePredictor):
         self._le = LabelEncoder()
         self._le.classes_ = np.array(self.CLASSES)
 
-    def fit(self, X: pd.DataFrame, y: pd.Series) -> "RandomForestPredictor":
+    def fit(self, X: pd.DataFrame, y: pd.Series, sample_weight: np.ndarray | None = None) -> "RandomForestPredictor":
         y_enc = self._le.transform(y)
-        self.model.fit(X, y_enc)
+        self.model.fit(X, y_enc, sample_weight=sample_weight)
         return self
 
     def predict(self, X: pd.DataFrame) -> np.ndarray:

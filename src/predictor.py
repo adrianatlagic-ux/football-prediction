@@ -5,10 +5,11 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 
-from .data_loader import load_completed_matches
-from .feature_engineering import build_features, build_prediction_row, get_feature_columns, encode_result
+from .data_loader import load_completed_matches, load_wm2026_relevant
+from .feature_engineering import build_features, build_prediction_row, get_feature_columns, encode_result, WC2026_HOST_NATIONS
 from .fifa_rankings import get_ranking, get_points
 from .poisson_model import predict_scorelines
+from .game_flow import predict_game_flow
 from .models.ensemble_model import EnsemblePredictor
 from .evaluation import evaluate
 
@@ -25,29 +26,56 @@ class FootballPredictor:
         if model_path and Path(model_path).exists():
             self.load(model_path)
 
-    def train(self, since_year: int = 1990, test_size: float = 0.2) -> dict:
-        df_raw = load_completed_matches()
-        df_raw = df_raw[df_raw["date"].dt.year >= since_year].reset_index(drop=True)
+    def train(self, since_year: int = 1995, test_size: float = 0.2) -> dict:
+        df_raw = load_wm2026_relevant(since_year=since_year)
         df_raw["result"] = df_raw.apply(
             lambda r: encode_result(r["home_goals"], r["away_goals"]), axis=1
         )
-        self._history = df_raw
+        # History: alle Matches für Form-Berechnung der WM-Teams
+        history = load_completed_matches()
+        history = history[history["date"].dt.year >= since_year].reset_index(drop=True)
+        history["result"] = history.apply(
+            lambda r: encode_result(r["home_goals"], r["away_goals"]), axis=1
+        )
+        self._history = history
 
-        print(f"Building features for {len(df_raw):,} matches since {since_year}...")
+        print(f"Training auf {len(df_raw):,} kompetitiven WM-Team-Matches seit {since_year}...")
         features = build_features(df_raw)
         self._feature_cols = get_feature_columns(features)
 
         split = int(len(features) * (1 - test_size))
         train, test = features.iloc[:split], features.iloc[split:]
 
-        self.model.fit(train[self._feature_cols], train["result"])
+        sample_weight = self._compute_sample_weights(df_raw.iloc[:split])
+        self.model.fit(train[self._feature_cols], train["result"], sample_weight=sample_weight)
         self._trained = True
 
         y_pred = self.model.predict(test[self._feature_cols])
         y_proba = self.model.predict_proba(test[self._feature_cols])
         return evaluate(test["result"], y_pred, y_proba)
 
-    def predict_match(self, home_team: str, away_team: str, neutral: bool = True) -> dict:
+    def _compute_sample_weights(self, df: pd.DataFrame) -> np.ndarray:
+        """
+        3 Gewichtungsebenen:
+        1. Zeitgewicht: neuere Matches zählen mehr (Halbwertszeit 4 Jahre)
+        2. WM-Boost: echte WM-Spiele zählen 4x mehr
+        3. Draw-Boost: Unentschieden zählen 2x mehr (ausgleichen der Unterrepräsentation)
+        """
+        ref_date = pd.Timestamp("2026-06-01")
+        days_ago = (ref_date - df["date"]).dt.days.clip(lower=0).values
+        half_life_days = 4 * 365
+        time_w = np.exp(-np.log(2) / half_life_days * days_ago)
+
+        wm_w = np.where(df["tournament"] == "FIFA World Cup", 4.0, 1.0)
+        draw_w = np.where(df["result"] == "D", 2.0, 1.0)
+
+        weights = time_w * wm_w * draw_w
+        return weights / weights.mean()
+
+    def predict_match(self, home_team: str, away_team: str, neutral: bool | None = None) -> dict:
+        # WM 2026: Heimvorteil nur für Gastgeber-Nationen
+        if neutral is None:
+            neutral = home_team not in WC2026_HOST_NATIONS
         if not self._trained:
             raise RuntimeError("Model not trained. Call .train() first.")
 
@@ -61,7 +89,21 @@ class FootballPredictor:
         result = self.model.predict_match(X)
 
         explanation = self._explain(home_team, away_team, X)
-        score_pred = predict_scorelines(self._history, home_team, away_team)
+        target_result_probs = (
+            result["probability_home_win"],
+            result["probability_draw"],
+            result["probability_away_win"],
+        )
+        score_pred = predict_scorelines(
+            self._history, home_team, away_team,
+            target_result_probs=target_result_probs,
+        )
+        self._align_score_prediction(score_pred, result["prediction"])
+        flow = predict_game_flow(
+            score_pred["home_xg"], score_pred["away_xg"],
+            home_team, away_team,
+            final_score=score_pred["most_likely_score"],
+        )
 
         return {
             "home_team": home_team,
@@ -72,8 +114,31 @@ class FootballPredictor:
             "probability_draw": result["probability_draw"],
             "probability_away_win": result["probability_away_win"],
             "score_prediction": score_pred,
+            "game_flow": flow,
             "explanation": explanation,
         }
+
+    def _align_score_prediction(self, score_pred: dict, ensemble_result: str, top_n: int = 5) -> None:
+        """Align the Poisson scoreline distribution with the ensemble's predicted result.
+
+        The Poisson model and the ensemble classifier can disagree on H/D/A
+        (different inputs/methodology). Showing "Home Win" alongside a 0:0
+        "most likely score" (and a scoreline list led by 0:0) is confusing on
+        the website and in the AI-generated match content. So we restrict the
+        headline scoreline and the displayed "top scorelines" to those
+        consistent with the ensemble's predicted outcome — the single result
+        that is fed to the AI agents as "the" prediction.
+        """
+        all_scorelines = score_pred.pop("_all_scorelines", [])
+        matching = [s for s in all_scorelines if s["result"] == ensemble_result]
+        if matching:
+            matching.sort(key=lambda s: -s["probability"])
+            score_pred["most_likely_score"] = matching[0]["score"]
+            score_pred["result"] = ensemble_result
+            score_pred["top_scorelines"] = [
+                {"score": s["score"], "probability": s["probability"]}
+                for s in matching[:top_n]
+            ]
 
     def _explain(self, home: str, away: str, X: pd.DataFrame) -> dict:
         row = X.iloc[0]
