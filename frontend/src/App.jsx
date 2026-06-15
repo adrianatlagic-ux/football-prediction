@@ -119,12 +119,20 @@ function TeamLabel({ name }) {
   return <>{flag && <span style={{ marginRight: '0.4em' }}>{flag}</span>}{name}</>
 }
 
-function ProbabilityBar({ label, value, color }) {
+function ProbabilityBar({ label, value, color, animate }) {
+  const [width, setWidth] = useState(animate ? 0 : value * 100)
+
+  useEffect(() => {
+    if (!animate) return
+    const frame = requestAnimationFrame(() => setWidth(value * 100))
+    return () => cancelAnimationFrame(frame)
+  }, [animate, value])
+
   return (
     <div className="prob-row">
       <span className="prob-label">{label}</span>
       <div className="prob-bar-track">
-        <div className="prob-bar-fill" style={{ width: `${value * 100}%`, background: color }} />
+        <div className="prob-bar-fill" style={{ width: `${width}%`, background: color }} />
       </div>
       <span className="prob-value">{(value * 100).toFixed(1)}%</span>
     </div>
@@ -272,34 +280,6 @@ const ANALYZING_STEPS = [
   'Finalizing the result…',
 ]
 
-function AnalyzingCard({ fixture }) {
-  const [step, setStep] = useState(0)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setStep(s => Math.min(s + 1, ANALYZING_STEPS.length - 1))
-    }, 1500)
-    return () => clearInterval(interval)
-  }, [])
-
-  return (
-    <div className="card analyzing-card">
-      <div className="fixture-meta">
-        <span className="fixture-date">{fixture.date} · {fixture.time}</span>
-      </div>
-      <div className="fixture-teams">
-        <span><TeamLabel name={fixture.home_team} /></span>
-        <span className="fixture-vs">vs</span>
-        <span><TeamLabel name={fixture.away_team} /></span>
-      </div>
-      <div className="analyzing-status">
-        <span className="analyzing-spinner" />
-        <span>{ANALYZING_STEPS[step]}</span>
-      </div>
-    </div>
-  )
-}
-
 function HeadToHeadStat({ label, home, away, suffix = '' }) {
   const total = home + away
   const homePct = total > 0 ? (home / total) * 100 : 50
@@ -318,10 +298,18 @@ function HeadToHeadStat({ label, home, away, suffix = '' }) {
   )
 }
 
-function WmPredictionCard({ matchId, data, fixture, onCollapse }) {
+function RevealSection({ visible, className = '', children }) {
+  if (!visible) return null
+  return <div className={`wm-reveal ${className}`}>{children}</div>
+}
+
+function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Infinity }) {
   const sp = data.score_prediction || {}
   const gf = data.game_flow || {}
   const ps = gf.predicted_stats || {}
+
+  const analyzing = revealStep < ANALYZING_STEPS.length
+  const show = (n) => revealStep >= n
 
   return (
     <div className="card wm-card">
@@ -330,8 +318,8 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse }) {
           {fixture ? `${fixture.date} · ${fixture.time}` : matchId}
         </span>
         <div className="wm-card-header-right">
-          {gf.match_type && <span className="wm-match-type">{gf.match_type}</span>}
-          {onCollapse && (
+          {gf.match_type && show(4) && <span className="wm-match-type">{gf.match_type}</span>}
+          {onCollapse && !analyzing && (
             <button className="wm-collapse-btn" onClick={onCollapse}>
               Collapse ▲
             </button>
@@ -348,15 +336,24 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse }) {
         <span className="team-name"><TeamLabel name={data.away_team} /></span>
       </div>
 
-      <div className="probabilities">
-        <ProbabilityBar label={<TeamLabel name={data.home_team} />} value={data.probability_home_win} color="linear-gradient(90deg,var(--gold),var(--gold-light))" />
-        <ProbabilityBar label="Draw" value={data.probability_draw} color="linear-gradient(90deg,#6b7280,#9ca3af)" />
-        <ProbabilityBar label={<TeamLabel name={data.away_team} />} value={data.probability_away_win} color="linear-gradient(90deg,#ef4444,#f97316)" />
-      </div>
+      {analyzing && (
+        <div className="analyzing-status">
+          <span className="analyzing-spinner" />
+          <span>{ANALYZING_STEPS[revealStep]}</span>
+        </div>
+      )}
 
-      <BettingMarkets data={data} />
+      <RevealSection visible={show(1)} className="probabilities">
+        <ProbabilityBar label={<TeamLabel name={data.home_team} />} value={data.probability_home_win} color="linear-gradient(90deg,var(--gold),var(--gold-light))" animate />
+        <ProbabilityBar label="Draw" value={data.probability_draw} color="linear-gradient(90deg,#6b7280,#9ca3af)" animate />
+        <ProbabilityBar label={<TeamLabel name={data.away_team} />} value={data.probability_away_win} color="linear-gradient(90deg,#ef4444,#f97316)" animate />
+      </RevealSection>
 
-      <div className="explanation-grid wm-grid">
+      <RevealSection visible={show(2)}>
+        <BettingMarkets data={data} />
+      </RevealSection>
+
+      <RevealSection visible={show(2)} className="explanation-grid wm-grid">
         <div className="stat-card">
           <h4>Most Likely Score</h4>
           <div className="wm-score-highlight">{sp.most_likely_score}</div>
@@ -382,10 +379,10 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse }) {
             <span className="stat-val">{((gf.late_drama_probability || 0) * 100).toFixed(0)}%</span>
           </div>
         </div>
-      </div>
+      </RevealSection>
 
       {ps.possession && (
-        <div className="h2h-stats">
+        <RevealSection visible={show(3)} className="h2h-stats">
           <h4>Predicted Match Stats</h4>
           <div className="h2h-teams">
             <span><TeamLabel name={data.home_team} /></span>
@@ -396,15 +393,17 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse }) {
           <HeadToHeadStat label="Shots on Target" home={ps.shots_on_target.home} away={ps.shots_on_target.away} />
           <HeadToHeadStat label="Corners" home={ps.corners.home} away={ps.corners.away} />
           <HeadToHeadStat label="Passes" home={ps.passes.home} away={ps.passes.away} />
-        </div>
+        </RevealSection>
       )}
 
       {gf.match_description && (
-        <p className="wm-description">{gf.match_description}</p>
+        <RevealSection visible={show(4)}>
+          <p className="wm-description">{gf.match_description}</p>
+        </RevealSection>
       )}
 
       {(gf.match_ticker || []).length > 0 && (
-        <div className="wm-stories">
+        <RevealSection visible={show(4)} className="wm-stories">
           <h4>Match Ticker</h4>
           {gf.match_ticker.map((e, i) => (
             <div className={`wm-ticker-event wm-ticker-${e.type}`} key={i}>
@@ -418,7 +417,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse }) {
               </div>
             </div>
           ))}
-        </div>
+        </RevealSection>
       )}
     </div>
   )
@@ -709,32 +708,28 @@ export default function App() {
   const [predictionsById, setPredictionsById] = useState({})
   const [wmLoading, setWmLoading] = useState(true)
   const [activeGroup, setActiveGroup] = useState(GROUPS[0])
-  const [analyzingIds, setAnalyzingIds] = useState(new Set())
-  const [revealedIds, setRevealedIds] = useState(new Set())
+  const [analysisStep, setAnalysisStep] = useState({})
 
   function startAnalysis(matchId) {
-    setAnalyzingIds(prev => new Set(prev).add(matchId))
-    const duration = 5000 + Math.random() * 5000
-    setTimeout(() => {
-      setAnalyzingIds(prev => {
-        const next = new Set(prev)
-        next.delete(matchId)
-        return next
-      })
-      setRevealedIds(prev => new Set(prev).add(matchId))
-    }, duration)
+    setAnalysisStep(prev => ({ ...prev, [matchId]: 0 }))
+    let step = 0
+    const interval = setInterval(() => {
+      step += 1
+      if (step >= ANALYZING_STEPS.length) {
+        clearInterval(interval)
+        setAnalysisStep(prev => ({ ...prev, [matchId]: Infinity }))
+      } else {
+        setAnalysisStep(prev => ({ ...prev, [matchId]: step }))
+      }
+    }, 1500)
   }
 
   function collapseAnalysis(matchId) {
-    setRevealedIds(prev => {
-      const next = new Set(prev)
-      next.delete(matchId)
+    setAnalysisStep(prev => {
+      const next = { ...prev }
+      delete next[matchId]
       return next
     })
-  }
-
-  function expandAnalysis(matchId) {
-    setRevealedIds(prev => new Set(prev).add(matchId))
   }
 
   useEffect(() => {
@@ -750,7 +745,11 @@ export default function App() {
         const byId = {}
         all.forEach(({ matchId, data }) => { byId[matchId] = data })
         setPredictionsById(byId)
-        setRevealedIds(new Set(Object.keys(byId)))
+        setAnalysisStep(prev => {
+          const next = { ...prev }
+          Object.keys(byId).forEach(id => { next[id] = Infinity })
+          return next
+        })
       } catch (e) {
         // Backend may not have any cached predictions yet - not an error state
       } finally {
@@ -866,25 +865,24 @@ export default function App() {
                     if (!data) {
                       return <FixtureRow key={fixture.match_id} fixture={fixture} />
                     }
-                    if (analyzingIds.has(fixture.match_id)) {
-                      return <AnalyzingCard key={fixture.match_id} fixture={fixture} />
-                    }
-                    if (revealedIds.has(fixture.match_id)) {
+                    const step = analysisStep[fixture.match_id]
+                    if (step === undefined) {
                       return (
-                        <WmPredictionCard
+                        <FixtureReadyRow
                           key={fixture.match_id}
-                          matchId={fixture.match_id}
-                          data={data}
                           fixture={fixture}
-                          onCollapse={() => collapseAnalysis(fixture.match_id)}
+                          onGenerate={() => startAnalysis(fixture.match_id)}
                         />
                       )
                     }
                     return (
-                      <FixtureReadyRow
+                      <WmPredictionCard
                         key={fixture.match_id}
+                        matchId={fixture.match_id}
+                        data={data}
                         fixture={fixture}
-                        onGenerate={() => expandAnalysis(fixture.match_id)}
+                        revealStep={step}
+                        onCollapse={step === Infinity ? () => collapseAnalysis(fixture.match_id) : undefined}
                       />
                     )
                   })

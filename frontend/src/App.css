@@ -1139,6 +1139,25 @@ body {
   to { transform: rotate(360deg); }
 }
 
+.analyzing-status {
+  margin-bottom: 1.25rem;
+}
+
+.wm-reveal {
+  animation: wmFadeSlideIn 0.5s ease both;
+}
+
+@keyframes wmFadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Footer */
 .footer {
   text-align: center;
