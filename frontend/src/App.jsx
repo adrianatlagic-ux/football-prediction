@@ -275,9 +275,10 @@ function FixtureReadyRow({ fixture, onGenerate }) {
 const ANALYZING_STEPS = [
   'Reading current match data…',
   'Analyzing FIFA ranking, form & head-to-head…',
-  'Calculating goal probabilities…',
-  'Generating match flow scenarios…',
-  'Finalizing the result…',
+  'Calculating win/draw/loss probabilities…',
+  'Computing betting markets & odds…',
+  'Simulating most likely scorelines…',
+  'Generating match flow & ticker…',
 ]
 
 function HeadToHeadStat({ label, home, away, suffix = '' }) {
@@ -318,7 +319,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
           {fixture ? `${fixture.date} · ${fixture.time}` : matchId}
         </span>
         <div className="wm-card-header-right">
-          {gf.match_type && show(4) && <span className="wm-match-type">{gf.match_type}</span>}
+          {gf.match_type && show(6) && <span className="wm-match-type">{gf.match_type}</span>}
           {onCollapse && !analyzing && (
             <button className="wm-collapse-btn" onClick={onCollapse}>
               Collapse ▲
@@ -353,7 +354,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
         <BettingMarkets data={data} />
       </RevealSection>
 
-      <RevealSection visible={show(2)} className="explanation-grid wm-grid">
+      <RevealSection visible={show(3)} className="explanation-grid wm-grid">
         <div className="stat-card">
           <h4>Most Likely Score</h4>
           <div className="wm-score-highlight">{sp.most_likely_score}</div>
@@ -382,7 +383,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
       </RevealSection>
 
       {ps.possession && (
-        <RevealSection visible={show(3)} className="h2h-stats">
+        <RevealSection visible={show(4)} className="h2h-stats">
           <h4>Predicted Match Stats</h4>
           <div className="h2h-teams">
             <span><TeamLabel name={data.home_team} /></span>
@@ -397,13 +398,13 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
       )}
 
       {gf.match_description && (
-        <RevealSection visible={show(4)}>
+        <RevealSection visible={show(5)}>
           <p className="wm-description">{gf.match_description}</p>
         </RevealSection>
       )}
 
       {(gf.match_ticker || []).length > 0 && (
-        <RevealSection visible={show(4)} className="wm-stories">
+        <RevealSection visible={show(5)} className="wm-stories">
           <h4>Match Ticker</h4>
           {gf.match_ticker.map((e, i) => (
             <div className={`wm-ticker-event wm-ticker-${e.type}`} key={i}>
@@ -721,7 +722,7 @@ export default function App() {
       } else {
         setAnalysisStep(prev => ({ ...prev, [matchId]: step }))
       }
-    }, 1500)
+    }, 2400)
   }
 
   function collapseAnalysis(matchId) {
@@ -745,11 +746,6 @@ export default function App() {
         const byId = {}
         all.forEach(({ matchId, data }) => { byId[matchId] = data })
         setPredictionsById(byId)
-        setAnalysisStep(prev => {
-          const next = { ...prev }
-          Object.keys(byId).forEach(id => { next[id] = Infinity })
-          return next
-        })
       } catch (e) {
         // Backend may not have any cached predictions yet - not an error state
       } finally {
