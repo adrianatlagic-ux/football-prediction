@@ -119,6 +119,36 @@ function TeamLabel({ name }) {
   return <>{flag && <span style={{ marginRight: '0.4em' }}>{flag}</span>}{name}</>
 }
 
+function AnimatedNumber({ value, decimals = 0, suffix = '', duration = 1000 }) {
+  const [display, setDisplay] = useState(0)
+
+  useEffect(() => {
+    let start = null
+    let raf
+    function step(ts) {
+      if (start === null) start = ts
+      const progress = Math.min((ts - start) / duration, 1)
+      setDisplay(value * progress)
+      if (progress < 1) raf = requestAnimationFrame(step)
+    }
+    raf = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(raf)
+  }, [value, duration])
+
+  return <>{display.toFixed(decimals)}{suffix}</>
+}
+
+function AnimatedBarFill({ className, targetPct, style }) {
+  const [pct, setPct] = useState(0)
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setPct(targetPct))
+    return () => cancelAnimationFrame(frame)
+  }, [targetPct])
+
+  return <div className={className} style={{ ...style, width: `${pct}%` }} />
+}
+
 function ProbabilityBar({ label, value, color, animate }) {
   const [width, setWidth] = useState(animate ? 0 : value * 100)
 
@@ -134,7 +164,9 @@ function ProbabilityBar({ label, value, color, animate }) {
       <div className="prob-bar-track">
         <div className="prob-bar-fill" style={{ width: `${width}%`, background: color }} />
       </div>
-      <span className="prob-value">{(value * 100).toFixed(1)}%</span>
+      <span className="prob-value">
+        {animate ? <AnimatedNumber value={value * 100} decimals={1} suffix="%" /> : `${(value * 100).toFixed(1)}%`}
+      </span>
     </div>
   )
 }
@@ -176,15 +208,15 @@ function BettingMarkets({ data }) {
         <div className="market-grid">
           <div className="market-card">
             <div className="market-card-label"><TeamLabel name={home} /> or Draw</div>
-            <div className="market-card-value">{(dc.home_or_draw * 100).toFixed(1)}%</div>
+            <div className="market-card-value"><AnimatedNumber value={dc.home_or_draw * 100} decimals={1} suffix="%" /></div>
           </div>
           <div className="market-card">
             <div className="market-card-label"><TeamLabel name={home} /> or <TeamLabel name={away} /></div>
-            <div className="market-card-value">{(dc.home_or_away * 100).toFixed(1)}%</div>
+            <div className="market-card-value"><AnimatedNumber value={dc.home_or_away * 100} decimals={1} suffix="%" /></div>
           </div>
           <div className="market-card">
             <div className="market-card-label">Draw or <TeamLabel name={away} /></div>
-            <div className="market-card-value">{(dc.draw_or_away * 100).toFixed(1)}%</div>
+            <div className="market-card-value"><AnimatedNumber value={dc.draw_or_away * 100} decimals={1} suffix="%" /></div>
           </div>
         </div>
       </div>
@@ -195,9 +227,9 @@ function BettingMarkets({ data }) {
           <div className="over-under-row" key={o.line}>
             <span className="over-under-line">{o.line}</span>
             <div className="over-under-track">
-              <div className="over-under-fill" style={{ width: `${o.over * 100}%` }} />
+              <AnimatedBarFill className="over-under-fill" targetPct={o.over * 100} />
             </div>
-            <span className="over-under-value">over {(o.over * 100).toFixed(1)}%</span>
+            <span className="over-under-value">over <AnimatedNumber value={o.over * 100} decimals={1} suffix="%" /></span>
           </div>
         ))}
       </div>
@@ -206,30 +238,30 @@ function BettingMarkets({ data }) {
         <div className="market-card-label">Both Teams to Score</div>
         <div className="btts-split">
           <div className="btts-half">
-            <div className="market-card-value">{(btts.yes * 100).toFixed(1)}%</div>
+            <div className="market-card-value"><AnimatedNumber value={btts.yes * 100} decimals={1} suffix="%" /></div>
             <div className="market-card-sub">Yes</div>
           </div>
           <div className="btts-half">
-            <div className="market-card-value">{(btts.no * 100).toFixed(1)}%</div>
+            <div className="market-card-value"><AnimatedNumber value={btts.no * 100} decimals={1} suffix="%" /></div>
             <div className="market-card-sub">No</div>
           </div>
         </div>
       </div>
 
       <div>
-        <h4>If <TeamLabel name={favorite} /> win ({(margin1 * 100).toFixed(1)}%) — by how much?</h4>
+        <h4>If <TeamLabel name={favorite} /> win (<AnimatedNumber value={margin1 * 100} decimals={1} suffix="%" />) — by how much?</h4>
         <div className="market-grid">
           <div className="market-card">
             <div className="market-card-label">1+ goal</div>
-            <div className="market-card-value">{(margin1 * 100).toFixed(1)}%</div>
+            <div className="market-card-value"><AnimatedNumber value={margin1 * 100} decimals={1} suffix="%" /></div>
           </div>
           <div className="market-card">
             <div className="market-card-label">2+ goals</div>
-            <div className="market-card-value">{(margin2 * 100).toFixed(1)}%</div>
+            <div className="market-card-value"><AnimatedNumber value={margin2 * 100} decimals={1} suffix="%" /></div>
           </div>
           <div className="market-card">
             <div className="market-card-label">3+ goals</div>
-            <div className="market-card-value">{(margin3 * 100).toFixed(1)}%</div>
+            <div className="market-card-value"><AnimatedNumber value={margin3 * 100} decimals={1} suffix="%" /></div>
           </div>
         </div>
       </div>
@@ -286,15 +318,15 @@ function HeadToHeadStat({ label, home, away, suffix = '' }) {
   const homePct = total > 0 ? (home / total) * 100 : 50
   return (
     <div className="h2h-row">
-      <span className="h2h-value h2h-home">{home}{suffix}</span>
+      <span className="h2h-value h2h-home"><AnimatedNumber value={home} suffix={suffix} /></span>
       <div className="h2h-mid">
         <span className="h2h-label">{label}</span>
         <div className="h2h-bar-track">
-          <div className="h2h-bar-home" style={{ width: `${homePct}%` }} />
-          <div className="h2h-bar-away" style={{ width: `${100 - homePct}%` }} />
+          <AnimatedBarFill className="h2h-bar-home" targetPct={homePct} />
+          <AnimatedBarFill className="h2h-bar-away" targetPct={100 - homePct} />
         </div>
       </div>
-      <span className="h2h-value h2h-away">{away}{suffix}</span>
+      <span className="h2h-value h2h-away"><AnimatedNumber value={away} suffix={suffix} /></span>
     </div>
   )
 }
@@ -358,11 +390,13 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
         <div className="stat-card">
           <h4>Most Likely Score</h4>
           <div className="wm-score-highlight">{sp.most_likely_score}</div>
-          <p className="wm-subtle">xG: {sp.home_xg} : {sp.away_xg}</p>
+          <p className="wm-subtle">
+            xG: <AnimatedNumber value={sp.home_xg} decimals={2} /> : <AnimatedNumber value={sp.away_xg} decimals={2} />
+          </p>
           {(sp.top_scorelines || []).slice(0, 3).map((s, i) => (
             <div className="stat-row" key={i}>
               <span className="stat-label">{s.score}</span>
-              <span className="stat-val">{(s.probability * 100).toFixed(1)}%</span>
+              <span className="stat-val"><AnimatedNumber value={s.probability * 100} decimals={1} suffix="%" /></span>
             </div>
           ))}
         </div>
@@ -372,12 +406,12 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
           {(gf.top_halftime_scores || []).slice(0, 3).map((h, i) => (
             <div className="stat-row" key={i}>
               <span className="stat-label">{h.score}</span>
-              <span className="stat-val">{(h.probability * 100).toFixed(1)}%</span>
+              <span className="stat-val"><AnimatedNumber value={h.probability * 100} decimals={1} suffix="%" /></span>
             </div>
           ))}
           <div className="stat-row">
             <span className="stat-label">Late drama (75'+)</span>
-            <span className="stat-val">{((gf.late_drama_probability || 0) * 100).toFixed(0)}%</span>
+            <span className="stat-val"><AnimatedNumber value={(gf.late_drama_probability || 0) * 100} decimals={0} suffix="%" /></span>
           </div>
         </div>
       </RevealSection>
@@ -722,7 +756,7 @@ export default function App() {
       } else {
         setAnalysisStep(prev => ({ ...prev, [matchId]: step }))
       }
-    }, 2400)
+    }, 3000)
   }
 
   function collapseAnalysis(matchId) {
