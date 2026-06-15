@@ -441,7 +441,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
         <RevealSection visible={show(5)} className="wm-stories">
           <h4>Match Ticker</h4>
           {gf.match_ticker.map((e, i) => (
-            <div className={`wm-ticker-event wm-ticker-${e.type}`} key={i}>
+            <div className={`wm-ticker-event wm-ticker-${e.type}`} key={i} style={{ animationDelay: `${i * 0.25}s` }}>
               <span className="wm-ticker-minute">{e.minute}'</span>
               <div className="wm-ticker-body">
                 <div className="wm-ticker-head">
