@@ -119,7 +119,7 @@ function TeamLabel({ name }) {
   return <>{flag && <span style={{ marginRight: '0.4em' }}>{flag}</span>}{name}</>
 }
 
-function AnimatedNumber({ value, decimals = 0, suffix = '', duration = 1000 }) {
+function AnimatedNumber({ value, decimals = 0, suffix = '', duration = 1500 }) {
   const [display, setDisplay] = useState(0)
 
   useEffect(() => {
@@ -441,7 +441,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
         <RevealSection visible={show(5)} className="wm-stories">
           <h4>Match Ticker</h4>
           {gf.match_ticker.map((e, i) => (
-            <div className={`wm-ticker-event wm-ticker-${e.type}`} key={i} style={{ animationDelay: `${i * 0.25}s` }}>
+            <div className={`wm-ticker-event wm-ticker-${e.type}`} key={i} style={{ animationDelay: `${i * 0.4}s` }}>
               <span className="wm-ticker-minute">{e.minute}'</span>
               <div className="wm-ticker-body">
                 <div className="wm-ticker-head">
@@ -756,7 +756,7 @@ export default function App() {
       } else {
         setAnalysisStep(prev => ({ ...prev, [matchId]: step }))
       }
-    }, 3000)
+    }, 4200)
   }
 
   function collapseAnalysis(matchId) {
