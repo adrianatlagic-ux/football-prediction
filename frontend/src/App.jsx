@@ -318,7 +318,7 @@ function HeadToHeadStat({ label, home, away, suffix = '' }) {
   )
 }
 
-function WmPredictionCard({ matchId, data, fixture }) {
+function WmPredictionCard({ matchId, data, fixture, onCollapse }) {
   const sp = data.score_prediction || {}
   const gf = data.game_flow || {}
   const ps = gf.predicted_stats || {}
@@ -329,7 +329,14 @@ function WmPredictionCard({ matchId, data, fixture }) {
         <span className="wm-match-id">
           {fixture ? `${fixture.date} · ${fixture.time}` : matchId}
         </span>
-        {gf.match_type && <span className="wm-match-type">{gf.match_type}</span>}
+        <div className="wm-card-header-right">
+          {gf.match_type && <span className="wm-match-type">{gf.match_type}</span>}
+          {onCollapse && (
+            <button className="wm-collapse-btn" onClick={onCollapse}>
+              Collapse ▲
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="result-header">
@@ -718,6 +725,18 @@ export default function App() {
     }, duration)
   }
 
+  function collapseAnalysis(matchId) {
+    setRevealedIds(prev => {
+      const next = new Set(prev)
+      next.delete(matchId)
+      return next
+    })
+  }
+
+  function expandAnalysis(matchId) {
+    setRevealedIds(prev => new Set(prev).add(matchId))
+  }
+
   useEffect(() => {
     async function loadWmPredictions() {
       try {
@@ -851,13 +870,21 @@ export default function App() {
                       return <AnalyzingCard key={fixture.match_id} fixture={fixture} />
                     }
                     if (revealedIds.has(fixture.match_id)) {
-                      return <WmPredictionCard key={fixture.match_id} matchId={fixture.match_id} data={data} fixture={fixture} />
+                      return (
+                        <WmPredictionCard
+                          key={fixture.match_id}
+                          matchId={fixture.match_id}
+                          data={data}
+                          fixture={fixture}
+                          onCollapse={() => collapseAnalysis(fixture.match_id)}
+                        />
+                      )
                     }
                     return (
                       <FixtureReadyRow
                         key={fixture.match_id}
                         fixture={fixture}
-                        onGenerate={() => startAnalysis(fixture.match_id)}
+                        onGenerate={() => expandAnalysis(fixture.match_id)}
                       />
                     )
                   })

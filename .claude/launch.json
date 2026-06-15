@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "frontend",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vite", "--port", "5180"],
+      "cwd": "frontend",
+      "port": 5180
+    }
+  ]
+}

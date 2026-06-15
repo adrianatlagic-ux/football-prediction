@@ -817,6 +817,29 @@ body {
   padding: 0.25rem 0.75rem;
 }
 
+.wm-card-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.wm-collapse-btn {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  border-radius: 50px;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.wm-collapse-btn:hover {
+  color: var(--gold-light);
+  border-color: var(--gold-light);
+}
+
 .wm-grid {
   margin-top: 1.5rem;
 }
