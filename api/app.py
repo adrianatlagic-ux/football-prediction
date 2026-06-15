@@ -66,6 +66,7 @@ class ScorePrediction(BaseModel):
     probability_draw: float
     probability_away_win: float
     top_scorelines: list[dict]
+    betting_markets: dict[str, Any] = {}
 
 
 class GameFlow(BaseModel):

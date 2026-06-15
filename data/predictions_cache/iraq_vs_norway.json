@@ -1,0 +1,301 @@
+{
+  "home_team": "Iraq",
+  "away_team": "Norway",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.2013,
+  "probability_draw": 0.2598,
+  "probability_away_win": 0.5389,
+  "score_prediction": {
+    "home_xg": 0.9,
+    "away_xg": 2.0,
+    "rho": -0.13,
+    "most_likely_score": "0:2",
+    "result": "A",
+    "probability_home_win": 0.2013,
+    "probability_draw": 0.2598,
+    "probability_away_win": 0.5389,
+    "top_scorelines": [
+      {
+        "score": "0:2",
+        "probability": 0.096
+      },
+      {
+        "score": "1:2",
+        "probability": 0.0867
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0847
+      },
+      {
+        "score": "0:3",
+        "probability": 0.064
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0578
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.4611,
+        "home_or_away": 0.7402,
+        "draw_or_away": 0.7987
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7909,
+          "under": 0.2091
+        },
+        {
+          "line": 2.5,
+          "over": 0.5407,
+          "under": 0.4593
+        },
+        {
+          "line": 3.5,
+          "over": 0.3206,
+          "under": 0.6794
+        }
+      ],
+      "btts": {
+        "yes": 0.5384,
+        "no": 0.4616
+      },
+      "win_margin": {
+        "home_1plus": 0.2013,
+        "home_2plus": 0.0705,
+        "home_3plus": 0.0175,
+        "away_1plus": 0.5389,
+        "away_2plus": 0.3371,
+        "away_3plus": 0.1685
+      },
+      "scenario": "Norway are favored to win, likely by 2+ goals."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.38,
+    "total_xg": 2.9,
+    "first_goal": {
+      "Iraq_scores_first": 0.293,
+      "Norway_scores_first": 0.652,
+      "no_goals": 0.055,
+      "expected_minute": 31
+    },
+    "halftime_xg": {
+      "Iraq": 0.42,
+      "Norway": 0.94
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.257
+      },
+      {
+        "score": "0:1",
+        "probability": 0.241
+      },
+      {
+        "score": "0:2",
+        "probability": 0.113
+      },
+      {
+        "score": "1:0",
+        "probability": 0.109
+      },
+      {
+        "score": "1:1",
+        "probability": 0.102
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Iraq": 0.122,
+        "Norway": 0.27
+      },
+      "16-30'": {
+        "Iraq": 0.14,
+        "Norway": 0.31
+      },
+      "31-45'": {
+        "Iraq": 0.162,
+        "Norway": 0.36
+      },
+      "46-60'": {
+        "Iraq": 0.131,
+        "Norway": 0.29
+      },
+      "61-75'": {
+        "Iraq": 0.167,
+        "Norway": 0.37
+      },
+      "76-90'": {
+        "Iraq": 0.18,
+        "Norway": 0.4
+      }
+    },
+    "comeback_probability": {
+      "Iraq": 0.016,
+      "Norway": 0.033
+    },
+    "late_drama_probability": 0.44,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenh\u00f6he, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.211
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
+        "wahrscheinlichkeit": 0.204
+      },
+      {
+        "szenario": "Norway dominiert fr\u00fch",
+        "beschreibung": "Norway geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.115
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Norway trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.112
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 43,
+        "away": 57
+      },
+      "shots": {
+        "home": 10,
+        "away": 17
+      },
+      "shots_on_target": {
+        "home": 4,
+        "away": 7
+      },
+      "corners": {
+        "home": 4,
+        "away": 7
+      },
+      "passes": {
+        "home": 224,
+        "away": 296
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Iraq and Norway is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 16,
+        "type": "goal",
+        "team": "Norway",
+        "headline": "GOAL! Norway!",
+        "description": "Norway score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 26,
+        "type": "chance",
+        "team": "Iraq",
+        "headline": "Big chance for Iraq!",
+        "description": "Iraq create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 32,
+        "type": "chance",
+        "team": "Norway",
+        "headline": "Big chance for Norway!",
+        "description": "Norway create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 56,
+        "type": "chance",
+        "team": "Iraq",
+        "headline": "Big chance for Iraq!",
+        "description": "Iraq create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 76,
+        "type": "chance",
+        "team": "Iraq",
+        "headline": "Big chance for Iraq!",
+        "description": "Iraq create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 82,
+        "type": "goal",
+        "team": "Norway",
+        "headline": "GOAL! Norway!",
+        "description": "Norway score to make it 0:2.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 0:2.",
+        "score_after": "0:2"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Iraq": 57,
+      "Norway": 31
+    },
+    "fifa_points": {
+      "Iraq": 1008.0,
+      "Norway": 1416.0
+    },
+    "form_last_10_avg_pts": {
+      "Iraq": 2.02,
+      "Norway": 2.01
+    },
+    "win_rate_last_10": {
+      "Iraq": "63%",
+      "Norway": "58%"
+    },
+    "avg_goals_scored": {
+      "Iraq": 0.7,
+      "Norway": 2.48
+    },
+    "avg_goals_conceded": {
+      "Iraq": 0.72,
+      "Norway": 1.5
+    },
+    "clean_sheet_rate": {
+      "Iraq": "51%",
+      "Norway": "30%"
+    },
+    "h2h_last_10": {
+      "Iraq wins": "0%",
+      "draws": "0%",
+      "Norway wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

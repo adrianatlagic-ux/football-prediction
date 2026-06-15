@@ -1,0 +1,309 @@
+{
+  "home_team": "Netherlands",
+  "away_team": "Japan",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6322,
+  "probability_draw": 0.1599,
+  "probability_away_win": 0.208,
+  "score_prediction": {
+    "home_xg": 1.49,
+    "away_xg": 1.95,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.6321,
+    "probability_draw": 0.1599,
+    "probability_away_win": 0.208,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1548
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0795
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0792
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0767
+      },
+      {
+        "score": "3:2",
+        "probability": 0.075
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.792,
+        "home_or_away": 0.8401,
+        "draw_or_away": 0.3679
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8693,
+          "under": 0.1307
+        },
+        {
+          "line": 2.5,
+          "over": 0.6942,
+          "under": 0.3058
+        },
+        {
+          "line": 3.5,
+          "over": 0.4428,
+          "under": 0.5572
+        }
+      ],
+      "btts": {
+        "yes": 0.6731,
+        "no": 0.3269
+      },
+      "win_margin": {
+        "home_1plus": 0.6321,
+        "home_2plus": 0.3017,
+        "home_3plus": 0.1117,
+        "away_1plus": 0.208,
+        "away_2plus": 0.1211,
+        "away_3plus": 0.0569
+      },
+      "scenario": "Netherlands are favored to win, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.13,
+    "total_xg": 3.44,
+    "first_goal": {
+      "Netherlands_scores_first": 0.419,
+      "Japan_scores_first": 0.549,
+      "no_goals": 0.032,
+      "expected_minute": 26
+    },
+    "halftime_xg": {
+      "Netherlands": 0.7,
+      "Japan": 0.92
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.199
+      },
+      {
+        "score": "0:1",
+        "probability": 0.183
+      },
+      {
+        "score": "1:0",
+        "probability": 0.139
+      },
+      {
+        "score": "1:1",
+        "probability": 0.128
+      },
+      {
+        "score": "0:2",
+        "probability": 0.084
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Netherlands": 0.201,
+        "Japan": 0.263
+      },
+      "16-30'": {
+        "Netherlands": 0.231,
+        "Japan": 0.302
+      },
+      "31-45'": {
+        "Netherlands": 0.268,
+        "Japan": 0.351
+      },
+      "46-60'": {
+        "Netherlands": 0.216,
+        "Japan": 0.283
+      },
+      "61-75'": {
+        "Netherlands": 0.276,
+        "Japan": 0.361
+      },
+      "76-90'": {
+        "Netherlands": 0.298,
+        "Japan": 0.39
+      }
+    },
+    "comeback_probability": {
+      "Netherlands": 0.033,
+      "Japan": 0.042
+    },
+    "late_drama_probability": 0.497,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenh\u00f6he, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.219
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
+        "wahrscheinlichkeit": 0.17
+      },
+      {
+        "szenario": "Japan dominiert fr\u00fch",
+        "beschreibung": "Japan geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.085
+      },
+      {
+        "szenario": "Netherlands dominiert fr\u00fch",
+        "beschreibung": "Netherlands geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.05
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 48,
+        "away": 52
+      },
+      "shots": {
+        "home": 14,
+        "away": 17
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 6
+      },
+      "corners": {
+        "home": 6,
+        "away": 7
+      },
+      "passes": {
+        "home": 250,
+        "away": 270
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Netherlands and Japan is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 1,
+        "type": "chance",
+        "team": "Netherlands",
+        "headline": "Big chance for Netherlands!",
+        "description": "Netherlands create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 13,
+        "type": "chance",
+        "team": "Japan",
+        "headline": "Big chance for Japan!",
+        "description": "Japan create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 17,
+        "type": "goal",
+        "team": "Netherlands",
+        "headline": "GOAL! Netherlands!",
+        "description": "Netherlands score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 65,
+        "type": "chance",
+        "team": "Japan",
+        "headline": "Big chance for Japan!",
+        "description": "Japan create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 68,
+        "type": "chance",
+        "team": "Netherlands",
+        "headline": "Big chance for Netherlands!",
+        "description": "Netherlands create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 79,
+        "type": "goal",
+        "team": "Japan",
+        "headline": "GOAL! Japan!",
+        "description": "Japan score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 85,
+        "type": "goal",
+        "team": "Netherlands",
+        "headline": "GOAL! Netherlands!",
+        "description": "Netherlands score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Netherlands": 7,
+      "Japan": 18
+    },
+    "fifa_points": {
+      "Netherlands": 1800.0,
+      "Japan": 1624.0
+    },
+    "form_last_10_avg_pts": {
+      "Netherlands": 2.3,
+      "Japan": 2.54
+    },
+    "win_rate_last_10": {
+      "Netherlands": "65%",
+      "Japan": "80%"
+    },
+    "avg_goals_scored": {
+      "Netherlands": 2.11,
+      "Japan": 1.55
+    },
+    "avg_goals_conceded": {
+      "Netherlands": 1.01,
+      "Japan": 0.45
+    },
+    "clean_sheet_rate": {
+      "Netherlands": "32%",
+      "Japan": "68%"
+    },
+    "h2h_last_10": {
+      "Netherlands wins": "67%",
+      "draws": "33%",
+      "Japan wins": "0%",
+      "total_h2h_games": 3
+    }
+  }
+}

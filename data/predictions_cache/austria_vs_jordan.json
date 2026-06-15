@@ -1,0 +1,296 @@
+{
+  "home_team": "Austria",
+  "away_team": "Jordan",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.65,
+  "probability_draw": 0.2279,
+  "probability_away_win": 0.1221,
+  "score_prediction": {
+    "home_xg": 2.18,
+    "away_xg": 0.96,
+    "rho": -0.13,
+    "most_likely_score": "2:0",
+    "result": "H",
+    "probability_home_win": 0.65,
+    "probability_draw": 0.2279,
+    "probability_away_win": 0.1221,
+    "top_scorelines": [
+      {
+        "score": "2:0",
+        "probability": 0.1045
+      },
+      {
+        "score": "2:1",
+        "probability": 0.1007
+      },
+      {
+        "score": "1:0",
+        "probability": 0.084
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0757
+      },
+      {
+        "score": "3:1",
+        "probability": 0.073
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8779,
+        "home_or_away": 0.7721,
+        "draw_or_away": 0.35
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8326,
+          "under": 0.1674
+        },
+        {
+          "line": 2.5,
+          "over": 0.6037,
+          "under": 0.3963
+        },
+        {
+          "line": 3.5,
+          "over": 0.3847,
+          "under": 0.6153
+        }
+      ],
+      "btts": {
+        "yes": 0.5601,
+        "no": 0.4399
+      },
+      "win_margin": {
+        "home_1plus": 0.65,
+        "home_2plus": 0.423,
+        "home_3plus": 0.2235,
+        "away_1plus": 0.1221,
+        "away_2plus": 0.044,
+        "away_3plus": 0.0115
+      },
+      "scenario": "Austria are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": 0.39,
+    "total_xg": 3.14,
+    "first_goal": {
+      "Austria_scores_first": 0.664,
+      "Jordan_scores_first": 0.292,
+      "no_goals": 0.043,
+      "expected_minute": 28
+    },
+    "halftime_xg": {
+      "Austria": 1.02,
+      "Jordan": 0.45
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.235
+      },
+      {
+        "score": "0:0",
+        "probability": 0.23
+      },
+      {
+        "score": "2:0",
+        "probability": 0.12
+      },
+      {
+        "score": "1:1",
+        "probability": 0.106
+      },
+      {
+        "score": "0:1",
+        "probability": 0.104
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Austria": 0.294,
+        "Jordan": 0.13
+      },
+      "16-30'": {
+        "Austria": 0.338,
+        "Jordan": 0.149
+      },
+      "31-45'": {
+        "Austria": 0.392,
+        "Jordan": 0.173
+      },
+      "46-60'": {
+        "Austria": 0.316,
+        "Jordan": 0.139
+      },
+      "61-75'": {
+        "Austria": 0.403,
+        "Jordan": 0.178
+      },
+      "76-90'": {
+        "Austria": 0.436,
+        "Jordan": 0.192
+      }
+    },
+    "comeback_probability": {
+      "Austria": 0.037,
+      "Jordan": 0.017
+    },
+    "late_drama_probability": 0.466,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
+        "wahrscheinlichkeit": 0.189
+      },
+      {
+        "szenario": "Austria dominiert fr\u00fch",
+        "beschreibung": "Austria geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.123
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Austria trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.097
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 57,
+        "away": 43
+      },
+      "shots": {
+        "home": 18,
+        "away": 10
+      },
+      "shots_on_target": {
+        "home": 7,
+        "away": 4
+      },
+      "corners": {
+        "home": 7,
+        "away": 4
+      },
+      "passes": {
+        "home": 296,
+        "away": 224
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Austria and Jordan is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 20,
+        "type": "chance",
+        "team": "Austria",
+        "headline": "Big chance for Austria!",
+        "description": "Austria create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 25,
+        "type": "goal",
+        "team": "Austria",
+        "headline": "GOAL! Austria!",
+        "description": "Austria score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 42,
+        "type": "chance",
+        "team": "Jordan",
+        "headline": "Big chance for Jordan!",
+        "description": "Jordan create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 49,
+        "type": "chance",
+        "team": "Jordan",
+        "headline": "Big chance for Jordan!",
+        "description": "Jordan create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 71,
+        "type": "goal",
+        "team": "Austria",
+        "headline": "GOAL! Austria!",
+        "description": "Austria score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 83,
+        "type": "chance",
+        "team": "Austria",
+        "headline": "Big chance for Austria!",
+        "description": "Austria create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Austria": 24,
+      "Jordan": 63
+    },
+    "fifa_points": {
+      "Austria": 1528.0,
+      "Jordan": 912.0
+    },
+    "form_last_10_avg_pts": {
+      "Austria": 2.44,
+      "Jordan": 1.43
+    },
+    "win_rate_last_10": {
+      "Austria": "77%",
+      "Jordan": "38%"
+    },
+    "avg_goals_scored": {
+      "Austria": 1.69,
+      "Jordan": 1.85
+    },
+    "avg_goals_conceded": {
+      "Austria": 0.86,
+      "Jordan": 1.84
+    },
+    "clean_sheet_rate": {
+      "Austria": "37%",
+      "Jordan": "35%"
+    },
+    "h2h_last_10": {
+      "Austria wins": "0%",
+      "draws": "0%",
+      "Jordan wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

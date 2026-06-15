@@ -731,6 +731,7 @@ export default function App() {
         const byId = {}
         all.forEach(({ matchId, data }) => { byId[matchId] = data })
         setPredictionsById(byId)
+        setRevealedIds(new Set(Object.keys(byId)))
       } catch (e) {
         // Backend may not have any cached predictions yet - not an error state
       } finally {

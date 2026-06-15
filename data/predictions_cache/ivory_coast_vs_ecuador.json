@@ -1,0 +1,277 @@
+{
+  "home_team": "Ivory Coast",
+  "away_team": "Ecuador",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4242,
+  "probability_draw": 0.2758,
+  "probability_away_win": 0.3,
+  "score_prediction": {
+    "home_xg": 0.66,
+    "away_xg": 1.14,
+    "rho": -0.13,
+    "most_likely_score": "1:0",
+    "result": "H",
+    "probability_home_win": 0.4242,
+    "probability_draw": 0.2758,
+    "probability_away_win": 0.3,
+    "top_scorelines": [
+      {
+        "score": "1:0",
+        "probability": 0.2013
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0885
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0774
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0193
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0169
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7,
+        "home_or_away": 0.7242,
+        "draw_or_away": 0.5758
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.5407,
+          "under": 0.4593
+        },
+        {
+          "line": 2.5,
+          "over": 0.2812,
+          "under": 0.7188
+        },
+        {
+          "line": 3.5,
+          "over": 0.1024,
+          "under": 0.8976
+        }
+      ],
+      "btts": {
+        "yes": 0.3355,
+        "no": 0.6645
+      },
+      "win_margin": {
+        "home_1plus": 0.4242,
+        "home_2plus": 0.1225,
+        "home_3plus": 0.0239,
+        "away_1plus": 0.3,
+        "away_2plus": 0.1341,
+        "away_3plus": 0.0438
+      },
+      "scenario": "Ivory Coast are favored to win, in a low-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Tactically Balanced",
+    "match_description": "A tight game where goals will make the difference",
+    "dominance_index": -0.27,
+    "total_xg": 1.8,
+    "first_goal": {
+      "Ivory Coast_scores_first": 0.306,
+      "Ecuador_scores_first": 0.529,
+      "no_goals": 0.165,
+      "expected_minute": 50
+    },
+    "halftime_xg": {
+      "Ivory Coast": 0.31,
+      "Ecuador": 0.54
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.429
+      },
+      {
+        "score": "0:1",
+        "probability": 0.23
+      },
+      {
+        "score": "1:0",
+        "probability": 0.133
+      },
+      {
+        "score": "1:1",
+        "probability": 0.071
+      },
+      {
+        "score": "0:2",
+        "probability": 0.062
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Ivory Coast": 0.089,
+        "Ecuador": 0.154
+      },
+      "16-30'": {
+        "Ivory Coast": 0.102,
+        "Ecuador": 0.177
+      },
+      "31-45'": {
+        "Ivory Coast": 0.119,
+        "Ecuador": 0.205
+      },
+      "46-60'": {
+        "Ivory Coast": 0.096,
+        "Ecuador": 0.165
+      },
+      "61-75'": {
+        "Ivory Coast": 0.122,
+        "Ecuador": 0.211
+      },
+      "76-90'": {
+        "Ivory Coast": 0.132,
+        "Ecuador": 0.228
+      }
+    },
+    "comeback_probability": {
+      "Ivory Coast": 0.009,
+      "Ecuador": 0.016
+    },
+    "late_drama_probability": 0.302,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenh\u00f6he, wahrscheinlichstes Draw: 0:0",
+        "wahrscheinlichkeit": 0.315
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
+        "wahrscheinlichkeit": 0.265
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Ecuador trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.189
+      },
+      {
+        "szenario": "Ecuador dominiert fr\u00fch",
+        "beschreibung": "Ecuador geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.062
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 45,
+        "away": 55
+      },
+      "shots": {
+        "home": 8,
+        "away": 11
+      },
+      "shots_on_target": {
+        "home": 3,
+        "away": 4
+      },
+      "corners": {
+        "home": 4,
+        "away": 5
+      },
+      "passes": {
+        "home": 234,
+        "away": 286
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Ivory Coast and Ecuador is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "chance",
+        "team": "Ecuador",
+        "headline": "Big chance for Ecuador!",
+        "description": "Ecuador create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 72,
+        "type": "goal",
+        "team": "Ivory Coast",
+        "headline": "GOAL! Ivory Coast!",
+        "description": "Ivory Coast score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 85,
+        "type": "chance",
+        "team": "Ivory Coast",
+        "headline": "Big chance for Ivory Coast!",
+        "description": "Ivory Coast create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:0.",
+        "score_after": "1:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Ivory Coast": 34,
+      "Ecuador": 23
+    },
+    "fifa_points": {
+      "Ivory Coast": 1368.0,
+      "Ecuador": 1544.0
+    },
+    "form_last_10_avg_pts": {
+      "Ivory Coast": 2.26,
+      "Ecuador": 1.7
+    },
+    "win_rate_last_10": {
+      "Ivory Coast": "73%",
+      "Ecuador": "35%"
+    },
+    "avg_goals_scored": {
+      "Ivory Coast": 1.82,
+      "Ecuador": 0.59
+    },
+    "avg_goals_conceded": {
+      "Ivory Coast": 1.04,
+      "Ecuador": 0.54
+    },
+    "clean_sheet_rate": {
+      "Ivory Coast": "46%",
+      "Ecuador": "46%"
+    },
+    "h2h_last_10": {
+      "Ivory Coast wins": "0%",
+      "draws": "0%",
+      "Ecuador wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

@@ -1,0 +1,296 @@
+{
+  "home_team": "Iran",
+  "away_team": "New Zealand",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.5093,
+  "probability_draw": 0.3828,
+  "probability_away_win": 0.1079,
+  "score_prediction": {
+    "home_xg": 2.33,
+    "away_xg": 0.73,
+    "rho": -0.13,
+    "most_likely_score": "2:0",
+    "result": "H",
+    "probability_home_win": 0.5093,
+    "probability_draw": 0.3828,
+    "probability_away_win": 0.1079,
+    "top_scorelines": [
+      {
+        "score": "2:0",
+        "probability": 0.0897
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0697
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0697
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0657
+      },
+      {
+        "score": "3:1",
+        "probability": 0.051
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8921,
+        "home_or_away": 0.6172,
+        "draw_or_away": 0.4907
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7855,
+          "under": 0.2145
+        },
+        {
+          "line": 2.5,
+          "over": 0.4976,
+          "under": 0.5024
+        },
+        {
+          "line": 3.5,
+          "over": 0.3233,
+          "under": 0.6767
+        }
+      ],
+      "btts": {
+        "yes": 0.5366,
+        "no": 0.4634
+      },
+      "win_margin": {
+        "home_1plus": 0.5093,
+        "home_2plus": 0.3524,
+        "home_3plus": 0.1995,
+        "away_1plus": 0.1079,
+        "away_2plus": 0.0323,
+        "away_3plus": 0.0066
+      },
+      "scenario": "Iran are favored to win, likely by 2+ goals."
+    }
+  },
+  "game_flow": {
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": 0.52,
+    "total_xg": 3.06,
+    "first_goal": {
+      "Iran_scores_first": 0.726,
+      "New Zealand_scores_first": 0.227,
+      "no_goals": 0.047,
+      "expected_minute": 29
+    },
+    "halftime_xg": {
+      "Iran": 1.1,
+      "New Zealand": 0.34
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.261
+      },
+      {
+        "score": "0:0",
+        "probability": 0.239
+      },
+      {
+        "score": "2:0",
+        "probability": 0.143
+      },
+      {
+        "score": "1:1",
+        "probability": 0.09
+      },
+      {
+        "score": "0:1",
+        "probability": 0.082
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Iran": 0.315,
+        "New Zealand": 0.099
+      },
+      "16-30'": {
+        "Iran": 0.361,
+        "New Zealand": 0.113
+      },
+      "31-45'": {
+        "Iran": 0.419,
+        "New Zealand": 0.131
+      },
+      "46-60'": {
+        "Iran": 0.338,
+        "New Zealand": 0.106
+      },
+      "61-75'": {
+        "Iran": 0.431,
+        "New Zealand": 0.135
+      },
+      "76-90'": {
+        "Iran": 0.466,
+        "New Zealand": 0.146
+      }
+    },
+    "comeback_probability": {
+      "Iran": 0.031,
+      "New Zealand": 0.011
+    },
+    "late_drama_probability": 0.458,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
+        "wahrscheinlichkeit": 0.195
+      },
+      {
+        "szenario": "Iran dominiert fr\u00fch",
+        "beschreibung": "Iran geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.146
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Iran trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.113
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 59,
+        "away": 41
+      },
+      "shots": {
+        "home": 19,
+        "away": 9
+      },
+      "shots_on_target": {
+        "home": 8,
+        "away": 3
+      },
+      "corners": {
+        "home": 8,
+        "away": 4
+      },
+      "passes": {
+        "home": 307,
+        "away": 213
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Iran and New Zealand is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 11,
+        "type": "chance",
+        "team": "Iran",
+        "headline": "Big chance for Iran!",
+        "description": "Iran create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 13,
+        "type": "chance",
+        "team": "Iran",
+        "headline": "Big chance for Iran!",
+        "description": "Iran create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 37,
+        "type": "goal",
+        "team": "Iran",
+        "headline": "GOAL! Iran!",
+        "description": "Iran score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 55,
+        "type": "chance",
+        "team": "New Zealand",
+        "headline": "Big chance for New Zealand!",
+        "description": "New Zealand create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 78,
+        "type": "goal",
+        "team": "Iran",
+        "headline": "GOAL! Iran!",
+        "description": "Iran score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 89,
+        "type": "chance",
+        "team": "Iran",
+        "headline": "Big chance for Iran!",
+        "description": "Iran create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Iran": 21,
+      "New Zealand": 85
+    },
+    "fifa_points": {
+      "Iran": 1576.0,
+      "New Zealand": 480.0
+    },
+    "form_last_10_avg_pts": {
+      "Iran": 1.69,
+      "New Zealand": 0.77
+    },
+    "win_rate_last_10": {
+      "Iran": "47%",
+      "New Zealand": "22%"
+    },
+    "avg_goals_scored": {
+      "Iran": 2.15,
+      "New Zealand": 0.81
+    },
+    "avg_goals_conceded": {
+      "Iran": 1.14,
+      "New Zealand": 1.26
+    },
+    "clean_sheet_rate": {
+      "Iran": "39%",
+      "New Zealand": "19%"
+    },
+    "h2h_last_10": {
+      "Iran wins": "100%",
+      "draws": "0%",
+      "New Zealand wins": "0%",
+      "total_h2h_games": 1
+    }
+  }
+}

@@ -146,12 +146,12 @@
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
-        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "beschreibung": "Beide Teams auf Augenh\u00f6he, wahrscheinlichstes Draw: 1:1",
         "wahrscheinlichkeit": 0.257
       },
       {
         "szenario": "Torloser Krimi",
-        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
         "wahrscheinlichkeit": 0.215
       },
       {
@@ -160,7 +160,7 @@
         "wahrscheinlichkeit": 0.091
       },
       {
-        "szenario": "Morocco dominiert früh",
+        "szenario": "Morocco dominiert fr\u00fch",
         "beschreibung": "Morocco geht 0:2 in Halbzeit 1, kontrolliert dann",
         "wahrscheinlichkeit": 0.059
       }

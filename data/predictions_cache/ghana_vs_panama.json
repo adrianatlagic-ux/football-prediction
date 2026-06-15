@@ -1,0 +1,301 @@
+{
+  "home_team": "Ghana",
+  "away_team": "Panama",
+  "prediction": "D",
+  "prediction_label": "Draw",
+  "probability_home_win": 0.2996,
+  "probability_draw": 0.4432,
+  "probability_away_win": 0.2573,
+  "score_prediction": {
+    "home_xg": 0.96,
+    "away_xg": 2.0,
+    "rho": -0.13,
+    "most_likely_score": "1:1",
+    "result": "D",
+    "probability_home_win": 0.2996,
+    "probability_draw": 0.4432,
+    "probability_away_win": 0.2573,
+    "top_scorelines": [
+      {
+        "score": "1:1",
+        "probability": 0.2107
+      },
+      {
+        "score": "0:0",
+        "probability": 0.1214
+      },
+      {
+        "score": "2:2",
+        "probability": 0.0895
+      },
+      {
+        "score": "3:3",
+        "probability": 0.0191
+      },
+      {
+        "score": "4:4",
+        "probability": 0.0023
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7427,
+        "home_or_away": 0.5568,
+        "draw_or_away": 0.7004
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7711,
+          "under": 0.2289
+        },
+        {
+          "line": 2.5,
+          "over": 0.4717,
+          "under": 0.5283
+        },
+        {
+          "line": 3.5,
+          "over": 0.2967,
+          "under": 0.7033
+        }
+      ],
+      "btts": {
+        "yes": 0.6112,
+        "no": 0.3888
+      },
+      "win_margin": {
+        "home_1plus": 0.2996,
+        "home_2plus": 0.1089,
+        "home_3plus": 0.0283,
+        "away_1plus": 0.2573,
+        "away_2plus": 0.1598,
+        "away_3plus": 0.0794
+      },
+      "scenario": "A close match \u2014 a draw is the single most likely outcome."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.35,
+    "total_xg": 2.96,
+    "first_goal": {
+      "Ghana_scores_first": 0.308,
+      "Panama_scores_first": 0.641,
+      "no_goals": 0.052,
+      "expected_minute": 30
+    },
+    "halftime_xg": {
+      "Ghana": 0.45,
+      "Panama": 0.94
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.25
+      },
+      {
+        "score": "0:1",
+        "probability": 0.235
+      },
+      {
+        "score": "1:0",
+        "probability": 0.113
+      },
+      {
+        "score": "0:2",
+        "probability": 0.11
+      },
+      {
+        "score": "1:1",
+        "probability": 0.106
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Ghana": 0.13,
+        "Panama": 0.27
+      },
+      "16-30'": {
+        "Ghana": 0.149,
+        "Panama": 0.31
+      },
+      "31-45'": {
+        "Ghana": 0.173,
+        "Panama": 0.36
+      },
+      "46-60'": {
+        "Ghana": 0.139,
+        "Panama": 0.29
+      },
+      "61-75'": {
+        "Ghana": 0.178,
+        "Panama": 0.37
+      },
+      "76-90'": {
+        "Ghana": 0.192,
+        "Panama": 0.4
+      }
+    },
+    "comeback_probability": {
+      "Ghana": 0.017,
+      "Panama": 0.035
+    },
+    "late_drama_probability": 0.447,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenh\u00f6he, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.213
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
+        "wahrscheinlichkeit": 0.2
+      },
+      {
+        "szenario": "Panama dominiert fr\u00fch",
+        "beschreibung": "Panama geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.112
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Panama trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.105
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 44,
+        "away": 56
+      },
+      "shots": {
+        "home": 10,
+        "away": 17
+      },
+      "shots_on_target": {
+        "home": 4,
+        "away": 7
+      },
+      "corners": {
+        "home": 4,
+        "away": 7
+      },
+      "passes": {
+        "home": 229,
+        "away": 291
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Ghana and Panama is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 10,
+        "type": "chance",
+        "team": "Ghana",
+        "headline": "Big chance for Ghana!",
+        "description": "Ghana create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 11,
+        "type": "chance",
+        "team": "Panama",
+        "headline": "Big chance for Panama!",
+        "description": "Panama create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 53,
+        "type": "goal",
+        "team": "Ghana",
+        "headline": "GOAL! Ghana!",
+        "description": "Ghana score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 66,
+        "type": "chance",
+        "team": "Panama",
+        "headline": "Big chance for Panama!",
+        "description": "Panama create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 86,
+        "type": "chance",
+        "team": "Panama",
+        "headline": "Big chance for Panama!",
+        "description": "Panama create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 89,
+        "type": "goal",
+        "team": "Panama",
+        "headline": "GOAL! Panama!",
+        "description": "Panama score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:1.",
+        "score_after": "1:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Ghana": 74,
+      "Panama": 33
+    },
+    "fifa_points": {
+      "Ghana": 720.0,
+      "Panama": 1384.0
+    },
+    "form_last_10_avg_pts": {
+      "Ghana": 0.89,
+      "Panama": 1.45
+    },
+    "win_rate_last_10": {
+      "Ghana": "28%",
+      "Panama": "37%"
+    },
+    "avg_goals_scored": {
+      "Ghana": 1.25,
+      "Panama": 1.5
+    },
+    "avg_goals_conceded": {
+      "Ghana": 1.8,
+      "Panama": 1.63
+    },
+    "clean_sheet_rate": {
+      "Ghana": "20%",
+      "Panama": "33%"
+    },
+    "h2h_last_10": {
+      "Ghana wins": "0%",
+      "draws": "0%",
+      "Panama wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

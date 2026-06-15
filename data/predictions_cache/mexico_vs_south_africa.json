@@ -146,12 +146,12 @@
     "match_stories": [
       {
         "szenario": "Torloser Krimi",
-        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
         "wahrscheinlichkeit": 0.23
       },
       {
         "szenario": "Ausgeglichenes Unentschieden",
-        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "beschreibung": "Beide Teams auf Augenh\u00f6he, wahrscheinlichstes Draw: 1:1",
         "wahrscheinlichkeit": 0.228
       },
       {
@@ -160,7 +160,7 @@
         "wahrscheinlichkeit": 0.149
       },
       {
-        "szenario": "Mexico dominiert früh",
+        "szenario": "Mexico dominiert fr\u00fch",
         "beschreibung": "Mexico geht 2:0 in Halbzeit 1, kontrolliert dann",
         "wahrscheinlichkeit": 0.11
       }

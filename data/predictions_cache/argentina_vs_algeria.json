@@ -1,0 +1,296 @@
+{
+  "home_team": "Argentina",
+  "away_team": "Algeria",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6274,
+  "probability_draw": 0.2702,
+  "probability_away_win": 0.1023,
+  "score_prediction": {
+    "home_xg": 2.19,
+    "away_xg": 0.84,
+    "rho": -0.13,
+    "most_likely_score": "2:0",
+    "result": "H",
+    "probability_home_win": 0.6275,
+    "probability_draw": 0.2702,
+    "probability_away_win": 0.1023,
+    "top_scorelines": [
+      {
+        "score": "2:0",
+        "probability": 0.1086
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0909
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0883
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0794
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0664
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8977,
+        "home_or_away": 0.7298,
+        "draw_or_away": 0.3725
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8093,
+          "under": 0.1907
+        },
+        {
+          "line": 2.5,
+          "over": 0.5572,
+          "under": 0.4428
+        },
+        {
+          "line": 3.5,
+          "over": 0.3507,
+          "under": 0.6493
+        }
+      ],
+      "btts": {
+        "yes": 0.5291,
+        "no": 0.4709
+      },
+      "win_margin": {
+        "home_1plus": 0.6275,
+        "home_2plus": 0.4157,
+        "home_3plus": 0.2235,
+        "away_1plus": 0.1023,
+        "away_2plus": 0.0336,
+        "away_3plus": 0.0076
+      },
+      "scenario": "Argentina are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": 0.45,
+    "total_xg": 3.03,
+    "first_goal": {
+      "Argentina_scores_first": 0.688,
+      "Algeria_scores_first": 0.264,
+      "no_goals": 0.048,
+      "expected_minute": 29
+    },
+    "halftime_xg": {
+      "Argentina": 1.03,
+      "Algeria": 0.39
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.249
+      },
+      {
+        "score": "0:0",
+        "probability": 0.242
+      },
+      {
+        "score": "2:0",
+        "probability": 0.128
+      },
+      {
+        "score": "1:1",
+        "probability": 0.098
+      },
+      {
+        "score": "0:1",
+        "probability": 0.095
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Argentina": 0.296,
+        "Algeria": 0.113
+      },
+      "16-30'": {
+        "Argentina": 0.339,
+        "Algeria": 0.13
+      },
+      "31-45'": {
+        "Argentina": 0.394,
+        "Algeria": 0.151
+      },
+      "46-60'": {
+        "Argentina": 0.318,
+        "Algeria": 0.122
+      },
+      "61-75'": {
+        "Argentina": 0.405,
+        "Algeria": 0.155
+      },
+      "76-90'": {
+        "Argentina": 0.438,
+        "Algeria": 0.168
+      }
+    },
+    "comeback_probability": {
+      "Argentina": 0.034,
+      "Algeria": 0.014
+    },
+    "late_drama_probability": 0.454,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
+        "wahrscheinlichkeit": 0.196
+      },
+      {
+        "szenario": "Argentina dominiert fr\u00fch",
+        "beschreibung": "Argentina geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.13
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Argentina trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.108
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 58,
+        "away": 42
+      },
+      "shots": {
+        "home": 18,
+        "away": 9
+      },
+      "shots_on_target": {
+        "home": 7,
+        "away": 3
+      },
+      "corners": {
+        "home": 7,
+        "away": 4
+      },
+      "passes": {
+        "home": 302,
+        "away": 218
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Argentina and Algeria is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 34,
+        "type": "chance",
+        "team": "Algeria",
+        "headline": "Big chance for Algeria!",
+        "description": "Algeria create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 35,
+        "type": "chance",
+        "team": "Argentina",
+        "headline": "Big chance for Argentina!",
+        "description": "Argentina create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 39,
+        "type": "goal",
+        "team": "Argentina",
+        "headline": "GOAL! Argentina!",
+        "description": "Argentina score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 60,
+        "type": "chance",
+        "team": "Algeria",
+        "headline": "Big chance for Algeria!",
+        "description": "Algeria create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 63,
+        "type": "chance",
+        "team": "Argentina",
+        "headline": "Big chance for Argentina!",
+        "description": "Argentina create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 71,
+        "type": "goal",
+        "team": "Argentina",
+        "headline": "GOAL! Argentina!",
+        "description": "Argentina score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Argentina": 3,
+      "Algeria": 28
+    },
+    "fifa_points": {
+      "Argentina": 1864.0,
+      "Algeria": 1464.0
+    },
+    "form_last_10_avg_pts": {
+      "Argentina": 2.61,
+      "Algeria": 2.13
+    },
+    "win_rate_last_10": {
+      "Argentina": "85%",
+      "Algeria": "63%"
+    },
+    "avg_goals_scored": {
+      "Argentina": 1.79,
+      "Algeria": 2.42
+    },
+    "avg_goals_conceded": {
+      "Argentina": 0.51,
+      "Algeria": 0.86
+    },
+    "clean_sheet_rate": {
+      "Argentina": "64%",
+      "Algeria": "44%"
+    },
+    "h2h_last_10": {
+      "Argentina wins": "100%",
+      "draws": "0%",
+      "Algeria wins": "0%",
+      "total_h2h_games": 1
+    }
+  }
+}

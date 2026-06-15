@@ -1,0 +1,277 @@
+{
+  "home_team": "Portugal",
+  "away_team": "DR Congo",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.5346,
+  "probability_draw": 0.4011,
+  "probability_away_win": 0.0643,
+  "score_prediction": {
+    "home_xg": 1.53,
+    "away_xg": 0.75,
+    "rho": -0.13,
+    "most_likely_score": "1:0",
+    "result": "H",
+    "probability_home_win": 0.5346,
+    "probability_draw": 0.4011,
+    "probability_away_win": 0.0643,
+    "top_scorelines": [
+      {
+        "score": "1:0",
+        "probability": 0.138
+      },
+      {
+        "score": "2:0",
+        "probability": 0.1174
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0885
+      },
+      {
+        "score": "3:0",
+        "probability": 0.06
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0452
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.9357,
+        "home_or_away": 0.5989,
+        "draw_or_away": 0.4654
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.6756,
+          "under": 0.3244
+        },
+        {
+          "line": 2.5,
+          "over": 0.3625,
+          "under": 0.6375
+        },
+        {
+          "line": 3.5,
+          "over": 0.1943,
+          "under": 0.8057
+        }
+      ],
+      "btts": {
+        "yes": 0.4514,
+        "no": 0.5486
+      },
+      "win_margin": {
+        "home_1plus": 0.5346,
+        "home_2plus": 0.2891,
+        "home_3plus": 0.1195,
+        "away_1plus": 0.0643,
+        "away_2plus": 0.0202,
+        "away_3plus": 0.0044
+      },
+      "scenario": "Portugal are favored to win, in a low-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Tactically Balanced",
+    "match_description": "A tight game where goals will make the difference",
+    "dominance_index": 0.34,
+    "total_xg": 2.28,
+    "first_goal": {
+      "Portugal_scores_first": 0.602,
+      "DR Congo_scores_first": 0.295,
+      "no_goals": 0.102,
+      "expected_minute": 39
+    },
+    "halftime_xg": {
+      "Portugal": 0.72,
+      "DR Congo": 0.35
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.343
+      },
+      {
+        "score": "1:0",
+        "probability": 0.246
+      },
+      {
+        "score": "0:1",
+        "probability": 0.121
+      },
+      {
+        "score": "2:0",
+        "probability": 0.089
+      },
+      {
+        "score": "1:1",
+        "probability": 0.087
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Portugal": 0.207,
+        "DR Congo": 0.101
+      },
+      "16-30'": {
+        "Portugal": 0.237,
+        "DR Congo": 0.116
+      },
+      "31-45'": {
+        "Portugal": 0.275,
+        "DR Congo": 0.135
+      },
+      "46-60'": {
+        "Portugal": 0.222,
+        "DR Congo": 0.109
+      },
+      "61-75'": {
+        "Portugal": 0.283,
+        "DR Congo": 0.139
+      },
+      "76-90'": {
+        "Portugal": 0.306,
+        "DR Congo": 0.15
+      }
+    },
+    "comeback_probability": {
+      "Portugal": 0.024,
+      "DR Congo": 0.012
+    },
+    "late_drama_probability": 0.366,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenh\u00f6he, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.259
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
+        "wahrscheinlichkeit": 0.242
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Portugal trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.157
+      },
+      {
+        "szenario": "Portugal dominiert fr\u00fch",
+        "beschreibung": "Portugal geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.089
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 56,
+        "away": 44
+      },
+      "shots": {
+        "home": 14,
+        "away": 9
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 3
+      },
+      "corners": {
+        "home": 6,
+        "away": 4
+      },
+      "passes": {
+        "home": 291,
+        "away": 229
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Portugal and DR Congo is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 42,
+        "type": "chance",
+        "team": "Portugal",
+        "headline": "Big chance for Portugal!",
+        "description": "Portugal create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 52,
+        "type": "chance",
+        "team": "Portugal",
+        "headline": "Big chance for Portugal!",
+        "description": "Portugal create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 86,
+        "type": "goal",
+        "team": "Portugal",
+        "headline": "GOAL! Portugal!",
+        "description": "Portugal score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:0.",
+        "score_after": "1:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Portugal": 5,
+      "DR Congo": 46
+    },
+    "fifa_points": {
+      "Portugal": 1832.0,
+      "DR Congo": 1176.0
+    },
+    "form_last_10_avg_pts": {
+      "Portugal": 2.05,
+      "DR Congo": 2.26
+    },
+    "win_rate_last_10": {
+      "Portugal": "58%",
+      "DR Congo": "69%"
+    },
+    "avg_goals_scored": {
+      "Portugal": 1.57,
+      "DR Congo": 1.49
+    },
+    "avg_goals_conceded": {
+      "Portugal": 0.77,
+      "DR Congo": 0.48
+    },
+    "clean_sheet_rate": {
+      "Portugal": "48%",
+      "DR Congo": "52%"
+    },
+    "h2h_last_10": {
+      "Portugal wins": "0%",
+      "draws": "0%",
+      "DR Congo wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

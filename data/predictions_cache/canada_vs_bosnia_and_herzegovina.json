@@ -72,7 +72,7 @@
         "away_2plus": 0.0495,
         "away_3plus": 0.0084
       },
-      "scenario": "A close match — a draw is the single most likely outcome."
+      "scenario": "A close match \u2014 a draw is the single most likely outcome."
     }
   },
   "game_flow": {
@@ -146,11 +146,11 @@
     "match_stories": [
       {
         "szenario": "Torloser Krimi",
-        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
         "wahrscheinlichkeit": 0.206
       },
       {
-        "szenario": "Canada dominiert früh",
+        "szenario": "Canada dominiert fr\u00fch",
         "beschreibung": "Canada geht 2:0 in Halbzeit 1, kontrolliert dann",
         "wahrscheinlichkeit": 0.155
       },

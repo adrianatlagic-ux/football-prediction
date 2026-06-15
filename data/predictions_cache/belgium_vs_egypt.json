@@ -1,0 +1,277 @@
+{
+  "home_team": "Belgium",
+  "away_team": "Egypt",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6708,
+  "probability_draw": 0.1499,
+  "probability_away_win": 0.1793,
+  "score_prediction": {
+    "home_xg": 1.38,
+    "away_xg": 1.07,
+    "rho": -0.13,
+    "most_likely_score": "1:0",
+    "result": "H",
+    "probability_home_win": 0.6708,
+    "probability_draw": 0.1499,
+    "probability_away_win": 0.1793,
+    "top_scorelines": [
+      {
+        "score": "1:0",
+        "probability": 0.1626
+      },
+      {
+        "score": "2:1",
+        "probability": 0.1394
+      },
+      {
+        "score": "2:0",
+        "probability": 0.1303
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0641
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0599
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8207,
+        "home_or_away": 0.8501,
+        "draw_or_away": 0.3292
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7367,
+          "under": 0.2633
+        },
+        {
+          "line": 2.5,
+          "over": 0.5027,
+          "under": 0.4973
+        },
+        {
+          "line": 3.5,
+          "over": 0.2474,
+          "under": 0.7526
+        }
+      ],
+      "btts": {
+        "yes": 0.4708,
+        "no": 0.5292
+      },
+      "win_margin": {
+        "home_1plus": 0.6708,
+        "home_2plus": 0.3299,
+        "home_3plus": 0.1224,
+        "away_1plus": 0.1793,
+        "away_2plus": 0.0729,
+        "away_3plus": 0.0215
+      },
+      "scenario": "Belgium are favored to win."
+    }
+  },
+  "game_flow": {
+    "match_type": "Tactically Balanced",
+    "match_description": "A tight game where goals will make the difference",
+    "dominance_index": 0.13,
+    "total_xg": 2.45,
+    "first_goal": {
+      "Belgium_scores_first": 0.515,
+      "Egypt_scores_first": 0.399,
+      "no_goals": 0.086,
+      "expected_minute": 36
+    },
+    "halftime_xg": {
+      "Belgium": 0.65,
+      "Egypt": 0.5
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.316
+      },
+      {
+        "score": "1:0",
+        "probability": 0.205
+      },
+      {
+        "score": "0:1",
+        "probability": 0.159
+      },
+      {
+        "score": "1:1",
+        "probability": 0.103
+      },
+      {
+        "score": "2:0",
+        "probability": 0.067
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Belgium": 0.186,
+        "Egypt": 0.144
+      },
+      "16-30'": {
+        "Belgium": 0.214,
+        "Egypt": 0.166
+      },
+      "31-45'": {
+        "Belgium": 0.248,
+        "Egypt": 0.193
+      },
+      "46-60'": {
+        "Belgium": 0.2,
+        "Egypt": 0.155
+      },
+      "61-75'": {
+        "Belgium": 0.255,
+        "Egypt": 0.198
+      },
+      "76-90'": {
+        "Belgium": 0.276,
+        "Egypt": 0.214
+      }
+    },
+    "comeback_probability": {
+      "Belgium": 0.026,
+      "Egypt": 0.02
+    },
+    "late_drama_probability": 0.387,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenh\u00f6he, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.27
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
+        "wahrscheinlichkeit": 0.232
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Belgium trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.12
+      },
+      {
+        "szenario": "Belgium dominiert fr\u00fch",
+        "beschreibung": "Belgium geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.067
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 52,
+        "away": 48
+      },
+      "shots": {
+        "home": 13,
+        "away": 11
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 4
+      },
+      "corners": {
+        "home": 6,
+        "away": 5
+      },
+      "passes": {
+        "home": 270,
+        "away": 250
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Belgium and Egypt is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 3,
+        "type": "chance",
+        "team": "Belgium",
+        "headline": "Big chance for Belgium!",
+        "description": "Belgium create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 48,
+        "type": "chance",
+        "team": "Egypt",
+        "headline": "Big chance for Egypt!",
+        "description": "Egypt create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 66,
+        "type": "goal",
+        "team": "Belgium",
+        "headline": "GOAL! Belgium!",
+        "description": "Belgium score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:0.",
+        "score_after": "1:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Belgium": 9,
+      "Egypt": 29
+    },
+    "fifa_points": {
+      "Belgium": 1768.0,
+      "Egypt": 1448.0
+    },
+    "form_last_10_avg_pts": {
+      "Belgium": 2.16,
+      "Egypt": 2.04
+    },
+    "win_rate_last_10": {
+      "Belgium": "58%",
+      "Egypt": "57%"
+    },
+    "avg_goals_scored": {
+      "Belgium": 2.38,
+      "Egypt": 1.08
+    },
+    "avg_goals_conceded": {
+      "Belgium": 1.42,
+      "Egypt": 0.47
+    },
+    "clean_sheet_rate": {
+      "Belgium": "10%",
+      "Egypt": "61%"
+    },
+    "h2h_last_10": {
+      "Belgium wins": "25%",
+      "draws": "0%",
+      "Egypt wins": "75%",
+      "total_h2h_games": 4
+    }
+  }
+}

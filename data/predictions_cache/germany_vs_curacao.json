@@ -1,0 +1,299 @@
+{
+  "home_team": "Germany",
+  "away_team": "Cura\u00e7ao",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.628,
+  "probability_draw": 0.2958,
+  "probability_away_win": 0.0762,
+  "score_prediction": {
+    "home_xg": 3.48,
+    "away_xg": 0.57,
+    "rho": -0.13,
+    "most_likely_score": "3:0",
+    "result": "H",
+    "probability_home_win": 0.628,
+    "probability_draw": 0.2958,
+    "probability_away_win": 0.0762,
+    "top_scorelines": [
+      {
+        "score": "3:0",
+        "probability": 0.0874
+      },
+      {
+        "score": "4:0",
+        "probability": 0.076
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0754
+      },
+      {
+        "score": "5:0",
+        "probability": 0.0529
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0494
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.9238,
+        "home_or_away": 0.7042,
+        "draw_or_away": 0.372
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8638,
+          "under": 0.1362
+        },
+        {
+          "line": 2.5,
+          "over": 0.6396,
+          "under": 0.3604
+        },
+        {
+          "line": 3.5,
+          "over": 0.4783,
+          "under": 0.5217
+        }
+      ],
+      "btts": {
+        "yes": 0.5094,
+        "no": 0.4906
+      },
+      "win_margin": {
+        "home_1plus": 0.628,
+        "home_2plus": 0.5285,
+        "home_3plus": 0.3898,
+        "away_1plus": 0.0762,
+        "away_2plus": 0.0186,
+        "away_3plus": 0.0029
+      },
+      "scenario": "Germany are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.72,
+    "total_xg": 4.05,
+    "first_goal": {
+      "Germany_scores_first": 0.844,
+      "Cura\u00e7ao_scores_first": 0.138,
+      "no_goals": 0.017,
+      "expected_minute": 22
+    },
+    "halftime_xg": {
+      "Germany": 1.64,
+      "Cura\u00e7ao": 0.27
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.25
+      },
+      {
+        "score": "2:0",
+        "probability": 0.205
+      },
+      {
+        "score": "0:0",
+        "probability": 0.153
+      },
+      {
+        "score": "3:0",
+        "probability": 0.112
+      },
+      {
+        "score": "1:1",
+        "probability": 0.067
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Germany": 0.47,
+        "Cura\u00e7ao": 0.077
+      },
+      "16-30'": {
+        "Germany": 0.539,
+        "Cura\u00e7ao": 0.088
+      },
+      "31-45'": {
+        "Germany": 0.626,
+        "Cura\u00e7ao": 0.103
+      },
+      "46-60'": {
+        "Germany": 0.505,
+        "Cura\u00e7ao": 0.083
+      },
+      "61-75'": {
+        "Germany": 0.644,
+        "Cura\u00e7ao": 0.105
+      },
+      "76-90'": {
+        "Germany": 0.696,
+        "Cura\u00e7ao": 0.114
+      }
+    },
+    "comeback_probability": {
+      "Germany": 0.026,
+      "Cura\u00e7ao": 0.005
+    },
+    "late_drama_probability": 0.555,
+    "match_stories": [
+      {
+        "szenario": "Germany dominiert fr\u00fch",
+        "beschreibung": "Germany geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.218
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
+        "wahrscheinlichkeit": 0.142
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 63,
+        "away": 37
+      },
+      "shots": {
+        "home": 27,
+        "away": 8
+      },
+      "shots_on_target": {
+        "home": 11,
+        "away": 3
+      },
+      "corners": {
+        "home": 11,
+        "away": 3
+      },
+      "passes": {
+        "home": 328,
+        "away": 192
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Germany and Cura\u00e7ao is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 29,
+        "type": "goal",
+        "team": "Germany",
+        "headline": "GOAL! Germany!",
+        "description": "Germany score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 35,
+        "type": "chance",
+        "team": "Germany",
+        "headline": "Big chance for Germany!",
+        "description": "Germany create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 38,
+        "type": "chance",
+        "team": "Germany",
+        "headline": "Big chance for Germany!",
+        "description": "Germany create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 49,
+        "type": "goal",
+        "team": "Germany",
+        "headline": "GOAL! Germany!",
+        "description": "Germany score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 63,
+        "type": "chance",
+        "team": "Cura\u00e7ao",
+        "headline": "Big chance for Cura\u00e7ao!",
+        "description": "Cura\u00e7ao create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 66,
+        "type": "chance",
+        "team": "Germany",
+        "headline": "Big chance for Germany!",
+        "description": "Germany create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 88,
+        "type": "goal",
+        "team": "Germany",
+        "headline": "GOAL! Germany!",
+        "description": "Germany score to make it 3:0.",
+        "score_after": "3:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 3:0.",
+        "score_after": "3:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Germany": 10,
+      "Cura\u00e7ao": 82
+    },
+    "fifa_points": {
+      "Germany": 1752.0,
+      "Cura\u00e7ao": 624.0
+    },
+    "form_last_10_avg_pts": {
+      "Germany": 2.68,
+      "Cura\u00e7ao": 0.98
+    },
+    "win_rate_last_10": {
+      "Germany": "89%",
+      "Cura\u00e7ao": "24%"
+    },
+    "avg_goals_scored": {
+      "Germany": 1.8,
+      "Cura\u00e7ao": 1.62
+    },
+    "avg_goals_conceded": {
+      "Germany": 1.24,
+      "Cura\u00e7ao": 2.08
+    },
+    "clean_sheet_rate": {
+      "Germany": "34%",
+      "Cura\u00e7ao": "30%"
+    },
+    "h2h_last_10": {
+      "Germany wins": "0%",
+      "draws": "0%",
+      "Cura\u00e7ao wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

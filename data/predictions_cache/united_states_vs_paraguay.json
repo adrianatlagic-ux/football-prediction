@@ -3,74 +3,74 @@
   "away_team": "Paraguay",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.7182,
-  "probability_draw": 0.1867,
-  "probability_away_win": 0.0951,
+  "probability_home_win": 0.5704,
+  "probability_draw": 0.2797,
+  "probability_away_win": 0.1499,
   "score_prediction": {
     "home_xg": 1.5,
     "away_xg": 1.02,
     "rho": -0.13,
     "most_likely_score": "1:0",
     "result": "H",
-    "probability_home_win": 0.7182,
-    "probability_draw": 0.1867,
-    "probability_away_win": 0.0951,
+    "probability_home_win": 0.5704,
+    "probability_draw": 0.2797,
+    "probability_away_win": 0.1499,
     "top_scorelines": [
       {
         "score": "1:0",
-        "probability": 0.1614
+        "probability": 0.1282
       },
       {
         "score": "2:1",
-        "probability": 0.1419
+        "probability": 0.1127
       },
       {
         "score": "2:0",
-        "probability": 0.1393
+        "probability": 0.1107
       },
       {
         "score": "3:1",
-        "probability": 0.0709
+        "probability": 0.0563
       },
       {
         "score": "3:0",
-        "probability": 0.0696
+        "probability": 0.0553
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.9049,
-        "home_or_away": 0.8133,
-        "draw_or_away": 0.2818
+        "home_or_draw": 0.8501,
+        "home_or_away": 0.7203,
+        "draw_or_away": 0.4296
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.7506,
-          "under": 0.2494
+          "over": 0.7379,
+          "under": 0.2621
         },
         {
           "line": 2.5,
-          "over": 0.5057,
-          "under": 0.4943
+          "over": 0.4677,
+          "under": 0.5323
         },
         {
           "line": 3.5,
-          "over": 0.2639,
-          "under": 0.7361
+          "over": 0.2519,
+          "under": 0.7481
         }
       ],
       "btts": {
-        "yes": 0.4815,
-        "no": 0.5185
+        "yes": 0.5055,
+        "no": 0.4945
       },
       "win_margin": {
-        "home_1plus": 0.7182,
-        "home_2plus": 0.3739,
-        "home_3plus": 0.1487,
-        "away_1plus": 0.0951,
-        "away_2plus": 0.037,
-        "away_3plus": 0.0103
+        "home_1plus": 0.5704,
+        "home_2plus": 0.297,
+        "home_3plus": 0.1181,
+        "away_1plus": 0.1499,
+        "away_2plus": 0.0584,
+        "away_3plus": 0.0164
       },
       "scenario": "United States are favored to win."
     }
@@ -146,12 +146,12 @@
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
-        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "beschreibung": "Beide Teams auf Augenh\u00f6he, wahrscheinlichstes Draw: 1:1",
         "wahrscheinlichkeit": 0.26
       },
       {
         "szenario": "Torloser Krimi",
-        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
         "wahrscheinlichkeit": 0.227
       },
       {
@@ -160,7 +160,7 @@
         "wahrscheinlichkeit": 0.121
       },
       {
-        "szenario": "United States dominiert früh",
+        "szenario": "United States dominiert fr\u00fch",
         "beschreibung": "United States geht 2:0 in Halbzeit 1, kontrolliert dann",
         "wahrscheinlichkeit": 0.077
       }

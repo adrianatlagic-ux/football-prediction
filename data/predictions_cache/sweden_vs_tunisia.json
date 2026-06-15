@@ -1,0 +1,301 @@
+{
+  "home_team": "Sweden",
+  "away_team": "Tunisia",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4108,
+  "probability_draw": 0.3723,
+  "probability_away_win": 0.2169,
+  "score_prediction": {
+    "home_xg": 1.28,
+    "away_xg": 1.48,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.4108,
+    "probability_draw": 0.3723,
+    "probability_away_win": 0.2169,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1012
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0863
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0682
+      },
+      {
+        "score": "3:1",
+        "probability": 0.043
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0319
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7831,
+        "home_or_away": 0.6277,
+        "draw_or_away": 0.5892
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7679,
+          "under": 0.2321
+        },
+        {
+          "line": 2.5,
+          "over": 0.4852,
+          "under": 0.5148
+        },
+        {
+          "line": 3.5,
+          "over": 0.2889,
+          "under": 0.7111
+        }
+      ],
+      "btts": {
+        "yes": 0.5932,
+        "no": 0.4068
+      },
+      "win_margin": {
+        "home_1plus": 0.4108,
+        "home_2plus": 0.1857,
+        "home_3plus": 0.0629,
+        "away_1plus": 0.2169,
+        "away_2plus": 0.1095,
+        "away_3plus": 0.0423
+      },
+      "scenario": "Sweden are favored to win."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.07,
+    "total_xg": 2.76,
+    "first_goal": {
+      "Sweden_scores_first": 0.434,
+      "Tunisia_scores_first": 0.502,
+      "no_goals": 0.063,
+      "expected_minute": 32
+    },
+    "halftime_xg": {
+      "Sweden": 0.6,
+      "Tunisia": 0.7
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.274
+      },
+      {
+        "score": "0:1",
+        "probability": 0.19
+      },
+      {
+        "score": "1:0",
+        "probability": 0.165
+      },
+      {
+        "score": "1:1",
+        "probability": 0.115
+      },
+      {
+        "score": "0:2",
+        "probability": 0.066
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Sweden": 0.173,
+        "Tunisia": 0.2
+      },
+      "16-30'": {
+        "Sweden": 0.198,
+        "Tunisia": 0.229
+      },
+      "31-45'": {
+        "Sweden": 0.23,
+        "Tunisia": 0.266
+      },
+      "46-60'": {
+        "Sweden": 0.186,
+        "Tunisia": 0.215
+      },
+      "61-75'": {
+        "Sweden": 0.237,
+        "Tunisia": 0.274
+      },
+      "76-90'": {
+        "Sweden": 0.256,
+        "Tunisia": 0.296
+      }
+    },
+    "comeback_probability": {
+      "Sweden": 0.026,
+      "Tunisia": 0.03
+    },
+    "late_drama_probability": 0.424,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenh\u00f6he, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.254
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
+        "wahrscheinlichkeit": 0.212
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Tunisia trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.094
+      },
+      {
+        "szenario": "Tunisia dominiert fr\u00fch",
+        "beschreibung": "Tunisia geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.067
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 49,
+        "away": 51
+      },
+      "shots": {
+        "home": 12,
+        "away": 14
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 6
+      },
+      "corners": {
+        "home": 5,
+        "away": 6
+      },
+      "passes": {
+        "home": 255,
+        "away": 265
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Sweden and Tunisia is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 5,
+        "type": "goal",
+        "team": "Sweden",
+        "headline": "GOAL! Sweden!",
+        "description": "Sweden score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 23,
+        "type": "chance",
+        "team": "Sweden",
+        "headline": "Big chance for Sweden!",
+        "description": "Sweden create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 60,
+        "type": "goal",
+        "team": "Tunisia",
+        "headline": "GOAL! Tunisia!",
+        "description": "Tunisia score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 62,
+        "type": "goal",
+        "team": "Sweden",
+        "headline": "GOAL! Sweden!",
+        "description": "Sweden score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 72,
+        "type": "chance",
+        "team": "Sweden",
+        "headline": "Big chance for Sweden!",
+        "description": "Sweden create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 78,
+        "type": "chance",
+        "team": "Sweden",
+        "headline": "Big chance for Sweden!",
+        "description": "Sweden create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Sweden": 38,
+      "Tunisia": 44
+    },
+    "fifa_points": {
+      "Sweden": 1304.0,
+      "Tunisia": 1208.0
+    },
+    "form_last_10_avg_pts": {
+      "Sweden": 1.48,
+      "Tunisia": 1.47
+    },
+    "win_rate_last_10": {
+      "Sweden": "43%",
+      "Tunisia": "31%"
+    },
+    "avg_goals_scored": {
+      "Sweden": 1.67,
+      "Tunisia": 1.12
+    },
+    "avg_goals_conceded": {
+      "Sweden": 1.64,
+      "Tunisia": 0.86
+    },
+    "clean_sheet_rate": {
+      "Sweden": "17%",
+      "Tunisia": "47%"
+    },
+    "h2h_last_10": {
+      "Sweden wins": "67%",
+      "draws": "0%",
+      "Tunisia wins": "33%",
+      "total_h2h_games": 3
+    }
+  }
+}

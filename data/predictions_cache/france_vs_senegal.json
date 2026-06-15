@@ -1,0 +1,293 @@
+{
+  "home_team": "France",
+  "away_team": "Senegal",
+  "prediction": "D",
+  "prediction_label": "Draw",
+  "probability_home_win": 0.4013,
+  "probability_draw": 0.4511,
+  "probability_away_win": 0.1476,
+  "score_prediction": {
+    "home_xg": 1.34,
+    "away_xg": 1.21,
+    "rho": -0.13,
+    "most_likely_score": "1:1",
+    "result": "D",
+    "probability_home_win": 0.4013,
+    "probability_draw": 0.4511,
+    "probability_away_win": 0.1476,
+    "top_scorelines": [
+      {
+        "score": "1:1",
+        "probability": 0.2157
+      },
+      {
+        "score": "0:0",
+        "probability": 0.1425
+      },
+      {
+        "score": "2:2",
+        "probability": 0.0774
+      },
+      {
+        "score": "3:3",
+        "probability": 0.014
+      },
+      {
+        "score": "4:4",
+        "probability": 0.0014
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8524,
+        "home_or_away": 0.5489,
+        "draw_or_away": 0.5987
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7287,
+          "under": 0.2713
+        },
+        {
+          "line": 2.5,
+          "over": 0.4128,
+          "under": 0.5872
+        },
+        {
+          "line": 3.5,
+          "over": 0.2446,
+          "under": 0.7554
+        }
+      ],
+      "btts": {
+        "yes": 0.5658,
+        "no": 0.4342
+      },
+      "win_margin": {
+        "home_1plus": 0.4013,
+        "home_2plus": 0.1917,
+        "home_3plus": 0.0689,
+        "away_1plus": 0.1476,
+        "away_2plus": 0.0651,
+        "away_3plus": 0.0212
+      },
+      "scenario": "A close match \u2014 a draw is the single most likely outcome."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.05,
+    "total_xg": 2.55,
+    "first_goal": {
+      "France_scores_first": 0.484,
+      "Senegal_scores_first": 0.437,
+      "no_goals": 0.078,
+      "expected_minute": 35
+    },
+    "halftime_xg": {
+      "France": 0.63,
+      "Senegal": 0.57
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.302
+      },
+      {
+        "score": "1:0",
+        "probability": 0.19
+      },
+      {
+        "score": "0:1",
+        "probability": 0.172
+      },
+      {
+        "score": "1:1",
+        "probability": 0.108
+      },
+      {
+        "score": "2:0",
+        "probability": 0.06
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "France": 0.181,
+        "Senegal": 0.163
+      },
+      "16-30'": {
+        "France": 0.208,
+        "Senegal": 0.188
+      },
+      "31-45'": {
+        "France": 0.241,
+        "Senegal": 0.218
+      },
+      "46-60'": {
+        "France": 0.194,
+        "Senegal": 0.175
+      },
+      "61-75'": {
+        "France": 0.248,
+        "Senegal": 0.224
+      },
+      "76-90'": {
+        "France": 0.268,
+        "Senegal": 0.242
+      }
+    },
+    "comeback_probability": {
+      "France": 0.026,
+      "Senegal": 0.024
+    },
+    "late_drama_probability": 0.4,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenh\u00f6he, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.266
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
+        "wahrscheinlichkeit": 0.225
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "France trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.105
+      },
+      {
+        "szenario": "France dominiert fr\u00fch",
+        "beschreibung": "France geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.06
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 51,
+        "away": 49
+      },
+      "shots": {
+        "home": 13,
+        "away": 12
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 4
+      },
+      "corners": {
+        "home": 6,
+        "away": 5
+      },
+      "passes": {
+        "home": 265,
+        "away": 255
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between France and Senegal is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 16,
+        "type": "chance",
+        "team": "France",
+        "headline": "Big chance for France!",
+        "description": "France create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 47,
+        "type": "goal",
+        "team": "Senegal",
+        "headline": "GOAL! Senegal!",
+        "description": "Senegal score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 50,
+        "type": "chance",
+        "team": "France",
+        "headline": "Big chance for France!",
+        "description": "France create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 65,
+        "type": "goal",
+        "team": "France",
+        "headline": "GOAL! France!",
+        "description": "France score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 71,
+        "type": "chance",
+        "team": "France",
+        "headline": "Big chance for France!",
+        "description": "France create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:1.",
+        "score_after": "1:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "France": 1,
+      "Senegal": 14
+    },
+    "fifa_points": {
+      "France": 1896.0,
+      "Senegal": 1688.0
+    },
+    "form_last_10_avg_pts": {
+      "France": 2.65,
+      "Senegal": 2.03
+    },
+    "win_rate_last_10": {
+      "France": "85%",
+      "Senegal": "66%"
+    },
+    "avg_goals_scored": {
+      "France": 2.38,
+      "Senegal": 2.4
+    },
+    "avg_goals_conceded": {
+      "France": 1.29,
+      "Senegal": 1.38
+    },
+    "clean_sheet_rate": {
+      "France": "19%",
+      "Senegal": "42%"
+    },
+    "h2h_last_10": {
+      "France wins": "0%",
+      "draws": "0%",
+      "Senegal wins": "100%",
+      "total_h2h_games": 1
+    }
+  }
+}
