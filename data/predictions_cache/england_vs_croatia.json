@@ -3,188 +3,188 @@
   "away_team": "Croatia",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.6879,
-  "probability_draw": 0.1911,
-  "probability_away_win": 0.121,
+  "probability_home_win": 0.67,
+  "probability_draw": 0.2025,
+  "probability_away_win": 0.1275,
   "score_prediction": {
-    "home_xg": 1.52,
-    "away_xg": 0.95,
+    "home_xg": 1.91,
+    "away_xg": 1.11,
     "rho": -0.13,
-    "most_likely_score": "1:0",
+    "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.6879,
-    "probability_draw": 0.1911,
-    "probability_away_win": 0.121,
+    "probability_home_win": 0.67,
+    "probability_draw": 0.2025,
+    "probability_away_win": 0.1275,
     "top_scorelines": [
       {
-        "score": "1:0",
-        "probability": 0.1592
+        "score": "2:1",
+        "probability": 0.1212
       },
       {
         "score": "2:0",
-        "probability": 0.1376
+        "probability": 0.1092
       },
       {
-        "score": "2:1",
-        "probability": 0.1304
-      },
-      {
-        "score": "3:0",
-        "probability": 0.0696
+        "score": "1:0",
+        "probability": 0.098
       },
       {
         "score": "3:1",
-        "probability": 0.0659
+        "probability": 0.0771
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0695
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.879,
-        "home_or_away": 0.8089,
-        "draw_or_away": 0.3121
+        "home_or_draw": 0.8725,
+        "home_or_away": 0.7975,
+        "draw_or_away": 0.33
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.7388,
-          "under": 0.2612
+          "over": 0.8258,
+          "under": 0.1742
         },
         {
           "line": 2.5,
-          "over": 0.4894,
-          "under": 0.5106
+          "over": 0.6026,
+          "under": 0.3974
         },
         {
           "line": 3.5,
-          "over": 0.251,
-          "under": 0.749
+          "over": 0.3692,
+          "under": 0.6308
         }
       ],
       "btts": {
-        "yes": 0.4652,
-        "no": 0.5348
+        "yes": 0.5679,
+        "no": 0.4321
       },
       "win_margin": {
-        "home_1plus": 0.6879,
-        "home_2plus": 0.3631,
-        "home_3plus": 0.1466,
-        "away_1plus": 0.121,
-        "away_2plus": 0.045,
-        "away_3plus": 0.0119
+        "home_1plus": 0.67,
+        "home_2plus": 0.3998,
+        "home_3plus": 0.1899,
+        "away_1plus": 0.1275,
+        "away_2plus": 0.051,
+        "away_3plus": 0.015
       },
-      "scenario": "England are favored to win."
+      "scenario": "England are favored to win, likely by 2+ goals, in a high-scoring game."
     }
   },
   "game_flow": {
-    "match_type": "Tactically Balanced",
-    "match_description": "A tight game where goals will make the difference",
-    "dominance_index": 0.23,
-    "total_xg": 2.47,
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.26,
+    "total_xg": 3.02,
     "first_goal": {
-      "England_scores_first": 0.563,
-      "Croatia_scores_first": 0.352,
-      "no_goals": 0.085,
-      "expected_minute": 36
+      "England_scores_first": 0.602,
+      "Croatia_scores_first": 0.35,
+      "no_goals": 0.049,
+      "expected_minute": 29
     },
     "halftime_xg": {
-      "England": 0.71,
-      "Croatia": 0.45
+      "England": 0.9,
+      "Croatia": 0.52
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.314
+        "probability": 0.242
       },
       {
         "score": "1:0",
-        "probability": 0.224
+        "probability": 0.218
       },
       {
         "score": "0:1",
-        "probability": 0.14
+        "probability": 0.126
       },
       {
         "score": "1:1",
-        "probability": 0.1
+        "probability": 0.114
       },
       {
         "score": "2:0",
-        "probability": 0.08
+        "probability": 0.098
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "England": 0.205,
-        "Croatia": 0.128
+        "England": 0.258,
+        "Croatia": 0.15
       },
       "16-30'": {
-        "England": 0.236,
-        "Croatia": 0.147
+        "England": 0.296,
+        "Croatia": 0.172
       },
       "31-45'": {
-        "England": 0.274,
-        "Croatia": 0.171
+        "England": 0.344,
+        "Croatia": 0.2
       },
       "46-60'": {
-        "England": 0.22,
-        "Croatia": 0.138
+        "England": 0.277,
+        "Croatia": 0.161
       },
       "61-75'": {
-        "England": 0.281,
-        "Croatia": 0.176
+        "England": 0.353,
+        "Croatia": 0.205
       },
       "76-90'": {
-        "England": 0.304,
-        "Croatia": 0.19
+        "England": 0.382,
+        "Croatia": 0.222
       }
     },
     "comeback_probability": {
-      "England": 0.027,
-      "Croatia": 0.017
+      "England": 0.036,
+      "Croatia": 0.022
     },
-    "late_drama_probability": 0.39,
+    "late_drama_probability": 0.453,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
-        "beschreibung": "Beide Teams auf Augenh\u00f6he, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.259
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.223
       },
       {
         "szenario": "Torloser Krimi",
-        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
-        "wahrscheinlichkeit": 0.23
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.196
+      },
+      {
+        "szenario": "England dominiert früh",
+        "beschreibung": "England geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.099
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "England trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.129
-      },
-      {
-        "szenario": "England dominiert fr\u00fch",
-        "beschreibung": "England geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.081
+        "wahrscheinlichkeit": 0.095
       }
     ],
     "predicted_stats": {
       "possession": {
-        "home": 54,
-        "away": 46
+        "home": 55,
+        "away": 45
       },
       "shots": {
-        "home": 14,
-        "away": 10
+        "home": 16,
+        "away": 11
       },
       "shots_on_target": {
-        "home": 5,
-        "away": 4
-      },
-      "corners": {
         "home": 6,
         "away": 4
       },
+      "corners": {
+        "home": 7,
+        "away": 5
+      },
       "passes": {
-        "home": 281,
-        "away": 239
+        "home": 286,
+        "away": 234
       }
     },
     "match_ticker": [
@@ -197,31 +197,7 @@
         "score_after": "0:0"
       },
       {
-        "minute": 36,
-        "type": "chance",
-        "team": "England",
-        "headline": "Big chance for England!",
-        "description": "England create a great opportunity but fail to convert.",
-        "score_after": "0:0"
-      },
-      {
-        "minute": 45,
-        "type": "halftime",
-        "team": null,
-        "headline": "Half-time",
-        "description": "The teams go into the break at 0:0.",
-        "score_after": "0:0"
-      },
-      {
-        "minute": 80,
-        "type": "chance",
-        "team": "England",
-        "headline": "Big chance for England!",
-        "description": "England create a great opportunity but fail to convert.",
-        "score_after": "0:0"
-      },
-      {
-        "minute": 88,
+        "minute": 16,
         "type": "goal",
         "team": "England",
         "headline": "GOAL! England!",
@@ -229,12 +205,68 @@
         "score_after": "1:0"
       },
       {
+        "minute": 38,
+        "type": "chance",
+        "team": "England",
+        "headline": "Big chance for England!",
+        "description": "England create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 40,
+        "type": "chance",
+        "team": "England",
+        "headline": "Big chance for England!",
+        "description": "England create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 60,
+        "type": "chance",
+        "team": "England",
+        "headline": "Big chance for England!",
+        "description": "England create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 69,
+        "type": "goal",
+        "team": "England",
+        "headline": "GOAL! England!",
+        "description": "England score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 76,
+        "type": "chance",
+        "team": "Croatia",
+        "headline": "Big chance for Croatia!",
+        "description": "Croatia create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 87,
+        "type": "goal",
+        "team": "Croatia",
+        "headline": "GOAL! Croatia!",
+        "description": "Croatia score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
         "minute": 90,
         "type": "fulltime",
         "team": null,
         "headline": "Full-time",
-        "description": "The final score finishes 1:0.",
-        "score_after": "1:0"
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
       }
     ]
   },
@@ -248,24 +280,24 @@
       "Croatia": 1736.0
     },
     "form_last_10_avg_pts": {
-      "England": 2.01,
-      "Croatia": 2.31
+      "England": 2.14,
+      "Croatia": 1.88
     },
     "win_rate_last_10": {
-      "England": "62%",
-      "Croatia": "74%"
+      "England": "67%",
+      "Croatia": "60%"
     },
     "avg_goals_scored": {
       "England": 2.8,
-      "Croatia": 1.79
+      "Croatia": 1.86
     },
     "avg_goals_conceded": {
       "England": 0.32,
-      "Croatia": 1.42
+      "Croatia": 1.84
     },
     "clean_sheet_rate": {
       "England": "74%",
-      "Croatia": "30%"
+      "Croatia": "26%"
     },
     "h2h_last_10": {
       "England wins": "60%",

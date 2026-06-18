@@ -3,188 +3,188 @@
   "away_team": "Paraguay",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.5704,
-  "probability_draw": 0.2797,
-  "probability_away_win": 0.1499,
+  "probability_home_win": 0.75,
+  "probability_draw": 0.1485,
+  "probability_away_win": 0.1015,
   "score_prediction": {
-    "home_xg": 1.5,
-    "away_xg": 1.02,
+    "home_xg": 1.86,
+    "away_xg": 1.18,
     "rho": -0.13,
-    "most_likely_score": "1:0",
+    "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.5704,
-    "probability_draw": 0.2797,
-    "probability_away_win": 0.1499,
+    "probability_home_win": 0.75,
+    "probability_draw": 0.1485,
+    "probability_away_win": 0.1015,
     "top_scorelines": [
       {
-        "score": "1:0",
-        "probability": 0.1282
-      },
-      {
         "score": "2:1",
-        "probability": 0.1127
+        "probability": 0.1412
       },
       {
         "score": "2:0",
-        "probability": 0.1107
+        "probability": 0.1196
+      },
+      {
+        "score": "1:0",
+        "probability": 0.1089
       },
       {
         "score": "3:1",
-        "probability": 0.0563
+        "probability": 0.0875
       },
       {
         "score": "3:0",
-        "probability": 0.0553
+        "probability": 0.0741
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.8501,
-        "home_or_away": 0.7203,
-        "draw_or_away": 0.4296
+        "home_or_draw": 0.8985,
+        "home_or_away": 0.8515,
+        "draw_or_away": 0.25
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.7379,
-          "under": 0.2621
+          "over": 0.8359,
+          "under": 0.1641
         },
         {
           "line": 2.5,
-          "over": 0.4677,
-          "under": 0.5323
+          "over": 0.632,
+          "under": 0.368
         },
         {
           "line": 3.5,
-          "over": 0.2519,
-          "under": 0.7481
+          "over": 0.3831,
+          "under": 0.6169
         }
       ],
       "btts": {
-        "yes": 0.5055,
-        "no": 0.4945
+        "yes": 0.5667,
+        "no": 0.4333
       },
       "win_margin": {
-        "home_1plus": 0.5704,
-        "home_2plus": 0.297,
-        "home_3plus": 0.1181,
-        "away_1plus": 0.1499,
-        "away_2plus": 0.0584,
-        "away_3plus": 0.0164
+        "home_1plus": 0.75,
+        "home_2plus": 0.4377,
+        "home_3plus": 0.2028,
+        "away_1plus": 0.1015,
+        "away_2plus": 0.0423,
+        "away_3plus": 0.0131
       },
-      "scenario": "United States are favored to win."
+      "scenario": "United States are favored to win, likely by 2+ goals, in a high-scoring game."
     }
   },
   "game_flow": {
     "match_type": "Balanced & Open",
     "match_description": "Both teams play attacking football at an even level",
-    "dominance_index": 0.19,
-    "total_xg": 2.52,
+    "dominance_index": 0.22,
+    "total_xg": 3.04,
     "first_goal": {
-      "United States_scores_first": 0.547,
-      "Paraguay_scores_first": 0.372,
-      "no_goals": 0.08,
-      "expected_minute": 35
+      "United States_scores_first": 0.583,
+      "Paraguay_scores_first": 0.37,
+      "no_goals": 0.048,
+      "expected_minute": 29
     },
     "halftime_xg": {
-      "United States": 0.7,
-      "Paraguay": 0.48
+      "United States": 0.87,
+      "Paraguay": 0.55
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.306
+        "probability": 0.24
       },
       {
         "score": "1:0",
-        "probability": 0.216
+        "probability": 0.21
       },
       {
         "score": "0:1",
-        "probability": 0.147
+        "probability": 0.133
       },
       {
         "score": "1:1",
-        "probability": 0.103
+        "probability": 0.116
       },
       {
         "score": "2:0",
-        "probability": 0.076
+        "probability": 0.092
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "United States": 0.203,
-        "Paraguay": 0.138
+        "United States": 0.251,
+        "Paraguay": 0.159
       },
       "16-30'": {
-        "United States": 0.232,
-        "Paraguay": 0.158
+        "United States": 0.288,
+        "Paraguay": 0.183
       },
       "31-45'": {
-        "United States": 0.27,
-        "Paraguay": 0.184
+        "United States": 0.335,
+        "Paraguay": 0.212
       },
       "46-60'": {
-        "United States": 0.217,
-        "Paraguay": 0.148
+        "United States": 0.27,
+        "Paraguay": 0.171
       },
       "61-75'": {
-        "United States": 0.277,
-        "Paraguay": 0.189
+        "United States": 0.344,
+        "Paraguay": 0.218
       },
       "76-90'": {
-        "United States": 0.3,
-        "Paraguay": 0.204
+        "United States": 0.372,
+        "Paraguay": 0.236
       }
     },
     "comeback_probability": {
-      "United States": 0.028,
-      "Paraguay": 0.019
+      "United States": 0.036,
+      "Paraguay": 0.024
     },
-    "late_drama_probability": 0.396,
+    "late_drama_probability": 0.456,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
-        "beschreibung": "Beide Teams auf Augenh\u00f6he, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.26
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.228
       },
       {
         "szenario": "Torloser Krimi",
-        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
-        "wahrscheinlichkeit": 0.227
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.195
+      },
+      {
+        "szenario": "United States dominiert früh",
+        "beschreibung": "United States geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.093
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "United States trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.121
-      },
-      {
-        "szenario": "United States dominiert fr\u00fch",
-        "beschreibung": "United States geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.077
+        "wahrscheinlichkeit": 0.09
       }
     ],
     "predicted_stats": {
       "possession": {
-        "home": 53,
-        "away": 47
+        "home": 54,
+        "away": 46
       },
       "shots": {
-        "home": 14,
-        "away": 11
+        "home": 16,
+        "away": 12
       },
       "shots_on_target": {
-        "home": 5,
+        "home": 6,
         "away": 4
       },
       "corners": {
-        "home": 6,
+        "home": 7,
         "away": 5
       },
       "passes": {
-        "home": 276,
-        "away": 244
+        "home": 281,
+        "away": 239
       }
     },
     "match_ticker": [
@@ -197,23 +197,7 @@
         "score_after": "0:0"
       },
       {
-        "minute": 11,
-        "type": "chance",
-        "team": "Paraguay",
-        "headline": "Big chance for Paraguay!",
-        "description": "Paraguay create a great opportunity but fail to convert.",
-        "score_after": "0:0"
-      },
-      {
-        "minute": 45,
-        "type": "halftime",
-        "team": null,
-        "headline": "Half-time",
-        "description": "The teams go into the break at 0:0.",
-        "score_after": "0:0"
-      },
-      {
-        "minute": 73,
+        "minute": 2,
         "type": "goal",
         "team": "United States",
         "headline": "GOAL! United States!",
@@ -221,7 +205,7 @@
         "score_after": "1:0"
       },
       {
-        "minute": 82,
+        "minute": 33,
         "type": "chance",
         "team": "United States",
         "headline": "Big chance for United States!",
@@ -229,12 +213,60 @@
         "score_after": "1:0"
       },
       {
+        "minute": 37,
+        "type": "chance",
+        "team": "Paraguay",
+        "headline": "Big chance for Paraguay!",
+        "description": "Paraguay create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 62,
+        "type": "chance",
+        "team": "United States",
+        "headline": "Big chance for United States!",
+        "description": "United States create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 63,
+        "type": "goal",
+        "team": "Paraguay",
+        "headline": "GOAL! Paraguay!",
+        "description": "Paraguay score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 72,
+        "type": "chance",
+        "team": "Paraguay",
+        "headline": "Big chance for Paraguay!",
+        "description": "Paraguay create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 77,
+        "type": "goal",
+        "team": "United States",
+        "headline": "GOAL! United States!",
+        "description": "United States score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
         "minute": 90,
         "type": "fulltime",
         "team": null,
         "headline": "Full-time",
-        "description": "The final score finishes 1:0.",
-        "score_after": "1:0"
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
       }
     ]
   },
@@ -248,30 +280,30 @@
       "Paraguay": 1272.0
     },
     "form_last_10_avg_pts": {
-      "United States": 1.69,
-      "Paraguay": 1.37
+      "United States": 1.99,
+      "Paraguay": 1.06
     },
     "win_rate_last_10": {
-      "United States": "54%",
-      "Paraguay": "41%"
+      "United States": "64%",
+      "Paraguay": "31%"
     },
     "avg_goals_scored": {
       "United States": 1.34,
-      "Paraguay": 1.16
+      "Paraguay": 1.1
     },
     "avg_goals_conceded": {
       "United States": 1.14,
-      "Paraguay": 1.35
+      "Paraguay": 1.78
     },
     "clean_sheet_rate": {
       "United States": "40%",
-      "Paraguay": "23%"
+      "Paraguay": "20%"
     },
     "h2h_last_10": {
-      "United States wins": "50%",
-      "draws": "25%",
-      "Paraguay wins": "25%",
-      "total_h2h_games": 8
+      "United States wins": "56%",
+      "draws": "22%",
+      "Paraguay wins": "22%",
+      "total_h2h_games": 9
     }
   }
 }

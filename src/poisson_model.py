@@ -267,6 +267,10 @@ def predict_scorelines(
     home_xg *= home_factor
     away_xg *= away_factor
 
+    # WC group stage produces ~15% more goals than historical average
+    home_xg *= 1.15
+    away_xg *= 1.15
+
     # Use typical rho value (-0.13) — well-established in literature
     if rho is None:
         rho = -0.13

@@ -3,166 +3,166 @@
   "away_team": "Tunisia",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.4108,
-  "probability_draw": 0.3723,
-  "probability_away_win": 0.2169,
+  "probability_home_win": 0.5325,
+  "probability_draw": 0.2066,
+  "probability_away_win": 0.2609,
   "score_prediction": {
-    "home_xg": 1.28,
-    "away_xg": 1.48,
+    "home_xg": 1.65,
+    "away_xg": 1.71,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.4108,
-    "probability_draw": 0.3723,
-    "probability_away_win": 0.2169,
+    "probability_home_win": 0.5325,
+    "probability_draw": 0.2066,
+    "probability_away_win": 0.2609,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.1012
-      },
-      {
-        "score": "1:0",
-        "probability": 0.0863
+        "probability": 0.1195
       },
       {
         "score": "2:0",
-        "probability": 0.0682
+        "probability": 0.0699
+      },
+      {
+        "score": "1:0",
+        "probability": 0.066
       },
       {
         "score": "3:1",
-        "probability": 0.043
+        "probability": 0.0656
       },
       {
         "score": "3:2",
-        "probability": 0.0319
+        "probability": 0.0561
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.7831,
-        "home_or_away": 0.6277,
-        "draw_or_away": 0.5892
+        "home_or_draw": 0.7391,
+        "home_or_away": 0.7934,
+        "draw_or_away": 0.4675
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.7679,
-          "under": 0.2321
+          "over": 0.8635,
+          "under": 0.1365
         },
         {
           "line": 2.5,
-          "over": 0.4852,
-          "under": 0.5148
+          "over": 0.6688,
+          "under": 0.3312
         },
         {
           "line": 3.5,
-          "over": 0.2889,
-          "under": 0.7111
+          "over": 0.4346,
+          "under": 0.5654
         }
       ],
       "btts": {
-        "yes": 0.5932,
-        "no": 0.4068
+        "yes": 0.6661,
+        "no": 0.3339
       },
       "win_margin": {
-        "home_1plus": 0.4108,
-        "home_2plus": 0.1857,
-        "home_3plus": 0.0629,
-        "away_1plus": 0.2169,
-        "away_2plus": 0.1095,
-        "away_3plus": 0.0423
+        "home_1plus": 0.5325,
+        "home_2plus": 0.2756,
+        "home_3plus": 0.1122,
+        "away_1plus": 0.2609,
+        "away_2plus": 0.1388,
+        "away_3plus": 0.0583
       },
-      "scenario": "Sweden are favored to win."
+      "scenario": "Sweden are favored to win, in a high-scoring game."
     }
   },
   "game_flow": {
     "match_type": "Balanced & Open",
     "match_description": "Both teams play attacking football at an even level",
-    "dominance_index": -0.07,
-    "total_xg": 2.76,
+    "dominance_index": -0.02,
+    "total_xg": 3.36,
     "first_goal": {
-      "Sweden_scores_first": 0.434,
-      "Tunisia_scores_first": 0.502,
-      "no_goals": 0.063,
-      "expected_minute": 32
+      "Sweden_scores_first": 0.474,
+      "Tunisia_scores_first": 0.491,
+      "no_goals": 0.035,
+      "expected_minute": 26
     },
     "halftime_xg": {
-      "Sweden": 0.6,
-      "Tunisia": 0.7
+      "Sweden": 0.78,
+      "Tunisia": 0.8
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.274
+        "probability": 0.207
       },
       {
         "score": "0:1",
-        "probability": 0.19
+        "probability": 0.166
       },
       {
         "score": "1:0",
-        "probability": 0.165
+        "probability": 0.16
       },
       {
         "score": "1:1",
-        "probability": 0.115
+        "probability": 0.129
       },
       {
         "score": "0:2",
-        "probability": 0.066
+        "probability": 0.067
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Sweden": 0.173,
-        "Tunisia": 0.2
+        "Sweden": 0.223,
+        "Tunisia": 0.231
       },
       "16-30'": {
-        "Sweden": 0.198,
-        "Tunisia": 0.229
+        "Sweden": 0.256,
+        "Tunisia": 0.265
       },
       "31-45'": {
-        "Sweden": 0.23,
-        "Tunisia": 0.266
+        "Sweden": 0.297,
+        "Tunisia": 0.308
       },
       "46-60'": {
-        "Sweden": 0.186,
-        "Tunisia": 0.215
+        "Sweden": 0.239,
+        "Tunisia": 0.248
       },
       "61-75'": {
-        "Sweden": 0.237,
-        "Tunisia": 0.274
+        "Sweden": 0.305,
+        "Tunisia": 0.316
       },
       "76-90'": {
-        "Sweden": 0.256,
-        "Tunisia": 0.296
+        "Sweden": 0.33,
+        "Tunisia": 0.342
       }
     },
     "comeback_probability": {
-      "Sweden": 0.026,
-      "Tunisia": 0.03
+      "Sweden": 0.037,
+      "Tunisia": 0.038
     },
-    "late_drama_probability": 0.424,
+    "late_drama_probability": 0.489,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
-        "beschreibung": "Beide Teams auf Augenh\u00f6he, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.254
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.227
       },
       {
         "szenario": "Torloser Krimi",
-        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
-        "wahrscheinlichkeit": 0.212
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.175
       },
       {
-        "szenario": "Knappes 1:0",
-        "beschreibung": "Tunisia trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.094
-      },
-      {
-        "szenario": "Tunisia dominiert fr\u00fch",
+        "szenario": "Tunisia dominiert früh",
         "beschreibung": "Tunisia geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.067
+        "wahrscheinlichkeit": 0.068
+      },
+      {
+        "szenario": "Sweden dominiert früh",
+        "beschreibung": "Sweden geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.063
       }
     ],
     "predicted_stats": {
@@ -171,16 +171,16 @@
         "away": 51
       },
       "shots": {
-        "home": 12,
-        "away": 14
+        "home": 15,
+        "away": 16
       },
       "shots_on_target": {
-        "home": 5,
-        "away": 6
+        "home": 6,
+        "away": 7
       },
       "corners": {
-        "home": 5,
-        "away": 6
+        "home": 6,
+        "away": 7
       },
       "passes": {
         "home": 255,
@@ -205,11 +205,19 @@
         "score_after": "1:0"
       },
       {
+        "minute": 18,
+        "type": "chance",
+        "team": "Tunisia",
+        "headline": "Big chance for Tunisia!",
+        "description": "Tunisia create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
         "minute": 23,
         "type": "chance",
-        "team": "Sweden",
-        "headline": "Big chance for Sweden!",
-        "description": "Sweden create a great opportunity but fail to convert.",
+        "team": "Tunisia",
+        "headline": "Big chance for Tunisia!",
+        "description": "Tunisia create a great opportunity but fail to convert.",
         "score_after": "1:0"
       },
       {
@@ -218,6 +226,14 @@
         "team": null,
         "headline": "Half-time",
         "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 48,
+        "type": "chance",
+        "team": "Sweden",
+        "headline": "Big chance for Sweden!",
+        "description": "Sweden create a great opportunity but fail to convert.",
         "score_after": "1:0"
       },
       {
@@ -237,15 +253,7 @@
         "score_after": "2:1"
       },
       {
-        "minute": 72,
-        "type": "chance",
-        "team": "Sweden",
-        "headline": "Big chance for Sweden!",
-        "description": "Sweden create a great opportunity but fail to convert.",
-        "score_after": "2:1"
-      },
-      {
-        "minute": 78,
+        "minute": 68,
         "type": "chance",
         "team": "Sweden",
         "headline": "Big chance for Sweden!",
@@ -272,24 +280,24 @@
       "Tunisia": 1208.0
     },
     "form_last_10_avg_pts": {
-      "Sweden": 1.48,
-      "Tunisia": 1.47
+      "Sweden": 1.68,
+      "Tunisia": 1.23
     },
     "win_rate_last_10": {
-      "Sweden": "43%",
-      "Tunisia": "31%"
+      "Sweden": "50%",
+      "Tunisia": "27%"
     },
     "avg_goals_scored": {
       "Sweden": 1.67,
-      "Tunisia": 1.12
+      "Tunisia": 1.15
     },
     "avg_goals_conceded": {
       "Sweden": 1.64,
-      "Tunisia": 0.86
+      "Tunisia": 1.52
     },
     "clean_sheet_rate": {
       "Sweden": "17%",
-      "Tunisia": "47%"
+      "Tunisia": "41%"
     },
     "h2h_last_10": {
       "Sweden wins": "67%",

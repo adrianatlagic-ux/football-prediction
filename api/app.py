@@ -3,11 +3,15 @@ from __future__ import annotations
 import json
 import os
 import re
+import time
+import urllib.request
 from pathlib import Path
 from typing import Optional, Any
 
 from fastapi import FastAPI, HTTPException, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 import sys
@@ -205,3 +209,138 @@ def list_predictions():
     if not PREDICTIONS_CACHE_DIR.exists():
         return {"match_ids": []}
     return {"match_ids": sorted(p.stem for p in PREDICTIONS_CACHE_DIR.glob("*.json"))}
+
+
+# ── ESPN Real Results ──────────────────────────────────────────────────────
+
+_ESPN_NAME_MAP = {
+    "Czechia": "Czech Republic",
+    "Bosnia-Herzegovina": "Bosnia and Herzegovina",
+    "Türkiye": "Turkey",
+    "Curaçao": "Curacao",
+    "Ivory Coast": "Ivory Coast",
+    "Congo DR": "DR Congo",
+    "USA": "United States",
+}
+
+_espn_cache: dict[str, Any] = {}
+_espn_cache_ts: float = 0
+_ESPN_TTL = 180  # seconds
+
+
+def _espn_team(name: str) -> str:
+    return _ESPN_NAME_MAP.get(name, name)
+
+
+def _fetch_espn_results() -> list[dict]:
+    url = (
+        "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/"
+        "scoreboard?dates=20260611-20260719&limit=100"
+    )
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=8) as resp:
+        data = json.loads(resp.read())
+
+    results = []
+    for event in data.get("events", []):
+        comp = event["competitions"][0]
+        status = comp["status"]["type"]
+        completed = status.get("completed", False)
+
+        competitors = comp["competitors"]
+        # ESPN: index 0 = home, index 1 = away
+        home_c = next((c for c in competitors if c.get("homeAway") == "home"), competitors[0])
+        away_c = next((c for c in competitors if c.get("homeAway") == "away"), competitors[1])
+
+        home_team = _espn_team(home_c["team"]["displayName"])
+        away_team = _espn_team(away_c["team"]["displayName"])
+
+        def stat(competitor, name):
+            for s in competitor.get("statistics", []):
+                if s.get("name") == name:
+                    try:
+                        return float(s["displayValue"])
+                    except (KeyError, ValueError):
+                        return None
+            return None
+
+        # Build team id -> which side map for events
+        home_id = home_c["team"]["id"]
+
+        events = []
+        for d in comp.get("details", []):
+            if not d.get("scoringPlay") and not d.get("yellowCard") and not d.get("redCard"):
+                continue
+            minute = d.get("clock", {}).get("displayValue", "")
+            team_id = d.get("team", {}).get("id")
+            athletes = [a.get("displayName", "") for a in d.get("athletesInvolved", [])]
+            evt_type = "goal" if d.get("scoringPlay") else ("red_card" if d.get("redCard") else "yellow_card")
+            events.append({
+                "type": evt_type,
+                "minute": minute,
+                "team": home_team if team_id == home_id else away_team,
+                "player": athletes[0] if athletes else "",
+                "own_goal": d.get("ownGoal", False),
+                "penalty": d.get("penaltyKick", False),
+            })
+
+        results.append({
+            "home_team": home_team,
+            "away_team": away_team,
+            "home_score": int(home_c.get("score", 0)) if completed else None,
+            "away_score": int(away_c.get("score", 0)) if completed else None,
+            "completed": completed,
+            "status": status.get("description", ""),
+            "events": events,
+            "stats": {
+                "home": {
+                    "possession": stat(home_c, "possessionPct"),
+                    "shots": stat(home_c, "totalShots"),
+                    "shots_on_target": stat(home_c, "shotsOnTarget"),
+                    "corners": stat(home_c, "wonCorners"),
+                    "fouls": stat(home_c, "foulsCommitted"),
+                },
+                "away": {
+                    "possession": stat(away_c, "possessionPct"),
+                    "shots": stat(away_c, "totalShots"),
+                    "shots_on_target": stat(away_c, "shotsOnTarget"),
+                    "corners": stat(away_c, "wonCorners"),
+                    "fouls": stat(away_c, "foulsCommitted"),
+                },
+            },
+        })
+    return results
+
+
+def _get_espn_results() -> list[dict]:
+    global _espn_cache, _espn_cache_ts
+    now = time.time()
+    if not _espn_cache or (now - _espn_cache_ts) > _ESPN_TTL:
+        try:
+            _espn_cache = _fetch_espn_results()
+            _espn_cache_ts = now
+        except Exception as exc:
+            if not _espn_cache:
+                raise
+    return _espn_cache
+
+
+@app.get("/real-results")
+def real_results():
+    try:
+        return {"results": _get_espn_results()}
+    except Exception as exc:
+        raise HTTPException(status_code=503, detail=f"ESPN API unavailable: {exc}")
+
+
+FRONTEND_DIST = Path(__file__).parent.parent / "frontend" / "dist"
+
+if FRONTEND_DIST.exists():
+    app.mount("/assets", StaticFiles(directory=FRONTEND_DIST / "assets"), name="assets")
+
+    @app.get("/{full_path:path}")
+    def serve_frontend(full_path: str):
+        candidate = FRONTEND_DIST / full_path
+        if full_path and candidate.is_file():
+            return FileResponse(candidate)
+        return FileResponse(FRONTEND_DIST / "index.html")

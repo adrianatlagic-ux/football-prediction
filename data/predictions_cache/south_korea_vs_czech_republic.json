@@ -3,188 +3,183 @@
   "away_team": "Czech Republic",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.4475,
-  "probability_draw": 0.2865,
-  "probability_away_win": 0.266,
+  "probability_home_win": 0.388,
+  "probability_draw": 0.2658,
+  "probability_away_win": 0.3462,
   "score_prediction": {
-    "home_xg": 2.0,
-    "away_xg": 1.07,
+    "home_xg": 2.35,
+    "away_xg": 1.2,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.4475,
-    "probability_draw": 0.2865,
-    "probability_away_win": 0.266,
+    "probability_home_win": 0.388,
+    "probability_draw": 0.2658,
+    "probability_away_win": 0.3462,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.0771
+        "probability": 0.0596
       },
       {
         "score": "2:0",
-        "probability": 0.0724
-      },
-      {
-        "score": "1:0",
-        "probability": 0.0625
+        "probability": 0.0497
       },
       {
         "score": "3:1",
-        "probability": 0.0514
+        "probability": 0.0468
       },
       {
         "score": "3:0",
-        "probability": 0.0482
+        "probability": 0.039
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0356
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.734,
-        "home_or_away": 0.7135,
-        "draw_or_away": 0.5525
+        "home_or_draw": 0.6538,
+        "home_or_away": 0.7342,
+        "draw_or_away": 0.612
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8122,
-          "under": 0.1878
+          "over": 0.8658,
+          "under": 0.1342
         },
         {
           "line": 2.5,
-          "over": 0.5668,
-          "under": 0.4332
+          "over": 0.6582,
+          "under": 0.3418
         },
         {
           "line": 3.5,
-          "over": 0.3512,
-          "under": 0.6488
+          "over": 0.4447,
+          "under": 0.5553
         }
       ],
       "btts": {
-        "yes": 0.5971,
-        "no": 0.4029
+        "yes": 0.6725,
+        "no": 0.3275
       },
       "win_margin": {
-        "home_1plus": 0.4475,
-        "home_2plus": 0.2749,
-        "home_3plus": 0.1353,
-        "away_1plus": 0.266,
-        "away_2plus": 0.1031,
-        "away_3plus": 0.0292
+        "home_1plus": 0.388,
+        "home_2plus": 0.257,
+        "home_3plus": 0.1405,
+        "away_1plus": 0.3462,
+        "away_2plus": 0.1408,
+        "away_3plus": 0.0432
       },
       "scenario": "South Korea are favored to win, likely by 2+ goals, in a high-scoring game."
     }
   },
   "game_flow": {
-    "match_type": "Balanced & Open",
-    "match_description": "Both teams play attacking football at an even level",
-    "dominance_index": 0.3,
-    "total_xg": 3.07,
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.32,
+    "total_xg": 3.55,
     "first_goal": {
-      "South Korea_scores_first": 0.621,
-      "Czech Republic_scores_first": 0.332,
-      "no_goals": 0.046,
-      "expected_minute": 29
+      "South Korea_scores_first": 0.643,
+      "Czech Republic_scores_first": 0.328,
+      "no_goals": 0.029,
+      "expected_minute": 25
     },
     "halftime_xg": {
-      "South Korea": 0.94,
-      "Czech Republic": 0.5
+      "South Korea": 1.1,
+      "Czech Republic": 0.56
     },
     "top_halftime_scores": [
       {
-        "score": "0:0",
-        "probability": 0.237
-      },
-      {
         "score": "1:0",
-        "probability": 0.223
+        "probability": 0.209
       },
       {
-        "score": "0:1",
-        "probability": 0.119
+        "score": "0:0",
+        "probability": 0.19
       },
       {
         "score": "1:1",
-        "probability": 0.112
+        "probability": 0.118
       },
       {
         "score": "2:0",
-        "probability": 0.105
+        "probability": 0.116
+      },
+      {
+        "score": "0:1",
+        "probability": 0.107
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "South Korea": 0.27,
-        "Czech Republic": 0.144
+        "South Korea": 0.317,
+        "Czech Republic": 0.162
       },
       "16-30'": {
-        "South Korea": 0.31,
-        "Czech Republic": 0.166
+        "South Korea": 0.364,
+        "Czech Republic": 0.186
       },
       "31-45'": {
-        "South Korea": 0.36,
-        "Czech Republic": 0.193
+        "South Korea": 0.423,
+        "Czech Republic": 0.216
       },
       "46-60'": {
-        "South Korea": 0.29,
-        "Czech Republic": 0.155
+        "South Korea": 0.341,
+        "Czech Republic": 0.174
       },
       "61-75'": {
-        "South Korea": 0.37,
-        "Czech Republic": 0.198
+        "South Korea": 0.435,
+        "Czech Republic": 0.222
       },
       "76-90'": {
-        "South Korea": 0.4,
-        "Czech Republic": 0.214
+        "South Korea": 0.47,
+        "Czech Republic": 0.24
       }
     },
     "comeback_probability": {
-      "South Korea": 0.037,
-      "Czech Republic": 0.021
+      "South Korea": 0.044,
+      "Czech Republic": 0.024
     },
-    "late_drama_probability": 0.459,
+    "late_drama_probability": 0.508,
     "match_stories": [
       {
-        "szenario": "Ausgeglichenes Unentschieden",
-        "beschreibung": "Beide Teams auf Augenh\u00f6he, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.215
-      },
-      {
         "szenario": "Torloser Krimi",
-        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
-        "wahrscheinlichkeit": 0.193
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.164
       },
       {
-        "szenario": "South Korea dominiert fr\u00fch",
+        "szenario": "South Korea dominiert früh",
         "beschreibung": "South Korea geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.106
+        "wahrscheinlichkeit": 0.118
       },
       {
-        "szenario": "Knappes 1:0",
-        "beschreibung": "South Korea trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.094
+        "szenario": "South Korea dreht es noch",
+        "beschreibung": "South Korea liegt zur Halbzeit zurück, dreht das Spiel in H2",
+        "wahrscheinlichkeit": 0.044
       }
     ],
     "predicted_stats": {
       "possession": {
-        "home": 55,
-        "away": 45
+        "home": 56,
+        "away": 44
       },
       "shots": {
-        "home": 17,
-        "away": 11
+        "home": 19,
+        "away": 12
       },
       "shots_on_target": {
-        "home": 7,
+        "home": 8,
         "away": 4
       },
       "corners": {
-        "home": 7,
+        "home": 8,
         "away": 5
       },
       "passes": {
-        "home": 286,
-        "away": 234
+        "home": 291,
+        "away": 229
       }
     },
     "match_ticker": [
@@ -280,30 +275,30 @@
       "Czech Republic": 1256.0
     },
     "form_last_10_avg_pts": {
-      "South Korea": 1.8,
-      "Czech Republic": 1.75
+      "South Korea": 1.96,
+      "Czech Republic": 1.52
     },
     "win_rate_last_10": {
-      "South Korea": "58%",
-      "Czech Republic": "44%"
+      "South Korea": "63%",
+      "Czech Republic": "39%"
     },
     "avg_goals_scored": {
       "South Korea": 1.65,
-      "Czech Republic": 1.44
+      "Czech Republic": 1.34
     },
     "avg_goals_conceded": {
       "South Korea": 1.25,
-      "Czech Republic": 1.61
+      "Czech Republic": 1.71
     },
     "clean_sheet_rate": {
       "South Korea": "33%",
-      "Czech Republic": "36%"
+      "Czech Republic": "32%"
     },
     "h2h_last_10": {
-      "South Korea wins": "33%",
-      "draws": "33%",
-      "Czech Republic wins": "33%",
-      "total_h2h_games": 3
+      "South Korea wins": "50%",
+      "draws": "25%",
+      "Czech Republic wins": "25%",
+      "total_h2h_games": 4
     }
   }
 }

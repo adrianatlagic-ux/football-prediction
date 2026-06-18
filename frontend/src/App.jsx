@@ -5,7 +5,7 @@ import WC2026_FIXTURES from './wc2026_fixtures.json'
 import FIFA_RANKINGS from './fifa_rankings.json'
 import wc2026Logo from './assets/wc2026-logo.png'
 
-const API_BASE = 'http://127.0.0.1:8000'
+const API_BASE = import.meta.env.DEV ? 'http://127.0.0.1:8000' : ''
 
 const GROUPS = [...new Set(WC2026_FIXTURES.map(f => f.group))].sort()
 
@@ -738,9 +738,122 @@ function AnalysisFlowPage({ onBack }) {
   )
 }
 
+function buildRealResultsMap(results) {
+  const map = {}
+  for (const r of results) {
+    const key = `${r.home_team}__${r.away_team}`
+    map[key] = r
+  }
+  return map
+}
+
+function RealTicker({ events, homeTeam, awayTeam }) {
+  if (!events || events.length === 0) return null
+  const goalEvents = events.filter(e => e.type === 'goal')
+  const cardEvents = events.filter(e => e.type === 'red_card')
+  if (goalEvents.length === 0 && cardEvents.length === 0) return null
+
+  return (
+    <div className="wm-stories real-ticker">
+      <h4>Match Events</h4>
+      {events.filter(e => e.type === 'goal' || e.type === 'red_card').map((e, i) => (
+        <div className={`wm-ticker-event wm-ticker-${e.type === 'goal' ? 'goal' : 'chance'}`} key={i}>
+          <span className="wm-ticker-minute">{e.minute}</span>
+          <div className="wm-ticker-body">
+            <div className="wm-ticker-head">
+              <span>
+                {e.type === 'goal' ? '⚽' : '🟥'}
+                {' '}{e.player}
+                {e.own_goal ? ' (OG)' : ''}
+                {e.penalty ? ' (P)' : ''}
+                {' — '}{e.team}
+              </span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function RealStats({ stats, homeTeam, awayTeam }) {
+  if (!stats || stats.home.possession == null) return null
+  return (
+    <div className="h2h-stats wm-reveal">
+      <h4>Match Stats</h4>
+      <div className="h2h-teams">
+        <span><TeamLabel name={homeTeam} /></span>
+        <span><TeamLabel name={awayTeam} /></span>
+      </div>
+      {stats.home.possession != null && (
+        <HeadToHeadStat label="Possession" home={stats.home.possession} away={stats.away.possession} suffix="%" />
+      )}
+      {stats.home.shots != null && (
+        <HeadToHeadStat label="Shots" home={stats.home.shots} away={stats.away.shots} />
+      )}
+      {stats.home.shots_on_target != null && (
+        <HeadToHeadStat label="Shots on Target" home={stats.home.shots_on_target} away={stats.away.shots_on_target} />
+      )}
+      {stats.home.corners != null && (
+        <HeadToHeadStat label="Corners" home={stats.home.corners} away={stats.away.corners} />
+      )}
+    </div>
+  )
+}
+
+function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive }) {
+  const [showAI, setShowAI] = useState(false)
+
+  return (
+    <div className="card wm-card">
+      <div className="wm-card-header">
+        <span className="wm-match-id">{fixture.date} · {fixture.time}</span>
+        <span className="wm-match-type" style={{ background: 'rgba(34,197,94,0.15)', color: '#4ade80' }}>Final</span>
+      </div>
+
+      <div className="result-header">
+        <span className="team-name"><TeamLabel name={fixture.home_team} /></span>
+        <div className="prediction-badge" style={{ fontSize: '1.5rem', letterSpacing: '0.05em', padding: '0.3rem 1rem' }}>
+          {result.home_score} – {result.away_score}
+        </div>
+        <span className="team-name"><TeamLabel name={fixture.away_team} /></span>
+      </div>
+
+      <RealTicker events={result.events} homeTeam={fixture.home_team} awayTeam={fixture.away_team} />
+      <RealStats stats={result.stats} homeTeam={fixture.home_team} awayTeam={fixture.away_team} />
+
+      {aiData && (
+        <div className="ai-prediction-section">
+          <button className="ai-toggle-btn" onClick={() => setShowAI(v => !v)}>
+            {showAI ? '▲ Hide AI Prediction' : '▼ Show AI Prediction'}
+          </button>
+          {showAI && (
+            <div className="ai-prediction-inner">
+              <p className="wm-subtle" style={{ marginBottom: '0.5rem', fontSize: '0.8rem' }}>Pre-match AI prediction (for comparison)</p>
+              <ProbabilityBar label={<TeamLabel name={fixture.home_team} />} value={aiData.probability_home_win} color="linear-gradient(90deg,var(--gold),var(--gold-light))" />
+              <ProbabilityBar label="Draw" value={aiData.probability_draw} color="linear-gradient(90deg,#6b7280,#9ca3af)" />
+              <ProbabilityBar label={<TeamLabel name={fixture.away_team} />} value={aiData.probability_away_win} color="linear-gradient(90deg,#ef4444,#f97316)" />
+            </div>
+          )}
+        </div>
+      )}
+
+      {!aiData && (
+        <div style={{ marginTop: '1rem' }}>
+          {analysisActive
+            ? <p className="wm-subtle">Loading AI analysis…</p>
+            : <button className="fixture-generate-btn" onClick={onGenerate}>Show AI Pre-Match Analysis</button>
+          }
+        </div>
+      )}
+    </div>
+  )
+}
+
 export default function App() {
   const [page, setPage] = useState('home')
   const [predictionsById, setPredictionsById] = useState({})
+  const [realResultsMap, setRealResultsMap] = useState({})
   const [wmLoading, setWmLoading] = useState(true)
   const [activeGroup, setActiveGroup] = useState(GROUPS[0])
   const [analysisStep, setAnalysisStep] = useState({})
@@ -768,34 +881,39 @@ export default function App() {
   }
 
   useEffect(() => {
-    async function loadWmPredictions() {
+    async function loadAll() {
       try {
-        const list = await axios.get(`${API_BASE}/predictions`)
-        const ids = (list.data.match_ids || []).filter(id =>
-          WC2026_FIXTURES.some(f => f.match_id === id)
-        )
-        const all = await Promise.all(
-          ids.map(id => axios.get(`${API_BASE}/predictions/${id}`).then(r => ({ matchId: id, data: r.data })))
-        )
-        const byId = {}
-        all.forEach(({ matchId, data }) => { byId[matchId] = data })
-        setPredictionsById(byId)
+        const [listResp, resultsResp] = await Promise.allSettled([
+          axios.get(`${API_BASE}/predictions`),
+          axios.get(`${API_BASE}/real-results`),
+        ])
+        if (listResp.status === 'fulfilled') {
+          const ids = (listResp.value.data.match_ids || []).filter(id =>
+            WC2026_FIXTURES.some(f => f.match_id === id)
+          )
+          const all = await Promise.all(
+            ids.map(id => axios.get(`${API_BASE}/predictions/${id}`).then(r => ({ matchId: id, data: r.data })))
+          )
+          const byId = {}
+          all.forEach(({ matchId, data }) => { byId[matchId] = data })
+          setPredictionsById(byId)
+        }
+        if (resultsResp.status === 'fulfilled') {
+          const results = resultsResp.value.data.results || []
+          setRealResultsMap(buildRealResultsMap(results))
+        }
       } catch (e) {
-        // Backend may not have any cached predictions yet - not an error state
+        // non-fatal
       } finally {
         setWmLoading(false)
       }
     }
-    loadWmPredictions()
+    loadAll()
   }, [])
 
   return (
     <div className="app">
       <nav className="navbar">
-        <div className="nav-brand" onClick={() => setPage('home')} role="button">
-          <img src={wc2026Logo} alt="FIFA World Cup 2026" className="nav-logo" />
-          <span className="nav-title">WC 2026 Predictor</span>
-        </div>
         <div className="nav-links">
           <a href="#predictions" onClick={() => setPage('home')}>Predictions</a>
           <a href="#how-it-works" onClick={(e) => { e.preventDefault(); setPage('how-it-works') }}>How It Works</a>
@@ -808,8 +926,10 @@ export default function App() {
             <HeroVisual />
             <div className="hero-grid">
               <div className="hero-content">
-                <img src={wc2026Logo} alt="FIFA World Cup 2026" className="hero-logo" />
-                <span className="hero-eyebrow">A New Era of Football Intelligence</span>
+                <div className="hero-top">
+                  <img src={wc2026Logo} alt="FIFA World Cup 2026" className="hero-logo" />
+                  <span className="hero-eyebrow">A New Era of Football Intelligence</span>
+                </div>
                 <h1>AI-Powered World Cup 2026 Predictions</h1>
                 <p>
                   A breakthrough AI model — trained on millions of football data points — delivers
@@ -891,8 +1011,24 @@ export default function App() {
                     fixtures = WC2026_FIXTURES.filter(f => f.group === activeGroup)
                   }
                   return fixtures.map(fixture => {
-                    const data = predictionsById[fixture.match_id]
-                    if (!data) {
+                    const realKey = `${fixture.home_team}__${fixture.away_team}`
+                    const realResult = realResultsMap[realKey]
+                    const aiData = predictionsById[fixture.match_id]
+
+                    if (realResult?.completed) {
+                      return (
+                        <RealResultCard
+                          key={fixture.match_id}
+                          fixture={fixture}
+                          result={realResult}
+                          aiData={aiData}
+                          onGenerate={() => startAnalysis(fixture.match_id)}
+                          analysisActive={analysisStep[fixture.match_id] !== undefined}
+                        />
+                      )
+                    }
+
+                    if (!aiData) {
                       return <FixtureRow key={fixture.match_id} fixture={fixture} />
                     }
                     const step = analysisStep[fixture.match_id]
@@ -909,7 +1045,7 @@ export default function App() {
                       <WmPredictionCard
                         key={fixture.match_id}
                         matchId={fixture.match_id}
-                        data={data}
+                        data={aiData}
                         fixture={fixture}
                         revealStep={step}
                         onCollapse={step === Infinity ? () => collapseAnalysis(fixture.match_id) : undefined}

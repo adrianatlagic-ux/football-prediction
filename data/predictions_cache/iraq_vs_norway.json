@@ -3,188 +3,183 @@
   "away_team": "Norway",
   "prediction": "A",
   "prediction_label": "Away Win",
-  "probability_home_win": 0.2013,
-  "probability_draw": 0.2598,
-  "probability_away_win": 0.5389,
+  "probability_home_win": 0.2265,
+  "probability_draw": 0.3714,
+  "probability_away_win": 0.4021,
   "score_prediction": {
-    "home_xg": 0.9,
-    "away_xg": 2.0,
+    "home_xg": 1.02,
+    "away_xg": 2.6,
     "rho": -0.13,
-    "most_likely_score": "0:2",
+    "most_likely_score": "1:2",
     "result": "A",
-    "probability_home_win": 0.2013,
-    "probability_draw": 0.2598,
-    "probability_away_win": 0.5389,
+    "probability_home_win": 0.2265,
+    "probability_draw": 0.3714,
+    "probability_away_win": 0.4021,
     "top_scorelines": [
       {
-        "score": "0:2",
-        "probability": 0.096
-      },
-      {
         "score": "1:2",
-        "probability": 0.0867
+        "probability": 0.0529
       },
       {
-        "score": "0:1",
-        "probability": 0.0847
-      },
-      {
-        "score": "0:3",
-        "probability": 0.064
+        "score": "0:2",
+        "probability": 0.052
       },
       {
         "score": "1:3",
-        "probability": 0.0578
+        "probability": 0.0458
+      },
+      {
+        "score": "0:3",
+        "probability": 0.045
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0347
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.4611,
-        "home_or_away": 0.7402,
-        "draw_or_away": 0.7987
+        "home_or_draw": 0.5979,
+        "home_or_away": 0.6286,
+        "draw_or_away": 0.7735
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.7909,
-          "under": 0.2091
+          "over": 0.8554,
+          "under": 0.1446
         },
         {
           "line": 2.5,
-          "over": 0.5407,
-          "under": 0.4593
+          "over": 0.6104,
+          "under": 0.3896
         },
         {
           "line": 3.5,
-          "over": 0.3206,
-          "under": 0.6794
+          "over": 0.433,
+          "under": 0.567
         }
       ],
       "btts": {
-        "yes": 0.5384,
-        "no": 0.4616
+        "yes": 0.665,
+        "no": 0.335
       },
       "win_margin": {
-        "home_1plus": 0.2013,
-        "home_2plus": 0.0705,
-        "home_3plus": 0.0175,
-        "away_1plus": 0.5389,
-        "away_2plus": 0.3371,
-        "away_3plus": 0.1685
+        "home_1plus": 0.2265,
+        "home_2plus": 0.0822,
+        "home_3plus": 0.0217,
+        "away_1plus": 0.4021,
+        "away_2plus": 0.2853,
+        "away_3plus": 0.1693
       },
-      "scenario": "Norway are favored to win, likely by 2+ goals."
+      "scenario": "Norway are favored to win, likely by 2+ goals, in a high-scoring game."
     }
   },
   "game_flow": {
-    "match_type": "Balanced & Open",
-    "match_description": "Both teams play attacking football at an even level",
-    "dominance_index": -0.38,
-    "total_xg": 2.9,
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": -0.44,
+    "total_xg": 3.62,
     "first_goal": {
-      "Iraq_scores_first": 0.293,
-      "Norway_scores_first": 0.652,
-      "no_goals": 0.055,
-      "expected_minute": 31
+      "Iraq_scores_first": 0.274,
+      "Norway_scores_first": 0.699,
+      "no_goals": 0.027,
+      "expected_minute": 24
     },
     "halftime_xg": {
-      "Iraq": 0.42,
-      "Norway": 0.94
+      "Iraq": 0.48,
+      "Norway": 1.22
     },
     "top_halftime_scores": [
       {
-        "score": "0:0",
-        "probability": 0.257
+        "score": "0:1",
+        "probability": 0.225
       },
       {
-        "score": "0:1",
-        "probability": 0.241
+        "score": "0:0",
+        "probability": 0.184
       },
       {
         "score": "0:2",
-        "probability": 0.113
-      },
-      {
-        "score": "1:0",
-        "probability": 0.109
+        "probability": 0.137
       },
       {
         "score": "1:1",
-        "probability": 0.102
+        "probability": 0.108
+      },
+      {
+        "score": "1:0",
+        "probability": 0.088
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Iraq": 0.122,
-        "Norway": 0.27
+        "Iraq": 0.138,
+        "Norway": 0.351
       },
       "16-30'": {
-        "Iraq": 0.14,
-        "Norway": 0.31
+        "Iraq": 0.158,
+        "Norway": 0.403
       },
       "31-45'": {
-        "Iraq": 0.162,
-        "Norway": 0.36
+        "Iraq": 0.184,
+        "Norway": 0.468
       },
       "46-60'": {
-        "Iraq": 0.131,
-        "Norway": 0.29
+        "Iraq": 0.148,
+        "Norway": 0.377
       },
       "61-75'": {
-        "Iraq": 0.167,
-        "Norway": 0.37
+        "Iraq": 0.189,
+        "Norway": 0.481
       },
       "76-90'": {
-        "Iraq": 0.18,
-        "Norway": 0.4
+        "Iraq": 0.204,
+        "Norway": 0.52
       }
     },
     "comeback_probability": {
-      "Iraq": 0.016,
-      "Norway": 0.033
+      "Iraq": 0.018,
+      "Norway": 0.042
     },
-    "late_drama_probability": 0.44,
+    "late_drama_probability": 0.515,
     "match_stories": [
       {
-        "szenario": "Ausgeglichenes Unentschieden",
-        "beschreibung": "Beide Teams auf Augenh\u00f6he, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.211
-      },
-      {
         "szenario": "Torloser Krimi",
-        "beschreibung": "0:0 zur Halbzeit \u2014 Entscheidung f\u00e4llt in der 2. H\u00e4lfte",
-        "wahrscheinlichkeit": 0.204
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.161
       },
       {
-        "szenario": "Norway dominiert fr\u00fch",
+        "szenario": "Norway dominiert früh",
         "beschreibung": "Norway geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.115
+        "wahrscheinlichkeit": 0.141
       },
       {
-        "szenario": "Knappes 1:0",
-        "beschreibung": "Norway trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.112
+        "szenario": "Norway dreht es noch",
+        "beschreibung": "Norway liegt zur Halbzeit zurück, dreht das Spiel in H2",
+        "wahrscheinlichkeit": 0.042
       }
     ],
     "predicted_stats": {
       "possession": {
-        "home": 43,
-        "away": 57
+        "home": 42,
+        "away": 58
       },
       "shots": {
-        "home": 10,
-        "away": 17
+        "home": 11,
+        "away": 21
       },
       "shots_on_target": {
         "home": 4,
-        "away": 7
+        "away": 8
       },
       "corners": {
-        "home": 4,
-        "away": 7
+        "home": 5,
+        "away": 8
       },
       "passes": {
-        "home": 224,
-        "away": 296
+        "home": 218,
+        "away": 302
       }
     },
     "match_ticker": [
@@ -197,7 +192,15 @@
         "score_after": "0:0"
       },
       {
-        "minute": 16,
+        "minute": 1,
+        "type": "chance",
+        "team": "Norway",
+        "headline": "Big chance for Norway!",
+        "description": "Norway create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 32,
         "type": "goal",
         "team": "Norway",
         "headline": "GOAL! Norway!",
@@ -205,15 +208,7 @@
         "score_after": "0:1"
       },
       {
-        "minute": 26,
-        "type": "chance",
-        "team": "Iraq",
-        "headline": "Big chance for Iraq!",
-        "description": "Iraq create a great opportunity but fail to convert.",
-        "score_after": "0:1"
-      },
-      {
-        "minute": 32,
+        "minute": 33,
         "type": "chance",
         "team": "Norway",
         "headline": "Big chance for Norway!",
@@ -229,23 +224,15 @@
         "score_after": "0:1"
       },
       {
-        "minute": 56,
+        "minute": 54,
         "type": "chance",
-        "team": "Iraq",
-        "headline": "Big chance for Iraq!",
-        "description": "Iraq create a great opportunity but fail to convert.",
+        "team": "Norway",
+        "headline": "Big chance for Norway!",
+        "description": "Norway create a great opportunity but fail to convert.",
         "score_after": "0:1"
       },
       {
-        "minute": 76,
-        "type": "chance",
-        "team": "Iraq",
-        "headline": "Big chance for Iraq!",
-        "description": "Iraq create a great opportunity but fail to convert.",
-        "score_after": "0:1"
-      },
-      {
-        "minute": 82,
+        "minute": 60,
         "type": "goal",
         "team": "Norway",
         "headline": "GOAL! Norway!",
@@ -253,12 +240,28 @@
         "score_after": "0:2"
       },
       {
+        "minute": 78,
+        "type": "goal",
+        "team": "Iraq",
+        "headline": "GOAL! Iraq!",
+        "description": "Iraq score to make it 1:2.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 89,
+        "type": "chance",
+        "team": "Norway",
+        "headline": "Big chance for Norway!",
+        "description": "Norway create a great opportunity but fail to convert.",
+        "score_after": "1:2"
+      },
+      {
         "minute": 90,
         "type": "fulltime",
         "team": null,
         "headline": "Full-time",
-        "description": "The final score finishes 0:2.",
-        "score_after": "0:2"
+        "description": "The final score finishes 1:2.",
+        "score_after": "1:2"
       }
     ]
   },
@@ -272,30 +275,30 @@
       "Norway": 1416.0
     },
     "form_last_10_avg_pts": {
-      "Iraq": 2.02,
-      "Norway": 2.01
+      "Iraq": 1.63,
+      "Norway": 2.13
     },
     "win_rate_last_10": {
-      "Iraq": "63%",
-      "Norway": "58%"
+      "Iraq": "51%",
+      "Norway": "63%"
     },
     "avg_goals_scored": {
       "Iraq": 0.7,
-      "Norway": 2.48
+      "Norway": 2.72
     },
     "avg_goals_conceded": {
       "Iraq": 0.72,
-      "Norway": 1.5
+      "Norway": 1.35
     },
     "clean_sheet_rate": {
       "Iraq": "51%",
-      "Norway": "30%"
+      "Norway": "26%"
     },
     "h2h_last_10": {
       "Iraq wins": "0%",
       "draws": "0%",
-      "Norway wins": "0%",
-      "total_h2h_games": 0
+      "Norway wins": "100%",
+      "total_h2h_games": 1
     }
   }
 }

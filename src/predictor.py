@@ -55,21 +55,44 @@ class FootballPredictor:
         return evaluate(test["result"], y_pred, y_proba)
 
     def _compute_sample_weights(self, df: pd.DataFrame) -> np.ndarray:
-        """
-        3 Gewichtungsebenen:
-        1. Zeitgewicht: neuere Matches zählen mehr (Halbwertszeit 4 Jahre)
-        2. WM-Boost: echte WM-Spiele zählen 4x mehr
-        3. Draw-Boost: Unentschieden zählen 2x mehr (ausgleichen der Unterrepräsentation)
-        """
         ref_date = pd.Timestamp("2026-06-01")
         days_ago = (ref_date - df["date"]).dt.days.clip(lower=0).values
-        half_life_days = 4 * 365
+        half_life_days = 3 * 365
         time_w = np.exp(-np.log(2) / half_life_days * days_ago)
 
-        wm_w = np.where(df["tournament"] == "FIFA World Cup", 4.0, 1.0)
-        draw_w = np.where(df["result"] == "D", 2.0, 1.0)
+        year = df["date"].dt.year
+        tournament = df["tournament"]
+        tournament_w = np.ones(len(df))
 
-        weights = time_w * wm_w * draw_w
+        # WC 2026 qualification — best signal for current squad strength
+        is_wc26_quali = (tournament == "FIFA World Cup qualification") & (year >= 2023)
+        tournament_w[is_wc26_quali] = 5.0
+
+        # WC 2026 group stage matches already played
+        is_wc26 = (tournament == "FIFA World Cup") & (year >= 2026)
+        tournament_w[is_wc26] = 5.0
+
+        # Recent Nations League / competitive tournaments 2024-2026
+        is_recent_comp = (year >= 2024) & ~is_wc26_quali & ~is_wc26 & (tournament != "Friendly")
+        tournament_w[is_recent_comp] = 3.0
+
+        # Recent friendlies 2024-2026
+        is_recent_friendly = (year >= 2024) & (tournament == "Friendly")
+        tournament_w[is_recent_friendly] = 2.0
+
+        # WC 2022 — different squad but still useful reference
+        is_wc22 = (tournament == "FIFA World Cup") & (year == 2022)
+        tournament_w[is_wc22] = 1.5
+
+        # WC 2018 — 8 years ago, different generation of players
+        is_wc18 = (tournament == "FIFA World Cup") & (year == 2018)
+        tournament_w[is_wc18] = 0.5
+
+        # Older WC matches (before 2018)
+        is_wc_old = (tournament == "FIFA World Cup") & (year < 2018)
+        tournament_w[is_wc_old] = 0.2
+
+        weights = time_w * tournament_w
         return weights / weights.mean()
 
     def predict_match(self, home_team: str, away_team: str, neutral: bool | None = None) -> dict:
