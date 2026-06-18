@@ -1,0 +1,309 @@
+{
+  "home_team": "Belgium",
+  "away_team": "Iran",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6502,
+  "probability_draw": 0.2194,
+  "probability_away_win": 0.1304,
+  "score_prediction": {
+    "home_xg": 1.55,
+    "away_xg": 1.65,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.6502,
+    "probability_draw": 0.2194,
+    "probability_away_win": 0.1304,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1512
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0928
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0914
+      },
+      {
+        "score": "3:1",
+        "probability": 0.078
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0645
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8696,
+        "home_or_away": 0.7806,
+        "draw_or_away": 0.3498
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8432,
+          "under": 0.1568
+        },
+        {
+          "line": 2.5,
+          "over": 0.6343,
+          "under": 0.3657
+        },
+        {
+          "line": 3.5,
+          "over": 0.3972,
+          "under": 0.6028
+        }
+      ],
+      "btts": {
+        "yes": 0.6442,
+        "no": 0.3558
+      },
+      "win_margin": {
+        "home_1plus": 0.6502,
+        "home_2plus": 0.3259,
+        "home_3plus": 0.1268,
+        "away_1plus": 0.1304,
+        "away_2plus": 0.0686,
+        "away_3plus": 0.0283
+      },
+      "scenario": "Belgium are favored to win, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.03,
+    "total_xg": 3.2,
+    "first_goal": {
+      "Belgium_scores_first": 0.465,
+      "Iran_scores_first": 0.495,
+      "no_goals": 0.041,
+      "expected_minute": 28
+    },
+    "halftime_xg": {
+      "Belgium": 0.73,
+      "Iran": 0.78
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.223
+      },
+      {
+        "score": "0:1",
+        "probability": 0.173
+      },
+      {
+        "score": "1:0",
+        "probability": 0.162
+      },
+      {
+        "score": "1:1",
+        "probability": 0.126
+      },
+      {
+        "score": "0:2",
+        "probability": 0.067
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Belgium": 0.209,
+        "Iran": 0.223
+      },
+      "16-30'": {
+        "Belgium": 0.24,
+        "Iran": 0.256
+      },
+      "31-45'": {
+        "Belgium": 0.279,
+        "Iran": 0.297
+      },
+      "46-60'": {
+        "Belgium": 0.225,
+        "Iran": 0.239
+      },
+      "61-75'": {
+        "Belgium": 0.287,
+        "Iran": 0.305
+      },
+      "76-90'": {
+        "Belgium": 0.31,
+        "Iran": 0.33
+      }
+    },
+    "comeback_probability": {
+      "Belgium": 0.034,
+      "Iran": 0.036
+    },
+    "late_drama_probability": 0.473,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.233
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.184
+      },
+      {
+        "szenario": "Iran dominiert früh",
+        "beschreibung": "Iran geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.068
+      },
+      {
+        "szenario": "Belgium dominiert früh",
+        "beschreibung": "Belgium geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.06
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 49,
+        "away": 51
+      },
+      "shots": {
+        "home": 14,
+        "away": 15
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 6
+      },
+      "corners": {
+        "home": 6,
+        "away": 7
+      },
+      "passes": {
+        "home": 255,
+        "away": 265
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Belgium and Iran is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 14,
+        "type": "goal",
+        "team": "Belgium",
+        "headline": "GOAL! Belgium!",
+        "description": "Belgium score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 19,
+        "type": "chance",
+        "team": "Belgium",
+        "headline": "Big chance for Belgium!",
+        "description": "Belgium create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 44,
+        "type": "chance",
+        "team": "Iran",
+        "headline": "Big chance for Iran!",
+        "description": "Iran create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 53,
+        "type": "chance",
+        "team": "Belgium",
+        "headline": "Big chance for Belgium!",
+        "description": "Belgium create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 61,
+        "type": "goal",
+        "team": "Belgium",
+        "headline": "GOAL! Belgium!",
+        "description": "Belgium score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 76,
+        "type": "goal",
+        "team": "Iran",
+        "headline": "GOAL! Iran!",
+        "description": "Iran score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 81,
+        "type": "chance",
+        "team": "Belgium",
+        "headline": "Big chance for Belgium!",
+        "description": "Belgium create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Belgium": 9,
+      "Iran": 21
+    },
+    "fifa_points": {
+      "Belgium": 1768.0,
+      "Iran": 1576.0
+    },
+    "form_last_10_avg_pts": {
+      "Belgium": 2.01,
+      "Iran": 1.6
+    },
+    "win_rate_last_10": {
+      "Belgium": "50%",
+      "Iran": "41%"
+    },
+    "avg_goals_scored": {
+      "Belgium": 2.38,
+      "Iran": 2.15
+    },
+    "avg_goals_conceded": {
+      "Belgium": 1.42,
+      "Iran": 1.14
+    },
+    "clean_sheet_rate": {
+      "Belgium": "10%",
+      "Iran": "39%"
+    },
+    "h2h_last_10": {
+      "Belgium wins": "0%",
+      "draws": "0%",
+      "Iran wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

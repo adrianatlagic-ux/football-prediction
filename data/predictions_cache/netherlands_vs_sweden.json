@@ -1,0 +1,312 @@
+{
+  "home_team": "Netherlands",
+  "away_team": "Sweden",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6081,
+  "probability_draw": 0.2411,
+  "probability_away_win": 0.1509,
+  "score_prediction": {
+    "home_xg": 3.57,
+    "away_xg": 1.31,
+    "rho": -0.13,
+    "most_likely_score": "3:1",
+    "result": "H",
+    "probability_home_win": 0.608,
+    "probability_draw": 0.2411,
+    "probability_away_win": 0.1509,
+    "top_scorelines": [
+      {
+        "score": "3:1",
+        "probability": 0.0594
+      },
+      {
+        "score": "4:1",
+        "probability": 0.0529
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0499
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0453
+      },
+      {
+        "score": "4:0",
+        "probability": 0.0404
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8491,
+        "home_or_away": 0.7589,
+        "draw_or_away": 0.392
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.9491,
+          "under": 0.0509
+        },
+        {
+          "line": 2.5,
+          "over": 0.8216,
+          "under": 0.1784
+        },
+        {
+          "line": 3.5,
+          "over": 0.6834,
+          "under": 0.3166
+        }
+      ],
+      "btts": {
+        "yes": 0.7494,
+        "no": 0.2506
+      },
+      "win_margin": {
+        "home_1plus": 0.608,
+        "home_2plus": 0.4821,
+        "home_3plus": 0.3368,
+        "away_1plus": 0.1509,
+        "away_2plus": 0.0591,
+        "away_3plus": 0.0182
+      },
+      "scenario": "Netherlands are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.46,
+    "total_xg": 4.88,
+    "first_goal": {
+      "Netherlands_scores_first": 0.726,
+      "Sweden_scores_first": 0.266,
+      "no_goals": 0.008,
+      "expected_minute": 18
+    },
+    "halftime_xg": {
+      "Netherlands": 1.68,
+      "Sweden": 0.62
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.174
+      },
+      {
+        "score": "2:0",
+        "probability": 0.146
+      },
+      {
+        "score": "1:1",
+        "probability": 0.107
+      },
+      {
+        "score": "0:0",
+        "probability": 0.104
+      },
+      {
+        "score": "2:1",
+        "probability": 0.09
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Netherlands": 0.482,
+        "Sweden": 0.177
+      },
+      "16-30'": {
+        "Netherlands": 0.553,
+        "Sweden": 0.203
+      },
+      "31-45'": {
+        "Netherlands": 0.643,
+        "Sweden": 0.236
+      },
+      "46-60'": {
+        "Netherlands": 0.518,
+        "Sweden": 0.19
+      },
+      "61-75'": {
+        "Netherlands": 0.66,
+        "Sweden": 0.242
+      },
+      "76-90'": {
+        "Netherlands": 0.714,
+        "Sweden": 0.262
+      }
+    },
+    "comeback_probability": {
+      "Netherlands": 0.051,
+      "Sweden": 0.021
+    },
+    "late_drama_probability": 0.623,
+    "match_stories": [
+      {
+        "szenario": "Netherlands dominiert früh",
+        "beschreibung": "Netherlands geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.157
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.102
+      },
+      {
+        "szenario": "Netherlands dreht es noch",
+        "beschreibung": "Netherlands liegt zur Halbzeit zurück, dreht das Spiel in H2",
+        "wahrscheinlichkeit": 0.051
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 58,
+        "away": 42
+      },
+      "shots": {
+        "home": 27,
+        "away": 13
+      },
+      "shots_on_target": {
+        "home": 11,
+        "away": 5
+      },
+      "corners": {
+        "home": 11,
+        "away": 5
+      },
+      "passes": {
+        "home": 302,
+        "away": 218
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Netherlands and Sweden is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 1,
+        "type": "chance",
+        "team": "Sweden",
+        "headline": "Big chance for Sweden!",
+        "description": "Sweden create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 21,
+        "type": "goal",
+        "team": "Netherlands",
+        "headline": "GOAL! Netherlands!",
+        "description": "Netherlands score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 44,
+        "type": "chance",
+        "team": "Netherlands",
+        "headline": "Big chance for Netherlands!",
+        "description": "Netherlands create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 63,
+        "type": "goal",
+        "team": "Netherlands",
+        "headline": "GOAL! Netherlands!",
+        "description": "Netherlands score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 68,
+        "type": "chance",
+        "team": "Netherlands",
+        "headline": "Big chance for Netherlands!",
+        "description": "Netherlands create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 73,
+        "type": "goal",
+        "team": "Sweden",
+        "headline": "GOAL! Sweden!",
+        "description": "Sweden score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 80,
+        "type": "goal",
+        "team": "Netherlands",
+        "headline": "GOAL! Netherlands!",
+        "description": "Netherlands score to make it 3:1.",
+        "score_after": "3:1"
+      },
+      {
+        "minute": 82,
+        "type": "chance",
+        "team": "Netherlands",
+        "headline": "Big chance for Netherlands!",
+        "description": "Netherlands create a great opportunity but fail to convert.",
+        "score_after": "3:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 3:1.",
+        "score_after": "3:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Netherlands": 7,
+      "Sweden": 38
+    },
+    "fifa_points": {
+      "Netherlands": 1800.0,
+      "Sweden": 1304.0
+    },
+    "form_last_10_avg_pts": {
+      "Netherlands": 2.04,
+      "Sweden": 1.68
+    },
+    "win_rate_last_10": {
+      "Netherlands": "52%",
+      "Sweden": "50%"
+    },
+    "avg_goals_scored": {
+      "Netherlands": 2.11,
+      "Sweden": 1.67
+    },
+    "avg_goals_conceded": {
+      "Netherlands": 1.01,
+      "Sweden": 1.64
+    },
+    "clean_sheet_rate": {
+      "Netherlands": "32%",
+      "Sweden": "17%"
+    },
+    "h2h_last_10": {
+      "Netherlands wins": "43%",
+      "draws": "43%",
+      "Sweden wins": "14%",
+      "total_h2h_games": 7
+    }
+  }
+}

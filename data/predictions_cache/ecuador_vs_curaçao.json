@@ -1,0 +1,296 @@
+{
+  "home_team": "Ecuador",
+  "away_team": "Curaçao",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.691,
+  "probability_draw": 0.2117,
+  "probability_away_win": 0.0973,
+  "score_prediction": {
+    "home_xg": 2.85,
+    "away_xg": 0.45,
+    "rho": -0.13,
+    "most_likely_score": "2:0",
+    "result": "H",
+    "probability_home_win": 0.691,
+    "probability_draw": 0.2117,
+    "probability_away_win": 0.0973,
+    "top_scorelines": [
+      {
+        "score": "2:0",
+        "probability": 0.1213
+      },
+      {
+        "score": "3:0",
+        "probability": 0.1152
+      },
+      {
+        "score": "4:0",
+        "probability": 0.0821
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0802
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0546
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.9027,
+        "home_or_away": 0.7883,
+        "draw_or_away": 0.309
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.806,
+          "under": 0.194
+        },
+        {
+          "line": 2.5,
+          "over": 0.5733,
+          "under": 0.4267
+        },
+        {
+          "line": 3.5,
+          "over": 0.3673,
+          "under": 0.6327
+        }
+      ],
+      "btts": {
+        "yes": 0.3921,
+        "no": 0.6079
+      },
+      "win_margin": {
+        "home_1plus": 0.691,
+        "home_2plus": 0.5429,
+        "home_3plus": 0.3607,
+        "away_1plus": 0.0973,
+        "away_2plus": 0.021,
+        "away_3plus": 0.0028
+      },
+      "scenario": "Ecuador are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": 0.73,
+    "total_xg": 3.3,
+    "first_goal": {
+      "Ecuador_scores_first": 0.832,
+      "Curaçao_scores_first": 0.131,
+      "no_goals": 0.037,
+      "expected_minute": 27
+    },
+    "halftime_xg": {
+      "Ecuador": 1.34,
+      "Curaçao": 0.21
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.287
+      },
+      {
+        "score": "0:0",
+        "probability": 0.215
+      },
+      {
+        "score": "2:0",
+        "probability": 0.193
+      },
+      {
+        "score": "3:0",
+        "probability": 0.086
+      },
+      {
+        "score": "1:1",
+        "probability": 0.061
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Ecuador": 0.385,
+        "Curaçao": 0.061
+      },
+      "16-30'": {
+        "Ecuador": 0.442,
+        "Curaçao": 0.07
+      },
+      "31-45'": {
+        "Ecuador": 0.513,
+        "Curaçao": 0.081
+      },
+      "46-60'": {
+        "Ecuador": 0.413,
+        "Curaçao": 0.065
+      },
+      "61-75'": {
+        "Ecuador": 0.527,
+        "Curaçao": 0.083
+      },
+      "76-90'": {
+        "Ecuador": 0.57,
+        "Curaçao": 0.09
+      }
+    },
+    "comeback_probability": {
+      "Ecuador": 0.022,
+      "Curaçao": 0.004
+    },
+    "late_drama_probability": 0.483,
+    "match_stories": [
+      {
+        "szenario": "Ecuador dominiert früh",
+        "beschreibung": "Ecuador geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.2
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.183
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Ecuador trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.113
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 63,
+        "away": 37
+      },
+      "shots": {
+        "home": 23,
+        "away": 7
+      },
+      "shots_on_target": {
+        "home": 9,
+        "away": 2
+      },
+      "corners": {
+        "home": 9,
+        "away": 3
+      },
+      "passes": {
+        "home": 328,
+        "away": 192
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Ecuador and Curaçao is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 11,
+        "type": "chance",
+        "team": "Ecuador",
+        "headline": "Big chance for Ecuador!",
+        "description": "Ecuador create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 15,
+        "type": "chance",
+        "team": "Ecuador",
+        "headline": "Big chance for Ecuador!",
+        "description": "Ecuador create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 42,
+        "type": "goal",
+        "team": "Ecuador",
+        "headline": "GOAL! Ecuador!",
+        "description": "Ecuador score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 52,
+        "type": "goal",
+        "team": "Ecuador",
+        "headline": "GOAL! Ecuador!",
+        "description": "Ecuador score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 59,
+        "type": "chance",
+        "team": "Ecuador",
+        "headline": "Big chance for Ecuador!",
+        "description": "Ecuador create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 71,
+        "type": "chance",
+        "team": "Ecuador",
+        "headline": "Big chance for Ecuador!",
+        "description": "Ecuador create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Ecuador": 23,
+      "Curaçao": 82
+    },
+    "fifa_points": {
+      "Ecuador": 1544.0,
+      "Curaçao": 624.0
+    },
+    "form_last_10_avg_pts": {
+      "Ecuador": 1.44,
+      "Curaçao": 0.85
+    },
+    "win_rate_last_10": {
+      "Ecuador": "31%",
+      "Curaçao": "21%"
+    },
+    "avg_goals_scored": {
+      "Ecuador": 0.52,
+      "Curaçao": 1.41
+    },
+    "avg_goals_conceded": {
+      "Ecuador": 0.64,
+      "Curaçao": 2.98
+    },
+    "clean_sheet_rate": {
+      "Ecuador": "36%",
+      "Curaçao": "26%"
+    },
+    "h2h_last_10": {
+      "Ecuador wins": "0%",
+      "draws": "0%",
+      "Curaçao wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

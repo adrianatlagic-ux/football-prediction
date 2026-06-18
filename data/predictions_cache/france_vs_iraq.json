@@ -1,0 +1,296 @@
+{
+  "home_team": "France",
+  "away_team": "Iraq",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.7746,
+  "probability_draw": 0.1503,
+  "probability_away_win": 0.0751,
+  "score_prediction": {
+    "home_xg": 2.83,
+    "away_xg": 0.74,
+    "rho": -0.13,
+    "most_likely_score": "2:0",
+    "result": "H",
+    "probability_home_win": 0.7746,
+    "probability_draw": 0.1503,
+    "probability_away_win": 0.0751,
+    "top_scorelines": [
+      {
+        "score": "2:0",
+        "probability": 0.1106
+      },
+      {
+        "score": "3:0",
+        "probability": 0.1042
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0813
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0767
+      },
+      {
+        "score": "4:0",
+        "probability": 0.0737
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.9249,
+        "home_or_away": 0.8497,
+        "draw_or_away": 0.2254
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8748,
+          "under": 0.1252
+        },
+        {
+          "line": 2.5,
+          "over": 0.6841,
+          "under": 0.3159
+        },
+        {
+          "line": 3.5,
+          "over": 0.4701,
+          "under": 0.5299
+        }
+      ],
+      "btts": {
+        "yes": 0.5022,
+        "no": 0.4978
+      },
+      "win_margin": {
+        "home_1plus": 0.7746,
+        "home_2plus": 0.5888,
+        "home_3plus": 0.3786,
+        "away_1plus": 0.0751,
+        "away_2plus": 0.022,
+        "away_3plus": 0.0044
+      },
+      "scenario": "France are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.59,
+    "total_xg": 3.57,
+    "first_goal": {
+      "France_scores_first": 0.77,
+      "Iraq_scores_first": 0.201,
+      "no_goals": 0.028,
+      "expected_minute": 25
+    },
+    "halftime_xg": {
+      "France": 1.33,
+      "Iraq": 0.35
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.251
+      },
+      {
+        "score": "0:0",
+        "probability": 0.189
+      },
+      {
+        "score": "2:0",
+        "probability": 0.167
+      },
+      {
+        "score": "1:1",
+        "probability": 0.087
+      },
+      {
+        "score": "3:0",
+        "probability": 0.074
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "France": 0.382,
+        "Iraq": 0.1
+      },
+      "16-30'": {
+        "France": 0.439,
+        "Iraq": 0.115
+      },
+      "31-45'": {
+        "France": 0.509,
+        "Iraq": 0.133
+      },
+      "46-60'": {
+        "France": 0.41,
+        "Iraq": 0.107
+      },
+      "61-75'": {
+        "France": 0.524,
+        "Iraq": 0.137
+      },
+      "76-90'": {
+        "France": 0.566,
+        "Iraq": 0.148
+      }
+    },
+    "comeback_probability": {
+      "France": 0.033,
+      "Iraq": 0.01
+    },
+    "late_drama_probability": 0.51,
+    "match_stories": [
+      {
+        "szenario": "France dominiert früh",
+        "beschreibung": "France geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.173
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.166
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "France trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.085
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 61,
+        "away": 39
+      },
+      "shots": {
+        "home": 22,
+        "away": 9
+      },
+      "shots_on_target": {
+        "home": 9,
+        "away": 3
+      },
+      "corners": {
+        "home": 9,
+        "away": 4
+      },
+      "passes": {
+        "home": 317,
+        "away": 203
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between France and Iraq is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 12,
+        "type": "chance",
+        "team": "France",
+        "headline": "Big chance for France!",
+        "description": "France create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 21,
+        "type": "chance",
+        "team": "France",
+        "headline": "Big chance for France!",
+        "description": "France create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 43,
+        "type": "goal",
+        "team": "France",
+        "headline": "GOAL! France!",
+        "description": "France score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 47,
+        "type": "chance",
+        "team": "France",
+        "headline": "Big chance for France!",
+        "description": "France create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 67,
+        "type": "chance",
+        "team": "France",
+        "headline": "Big chance for France!",
+        "description": "France create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 83,
+        "type": "goal",
+        "team": "France",
+        "headline": "GOAL! France!",
+        "description": "France score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "France": 1,
+      "Iraq": 57
+    },
+    "fifa_points": {
+      "France": 1896.0,
+      "Iraq": 1008.0
+    },
+    "form_last_10_avg_pts": {
+      "France": 2.83,
+      "Iraq": 1.63
+    },
+    "win_rate_last_10": {
+      "France": "91%",
+      "Iraq": "51%"
+    },
+    "avg_goals_scored": {
+      "France": 2.38,
+      "Iraq": 0.7
+    },
+    "avg_goals_conceded": {
+      "France": 1.29,
+      "Iraq": 0.72
+    },
+    "clean_sheet_rate": {
+      "France": "19%",
+      "Iraq": "51%"
+    },
+    "h2h_last_10": {
+      "France wins": "0%",
+      "draws": "0%",
+      "Iraq wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

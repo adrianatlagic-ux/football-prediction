@@ -1,0 +1,299 @@
+{
+  "home_team": "Spain",
+  "away_team": "Saudi Arabia",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.7263,
+  "probability_draw": 0.2099,
+  "probability_away_win": 0.0638,
+  "score_prediction": {
+    "home_xg": 3.28,
+    "away_xg": 0.64,
+    "rho": -0.13,
+    "most_likely_score": "3:0",
+    "result": "H",
+    "probability_home_win": 0.7263,
+    "probability_draw": 0.2099,
+    "probability_away_win": 0.0638,
+    "top_scorelines": [
+      {
+        "score": "3:0",
+        "probability": 0.099
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0905
+      },
+      {
+        "score": "4:0",
+        "probability": 0.0813
+      },
+      {
+        "score": "3:1",
+        "probability": 0.063
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0575
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.9362,
+        "home_or_away": 0.7901,
+        "draw_or_away": 0.2737
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8828,
+          "under": 0.1172
+        },
+        {
+          "line": 2.5,
+          "over": 0.6861,
+          "under": 0.3139
+        },
+        {
+          "line": 3.5,
+          "over": 0.5042,
+          "under": 0.4958
+        }
+      ],
+      "btts": {
+        "yes": 0.501,
+        "no": 0.499
+      },
+      "win_margin": {
+        "home_1plus": 0.7263,
+        "home_2plus": 0.5942,
+        "home_3plus": 0.4217,
+        "away_1plus": 0.0638,
+        "away_2plus": 0.0167,
+        "away_3plus": 0.0028
+      },
+      "scenario": "Spain are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.67,
+    "total_xg": 3.92,
+    "first_goal": {
+      "Spain_scores_first": 0.82,
+      "Saudi Arabia_scores_first": 0.16,
+      "no_goals": 0.02,
+      "expected_minute": 22
+    },
+    "halftime_xg": {
+      "Spain": 1.54,
+      "Saudi Arabia": 0.3
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.249
+      },
+      {
+        "score": "2:0",
+        "probability": 0.192
+      },
+      {
+        "score": "0:0",
+        "probability": 0.162
+      },
+      {
+        "score": "3:0",
+        "probability": 0.099
+      },
+      {
+        "score": "1:1",
+        "probability": 0.075
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Spain": 0.443,
+        "Saudi Arabia": 0.086
+      },
+      "16-30'": {
+        "Spain": 0.508,
+        "Saudi Arabia": 0.099
+      },
+      "31-45'": {
+        "Spain": 0.59,
+        "Saudi Arabia": 0.115
+      },
+      "46-60'": {
+        "Spain": 0.476,
+        "Saudi Arabia": 0.093
+      },
+      "61-75'": {
+        "Spain": 0.607,
+        "Saudi Arabia": 0.118
+      },
+      "76-90'": {
+        "Spain": 0.656,
+        "Saudi Arabia": 0.128
+      }
+    },
+    "comeback_probability": {
+      "Spain": 0.029,
+      "Saudi Arabia": 0.007
+    },
+    "late_drama_probability": 0.543,
+    "match_stories": [
+      {
+        "szenario": "Spain dominiert früh",
+        "beschreibung": "Spain geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.203
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.148
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 62,
+        "away": 38
+      },
+      "shots": {
+        "home": 25,
+        "away": 8
+      },
+      "shots_on_target": {
+        "home": 10,
+        "away": 3
+      },
+      "corners": {
+        "home": 10,
+        "away": 4
+      },
+      "passes": {
+        "home": 322,
+        "away": 198
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Spain and Saudi Arabia is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 13,
+        "type": "chance",
+        "team": "Spain",
+        "headline": "Big chance for Spain!",
+        "description": "Spain create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 19,
+        "type": "goal",
+        "team": "Spain",
+        "headline": "GOAL! Spain!",
+        "description": "Spain score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 27,
+        "type": "chance",
+        "team": "Spain",
+        "headline": "Big chance for Spain!",
+        "description": "Spain create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 46,
+        "type": "chance",
+        "team": "Spain",
+        "headline": "Big chance for Spain!",
+        "description": "Spain create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 60,
+        "type": "goal",
+        "team": "Spain",
+        "headline": "GOAL! Spain!",
+        "description": "Spain score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 61,
+        "type": "goal",
+        "team": "Spain",
+        "headline": "GOAL! Spain!",
+        "description": "Spain score to make it 3:0.",
+        "score_after": "3:0"
+      },
+      {
+        "minute": 81,
+        "type": "chance",
+        "team": "Spain",
+        "headline": "Big chance for Spain!",
+        "description": "Spain create a great opportunity but fail to convert.",
+        "score_after": "3:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 3:0.",
+        "score_after": "3:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Spain": 2,
+      "Saudi Arabia": 61
+    },
+    "fifa_points": {
+      "Spain": 1880.0,
+      "Saudi Arabia": 944.0
+    },
+    "form_last_10_avg_pts": {
+      "Spain": 2.03,
+      "Saudi Arabia": 0.8
+    },
+    "win_rate_last_10": {
+      "Spain": "51%",
+      "Saudi Arabia": "21%"
+    },
+    "avg_goals_scored": {
+      "Spain": 3.05,
+      "Saudi Arabia": 1.12
+    },
+    "avg_goals_conceded": {
+      "Spain": 0.64,
+      "Saudi Arabia": 1.29
+    },
+    "clean_sheet_rate": {
+      "Spain": "57%",
+      "Saudi Arabia": "11%"
+    },
+    "h2h_last_10": {
+      "Spain wins": "100%",
+      "draws": "0%",
+      "Saudi Arabia wins": "0%",
+      "total_h2h_games": 3
+    }
+  }
+}

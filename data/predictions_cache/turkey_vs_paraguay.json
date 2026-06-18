@@ -1,0 +1,301 @@
+{
+  "home_team": "Turkey",
+  "away_team": "Paraguay",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.5059,
+  "probability_draw": 0.2862,
+  "probability_away_win": 0.208,
+  "score_prediction": {
+    "home_xg": 1.38,
+    "away_xg": 1.33,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.5058,
+    "probability_draw": 0.2862,
+    "probability_away_win": 0.208,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.116
+      },
+      {
+        "score": "1:0",
+        "probability": 0.1043
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0873
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0536
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0403
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.792,
+        "home_or_away": 0.7138,
+        "draw_or_away": 0.4942
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7701,
+          "under": 0.2299
+        },
+        {
+          "line": 2.5,
+          "over": 0.5108,
+          "under": 0.4892
+        },
+        {
+          "line": 3.5,
+          "over": 0.2896,
+          "under": 0.7104
+        }
+      ],
+      "btts": {
+        "yes": 0.5654,
+        "no": 0.4346
+      },
+      "win_margin": {
+        "home_1plus": 0.5058,
+        "home_2plus": 0.2438,
+        "home_3plus": 0.089,
+        "away_1plus": 0.208,
+        "away_2plus": 0.097,
+        "away_3plus": 0.0341
+      },
+      "scenario": "Turkey are favored to win."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.02,
+    "total_xg": 2.71,
+    "first_goal": {
+      "Turkey_scores_first": 0.475,
+      "Paraguay_scores_first": 0.458,
+      "no_goals": 0.067,
+      "expected_minute": 33
+    },
+    "halftime_xg": {
+      "Turkey": 0.65,
+      "Paraguay": 0.63
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.28
+      },
+      {
+        "score": "1:0",
+        "probability": 0.182
+      },
+      {
+        "score": "0:1",
+        "probability": 0.175
+      },
+      {
+        "score": "1:1",
+        "probability": 0.114
+      },
+      {
+        "score": "2:0",
+        "probability": 0.059
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Turkey": 0.186,
+        "Paraguay": 0.18
+      },
+      "16-30'": {
+        "Turkey": 0.214,
+        "Paraguay": 0.206
+      },
+      "31-45'": {
+        "Turkey": 0.248,
+        "Paraguay": 0.239
+      },
+      "46-60'": {
+        "Turkey": 0.2,
+        "Paraguay": 0.193
+      },
+      "61-75'": {
+        "Turkey": 0.255,
+        "Paraguay": 0.246
+      },
+      "76-90'": {
+        "Turkey": 0.276,
+        "Paraguay": 0.266
+      }
+    },
+    "comeback_probability": {
+      "Turkey": 0.028,
+      "Paraguay": 0.027
+    },
+    "late_drama_probability": 0.418,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.258
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.215
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Turkey trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.092
+      },
+      {
+        "szenario": "Turkey dominiert früh",
+        "beschreibung": "Turkey geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.059
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 51,
+        "away": 49
+      },
+      "shots": {
+        "home": 14,
+        "away": 13
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 5
+      },
+      "corners": {
+        "home": 6,
+        "away": 5
+      },
+      "passes": {
+        "home": 265,
+        "away": 255
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Turkey and Paraguay is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 33,
+        "type": "chance",
+        "team": "Turkey",
+        "headline": "Big chance for Turkey!",
+        "description": "Turkey create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 42,
+        "type": "goal",
+        "team": "Turkey",
+        "headline": "GOAL! Turkey!",
+        "description": "Turkey score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 48,
+        "type": "goal",
+        "team": "Turkey",
+        "headline": "GOAL! Turkey!",
+        "description": "Turkey score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 60,
+        "type": "goal",
+        "team": "Paraguay",
+        "headline": "GOAL! Paraguay!",
+        "description": "Paraguay score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 78,
+        "type": "chance",
+        "team": "Paraguay",
+        "headline": "Big chance for Paraguay!",
+        "description": "Paraguay create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 82,
+        "type": "chance",
+        "team": "Paraguay",
+        "headline": "Big chance for Paraguay!",
+        "description": "Paraguay create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Turkey": 22,
+      "Paraguay": 40
+    },
+    "fifa_points": {
+      "Turkey": 1560.0,
+      "Paraguay": 1272.0
+    },
+    "form_last_10_avg_pts": {
+      "Turkey": 1.91,
+      "Paraguay": 1.06
+    },
+    "win_rate_last_10": {
+      "Turkey": "60%",
+      "Paraguay": "31%"
+    },
+    "avg_goals_scored": {
+      "Turkey": 1.99,
+      "Paraguay": 1.1
+    },
+    "avg_goals_conceded": {
+      "Turkey": 1.35,
+      "Paraguay": 1.78
+    },
+    "clean_sheet_rate": {
+      "Turkey": "22%",
+      "Paraguay": "20%"
+    },
+    "h2h_last_10": {
+      "Turkey wins": "0%",
+      "draws": "0%",
+      "Paraguay wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

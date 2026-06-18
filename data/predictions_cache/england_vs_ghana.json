@@ -1,0 +1,304 @@
+{
+  "home_team": "England",
+  "away_team": "Ghana",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6898,
+  "probability_draw": 0.247,
+  "probability_away_win": 0.0632,
+  "score_prediction": {
+    "home_xg": 3.1,
+    "away_xg": 0.64,
+    "rho": -0.13,
+    "most_likely_score": "3:0",
+    "result": "H",
+    "probability_home_win": 0.6898,
+    "probability_draw": 0.247,
+    "probability_away_win": 0.0632,
+    "top_scorelines": [
+      {
+        "score": "3:0",
+        "probability": 0.097
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0939
+      },
+      {
+        "score": "4:0",
+        "probability": 0.0751
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0617
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0597
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.9368,
+        "home_or_away": 0.753,
+        "draw_or_away": 0.3102
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8643,
+          "under": 0.1357
+        },
+        {
+          "line": 2.5,
+          "over": 0.6457,
+          "under": 0.3543
+        },
+        {
+          "line": 3.5,
+          "over": 0.4641,
+          "under": 0.5359
+        }
+      ],
+      "btts": {
+        "yes": 0.5037,
+        "no": 0.4963
+      },
+      "win_margin": {
+        "home_1plus": 0.6898,
+        "home_2plus": 0.5514,
+        "home_3plus": 0.3784,
+        "away_1plus": 0.0632,
+        "away_2plus": 0.0168,
+        "away_3plus": 0.003
+      },
+      "scenario": "England are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.66,
+    "total_xg": 3.74,
+    "first_goal": {
+      "England_scores_first": 0.809,
+      "Ghana_scores_first": 0.167,
+      "no_goals": 0.024,
+      "expected_minute": 24
+    },
+    "halftime_xg": {
+      "England": 1.46,
+      "Ghana": 0.3
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.255
+      },
+      {
+        "score": "2:0",
+        "probability": 0.186
+      },
+      {
+        "score": "0:0",
+        "probability": 0.175
+      },
+      {
+        "score": "3:0",
+        "probability": 0.09
+      },
+      {
+        "score": "1:1",
+        "probability": 0.077
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "England": 0.419,
+        "Ghana": 0.086
+      },
+      "16-30'": {
+        "England": 0.48,
+        "Ghana": 0.099
+      },
+      "31-45'": {
+        "England": 0.558,
+        "Ghana": 0.115
+      },
+      "46-60'": {
+        "England": 0.449,
+        "Ghana": 0.093
+      },
+      "61-75'": {
+        "England": 0.574,
+        "Ghana": 0.118
+      },
+      "76-90'": {
+        "England": 0.62,
+        "Ghana": 0.128
+      }
+    },
+    "comeback_probability": {
+      "England": 0.03,
+      "Ghana": 0.007
+    },
+    "late_drama_probability": 0.527,
+    "match_stories": [
+      {
+        "szenario": "England dominiert früh",
+        "beschreibung": "England geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.195
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.157
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "England trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.081
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 62,
+        "away": 38
+      },
+      "shots": {
+        "home": 24,
+        "away": 8
+      },
+      "shots_on_target": {
+        "home": 10,
+        "away": 3
+      },
+      "corners": {
+        "home": 10,
+        "away": 4
+      },
+      "passes": {
+        "home": 322,
+        "away": 198
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between England and Ghana is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 23,
+        "type": "chance",
+        "team": "England",
+        "headline": "Big chance for England!",
+        "description": "England create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 36,
+        "type": "chance",
+        "team": "England",
+        "headline": "Big chance for England!",
+        "description": "England create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 37,
+        "type": "goal",
+        "team": "England",
+        "headline": "GOAL! England!",
+        "description": "England score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 54,
+        "type": "goal",
+        "team": "England",
+        "headline": "GOAL! England!",
+        "description": "England score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 71,
+        "type": "chance",
+        "team": "England",
+        "headline": "Big chance for England!",
+        "description": "England create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 76,
+        "type": "chance",
+        "team": "England",
+        "headline": "Big chance for England!",
+        "description": "England create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 78,
+        "type": "goal",
+        "team": "England",
+        "headline": "GOAL! England!",
+        "description": "England score to make it 3:0.",
+        "score_after": "3:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 3:0.",
+        "score_after": "3:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "England": 4,
+      "Ghana": 74
+    },
+    "fifa_points": {
+      "England": 1848.0,
+      "Ghana": 720.0
+    },
+    "form_last_10_avg_pts": {
+      "England": 2.14,
+      "Ghana": 1.16
+    },
+    "win_rate_last_10": {
+      "England": "67%",
+      "Ghana": "37%"
+    },
+    "avg_goals_scored": {
+      "England": 2.8,
+      "Ghana": 1.25
+    },
+    "avg_goals_conceded": {
+      "England": 0.32,
+      "Ghana": 1.8
+    },
+    "clean_sheet_rate": {
+      "England": "74%",
+      "Ghana": "20%"
+    },
+    "h2h_last_10": {
+      "England wins": "0%",
+      "draws": "100%",
+      "Ghana wins": "0%",
+      "total_h2h_games": 1
+    }
+  }
+}

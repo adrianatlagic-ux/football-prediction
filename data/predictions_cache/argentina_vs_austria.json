@@ -1,0 +1,296 @@
+{
+  "home_team": "Argentina",
+  "away_team": "Austria",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6751,
+  "probability_draw": 0.2001,
+  "probability_away_win": 0.1248,
+  "score_prediction": {
+    "home_xg": 2.2,
+    "away_xg": 0.85,
+    "rho": -0.13,
+    "most_likely_score": "2:0",
+    "result": "H",
+    "probability_home_win": 0.6751,
+    "probability_draw": 0.2001,
+    "probability_away_win": 0.1248,
+    "top_scorelines": [
+      {
+        "score": "2:0",
+        "probability": 0.1158
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0982
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0938
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0849
+      },
+      {
+        "score": "3:1",
+        "probability": 0.072
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8752,
+        "home_or_away": 0.7999,
+        "draw_or_away": 0.3249
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8199,
+          "under": 0.1801
+        },
+        {
+          "line": 2.5,
+          "over": 0.5909,
+          "under": 0.4091
+        },
+        {
+          "line": 3.5,
+          "over": 0.3637,
+          "under": 0.6363
+        }
+      ],
+      "btts": {
+        "yes": 0.5175,
+        "no": 0.4825
+      },
+      "win_margin": {
+        "home_1plus": 0.6751,
+        "home_2plus": 0.4475,
+        "home_3plus": 0.2406,
+        "away_1plus": 0.1248,
+        "away_2plus": 0.0414,
+        "away_3plus": 0.0096
+      },
+      "scenario": "Argentina are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": 0.44,
+    "total_xg": 3.05,
+    "first_goal": {
+      "Argentina_scores_first": 0.687,
+      "Austria_scores_first": 0.265,
+      "no_goals": 0.047,
+      "expected_minute": 29
+    },
+    "halftime_xg": {
+      "Argentina": 1.03,
+      "Austria": 0.4
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.248
+      },
+      {
+        "score": "0:0",
+        "probability": 0.239
+      },
+      {
+        "score": "2:0",
+        "probability": 0.128
+      },
+      {
+        "score": "1:1",
+        "probability": 0.099
+      },
+      {
+        "score": "0:1",
+        "probability": 0.096
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Argentina": 0.297,
+        "Austria": 0.115
+      },
+      "16-30'": {
+        "Argentina": 0.341,
+        "Austria": 0.132
+      },
+      "31-45'": {
+        "Argentina": 0.396,
+        "Austria": 0.153
+      },
+      "46-60'": {
+        "Argentina": 0.319,
+        "Austria": 0.123
+      },
+      "61-75'": {
+        "Argentina": 0.407,
+        "Austria": 0.157
+      },
+      "76-90'": {
+        "Argentina": 0.44,
+        "Austria": 0.17
+      }
+    },
+    "comeback_probability": {
+      "Argentina": 0.034,
+      "Austria": 0.014
+    },
+    "late_drama_probability": 0.457,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.195
+      },
+      {
+        "szenario": "Argentina dominiert früh",
+        "beschreibung": "Argentina geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.13
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Argentina trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.107
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 58,
+        "away": 42
+      },
+      "shots": {
+        "home": 18,
+        "away": 10
+      },
+      "shots_on_target": {
+        "home": 7,
+        "away": 3
+      },
+      "corners": {
+        "home": 8,
+        "away": 4
+      },
+      "passes": {
+        "home": 302,
+        "away": 218
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Argentina and Austria is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 23,
+        "type": "chance",
+        "team": "Argentina",
+        "headline": "Big chance for Argentina!",
+        "description": "Argentina create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 29,
+        "type": "chance",
+        "team": "Argentina",
+        "headline": "Big chance for Argentina!",
+        "description": "Argentina create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 31,
+        "type": "goal",
+        "team": "Argentina",
+        "headline": "GOAL! Argentina!",
+        "description": "Argentina score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 61,
+        "type": "chance",
+        "team": "Austria",
+        "headline": "Big chance for Austria!",
+        "description": "Austria create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 72,
+        "type": "goal",
+        "team": "Argentina",
+        "headline": "GOAL! Argentina!",
+        "description": "Argentina score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 75,
+        "type": "chance",
+        "team": "Austria",
+        "headline": "Big chance for Austria!",
+        "description": "Austria create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Argentina": 3,
+      "Austria": 24
+    },
+    "fifa_points": {
+      "Argentina": 1864.0,
+      "Austria": 1528.0
+    },
+    "form_last_10_avg_pts": {
+      "Argentina": 2.66,
+      "Austria": 2.51
+    },
+    "win_rate_last_10": {
+      "Argentina": "87%",
+      "Austria": "80%"
+    },
+    "avg_goals_scored": {
+      "Argentina": 1.79,
+      "Austria": 1.69
+    },
+    "avg_goals_conceded": {
+      "Argentina": 0.51,
+      "Austria": 0.86
+    },
+    "clean_sheet_rate": {
+      "Argentina": "64%",
+      "Austria": "37%"
+    },
+    "h2h_last_10": {
+      "Argentina wins": "0%",
+      "draws": "0%",
+      "Austria wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

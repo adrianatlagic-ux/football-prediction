@@ -1,0 +1,299 @@
+{
+  "home_team": "Switzerland",
+  "away_team": "Bosnia and Herzegovina",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.5902,
+  "probability_draw": 0.2354,
+  "probability_away_win": 0.1744,
+  "score_prediction": {
+    "home_xg": 3.17,
+    "away_xg": 0.78,
+    "rho": -0.13,
+    "most_likely_score": "3:0",
+    "result": "H",
+    "probability_home_win": 0.5902,
+    "probability_draw": 0.2354,
+    "probability_away_win": 0.1744,
+    "top_scorelines": [
+      {
+        "score": "3:0",
+        "probability": 0.0732
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0693
+      },
+      {
+        "score": "4:0",
+        "probability": 0.058
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0571
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0541
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8256,
+        "home_or_away": 0.7646,
+        "draw_or_away": 0.4098
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8808,
+          "under": 0.1192
+        },
+        {
+          "line": 2.5,
+          "over": 0.6849,
+          "under": 0.3151
+        },
+        {
+          "line": 3.5,
+          "over": 0.4909,
+          "under": 0.5091
+        }
+      ],
+      "btts": {
+        "yes": 0.5861,
+        "no": 0.4139
+      },
+      "win_margin": {
+        "home_1plus": 0.5902,
+        "home_2plus": 0.4694,
+        "home_3plus": 0.3221,
+        "away_1plus": 0.1744,
+        "away_2plus": 0.0523,
+        "away_3plus": 0.011
+      },
+      "scenario": "Switzerland are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.61,
+    "total_xg": 3.95,
+    "first_goal": {
+      "Switzerland_scores_first": 0.787,
+      "Bosnia and Herzegovina_scores_first": 0.194,
+      "no_goals": 0.019,
+      "expected_minute": 22
+    },
+    "halftime_xg": {
+      "Switzerland": 1.49,
+      "Bosnia and Herzegovina": 0.37
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.237
+      },
+      {
+        "score": "2:0",
+        "probability": 0.177
+      },
+      {
+        "score": "0:0",
+        "probability": 0.159
+      },
+      {
+        "score": "3:0",
+        "probability": 0.088
+      },
+      {
+        "score": "1:1",
+        "probability": 0.087
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Switzerland": 0.428,
+        "Bosnia and Herzegovina": 0.105
+      },
+      "16-30'": {
+        "Switzerland": 0.491,
+        "Bosnia and Herzegovina": 0.121
+      },
+      "31-45'": {
+        "Switzerland": 0.571,
+        "Bosnia and Herzegovina": 0.14
+      },
+      "46-60'": {
+        "Switzerland": 0.46,
+        "Bosnia and Herzegovina": 0.113
+      },
+      "61-75'": {
+        "Switzerland": 0.586,
+        "Bosnia and Herzegovina": 0.144
+      },
+      "76-90'": {
+        "Switzerland": 0.634,
+        "Bosnia and Herzegovina": 0.156
+      }
+    },
+    "comeback_probability": {
+      "Switzerland": 0.035,
+      "Bosnia and Herzegovina": 0.01
+    },
+    "late_drama_probability": 0.546,
+    "match_stories": [
+      {
+        "szenario": "Switzerland dominiert früh",
+        "beschreibung": "Switzerland geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.185
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.146
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 61,
+        "away": 39
+      },
+      "shots": {
+        "home": 25,
+        "away": 9
+      },
+      "shots_on_target": {
+        "home": 10,
+        "away": 3
+      },
+      "corners": {
+        "home": 10,
+        "away": 4
+      },
+      "passes": {
+        "home": 317,
+        "away": 203
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Switzerland and Bosnia and Herzegovina is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 4,
+        "type": "goal",
+        "team": "Switzerland",
+        "headline": "GOAL! Switzerland!",
+        "description": "Switzerland score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 8,
+        "type": "chance",
+        "team": "Switzerland",
+        "headline": "Big chance for Switzerland!",
+        "description": "Switzerland create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 19,
+        "type": "chance",
+        "team": "Switzerland",
+        "headline": "Big chance for Switzerland!",
+        "description": "Switzerland create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 56,
+        "type": "chance",
+        "team": "Switzerland",
+        "headline": "Big chance for Switzerland!",
+        "description": "Switzerland create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 71,
+        "type": "goal",
+        "team": "Switzerland",
+        "headline": "GOAL! Switzerland!",
+        "description": "Switzerland score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 72,
+        "type": "goal",
+        "team": "Switzerland",
+        "headline": "GOAL! Switzerland!",
+        "description": "Switzerland score to make it 3:0.",
+        "score_after": "3:0"
+      },
+      {
+        "minute": 86,
+        "type": "chance",
+        "team": "Bosnia and Herzegovina",
+        "headline": "Big chance for Bosnia and Herzegovina!",
+        "description": "Bosnia and Herzegovina create a great opportunity but fail to convert.",
+        "score_after": "3:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 3:0.",
+        "score_after": "3:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Switzerland": 19,
+      "Bosnia and Herzegovina": 65
+    },
+    "fifa_points": {
+      "Switzerland": 1608.0,
+      "Bosnia and Herzegovina": 880.0
+    },
+    "form_last_10_avg_pts": {
+      "Switzerland": 1.7,
+      "Bosnia and Herzegovina": 1.37
+    },
+    "win_rate_last_10": {
+      "Switzerland": "41%",
+      "Bosnia and Herzegovina": "21%"
+    },
+    "avg_goals_scored": {
+      "Switzerland": 1.33,
+      "Bosnia and Herzegovina": 1.77
+    },
+    "avg_goals_conceded": {
+      "Switzerland": 0.79,
+      "Bosnia and Herzegovina": 1.31
+    },
+    "clean_sheet_rate": {
+      "Switzerland": "45%",
+      "Bosnia and Herzegovina": "20%"
+    },
+    "h2h_last_10": {
+      "Switzerland wins": "0%",
+      "draws": "0%",
+      "Bosnia and Herzegovina wins": "100%",
+      "total_h2h_games": 1
+    }
+  }
+}

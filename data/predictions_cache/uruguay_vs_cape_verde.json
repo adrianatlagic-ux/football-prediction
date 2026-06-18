@@ -1,0 +1,296 @@
+{
+  "home_team": "Uruguay",
+  "away_team": "Cape Verde",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.5333,
+  "probability_draw": 0.3264,
+  "probability_away_win": 0.1403,
+  "score_prediction": {
+    "home_xg": 2.37,
+    "away_xg": 0.64,
+    "rho": -0.13,
+    "most_likely_score": "2:0",
+    "result": "H",
+    "probability_home_win": 0.5333,
+    "probability_draw": 0.3264,
+    "probability_away_win": 0.1403,
+    "top_scorelines": [
+      {
+        "score": "2:0",
+        "probability": 0.0983
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0776
+      },
+      {
+        "score": "1:0",
+        "probability": 0.076
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0632
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0499
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8597,
+        "home_or_away": 0.6736,
+        "draw_or_away": 0.4667
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7735,
+          "under": 0.2265
+        },
+        {
+          "line": 2.5,
+          "over": 0.5,
+          "under": 0.5
+        },
+        {
+          "line": 3.5,
+          "over": 0.3087,
+          "under": 0.6913
+        }
+      ],
+      "btts": {
+        "yes": 0.4929,
+        "no": 0.5071
+      },
+      "win_margin": {
+        "home_1plus": 0.5333,
+        "home_2plus": 0.3758,
+        "home_3plus": 0.217,
+        "away_1plus": 0.1403,
+        "away_2plus": 0.0385,
+        "away_3plus": 0.007
+      },
+      "scenario": "Uruguay are favored to win, likely by 2+ goals."
+    }
+  },
+  "game_flow": {
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": 0.57,
+    "total_xg": 3.01,
+    "first_goal": {
+      "Uruguay_scores_first": 0.749,
+      "Cape Verde_scores_first": 0.202,
+      "no_goals": 0.049,
+      "expected_minute": 29
+    },
+    "halftime_xg": {
+      "Uruguay": 1.11,
+      "Cape Verde": 0.3
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.272
+      },
+      {
+        "score": "0:0",
+        "probability": 0.244
+      },
+      {
+        "score": "2:0",
+        "probability": 0.152
+      },
+      {
+        "score": "1:1",
+        "probability": 0.082
+      },
+      {
+        "score": "0:1",
+        "probability": 0.074
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Uruguay": 0.32,
+        "Cape Verde": 0.086
+      },
+      "16-30'": {
+        "Uruguay": 0.367,
+        "Cape Verde": 0.099
+      },
+      "31-45'": {
+        "Uruguay": 0.427,
+        "Cape Verde": 0.115
+      },
+      "46-60'": {
+        "Uruguay": 0.344,
+        "Cape Verde": 0.093
+      },
+      "61-75'": {
+        "Uruguay": 0.438,
+        "Cape Verde": 0.118
+      },
+      "76-90'": {
+        "Uruguay": 0.474,
+        "Cape Verde": 0.128
+      }
+    },
+    "comeback_probability": {
+      "Uruguay": 0.029,
+      "Cape Verde": 0.008
+    },
+    "late_drama_probability": 0.452,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.199
+      },
+      {
+        "szenario": "Uruguay dominiert früh",
+        "beschreibung": "Uruguay geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.155
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Uruguay trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.121
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 60,
+        "away": 40
+      },
+      "shots": {
+        "home": 19,
+        "away": 8
+      },
+      "shots_on_target": {
+        "home": 8,
+        "away": 3
+      },
+      "corners": {
+        "home": 8,
+        "away": 4
+      },
+      "passes": {
+        "home": 312,
+        "away": 208
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Uruguay and Cape Verde is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 8,
+        "type": "chance",
+        "team": "Cape Verde",
+        "headline": "Big chance for Cape Verde!",
+        "description": "Cape Verde create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 16,
+        "type": "chance",
+        "team": "Cape Verde",
+        "headline": "Big chance for Cape Verde!",
+        "description": "Cape Verde create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 26,
+        "type": "goal",
+        "team": "Uruguay",
+        "headline": "GOAL! Uruguay!",
+        "description": "Uruguay score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 52,
+        "type": "goal",
+        "team": "Uruguay",
+        "headline": "GOAL! Uruguay!",
+        "description": "Uruguay score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 56,
+        "type": "chance",
+        "team": "Cape Verde",
+        "headline": "Big chance for Cape Verde!",
+        "description": "Cape Verde create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 65,
+        "type": "chance",
+        "team": "Cape Verde",
+        "headline": "Big chance for Cape Verde!",
+        "description": "Cape Verde create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Uruguay": 17,
+      "Cape Verde": 69
+    },
+    "fifa_points": {
+      "Uruguay": 1640.0,
+      "Cape Verde": 816.0
+    },
+    "form_last_10_avg_pts": {
+      "Uruguay": 1.42,
+      "Cape Verde": 1.55
+    },
+    "win_rate_last_10": {
+      "Uruguay": "27%",
+      "Cape Verde": "33%"
+    },
+    "avg_goals_scored": {
+      "Uruguay": 0.64,
+      "Cape Verde": 1.33
+    },
+    "avg_goals_conceded": {
+      "Uruguay": 1.14,
+      "Cape Verde": 1.2
+    },
+    "clean_sheet_rate": {
+      "Uruguay": "38%",
+      "Cape Verde": "48%"
+    },
+    "h2h_last_10": {
+      "Uruguay wins": "0%",
+      "draws": "0%",
+      "Cape Verde wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}
