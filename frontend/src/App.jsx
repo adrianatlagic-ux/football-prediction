@@ -803,12 +803,33 @@ function RealStats({ stats, homeTeam, awayTeam }) {
 
 function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive }) {
   const [showAI, setShowAI] = useState(false)
+  const [expanded, setExpanded] = useState(false)
+
+  if (!expanded) {
+    return (
+      <div className="fixture-row fixture-final" onClick={() => setExpanded(true)} role="button" tabIndex={0}>
+        <div className="fixture-meta">
+          <span className="fixture-date">{fixture.date} · {fixture.time}</span>
+          <span className="fixture-final-badge">Final</span>
+        </div>
+        <div className="fixture-teams">
+          <span><TeamLabel name={fixture.home_team} /></span>
+          <span className="fixture-final-score">{result.home_score} – {result.away_score}</span>
+          <span><TeamLabel name={fixture.away_team} /></span>
+        </div>
+        <span className="fixture-expand-hint">Tap to view details ▾</span>
+      </div>
+    )
+  }
 
   return (
     <div className="card wm-card">
       <div className="wm-card-header">
         <span className="wm-match-id">{fixture.date} · {fixture.time}</span>
-        <span className="wm-match-type" style={{ background: 'rgba(34,197,94,0.15)', color: '#4ade80' }}>Final</span>
+        <div className="wm-card-header-right">
+          <span className="wm-match-type" style={{ background: 'rgba(34,197,94,0.15)', color: '#4ade80' }}>Final</span>
+          <button className="wm-collapse-btn" onClick={() => setExpanded(false)}>Collapse ▲</button>
+        </div>
       </div>
 
       <div className="result-header">
