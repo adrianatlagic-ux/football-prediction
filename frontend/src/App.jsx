@@ -801,6 +801,87 @@ function RealStats({ stats, homeTeam, awayTeam }) {
   )
 }
 
+function AiComparisonPanel({ fixture, result, aiData }) {
+  const sp = aiData.score_prediction || {}
+  const bm = sp.betting_markets || {}
+  const ou = bm.over_under || []
+  const btts = bm.btts || {}
+  const topScores = (sp.top_scorelines || []).slice(0, 3)
+
+  const actualHome = result.home_score
+  const actualAway = result.away_score
+  const actualBtts = actualHome > 0 && actualAway > 0
+  const actualTotal = actualHome + actualAway
+  const actualWinner = actualHome > actualAway ? 'H' : actualAway > actualHome ? 'A' : 'D'
+
+  const homeCorrect = actualWinner === 'H'
+  const drawCorrect = actualWinner === 'D'
+  const awayCorrect = actualWinner === 'A'
+
+  const HIT = 'linear-gradient(90deg,#16a34a,#4ade80)'
+  const MISS_HOME = 'linear-gradient(90deg,var(--gold),var(--gold-light))'
+  const MISS_DRAW = 'linear-gradient(90deg,#6b7280,#9ca3af)'
+  const MISS_AWAY = 'linear-gradient(90deg,#ef4444,#f97316)'
+
+  return (
+    <div className="ai-prediction-inner">
+      <p className="wm-subtle" style={{ marginBottom: '0.9rem', fontSize: '0.75rem' }}>Pre-match AI prediction</p>
+
+      {/* Winner probabilities */}
+      <div className="probabilities">
+        <ProbabilityBar label={<TeamLabel name={aiData.home_team} />} value={aiData.probability_home_win} color={homeCorrect ? HIT : MISS_HOME} />
+        <ProbabilityBar label="Draw" value={aiData.probability_draw} color={drawCorrect ? HIT : MISS_DRAW} />
+        <ProbabilityBar label={<TeamLabel name={aiData.away_team} />} value={aiData.probability_away_win} color={awayCorrect ? HIT : MISS_AWAY} />
+      </div>
+
+      {/* Top scorelines */}
+      {topScores.length > 0 && (
+        <div className="explanation-grid wm-grid" style={{ marginTop: '1rem' }}>
+          <div className="stat-card">
+            <h4>Top Scores Predicted</h4>
+            {topScores.map((s, i) => {
+              const hit = s.score === `${actualHome}:${actualAway}`
+              return (
+                <div className="stat-row" key={i} style={hit ? { color: '#4ade80' } : {}}>
+                  <span className="stat-label" style={hit ? { color: '#4ade80', fontWeight: 700 } : {}}>{s.score}{hit ? ' ✓' : ''}</span>
+                  <span className="stat-val" style={hit ? { color: '#4ade80' } : {}}>{(s.probability * 100).toFixed(1)}%</span>
+                </div>
+              )
+            })}
+          </div>
+
+          {/* BTTS + Over/Under */}
+          {(btts.yes != null || ou.length > 0) && (
+            <div className="stat-card">
+              <h4>Markets</h4>
+              {btts.yes != null && (() => {
+                const hit = actualBtts === (btts.yes >= 0.5)
+                return (
+                  <div className="stat-row" style={hit ? { color: '#4ade80' } : {}}>
+                    <span className="stat-label" style={hit ? { color: '#4ade80', fontWeight: 700 } : {}}>Beide treffen: {actualBtts ? 'Ja' : 'Nein'}{hit ? ' ✓' : ''}</span>
+                    <span className="stat-val" style={hit ? { color: '#4ade80' } : {}}>{((actualBtts ? btts.yes : btts.no) * 100).toFixed(0)}%</span>
+                  </div>
+                )
+              })()}
+              {ou.filter(o => [1.5, 2.5, 3.5].includes(parseFloat(o.line))).map(o => {
+                const line = parseFloat(o.line)
+                const over = actualTotal > line
+                const hit = over === (o.over >= 0.5)
+                return (
+                  <div className="stat-row" key={o.line} style={hit ? { color: '#4ade80' } : {}}>
+                    <span className="stat-label" style={hit ? { color: '#4ade80', fontWeight: 700 } : {}}>{over ? 'Über' : 'Unter'} {o.line} Tore{hit ? ' ✓' : ''}</span>
+                    <span className="stat-val" style={hit ? { color: '#4ade80' } : {}}>{((over ? o.over : 1 - o.over) * 100).toFixed(0)}%</span>
+                  </div>
+                )
+              })}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}
+
 function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive }) {
   const [showAI, setShowAI] = useState(false)
   const [expanded, setExpanded] = useState(false)
@@ -846,16 +927,9 @@ function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive })
       {aiData && (
         <div className="ai-prediction-section">
           <button className="ai-toggle-btn" onClick={() => setShowAI(v => !v)}>
-            {showAI ? '▲ Hide AI Prediction' : '▼ Show AI Prediction'}
+            {showAI ? '▲ Hide AI Prediction' : '▼ AI Prediction as Comparison'}
           </button>
-          {showAI && (
-            <div className="ai-prediction-inner">
-              <p className="wm-subtle" style={{ marginBottom: '0.5rem', fontSize: '0.8rem' }}>Pre-match AI prediction (for comparison)</p>
-              <ProbabilityBar label={<TeamLabel name={fixture.home_team} />} value={aiData.probability_home_win} color="linear-gradient(90deg,var(--gold),var(--gold-light))" />
-              <ProbabilityBar label="Draw" value={aiData.probability_draw} color="linear-gradient(90deg,#6b7280,#9ca3af)" />
-              <ProbabilityBar label={<TeamLabel name={fixture.away_team} />} value={aiData.probability_away_win} color="linear-gradient(90deg,#ef4444,#f97316)" />
-            </div>
-          )}
+          {showAI && <AiComparisonPanel fixture={fixture} result={result} aiData={aiData} />}
         </div>
       )}
 
