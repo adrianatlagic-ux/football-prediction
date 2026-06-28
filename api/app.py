@@ -489,7 +489,14 @@ def _common_spread_points(event: dict) -> dict[str, float]:
 
 
 def _handicap_cover_prob(home_xg: float, away_xg: float, team_is_home: bool, point: float, max_goals: int = 8) -> float:
-    """P(team's goal margin + handicap point > 0) from independent Poisson goals."""
+    """P(team's goal margin + handicap point > 0) from independent Poisson goals.
+
+    Only used for genuine Asian handicap lines (e.g. -1.5, +2.0) where there's
+    no simpler equivalent already computed. Double Chance (+0.5) and Draw No
+    Bet (0.0) are handled separately using the model's own H/D/A probabilities
+    directly - see the call site - since those need no extra computation and
+    must stay numerically consistent with the rest of the prediction.
+    """
     total = 0.0
     for h in range(max_goals + 1):
         ph = poisson.pmf(h, home_xg)
@@ -576,19 +583,15 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
         # contrary 1X2 bet would (see Ecuador/Germany: we favored Germany at
         # 57%, but "Ecuador or Draw" was recommended - same inconsistency).
         #
-        # Over/Under is binary (Over+Under always sum to 1), so one side is
-        # always our own model's "majority pick" by construction. Recommending
-        # the other (minority) side contradicts our own goal-total view, same
-        # idea as the 1X2/double-chance checks above. Use a buffer (45%) rather
-        # than a hard 50% cutoff so a near-toss-up (e.g. 49.8/50.2) isn't
-        # flagged just for landing on the "wrong" side of an essentially even
-        # split - only flag when our own model clearly disagrees.
+        # Over/Under candidates below 60% probability are already filtered out
+        # before they ever reach here (see the over/under loop below), so
+        # there's no separate "contradicts the model's own lean" check needed
+        # for that market anymore.
         contradicts_favorite = bool(
-            (confident_favorite and (
+            confident_favorite and (
                 (market == "1X2" and outcome != predicted_winner)
                 or (market == "Handicap +0.5" and predicted_winner_team is not None and team != predicted_winner_team)
-            ))
-            or (market.startswith("Over/Under") and prob < 0.45)
+            )
         )
         candidates.append({
             "market": market,
@@ -643,10 +646,11 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
             # when the model only weakly favors one side of an Over/Under line
             # (50-60% probability), it's actually right LESS than half the time
             # (~42%) - worse than a coin flip. That's not a real edge, just
-            # noise dressed up as a lean. Below 60%, don't offer it as a
-            # candidate bet at all rather than recommend something we know
-            # isn't reliable in that zone.
-            if 0.50 <= prob < 0.60:
+            # noise dressed up as a lean. Anything below 60% - including the
+            # outright minority side (under 50%, which is even less
+            # justified to back) - isn't reliable enough to offer as a
+            # candidate bet at all.
+            if prob < 0.60:
                 continue
             best = _best_price(event, "totals", side, point=line)
             if best:
@@ -671,7 +675,19 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
             opp_implied = 1 / statistics.median(opp_prices) if opp_prices else 0.0
             market_prob = _devig([team_implied, opp_implied])[0] if (team_implied + opp_implied) > 0 else None
 
-            prob = _handicap_cover_prob(home_xg, away_xg, team_is_home, point)
+            team_win_prob = prediction["probability_home_win"] if team_is_home else prediction["probability_away_win"]
+            if point == 0.5:
+                # Double Chance ("team or draw") = P(win) + P(draw) - plain
+                # addition of mutually exclusive outcomes, using the model's
+                # own headline probabilities directly rather than a separate
+                # Poisson recomputation that could (and did) disagree with them.
+                prob = team_win_prob + prediction["probability_draw"]
+            elif point == 0.0:
+                # Draw No Bet = P(team wins outright); a draw pushes (handled
+                # in grading), so the draw probability isn't part of this.
+                prob = team_win_prob
+            else:
+                prob = _handicap_cover_prob(home_xg, away_xg, team_is_home, point)
             best = _best_price(event, "spreads", team_name, point=point)
             if best:
                 sign = "+" if point > 0 else ""
