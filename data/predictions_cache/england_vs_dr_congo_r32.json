@@ -3,97 +3,97 @@
   "away_team": "DR Congo",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.696,
-  "probability_draw": 0.2293,
-  "probability_away_win": 0.0747,
+  "probability_home_win": 0.6901,
+  "probability_draw": 0.235,
+  "probability_away_win": 0.0748,
   "score_prediction": {
-    "home_xg": 1.58,
-    "away_xg": 0.72,
+    "home_xg": 1.38,
+    "away_xg": 0.63,
     "rho": -0.13,
     "most_likely_score": "1:0",
     "result": "H",
-    "probability_home_win": 0.696,
-    "probability_draw": 0.2293,
-    "probability_away_win": 0.0747,
+    "probability_home_win": 0.6902,
+    "probability_draw": 0.235,
+    "probability_away_win": 0.0748,
     "top_scorelines": [
       {
         "score": "1:0",
-        "probability": 0.1763
+        "probability": 0.2194
       },
       {
         "score": "2:0",
-        "probability": 0.154
+        "probability": 0.1644
       },
       {
         "score": "2:1",
-        "probability": 0.111
+        "probability": 0.1031
       },
       {
         "score": "3:0",
-        "probability": 0.0813
+        "probability": 0.0755
       },
       {
         "score": "3:1",
-        "probability": 0.0586
+        "probability": 0.0473
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.9253,
-        "home_or_away": 0.7707,
-        "draw_or_away": 0.304
+        "home_or_draw": 0.9252,
+        "home_or_away": 0.765,
+        "draw_or_away": 0.3098
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.702,
-          "under": 0.298
+          "over": 0.6329,
+          "under": 0.3671
         },
         {
           "line": 2.5,
-          "over": 0.4301,
-          "under": 0.5699
+          "over": 0.3557,
+          "under": 0.6443
         },
         {
           "line": 3.5,
-          "over": 0.2149,
-          "under": 0.7851
+          "over": 0.1567,
+          "under": 0.8433
         }
       ],
       "btts": {
-        "yes": 0.4047,
-        "no": 0.5953
+        "yes": 0.3418,
+        "no": 0.6582
       },
       "win_margin": {
-        "home_1plus": 0.696,
-        "home_2plus": 0.3853,
-        "home_3plus": 0.1637,
-        "away_1plus": 0.0747,
-        "away_2plus": 0.0229,
-        "away_3plus": 0.0047
+        "home_1plus": 0.6902,
+        "home_2plus": 0.3517,
+        "home_3plus": 0.1346,
+        "away_1plus": 0.0748,
+        "away_2plus": 0.0208,
+        "away_3plus": 0.0039
       },
-      "scenario": "England is strongly favoured to win, with a 1-0 score being most probable; a comfortable win by two or more goals is less likely."
+      "scenario": "England is a strong favourite with around a 69% win chance; a 1-0 victory is most likely, and a win by two or more goals is about 35% probable."
     }
   },
   "game_flow": {
-    "match_type": "Controlled",
-    "match_description": "The favorite controls the game against little resistance",
+    "match_type": "Tactically Balanced",
+    "match_description": "A tight game where goals will make the difference",
     "dominance_index": 0.37,
-    "total_xg": 2.3,
+    "total_xg": 2.01,
     "first_goal": {
-      "England_scores_first": 0.618,
-      "DR Congo_scores_first": 0.282,
-      "no_goals": 0.1,
-      "expected_minute": 39
+      "England_scores_first": 0.595,
+      "DR Congo_scores_first": 0.271,
+      "no_goals": 0.134,
+      "expected_minute": 44
     },
     "halftime_xg": {
-      "England": 0.74,
-      "DR Congo": 0.34
+      "England": 0.65,
+      "DR Congo": 0.3
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.34
+        "probability": 0.389
       },
       {
         "score": "1:0",
@@ -105,64 +105,64 @@
       },
       {
         "score": "2:0",
-        "probability": 0.094
+        "probability": 0.082
       },
       {
         "score": "1:1",
-        "probability": 0.085
+        "probability": 0.075
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "England": 0.213,
-        "DR Congo": 0.097
+        "England": 0.186,
+        "DR Congo": 0.085
       },
       "16-30'": {
-        "England": 0.245,
-        "DR Congo": 0.112
+        "England": 0.214,
+        "DR Congo": 0.098
       },
       "31-45'": {
-        "England": 0.284,
-        "DR Congo": 0.13
+        "England": 0.248,
+        "DR Congo": 0.113
       },
       "46-60'": {
-        "England": 0.229,
-        "DR Congo": 0.104
+        "England": 0.2,
+        "DR Congo": 0.091
       },
       "61-75'": {
-        "England": 0.292,
-        "DR Congo": 0.133
+        "England": 0.255,
+        "DR Congo": 0.117
       },
       "76-90'": {
-        "England": 0.316,
-        "DR Congo": 0.144
+        "England": 0.276,
+        "DR Congo": 0.126
       }
     },
     "comeback_probability": {
-      "England": 0.024,
-      "DR Congo": 0.011
+      "England": 0.019,
+      "DR Congo": 0.009
     },
-    "late_drama_probability": 0.369,
+    "late_drama_probability": 0.331,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
-        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.252
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 0:0",
+        "wahrscheinlichkeit": 0.279
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.241
+        "wahrscheinlichkeit": 0.256
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "England trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.159
+        "wahrscheinlichkeit": 0.185
       },
       {
         "szenario": "England dominiert früh",
         "beschreibung": "England geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.094
+        "wahrscheinlichkeit": 0.082
       }
     ],
     "predicted_stats": {
@@ -171,15 +171,15 @@
         "away": 43
       },
       "shots": {
-        "home": 14,
-        "away": 9
+        "home": 13,
+        "away": 8
       },
       "shots_on_target": {
         "home": 5,
         "away": 3
       },
       "corners": {
-        "home": 6,
+        "home": 5,
         "away": 4
       },
       "passes": {

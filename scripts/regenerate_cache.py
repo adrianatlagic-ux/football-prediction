@@ -26,7 +26,7 @@ for f in files:
     home, away = old["home_team"], old["away_team"]
     old_draw = old.get("probability_draw", 0)
     is_knockout = bool(KNOCKOUT_SUFFIX.search(f.stem))
-    fresh = predictor.predict_match(home, away)
+    fresh = predictor.predict_match(home, away, is_knockout=is_knockout)
     ai_scenario = generate_ai_scenario(fresh, home, away, is_knockout=is_knockout)
     if ai_scenario:
         fresh["score_prediction"]["betting_markets"]["scenario"] = ai_scenario

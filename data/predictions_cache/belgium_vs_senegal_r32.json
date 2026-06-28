@@ -3,166 +3,166 @@
   "away_team": "Senegal",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.4139,
-  "probability_draw": 0.2749,
-  "probability_away_win": 0.3111,
+  "probability_home_win": 0.4125,
+  "probability_draw": 0.2797,
+  "probability_away_win": 0.3078,
   "score_prediction": {
-    "home_xg": 1.4,
-    "away_xg": 1.7,
+    "home_xg": 1.22,
+    "away_xg": 1.48,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.4139,
-    "probability_draw": 0.2749,
-    "probability_away_win": 0.3111,
+    "probability_home_win": 0.4125,
+    "probability_draw": 0.2797,
+    "probability_away_win": 0.3078,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.1022
+        "probability": 0.1028
       },
       {
         "score": "1:0",
-        "probability": 0.0669
+        "probability": 0.0922
       },
       {
         "score": "2:0",
-        "probability": 0.0602
+        "probability": 0.0697
       },
       {
         "score": "3:1",
-        "probability": 0.0478
+        "probability": 0.0418
       },
       {
         "score": "3:2",
-        "probability": 0.0406
+        "probability": 0.0309
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.6889,
-        "home_or_away": 0.7251,
-        "draw_or_away": 0.5861
+        "home_or_draw": 0.6922,
+        "home_or_away": 0.7203,
+        "draw_or_away": 0.5875
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8265,
-          "under": 0.1735
+          "over": 0.7646,
+          "under": 0.2354
         },
         {
           "line": 2.5,
-          "over": 0.5933,
-          "under": 0.4067
+          "over": 0.5068,
+          "under": 0.4932
         },
         {
           "line": 3.5,
-          "over": 0.3709,
-          "under": 0.6291
+          "over": 0.2824,
+          "under": 0.7176
         }
       ],
       "btts": {
-        "yes": 0.635,
-        "no": 0.365
+        "yes": 0.5603,
+        "no": 0.4397
       },
       "win_margin": {
-        "home_1plus": 0.4139,
-        "home_2plus": 0.1949,
-        "home_3plus": 0.0702,
-        "away_1plus": 0.3111,
-        "away_2plus": 0.1687,
-        "away_3plus": 0.0718
+        "home_1plus": 0.4125,
+        "home_2plus": 0.1814,
+        "home_3plus": 0.0593,
+        "away_1plus": 0.3078,
+        "away_2plus": 0.1559,
+        "away_3plus": 0.0603
       },
-      "scenario": "Belgium is favored to win this knockout match, with 2-1 the most likely score, suggesting a competitive game with goals."
+      "scenario": "Belgium is favored to win 2-1, with a high probability of both teams scoring and over 2.5 goals being achieved."
     }
   },
   "game_flow": {
     "match_type": "Balanced & Open",
     "match_description": "Both teams play attacking football at an even level",
     "dominance_index": -0.1,
-    "total_xg": 3.1,
+    "total_xg": 2.7,
     "first_goal": {
-      "Belgium_scores_first": 0.431,
-      "Senegal_scores_first": 0.524,
-      "no_goals": 0.045,
-      "expected_minute": 29
+      "Belgium_scores_first": 0.421,
+      "Senegal_scores_first": 0.511,
+      "no_goals": 0.067,
+      "expected_minute": 33
     },
     "halftime_xg": {
-      "Belgium": 0.66,
-      "Senegal": 0.8
+      "Belgium": 0.57,
+      "Senegal": 0.7
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.233
+        "probability": 0.281
       },
       {
         "score": "0:1",
-        "probability": 0.186
+        "probability": 0.196
       },
       {
         "score": "1:0",
-        "probability": 0.154
+        "probability": 0.161
       },
       {
         "score": "1:1",
-        "probability": 0.123
+        "probability": 0.112
       },
       {
         "score": "0:2",
-        "probability": 0.075
+        "probability": 0.068
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Belgium": 0.189,
-        "Senegal": 0.23
+        "Belgium": 0.165,
+        "Senegal": 0.2
       },
       "16-30'": {
-        "Belgium": 0.217,
-        "Senegal": 0.264
+        "Belgium": 0.189,
+        "Senegal": 0.229
       },
       "31-45'": {
-        "Belgium": 0.252,
-        "Senegal": 0.306
+        "Belgium": 0.22,
+        "Senegal": 0.266
       },
       "46-60'": {
-        "Belgium": 0.203,
-        "Senegal": 0.246
+        "Belgium": 0.177,
+        "Senegal": 0.215
       },
       "61-75'": {
-        "Belgium": 0.259,
-        "Senegal": 0.315
+        "Belgium": 0.226,
+        "Senegal": 0.274
       },
       "76-90'": {
-        "Belgium": 0.28,
-        "Senegal": 0.34
+        "Belgium": 0.244,
+        "Senegal": 0.296
       }
     },
     "comeback_probability": {
-      "Belgium": 0.03,
-      "Senegal": 0.036
+      "Belgium": 0.025,
+      "Senegal": 0.029
     },
-    "late_drama_probability": 0.462,
+    "late_drama_probability": 0.417,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.236
+        "wahrscheinlichkeit": 0.256
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.191
+        "wahrscheinlichkeit": 0.216
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Senegal trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.1
       },
       {
         "szenario": "Senegal dominiert früh",
         "beschreibung": "Senegal geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.075
-      },
-      {
-        "szenario": "Belgium dominiert früh",
-        "beschreibung": "Belgium geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.051
+        "wahrscheinlichkeit": 0.069
       }
     ],
     "predicted_stats": {
@@ -171,16 +171,16 @@
         "away": 52
       },
       "shots": {
-        "home": 13,
-        "away": 15
+        "home": 12,
+        "away": 14
       },
       "shots_on_target": {
-        "home": 5,
-        "away": 6
+        "home": 4,
+        "away": 5
       },
       "corners": {
-        "home": 6,
-        "away": 7
+        "home": 5,
+        "away": 6
       },
       "passes": {
         "home": 250,
@@ -194,14 +194,6 @@
         "team": null,
         "headline": "Kickoff!",
         "description": "The match between Belgium and Senegal is underway.",
-        "score_after": "0:0"
-      },
-      {
-        "minute": 26,
-        "type": "chance",
-        "team": "Belgium",
-        "headline": "Big chance for Belgium!",
-        "description": "Belgium create a great opportunity but fail to convert.",
         "score_after": "0:0"
       },
       {
@@ -229,19 +221,19 @@
         "score_after": "1:0"
       },
       {
+        "minute": 52,
+        "type": "chance",
+        "team": "Belgium",
+        "headline": "Big chance for Belgium!",
+        "description": "Belgium create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
         "minute": 56,
         "type": "goal",
         "team": "Belgium",
         "headline": "GOAL! Belgium!",
         "description": "Belgium score to make it 2:0.",
-        "score_after": "2:0"
-      },
-      {
-        "minute": 64,
-        "type": "chance",
-        "team": "Senegal",
-        "headline": "Big chance for Senegal!",
-        "description": "Senegal create a great opportunity but fail to convert.",
         "score_after": "2:0"
       },
       {
@@ -253,11 +245,11 @@
         "score_after": "2:1"
       },
       {
-        "minute": 77,
+        "minute": 84,
         "type": "chance",
-        "team": "Belgium",
-        "headline": "Big chance for Belgium!",
-        "description": "Belgium create a great opportunity but fail to convert.",
+        "team": "Senegal",
+        "headline": "Big chance for Senegal!",
+        "description": "Senegal create a great opportunity but fail to convert.",
         "score_after": "2:1"
       },
       {

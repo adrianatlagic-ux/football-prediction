@@ -267,6 +267,7 @@ def predict_scorelines(
     top_n: int = 5,
     rho: float | None = None,
     target_result_probs: tuple[float, float, float] | None = None,
+    is_knockout: bool = False,
 ) -> dict:
     league_avg = float(df_history[["home_goals", "away_goals"]].mean().mean())
 
@@ -282,9 +283,18 @@ def predict_scorelines(
     home_xg *= home_factor
     away_xg *= away_factor
 
-    # WC group stage produces ~15% more goals than historical average
-    home_xg *= 1.15
-    away_xg *= 1.15
+    # WC group stage produces ~15% more goals than historical average - but
+    # this was calibrated on group games specifically (weaker/mismatched
+    # opponents, nothing to lose). Knockout matches are the opposite: teams
+    # play more cautiously with elimination on the line, so applying the same
+    # +15% inflation there overstates expected goals (e.g. South Africa vs
+    # Canada: model said 2.75 xG / 75% Over 1.5, actual game had 1 goal total).
+    # We don't have a calibrated knockout-specific factor, so default to no
+    # adjustment (1.0) rather than guess one - safer than carrying over a
+    # number known to be wrong for this stage.
+    if not is_knockout:
+        home_xg *= 1.15
+        away_xg *= 1.15
 
     # Use typical rho value (-0.13) — well-established in literature
     if rho is None:

@@ -3,166 +3,166 @@
   "away_team": "Morocco",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.502,
-  "probability_draw": 0.227,
-  "probability_away_win": 0.271,
+  "probability_home_win": 0.5002,
+  "probability_draw": 0.2319,
+  "probability_away_win": 0.268,
   "score_prediction": {
-    "home_xg": 1.35,
-    "away_xg": 1.54,
+    "home_xg": 1.17,
+    "away_xg": 1.34,
     "rho": -0.13,
-    "most_likely_score": "2:1",
+    "most_likely_score": "1:0",
     "result": "H",
-    "probability_home_win": 0.502,
-    "probability_draw": 0.227,
-    "probability_away_win": 0.271,
+    "probability_home_win": 0.5001,
+    "probability_draw": 0.2319,
+    "probability_away_win": 0.268,
     "top_scorelines": [
       {
-        "score": "2:1",
-        "probability": 0.1228
+        "score": "1:0",
+        "probability": 0.1271
       },
       {
-        "score": "1:0",
-        "probability": 0.0948
+        "score": "2:1",
+        "probability": 0.1206
       },
       {
         "score": "2:0",
-        "probability": 0.0798
+        "probability": 0.0901
       },
       {
         "score": "3:1",
-        "probability": 0.0551
+        "probability": 0.0471
       },
       {
-        "score": "3:2",
-        "probability": 0.0424
+        "score": "3:0",
+        "probability": 0.0352
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.729,
-        "home_or_away": 0.773,
-        "draw_or_away": 0.498
+        "home_or_draw": 0.732,
+        "home_or_away": 0.7681,
+        "draw_or_away": 0.4999
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.7993,
-          "under": 0.2007
+          "over": 0.734,
+          "under": 0.266
         },
         {
           "line": 2.5,
-          "over": 0.5682,
-          "under": 0.4318
+          "over": 0.4829,
+          "under": 0.5171
         },
         {
           "line": 3.5,
-          "over": 0.3272,
-          "under": 0.6728
+          "over": 0.2459,
+          "under": 0.7541
         }
       ],
       "btts": {
-        "yes": 0.5883,
-        "no": 0.4117
+        "yes": 0.5128,
+        "no": 0.4872
       },
       "win_margin": {
-        "home_1plus": 0.502,
-        "home_2plus": 0.2336,
-        "home_3plus": 0.0822,
-        "away_1plus": 0.271,
-        "away_2plus": 0.139,
-        "away_3plus": 0.055
+        "home_1plus": 0.5001,
+        "home_2plus": 0.2166,
+        "home_3plus": 0.0691,
+        "away_1plus": 0.268,
+        "away_2plus": 0.128,
+        "away_3plus": 0.046
       },
-      "scenario": "Netherlands are 50% favourites with 2-1 the most likely score, though Morocco's strong defense points to a tighter game."
+      "scenario": "Netherlands are narrow favorites at around 50%, with 1-0 being the most likely score in what's predicted to be a low-scoring match."
     }
   },
   "game_flow": {
     "match_type": "Balanced & Open",
     "match_description": "Both teams play attacking football at an even level",
     "dominance_index": -0.07,
-    "total_xg": 2.89,
+    "total_xg": 2.51,
     "first_goal": {
-      "Netherlands_scores_first": 0.441,
-      "Morocco_scores_first": 0.503,
-      "no_goals": 0.056,
-      "expected_minute": 31
+      "Netherlands_scores_first": 0.428,
+      "Morocco_scores_first": 0.49,
+      "no_goals": 0.081,
+      "expected_minute": 35
     },
     "halftime_xg": {
-      "Netherlands": 0.63,
-      "Morocco": 0.72
+      "Netherlands": 0.55,
+      "Morocco": 0.63
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.257
+        "probability": 0.308
       },
       {
         "score": "0:1",
-        "probability": 0.186
+        "probability": 0.194
       },
       {
         "score": "1:0",
-        "probability": 0.163
+        "probability": 0.169
       },
       {
         "score": "1:1",
-        "probability": 0.118
+        "probability": 0.107
       },
       {
         "score": "0:2",
-        "probability": 0.067
+        "probability": 0.061
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Netherlands": 0.182,
-        "Morocco": 0.208
+        "Netherlands": 0.158,
+        "Morocco": 0.181
       },
       "16-30'": {
-        "Netherlands": 0.209,
-        "Morocco": 0.239
+        "Netherlands": 0.181,
+        "Morocco": 0.208
       },
       "31-45'": {
-        "Netherlands": 0.243,
-        "Morocco": 0.277
+        "Netherlands": 0.211,
+        "Morocco": 0.241
       },
       "46-60'": {
-        "Netherlands": 0.196,
-        "Morocco": 0.223
+        "Netherlands": 0.17,
+        "Morocco": 0.194
       },
       "61-75'": {
-        "Netherlands": 0.25,
-        "Morocco": 0.285
+        "Netherlands": 0.216,
+        "Morocco": 0.248
       },
       "76-90'": {
-        "Netherlands": 0.27,
-        "Morocco": 0.308
+        "Netherlands": 0.234,
+        "Morocco": 0.268
       }
     },
     "comeback_probability": {
-      "Netherlands": 0.028,
-      "Morocco": 0.032
+      "Netherlands": 0.023,
+      "Morocco": 0.026
     },
-    "late_drama_probability": 0.439,
+    "late_drama_probability": 0.395,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.247
+        "wahrscheinlichkeit": 0.268
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.204
+        "wahrscheinlichkeit": 0.228
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "Morocco trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.086
+        "wahrscheinlichkeit": 0.109
       },
       {
         "szenario": "Morocco dominiert früh",
         "beschreibung": "Morocco geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.068
+        "wahrscheinlichkeit": 0.061
       }
     ],
     "predicted_stats": {
@@ -171,12 +171,12 @@
         "away": 51
       },
       "shots": {
-        "home": 13,
-        "away": 14
+        "home": 12,
+        "away": 13
       },
       "shots_on_target": {
-        "home": 5,
-        "away": 6
+        "home": 4,
+        "away": 5
       },
       "corners": {
         "home": 5,
@@ -197,7 +197,23 @@
         "score_after": "0:0"
       },
       {
-        "minute": 9,
+        "minute": 42,
+        "type": "chance",
+        "team": "Netherlands",
+        "headline": "Big chance for Netherlands!",
+        "description": "Netherlands create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 49,
         "type": "chance",
         "team": "Morocco",
         "headline": "Big chance for Morocco!",
@@ -205,15 +221,7 @@
         "score_after": "0:0"
       },
       {
-        "minute": 19,
-        "type": "chance",
-        "team": "Morocco",
-        "headline": "Big chance for Morocco!",
-        "description": "Morocco create a great opportunity but fail to convert.",
-        "score_after": "0:0"
-      },
-      {
-        "minute": 38,
+        "minute": 69,
         "type": "goal",
         "team": "Netherlands",
         "headline": "GOAL! Netherlands!",
@@ -221,52 +229,12 @@
         "score_after": "1:0"
       },
       {
-        "minute": 45,
-        "type": "halftime",
-        "team": null,
-        "headline": "Half-time",
-        "description": "The teams go into the break at 1:0.",
-        "score_after": "1:0"
-      },
-      {
-        "minute": 49,
-        "type": "chance",
-        "team": "Netherlands",
-        "headline": "Big chance for Netherlands!",
-        "description": "Netherlands create a great opportunity but fail to convert.",
-        "score_after": "1:0"
-      },
-      {
-        "minute": 67,
-        "type": "chance",
-        "team": "Morocco",
-        "headline": "Big chance for Morocco!",
-        "description": "Morocco create a great opportunity but fail to convert.",
-        "score_after": "1:0"
-      },
-      {
-        "minute": 70,
-        "type": "goal",
-        "team": "Morocco",
-        "headline": "GOAL! Morocco!",
-        "description": "Morocco score to make it 1:1.",
-        "score_after": "1:1"
-      },
-      {
-        "minute": 77,
-        "type": "goal",
-        "team": "Netherlands",
-        "headline": "GOAL! Netherlands!",
-        "description": "Netherlands score to make it 2:1.",
-        "score_after": "2:1"
-      },
-      {
         "minute": 90,
         "type": "fulltime",
         "team": null,
         "headline": "Full-time",
-        "description": "The final score finishes 2:1.",
-        "score_after": "2:1"
+        "description": "The final score finishes 1:0.",
+        "score_after": "1:0"
       }
     ]
   },

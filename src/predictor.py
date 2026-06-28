@@ -100,7 +100,9 @@ class FootballPredictor:
         weights = time_w * tournament_w
         return weights / weights.mean()
 
-    def predict_match(self, home_team: str, away_team: str, neutral: bool | None = None) -> dict:
+    def predict_match(
+        self, home_team: str, away_team: str, neutral: bool | None = None, is_knockout: bool = False,
+    ) -> dict:
         # WM 2026: Heimvorteil nur für Gastgeber-Nationen
         if neutral is None:
             neutral = home_team not in WC2026_HOST_NATIONS
@@ -120,7 +122,7 @@ class FootballPredictor:
 
         # Pure Poisson H/D/A (no rescaling) - handles mismatched games far better,
         # especially draws (a 3.0 vs 0.6 xG game is almost never a draw).
-        poisson_pre = predict_scorelines(self._history, home_team, away_team)
+        poisson_pre = predict_scorelines(self._history, home_team, away_team, is_knockout=is_knockout)
         poi_proba = [
             poisson_pre["probability_home_win"],
             poisson_pre["probability_draw"],
@@ -149,6 +151,7 @@ class FootballPredictor:
         score_pred = predict_scorelines(
             self._history, home_team, away_team,
             target_result_probs=target_result_probs,
+            is_knockout=is_knockout,
         )
         self._align_score_prediction(score_pred, result["prediction"])
         flow = predict_game_flow(

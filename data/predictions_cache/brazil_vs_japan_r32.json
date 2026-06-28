@@ -3,166 +3,166 @@
   "away_team": "Japan",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.4306,
-  "probability_draw": 0.2625,
-  "probability_away_win": 0.3069,
+  "probability_home_win": 0.4278,
+  "probability_draw": 0.2671,
+  "probability_away_win": 0.3052,
   "score_prediction": {
-    "home_xg": 1.94,
-    "away_xg": 1.74,
+    "home_xg": 1.68,
+    "away_xg": 1.51,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.4306,
-    "probability_draw": 0.2625,
-    "probability_away_win": 0.3069,
+    "probability_home_win": 0.4278,
+    "probability_draw": 0.2671,
+    "probability_away_win": 0.3052,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.0847
-      },
-      {
-        "score": "3:1",
-        "probability": 0.0546
+        "probability": 0.0924
       },
       {
         "score": "2:0",
-        "probability": 0.0486
-      },
-      {
-        "score": "3:2",
-        "probability": 0.0476
+        "probability": 0.061
       },
       {
         "score": "1:0",
-        "probability": 0.0388
+        "probability": 0.0582
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0519
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0393
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.6931,
-        "home_or_away": 0.7375,
-        "draw_or_away": 0.5694
+        "home_or_draw": 0.6948,
+        "home_or_away": 0.7329,
+        "draw_or_away": 0.5722
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8914,
-          "under": 0.1086
+          "over": 0.8419,
+          "under": 0.1581
         },
         {
           "line": 2.5,
-          "over": 0.7022,
-          "under": 0.2978
+          "over": 0.6175,
+          "under": 0.3825
         },
         {
           "line": 3.5,
-          "over": 0.4995,
-          "under": 0.5005
+          "over": 0.3972,
+          "under": 0.6028
         }
       ],
       "btts": {
-        "yes": 0.7206,
-        "no": 0.2794
+        "yes": 0.6498,
+        "no": 0.3502
       },
       "win_margin": {
-        "home_1plus": 0.4306,
-        "home_2plus": 0.2435,
-        "home_3plus": 0.1113,
-        "away_1plus": 0.3069,
-        "away_2plus": 0.1607,
-        "away_3plus": 0.0671
+        "home_1plus": 0.4278,
+        "home_2plus": 0.2285,
+        "home_3plus": 0.096,
+        "away_1plus": 0.3052,
+        "away_2plus": 0.1505,
+        "away_3plus": 0.0575
       },
-      "scenario": "Brazil has a 43% win chance with 2-1 the most likely score, but Japan shows strong recent form and defensive stats."
+      "scenario": "Brazil is the favorite at 2-1, but Japan's decent win probability and strong recent defensive record suggest a competitive match."
     }
   },
   "game_flow": {
-    "match_type": "Goal Fest",
-    "match_description": "A very open game with plenty of chances expected",
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
     "dominance_index": 0.05,
-    "total_xg": 3.68,
+    "total_xg": 3.19,
     "first_goal": {
-      "Brazil_scores_first": 0.514,
-      "Japan_scores_first": 0.461,
-      "no_goals": 0.025,
-      "expected_minute": 24
+      "Brazil_scores_first": 0.505,
+      "Japan_scores_first": 0.454,
+      "no_goals": 0.041,
+      "expected_minute": 28
     },
     "halftime_xg": {
-      "Brazil": 0.91,
-      "Japan": 0.82
+      "Brazil": 0.79,
+      "Japan": 0.71
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.178
+        "probability": 0.224
       },
       {
         "score": "1:0",
-        "probability": 0.162
+        "probability": 0.177
       },
       {
         "score": "0:1",
-        "probability": 0.146
+        "probability": 0.159
       },
       {
         "score": "1:1",
-        "probability": 0.133
+        "probability": 0.125
       },
       {
         "score": "2:0",
-        "probability": 0.074
+        "probability": 0.07
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Brazil": 0.262,
-        "Japan": 0.235
+        "Brazil": 0.227,
+        "Japan": 0.204
       },
       "16-30'": {
-        "Brazil": 0.301,
-        "Japan": 0.27
+        "Brazil": 0.26,
+        "Japan": 0.234
       },
       "31-45'": {
-        "Brazil": 0.349,
-        "Japan": 0.313
+        "Brazil": 0.302,
+        "Japan": 0.272
       },
       "46-60'": {
-        "Brazil": 0.281,
-        "Japan": 0.252
+        "Brazil": 0.244,
+        "Japan": 0.219
       },
       "61-75'": {
-        "Brazil": 0.359,
-        "Japan": 0.322
+        "Brazil": 0.311,
+        "Japan": 0.279
       },
       "76-90'": {
-        "Brazil": 0.388,
-        "Japan": 0.348
+        "Brazil": 0.336,
+        "Japan": 0.302
       }
     },
     "comeback_probability": {
-      "Brazil": 0.044,
-      "Japan": 0.04
+      "Brazil": 0.036,
+      "Japan": 0.033
     },
-    "late_drama_probability": 0.521,
+    "late_drama_probability": 0.472,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.214
+        "wahrscheinlichkeit": 0.233
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.156
+        "wahrscheinlichkeit": 0.185
       },
       {
         "szenario": "Brazil dominiert früh",
         "beschreibung": "Brazil geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.076
+        "wahrscheinlichkeit": 0.071
       },
       {
         "szenario": "Japan dominiert früh",
         "beschreibung": "Japan geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.061
+        "wahrscheinlichkeit": 0.057
       }
     ],
     "predicted_stats": {
@@ -171,12 +171,12 @@
         "away": 49
       },
       "shots": {
-        "home": 17,
-        "away": 15
+        "home": 15,
+        "away": 14
       },
       "shots_on_target": {
-        "home": 7,
-        "away": 6
+        "home": 6,
+        "away": 5
       },
       "corners": {
         "home": 7,

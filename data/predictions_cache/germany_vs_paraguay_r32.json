@@ -3,161 +3,166 @@
   "away_team": "Paraguay",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.7056,
-  "probability_draw": 0.1922,
-  "probability_away_win": 0.1022,
+  "probability_home_win": 0.6999,
+  "probability_draw": 0.1974,
+  "probability_away_win": 0.1027,
   "score_prediction": {
-    "home_xg": 2.19,
-    "away_xg": 1.02,
+    "home_xg": 1.91,
+    "away_xg": 0.89,
     "rho": -0.13,
-    "most_likely_score": "2:1",
+    "most_likely_score": "2:0",
     "result": "H",
-    "probability_home_win": 0.7056,
-    "probability_draw": 0.1922,
-    "probability_away_win": 0.1022,
+    "probability_home_win": 0.6999,
+    "probability_draw": 0.1974,
+    "probability_away_win": 0.1027,
     "top_scorelines": [
       {
-        "score": "2:1",
-        "probability": 0.1107
-      },
-      {
         "score": "2:0",
-        "probability": 0.1088
+        "probability": 0.1299
       },
       {
         "score": "1:0",
-        "probability": 0.086
+        "probability": 0.1205
       },
       {
-        "score": "3:1",
-        "probability": 0.081
+        "score": "2:1",
+        "probability": 0.115
       },
       {
         "score": "3:0",
-        "probability": 0.0796
+        "probability": 0.0827
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0732
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.8978,
-        "home_or_away": 0.8078,
-        "draw_or_away": 0.2944
+        "home_or_draw": 0.8973,
+        "home_or_away": 0.8026,
+        "draw_or_away": 0.3001
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8481,
-          "under": 0.1519
+          "over": 0.7921,
+          "under": 0.2079
         },
         {
           "line": 2.5,
-          "over": 0.6358,
-          "under": 0.3642
+          "over": 0.5519,
+          "under": 0.4481
         },
         {
           "line": 3.5,
-          "over": 0.4101,
-          "under": 0.5899
+          "over": 0.3192,
+          "under": 0.6808
         }
       ],
       "btts": {
-        "yes": 0.5669,
-        "no": 0.4331
+        "yes": 0.4968,
+        "no": 0.5032
       },
       "win_margin": {
-        "home_1plus": 0.7056,
-        "home_2plus": 0.4589,
-        "home_3plus": 0.2428,
-        "away_1plus": 0.1022,
-        "away_2plus": 0.0378,
-        "away_3plus": 0.0101
+        "home_1plus": 0.6999,
+        "home_2plus": 0.4271,
+        "home_3plus": 0.2067,
+        "away_1plus": 0.1027,
+        "away_2plus": 0.0355,
+        "away_3plus": 0.0086
       },
-      "scenario": "Germany has a strong 70% chance to win, with 2-1 the most likely score, and nearly a 50% chance to win by two or more goals."
+      "scenario": "Germany is a strong favorite with a nearly 70% win probability and a most likely 2-0 score, with a significant chance of winning by two or more goals."
     }
   },
   "game_flow": {
     "match_type": "Balanced & Open",
     "match_description": "Both teams play attacking football at an even level",
     "dominance_index": 0.36,
-    "total_xg": 3.21,
+    "total_xg": 2.8,
     "first_goal": {
-      "Germany_scores_first": 0.655,
-      "Paraguay_scores_first": 0.305,
-      "no_goals": 0.04,
-      "expected_minute": 28
+      "Germany_scores_first": 0.641,
+      "Paraguay_scores_first": 0.299,
+      "no_goals": 0.061,
+      "expected_minute": 32
     },
     "halftime_xg": {
-      "Germany": 1.03,
-      "Paraguay": 0.48
+      "Germany": 0.9,
+      "Paraguay": 0.42
     },
     "top_halftime_scores": [
       {
-        "score": "1:0",
-        "probability": 0.229
-      },
-      {
         "score": "0:0",
-        "probability": 0.222
+        "probability": 0.269
       },
       {
-        "score": "2:0",
-        "probability": 0.118
-      },
-      {
-        "score": "1:1",
-        "probability": 0.11
+        "score": "1:0",
+        "probability": 0.241
       },
       {
         "score": "0:1",
-        "probability": 0.106
+        "probability": 0.112
+      },
+      {
+        "score": "2:0",
+        "probability": 0.108
+      },
+      {
+        "score": "1:1",
+        "probability": 0.101
       }
     ],
     "goal_timing": {
       "1-15'": {
+        "Germany": 0.258,
+        "Paraguay": 0.12
+      },
+      "16-30'": {
         "Germany": 0.296,
         "Paraguay": 0.138
       },
-      "16-30'": {
-        "Germany": 0.339,
-        "Paraguay": 0.158
-      },
       "31-45'": {
-        "Germany": 0.394,
-        "Paraguay": 0.184
+        "Germany": 0.344,
+        "Paraguay": 0.16
       },
       "46-60'": {
-        "Germany": 0.318,
-        "Paraguay": 0.148
+        "Germany": 0.277,
+        "Paraguay": 0.129
       },
       "61-75'": {
-        "Germany": 0.405,
-        "Paraguay": 0.189
+        "Germany": 0.353,
+        "Paraguay": 0.165
       },
       "76-90'": {
-        "Germany": 0.438,
-        "Paraguay": 0.204
+        "Germany": 0.382,
+        "Paraguay": 0.178
       }
     },
     "comeback_probability": {
-      "Germany": 0.038,
-      "Paraguay": 0.019
+      "Germany": 0.032,
+      "Paraguay": 0.016
     },
-    "late_drama_probability": 0.474,
+    "late_drama_probability": 0.429,
     "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.219
+      },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.185
-      },
-      {
-        "szenario": "Germany dominiert früh",
-        "beschreibung": "Germany geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.12
+        "wahrscheinlichkeit": 0.21
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "Germany trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.091
+        "wahrscheinlichkeit": 0.118
+      },
+      {
+        "szenario": "Germany dominiert früh",
+        "beschreibung": "Germany geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.11
       }
     ],
     "predicted_stats": {
@@ -166,16 +171,16 @@
         "away": 43
       },
       "shots": {
-        "home": 18,
-        "away": 11
+        "home": 16,
+        "away": 10
       },
       "shots_on_target": {
-        "home": 7,
-        "away": 4
+        "home": 6,
+        "away": 3
       },
       "corners": {
         "home": 7,
-        "away": 5
+        "away": 4
       },
       "passes": {
         "home": 296,
@@ -192,27 +197,19 @@
         "score_after": "0:0"
       },
       {
-        "minute": 15,
+        "minute": 33,
         "type": "chance",
-        "team": "Germany",
-        "headline": "Big chance for Germany!",
-        "description": "Germany create a great opportunity but fail to convert.",
+        "team": "Paraguay",
+        "headline": "Big chance for Paraguay!",
+        "description": "Paraguay create a great opportunity but fail to convert.",
         "score_after": "0:0"
       },
       {
-        "minute": 26,
+        "minute": 43,
         "type": "goal",
         "team": "Germany",
         "headline": "GOAL! Germany!",
         "description": "Germany score to make it 1:0.",
-        "score_after": "1:0"
-      },
-      {
-        "minute": 36,
-        "type": "chance",
-        "team": "Germany",
-        "headline": "Big chance for Germany!",
-        "description": "Germany create a great opportunity but fail to convert.",
         "score_after": "1:0"
       },
       {
@@ -224,7 +221,23 @@
         "score_after": "1:0"
       },
       {
-        "minute": 62,
+        "minute": 68,
+        "type": "chance",
+        "team": "Germany",
+        "headline": "Big chance for Germany!",
+        "description": "Germany create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 78,
+        "type": "chance",
+        "team": "Paraguay",
+        "headline": "Big chance for Paraguay!",
+        "description": "Paraguay create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 90,
         "type": "goal",
         "team": "Germany",
         "headline": "GOAL! Germany!",
@@ -232,36 +245,12 @@
         "score_after": "2:0"
       },
       {
-        "minute": 66,
-        "type": "goal",
-        "team": "Paraguay",
-        "headline": "GOAL! Paraguay!",
-        "description": "Paraguay score to make it 2:1.",
-        "score_after": "2:1"
-      },
-      {
-        "minute": 71,
-        "type": "chance",
-        "team": "Paraguay",
-        "headline": "Big chance for Paraguay!",
-        "description": "Paraguay create a great opportunity but fail to convert.",
-        "score_after": "2:1"
-      },
-      {
-        "minute": 82,
-        "type": "chance",
-        "team": "Paraguay",
-        "headline": "Big chance for Paraguay!",
-        "description": "Paraguay create a great opportunity but fail to convert.",
-        "score_after": "2:1"
-      },
-      {
         "minute": 90,
         "type": "fulltime",
         "team": null,
         "headline": "Full-time",
-        "description": "The final score finishes 2:1.",
-        "score_after": "2:1"
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
       }
     ]
   },

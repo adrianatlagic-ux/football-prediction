@@ -3,156 +3,161 @@
   "away_team": "Cape Verde",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.675,
-  "probability_draw": 0.2623,
-  "probability_away_win": 0.0626,
+  "probability_home_win": 0.6702,
+  "probability_draw": 0.2665,
+  "probability_away_win": 0.0633,
   "score_prediction": {
-    "home_xg": 3.6,
-    "away_xg": 0.46,
+    "home_xg": 3.13,
+    "away_xg": 0.4,
     "rho": -0.13,
     "most_likely_score": "3:0",
     "result": "H",
-    "probability_home_win": 0.6751,
-    "probability_draw": 0.2623,
-    "probability_away_win": 0.0626,
+    "probability_home_win": 0.6702,
+    "probability_draw": 0.2665,
+    "probability_away_win": 0.0633,
     "top_scorelines": [
       {
         "score": "3:0",
-        "probability": 0.0997
-      },
-      {
-        "score": "4:0",
-        "probability": 0.0899
+        "probability": 0.1129
       },
       {
         "score": "2:0",
-        "probability": 0.083
+        "probability": 0.1081
+      },
+      {
+        "score": "4:0",
+        "probability": 0.0885
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0654
       },
       {
         "score": "5:0",
-        "probability": 0.0648
-      },
-      {
-        "score": "3:1",
-        "probability": 0.0462
+        "probability": 0.0555
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.9374,
-        "home_or_away": 0.7377,
-        "draw_or_away": 0.3249
+        "home_or_draw": 0.9367,
+        "home_or_away": 0.7335,
+        "draw_or_away": 0.3298
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8599,
-          "under": 0.1401
+          "over": 0.811,
+          "under": 0.189
         },
         {
           "line": 2.5,
-          "over": 0.6444,
-          "under": 0.3556
+          "over": 0.5708,
+          "under": 0.4292
         },
         {
           "line": 3.5,
-          "over": 0.48,
-          "under": 0.52
+          "over": 0.39,
+          "under": 0.61
         }
       ],
       "btts": {
-        "yes": 0.4464,
-        "no": 0.5536
+        "yes": 0.3904,
+        "no": 0.6096
       },
       "win_margin": {
-        "home_1plus": 0.6751,
-        "home_2plus": 0.5809,
-        "home_3plus": 0.4408,
-        "away_1plus": 0.0626,
-        "away_2plus": 0.0135,
-        "away_3plus": 0.0017
+        "home_1plus": 0.6702,
+        "home_2plus": 0.5512,
+        "home_3plus": 0.3898,
+        "away_1plus": 0.0633,
+        "away_2plus": 0.0124,
+        "away_3plus": 0.0014
       },
-      "scenario": "Argentina are strong favorites with over a two-thirds chance to win, a 3-0 score most likely, and over a 58% chance to win by two or more."
+      "scenario": "Argentina are clear favourites with a 67% win probability and a 3-0 score most likely, reflecting their superior 94% recent win rate."
     }
   },
   "game_flow": {
     "match_type": "Goal Fest",
     "match_description": "A very open game with plenty of chances expected",
     "dominance_index": 0.77,
-    "total_xg": 4.06,
+    "total_xg": 3.53,
     "first_goal": {
-      "Argentina_scores_first": 0.871,
-      "Cape Verde_scores_first": 0.111,
-      "no_goals": 0.017,
-      "expected_minute": 22
+      "Argentina_scores_first": 0.861,
+      "Cape Verde_scores_first": 0.11,
+      "no_goals": 0.029,
+      "expected_minute": 25
     },
     "halftime_xg": {
-      "Argentina": 1.69,
-      "Cape Verde": 0.22
+      "Argentina": 1.47,
+      "Cape Verde": 0.19
     },
     "top_halftime_scores": [
       {
         "score": "1:0",
-        "probability": 0.259
+        "probability": 0.285
       },
       {
         "score": "2:0",
-        "probability": 0.219
+        "probability": 0.21
       },
       {
         "score": "0:0",
-        "probability": 0.153
+        "probability": 0.194
       },
       {
         "score": "3:0",
-        "probability": 0.123
+        "probability": 0.103
       },
       {
         "score": "1:1",
-        "probability": 0.056
+        "probability": 0.054
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Argentina": 0.486,
-        "Cape Verde": 0.062
+        "Argentina": 0.423,
+        "Cape Verde": 0.054
       },
       "16-30'": {
-        "Argentina": 0.558,
-        "Cape Verde": 0.071
+        "Argentina": 0.485,
+        "Cape Verde": 0.062
       },
       "31-45'": {
-        "Argentina": 0.648,
-        "Cape Verde": 0.083
+        "Argentina": 0.563,
+        "Cape Verde": 0.072
       },
       "46-60'": {
-        "Argentina": 0.522,
-        "Cape Verde": 0.067
+        "Argentina": 0.454,
+        "Cape Verde": 0.058
       },
       "61-75'": {
-        "Argentina": 0.666,
-        "Cape Verde": 0.085
+        "Argentina": 0.579,
+        "Cape Verde": 0.074
       },
       "76-90'": {
-        "Argentina": 0.72,
-        "Cape Verde": 0.092
+        "Argentina": 0.626,
+        "Cape Verde": 0.08
       }
     },
     "comeback_probability": {
-      "Argentina": 0.021,
+      "Argentina": 0.019,
       "Cape Verde": 0.003
     },
-    "late_drama_probability": 0.556,
+    "late_drama_probability": 0.506,
     "match_stories": [
       {
         "szenario": "Argentina dominiert früh",
         "beschreibung": "Argentina geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.234
+        "wahrscheinlichkeit": 0.22
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.143
+        "wahrscheinlichkeit": 0.17
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Argentina trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.102
       }
     ],
     "predicted_stats": {
@@ -161,15 +166,15 @@
         "away": 36
       },
       "shots": {
-        "home": 27,
+        "home": 24,
         "away": 7
       },
       "shots_on_target": {
-        "home": 11,
+        "home": 10,
         "away": 2
       },
       "corners": {
-        "home": 11,
+        "home": 10,
         "away": 3
       },
       "passes": {

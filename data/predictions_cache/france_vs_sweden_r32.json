@@ -3,105 +3,105 @@
   "away_team": "Sweden",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.5302,
-  "probability_draw": 0.3735,
-  "probability_away_win": 0.0963,
+  "probability_home_win": 0.5246,
+  "probability_draw": 0.3778,
+  "probability_away_win": 0.0976,
   "score_prediction": {
-    "home_xg": 3.67,
-    "away_xg": 1.16,
+    "home_xg": 3.19,
+    "away_xg": 1.0,
     "rho": -0.13,
     "most_likely_score": "3:1",
     "result": "H",
-    "probability_home_win": 0.5302,
-    "probability_draw": 0.3735,
-    "probability_away_win": 0.0963,
+    "probability_home_win": 0.5246,
+    "probability_draw": 0.3778,
+    "probability_away_win": 0.0976,
     "top_scorelines": [
       {
         "score": "3:1",
-        "probability": 0.0501
-      },
-      {
-        "score": "4:1",
-        "probability": 0.046
+        "probability": 0.0547
       },
       {
         "score": "3:0",
-        "probability": 0.0434
+        "probability": 0.0544
       },
       {
         "score": "2:1",
-        "probability": 0.0409
+        "probability": 0.0513
       },
       {
-        "score": "4:0",
-        "probability": 0.0398
+        "score": "2:0",
+        "probability": 0.0511
+      },
+      {
+        "score": "4:1",
+        "probability": 0.0436
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.9037,
-        "home_or_away": 0.6265,
-        "draw_or_away": 0.4698
+        "home_or_draw": 0.9024,
+        "home_or_away": 0.6222,
+        "draw_or_away": 0.4754
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.934,
-          "under": 0.066
+          "over": 0.8994,
+          "under": 0.1006
         },
         {
           "line": 2.5,
-          "over": 0.7599,
-          "under": 0.2401
+          "over": 0.682,
+          "under": 0.318
         },
         {
           "line": 3.5,
-          "over": 0.6457,
-          "under": 0.3543
+          "over": 0.5422,
+          "under": 0.4578
         }
       ],
       "btts": {
-        "yes": 0.7434,
-        "no": 0.2566
+        "yes": 0.6847,
+        "no": 0.3153
       },
       "win_margin": {
-        "home_1plus": 0.5302,
-        "home_2plus": 0.4312,
-        "home_3plus": 0.3101,
-        "away_1plus": 0.0963,
-        "away_2plus": 0.0346,
-        "away_3plus": 0.0094
+        "home_1plus": 0.5246,
+        "home_2plus": 0.4094,
+        "home_3plus": 0.2763,
+        "away_1plus": 0.0976,
+        "away_2plus": 0.0335,
+        "away_3plus": 0.0084
       },
-      "scenario": "France is strongly favored, with a 93% recent win rate, and a 3-1 victory with over 2.5 total goals is the most likely outcome."
+      "scenario": "France is favored to win with a 52% chance, 3-1 being the most likely score, and both teams expected to find the net."
     }
   },
   "game_flow": {
     "match_type": "Goal Fest",
     "match_description": "A very open game with plenty of chances expected",
     "dominance_index": 0.52,
-    "total_xg": 4.83,
+    "total_xg": 4.19,
     "first_goal": {
-      "France_scores_first": 0.754,
-      "Sweden_scores_first": 0.238,
-      "no_goals": 0.008,
-      "expected_minute": 18
+      "France_scores_first": 0.75,
+      "Sweden_scores_first": 0.235,
+      "no_goals": 0.015,
+      "expected_minute": 21
     },
     "halftime_xg": {
-      "France": 1.72,
-      "Sweden": 0.55
+      "France": 1.5,
+      "Sweden": 0.47
     },
     "top_halftime_scores": [
       {
         "score": "1:0",
-        "probability": 0.184
+        "probability": 0.213
       },
       {
         "score": "2:0",
-        "probability": 0.159
+        "probability": 0.16
       },
       {
         "score": "0:0",
-        "probability": 0.107
+        "probability": 0.142
       },
       {
         "score": "1:1",
@@ -109,55 +109,55 @@
       },
       {
         "score": "3:0",
-        "probability": 0.091
+        "probability": 0.08
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "France": 0.495,
-        "Sweden": 0.157
+        "France": 0.431,
+        "Sweden": 0.135
       },
       "16-30'": {
-        "France": 0.569,
-        "Sweden": 0.18
+        "France": 0.494,
+        "Sweden": 0.155
       },
       "31-45'": {
-        "France": 0.661,
-        "Sweden": 0.209
+        "France": 0.574,
+        "Sweden": 0.18
       },
       "46-60'": {
-        "France": 0.532,
-        "Sweden": 0.168
+        "France": 0.463,
+        "Sweden": 0.145
       },
       "61-75'": {
-        "France": 0.679,
-        "Sweden": 0.215
+        "France": 0.59,
+        "Sweden": 0.185
       },
       "76-90'": {
-        "France": 0.734,
-        "Sweden": 0.232
+        "France": 0.638,
+        "Sweden": 0.2
       }
     },
     "comeback_probability": {
-      "France": 0.046,
-      "Sweden": 0.016
+      "France": 0.042,
+      "Sweden": 0.015
     },
-    "late_drama_probability": 0.619,
+    "late_drama_probability": 0.567,
     "match_stories": [
       {
         "szenario": "France dominiert früh",
         "beschreibung": "France geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.171
+        "wahrscheinlichkeit": 0.168
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.105
+        "wahrscheinlichkeit": 0.133
       },
       {
         "szenario": "France dreht es noch",
         "beschreibung": "France liegt zur Halbzeit zurück, dreht das Spiel in H2",
-        "wahrscheinlichkeit": 0.046
+        "wahrscheinlichkeit": 0.042
       }
     ],
     "predicted_stats": {
@@ -166,16 +166,16 @@
         "away": 41
       },
       "shots": {
-        "home": 28,
-        "away": 12
+        "home": 25,
+        "away": 10
       },
       "shots_on_target": {
-        "home": 11,
+        "home": 10,
         "away": 4
       },
       "corners": {
-        "home": 11,
-        "away": 5
+        "home": 10,
+        "away": 4
       },
       "passes": {
         "home": 307,

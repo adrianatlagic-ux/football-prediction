@@ -60,7 +60,7 @@ def main():
             "Round of 16", "Quarter-final", "Semi-final", "Final",
         )
         try:
-            result = predictor.predict_match(f["home_team"], f["away_team"])
+            result = predictor.predict_match(f["home_team"], f["away_team"], is_knockout=is_knockout)
         except Exception as exc:
             print(f"  FEHLER bei Vorhersage {f['home_team']} vs {f['away_team']}: {exc}")
             failed.append(f["match_id"])

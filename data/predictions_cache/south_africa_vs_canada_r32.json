@@ -3,166 +3,166 @@
   "away_team": "Canada",
   "prediction": "A",
   "prediction_label": "Away Win",
-  "probability_home_win": 0.3451,
-  "probability_draw": 0.2938,
-  "probability_away_win": 0.3611,
+  "probability_home_win": 0.3453,
+  "probability_draw": 0.2992,
+  "probability_away_win": 0.3554,
   "score_prediction": {
-    "home_xg": 0.9,
-    "away_xg": 1.85,
+    "home_xg": 0.78,
+    "away_xg": 1.61,
     "rho": -0.13,
-    "most_likely_score": "0:2",
+    "most_likely_score": "0:1",
     "result": "A",
-    "probability_home_win": 0.3451,
-    "probability_draw": 0.2938,
-    "probability_away_win": 0.3611,
+    "probability_home_win": 0.3453,
+    "probability_draw": 0.2992,
+    "probability_away_win": 0.3554,
     "top_scorelines": [
       {
-        "score": "0:2",
-        "probability": 0.0677
+        "score": "0:1",
+        "probability": 0.0845
       },
       {
-        "score": "0:1",
-        "probability": 0.0646
+        "score": "0:2",
+        "probability": 0.0758
       },
       {
         "score": "1:2",
-        "probability": 0.0608
+        "probability": 0.0592
       },
       {
         "score": "0:3",
-        "probability": 0.0418
+        "probability": 0.0407
       },
       {
         "score": "1:3",
-        "probability": 0.0376
+        "probability": 0.0318
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.6389,
-        "home_or_away": 0.7062,
-        "draw_or_away": 0.6549
+        "home_or_draw": 0.6446,
+        "home_or_away": 0.7008,
+        "draw_or_away": 0.6547
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.7529,
-          "under": 0.2471
+          "over": 0.683,
+          "under": 0.317
         },
         {
           "line": 2.5,
-          "over": 0.4906,
-          "under": 0.5094
+          "over": 0.4091,
+          "under": 0.5909
         },
         {
           "line": 3.5,
-          "over": 0.2715,
-          "under": 0.7285
+          "over": 0.2002,
+          "under": 0.7998
         }
       ],
       "btts": {
-        "yes": 0.5392,
-        "no": 0.4608
+        "yes": 0.466,
+        "no": 0.534
       },
       "win_margin": {
-        "home_1plus": 0.3451,
-        "home_2plus": 0.1211,
-        "home_3plus": 0.0301,
-        "away_1plus": 0.3611,
-        "away_2plus": 0.2163,
-        "away_3plus": 0.1022
+        "home_1plus": 0.3453,
+        "home_2plus": 0.1118,
+        "home_3plus": 0.0251,
+        "away_1plus": 0.3554,
+        "away_2plus": 0.1978,
+        "away_3plus": 0.0848
       },
-      "scenario": "Canada is slightly favored with a 0-2 score most likely, given their stronger recent form and significantly better defence."
+      "scenario": "Canada is slightly favored to win 1-0, showing better recent form and a strong defence, indicating a low-scoring match."
     }
   },
   "game_flow": {
-    "match_type": "Balanced & Open",
-    "match_description": "Both teams play attacking football at an even level",
+    "match_type": "Controlled",
+    "match_description": "The favorite controls the game against little resistance",
     "dominance_index": -0.35,
-    "total_xg": 2.75,
+    "total_xg": 2.39,
     "first_goal": {
-      "South Africa_scores_first": 0.306,
-      "Canada_scores_first": 0.63,
-      "no_goals": 0.064,
-      "expected_minute": 32
+      "South Africa_scores_first": 0.296,
+      "Canada_scores_first": 0.612,
+      "no_goals": 0.092,
+      "expected_minute": 37
     },
     "halftime_xg": {
-      "South Africa": 0.42,
-      "Canada": 0.87
+      "South Africa": 0.37,
+      "Canada": 0.76
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.275
+        "probability": 0.326
       },
       {
         "score": "0:1",
-        "probability": 0.239
+        "probability": 0.246
       },
       {
         "score": "1:0",
-        "probability": 0.116
+        "probability": 0.119
       },
       {
         "score": "0:2",
-        "probability": 0.104
+        "probability": 0.093
       },
       {
         "score": "1:1",
-        "probability": 0.101
+        "probability": 0.09
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "South Africa": 0.122,
-        "Canada": 0.25
+        "South Africa": 0.105,
+        "Canada": 0.217
       },
       "16-30'": {
-        "South Africa": 0.14,
-        "Canada": 0.287
+        "South Africa": 0.121,
+        "Canada": 0.25
       },
       "31-45'": {
-        "South Africa": 0.162,
-        "Canada": 0.333
+        "South Africa": 0.14,
+        "Canada": 0.29
       },
       "46-60'": {
-        "South Africa": 0.131,
-        "Canada": 0.268
+        "South Africa": 0.113,
+        "Canada": 0.233
       },
       "61-75'": {
-        "South Africa": 0.167,
-        "Canada": 0.342
+        "South Africa": 0.144,
+        "Canada": 0.298
       },
       "76-90'": {
-        "South Africa": 0.18,
-        "Canada": 0.37
+        "South Africa": 0.156,
+        "Canada": 0.322
       }
     },
     "comeback_probability": {
-      "South Africa": 0.016,
-      "Canada": 0.031
+      "South Africa": 0.013,
+      "Canada": 0.025
     },
-    "late_drama_probability": 0.423,
+    "late_drama_probability": 0.38,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.226
+        "wahrscheinlichkeit": 0.249
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.213
+        "wahrscheinlichkeit": 0.236
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "Canada trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.12
+        "wahrscheinlichkeit": 0.148
       },
       {
         "szenario": "Canada dominiert früh",
         "beschreibung": "Canada geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.105
+        "wahrscheinlichkeit": 0.094
       }
     ],
     "predicted_stats": {
@@ -171,16 +171,16 @@
         "away": 56
       },
       "shots": {
-        "home": 10,
-        "away": 16
+        "home": 9,
+        "away": 14
       },
       "shots_on_target": {
-        "home": 4,
+        "home": 3,
         "away": 6
       },
       "corners": {
         "home": 4,
-        "away": 7
+        "away": 6
       },
       "passes": {
         "home": 229,
@@ -197,7 +197,7 @@
         "score_after": "0:0"
       },
       {
-        "minute": 7,
+        "minute": 1,
         "type": "chance",
         "team": "Canada",
         "headline": "Big chance for Canada!",
@@ -205,7 +205,15 @@
         "score_after": "0:0"
       },
       {
-        "minute": 24,
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 61,
         "type": "goal",
         "team": "Canada",
         "headline": "GOAL! Canada!",
@@ -213,44 +221,20 @@
         "score_after": "0:1"
       },
       {
-        "minute": 45,
-        "type": "halftime",
-        "team": null,
-        "headline": "Half-time",
-        "description": "The teams go into the break at 0:1.",
-        "score_after": "0:1"
-      },
-      {
-        "minute": 66,
+        "minute": 67,
         "type": "chance",
         "team": "Canada",
         "headline": "Big chance for Canada!",
         "description": "Canada create a great opportunity but fail to convert.",
         "score_after": "0:1"
-      },
-      {
-        "minute": 81,
-        "type": "chance",
-        "team": "Canada",
-        "headline": "Big chance for Canada!",
-        "description": "Canada create a great opportunity but fail to convert.",
-        "score_after": "0:1"
-      },
-      {
-        "minute": 87,
-        "type": "goal",
-        "team": "Canada",
-        "headline": "GOAL! Canada!",
-        "description": "Canada score to make it 0:2.",
-        "score_after": "0:2"
       },
       {
         "minute": 90,
         "type": "fulltime",
         "team": null,
         "headline": "Full-time",
-        "description": "The final score finishes 0:2.",
-        "score_after": "0:2"
+        "description": "The final score finishes 0:1.",
+        "score_after": "0:1"
       }
     ]
   },

@@ -3,156 +3,156 @@
   "away_team": "Bosnia and Herzegovina",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.6813,
-  "probability_draw": 0.2141,
-  "probability_away_win": 0.1046,
+  "probability_home_win": 0.6758,
+  "probability_draw": 0.2185,
+  "probability_away_win": 0.1057,
   "score_prediction": {
-    "home_xg": 3.59,
-    "away_xg": 0.85,
+    "home_xg": 3.12,
+    "away_xg": 0.74,
     "rho": -0.13,
     "most_likely_score": "3:0",
     "result": "H",
-    "probability_home_win": 0.6813,
-    "probability_draw": 0.2141,
-    "probability_away_win": 0.1046,
+    "probability_home_win": 0.6758,
+    "probability_draw": 0.2185,
+    "probability_away_win": 0.1057,
     "top_scorelines": [
       {
         "score": "3:0",
-        "probability": 0.0733
-      },
-      {
-        "score": "4:0",
-        "probability": 0.0657
-      },
-      {
-        "score": "3:1",
-        "probability": 0.0621
+        "probability": 0.0875
       },
       {
         "score": "2:0",
-        "probability": 0.0613
+        "probability": 0.0842
       },
       {
-        "score": "4:1",
-        "probability": 0.0557
+        "score": "4:0",
+        "probability": 0.0682
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0645
+      },
+      {
+        "score": "2:1",
+        "probability": 0.062
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.8954,
-        "home_or_away": 0.7859,
-        "draw_or_away": 0.3187
+        "home_or_draw": 0.8943,
+        "home_or_away": 0.7815,
+        "draw_or_away": 0.3242
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.92,
-          "under": 0.08
+          "over": 0.8805,
+          "under": 0.1195
         },
         {
           "line": 2.5,
-          "over": 0.7576,
-          "under": 0.2424
+          "over": 0.683,
+          "under": 0.317
         },
         {
           "line": 3.5,
-          "over": 0.5935,
-          "under": 0.4065
+          "over": 0.4927,
+          "under": 0.5073
         }
       ],
       "btts": {
-        "yes": 0.6099,
-        "no": 0.3901
+        "yes": 0.5466,
+        "no": 0.4534
       },
       "win_margin": {
-        "home_1plus": 0.6813,
-        "home_2plus": 0.5649,
-        "home_3plus": 0.4124,
-        "away_1plus": 0.1046,
-        "away_2plus": 0.0322,
-        "away_3plus": 0.0071
+        "home_1plus": 0.6758,
+        "home_2plus": 0.536,
+        "home_3plus": 0.3657,
+        "away_1plus": 0.1057,
+        "away_2plus": 0.0306,
+        "away_3plus": 0.0061
       },
-      "scenario": "The United States is heavily favored to win with a 68% chance, a 3-0 score is most likely, and a high likelihood of over 2.5 total goals."
+      "scenario": "The United States is a strong favorite to win, holding a 68% probability, with a 3-0 score most likely, pointing to a comfortable victory by two or more goals."
     }
   },
   "game_flow": {
     "match_type": "Goal Fest",
     "match_description": "A very open game with plenty of chances expected",
     "dominance_index": 0.62,
-    "total_xg": 4.44,
+    "total_xg": 3.86,
     "first_goal": {
-      "United States_scores_first": 0.799,
-      "Bosnia and Herzegovina_scores_first": 0.189,
-      "no_goals": 0.012,
-      "expected_minute": 20
+      "United States_scores_first": 0.791,
+      "Bosnia and Herzegovina_scores_first": 0.188,
+      "no_goals": 0.021,
+      "expected_minute": 23
     },
     "halftime_xg": {
-      "United States": 1.69,
-      "Bosnia and Herzegovina": 0.4
+      "United States": 1.47,
+      "Bosnia and Herzegovina": 0.35
     },
     "top_halftime_scores": [
       {
         "score": "1:0",
-        "probability": 0.216
+        "probability": 0.243
       },
       {
         "score": "2:0",
-        "probability": 0.182
+        "probability": 0.178
       },
       {
         "score": "0:0",
-        "probability": 0.128
+        "probability": 0.166
       },
       {
         "score": "3:0",
-        "probability": 0.102
+        "probability": 0.087
       },
       {
         "score": "1:1",
-        "probability": 0.086
+        "probability": 0.085
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "United States": 0.485,
-        "Bosnia and Herzegovina": 0.115
+        "United States": 0.421,
+        "Bosnia and Herzegovina": 0.1
       },
       "16-30'": {
-        "United States": 0.556,
-        "Bosnia and Herzegovina": 0.132
+        "United States": 0.484,
+        "Bosnia and Herzegovina": 0.115
       },
       "31-45'": {
-        "United States": 0.646,
-        "Bosnia and Herzegovina": 0.153
+        "United States": 0.562,
+        "Bosnia and Herzegovina": 0.133
       },
       "46-60'": {
-        "United States": 0.521,
-        "Bosnia and Herzegovina": 0.123
+        "United States": 0.452,
+        "Bosnia and Herzegovina": 0.107
       },
       "61-75'": {
-        "United States": 0.664,
-        "Bosnia and Herzegovina": 0.157
+        "United States": 0.577,
+        "Bosnia and Herzegovina": 0.137
       },
       "76-90'": {
-        "United States": 0.718,
-        "Bosnia and Herzegovina": 0.17
+        "United States": 0.624,
+        "Bosnia and Herzegovina": 0.148
       }
     },
     "comeback_probability": {
-      "United States": 0.036,
-      "Bosnia and Herzegovina": 0.01
+      "United States": 0.033,
+      "Bosnia and Herzegovina": 0.009
     },
-    "late_drama_probability": 0.589,
+    "late_drama_probability": 0.538,
     "match_stories": [
       {
         "szenario": "United States dominiert früh",
         "beschreibung": "United States geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.195
+        "wahrscheinlichkeit": 0.187
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.123
+        "wahrscheinlichkeit": 0.15
       }
     ],
     "predicted_stats": {
@@ -161,15 +161,15 @@
         "away": 39
       },
       "shots": {
-        "home": 27,
-        "away": 10
+        "home": 24,
+        "away": 9
       },
       "shots_on_target": {
-        "home": 11,
+        "home": 10,
         "away": 3
       },
       "corners": {
-        "home": 11,
+        "home": 10,
         "away": 4
       },
       "passes": {
