@@ -3,74 +3,74 @@
   "away_team": "New Zealand",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.6833,
-  "probability_draw": 0.2119,
-  "probability_away_win": 0.1048,
+  "probability_home_win": 0.7605,
+  "probability_draw": 0.1575,
+  "probability_away_win": 0.082,
   "score_prediction": {
-    "home_xg": 2.45,
-    "away_xg": 0.89,
+    "home_xg": 2.52,
+    "away_xg": 0.91,
     "rho": -0.13,
     "most_likely_score": "2:0",
     "result": "H",
-    "probability_home_win": 0.6833,
-    "probability_draw": 0.2119,
-    "probability_away_win": 0.1048,
+    "probability_home_win": 0.7605,
+    "probability_draw": 0.1575,
+    "probability_away_win": 0.082,
     "top_scorelines": [
       {
         "score": "2:0",
-        "probability": 0.1034
+        "probability": 0.1097
       },
       {
         "score": "2:1",
-        "probability": 0.0917
+        "probability": 0.0998
       },
       {
         "score": "3:0",
-        "probability": 0.0843
+        "probability": 0.0922
       },
       {
         "score": "3:1",
-        "probability": 0.0748
+        "probability": 0.0839
       },
       {
         "score": "1:0",
-        "probability": 0.0748
+        "probability": 0.0768
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.8952,
-        "home_or_away": 0.7881,
-        "draw_or_away": 0.3167
+        "home_or_draw": 0.918,
+        "home_or_away": 0.8425,
+        "draw_or_away": 0.2395
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8522,
-          "under": 0.1478
+          "over": 0.8711,
+          "under": 0.1289
         },
         {
           "line": 2.5,
-          "over": 0.6358,
-          "under": 0.3642
+          "over": 0.6779,
+          "under": 0.3221
         },
         {
           "line": 3.5,
-          "over": 0.422,
-          "under": 0.578
+          "over": 0.4563,
+          "under": 0.5437
         }
       ],
       "btts": {
-        "yes": 0.5537,
-        "no": 0.4463
+        "yes": 0.5492,
+        "no": 0.4508
       },
       "win_margin": {
-        "home_1plus": 0.6833,
-        "home_2plus": 0.4768,
-        "home_3plus": 0.2751,
-        "away_1plus": 0.1048,
-        "away_2plus": 0.0355,
-        "away_3plus": 0.0086
+        "home_1plus": 0.7605,
+        "home_2plus": 0.5374,
+        "home_3plus": 0.3157,
+        "away_1plus": 0.082,
+        "away_2plus": 0.028,
+        "away_3plus": 0.0068
       },
       "scenario": "Iran are favored to win, likely by 2+ goals, in a high-scoring game."
     }
@@ -79,85 +79,85 @@
     "match_type": "One-Sided",
     "match_description": "One team is expected to dominate clearly",
     "dominance_index": 0.47,
-    "total_xg": 3.34,
+    "total_xg": 3.43,
     "first_goal": {
-      "Iran_scores_first": 0.708,
+      "Iran_scores_first": 0.711,
       "New Zealand_scores_first": 0.257,
-      "no_goals": 0.035,
+      "no_goals": 0.032,
       "expected_minute": 26
     },
     "halftime_xg": {
-      "Iran": 1.15,
-      "New Zealand": 0.42
+      "Iran": 1.18,
+      "New Zealand": 0.43
     },
     "top_halftime_scores": [
       {
         "score": "1:0",
-        "probability": 0.241
+        "probability": 0.238
       },
       {
         "score": "0:0",
-        "probability": 0.209
+        "probability": 0.201
       },
       {
         "score": "2:0",
-        "probability": 0.139
+        "probability": 0.141
       },
       {
         "score": "1:1",
-        "probability": 0.101
+        "probability": 0.102
       },
       {
         "score": "0:1",
-        "probability": 0.088
+        "probability": 0.086
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Iran": 0.331,
-        "New Zealand": 0.12
+        "Iran": 0.34,
+        "New Zealand": 0.123
       },
       "16-30'": {
-        "Iran": 0.38,
-        "New Zealand": 0.138
+        "Iran": 0.391,
+        "New Zealand": 0.141
       },
       "31-45'": {
-        "Iran": 0.441,
-        "New Zealand": 0.16
+        "Iran": 0.454,
+        "New Zealand": 0.164
       },
       "46-60'": {
-        "Iran": 0.355,
-        "New Zealand": 0.129
+        "Iran": 0.365,
+        "New Zealand": 0.132
       },
       "61-75'": {
-        "Iran": 0.453,
-        "New Zealand": 0.165
+        "Iran": 0.466,
+        "New Zealand": 0.168
       },
       "76-90'": {
-        "Iran": 0.49,
-        "New Zealand": 0.178
+        "Iran": 0.504,
+        "New Zealand": 0.182
       }
     },
     "comeback_probability": {
-      "Iran": 0.037,
+      "Iran": 0.038,
       "New Zealand": 0.015
     },
-    "late_drama_probability": 0.487,
+    "late_drama_probability": 0.496,
     "match_stories": [
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.178
+        "wahrscheinlichkeit": 0.172
       },
       {
         "szenario": "Iran dominiert früh",
         "beschreibung": "Iran geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.142
+        "wahrscheinlichkeit": 0.145
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "Iran trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.09
+        "wahrscheinlichkeit": 0.085
       }
     ],
     "predicted_stats": {
@@ -171,7 +171,7 @@
       },
       "shots_on_target": {
         "home": 8,
-        "away": 3
+        "away": 4
       },
       "corners": {
         "home": 8,
@@ -267,23 +267,23 @@
       "New Zealand": 480.0
     },
     "form_last_10_avg_pts": {
-      "Iran": 1.6,
-      "New Zealand": 0.71
+      "Iran": 1.4,
+      "New Zealand": 0.54
     },
     "win_rate_last_10": {
-      "Iran": "41%",
-      "New Zealand": "15%"
+      "Iran": "27%",
+      "New Zealand": "11%"
     },
     "avg_goals_scored": {
-      "Iran": 2.15,
+      "Iran": 1.68,
       "New Zealand": 0.88
     },
     "avg_goals_conceded": {
-      "Iran": 1.14,
+      "Iran": 0.92,
       "New Zealand": 1.44
     },
     "clean_sheet_rate": {
-      "Iran": "39%",
+      "Iran": "40%",
       "New Zealand": "12%"
     },
     "h2h_last_10": {

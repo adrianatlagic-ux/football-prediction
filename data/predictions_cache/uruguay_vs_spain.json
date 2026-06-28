@@ -1,0 +1,309 @@
+{
+  "home_team": "Uruguay",
+  "away_team": "Spain",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.1789,
+  "probability_draw": 0.2679,
+  "probability_away_win": 0.5532,
+  "score_prediction": {
+    "home_xg": 1.14,
+    "away_xg": 1.96,
+    "rho": -0.13,
+    "most_likely_score": "1:2",
+    "result": "A",
+    "probability_home_win": 0.1789,
+    "probability_draw": 0.2679,
+    "probability_away_win": 0.5532,
+    "top_scorelines": [
+      {
+        "score": "1:2",
+        "probability": 0.0993
+      },
+      {
+        "score": "0:2",
+        "probability": 0.087
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0758
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0647
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0567
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.4468,
+        "home_or_away": 0.7321,
+        "draw_or_away": 0.8211
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8265,
+          "under": 0.1735
+        },
+        {
+          "line": 2.5,
+          "over": 0.5891,
+          "under": 0.4109
+        },
+        {
+          "line": 3.5,
+          "over": 0.3733,
+          "under": 0.6267
+        }
+      ],
+      "btts": {
+        "yes": 0.6008,
+        "no": 0.3992
+      },
+      "win_margin": {
+        "home_1plus": 0.1789,
+        "home_2plus": 0.0725,
+        "home_3plus": 0.0216,
+        "away_1plus": 0.5532,
+        "away_2plus": 0.3334,
+        "away_3plus": 0.1608
+      },
+      "scenario": "Spain are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.26,
+    "total_xg": 3.1,
+    "first_goal": {
+      "Uruguay_scores_first": 0.351,
+      "Spain_scores_first": 0.604,
+      "no_goals": 0.045,
+      "expected_minute": 29
+    },
+    "halftime_xg": {
+      "Uruguay": 0.54,
+      "Spain": 0.92
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.234
+      },
+      {
+        "score": "0:1",
+        "probability": 0.215
+      },
+      {
+        "score": "1:0",
+        "probability": 0.125
+      },
+      {
+        "score": "1:1",
+        "probability": 0.115
+      },
+      {
+        "score": "0:2",
+        "probability": 0.099
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Uruguay": 0.154,
+        "Spain": 0.265
+      },
+      "16-30'": {
+        "Uruguay": 0.177,
+        "Spain": 0.304
+      },
+      "31-45'": {
+        "Uruguay": 0.205,
+        "Spain": 0.353
+      },
+      "46-60'": {
+        "Uruguay": 0.165,
+        "Spain": 0.284
+      },
+      "61-75'": {
+        "Uruguay": 0.211,
+        "Spain": 0.363
+      },
+      "76-90'": {
+        "Uruguay": 0.228,
+        "Spain": 0.392
+      }
+    },
+    "comeback_probability": {
+      "Uruguay": 0.023,
+      "Spain": 0.037
+    },
+    "late_drama_probability": 0.462,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.219
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.191
+      },
+      {
+        "szenario": "Spain dominiert früh",
+        "beschreibung": "Spain geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.101
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Spain trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.09
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 45,
+        "away": 55
+      },
+      "shots": {
+        "home": 11,
+        "away": 17
+      },
+      "shots_on_target": {
+        "home": 4,
+        "away": 6
+      },
+      "corners": {
+        "home": 5,
+        "away": 7
+      },
+      "passes": {
+        "home": 234,
+        "away": 286
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Uruguay and Spain is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 10,
+        "type": "goal",
+        "team": "Spain",
+        "headline": "GOAL! Spain!",
+        "description": "Spain score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 12,
+        "type": "chance",
+        "team": "Spain",
+        "headline": "Big chance for Spain!",
+        "description": "Spain create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 34,
+        "type": "chance",
+        "team": "Uruguay",
+        "headline": "Big chance for Uruguay!",
+        "description": "Uruguay create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 52,
+        "type": "chance",
+        "team": "Spain",
+        "headline": "Big chance for Spain!",
+        "description": "Spain create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 58,
+        "type": "goal",
+        "team": "Uruguay",
+        "headline": "GOAL! Uruguay!",
+        "description": "Uruguay score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 76,
+        "type": "chance",
+        "team": "Spain",
+        "headline": "Big chance for Spain!",
+        "description": "Spain create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 88,
+        "type": "goal",
+        "team": "Spain",
+        "headline": "GOAL! Spain!",
+        "description": "Spain score to make it 1:2.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:2.",
+        "score_after": "1:2"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Uruguay": 17,
+      "Spain": 2
+    },
+    "fifa_points": {
+      "Uruguay": 1640.0,
+      "Spain": 1880.0
+    },
+    "form_last_10_avg_pts": {
+      "Uruguay": 0.99,
+      "Spain": 2.34
+    },
+    "win_rate_last_10": {
+      "Uruguay": "12%",
+      "Spain": "67%"
+    },
+    "avg_goals_scored": {
+      "Uruguay": 0.64,
+      "Spain": 2.78
+    },
+    "avg_goals_conceded": {
+      "Uruguay": 1.14,
+      "Spain": 0.56
+    },
+    "clean_sheet_rate": {
+      "Uruguay": "38%",
+      "Spain": "62%"
+    },
+    "h2h_last_10": {
+      "Uruguay wins": "0%",
+      "draws": "29%",
+      "Spain wins": "71%",
+      "total_h2h_games": 7
+    }
+  }
+}

@@ -3,105 +3,105 @@
   "away_team": "Algeria",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.6825,
-  "probability_draw": 0.2213,
-  "probability_away_win": 0.0962,
+  "probability_home_win": 0.606,
+  "probability_draw": 0.3175,
+  "probability_away_win": 0.0765,
   "score_prediction": {
-    "home_xg": 2.53,
-    "away_xg": 0.95,
+    "home_xg": 2.67,
+    "away_xg": 0.96,
     "rho": -0.13,
     "most_likely_score": "2:0",
     "result": "H",
-    "probability_home_win": 0.6825,
-    "probability_draw": 0.2213,
-    "probability_away_win": 0.0962,
+    "probability_home_win": 0.606,
+    "probability_draw": 0.3175,
+    "probability_away_win": 0.0765,
     "top_scorelines": [
       {
         "score": "2:0",
-        "probability": 0.0953
+        "probability": 0.0791
       },
       {
         "score": "2:1",
-        "probability": 0.0904
+        "probability": 0.0756
       },
       {
         "score": "3:0",
-        "probability": 0.0805
+        "probability": 0.0704
       },
       {
         "score": "3:1",
-        "probability": 0.0764
+        "probability": 0.0673
       },
       {
         "score": "1:0",
-        "probability": 0.0659
+        "probability": 0.0519
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.9038,
-        "home_or_away": 0.7787,
-        "draw_or_away": 0.3175
+        "home_or_draw": 0.9235,
+        "home_or_away": 0.6825,
+        "draw_or_away": 0.394
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8684,
-          "under": 0.1316
+          "over": 0.8695,
+          "under": 0.1305
         },
         {
           "line": 2.5,
-          "over": 0.6595,
-          "under": 0.3405
+          "over": 0.6379,
+          "under": 0.3621
         },
         {
           "line": 3.5,
-          "over": 0.4543,
-          "under": 0.5457
+          "over": 0.4645,
+          "under": 0.5355
         }
       ],
       "btts": {
-        "yes": 0.5826,
-        "no": 0.4174
+        "yes": 0.6181,
+        "no": 0.3819
       },
       "win_margin": {
-        "home_1plus": 0.6825,
-        "home_2plus": 0.482,
-        "home_3plus": 0.2832,
-        "away_1plus": 0.0962,
-        "away_2plus": 0.0337,
-        "away_3plus": 0.0085
+        "home_1plus": 0.606,
+        "home_2plus": 0.4384,
+        "home_3plus": 0.2664,
+        "away_1plus": 0.0765,
+        "away_2plus": 0.0267,
+        "away_3plus": 0.0068
       },
       "scenario": "Argentina are favored to win, likely by 2+ goals, in a high-scoring game."
     }
   },
   "game_flow": {
-    "match_type": "One-Sided",
-    "match_description": "One team is expected to dominate clearly",
-    "dominance_index": 0.45,
-    "total_xg": 3.48,
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.47,
+    "total_xg": 3.63,
     "first_goal": {
-      "Argentina_scores_first": 0.705,
-      "Algeria_scores_first": 0.265,
-      "no_goals": 0.031,
-      "expected_minute": 25
+      "Argentina_scores_first": 0.716,
+      "Algeria_scores_first": 0.257,
+      "no_goals": 0.027,
+      "expected_minute": 24
     },
     "halftime_xg": {
-      "Argentina": 1.19,
+      "Argentina": 1.25,
       "Algeria": 0.45
     },
     "top_halftime_scores": [
       {
         "score": "1:0",
-        "probability": 0.233
+        "probability": 0.23
       },
       {
         "score": "0:0",
-        "probability": 0.196
+        "probability": 0.183
       },
       {
         "score": "2:0",
-        "probability": 0.139
+        "probability": 0.144
       },
       {
         "score": "1:1",
@@ -109,55 +109,55 @@
       },
       {
         "score": "0:1",
-        "probability": 0.088
+        "probability": 0.083
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Argentina": 0.342,
-        "Algeria": 0.128
+        "Argentina": 0.36,
+        "Algeria": 0.13
       },
       "16-30'": {
-        "Argentina": 0.392,
-        "Algeria": 0.147
+        "Argentina": 0.414,
+        "Algeria": 0.149
       },
       "31-45'": {
-        "Argentina": 0.455,
-        "Algeria": 0.171
+        "Argentina": 0.481,
+        "Algeria": 0.173
       },
       "46-60'": {
-        "Argentina": 0.367,
-        "Algeria": 0.138
+        "Argentina": 0.387,
+        "Algeria": 0.139
       },
       "61-75'": {
-        "Argentina": 0.468,
-        "Algeria": 0.176
+        "Argentina": 0.494,
+        "Algeria": 0.178
       },
       "76-90'": {
-        "Argentina": 0.506,
-        "Algeria": 0.19
+        "Argentina": 0.534,
+        "Algeria": 0.192
       }
     },
     "comeback_probability": {
-      "Argentina": 0.039,
+      "Argentina": 0.04,
       "Algeria": 0.016
     },
-    "late_drama_probability": 0.501,
+    "late_drama_probability": 0.516,
     "match_stories": [
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.169
+        "wahrscheinlichkeit": 0.161
       },
       {
         "szenario": "Argentina dominiert früh",
         "beschreibung": "Argentina geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.143
+        "wahrscheinlichkeit": 0.149
       },
       {
-        "szenario": "Knappes 1:0",
-        "beschreibung": "Argentina trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.082
+        "szenario": "Argentina dreht es noch",
+        "beschreibung": "Argentina liegt zur Halbzeit zurück, dreht das Spiel in H2",
+        "wahrscheinlichkeit": 0.04
       }
     ],
     "predicted_stats": {
@@ -166,7 +166,7 @@
         "away": 42
       },
       "shots": {
-        "home": 20,
+        "home": 21,
         "away": 10
       },
       "shots_on_target": {
@@ -174,7 +174,7 @@
         "away": 4
       },
       "corners": {
-        "home": 8,
+        "home": 9,
         "away": 4
       },
       "passes": {
@@ -267,24 +267,24 @@
       "Algeria": 1464.0
     },
     "form_last_10_avg_pts": {
-      "Argentina": 2.66,
-      "Algeria": 1.73
+      "Argentina": 2.83,
+      "Algeria": 1.78
     },
     "win_rate_last_10": {
-      "Argentina": "87%",
-      "Algeria": "51%"
+      "Argentina": "94%",
+      "Algeria": "50%"
     },
     "avg_goals_scored": {
-      "Argentina": 1.79,
-      "Algeria": 2.02
+      "Argentina": 2.04,
+      "Algeria": 1.98
     },
     "avg_goals_conceded": {
-      "Argentina": 0.51,
-      "Algeria": 1.22
+      "Argentina": 0.62,
+      "Algeria": 1.23
     },
     "clean_sheet_rate": {
-      "Argentina": "64%",
-      "Algeria": "38%"
+      "Argentina": "52%",
+      "Algeria": "29%"
     },
     "h2h_last_10": {
       "Argentina wins": "100%",

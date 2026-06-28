@@ -1,0 +1,299 @@
+{
+  "home_team": "Morocco",
+  "away_team": "Haiti",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.7986,
+  "probability_draw": 0.1521,
+  "probability_away_win": 0.0493,
+  "score_prediction": {
+    "home_xg": 3.58,
+    "away_xg": 0.5,
+    "rho": -0.13,
+    "most_likely_score": "3:0",
+    "result": "H",
+    "probability_home_win": 0.7986,
+    "probability_draw": 0.1521,
+    "probability_away_win": 0.0493,
+    "top_scorelines": [
+      {
+        "score": "3:0",
+        "probability": 0.1149
+      },
+      {
+        "score": "4:0",
+        "probability": 0.1028
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0963
+      },
+      {
+        "score": "5:0",
+        "probability": 0.0735
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0576
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.9507,
+        "home_or_away": 0.8479,
+        "draw_or_away": 0.2014
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8934,
+          "under": 0.1066
+        },
+        {
+          "line": 2.5,
+          "over": 0.719,
+          "under": 0.281
+        },
+        {
+          "line": 3.5,
+          "over": 0.5353,
+          "under": 0.4647
+        }
+      ],
+      "btts": {
+        "yes": 0.4231,
+        "no": 0.5769
+      },
+      "win_margin": {
+        "home_1plus": 0.7986,
+        "home_2plus": 0.683,
+        "home_3plus": 0.5146,
+        "away_1plus": 0.0493,
+        "away_2plus": 0.0111,
+        "away_3plus": 0.0015
+      },
+      "scenario": "Morocco are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.75,
+    "total_xg": 4.08,
+    "first_goal": {
+      "Morocco_scores_first": 0.863,
+      "Haiti_scores_first": 0.12,
+      "no_goals": 0.017,
+      "expected_minute": 22
+    },
+    "halftime_xg": {
+      "Morocco": 1.68,
+      "Haiti": 0.24
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.255
+      },
+      {
+        "score": "2:0",
+        "probability": 0.214
+      },
+      {
+        "score": "0:0",
+        "probability": 0.151
+      },
+      {
+        "score": "3:0",
+        "probability": 0.12
+      },
+      {
+        "score": "1:1",
+        "probability": 0.06
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Morocco": 0.483,
+        "Haiti": 0.068
+      },
+      "16-30'": {
+        "Morocco": 0.555,
+        "Haiti": 0.077
+      },
+      "31-45'": {
+        "Morocco": 0.644,
+        "Haiti": 0.09
+      },
+      "46-60'": {
+        "Morocco": 0.519,
+        "Haiti": 0.072
+      },
+      "61-75'": {
+        "Morocco": 0.662,
+        "Haiti": 0.092
+      },
+      "76-90'": {
+        "Morocco": 0.716,
+        "Haiti": 0.1
+      }
+    },
+    "comeback_probability": {
+      "Morocco": 0.023,
+      "Haiti": 0.004
+    },
+    "late_drama_probability": 0.558,
+    "match_stories": [
+      {
+        "szenario": "Morocco dominiert früh",
+        "beschreibung": "Morocco geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.229
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.142
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 64,
+        "away": 36
+      },
+      "shots": {
+        "home": 27,
+        "away": 7
+      },
+      "shots_on_target": {
+        "home": 11,
+        "away": 2
+      },
+      "corners": {
+        "home": 11,
+        "away": 3
+      },
+      "passes": {
+        "home": 333,
+        "away": 187
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Morocco and Haiti is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 21,
+        "type": "chance",
+        "team": "Morocco",
+        "headline": "Big chance for Morocco!",
+        "description": "Morocco create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 37,
+        "type": "goal",
+        "team": "Morocco",
+        "headline": "GOAL! Morocco!",
+        "description": "Morocco score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 38,
+        "type": "chance",
+        "team": "Haiti",
+        "headline": "Big chance for Haiti!",
+        "description": "Haiti create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 48,
+        "type": "chance",
+        "team": "Morocco",
+        "headline": "Big chance for Morocco!",
+        "description": "Morocco create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 59,
+        "type": "chance",
+        "team": "Morocco",
+        "headline": "Big chance for Morocco!",
+        "description": "Morocco create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 60,
+        "type": "goal",
+        "team": "Morocco",
+        "headline": "GOAL! Morocco!",
+        "description": "Morocco score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 86,
+        "type": "goal",
+        "team": "Morocco",
+        "headline": "GOAL! Morocco!",
+        "description": "Morocco score to make it 3:0.",
+        "score_after": "3:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 3:0.",
+        "score_after": "3:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Morocco": 8,
+      "Haiti": 83
+    },
+    "fifa_points": {
+      "Morocco": 1784.0,
+      "Haiti": 608.0
+    },
+    "form_last_10_avg_pts": {
+      "Morocco": 2.43,
+      "Haiti": 0.82
+    },
+    "win_rate_last_10": {
+      "Morocco": "72%",
+      "Haiti": "22%"
+    },
+    "avg_goals_scored": {
+      "Morocco": 1.66,
+      "Haiti": 1.79
+    },
+    "avg_goals_conceded": {
+      "Morocco": 0.65,
+      "Haiti": 2.08
+    },
+    "clean_sheet_rate": {
+      "Morocco": "53%",
+      "Haiti": "29%"
+    },
+    "h2h_last_10": {
+      "Morocco wins": "100%",
+      "draws": "0%",
+      "Haiti wins": "0%",
+      "total_h2h_games": 1
+    }
+  }
+}

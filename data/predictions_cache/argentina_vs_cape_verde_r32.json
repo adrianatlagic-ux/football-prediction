@@ -1,0 +1,299 @@
+{
+  "home_team": "Argentina",
+  "away_team": "Cape Verde",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.675,
+  "probability_draw": 0.2623,
+  "probability_away_win": 0.0626,
+  "score_prediction": {
+    "home_xg": 3.6,
+    "away_xg": 0.46,
+    "rho": -0.13,
+    "most_likely_score": "3:0",
+    "result": "H",
+    "probability_home_win": 0.6751,
+    "probability_draw": 0.2623,
+    "probability_away_win": 0.0626,
+    "top_scorelines": [
+      {
+        "score": "3:0",
+        "probability": 0.0997
+      },
+      {
+        "score": "4:0",
+        "probability": 0.0899
+      },
+      {
+        "score": "2:0",
+        "probability": 0.083
+      },
+      {
+        "score": "5:0",
+        "probability": 0.0648
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0462
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.9374,
+        "home_or_away": 0.7377,
+        "draw_or_away": 0.3249
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8599,
+          "under": 0.1401
+        },
+        {
+          "line": 2.5,
+          "over": 0.6444,
+          "under": 0.3556
+        },
+        {
+          "line": 3.5,
+          "over": 0.48,
+          "under": 0.52
+        }
+      ],
+      "btts": {
+        "yes": 0.4464,
+        "no": 0.5536
+      },
+      "win_margin": {
+        "home_1plus": 0.6751,
+        "home_2plus": 0.5809,
+        "home_3plus": 0.4408,
+        "away_1plus": 0.0626,
+        "away_2plus": 0.0135,
+        "away_3plus": 0.0017
+      },
+      "scenario": "Argentina are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.77,
+    "total_xg": 4.06,
+    "first_goal": {
+      "Argentina_scores_first": 0.871,
+      "Cape Verde_scores_first": 0.111,
+      "no_goals": 0.017,
+      "expected_minute": 22
+    },
+    "halftime_xg": {
+      "Argentina": 1.69,
+      "Cape Verde": 0.22
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.259
+      },
+      {
+        "score": "2:0",
+        "probability": 0.219
+      },
+      {
+        "score": "0:0",
+        "probability": 0.153
+      },
+      {
+        "score": "3:0",
+        "probability": 0.123
+      },
+      {
+        "score": "1:1",
+        "probability": 0.056
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Argentina": 0.486,
+        "Cape Verde": 0.062
+      },
+      "16-30'": {
+        "Argentina": 0.558,
+        "Cape Verde": 0.071
+      },
+      "31-45'": {
+        "Argentina": 0.648,
+        "Cape Verde": 0.083
+      },
+      "46-60'": {
+        "Argentina": 0.522,
+        "Cape Verde": 0.067
+      },
+      "61-75'": {
+        "Argentina": 0.666,
+        "Cape Verde": 0.085
+      },
+      "76-90'": {
+        "Argentina": 0.72,
+        "Cape Verde": 0.092
+      }
+    },
+    "comeback_probability": {
+      "Argentina": 0.021,
+      "Cape Verde": 0.003
+    },
+    "late_drama_probability": 0.556,
+    "match_stories": [
+      {
+        "szenario": "Argentina dominiert früh",
+        "beschreibung": "Argentina geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.234
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.143
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 64,
+        "away": 36
+      },
+      "shots": {
+        "home": 27,
+        "away": 7
+      },
+      "shots_on_target": {
+        "home": 11,
+        "away": 2
+      },
+      "corners": {
+        "home": 11,
+        "away": 3
+      },
+      "passes": {
+        "home": 333,
+        "away": 187
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Argentina and Cape Verde is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 1,
+        "type": "chance",
+        "team": "Cape Verde",
+        "headline": "Big chance for Cape Verde!",
+        "description": "Cape Verde create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 6,
+        "type": "chance",
+        "team": "Cape Verde",
+        "headline": "Big chance for Cape Verde!",
+        "description": "Cape Verde create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 11,
+        "type": "goal",
+        "team": "Argentina",
+        "headline": "GOAL! Argentina!",
+        "description": "Argentina score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 63,
+        "type": "goal",
+        "team": "Argentina",
+        "headline": "GOAL! Argentina!",
+        "description": "Argentina score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 83,
+        "type": "chance",
+        "team": "Argentina",
+        "headline": "Big chance for Argentina!",
+        "description": "Argentina create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 87,
+        "type": "chance",
+        "team": "Argentina",
+        "headline": "Big chance for Argentina!",
+        "description": "Argentina create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 88,
+        "type": "goal",
+        "team": "Argentina",
+        "headline": "GOAL! Argentina!",
+        "description": "Argentina score to make it 3:0.",
+        "score_after": "3:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 3:0.",
+        "score_after": "3:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Argentina": 3,
+      "Cape Verde": 69
+    },
+    "fifa_points": {
+      "Argentina": 1864.0,
+      "Cape Verde": 816.0
+    },
+    "form_last_10_avg_pts": {
+      "Argentina": 2.83,
+      "Cape Verde": 1.26
+    },
+    "win_rate_last_10": {
+      "Argentina": "94%",
+      "Cape Verde": "17%"
+    },
+    "avg_goals_scored": {
+      "Argentina": 2.04,
+      "Cape Verde": 1.5
+    },
+    "avg_goals_conceded": {
+      "Argentina": 0.62,
+      "Cape Verde": 1.35
+    },
+    "clean_sheet_rate": {
+      "Argentina": "52%",
+      "Cape Verde": "42%"
+    },
+    "h2h_last_10": {
+      "Argentina wins": "0%",
+      "draws": "0%",
+      "Cape Verde wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

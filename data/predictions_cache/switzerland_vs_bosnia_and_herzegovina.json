@@ -3,74 +3,74 @@
   "away_team": "Bosnia and Herzegovina",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.5902,
-  "probability_draw": 0.2354,
-  "probability_away_win": 0.1744,
+  "probability_home_win": 0.5457,
+  "probability_draw": 0.3272,
+  "probability_away_win": 0.1271,
   "score_prediction": {
-    "home_xg": 3.17,
-    "away_xg": 0.78,
+    "home_xg": 3.16,
+    "away_xg": 0.82,
     "rho": -0.13,
     "most_likely_score": "3:0",
     "result": "H",
-    "probability_home_win": 0.5902,
-    "probability_draw": 0.2354,
-    "probability_away_win": 0.1744,
+    "probability_home_win": 0.5457,
+    "probability_draw": 0.3272,
+    "probability_away_win": 0.1271,
     "top_scorelines": [
       {
         "score": "3:0",
-        "probability": 0.0732
+        "probability": 0.0656
       },
       {
         "score": "2:0",
-        "probability": 0.0693
-      },
-      {
-        "score": "4:0",
-        "probability": 0.058
+        "probability": 0.0623
       },
       {
         "score": "3:1",
-        "probability": 0.0571
+        "probability": 0.054
+      },
+      {
+        "score": "4:0",
+        "probability": 0.0518
       },
       {
         "score": "2:1",
-        "probability": 0.0541
+        "probability": 0.0513
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.8256,
-        "home_or_away": 0.7646,
-        "draw_or_away": 0.4098
+        "home_or_draw": 0.8729,
+        "home_or_away": 0.6728,
+        "draw_or_away": 0.4543
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8808,
-          "under": 0.1192
+          "over": 0.8774,
+          "under": 0.1226
         },
         {
           "line": 2.5,
-          "over": 0.6849,
-          "under": 0.3151
+          "over": 0.6542,
+          "under": 0.3458
         },
         {
           "line": 3.5,
-          "over": 0.4909,
-          "under": 0.5091
+          "over": 0.4895,
+          "under": 0.5105
         }
       ],
       "btts": {
-        "yes": 0.5861,
-        "no": 0.4139
+        "yes": 0.6183,
+        "no": 0.3817
       },
       "win_margin": {
-        "home_1plus": 0.5902,
-        "home_2plus": 0.4694,
-        "home_3plus": 0.3221,
-        "away_1plus": 0.1744,
-        "away_2plus": 0.0523,
-        "away_3plus": 0.011
+        "home_1plus": 0.5457,
+        "home_2plus": 0.4312,
+        "home_3plus": 0.2941,
+        "away_1plus": 0.1271,
+        "away_2plus": 0.0392,
+        "away_3plus": 0.0085
       },
       "scenario": "Switzerland are favored to win, likely by 2+ goals, in a high-scoring game."
     }
@@ -78,81 +78,81 @@
   "game_flow": {
     "match_type": "Goal Fest",
     "match_description": "A very open game with plenty of chances expected",
-    "dominance_index": 0.61,
-    "total_xg": 3.95,
+    "dominance_index": 0.59,
+    "total_xg": 3.98,
     "first_goal": {
-      "Switzerland_scores_first": 0.787,
-      "Bosnia and Herzegovina_scores_first": 0.194,
+      "Switzerland_scores_first": 0.779,
+      "Bosnia and Herzegovina_scores_first": 0.202,
       "no_goals": 0.019,
       "expected_minute": 22
     },
     "halftime_xg": {
       "Switzerland": 1.49,
-      "Bosnia and Herzegovina": 0.37
+      "Bosnia and Herzegovina": 0.39
     },
     "top_halftime_scores": [
       {
         "score": "1:0",
-        "probability": 0.237
+        "probability": 0.233
       },
       {
         "score": "2:0",
-        "probability": 0.177
+        "probability": 0.173
       },
       {
         "score": "0:0",
-        "probability": 0.159
-      },
-      {
-        "score": "3:0",
-        "probability": 0.088
+        "probability": 0.157
       },
       {
         "score": "1:1",
-        "probability": 0.087
+        "probability": 0.09
+      },
+      {
+        "score": "3:0",
+        "probability": 0.086
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Switzerland": 0.428,
-        "Bosnia and Herzegovina": 0.105
+        "Switzerland": 0.427,
+        "Bosnia and Herzegovina": 0.111
       },
       "16-30'": {
-        "Switzerland": 0.491,
-        "Bosnia and Herzegovina": 0.121
+        "Switzerland": 0.49,
+        "Bosnia and Herzegovina": 0.127
       },
       "31-45'": {
-        "Switzerland": 0.571,
-        "Bosnia and Herzegovina": 0.14
+        "Switzerland": 0.569,
+        "Bosnia and Herzegovina": 0.148
       },
       "46-60'": {
-        "Switzerland": 0.46,
-        "Bosnia and Herzegovina": 0.113
+        "Switzerland": 0.458,
+        "Bosnia and Herzegovina": 0.119
       },
       "61-75'": {
-        "Switzerland": 0.586,
-        "Bosnia and Herzegovina": 0.144
+        "Switzerland": 0.585,
+        "Bosnia and Herzegovina": 0.152
       },
       "76-90'": {
-        "Switzerland": 0.634,
-        "Bosnia and Herzegovina": 0.156
+        "Switzerland": 0.632,
+        "Bosnia and Herzegovina": 0.164
       }
     },
     "comeback_probability": {
-      "Switzerland": 0.035,
-      "Bosnia and Herzegovina": 0.01
+      "Switzerland": 0.036,
+      "Bosnia and Herzegovina": 0.011
     },
-    "late_drama_probability": 0.546,
+    "late_drama_probability": 0.549,
     "match_stories": [
       {
         "szenario": "Switzerland dominiert früh",
         "beschreibung": "Switzerland geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.185
+        "wahrscheinlichkeit": 0.182
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.146
+        "wahrscheinlichkeit": 0.144
       }
     ],
     "predicted_stats": {
@@ -270,30 +270,30 @@
       "Bosnia and Herzegovina": 880.0
     },
     "form_last_10_avg_pts": {
-      "Switzerland": 1.7,
-      "Bosnia and Herzegovina": 1.37
+      "Switzerland": 1.87,
+      "Bosnia and Herzegovina": 1.44
     },
     "win_rate_last_10": {
-      "Switzerland": "41%",
-      "Bosnia and Herzegovina": "21%"
+      "Switzerland": "49%",
+      "Bosnia and Herzegovina": "29%"
     },
     "avg_goals_scored": {
       "Switzerland": 1.33,
-      "Bosnia and Herzegovina": 1.77
+      "Bosnia and Herzegovina": 1.71
     },
     "avg_goals_conceded": {
       "Switzerland": 0.79,
-      "Bosnia and Herzegovina": 1.31
+      "Bosnia and Herzegovina": 1.83
     },
     "clean_sheet_rate": {
       "Switzerland": "45%",
-      "Bosnia and Herzegovina": "20%"
+      "Bosnia and Herzegovina": "13%"
     },
     "h2h_last_10": {
-      "Switzerland wins": "0%",
+      "Switzerland wins": "50%",
       "draws": "0%",
-      "Bosnia and Herzegovina wins": "100%",
-      "total_h2h_games": 1
+      "Bosnia and Herzegovina wins": "50%",
+      "total_h2h_games": 2
     }
   }
 }

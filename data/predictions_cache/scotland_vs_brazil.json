@@ -1,0 +1,299 @@
+{
+  "home_team": "Scotland",
+  "away_team": "Brazil",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.1515,
+  "probability_draw": 0.2608,
+  "probability_away_win": 0.5877,
+  "score_prediction": {
+    "home_xg": 0.92,
+    "away_xg": 3.25,
+    "rho": -0.13,
+    "most_likely_score": "0:3",
+    "result": "A",
+    "probability_home_win": 0.1515,
+    "probability_draw": 0.2608,
+    "probability_away_win": 0.5877,
+    "top_scorelines": [
+      {
+        "score": "0:3",
+        "probability": 0.0646
+      },
+      {
+        "score": "0:2",
+        "probability": 0.0597
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0592
+      },
+      {
+        "score": "1:2",
+        "probability": 0.0547
+      },
+      {
+        "score": "0:4",
+        "probability": 0.0524
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.4123,
+        "home_or_away": 0.7392,
+        "draw_or_away": 0.8485
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.9016,
+          "under": 0.0984
+        },
+        {
+          "line": 2.5,
+          "over": 0.7147,
+          "under": 0.2853
+        },
+        {
+          "line": 3.5,
+          "over": 0.5405,
+          "under": 0.4595
+        }
+      ],
+      "btts": {
+        "yes": 0.639,
+        "no": 0.361
+      },
+      "win_margin": {
+        "home_1plus": 0.1515,
+        "home_2plus": 0.0494,
+        "home_3plus": 0.0116,
+        "away_1plus": 0.5877,
+        "away_2plus": 0.4657,
+        "away_3plus": 0.3199
+      },
+      "scenario": "Brazil are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": -0.56,
+    "total_xg": 4.17,
+    "first_goal": {
+      "Scotland_scores_first": 0.217,
+      "Brazil_scores_first": 0.767,
+      "no_goals": 0.015,
+      "expected_minute": 21
+    },
+    "halftime_xg": {
+      "Scotland": 0.43,
+      "Brazil": 1.53
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:1",
+        "probability": 0.22
+      },
+      {
+        "score": "0:2",
+        "probability": 0.168
+      },
+      {
+        "score": "0:0",
+        "probability": 0.144
+      },
+      {
+        "score": "1:1",
+        "probability": 0.095
+      },
+      {
+        "score": "0:3",
+        "probability": 0.085
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Scotland": 0.124,
+        "Brazil": 0.439
+      },
+      "16-30'": {
+        "Scotland": 0.143,
+        "Brazil": 0.504
+      },
+      "31-45'": {
+        "Scotland": 0.166,
+        "Brazil": 0.585
+      },
+      "46-60'": {
+        "Scotland": 0.133,
+        "Brazil": 0.471
+      },
+      "61-75'": {
+        "Scotland": 0.17,
+        "Brazil": 0.601
+      },
+      "76-90'": {
+        "Scotland": 0.184,
+        "Brazil": 0.65
+      }
+    },
+    "comeback_probability": {
+      "Scotland": 0.013,
+      "Brazil": 0.04
+    },
+    "late_drama_probability": 0.566,
+    "match_stories": [
+      {
+        "szenario": "Brazil dominiert früh",
+        "beschreibung": "Brazil geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.177
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.134
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 40,
+        "away": 60
+      },
+      "shots": {
+        "home": 10,
+        "away": 25
+      },
+      "shots_on_target": {
+        "home": 4,
+        "away": 10
+      },
+      "corners": {
+        "home": 4,
+        "away": 10
+      },
+      "passes": {
+        "home": 208,
+        "away": 312
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Scotland and Brazil is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 13,
+        "type": "goal",
+        "team": "Brazil",
+        "headline": "GOAL! Brazil!",
+        "description": "Brazil score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 16,
+        "type": "chance",
+        "team": "Brazil",
+        "headline": "Big chance for Brazil!",
+        "description": "Brazil create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 36,
+        "type": "chance",
+        "team": "Scotland",
+        "headline": "Big chance for Scotland!",
+        "description": "Scotland create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 56,
+        "type": "chance",
+        "team": "Brazil",
+        "headline": "Big chance for Brazil!",
+        "description": "Brazil create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 68,
+        "type": "chance",
+        "team": "Brazil",
+        "headline": "Big chance for Brazil!",
+        "description": "Brazil create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 72,
+        "type": "goal",
+        "team": "Brazil",
+        "headline": "GOAL! Brazil!",
+        "description": "Brazil score to make it 0:2.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 88,
+        "type": "goal",
+        "team": "Brazil",
+        "headline": "GOAL! Brazil!",
+        "description": "Brazil score to make it 0:3.",
+        "score_after": "0:3"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 0:3.",
+        "score_after": "0:3"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Scotland": 43,
+      "Brazil": 6
+    },
+    "fifa_points": {
+      "Scotland": 1224.0,
+      "Brazil": 1816.0
+    },
+    "form_last_10_avg_pts": {
+      "Scotland": 1.28,
+      "Brazil": 2.16
+    },
+    "win_rate_last_10": {
+      "Scotland": "43%",
+      "Brazil": "65%"
+    },
+    "avg_goals_scored": {
+      "Scotland": 1.32,
+      "Brazil": 1.76
+    },
+    "avg_goals_conceded": {
+      "Scotland": 0.82,
+      "Brazil": 1.11
+    },
+    "clean_sheet_rate": {
+      "Scotland": "55%",
+      "Brazil": "45%"
+    },
+    "h2h_last_10": {
+      "Scotland wins": "0%",
+      "draws": "0%",
+      "Brazil wins": "100%",
+      "total_h2h_games": 4
+    }
+  }
+}

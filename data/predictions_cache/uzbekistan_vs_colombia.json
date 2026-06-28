@@ -3,92 +3,92 @@
   "away_team": "Colombia",
   "prediction": "A",
   "prediction_label": "Away Win",
-  "probability_home_win": 0.1317,
-  "probability_draw": 0.3528,
-  "probability_away_win": 0.5155,
+  "probability_home_win": 0.1227,
+  "probability_draw": 0.28,
+  "probability_away_win": 0.5973,
   "score_prediction": {
-    "home_xg": 0.87,
-    "away_xg": 2.59,
+    "home_xg": 0.81,
+    "away_xg": 2.92,
     "rho": -0.13,
     "most_likely_score": "0:2",
     "result": "A",
-    "probability_home_win": 0.1317,
-    "probability_draw": 0.3528,
-    "probability_away_win": 0.5155,
+    "probability_home_win": 0.1227,
+    "probability_draw": 0.28,
+    "probability_away_win": 0.5973,
     "top_scorelines": [
       {
         "score": "0:2",
-        "probability": 0.0744
-      },
-      {
-        "score": "1:2",
-        "probability": 0.0644
+        "probability": 0.0776
       },
       {
         "score": "0:3",
-        "probability": 0.0642
+        "probability": 0.0754
+      },
+      {
+        "score": "1:2",
+        "probability": 0.0626
       },
       {
         "score": "1:3",
-        "probability": 0.0556
+        "probability": 0.0609
       },
       {
-        "score": "0:1",
-        "probability": 0.0509
+        "score": "0:4",
+        "probability": 0.055
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.4845,
-        "home_or_away": 0.6472,
-        "draw_or_away": 0.8683
+        "home_or_draw": 0.4027,
+        "home_or_away": 0.72,
+        "draw_or_away": 0.8773
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8397,
-          "under": 0.1603
+          "over": 0.8667,
+          "under": 0.1333
         },
         {
           "line": 2.5,
-          "over": 0.5844,
-          "under": 0.4156
+          "over": 0.6456,
+          "under": 0.3544
         },
         {
           "line": 3.5,
-          "over": 0.4078,
-          "under": 0.5922
+          "over": 0.4615,
+          "under": 0.5385
         }
       ],
       "btts": {
-        "yes": 0.6013,
-        "no": 0.3987
+        "yes": 0.5828,
+        "no": 0.4172
       },
       "win_margin": {
-        "home_1plus": 0.1317,
-        "home_2plus": 0.0433,
-        "home_3plus": 0.0101,
-        "away_1plus": 0.5155,
-        "away_2plus": 0.3711,
-        "away_3plus": 0.223
+        "home_1plus": 0.1227,
+        "home_2plus": 0.038,
+        "home_3plus": 0.0082,
+        "away_1plus": 0.5973,
+        "away_2plus": 0.4572,
+        "away_3plus": 0.2977
       },
       "scenario": "Colombia are favored to win, likely by 2+ goals, in a high-scoring game."
     }
   },
   "game_flow": {
-    "match_type": "One-Sided",
-    "match_description": "One team is expected to dominate clearly",
-    "dominance_index": -0.5,
-    "total_xg": 3.46,
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": -0.57,
+    "total_xg": 3.73,
     "first_goal": {
-      "Uzbekistan_scores_first": 0.244,
-      "Colombia_scores_first": 0.725,
-      "no_goals": 0.031,
-      "expected_minute": 26
+      "Uzbekistan_scores_first": 0.212,
+      "Colombia_scores_first": 0.764,
+      "no_goals": 0.024,
+      "expected_minute": 24
     },
     "halftime_xg": {
-      "Uzbekistan": 0.41,
-      "Colombia": 1.22
+      "Uzbekistan": 0.38,
+      "Colombia": 1.37
     },
     "top_halftime_scores": [
       {
@@ -97,89 +97,84 @@
       },
       {
         "score": "0:0",
-        "probability": 0.198
+        "probability": 0.176
       },
       {
         "score": "0:2",
-        "probability": 0.147
+        "probability": 0.165
       },
       {
         "score": "1:1",
-        "probability": 0.099
+        "probability": 0.092
       },
       {
-        "score": "1:0",
-        "probability": 0.081
+        "score": "0:3",
+        "probability": 0.076
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Uzbekistan": 0.117,
-        "Colombia": 0.35
+        "Uzbekistan": 0.109,
+        "Colombia": 0.394
       },
       "16-30'": {
-        "Uzbekistan": 0.135,
-        "Colombia": 0.401
+        "Uzbekistan": 0.126,
+        "Colombia": 0.453
       },
       "31-45'": {
-        "Uzbekistan": 0.157,
-        "Colombia": 0.466
+        "Uzbekistan": 0.146,
+        "Colombia": 0.526
       },
       "46-60'": {
-        "Uzbekistan": 0.126,
-        "Colombia": 0.376
+        "Uzbekistan": 0.117,
+        "Colombia": 0.423
       },
       "61-75'": {
-        "Uzbekistan": 0.161,
-        "Colombia": 0.479
+        "Uzbekistan": 0.15,
+        "Colombia": 0.54
       },
       "76-90'": {
-        "Uzbekistan": 0.174,
-        "Colombia": 0.518
+        "Uzbekistan": 0.162,
+        "Colombia": 0.584
       }
     },
     "comeback_probability": {
-      "Uzbekistan": 0.014,
-      "Colombia": 0.037
+      "Uzbekistan": 0.011,
+      "Colombia": 0.036
     },
-    "late_drama_probability": 0.499,
+    "late_drama_probability": 0.526,
     "match_stories": [
-      {
-        "szenario": "Torloser Krimi",
-        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.171
-      },
       {
         "szenario": "Colombia dominiert früh",
         "beschreibung": "Colombia geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.151
+        "wahrscheinlichkeit": 0.172
       },
       {
-        "szenario": "Knappes 1:0",
-        "beschreibung": "Colombia trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.086
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.157
       }
     ],
     "predicted_stats": {
       "possession": {
-        "home": 41,
-        "away": 59
+        "home": 40,
+        "away": 60
       },
       "shots": {
-        "home": 10,
-        "away": 21
+        "home": 9,
+        "away": 23
       },
       "shots_on_target": {
         "home": 3,
-        "away": 8
+        "away": 9
       },
       "corners": {
         "home": 4,
-        "away": 8
+        "away": 9
       },
       "passes": {
-        "home": 213,
-        "away": 307
+        "home": 208,
+        "away": 312
       }
     },
     "match_ticker": [
@@ -267,23 +262,23 @@
       "Colombia": 1704.0
     },
     "form_last_10_avg_pts": {
-      "Uzbekistan": 1.43,
-      "Colombia": 1.89
+      "Uzbekistan": 0.92,
+      "Colombia": 1.88
     },
     "win_rate_last_10": {
-      "Uzbekistan": "34%",
-      "Colombia": "58%"
+      "Uzbekistan": "21%",
+      "Colombia": "55%"
     },
     "avg_goals_scored": {
-      "Uzbekistan": 1.07,
+      "Uzbekistan": 0.9,
       "Colombia": 2.12
     },
     "avg_goals_conceded": {
-      "Uzbekistan": 0.84,
+      "Uzbekistan": 1.82,
       "Colombia": 1.18
     },
     "clean_sheet_rate": {
-      "Uzbekistan": "58%",
+      "Uzbekistan": "44%",
       "Colombia": "28%"
     },
     "h2h_last_10": {

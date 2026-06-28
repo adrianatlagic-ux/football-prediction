@@ -1,0 +1,277 @@
+{
+  "home_team": "Mexico",
+  "away_team": "Ecuador",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.5495,
+  "probability_draw": 0.2624,
+  "probability_away_win": 0.1881,
+  "score_prediction": {
+    "home_xg": 0.98,
+    "away_xg": 1.04,
+    "rho": -0.13,
+    "most_likely_score": "1:0",
+    "result": "H",
+    "probability_home_win": 0.5495,
+    "probability_draw": 0.2624,
+    "probability_away_win": 0.1881,
+    "top_scorelines": [
+      {
+        "score": "1:0",
+        "probability": 0.1976
+      },
+      {
+        "score": "2:1",
+        "probability": 0.1158
+      },
+      {
+        "score": "2:0",
+        "probability": 0.1118
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0378
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0365
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8119,
+        "home_or_away": 0.7376,
+        "draw_or_away": 0.4505
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.6204,
+          "under": 0.3796
+        },
+        {
+          "line": 2.5,
+          "over": 0.3523,
+          "under": 0.6477
+        },
+        {
+          "line": 3.5,
+          "over": 0.1482,
+          "under": 0.8518
+        }
+      ],
+      "btts": {
+        "yes": 0.4043,
+        "no": 0.5957
+      },
+      "win_margin": {
+        "home_1plus": 0.5495,
+        "home_2plus": 0.2147,
+        "home_3plus": 0.06,
+        "away_1plus": 0.1881,
+        "away_2plus": 0.0765,
+        "away_3plus": 0.0224
+      },
+      "scenario": "Mexico are favored to win, in a low-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Tactically Balanced",
+    "match_description": "A tight game where goals will make the difference",
+    "dominance_index": -0.03,
+    "total_xg": 2.02,
+    "first_goal": {
+      "Mexico_scores_first": 0.421,
+      "Ecuador_scores_first": 0.447,
+      "no_goals": 0.133,
+      "expected_minute": 44
+    },
+    "halftime_xg": {
+      "Mexico": 0.46,
+      "Ecuador": 0.49
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.387
+      },
+      {
+        "score": "0:1",
+        "probability": 0.189
+      },
+      {
+        "score": "1:0",
+        "probability": 0.178
+      },
+      {
+        "score": "1:1",
+        "probability": 0.087
+      },
+      {
+        "score": "0:2",
+        "probability": 0.046
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Mexico": 0.132,
+        "Ecuador": 0.14
+      },
+      "16-30'": {
+        "Mexico": 0.152,
+        "Ecuador": 0.161
+      },
+      "31-45'": {
+        "Mexico": 0.176,
+        "Ecuador": 0.187
+      },
+      "46-60'": {
+        "Mexico": 0.142,
+        "Ecuador": 0.151
+      },
+      "61-75'": {
+        "Mexico": 0.181,
+        "Ecuador": 0.192
+      },
+      "76-90'": {
+        "Mexico": 0.196,
+        "Ecuador": 0.208
+      }
+    },
+    "comeback_probability": {
+      "Mexico": 0.016,
+      "Ecuador": 0.017
+    },
+    "late_drama_probability": 0.332,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.307
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.255
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Ecuador trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.138
+      },
+      {
+        "szenario": "Ecuador dominiert früh",
+        "beschreibung": "Ecuador geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.046
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 49,
+        "away": 51
+      },
+      "shots": {
+        "home": 10,
+        "away": 11
+      },
+      "shots_on_target": {
+        "home": 4,
+        "away": 5
+      },
+      "corners": {
+        "home": 4,
+        "away": 5
+      },
+      "passes": {
+        "home": 255,
+        "away": 265
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Mexico and Ecuador is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 24,
+        "type": "chance",
+        "team": "Mexico",
+        "headline": "Big chance for Mexico!",
+        "description": "Mexico create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 69,
+        "type": "chance",
+        "team": "Mexico",
+        "headline": "Big chance for Mexico!",
+        "description": "Mexico create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 84,
+        "type": "goal",
+        "team": "Mexico",
+        "headline": "GOAL! Mexico!",
+        "description": "Mexico score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:0.",
+        "score_after": "1:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Mexico": 15,
+      "Ecuador": 23
+    },
+    "fifa_points": {
+      "Mexico": 1672.0,
+      "Ecuador": 1544.0
+    },
+    "form_last_10_avg_pts": {
+      "Mexico": 2.48,
+      "Ecuador": 1.73
+    },
+    "win_rate_last_10": {
+      "Mexico": "77%",
+      "Ecuador": "44%"
+    },
+    "avg_goals_scored": {
+      "Mexico": 1.24,
+      "Ecuador": 0.52
+    },
+    "avg_goals_conceded": {
+      "Mexico": 0.54,
+      "Ecuador": 0.64
+    },
+    "clean_sheet_rate": {
+      "Mexico": "58%",
+      "Ecuador": "36%"
+    },
+    "h2h_last_10": {
+      "Mexico wins": "20%",
+      "draws": "50%",
+      "Ecuador wins": "30%",
+      "total_h2h_games": 10
+    }
+  }
+}

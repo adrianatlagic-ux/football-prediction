@@ -3,74 +3,74 @@
   "away_team": "Austria",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.6751,
-  "probability_draw": 0.2001,
-  "probability_away_win": 0.1248,
+  "probability_home_win": 0.5763,
+  "probability_draw": 0.34,
+  "probability_away_win": 0.0837,
   "score_prediction": {
-    "home_xg": 2.2,
-    "away_xg": 0.85,
+    "home_xg": 2.39,
+    "away_xg": 0.87,
     "rho": -0.13,
     "most_likely_score": "2:0",
     "result": "H",
-    "probability_home_win": 0.6751,
-    "probability_draw": 0.2001,
-    "probability_away_win": 0.1248,
+    "probability_home_win": 0.5763,
+    "probability_draw": 0.34,
+    "probability_away_win": 0.0837,
     "top_scorelines": [
       {
         "score": "2:0",
-        "probability": 0.1158
+        "probability": 0.0904
       },
       {
         "score": "2:1",
-        "probability": 0.0982
-      },
-      {
-        "score": "1:0",
-        "probability": 0.0938
+        "probability": 0.0788
       },
       {
         "score": "3:0",
-        "probability": 0.0849
+        "probability": 0.0719
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0672
       },
       {
         "score": "3:1",
-        "probability": 0.072
+        "probability": 0.0627
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.8752,
-        "home_or_away": 0.7999,
-        "draw_or_away": 0.3249
+        "home_or_draw": 0.9163,
+        "home_or_away": 0.66,
+        "draw_or_away": 0.4237
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8199,
-          "under": 0.1801
+          "over": 0.8284,
+          "under": 0.1716
         },
         {
           "line": 2.5,
-          "over": 0.5909,
-          "under": 0.4091
+          "over": 0.5666,
+          "under": 0.4334
         },
         {
           "line": 3.5,
-          "over": 0.3637,
-          "under": 0.6363
+          "over": 0.3858,
+          "under": 0.6142
         }
       ],
       "btts": {
-        "yes": 0.5175,
-        "no": 0.4825
+        "yes": 0.5757,
+        "no": 0.4243
       },
       "win_margin": {
-        "home_1plus": 0.6751,
-        "home_2plus": 0.4475,
-        "home_3plus": 0.2406,
-        "away_1plus": 0.1248,
-        "away_2plus": 0.0414,
-        "away_3plus": 0.0096
+        "home_1plus": 0.5763,
+        "home_2plus": 0.398,
+        "home_3plus": 0.2261,
+        "away_1plus": 0.0837,
+        "away_2plus": 0.0279,
+        "away_3plus": 0.0066
       },
       "scenario": "Argentina are favored to win, likely by 2+ goals, in a high-scoring game."
     }
@@ -78,86 +78,86 @@
   "game_flow": {
     "match_type": "One-Sided",
     "match_description": "One team is expected to dominate clearly",
-    "dominance_index": 0.44,
-    "total_xg": 3.05,
+    "dominance_index": 0.47,
+    "total_xg": 3.26,
     "first_goal": {
-      "Argentina_scores_first": 0.687,
-      "Austria_scores_first": 0.265,
-      "no_goals": 0.047,
-      "expected_minute": 29
+      "Argentina_scores_first": 0.705,
+      "Austria_scores_first": 0.257,
+      "no_goals": 0.038,
+      "expected_minute": 27
     },
     "halftime_xg": {
-      "Argentina": 1.03,
-      "Austria": 0.4
+      "Argentina": 1.12,
+      "Austria": 0.41
     },
     "top_halftime_scores": [
       {
         "score": "1:0",
-        "probability": 0.248
+        "probability": 0.244
       },
       {
         "score": "0:0",
-        "probability": 0.239
+        "probability": 0.217
       },
       {
         "score": "2:0",
-        "probability": 0.128
+        "probability": 0.137
       },
       {
         "score": "1:1",
-        "probability": 0.099
+        "probability": 0.1
       },
       {
         "score": "0:1",
-        "probability": 0.096
+        "probability": 0.089
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Argentina": 0.297,
-        "Austria": 0.115
+        "Argentina": 0.323,
+        "Austria": 0.117
       },
       "16-30'": {
-        "Argentina": 0.341,
-        "Austria": 0.132
+        "Argentina": 0.37,
+        "Austria": 0.135
       },
       "31-45'": {
-        "Argentina": 0.396,
-        "Austria": 0.153
-      },
-      "46-60'": {
-        "Argentina": 0.319,
-        "Austria": 0.123
-      },
-      "61-75'": {
-        "Argentina": 0.407,
+        "Argentina": 0.43,
         "Austria": 0.157
       },
+      "46-60'": {
+        "Argentina": 0.347,
+        "Austria": 0.126
+      },
+      "61-75'": {
+        "Argentina": 0.442,
+        "Austria": 0.161
+      },
       "76-90'": {
-        "Argentina": 0.44,
-        "Austria": 0.17
+        "Argentina": 0.478,
+        "Austria": 0.174
       }
     },
     "comeback_probability": {
-      "Argentina": 0.034,
+      "Argentina": 0.036,
       "Austria": 0.014
     },
-    "late_drama_probability": 0.457,
+    "late_drama_probability": 0.479,
     "match_stories": [
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.195
+        "wahrscheinlichkeit": 0.183
       },
       {
         "szenario": "Argentina dominiert früh",
         "beschreibung": "Argentina geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.13
+        "wahrscheinlichkeit": 0.14
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "Argentina trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.107
+        "wahrscheinlichkeit": 0.095
       }
     ],
     "predicted_stats": {
@@ -166,11 +166,11 @@
         "away": 42
       },
       "shots": {
-        "home": 18,
+        "home": 20,
         "away": 10
       },
       "shots_on_target": {
-        "home": 7,
+        "home": 8,
         "away": 3
       },
       "corners": {
@@ -267,30 +267,30 @@
       "Austria": 1528.0
     },
     "form_last_10_avg_pts": {
-      "Argentina": 2.66,
-      "Austria": 2.51
+      "Argentina": 2.83,
+      "Austria": 1.84
     },
     "win_rate_last_10": {
-      "Argentina": "87%",
-      "Austria": "80%"
+      "Argentina": "94%",
+      "Austria": "53%"
     },
     "avg_goals_scored": {
-      "Argentina": 1.79,
-      "Austria": 1.69
+      "Argentina": 2.04,
+      "Austria": 1.56
     },
     "avg_goals_conceded": {
-      "Argentina": 0.51,
-      "Austria": 0.86
+      "Argentina": 0.62,
+      "Austria": 1.35
     },
     "clean_sheet_rate": {
-      "Argentina": "64%",
-      "Austria": "37%"
+      "Argentina": "52%",
+      "Austria": "28%"
     },
     "h2h_last_10": {
-      "Argentina wins": "0%",
-      "draws": "0%",
+      "Argentina wins": "50%",
+      "draws": "50%",
       "Austria wins": "0%",
-      "total_h2h_games": 0
+      "total_h2h_games": 2
     }
   }
 }

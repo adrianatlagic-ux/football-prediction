@@ -1,0 +1,296 @@
+{
+  "home_team": "Tunisia",
+  "away_team": "Netherlands",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.1277,
+  "probability_draw": 0.2538,
+  "probability_away_win": 0.6185,
+  "score_prediction": {
+    "home_xg": 0.85,
+    "away_xg": 2.7,
+    "rho": -0.13,
+    "most_likely_score": "0:2",
+    "result": "A",
+    "probability_home_win": 0.1277,
+    "probability_draw": 0.2538,
+    "probability_away_win": 0.6185,
+    "top_scorelines": [
+      {
+        "score": "0:2",
+        "probability": 0.086
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0773
+      },
+      {
+        "score": "1:2",
+        "probability": 0.0733
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0659
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0567
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.3815,
+        "home_or_away": 0.7462,
+        "draw_or_away": 0.8723
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8609,
+          "under": 0.1391
+        },
+        {
+          "line": 2.5,
+          "over": 0.6415,
+          "under": 0.3585
+        },
+        {
+          "line": 3.5,
+          "over": 0.4439,
+          "under": 0.5561
+        }
+      ],
+      "btts": {
+        "yes": 0.5768,
+        "no": 0.4232
+      },
+      "win_margin": {
+        "home_1plus": 0.1277,
+        "home_2plus": 0.0416,
+        "home_3plus": 0.0096,
+        "away_1plus": 0.6185,
+        "away_2plus": 0.4545,
+        "away_3plus": 0.2805
+      },
+      "scenario": "Netherlands are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": -0.52,
+    "total_xg": 3.55,
+    "first_goal": {
+      "Tunisia_scores_first": 0.233,
+      "Netherlands_scores_first": 0.739,
+      "no_goals": 0.029,
+      "expected_minute": 25
+    },
+    "halftime_xg": {
+      "Tunisia": 0.4,
+      "Netherlands": 1.27
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:1",
+        "probability": 0.242
+      },
+      {
+        "score": "0:0",
+        "probability": 0.19
+      },
+      {
+        "score": "0:2",
+        "probability": 0.153
+      },
+      {
+        "score": "1:1",
+        "probability": 0.097
+      },
+      {
+        "score": "1:0",
+        "probability": 0.076
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Tunisia": 0.115,
+        "Netherlands": 0.365
+      },
+      "16-30'": {
+        "Tunisia": 0.132,
+        "Netherlands": 0.419
+      },
+      "31-45'": {
+        "Tunisia": 0.153,
+        "Netherlands": 0.486
+      },
+      "46-60'": {
+        "Tunisia": 0.123,
+        "Netherlands": 0.392
+      },
+      "61-75'": {
+        "Tunisia": 0.157,
+        "Netherlands": 0.499
+      },
+      "76-90'": {
+        "Tunisia": 0.17,
+        "Netherlands": 0.54
+      }
+    },
+    "comeback_probability": {
+      "Tunisia": 0.013,
+      "Netherlands": 0.037
+    },
+    "late_drama_probability": 0.508,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.166
+      },
+      {
+        "szenario": "Netherlands dominiert früh",
+        "beschreibung": "Netherlands geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.158
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Netherlands trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.082
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 41,
+        "away": 59
+      },
+      "shots": {
+        "home": 10,
+        "away": 22
+      },
+      "shots_on_target": {
+        "home": 3,
+        "away": 9
+      },
+      "corners": {
+        "home": 4,
+        "away": 9
+      },
+      "passes": {
+        "home": 213,
+        "away": 307
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Tunisia and Netherlands is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 3,
+        "type": "chance",
+        "team": "Netherlands",
+        "headline": "Big chance for Netherlands!",
+        "description": "Netherlands create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 5,
+        "type": "goal",
+        "team": "Netherlands",
+        "headline": "GOAL! Netherlands!",
+        "description": "Netherlands score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 37,
+        "type": "chance",
+        "team": "Netherlands",
+        "headline": "Big chance for Netherlands!",
+        "description": "Netherlands create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 77,
+        "type": "chance",
+        "team": "Netherlands",
+        "headline": "Big chance for Netherlands!",
+        "description": "Netherlands create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 88,
+        "type": "chance",
+        "team": "Netherlands",
+        "headline": "Big chance for Netherlands!",
+        "description": "Netherlands create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 89,
+        "type": "goal",
+        "team": "Netherlands",
+        "headline": "GOAL! Netherlands!",
+        "description": "Netherlands score to make it 0:2.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 0:2.",
+        "score_after": "0:2"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Tunisia": 44,
+      "Netherlands": 7
+    },
+    "fifa_points": {
+      "Tunisia": 1208.0,
+      "Netherlands": 1800.0
+    },
+    "form_last_10_avg_pts": {
+      "Tunisia": 0.89,
+      "Netherlands": 2.36
+    },
+    "win_rate_last_10": {
+      "Tunisia": "21%",
+      "Netherlands": "68%"
+    },
+    "avg_goals_scored": {
+      "Tunisia": 1.15,
+      "Netherlands": 2.27
+    },
+    "avg_goals_conceded": {
+      "Tunisia": 1.52,
+      "Netherlands": 1.01
+    },
+    "clean_sheet_rate": {
+      "Tunisia": "41%",
+      "Netherlands": "28%"
+    },
+    "h2h_last_10": {
+      "Tunisia wins": "0%",
+      "draws": "67%",
+      "Netherlands wins": "33%",
+      "total_h2h_games": 3
+    }
+  }
+}

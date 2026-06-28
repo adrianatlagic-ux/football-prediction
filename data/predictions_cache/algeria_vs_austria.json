@@ -1,0 +1,309 @@
+{
+  "home_team": "Algeria",
+  "away_team": "Austria",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.3252,
+  "probability_draw": 0.2249,
+  "probability_away_win": 0.4499,
+  "score_prediction": {
+    "home_xg": 1.75,
+    "away_xg": 1.79,
+    "rho": -0.13,
+    "most_likely_score": "1:2",
+    "result": "A",
+    "probability_home_win": 0.3252,
+    "probability_draw": 0.2249,
+    "probability_away_win": 0.4499,
+    "top_scorelines": [
+      {
+        "score": "1:2",
+        "probability": 0.095
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0566
+      },
+      {
+        "score": "0:2",
+        "probability": 0.0542
+      },
+      {
+        "score": "2:3",
+        "probability": 0.0496
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0468
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.5501,
+        "home_or_away": 0.7751,
+        "draw_or_away": 0.6748
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8813,
+          "under": 0.1187
+        },
+        {
+          "line": 2.5,
+          "over": 0.6937,
+          "under": 0.3063
+        },
+        {
+          "line": 3.5,
+          "over": 0.4736,
+          "under": 0.5264
+        }
+      ],
+      "btts": {
+        "yes": 0.6963,
+        "no": 0.3037
+      },
+      "win_margin": {
+        "home_1plus": 0.3252,
+        "home_2plus": 0.1731,
+        "home_3plus": 0.0734,
+        "away_1plus": 0.4499,
+        "away_2plus": 0.2434,
+        "away_3plus": 0.1051
+      },
+      "scenario": "Austria are favored to win, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": -0.01,
+    "total_xg": 3.54,
+    "first_goal": {
+      "Algeria_scores_first": 0.48,
+      "Austria_scores_first": 0.491,
+      "no_goals": 0.029,
+      "expected_minute": 25
+    },
+    "halftime_xg": {
+      "Algeria": 0.82,
+      "Austria": 0.84
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.19
+      },
+      {
+        "score": "0:1",
+        "probability": 0.16
+      },
+      {
+        "score": "1:0",
+        "probability": 0.156
+      },
+      {
+        "score": "1:1",
+        "probability": 0.132
+      },
+      {
+        "score": "0:2",
+        "probability": 0.067
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Algeria": 0.236,
+        "Austria": 0.242
+      },
+      "16-30'": {
+        "Algeria": 0.271,
+        "Austria": 0.277
+      },
+      "31-45'": {
+        "Algeria": 0.315,
+        "Austria": 0.322
+      },
+      "46-60'": {
+        "Algeria": 0.254,
+        "Austria": 0.26
+      },
+      "61-75'": {
+        "Algeria": 0.324,
+        "Austria": 0.331
+      },
+      "76-90'": {
+        "Algeria": 0.35,
+        "Austria": 0.358
+      }
+    },
+    "comeback_probability": {
+      "Algeria": 0.039,
+      "Austria": 0.04
+    },
+    "late_drama_probability": 0.507,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.22
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.164
+      },
+      {
+        "szenario": "Austria dominiert früh",
+        "beschreibung": "Austria geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.068
+      },
+      {
+        "szenario": "Algeria dominiert früh",
+        "beschreibung": "Algeria geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.065
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 49,
+        "away": 51
+      },
+      "shots": {
+        "home": 15,
+        "away": 16
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 7
+      },
+      "corners": {
+        "home": 6,
+        "away": 7
+      },
+      "passes": {
+        "home": 255,
+        "away": 265
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Algeria and Austria is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 23,
+        "type": "goal",
+        "team": "Austria",
+        "headline": "GOAL! Austria!",
+        "description": "Austria score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 37,
+        "type": "chance",
+        "team": "Austria",
+        "headline": "Big chance for Austria!",
+        "description": "Austria create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 44,
+        "type": "chance",
+        "team": "Austria",
+        "headline": "Big chance for Austria!",
+        "description": "Austria create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 65,
+        "type": "chance",
+        "team": "Austria",
+        "headline": "Big chance for Austria!",
+        "description": "Austria create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 74,
+        "type": "goal",
+        "team": "Algeria",
+        "headline": "GOAL! Algeria!",
+        "description": "Algeria score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 76,
+        "type": "goal",
+        "team": "Austria",
+        "headline": "GOAL! Austria!",
+        "description": "Austria score to make it 1:2.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 85,
+        "type": "chance",
+        "team": "Austria",
+        "headline": "Big chance for Austria!",
+        "description": "Austria create a great opportunity but fail to convert.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:2.",
+        "score_after": "1:2"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Algeria": 28,
+      "Austria": 24
+    },
+    "fifa_points": {
+      "Algeria": 1464.0,
+      "Austria": 1528.0
+    },
+    "form_last_10_avg_pts": {
+      "Algeria": 1.78,
+      "Austria": 1.84
+    },
+    "win_rate_last_10": {
+      "Algeria": "50%",
+      "Austria": "53%"
+    },
+    "avg_goals_scored": {
+      "Algeria": 1.98,
+      "Austria": 1.56
+    },
+    "avg_goals_conceded": {
+      "Algeria": 1.23,
+      "Austria": 1.35
+    },
+    "clean_sheet_rate": {
+      "Algeria": "29%",
+      "Austria": "28%"
+    },
+    "h2h_last_10": {
+      "Algeria wins": "0%",
+      "draws": "100%",
+      "Austria wins": "0%",
+      "total_h2h_games": 1
+    }
+  }
+}

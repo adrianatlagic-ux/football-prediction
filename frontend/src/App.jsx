@@ -9,13 +9,31 @@ const API_BASE = import.meta.env.DEV ? 'http://127.0.0.1:8000' : ''
 
 const GROUPS = [...new Set(WC2026_FIXTURES.map(f => f.group))].sort()
 
-function todayStr() {
-  const d = new Date()
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+function fixtureDateTime(f) {
+  return new Date(`${f.date}T${f.time}:00`)
 }
 
-const TODAY = todayStr()
-const TODAYS_FIXTURES = WC2026_FIXTURES.filter(f => f.date === TODAY).sort((a, b) => a.time.localeCompare(b.time))
+// "Next Games" = the current matchday window: 15:00 until 06:00 the next morning.
+// Before 06:00 we're still inside last evening's window; otherwise it's today's.
+function nextGamesWindow(now = new Date()) {
+  const start = new Date(now)
+  const end = new Date(now)
+  if (now.getHours() < 6) {
+    start.setDate(start.getDate() - 1)
+    start.setHours(15, 0, 0, 0)
+    end.setHours(6, 0, 0, 0)
+  } else {
+    start.setHours(15, 0, 0, 0)
+    end.setDate(end.getDate() + 1)
+    end.setHours(6, 0, 0, 0)
+  }
+  return [start, end]
+}
+
+const [_NG_START, _NG_END] = nextGamesWindow()
+const NEXT_GAMES = WC2026_FIXTURES
+  .filter(f => { const d = fixtureDateTime(f); return d >= _NG_START && d < _NG_END })
+  .sort((a, b) => fixtureDateTime(a) - fixtureDateTime(b))
 
 const WORST_RANK = Math.max(...Object.values(FIFA_RANKINGS))
 
@@ -44,7 +62,7 @@ function excitementScore(data) {
 function getHotFixture(predictionsById) {
   let best = null
   let bestScore = -Infinity
-  for (const fixture of TODAYS_FIXTURES) {
+  for (const fixture of NEXT_GAMES) {
     const data = predictionsById[fixture.match_id]
     const score = matchQuality(fixture) * 3 + (data ? excitementScore(data) : 0)
     if (score > bestScore) {
@@ -313,6 +331,187 @@ const ANALYZING_STEPS = [
   'Generating match flow & ticker…',
 ]
 
+const BET_STEPS = [
+  'Loading current odds…',
+  'Comparing with model probabilities…',
+  'Calculating expected value…',
+  'Finding the best bet…',
+]
+
+function betOutcomeLabel(b) {
+  if (b.market === 'Handicap +0.5') return <><TeamLabel name={b.team} /> or Draw</>
+  if (b.market === 'Handicap 0.0') return <><TeamLabel name={b.team} /> (Draw No Bet)</>
+  if (b.outcome === 'handicap') return <>{b.market.replace('Handicap ', '')} <TeamLabel name={b.team} /></>
+  if (b.outcome === 'home_win' || b.outcome === 'away_win') return <>Win <TeamLabel name={b.team} /></>
+  if (b.team) return <TeamLabel name={b.team} />
+  if (b.outcome === 'draw') return 'Draw'
+  if (b.outcome === 'Over') return `Over ${b.market.replace('Over/Under ', '')}`
+  if (b.outcome === 'Under') return `Under ${b.market.replace('Over/Under ', '')}`
+  return b.outcome
+}
+
+function marketGroupLabel(market) {
+  if (market === '1X2') return 'Match Result'
+  if (market === 'Handicap +0.5') return 'Double Chance'
+  if (market === 'Handicap 0.0') return 'Draw No Bet'
+  if (market.startsWith('Handicap')) return 'Handicap'
+  return 'Goals'
+}
+
+// Plain-language phrasing of a bet for the Best Bets overview.
+function plainBetPhrase(b) {
+  if (b.outcome === 'home_win' || b.outcome === 'away_win') return <><TeamLabel name={b.team} /> to win</>
+  if (b.outcome === 'draw') return 'Draw'
+  if (b.outcome === 'Over') return `Over ${b.market.replace('Over/Under ', '')} goals`
+  if (b.outcome === 'Under') return `Under ${b.market.replace('Over/Under ', '')} goals`
+  if (b.market === 'Handicap +0.5') return <><TeamLabel name={b.team} /> or Draw (double chance)</>
+  if (b.market === 'Handicap 0.0') return <><TeamLabel name={b.team} /> to win (draw no bet)</>
+  if (b.outcome === 'handicap') return <><TeamLabel name={b.team} /> {b.market.replace('Handicap ', '')} handicap</>
+  return b.market
+}
+
+function SmartBetCard({ betStep, betInfo }) {
+  const analyzing = betStep < BET_STEPS.length
+  if (analyzing) {
+    return (
+      <div className="analyzing-status">
+        <span className="analyzing-spinner" />
+        <span>{BET_STEPS[betStep]}</span>
+      </div>
+    )
+  }
+  if (!betInfo || !betInfo.odds_found) {
+    return (
+      <div className="wm-reveal">
+        <p className="wm-subtle">No current betting odds available for this match.</p>
+      </div>
+    )
+  }
+
+  if (betInfo.in_play) {
+    return (
+      <div className="wm-reveal">
+        <p className="smart-bet-notip">
+          <strong>This match has already kicked off.</strong><br />
+          Odds are now live/in-play and move with the score — our pre-match model can't be
+          meaningfully compared against them anymore. No tip for this one.
+        </p>
+      </div>
+    )
+  }
+
+  const best = betInfo.recommendation
+  const recWarning = betInfo.recommendation_warning
+  const agentEval = betInfo.agent_eval
+  const agentPick = agentEval && agentEval.pick
+  const sameBet = (a, b) => a.market === b.market && a.outcome === b.outcome && a.team === b.team
+  const greens = betInfo.green_bets || []
+  const reds = betInfo.red_bets || []
+
+  const renderRow = (b, i, kind) => {
+    const isRec = best && sameBet(b, best)
+    const isAgentPick = agentPick && sameBet(b, agentPick)
+    return (
+      <div className={`smart-bet-table-row ${kind === 'red' ? 'is-red' : ''} ${isRec ? 'is-rec' : ''}`} key={`${kind}-${i}`}>
+        <span className="smart-bet-col-market">{marketGroupLabel(b.market)}{b.suspicious ? ' ⚠' : ''}</span>
+        <span className="smart-bet-col-pick">{isRec ? '★ ' : ''}{isAgentPick ? '✨ ' : ''}{betOutcomeLabel(b)}</span>
+        <span className="smart-bet-col-odds">{b.best_odds.toFixed(2)}</span>
+        <span className={`smart-bet-col-edge ${b.expected_value >= 0 ? 'positive' : 'negative'}`}>
+          {b.expected_value >= 0 ? '+' : ''}{(b.expected_value * 100).toFixed(0)}%
+        </span>
+        <span className="smart-bet-col-stake">{b.expected_value > 0 ? `${b.kelly_stake_pct}%` : '–'}</span>
+      </div>
+    )
+  }
+
+  return (
+    <div className="wm-reveal smart-bet-card">
+      {best ? (
+        <div className={`smart-bet-best ${recWarning ? 'is-warning' : ''}`}>
+          <span className="smart-bet-label">Top Recommendation</span>
+          <div className="smart-bet-pick">{betOutcomeLabel(best)}</div>
+          <div className="smart-bet-odds-row">
+            <span className="smart-bet-odds">{best.best_odds.toFixed(2)}</span>
+            <span className="smart-bet-edge positive">
+              +{(best.expected_value * 100).toFixed(0)}% edge
+            </span>
+          </div>
+          <div className="smart-bet-best-meta">
+            at {best.bookmaker} · model estimates {(best.probability * 100).toFixed(0)}%
+            {best.market_probability != null && `, market estimates ${(best.market_probability * 100).toFixed(0)}%`}
+          </div>
+          {recWarning ? (
+            <div className="smart-bet-warning">
+              ⚠ High edge with a large deviation from the market — likely a model weakness, not a real tip.
+              Treat with caution.
+            </div>
+          ) : best.kelly_stake_pct > 0 && (
+            <div className="smart-bet-kelly">
+              Recommended stake: <strong>{best.kelly_stake_pct}%</strong> of your bankroll (Quarter-Kelly)
+            </div>
+          )}
+        </div>
+      ) : (
+        <p className="smart-bet-notip">
+          <strong>No clear tip for this match.</strong><br />
+          No bet offers an edge here — better to sit this one out. Odds below for comparison.
+        </p>
+      )}
+
+      {(greens.length > 0 || reds.length > 0) && (
+        <div className="smart-bet-table">
+          <div className="smart-bet-table-head">
+            <span>Market</span>
+            <span>Tip</span>
+            <span>Odds</span>
+            <span>Edge</span>
+            <span>Stake</span>
+          </div>
+          {greens.map((b, i) => renderRow(b, i, 'green'))}
+          {reds.map((b, i) => renderRow(b, i, 'red'))}
+        </div>
+      )}
+
+      {agentEval && (
+        <div className="smart-bet-agent">
+          <div className="smart-bet-agent-headtitle">
+            <span className="smart-bet-agent-tag">✨ AI</span>
+            <span className="smart-bet-agent-headline">{agentEval.bet_headline}</span>
+          </div>
+          {agentPick && (
+            <span className="smart-bet-agent-agree">
+              {agentEval.agrees_with_model ? '✓ agrees with the model' : '↔ differs from the model'}
+            </span>
+          )}
+          <p className="smart-bet-agent-text">{agentEval.bet_reasoning}</p>
+          {agentEval.bet_points.length > 0 && (
+            <ul className="smart-bet-agent-points">
+              {agentEval.bet_points.map((p, i) => <li key={i}>{p}</li>)}
+            </ul>
+          )}
+        </div>
+      )}
+
+      <div className="smart-bet-finePrint">
+        <p><strong>★</strong> top pick by edge. <strong>✨</strong> AI agent's own pick after live research — may agree or differ.</p>
+
+      {[...greens, ...reds].some(b => b.market.startsWith('Handicap')) && (
+        <p>
+          <strong>+0.5</strong> = Double Chance (win/draw). <strong>0.0</strong> = Draw No Bet (stake back on
+          a draw; some books call this "Head-to-Head"). Other numbers = Asian Handicap (win/lose margin).
+        </p>
+      )}
+
+      {[...greens, ...reds].some(b => b.suspicious) && (
+        <p>
+          <strong>⚠</strong> = large edge or model/market gap — likely a model weakness, not a real tip.
+        </p>
+      )}
+      </div>
+    </div>
+  )
+}
+
 function HeadToHeadStat({ label, home, away, suffix = '' }) {
   const total = home + away
   const homePct = total > 0 ? (home / total) * 100 : 50
@@ -336,7 +535,7 @@ function RevealSection({ visible, className = '', children }) {
   return <div className={`wm-reveal ${className}`}>{children}</div>
 }
 
-function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Infinity }) {
+function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Infinity, betStep, onStartBetCheck, betInfo }) {
   const sp = data.score_prediction || {}
   const gf = data.game_flow || {}
   const ps = gf.predicted_stats || {}
@@ -345,7 +544,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
   const show = (n) => revealStep >= n
 
   return (
-    <div className="card wm-card">
+    <div className="card wm-card" id={`match-${matchId}`}>
       <div className="wm-card-header">
         <span className="wm-match-id">
           {fixture ? `${fixture.date} · ${fixture.time}` : matchId}
@@ -453,6 +652,35 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
             </div>
           ))}
         </RevealSection>
+      )}
+
+      {!analyzing && betInfo && betInfo.agent_eval && betInfo.agent_eval.research && (
+        <div className="wm-reveal agent-factors">
+          <h4>✨ External Factors (AI Agent)</h4>
+          {[
+            ['⚕', 'Lineups & injuries', betInfo.agent_eval.research.lineups_injuries],
+            ['📈', 'Form', betInfo.agent_eval.research.form],
+            ['🏆', 'Table situation', betInfo.agent_eval.research.table_situation],
+            ['💬', 'Other', betInfo.agent_eval.research.other],
+          ].filter(([, , text]) => text).map(([icon, label, text]) => (
+            <div className="agent-factors-row" key={label}>
+              <span className="agent-factors-cat">{icon} {label}</span>
+              <p className="agent-factors-text">{text}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {!analyzing && onStartBetCheck && (
+        <div className="smart-bet-section">
+          {betStep === undefined ? (
+            <button className="fixture-generate-btn smart-bet-btn" onClick={onStartBetCheck}>
+              Smart Bet Tip
+            </button>
+          ) : (
+            <SmartBetCard betStep={betStep} betInfo={betInfo} />
+          )}
+        </div>
       )}
     </div>
   )
@@ -952,8 +1180,33 @@ export default function App() {
   const [wmLoading, setWmLoading] = useState(true)
   const [activeGroup, setActiveGroup] = useState(GROUPS[0])
   const [analysisStep, setAnalysisStep] = useState({})
+  const [bestBets, setBestBets] = useState(null)  // null = not loaded, [] = loaded empty
+  const [bestBetsLoading, setBestBetsLoading] = useState(false)
 
-  function startAnalysis(matchId) {
+  async function loadBestBets() {
+    setBestBetsLoading(true)
+    const games = NEXT_GAMES.filter(f => predictionsById[f.match_id])
+    try {
+      const results = await Promise.all(games.map(f =>
+        axios.get(`${API_BASE}/value-bets`, { params: { home_team: f.home_team, away_team: f.away_team } })
+          .then(r => ({ fixture: f, data: r.data })).catch(() => null)
+      ))
+      const clean = results
+        .filter(x => x && x.data.odds_found && x.data.recommendation && !x.data.recommendation_warning)
+        .map(x => ({
+          fixture: x.fixture,
+          rec: x.data.recommendation,
+          commence: x.data.commence_time,
+          agentEval: x.data.agent_eval,
+        }))
+        .sort((a, b) => (a.commence || '').localeCompare(b.commence || ''))
+      setBestBets(clean)
+    } finally {
+      setBestBetsLoading(false)
+    }
+  }
+
+  function startAnalysis(matchId, fixture) {
     setAnalysisStep(prev => ({ ...prev, [matchId]: 0 }))
     let step = 0
     const interval = setInterval(() => {
@@ -961,10 +1214,25 @@ export default function App() {
       if (step >= ANALYZING_STEPS.length) {
         clearInterval(interval)
         setAnalysisStep(prev => ({ ...prev, [matchId]: Infinity }))
+        // Quietly fetch the odds/agent data in the background once the reveal
+        // animation finishes, so the "External Factors" section (and later
+        // the Smart Bet check) has data ready without an extra wait - this is
+        // the same call startBetCheck makes, just not tied to that button.
+        if (fixture) preloadBetInfo(matchId, fixture)
       } else {
         setAnalysisStep(prev => ({ ...prev, [matchId]: step }))
       }
     }, 4200)
+  }
+
+  function preloadBetInfo(matchId, fixture) {
+    setBetInfoById(prev => {
+      if (prev[matchId] !== undefined) return prev
+      axios.get(`${API_BASE}/value-bets`, { params: { home_team: fixture.home_team, away_team: fixture.away_team } })
+        .then(r => setBetInfoById(p => ({ ...p, [matchId]: r.data })))
+        .catch(() => setBetInfoById(p => ({ ...p, [matchId]: { odds_found: false, bets: [] } })))
+      return { ...prev, [matchId]: null }  // null = fetch in flight, distinct from "not started"
+    })
   }
 
   function collapseAnalysis(matchId) {
@@ -973,6 +1241,42 @@ export default function App() {
       delete next[matchId]
       return next
     })
+  }
+
+  const [betStepById, setBetStepById] = useState({})
+  const [betInfoById, setBetInfoById] = useState({})
+
+  function startBetCheck(matchId, fixture) {
+    setBetStepById(prev => ({ ...prev, [matchId]: 0 }))
+    axios.get(`${API_BASE}/value-bets`, { params: { home_team: fixture.home_team, away_team: fixture.away_team } })
+      .then(r => setBetInfoById(prev => ({ ...prev, [matchId]: r.data })))
+      .catch(() => setBetInfoById(prev => ({ ...prev, [matchId]: { odds_found: false, bets: [] } })))
+
+    let step = 0
+    const interval = setInterval(() => {
+      step += 1
+      if (step >= BET_STEPS.length) {
+        clearInterval(interval)
+        setBetStepById(prev => ({ ...prev, [matchId]: Infinity }))
+      } else {
+        setBetStepById(prev => ({ ...prev, [matchId]: step }))
+      }
+    }, 1800)
+  }
+
+  // From the Best Bets tab: jump straight to a match's Smart Bet view.
+  function goToMatchSmartBet(fixture) {
+    setActiveGroup(fixture.group)
+    setAnalysisStep(prev => ({ ...prev, [fixture.match_id]: Infinity }))  // reveal instantly
+    setBetStepById(prev => ({ ...prev, [fixture.match_id]: Infinity }))   // show bets instantly
+    if (betInfoById[fixture.match_id] === undefined) {
+      axios.get(`${API_BASE}/value-bets`, { params: { home_team: fixture.home_team, away_team: fixture.away_team } })
+        .then(r => setBetInfoById(prev => ({ ...prev, [fixture.match_id]: r.data })))
+        .catch(() => setBetInfoById(prev => ({ ...prev, [fixture.match_id]: { odds_found: false, bets: [] } })))
+    }
+    setTimeout(() => {
+      document.getElementById(`match-${fixture.match_id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 120)
   }
 
   useEffect(() => {
@@ -1071,34 +1375,90 @@ export default function App() {
                 >
                   🔥 Hot Game
                 </button>
+                <button
+                  className={`group-tab special-tab ${activeGroup === 'best' ? 'active' : ''}`}
+                  onClick={() => { setActiveGroup('best'); if (bestBets === null && !bestBetsLoading) loadBestBets() }}
+                >
+                  ⭐ Best Bets
+                </button>
                 {GROUPS.map(g => (
                   <button
                     key={g}
                     className={`group-tab ${activeGroup === g ? 'active' : ''}`}
                     onClick={() => setActiveGroup(g)}
                   >
-                    Group {g}
+                    {g.length === 1 ? `Group ${g}` : g}
                   </button>
                 ))}
               </div>
 
               {wmLoading && <p className="wm-subtle">Loading analyses…</p>}
 
-              {activeGroup === 'next' && TODAYS_FIXTURES.length === 0 && (
+              {activeGroup === 'next' && NEXT_GAMES.length === 0 && (
                 <p className="wm-subtle">No matches scheduled for today.</p>
               )}
 
               {activeGroup === 'hot' && (
-                TODAYS_FIXTURES.length === 0
+                NEXT_GAMES.length === 0
                   ? <p className="wm-subtle">No matches scheduled for today.</p>
                   : <p className="wm-subtle hot-game-subtitle">🔥 Today's marquee matchup — the highest-ranked teams in action.</p>
               )}
 
+              {activeGroup === 'best' && (
+                <div className="best-bets-view">
+                  <p className="best-bets-intro">
+                    Our strongest value bets from the next matchday. Each one is a bet where the odds pay
+                    <strong> more</strong> than the outcome's real chance — that's your edge. Place them as
+                    <strong> single bets</strong> (not one combo slip). Tap any card for the full breakdown.
+                  </p>
+                  {bestBetsLoading && <p className="wm-subtle">Scanning the next games…</p>}
+                  {!bestBetsLoading && bestBets && bestBets.length === 0 && (
+                    <div className="best-bets-empty">
+                      <strong>No clear bets right now.</strong> None of the next games offers a reliable edge —
+                      the disciplined move is to sit this round out.
+                      <button className="best-bets-refresh" onClick={loadBestBets}>↻ Refresh</button>
+                    </div>
+                  )}
+                  {!bestBetsLoading && bestBets && bestBets.length > 0 && (
+                    <div className="best-bets-cards">
+                      {bestBets.map((b, i) => {
+                        const r = b.rec
+                        const dt = b.commence ? new Date(b.commence) : fixtureDateTime(b.fixture)
+                        const when = dt.toLocaleString('en-GB', { weekday: 'short', hour: '2-digit', minute: '2-digit' })
+                        return (
+                          <button className="best-bet-card" key={i} onClick={() => goToMatchSmartBet(b.fixture)}>
+                            <div className="best-bet-card-top">
+                              <span className="best-bet-card-match">
+                                <TeamLabel name={b.fixture.home_team} /> v <TeamLabel name={b.fixture.away_team} />
+                              </span>
+                              <span className="best-bet-card-when">{when}</span>
+                            </div>
+                            <div className="best-bet-card-pick">{plainBetPhrase(r)}</div>
+                            <div className="best-bet-card-stats">
+                              <span><span className="bb-stat-label">Odds</span> {r.best_odds.toFixed(2)}</span>
+                              <span><span className="bb-stat-label">Edge</span> <span className="positive">+{(r.expected_value * 100).toFixed(0)}%</span></span>
+                              <span><span className="bb-stat-label">Stake</span> {r.kelly_stake_pct}% of budget</span>
+                            </div>
+                            {b.agentEval && (
+                              <div className="best-bet-card-agent">
+                                ✨ {b.agentEval.agrees_with_model ? 'AI agrees' : 'AI sees it differently'} — {b.agentEval.bet_reasoning}
+                              </div>
+                            )}
+                            <span className="best-bet-card-cta">View full analysis →</span>
+                          </button>
+                        )
+                      })}
+                    </div>
+                  )}
+                </div>
+              )}
+
               <div className="fixtures-list">
                 {(() => {
+                  if (activeGroup === 'best') return null
                   let fixtures
                   if (activeGroup === 'next') {
-                    fixtures = TODAYS_FIXTURES
+                    fixtures = NEXT_GAMES
                   } else if (activeGroup === 'hot') {
                     const hotFixture = getHotFixture(predictionsById)
                     fixtures = hotFixture ? [hotFixture] : []
@@ -1132,7 +1492,7 @@ export default function App() {
                         <FixtureReadyRow
                           key={fixture.match_id}
                           fixture={fixture}
-                          onGenerate={() => startAnalysis(fixture.match_id)}
+                          onGenerate={() => startAnalysis(fixture.match_id, fixture)}
                         />
                       )
                     }
@@ -1144,6 +1504,9 @@ export default function App() {
                         fixture={fixture}
                         revealStep={step}
                         onCollapse={step === Infinity ? () => collapseAnalysis(fixture.match_id) : undefined}
+                        betStep={betStepById[fixture.match_id]}
+                        betInfo={betInfoById[fixture.match_id]}
+                        onStartBetCheck={() => startBetCheck(fixture.match_id, fixture)}
                       />
                     )
                   })

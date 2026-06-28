@@ -3,74 +3,74 @@
   "away_team": "Paraguay",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.5059,
-  "probability_draw": 0.2862,
-  "probability_away_win": 0.208,
+  "probability_home_win": 0.5289,
+  "probability_draw": 0.2735,
+  "probability_away_win": 0.1976,
   "score_prediction": {
-    "home_xg": 1.38,
-    "away_xg": 1.33,
+    "home_xg": 1.33,
+    "away_xg": 1.28,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.5058,
-    "probability_draw": 0.2862,
-    "probability_away_win": 0.208,
+    "probability_home_win": 0.5289,
+    "probability_draw": 0.2735,
+    "probability_away_win": 0.1976,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.116
+        "probability": 0.1211
       },
       {
         "score": "1:0",
-        "probability": 0.1043
+        "probability": 0.1178
       },
       {
         "score": "2:0",
-        "probability": 0.0873
+        "probability": 0.0943
       },
       {
         "score": "3:1",
-        "probability": 0.0536
+        "probability": 0.0538
       },
       {
         "score": "3:0",
-        "probability": 0.0403
+        "probability": 0.0419
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.792,
-        "home_or_away": 0.7138,
-        "draw_or_away": 0.4942
+        "home_or_draw": 0.8024,
+        "home_or_away": 0.7265,
+        "draw_or_away": 0.4711
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.7701,
-          "under": 0.2299
+          "over": 0.7544,
+          "under": 0.2456
         },
         {
           "line": 2.5,
-          "over": 0.5108,
-          "under": 0.4892
+          "over": 0.4944,
+          "under": 0.5056
         },
         {
           "line": 3.5,
-          "over": 0.2896,
-          "under": 0.7104
+          "over": 0.27,
+          "under": 0.73
         }
       ],
       "btts": {
-        "yes": 0.5654,
-        "no": 0.4346
+        "yes": 0.5434,
+        "no": 0.4566
       },
       "win_margin": {
-        "home_1plus": 0.5058,
-        "home_2plus": 0.2438,
-        "home_3plus": 0.089,
-        "away_1plus": 0.208,
-        "away_2plus": 0.097,
-        "away_3plus": 0.0341
+        "home_1plus": 0.5289,
+        "home_2plus": 0.2499,
+        "home_3plus": 0.0889,
+        "away_1plus": 0.1976,
+        "away_2plus": 0.0907,
+        "away_3plus": 0.0311
       },
       "scenario": "Turkey are favored to win."
     }
@@ -79,90 +79,90 @@
     "match_type": "Balanced & Open",
     "match_description": "Both teams play attacking football at an even level",
     "dominance_index": 0.02,
-    "total_xg": 2.71,
+    "total_xg": 2.61,
     "first_goal": {
-      "Turkey_scores_first": 0.475,
-      "Paraguay_scores_first": 0.458,
-      "no_goals": 0.067,
-      "expected_minute": 33
+      "Turkey_scores_first": 0.472,
+      "Paraguay_scores_first": 0.454,
+      "no_goals": 0.074,
+      "expected_minute": 34
     },
     "halftime_xg": {
-      "Turkey": 0.65,
-      "Paraguay": 0.63
+      "Turkey": 0.63,
+      "Paraguay": 0.6
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.28
+        "probability": 0.294
       },
       {
         "score": "1:0",
-        "probability": 0.182
+        "probability": 0.183
       },
       {
         "score": "0:1",
-        "probability": 0.175
+        "probability": 0.177
       },
       {
         "score": "1:1",
-        "probability": 0.114
+        "probability": 0.11
       },
       {
         "score": "2:0",
-        "probability": 0.059
+        "probability": 0.057
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Turkey": 0.186,
-        "Paraguay": 0.18
+        "Turkey": 0.18,
+        "Paraguay": 0.173
       },
       "16-30'": {
-        "Turkey": 0.214,
-        "Paraguay": 0.206
+        "Turkey": 0.206,
+        "Paraguay": 0.198
       },
       "31-45'": {
-        "Turkey": 0.248,
-        "Paraguay": 0.239
+        "Turkey": 0.239,
+        "Paraguay": 0.23
       },
       "46-60'": {
-        "Turkey": 0.2,
-        "Paraguay": 0.193
+        "Turkey": 0.193,
+        "Paraguay": 0.186
       },
       "61-75'": {
-        "Turkey": 0.255,
-        "Paraguay": 0.246
+        "Turkey": 0.246,
+        "Paraguay": 0.237
       },
       "76-90'": {
-        "Turkey": 0.276,
-        "Paraguay": 0.266
+        "Turkey": 0.266,
+        "Paraguay": 0.256
       }
     },
     "comeback_probability": {
-      "Turkey": 0.028,
-      "Paraguay": 0.027
+      "Turkey": 0.026,
+      "Paraguay": 0.025
     },
-    "late_drama_probability": 0.418,
+    "late_drama_probability": 0.407,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.258
+        "wahrscheinlichkeit": 0.263
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.215
+        "wahrscheinlichkeit": 0.222
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "Turkey trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.092
+        "wahrscheinlichkeit": 0.098
       },
       {
         "szenario": "Turkey dominiert früh",
         "beschreibung": "Turkey geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.059
+        "wahrscheinlichkeit": 0.058
       }
     ],
     "predicted_stats": {
@@ -171,8 +171,8 @@
         "away": 49
       },
       "shots": {
-        "home": 14,
-        "away": 13
+        "home": 13,
+        "away": 12
       },
       "shots_on_target": {
         "home": 6,
@@ -272,30 +272,30 @@
       "Paraguay": 1272.0
     },
     "form_last_10_avg_pts": {
-      "Turkey": 1.91,
-      "Paraguay": 1.06
+      "Turkey": 1.66,
+      "Paraguay": 1.39
     },
     "win_rate_last_10": {
-      "Turkey": "60%",
-      "Paraguay": "31%"
+      "Turkey": "52%",
+      "Paraguay": "39%"
     },
     "avg_goals_scored": {
       "Turkey": 1.99,
-      "Paraguay": 1.1
+      "Paraguay": 1.04
     },
     "avg_goals_conceded": {
       "Turkey": 1.35,
-      "Paraguay": 1.78
+      "Paraguay": 1.46
     },
     "clean_sheet_rate": {
       "Turkey": "22%",
-      "Paraguay": "20%"
+      "Paraguay": "34%"
     },
     "h2h_last_10": {
       "Turkey wins": "0%",
       "draws": "0%",
-      "Paraguay wins": "0%",
-      "total_h2h_games": 0
+      "Paraguay wins": "100%",
+      "total_h2h_games": 1
     }
   }
 }

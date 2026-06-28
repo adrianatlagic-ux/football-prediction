@@ -1,177 +1,177 @@
 {
   "home_team": "France",
   "away_team": "Senegal",
-  "prediction": "H",
-  "prediction_label": "Home Win",
-  "probability_home_win": 0.4983,
-  "probability_draw": 0.35,
-  "probability_away_win": 0.1517,
+  "prediction": "D",
+  "prediction_label": "Draw",
+  "probability_home_win": 0.3593,
+  "probability_draw": 0.5021,
+  "probability_away_win": 0.1386,
   "score_prediction": {
-    "home_xg": 1.74,
-    "away_xg": 1.4,
+    "home_xg": 1.86,
+    "away_xg": 1.38,
     "rho": -0.13,
-    "most_likely_score": "2:1",
-    "result": "H",
-    "probability_home_win": 0.4983,
-    "probability_draw": 0.35,
-    "probability_away_win": 0.1517,
+    "most_likely_score": "1:1",
+    "result": "D",
+    "probability_home_win": 0.3593,
+    "probability_draw": 0.5021,
+    "probability_away_win": 0.1386,
     "top_scorelines": [
       {
-        "score": "2:1",
-        "probability": 0.1031
+        "score": "1:1",
+        "probability": 0.2263
       },
       {
-        "score": "2:0",
-        "probability": 0.0737
+        "score": "2:2",
+        "probability": 0.1285
       },
       {
-        "score": "1:0",
-        "probability": 0.0691
+        "score": "0:0",
+        "probability": 0.1041
       },
       {
-        "score": "3:1",
-        "probability": 0.0599
+        "score": "3:3",
+        "probability": 0.0366
       },
       {
-        "score": "3:0",
-        "probability": 0.0428
+        "score": "4:4",
+        "probability": 0.0059
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.8483,
-        "home_or_away": 0.65,
-        "draw_or_away": 0.5017
+        "home_or_draw": 0.8614,
+        "home_or_away": 0.4979,
+        "draw_or_away": 0.6407
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8304,
-          "under": 0.1696
+          "over": 0.8294,
+          "under": 0.1706
         },
         {
           "line": 2.5,
-          "over": 0.5751,
-          "under": 0.4249
+          "over": 0.5329,
+          "under": 0.4671
         },
         {
           "line": 3.5,
-          "over": 0.3813,
-          "under": 0.6187
+          "over": 0.3865,
+          "under": 0.6135
         }
       ],
       "btts": {
-        "yes": 0.6497,
-        "no": 0.3503
+        "yes": 0.6921,
+        "no": 0.3079
       },
       "win_margin": {
-        "home_1plus": 0.4983,
-        "home_2plus": 0.2745,
-        "home_3plus": 0.1193,
-        "away_1plus": 0.1517,
-        "away_2plus": 0.0711,
-        "away_3plus": 0.0254
+        "home_1plus": 0.3593,
+        "home_2plus": 0.2057,
+        "home_3plus": 0.0938,
+        "away_1plus": 0.1386,
+        "away_2plus": 0.0636,
+        "away_3plus": 0.0223
       },
-      "scenario": "France are favored to win, likely by 2+ goals, in a high-scoring game."
+      "scenario": "A close match — a draw is the single most likely outcome."
     }
   },
   "game_flow": {
     "match_type": "Balanced & Open",
     "match_description": "Both teams play attacking football at an even level",
-    "dominance_index": 0.11,
-    "total_xg": 3.14,
+    "dominance_index": 0.15,
+    "total_xg": 3.24,
     "first_goal": {
-      "France_scores_first": 0.53,
-      "Senegal_scores_first": 0.427,
-      "no_goals": 0.043,
-      "expected_minute": 28
+      "France_scores_first": 0.552,
+      "Senegal_scores_first": 0.409,
+      "no_goals": 0.039,
+      "expected_minute": 27
     },
     "halftime_xg": {
-      "France": 0.82,
-      "Senegal": 0.66
+      "France": 0.87,
+      "Senegal": 0.65
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.229
+        "probability": 0.219
       },
       {
         "score": "1:0",
-        "probability": 0.187
+        "probability": 0.191
       },
       {
         "score": "0:1",
-        "probability": 0.151
+        "probability": 0.142
       },
       {
         "score": "1:1",
-        "probability": 0.123
+        "probability": 0.124
       },
       {
         "score": "2:0",
-        "probability": 0.077
+        "probability": 0.084
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "France": 0.235,
-        "Senegal": 0.189
+        "France": 0.251,
+        "Senegal": 0.186
       },
       "16-30'": {
-        "France": 0.27,
-        "Senegal": 0.217
+        "France": 0.288,
+        "Senegal": 0.214
       },
       "31-45'": {
-        "France": 0.313,
-        "Senegal": 0.252
+        "France": 0.335,
+        "Senegal": 0.248
       },
       "46-60'": {
-        "France": 0.252,
-        "Senegal": 0.203
+        "France": 0.27,
+        "Senegal": 0.2
       },
       "61-75'": {
-        "France": 0.322,
-        "Senegal": 0.259
+        "France": 0.344,
+        "Senegal": 0.255
       },
       "76-90'": {
-        "France": 0.348,
-        "Senegal": 0.28
+        "France": 0.372,
+        "Senegal": 0.276
       }
     },
     "comeback_probability": {
-      "France": 0.037,
+      "France": 0.039,
       "Senegal": 0.03
     },
-    "late_drama_probability": 0.466,
+    "late_drama_probability": 0.477,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.233
+        "wahrscheinlichkeit": 0.226
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.188
+        "wahrscheinlichkeit": 0.182
       },
       {
         "szenario": "France dominiert früh",
         "beschreibung": "France geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.078
+        "wahrscheinlichkeit": 0.085
       },
       {
         "szenario": "Senegal dominiert früh",
         "beschreibung": "Senegal geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.05
+        "wahrscheinlichkeit": 0.047
       }
     ],
     "predicted_stats": {
       "possession": {
-        "home": 52,
-        "away": 48
+        "home": 53,
+        "away": 47
       },
       "shots": {
-        "home": 15,
+        "home": 16,
         "away": 13
       },
       "shots_on_target": {
@@ -180,11 +180,11 @@
       },
       "corners": {
         "home": 7,
-        "away": 6
+        "away": 5
       },
       "passes": {
-        "home": 270,
-        "away": 250
+        "home": 276,
+        "away": 244
       }
     },
     "match_ticker": [
@@ -197,7 +197,7 @@
         "score_after": "0:0"
       },
       {
-        "minute": 17,
+        "minute": 16,
         "type": "chance",
         "team": "France",
         "headline": "Big chance for France!",
@@ -205,68 +205,60 @@
         "score_after": "0:0"
       },
       {
-        "minute": 23,
-        "type": "goal",
-        "team": "France",
-        "headline": "GOAL! France!",
-        "description": "France score to make it 1:0.",
-        "score_after": "1:0"
-      },
-      {
-        "minute": 37,
+        "minute": 21,
         "type": "chance",
-        "team": "Senegal",
-        "headline": "Big chance for Senegal!",
-        "description": "Senegal create a great opportunity but fail to convert.",
-        "score_after": "1:0"
+        "team": "France",
+        "headline": "Big chance for France!",
+        "description": "France create a great opportunity but fail to convert.",
+        "score_after": "0:0"
       },
       {
         "minute": 45,
         "type": "halftime",
         "team": null,
         "headline": "Half-time",
-        "description": "The teams go into the break at 1:0.",
-        "score_after": "1:0"
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
       },
       {
-        "minute": 74,
-        "type": "goal",
-        "team": "France",
-        "headline": "GOAL! France!",
-        "description": "France score to make it 2:0.",
-        "score_after": "2:0"
-      },
-      {
-        "minute": 80,
-        "type": "chance",
-        "team": "France",
-        "headline": "Big chance for France!",
-        "description": "France create a great opportunity but fail to convert.",
-        "score_after": "2:0"
-      },
-      {
-        "minute": 81,
-        "type": "chance",
-        "team": "France",
-        "headline": "Big chance for France!",
-        "description": "France create a great opportunity but fail to convert.",
-        "score_after": "2:0"
-      },
-      {
-        "minute": 85,
+        "minute": 47,
         "type": "goal",
         "team": "Senegal",
         "headline": "GOAL! Senegal!",
-        "description": "Senegal score to make it 2:1.",
-        "score_after": "2:1"
+        "description": "Senegal score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 55,
+        "type": "chance",
+        "team": "France",
+        "headline": "Big chance for France!",
+        "description": "France create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 60,
+        "type": "chance",
+        "team": "Senegal",
+        "headline": "Big chance for Senegal!",
+        "description": "Senegal create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 65,
+        "type": "goal",
+        "team": "France",
+        "headline": "GOAL! France!",
+        "description": "France score to make it 1:1.",
+        "score_after": "1:1"
       },
       {
         "minute": 90,
         "type": "fulltime",
         "team": null,
         "headline": "Full-time",
-        "description": "The final score finishes 2:1.",
-        "score_after": "2:1"
+        "description": "The final score finishes 1:1.",
+        "score_after": "1:1"
       }
     ]
   },
@@ -280,24 +272,24 @@
       "Senegal": 1688.0
     },
     "form_last_10_avg_pts": {
-      "France": 2.83,
-      "Senegal": 1.63
+      "France": 2.87,
+      "Senegal": 1.59
     },
     "win_rate_last_10": {
-      "France": "91%",
+      "France": "93%",
       "Senegal": "53%"
     },
     "avg_goals_scored": {
-      "France": 2.38,
-      "Senegal": 2.22
+      "France": 2.68,
+      "Senegal": 2.15
     },
     "avg_goals_conceded": {
-      "France": 1.29,
-      "Senegal": 1.67
+      "France": 1.26,
+      "Senegal": 1.93
     },
     "clean_sheet_rate": {
-      "France": "19%",
-      "Senegal": "36%"
+      "France": "16%",
+      "Senegal": "32%"
     },
     "h2h_last_10": {
       "France wins": "50%",

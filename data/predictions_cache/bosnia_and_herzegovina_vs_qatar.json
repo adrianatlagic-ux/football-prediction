@@ -1,0 +1,309 @@
+{
+  "home_team": "Bosnia and Herzegovina",
+  "away_team": "Qatar",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4644,
+  "probability_draw": 0.2873,
+  "probability_away_win": 0.2482,
+  "score_prediction": {
+    "home_xg": 1.63,
+    "away_xg": 1.95,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.4644,
+    "probability_draw": 0.2873,
+    "probability_away_win": 0.2482,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1063
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0579
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0564
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0546
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0499
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7518,
+        "home_or_away": 0.7127,
+        "draw_or_away": 0.5356
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8793,
+          "under": 0.1207
+        },
+        {
+          "line": 2.5,
+          "over": 0.6755,
+          "under": 0.3245
+        },
+        {
+          "line": 3.5,
+          "over": 0.472,
+          "under": 0.528
+        }
+      ],
+      "btts": {
+        "yes": 0.714,
+        "no": 0.286
+      },
+      "win_margin": {
+        "home_1plus": 0.4644,
+        "home_2plus": 0.2344,
+        "home_3plus": 0.0933,
+        "away_1plus": 0.2482,
+        "away_2plus": 0.1423,
+        "away_3plus": 0.0658
+      },
+      "scenario": "Bosnia and Herzegovina are favored to win, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": -0.09,
+    "total_xg": 3.58,
+    "first_goal": {
+      "Bosnia and Herzegovina_scores_first": 0.443,
+      "Qatar_scores_first": 0.53,
+      "no_goals": 0.028,
+      "expected_minute": 25
+    },
+    "halftime_xg": {
+      "Bosnia and Herzegovina": 0.77,
+      "Qatar": 0.92
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.187
+      },
+      {
+        "score": "0:1",
+        "probability": 0.171
+      },
+      {
+        "score": "1:0",
+        "probability": 0.143
+      },
+      {
+        "score": "1:1",
+        "probability": 0.131
+      },
+      {
+        "score": "0:2",
+        "probability": 0.078
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Bosnia and Herzegovina": 0.22,
+        "Qatar": 0.263
+      },
+      "16-30'": {
+        "Bosnia and Herzegovina": 0.253,
+        "Qatar": 0.302
+      },
+      "31-45'": {
+        "Bosnia and Herzegovina": 0.293,
+        "Qatar": 0.351
+      },
+      "46-60'": {
+        "Bosnia and Herzegovina": 0.236,
+        "Qatar": 0.283
+      },
+      "61-75'": {
+        "Bosnia and Herzegovina": 0.302,
+        "Qatar": 0.361
+      },
+      "76-90'": {
+        "Bosnia and Herzegovina": 0.326,
+        "Qatar": 0.39
+      }
+    },
+    "comeback_probability": {
+      "Bosnia and Herzegovina": 0.037,
+      "Qatar": 0.043
+    },
+    "late_drama_probability": 0.511,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.216
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.162
+      },
+      {
+        "szenario": "Qatar dominiert früh",
+        "beschreibung": "Qatar geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.08
+      },
+      {
+        "szenario": "Bosnia and Herzegovina dominiert früh",
+        "beschreibung": "Bosnia and Herzegovina geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.056
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 48,
+        "away": 52
+      },
+      "shots": {
+        "home": 15,
+        "away": 17
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 7
+      },
+      "corners": {
+        "home": 6,
+        "away": 7
+      },
+      "passes": {
+        "home": 250,
+        "away": 270
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Bosnia and Herzegovina and Qatar is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 6,
+        "type": "chance",
+        "team": "Bosnia and Herzegovina",
+        "headline": "Big chance for Bosnia and Herzegovina!",
+        "description": "Bosnia and Herzegovina create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 13,
+        "type": "chance",
+        "team": "Qatar",
+        "headline": "Big chance for Qatar!",
+        "description": "Qatar create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 15,
+        "type": "goal",
+        "team": "Bosnia and Herzegovina",
+        "headline": "GOAL! Bosnia and Herzegovina!",
+        "description": "Bosnia and Herzegovina score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 49,
+        "type": "goal",
+        "team": "Qatar",
+        "headline": "GOAL! Qatar!",
+        "description": "Qatar score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 69,
+        "type": "goal",
+        "team": "Bosnia and Herzegovina",
+        "headline": "GOAL! Bosnia and Herzegovina!",
+        "description": "Bosnia and Herzegovina score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 73,
+        "type": "chance",
+        "team": "Bosnia and Herzegovina",
+        "headline": "Big chance for Bosnia and Herzegovina!",
+        "description": "Bosnia and Herzegovina create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 79,
+        "type": "chance",
+        "team": "Qatar",
+        "headline": "Big chance for Qatar!",
+        "description": "Qatar create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Bosnia and Herzegovina": 65,
+      "Qatar": 55
+    },
+    "fifa_points": {
+      "Bosnia and Herzegovina": 880.0,
+      "Qatar": 1040.0
+    },
+    "form_last_10_avg_pts": {
+      "Bosnia and Herzegovina": 1.44,
+      "Qatar": 0.44
+    },
+    "win_rate_last_10": {
+      "Bosnia and Herzegovina": "29%",
+      "Qatar": "6%"
+    },
+    "avg_goals_scored": {
+      "Bosnia and Herzegovina": 1.71,
+      "Qatar": 0.59
+    },
+    "avg_goals_conceded": {
+      "Bosnia and Herzegovina": 1.83,
+      "Qatar": 3.08
+    },
+    "clean_sheet_rate": {
+      "Bosnia and Herzegovina": "13%",
+      "Qatar": "0%"
+    },
+    "h2h_last_10": {
+      "Bosnia and Herzegovina wins": "33%",
+      "draws": "33%",
+      "Qatar wins": "33%",
+      "total_h2h_games": 3
+    }
+  }
+}

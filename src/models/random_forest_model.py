@@ -14,7 +14,6 @@ class RandomForestPredictor(BasePredictor):
             n_estimators=n_estimators,
             max_depth=max_depth,
             min_samples_leaf=5,
-            class_weight="balanced",
             random_state=random_state,
             n_jobs=-1,
         )

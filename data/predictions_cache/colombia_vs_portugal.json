@@ -1,0 +1,309 @@
+{
+  "home_team": "Colombia",
+  "away_team": "Portugal",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4172,
+  "probability_draw": 0.2235,
+  "probability_away_win": 0.3594,
+  "score_prediction": {
+    "home_xg": 2.1,
+    "away_xg": 1.66,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.4172,
+    "probability_draw": 0.2235,
+    "probability_away_win": 0.3594,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.0755
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0528
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0454
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0439
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0339
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.6406,
+        "home_or_away": 0.7765,
+        "draw_or_away": 0.5828
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8994,
+          "under": 0.1006
+        },
+        {
+          "line": 2.5,
+          "over": 0.7265,
+          "under": 0.2735
+        },
+        {
+          "line": 3.5,
+          "over": 0.5167,
+          "under": 0.4833
+        }
+      ],
+      "btts": {
+        "yes": 0.7222,
+        "no": 0.2778
+      },
+      "win_margin": {
+        "home_1plus": 0.4172,
+        "home_2plus": 0.2485,
+        "home_3plus": 0.121,
+        "away_1plus": 0.3594,
+        "away_2plus": 0.1808,
+        "away_3plus": 0.0721
+      },
+      "scenario": "Colombia are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.12,
+    "total_xg": 3.76,
+    "first_goal": {
+      "Colombia_scores_first": 0.546,
+      "Portugal_scores_first": 0.431,
+      "no_goals": 0.023,
+      "expected_minute": 23
+    },
+    "halftime_xg": {
+      "Colombia": 0.99,
+      "Portugal": 0.78
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.172
+      },
+      {
+        "score": "1:0",
+        "probability": 0.169
+      },
+      {
+        "score": "0:1",
+        "probability": 0.134
+      },
+      {
+        "score": "1:1",
+        "probability": 0.132
+      },
+      {
+        "score": "2:0",
+        "probability": 0.084
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Colombia": 0.284,
+        "Portugal": 0.224
+      },
+      "16-30'": {
+        "Colombia": 0.326,
+        "Portugal": 0.257
+      },
+      "31-45'": {
+        "Colombia": 0.378,
+        "Portugal": 0.299
+      },
+      "46-60'": {
+        "Colombia": 0.304,
+        "Portugal": 0.241
+      },
+      "61-75'": {
+        "Colombia": 0.389,
+        "Portugal": 0.307
+      },
+      "76-90'": {
+        "Colombia": 0.42,
+        "Portugal": 0.332
+      }
+    },
+    "comeback_probability": {
+      "Colombia": 0.046,
+      "Portugal": 0.037
+    },
+    "late_drama_probability": 0.529,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.208
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.151
+      },
+      {
+        "szenario": "Colombia dominiert früh",
+        "beschreibung": "Colombia geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.085
+      },
+      {
+        "szenario": "Portugal dominiert früh",
+        "beschreibung": "Portugal geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.053
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 52,
+        "away": 48
+      },
+      "shots": {
+        "home": 18,
+        "away": 15
+      },
+      "shots_on_target": {
+        "home": 7,
+        "away": 6
+      },
+      "corners": {
+        "home": 7,
+        "away": 6
+      },
+      "passes": {
+        "home": 270,
+        "away": 250
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Colombia and Portugal is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 14,
+        "type": "goal",
+        "team": "Colombia",
+        "headline": "GOAL! Colombia!",
+        "description": "Colombia score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 23,
+        "type": "chance",
+        "team": "Colombia",
+        "headline": "Big chance for Colombia!",
+        "description": "Colombia create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "chance",
+        "team": "Colombia",
+        "headline": "Big chance for Colombia!",
+        "description": "Colombia create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 46,
+        "type": "goal",
+        "team": "Colombia",
+        "headline": "GOAL! Colombia!",
+        "description": "Colombia score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 68,
+        "type": "chance",
+        "team": "Colombia",
+        "headline": "Big chance for Colombia!",
+        "description": "Colombia create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 79,
+        "type": "chance",
+        "team": "Portugal",
+        "headline": "Big chance for Portugal!",
+        "description": "Portugal create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 90,
+        "type": "goal",
+        "team": "Portugal",
+        "headline": "GOAL! Portugal!",
+        "description": "Portugal score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Colombia": 13,
+      "Portugal": 5
+    },
+    "fifa_points": {
+      "Colombia": 1704.0,
+      "Portugal": 1832.0
+    },
+    "form_last_10_avg_pts": {
+      "Colombia": 1.88,
+      "Portugal": 1.84
+    },
+    "win_rate_last_10": {
+      "Colombia": "55%",
+      "Portugal": "46%"
+    },
+    "avg_goals_scored": {
+      "Colombia": 2.12,
+      "Portugal": 1.24
+    },
+    "avg_goals_conceded": {
+      "Colombia": 1.18,
+      "Portugal": 0.62
+    },
+    "clean_sheet_rate": {
+      "Colombia": "28%",
+      "Portugal": "59%"
+    },
+    "h2h_last_10": {
+      "Colombia wins": "0%",
+      "draws": "100%",
+      "Portugal wins": "0%",
+      "total_h2h_games": 1
+    }
+  }
+}

@@ -3,92 +3,92 @@
   "away_team": "Morocco",
   "prediction": "A",
   "prediction_label": "Away Win",
-  "probability_home_win": 0.1729,
-  "probability_draw": 0.2147,
-  "probability_away_win": 0.6124,
+  "probability_home_win": 0.2179,
+  "probability_draw": 0.2872,
+  "probability_away_win": 0.4949,
   "score_prediction": {
     "home_xg": 0.68,
-    "away_xg": 2.48,
+    "away_xg": 2.45,
     "rho": -0.13,
     "most_likely_score": "0:2",
     "result": "A",
-    "probability_home_win": 0.1729,
-    "probability_draw": 0.2147,
-    "probability_away_win": 0.6124,
+    "probability_home_win": 0.2179,
+    "probability_draw": 0.2872,
+    "probability_away_win": 0.4949,
     "top_scorelines": [
       {
         "score": "0:2",
-        "probability": 0.1059
+        "probability": 0.0863
       },
       {
         "score": "0:3",
-        "probability": 0.0874
+        "probability": 0.0705
       },
       {
         "score": "0:1",
-        "probability": 0.0781
+        "probability": 0.0643
       },
       {
         "score": "1:2",
-        "probability": 0.0717
+        "probability": 0.0586
       },
       {
         "score": "1:3",
-        "probability": 0.0591
+        "probability": 0.0479
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.3876,
-        "home_or_away": 0.7853,
-        "draw_or_away": 0.8271
+        "home_or_draw": 0.5051,
+        "home_or_away": 0.7128,
+        "draw_or_away": 0.7821
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8085,
-          "under": 0.1915
+          "over": 0.7871,
+          "under": 0.2129
         },
         {
           "line": 2.5,
-          "over": 0.5764,
-          "under": 0.4236
+          "over": 0.5336,
+          "under": 0.4664
         },
         {
           "line": 3.5,
-          "over": 0.3539,
-          "under": 0.6461
+          "over": 0.3249,
+          "under": 0.6751
         }
       ],
       "btts": {
-        "yes": 0.4884,
-        "no": 0.5116
+        "yes": 0.5158,
+        "no": 0.4842
       },
       "win_margin": {
-        "home_1plus": 0.1729,
-        "home_2plus": 0.0488,
-        "home_3plus": 0.0092,
-        "away_1plus": 0.6124,
-        "away_2plus": 0.4396,
-        "away_3plus": 0.2607
+        "home_1plus": 0.2179,
+        "home_2plus": 0.0619,
+        "home_3plus": 0.0118,
+        "away_1plus": 0.4949,
+        "away_2plus": 0.3533,
+        "away_3plus": 0.2079
       },
-      "scenario": "Morocco are favored to win, likely by 2+ goals, in a high-scoring game."
+      "scenario": "Morocco are favored to win, likely by 2+ goals."
     }
   },
   "game_flow": {
     "match_type": "One-Sided",
     "match_description": "One team is expected to dominate clearly",
     "dominance_index": -0.57,
-    "total_xg": 3.16,
+    "total_xg": 3.13,
     "first_goal": {
-      "Scotland_scores_first": 0.206,
-      "Morocco_scores_first": 0.752,
-      "no_goals": 0.042,
+      "Scotland_scores_first": 0.208,
+      "Morocco_scores_first": 0.749,
+      "no_goals": 0.044,
       "expected_minute": 28
     },
     "halftime_xg": {
       "Scotland": 0.32,
-      "Morocco": 1.17
+      "Morocco": 1.15
     },
     "top_halftime_scores": [
       {
@@ -97,11 +97,11 @@
       },
       {
         "score": "0:0",
-        "probability": 0.228
+        "probability": 0.231
       },
       {
         "score": "0:2",
-        "probability": 0.155
+        "probability": 0.153
       },
       {
         "score": "1:1",
@@ -109,55 +109,55 @@
       },
       {
         "score": "1:0",
-        "probability": 0.073
+        "probability": 0.074
       }
     ],
     "goal_timing": {
       "1-15'": {
         "Scotland": 0.092,
-        "Morocco": 0.335
+        "Morocco": 0.331
       },
       "16-30'": {
         "Scotland": 0.105,
-        "Morocco": 0.384
+        "Morocco": 0.38
       },
       "31-45'": {
         "Scotland": 0.122,
-        "Morocco": 0.446
+        "Morocco": 0.441
       },
       "46-60'": {
         "Scotland": 0.099,
-        "Morocco": 0.36
+        "Morocco": 0.355
       },
       "61-75'": {
         "Scotland": 0.126,
-        "Morocco": 0.459
+        "Morocco": 0.453
       },
       "76-90'": {
         "Scotland": 0.136,
-        "Morocco": 0.496
+        "Morocco": 0.49
       }
     },
     "comeback_probability": {
       "Scotland": 0.009,
       "Morocco": 0.03
     },
-    "late_drama_probability": 0.468,
+    "late_drama_probability": 0.465,
     "match_stories": [
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.19
+        "wahrscheinlichkeit": 0.191
       },
       {
         "szenario": "Morocco dominiert früh",
         "beschreibung": "Morocco geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.159
+        "wahrscheinlichkeit": 0.157
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "Morocco trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.11
+        "wahrscheinlichkeit": 0.111
       }
     ],
     "predicted_stats": {
@@ -267,30 +267,30 @@
       "Morocco": 1784.0
     },
     "form_last_10_avg_pts": {
-      "Scotland": 1.91,
-      "Morocco": 2.16
+      "Scotland": 1.28,
+      "Morocco": 2.43
     },
     "win_rate_last_10": {
-      "Scotland": "62%",
-      "Morocco": "58%"
+      "Scotland": "43%",
+      "Morocco": "72%"
     },
     "avg_goals_scored": {
       "Scotland": 1.32,
-      "Morocco": 1.76
+      "Morocco": 1.66
     },
     "avg_goals_conceded": {
       "Scotland": 0.82,
-      "Morocco": 0.85
+      "Morocco": 0.65
     },
     "clean_sheet_rate": {
       "Scotland": "55%",
-      "Morocco": "41%"
+      "Morocco": "53%"
     },
     "h2h_last_10": {
       "Scotland wins": "0%",
       "draws": "0%",
       "Morocco wins": "100%",
-      "total_h2h_games": 1
+      "total_h2h_games": 2
     }
   }
 }

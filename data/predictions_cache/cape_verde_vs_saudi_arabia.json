@@ -1,0 +1,285 @@
+{
+  "home_team": "Cape Verde",
+  "away_team": "Saudi Arabia",
+  "prediction": "D",
+  "prediction_label": "Draw",
+  "probability_home_win": 0.3353,
+  "probability_draw": 0.3682,
+  "probability_away_win": 0.2965,
+  "score_prediction": {
+    "home_xg": 1.18,
+    "away_xg": 1.29,
+    "rho": -0.13,
+    "most_likely_score": "1:1",
+    "result": "D",
+    "probability_home_win": 0.3353,
+    "probability_draw": 0.3682,
+    "probability_away_win": 0.2965,
+    "top_scorelines": [
+      {
+        "score": "1:1",
+        "probability": 0.1757
+      },
+      {
+        "score": "0:0",
+        "probability": 0.1225
+      },
+      {
+        "score": "2:2",
+        "probability": 0.0591
+      },
+      {
+        "score": "3:3",
+        "probability": 0.01
+      },
+      {
+        "score": "4:4",
+        "probability": 0.0009
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7035,
+        "home_or_away": 0.6318,
+        "draw_or_away": 0.6647
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7172,
+          "under": 0.2828
+        },
+        {
+          "line": 2.5,
+          "over": 0.4241,
+          "under": 0.5759
+        },
+        {
+          "line": 3.5,
+          "over": 0.2308,
+          "under": 0.7692
+        }
+      ],
+      "btts": {
+        "yes": 0.5321,
+        "no": 0.4679
+      },
+      "win_margin": {
+        "home_1plus": 0.3353,
+        "home_2plus": 0.1466,
+        "home_3plus": 0.0473,
+        "away_1plus": 0.2965,
+        "away_2plus": 0.138,
+        "away_3plus": 0.048
+      },
+      "scenario": "A close match — a draw is the single most likely outcome."
+    }
+  },
+  "game_flow": {
+    "match_type": "Tactically Balanced",
+    "match_description": "A tight game where goals will make the difference",
+    "dominance_index": -0.04,
+    "total_xg": 2.47,
+    "first_goal": {
+      "Cape Verde_scores_first": 0.437,
+      "Saudi Arabia_scores_first": 0.478,
+      "no_goals": 0.085,
+      "expected_minute": 36
+    },
+    "halftime_xg": {
+      "Cape Verde": 0.55,
+      "Saudi Arabia": 0.61
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.313
+      },
+      {
+        "score": "0:1",
+        "probability": 0.19
+      },
+      {
+        "score": "1:0",
+        "probability": 0.174
+      },
+      {
+        "score": "1:1",
+        "probability": 0.105
+      },
+      {
+        "score": "0:2",
+        "probability": 0.058
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Cape Verde": 0.159,
+        "Saudi Arabia": 0.174
+      },
+      "16-30'": {
+        "Cape Verde": 0.183,
+        "Saudi Arabia": 0.2
+      },
+      "31-45'": {
+        "Cape Verde": 0.212,
+        "Saudi Arabia": 0.232
+      },
+      "46-60'": {
+        "Cape Verde": 0.171,
+        "Saudi Arabia": 0.187
+      },
+      "61-75'": {
+        "Cape Verde": 0.218,
+        "Saudi Arabia": 0.239
+      },
+      "76-90'": {
+        "Cape Verde": 0.236,
+        "Saudi Arabia": 0.258
+      }
+    },
+    "comeback_probability": {
+      "Cape Verde": 0.023,
+      "Saudi Arabia": 0.025
+    },
+    "late_drama_probability": 0.39,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.272
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.23
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Saudi Arabia trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.11
+      },
+      {
+        "szenario": "Saudi Arabia dominiert früh",
+        "beschreibung": "Saudi Arabia geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.058
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 49,
+        "away": 51
+      },
+      "shots": {
+        "home": 12,
+        "away": 13
+      },
+      "shots_on_target": {
+        "home": 4,
+        "away": 5
+      },
+      "corners": {
+        "home": 5,
+        "away": 6
+      },
+      "passes": {
+        "home": 255,
+        "away": 265
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Cape Verde and Saudi Arabia is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 19,
+        "type": "chance",
+        "team": "Saudi Arabia",
+        "headline": "Big chance for Saudi Arabia!",
+        "description": "Saudi Arabia create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 47,
+        "type": "chance",
+        "team": "Saudi Arabia",
+        "headline": "Big chance for Saudi Arabia!",
+        "description": "Saudi Arabia create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 48,
+        "type": "goal",
+        "team": "Saudi Arabia",
+        "headline": "GOAL! Saudi Arabia!",
+        "description": "Saudi Arabia score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 55,
+        "type": "goal",
+        "team": "Cape Verde",
+        "headline": "GOAL! Cape Verde!",
+        "description": "Cape Verde score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:1.",
+        "score_after": "1:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Cape Verde": 69,
+      "Saudi Arabia": 61
+    },
+    "fifa_points": {
+      "Cape Verde": 816.0,
+      "Saudi Arabia": 944.0
+    },
+    "form_last_10_avg_pts": {
+      "Cape Verde": 1.26,
+      "Saudi Arabia": 0.65
+    },
+    "win_rate_last_10": {
+      "Cape Verde": "17%",
+      "Saudi Arabia": "11%"
+    },
+    "avg_goals_scored": {
+      "Cape Verde": 1.5,
+      "Saudi Arabia": 0.73
+    },
+    "avg_goals_conceded": {
+      "Cape Verde": 1.35,
+      "Saudi Arabia": 1.58
+    },
+    "clean_sheet_rate": {
+      "Cape Verde": "42%",
+      "Saudi Arabia": "17%"
+    },
+    "h2h_last_10": {
+      "Cape Verde wins": "0%",
+      "draws": "100%",
+      "Saudi Arabia wins": "0%",
+      "total_h2h_games": 1
+    }
+  }
+}

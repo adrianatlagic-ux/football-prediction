@@ -574,5 +574,133 @@
     "home_team": "Croatia",
     "away_team": "Ghana",
     "match_id": "croatia_vs_ghana"
+  },
+  {
+    "group": "Round of 32",
+    "date": "2026-06-28",
+    "time": "21:00",
+    "home_team": "South Africa",
+    "away_team": "Canada",
+    "match_id": "south_africa_vs_canada_r32"
+  },
+  {
+    "group": "Round of 32",
+    "date": "2026-06-29",
+    "time": "19:00",
+    "home_team": "Brazil",
+    "away_team": "Japan",
+    "match_id": "brazil_vs_japan_r32"
+  },
+  {
+    "group": "Round of 32",
+    "date": "2026-06-29",
+    "time": "22:30",
+    "home_team": "Germany",
+    "away_team": "Paraguay",
+    "match_id": "germany_vs_paraguay_r32"
+  },
+  {
+    "group": "Round of 32",
+    "date": "2026-06-30",
+    "time": "03:00",
+    "home_team": "Netherlands",
+    "away_team": "Morocco",
+    "match_id": "netherlands_vs_morocco_r32"
+  },
+  {
+    "group": "Round of 32",
+    "date": "2026-06-30",
+    "time": "19:00",
+    "home_team": "Ivory Coast",
+    "away_team": "Norway",
+    "match_id": "ivory_coast_vs_norway_r32"
+  },
+  {
+    "group": "Round of 32",
+    "date": "2026-06-30",
+    "time": "23:00",
+    "home_team": "France",
+    "away_team": "Sweden",
+    "match_id": "france_vs_sweden_r32"
+  },
+  {
+    "group": "Round of 32",
+    "date": "2026-07-01",
+    "time": "03:00",
+    "home_team": "Mexico",
+    "away_team": "Ecuador",
+    "match_id": "mexico_vs_ecuador_r32"
+  },
+  {
+    "group": "Round of 32",
+    "date": "2026-07-01",
+    "time": "18:00",
+    "home_team": "England",
+    "away_team": "DR Congo",
+    "match_id": "england_vs_dr_congo_r32"
+  },
+  {
+    "group": "Round of 32",
+    "date": "2026-07-01",
+    "time": "22:00",
+    "home_team": "Belgium",
+    "away_team": "Senegal",
+    "match_id": "belgium_vs_senegal_r32"
+  },
+  {
+    "group": "Round of 32",
+    "date": "2026-07-02",
+    "time": "02:00",
+    "home_team": "United States",
+    "away_team": "Bosnia and Herzegovina",
+    "match_id": "united_states_vs_bosnia_and_herzegovina_r32"
+  },
+  {
+    "group": "Round of 32",
+    "date": "2026-07-02",
+    "time": "21:00",
+    "home_team": "Spain",
+    "away_team": "Austria",
+    "match_id": "spain_vs_austria_r32"
+  },
+  {
+    "group": "Round of 32",
+    "date": "2026-07-03",
+    "time": "01:00",
+    "home_team": "Portugal",
+    "away_team": "Croatia",
+    "match_id": "portugal_vs_croatia_r32"
+  },
+  {
+    "group": "Round of 32",
+    "date": "2026-07-03",
+    "time": "05:00",
+    "home_team": "Switzerland",
+    "away_team": "Algeria",
+    "match_id": "switzerland_vs_algeria_r32"
+  },
+  {
+    "group": "Round of 32",
+    "date": "2026-07-03",
+    "time": "20:00",
+    "home_team": "Australia",
+    "away_team": "Egypt",
+    "match_id": "australia_vs_egypt_r32"
+  },
+  {
+    "group": "Round of 32",
+    "date": "2026-07-04",
+    "time": "03:30",
+    "home_team": "Colombia",
+    "away_team": "Ghana",
+    "match_id": "colombia_vs_ghana_r32"
+  },
+  {
+    "group": "Round of 32",
+    "date": "2026-07-04",
+    "time": "05:00",
+    "home_team": "Argentina",
+    "away_team": "Cape Verde",
+    "match_id": "argentina_vs_cape_verde_r32"
   }
 ]

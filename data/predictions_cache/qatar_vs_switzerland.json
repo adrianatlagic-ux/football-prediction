@@ -3,74 +3,74 @@
   "away_team": "Switzerland",
   "prediction": "A",
   "prediction_label": "Away Win",
-  "probability_home_win": 0.1435,
-  "probability_draw": 0.232,
-  "probability_away_win": 0.6245,
+  "probability_home_win": 0.1721,
+  "probability_draw": 0.1465,
+  "probability_away_win": 0.6814,
   "score_prediction": {
-    "home_xg": 1.17,
-    "away_xg": 3.05,
+    "home_xg": 1.07,
+    "away_xg": 3.45,
     "rho": -0.13,
     "most_likely_score": "1:3",
     "result": "A",
-    "probability_home_win": 0.1435,
-    "probability_draw": 0.232,
-    "probability_away_win": 0.6245,
+    "probability_home_win": 0.1721,
+    "probability_draw": 0.1465,
+    "probability_away_win": 0.6814,
     "top_scorelines": [
       {
         "score": "1:3",
-        "probability": 0.0688
-      },
-      {
-        "score": "1:2",
         "probability": 0.0677
       },
       {
         "score": "0:3",
+        "probability": 0.0634
+      },
+      {
+        "score": "1:2",
         "probability": 0.0588
       },
       {
-        "score": "0:2",
-        "probability": 0.0579
+        "score": "1:4",
+        "probability": 0.0584
       },
       {
-        "score": "1:4",
-        "probability": 0.0524
+        "score": "0:2",
+        "probability": 0.0551
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.3755,
-        "home_or_away": 0.768,
-        "draw_or_away": 0.8565
+        "home_or_draw": 0.3186,
+        "home_or_away": 0.8535,
+        "draw_or_away": 0.8279
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.9207,
-          "under": 0.0793
+          "over": 0.9366,
+          "under": 0.0634
         },
         {
           "line": 2.5,
-          "over": 0.7581,
-          "under": 0.2419
+          "over": 0.8099,
+          "under": 0.1901
         },
         {
           "line": 3.5,
-          "over": 0.5849,
-          "under": 0.4151
+          "over": 0.6303,
+          "under": 0.3697
         }
       ],
       "btts": {
-        "yes": 0.6886,
-        "no": 0.3114
+        "yes": 0.6663,
+        "no": 0.3337
       },
       "win_margin": {
-        "home_1plus": 0.1435,
-        "home_2plus": 0.0547,
-        "home_3plus": 0.0158,
-        "away_1plus": 0.6245,
-        "away_2plus": 0.4702,
-        "away_3plus": 0.3043
+        "home_1plus": 0.1721,
+        "home_2plus": 0.0605,
+        "home_3plus": 0.016,
+        "away_1plus": 0.6814,
+        "away_2plus": 0.5454,
+        "away_3plus": 0.3824
       },
       "scenario": "Switzerland are favored to win, likely by 2+ goals, in a high-scoring game."
     }
@@ -78,108 +78,108 @@
   "game_flow": {
     "match_type": "Goal Fest",
     "match_description": "A very open game with plenty of chances expected",
-    "dominance_index": -0.45,
-    "total_xg": 4.22,
+    "dominance_index": -0.53,
+    "total_xg": 4.52,
     "first_goal": {
-      "Qatar_scores_first": 0.273,
-      "Switzerland_scores_first": 0.712,
-      "no_goals": 0.015,
-      "expected_minute": 21
+      "Qatar_scores_first": 0.234,
+      "Switzerland_scores_first": 0.755,
+      "no_goals": 0.011,
+      "expected_minute": 19
     },
     "halftime_xg": {
-      "Qatar": 0.55,
-      "Switzerland": 1.43
+      "Qatar": 0.5,
+      "Switzerland": 1.62
     },
     "top_halftime_scores": [
       {
         "score": "0:1",
-        "probability": 0.2
+        "probability": 0.199
       },
       {
         "score": "0:2",
-        "probability": 0.144
+        "probability": 0.161
       },
       {
         "score": "0:0",
-        "probability": 0.14
+        "probability": 0.123
       },
       {
         "score": "1:1",
-        "probability": 0.11
+        "probability": 0.1
       },
       {
-        "score": "1:2",
-        "probability": 0.079
+        "score": "0:3",
+        "probability": 0.087
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Qatar": 0.158,
-        "Switzerland": 0.412
+        "Qatar": 0.144,
+        "Switzerland": 0.466
       },
       "16-30'": {
-        "Qatar": 0.181,
-        "Switzerland": 0.473
+        "Qatar": 0.166,
+        "Switzerland": 0.535
       },
       "31-45'": {
-        "Qatar": 0.211,
-        "Switzerland": 0.549
+        "Qatar": 0.193,
+        "Switzerland": 0.621
       },
       "46-60'": {
-        "Qatar": 0.17,
-        "Switzerland": 0.442
+        "Qatar": 0.155,
+        "Switzerland": 0.5
       },
       "61-75'": {
-        "Qatar": 0.216,
-        "Switzerland": 0.564
+        "Qatar": 0.198,
+        "Switzerland": 0.638
       },
       "76-90'": {
-        "Qatar": 0.234,
-        "Switzerland": 0.61
+        "Qatar": 0.214,
+        "Switzerland": 0.69
       }
     },
     "comeback_probability": {
-      "Qatar": 0.02,
-      "Switzerland": 0.047
+      "Qatar": 0.015,
+      "Switzerland": 0.044
     },
-    "late_drama_probability": 0.57,
+    "late_drama_probability": 0.595,
     "match_stories": [
       {
         "szenario": "Switzerland dominiert früh",
         "beschreibung": "Switzerland geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.15
+        "wahrscheinlichkeit": 0.171
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.13
+        "wahrscheinlichkeit": 0.118
       },
       {
         "szenario": "Switzerland dreht es noch",
         "beschreibung": "Switzerland liegt zur Halbzeit zurück, dreht das Spiel in H2",
-        "wahrscheinlichkeit": 0.047
+        "wahrscheinlichkeit": 0.044
       }
     ],
     "predicted_stats": {
       "possession": {
-        "home": 42,
-        "away": 58
+        "home": 41,
+        "away": 59
       },
       "shots": {
-        "home": 12,
-        "away": 24
+        "home": 11,
+        "away": 26
       },
       "shots_on_target": {
         "home": 4,
-        "away": 10
+        "away": 11
       },
       "corners": {
         "home": 5,
-        "away": 10
+        "away": 11
       },
       "passes": {
-        "home": 218,
-        "away": 302
+        "home": 213,
+        "away": 307
       }
     },
     "match_ticker": [
@@ -210,9 +210,9 @@
       {
         "minute": 39,
         "type": "chance",
-        "team": "Qatar",
-        "headline": "Big chance for Qatar!",
-        "description": "Qatar create a great opportunity but fail to convert.",
+        "team": "Switzerland",
+        "headline": "Big chance for Switzerland!",
+        "description": "Switzerland create a great opportunity but fail to convert.",
         "score_after": "0:1"
       },
       {
@@ -283,23 +283,23 @@
       "Switzerland": 1608.0
     },
     "form_last_10_avg_pts": {
-      "Qatar": 0.63,
-      "Switzerland": 1.7
+      "Qatar": 0.44,
+      "Switzerland": 1.87
     },
     "win_rate_last_10": {
-      "Qatar": "8%",
-      "Switzerland": "41%"
+      "Qatar": "6%",
+      "Switzerland": "49%"
     },
     "avg_goals_scored": {
-      "Qatar": 0.65,
+      "Qatar": 0.59,
       "Switzerland": 1.33
     },
     "avg_goals_conceded": {
-      "Qatar": 2.24,
+      "Qatar": 3.08,
       "Switzerland": 0.79
     },
     "clean_sheet_rate": {
-      "Qatar": "6%",
+      "Qatar": "0%",
       "Switzerland": "45%"
     },
     "h2h_last_10": {

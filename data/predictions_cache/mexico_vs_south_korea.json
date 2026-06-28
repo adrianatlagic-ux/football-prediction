@@ -3,74 +3,74 @@
   "away_team": "South Korea",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.6669,
-  "probability_draw": 0.2019,
-  "probability_away_win": 0.1311,
+  "probability_home_win": 0.6665,
+  "probability_draw": 0.1902,
+  "probability_away_win": 0.1433,
   "score_prediction": {
-    "home_xg": 1.64,
-    "away_xg": 1.26,
+    "home_xg": 1.6,
+    "away_xg": 1.2,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.667,
-    "probability_draw": 0.2019,
-    "probability_away_win": 0.1311,
+    "probability_home_win": 0.6665,
+    "probability_draw": 0.1902,
+    "probability_away_win": 0.1433,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.139
+        "probability": 0.1377
       },
       {
         "score": "1:0",
-        "probability": 0.1125
+        "probability": 0.1212
       },
       {
         "score": "2:0",
-        "probability": 0.1101
+        "probability": 0.115
       },
       {
         "score": "3:1",
-        "probability": 0.0759
+        "probability": 0.0736
       },
       {
         "score": "3:0",
-        "probability": 0.0601
+        "probability": 0.0614
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.8689,
-        "home_or_away": 0.7981,
-        "draw_or_away": 0.333
+        "home_or_draw": 0.8567,
+        "home_or_away": 0.8098,
+        "draw_or_away": 0.3335
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8097,
-          "under": 0.1903
+          "over": 0.7962,
+          "under": 0.2038
         },
         {
           "line": 2.5,
-          "over": 0.5839,
-          "under": 0.4161
+          "over": 0.5677,
+          "under": 0.4323
         },
         {
           "line": 3.5,
-          "over": 0.3426,
-          "under": 0.6574
+          "over": 0.3223,
+          "under": 0.6777
         }
       ],
       "btts": {
-        "yes": 0.5715,
-        "no": 0.4285
+        "yes": 0.5487,
+        "no": 0.4513
       },
       "win_margin": {
-        "home_1plus": 0.667,
-        "home_2plus": 0.3583,
-        "home_3plus": 0.1498,
-        "away_1plus": 0.1311,
-        "away_2plus": 0.0578,
-        "away_3plus": 0.0191
+        "home_1plus": 0.6665,
+        "home_2plus": 0.3558,
+        "home_3plus": 0.147,
+        "away_1plus": 0.1433,
+        "away_2plus": 0.0617,
+        "away_3plus": 0.0197
       },
       "scenario": "Mexico are favored to win, in a high-scoring game."
     }
@@ -78,34 +78,34 @@
   "game_flow": {
     "match_type": "Balanced & Open",
     "match_description": "Both teams play attacking football at an even level",
-    "dominance_index": 0.13,
-    "total_xg": 2.9,
+    "dominance_index": 0.14,
+    "total_xg": 2.8,
     "first_goal": {
-      "Mexico_scores_first": 0.534,
-      "South Korea_scores_first": 0.411,
-      "no_goals": 0.055,
-      "expected_minute": 31
+      "Mexico_scores_first": 0.537,
+      "South Korea_scores_first": 0.403,
+      "no_goals": 0.061,
+      "expected_minute": 32
     },
     "halftime_xg": {
-      "Mexico": 0.77,
-      "South Korea": 0.59
+      "Mexico": 0.75,
+      "South Korea": 0.56
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.256
+        "probability": 0.269
       },
       {
         "score": "1:0",
-        "probability": 0.198
+        "probability": 0.202
       },
       {
         "score": "0:1",
-        "probability": 0.152
+        "probability": 0.151
       },
       {
         "score": "1:1",
-        "probability": 0.117
+        "probability": 0.114
       },
       {
         "score": "2:0",
@@ -114,50 +114,50 @@
     ],
     "goal_timing": {
       "1-15'": {
-        "Mexico": 0.221,
-        "South Korea": 0.17
+        "Mexico": 0.216,
+        "South Korea": 0.162
       },
       "16-30'": {
-        "Mexico": 0.254,
-        "South Korea": 0.195
+        "Mexico": 0.248,
+        "South Korea": 0.186
       },
       "31-45'": {
-        "Mexico": 0.295,
-        "South Korea": 0.227
+        "Mexico": 0.288,
+        "South Korea": 0.216
       },
       "46-60'": {
-        "Mexico": 0.238,
-        "South Korea": 0.183
+        "Mexico": 0.232,
+        "South Korea": 0.174
       },
       "61-75'": {
-        "Mexico": 0.303,
-        "South Korea": 0.233
+        "Mexico": 0.296,
+        "South Korea": 0.222
       },
       "76-90'": {
-        "Mexico": 0.328,
-        "South Korea": 0.252
+        "Mexico": 0.32,
+        "South Korea": 0.24
       }
     },
     "comeback_probability": {
-      "Mexico": 0.033,
-      "South Korea": 0.026
+      "Mexico": 0.032,
+      "South Korea": 0.024
     },
-    "late_drama_probability": 0.44,
+    "late_drama_probability": 0.429,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.243
+        "wahrscheinlichkeit": 0.247
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.203
+        "wahrscheinlichkeit": 0.21
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "Mexico trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.091
+        "wahrscheinlichkeit": 0.098
       },
       {
         "szenario": "Mexico dominiert früh",
@@ -167,24 +167,24 @@
     ],
     "predicted_stats": {
       "possession": {
-        "home": 52,
-        "away": 48
+        "home": 53,
+        "away": 47
       },
       "shots": {
-        "home": 15,
+        "home": 14,
         "away": 12
       },
       "shots_on_target": {
-        "home": 6,
-        "away": 5
+        "home": 5,
+        "away": 4
       },
       "corners": {
         "home": 6,
         "away": 5
       },
       "passes": {
-        "home": 270,
-        "away": 250
+        "home": 276,
+        "away": 244
       }
     },
     "match_ticker": [
@@ -205,14 +205,6 @@
         "score_after": "1:0"
       },
       {
-        "minute": 19,
-        "type": "chance",
-        "team": "Mexico",
-        "headline": "Big chance for Mexico!",
-        "description": "Mexico create a great opportunity but fail to convert.",
-        "score_after": "1:0"
-      },
-      {
         "minute": 22,
         "type": "chance",
         "team": "Mexico",
@@ -229,7 +221,7 @@
         "score_after": "1:0"
       },
       {
-        "minute": 53,
+        "minute": 46,
         "type": "chance",
         "team": "South Korea",
         "headline": "Big chance for South Korea!",
@@ -245,19 +237,19 @@
         "score_after": "1:1"
       },
       {
+        "minute": 68,
+        "type": "chance",
+        "team": "Mexico",
+        "headline": "Big chance for Mexico!",
+        "description": "Mexico create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
         "minute": 81,
         "type": "goal",
         "team": "Mexico",
         "headline": "GOAL! Mexico!",
         "description": "Mexico score to make it 2:1.",
-        "score_after": "2:1"
-      },
-      {
-        "minute": 85,
-        "type": "chance",
-        "team": "Mexico",
-        "headline": "Big chance for Mexico!",
-        "description": "Mexico create a great opportunity but fail to convert.",
         "score_after": "2:1"
       },
       {
@@ -280,30 +272,30 @@
       "South Korea": 1512.0
     },
     "form_last_10_avg_pts": {
-      "Mexico": 2.3,
-      "South Korea": 1.96
+      "Mexico": 2.48,
+      "South Korea": 1.33
     },
     "win_rate_last_10": {
-      "Mexico": "68%",
-      "South Korea": "63%"
+      "Mexico": "77%",
+      "South Korea": "44%"
     },
     "avg_goals_scored": {
       "Mexico": 1.24,
-      "South Korea": 1.65
+      "South Korea": 0.86
     },
     "avg_goals_conceded": {
       "Mexico": 0.54,
-      "South Korea": 1.25
+      "South Korea": 1.23
     },
     "clean_sheet_rate": {
       "Mexico": "58%",
-      "South Korea": "33%"
+      "South Korea": "21%"
     },
     "h2h_last_10": {
-      "Mexico wins": "44%",
-      "draws": "33%",
-      "South Korea wins": "22%",
-      "total_h2h_games": 9
+      "Mexico wins": "50%",
+      "draws": "30%",
+      "South Korea wins": "20%",
+      "total_h2h_games": 10
     }
   }
 }

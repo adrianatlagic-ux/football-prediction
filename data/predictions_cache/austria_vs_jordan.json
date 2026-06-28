@@ -3,74 +3,74 @@
   "away_team": "Jordan",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.6351,
-  "probability_draw": 0.2571,
-  "probability_away_win": 0.1078,
+  "probability_home_win": 0.6808,
+  "probability_draw": 0.2025,
+  "probability_away_win": 0.1167,
   "score_prediction": {
-    "home_xg": 2.57,
-    "away_xg": 1.09,
+    "home_xg": 2.73,
+    "away_xg": 1.11,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.6351,
-    "probability_draw": 0.2571,
-    "probability_away_win": 0.1078,
+    "probability_home_win": 0.6808,
+    "probability_draw": 0.2025,
+    "probability_away_win": 0.1167,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.0864
-      },
-      {
-        "score": "2:0",
-        "probability": 0.079
+        "probability": 0.0861
       },
       {
         "score": "3:1",
-        "probability": 0.074
+        "probability": 0.0782
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0778
       },
       {
         "score": "3:0",
-        "probability": 0.0677
+        "probability": 0.0707
       },
       {
-        "score": "1:0",
-        "probability": 0.0528
+        "score": "4:1",
+        "probability": 0.0533
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.8922,
-        "home_or_away": 0.7429,
-        "draw_or_away": 0.3649
+        "home_or_draw": 0.8833,
+        "home_or_away": 0.7975,
+        "draw_or_away": 0.3192
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.883,
-          "under": 0.117
+          "over": 0.9008,
+          "under": 0.0992
         },
         {
           "line": 2.5,
-          "over": 0.6788,
-          "under": 0.3212
+          "over": 0.7239,
+          "under": 0.2761
         },
         {
           "line": 3.5,
-          "over": 0.4878,
-          "under": 0.5122
+          "over": 0.5275,
+          "under": 0.4725
         }
       ],
       "btts": {
-        "yes": 0.6376,
-        "no": 0.3624
+        "yes": 0.6405,
+        "no": 0.3595
       },
       "win_margin": {
-        "home_1plus": 0.6351,
-        "home_2plus": 0.4446,
-        "home_3plus": 0.2601,
-        "away_1plus": 0.1078,
-        "away_2plus": 0.0408,
-        "away_3plus": 0.0114
+        "home_1plus": 0.6808,
+        "home_2plus": 0.4897,
+        "home_3plus": 0.2975,
+        "away_1plus": 0.1167,
+        "away_2plus": 0.0441,
+        "away_3plus": 0.0124
       },
       "scenario": "Austria are favored to win, likely by 2+ goals, in a high-scoring game."
     }
@@ -78,108 +78,108 @@
   "game_flow": {
     "match_type": "Goal Fest",
     "match_description": "A very open game with plenty of chances expected",
-    "dominance_index": 0.4,
-    "total_xg": 3.66,
+    "dominance_index": 0.42,
+    "total_xg": 3.84,
     "first_goal": {
-      "Austria_scores_first": 0.684,
-      "Jordan_scores_first": 0.29,
-      "no_goals": 0.026,
-      "expected_minute": 24
+      "Austria_scores_first": 0.696,
+      "Jordan_scores_first": 0.283,
+      "no_goals": 0.021,
+      "expected_minute": 23
     },
     "halftime_xg": {
-      "Austria": 1.21,
-      "Jordan": 0.51
+      "Austria": 1.28,
+      "Jordan": 0.52
     },
     "top_halftime_scores": [
       {
         "score": "1:0",
-        "probability": 0.218
+        "probability": 0.213
       },
       {
         "score": "0:0",
-        "probability": 0.181
+        "probability": 0.166
       },
       {
         "score": "2:0",
-        "probability": 0.132
+        "probability": 0.137
       },
       {
         "score": "1:1",
-        "probability": 0.112
+        "probability": 0.111
       },
       {
         "score": "0:1",
-        "probability": 0.092
+        "probability": 0.087
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Austria": 0.347,
-        "Jordan": 0.147
+        "Austria": 0.369,
+        "Jordan": 0.15
       },
       "16-30'": {
-        "Austria": 0.398,
-        "Jordan": 0.169
+        "Austria": 0.423,
+        "Jordan": 0.172
       },
       "31-45'": {
-        "Austria": 0.463,
-        "Jordan": 0.196
+        "Austria": 0.491,
+        "Jordan": 0.2
       },
       "46-60'": {
-        "Austria": 0.373,
-        "Jordan": 0.158
+        "Austria": 0.396,
+        "Jordan": 0.161
       },
       "61-75'": {
-        "Austria": 0.475,
-        "Jordan": 0.202
+        "Austria": 0.505,
+        "Jordan": 0.205
       },
       "76-90'": {
-        "Austria": 0.514,
-        "Jordan": 0.218
+        "Austria": 0.546,
+        "Jordan": 0.222
       }
     },
     "comeback_probability": {
-      "Austria": 0.043,
+      "Austria": 0.045,
       "Jordan": 0.02
     },
-    "late_drama_probability": 0.519,
+    "late_drama_probability": 0.536,
     "match_stories": [
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.159
+        "wahrscheinlichkeit": 0.149
       },
       {
         "szenario": "Austria dominiert früh",
         "beschreibung": "Austria geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.136
+        "wahrscheinlichkeit": 0.142
       },
       {
         "szenario": "Austria dreht es noch",
         "beschreibung": "Austria liegt zur Halbzeit zurück, dreht das Spiel in H2",
-        "wahrscheinlichkeit": 0.043
+        "wahrscheinlichkeit": 0.045
       }
     ],
     "predicted_stats": {
       "possession": {
-        "home": 57,
-        "away": 43
+        "home": 58,
+        "away": 42
       },
       "shots": {
-        "home": 21,
+        "home": 22,
         "away": 11
       },
       "shots_on_target": {
-        "home": 8,
+        "home": 9,
         "away": 4
       },
       "corners": {
-        "home": 8,
+        "home": 9,
         "away": 5
       },
       "passes": {
-        "home": 296,
-        "away": 224
+        "home": 302,
+        "away": 218
       }
     },
     "match_ticker": [
@@ -275,23 +275,23 @@
       "Jordan": 912.0
     },
     "form_last_10_avg_pts": {
-      "Austria": 2.51,
-      "Jordan": 1.24
+      "Austria": 1.84,
+      "Jordan": 0.7
     },
     "win_rate_last_10": {
-      "Austria": "80%",
-      "Jordan": "33%"
+      "Austria": "53%",
+      "Jordan": "17%"
     },
     "avg_goals_scored": {
-      "Austria": 1.69,
+      "Austria": 1.56,
       "Jordan": 1.65
     },
     "avg_goals_conceded": {
-      "Austria": 0.86,
+      "Austria": 1.35,
       "Jordan": 2.12
     },
     "clean_sheet_rate": {
-      "Austria": "37%",
+      "Austria": "28%",
       "Jordan": "26%"
     },
     "h2h_last_10": {

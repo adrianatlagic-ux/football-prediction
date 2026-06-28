@@ -3,74 +3,74 @@
   "away_team": "Panama",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.4532,
-  "probability_draw": 0.3168,
-  "probability_away_win": 0.2299,
+  "probability_home_win": 0.3695,
+  "probability_draw": 0.3593,
+  "probability_away_win": 0.2712,
   "score_prediction": {
-    "home_xg": 1.07,
-    "away_xg": 2.17,
+    "home_xg": 1.09,
+    "away_xg": 2.09,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.4532,
-    "probability_draw": 0.3168,
-    "probability_away_win": 0.2299,
+    "probability_home_win": 0.3695,
+    "probability_draw": 0.3593,
+    "probability_away_win": 0.2712,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.1333
+        "probability": 0.1069
       },
       {
         "score": "1:0",
-        "probability": 0.0821
+        "probability": 0.0679
       },
       {
         "score": "2:0",
-        "probability": 0.0614
+        "probability": 0.051
       },
       {
         "score": "3:2",
-        "probability": 0.0518
+        "probability": 0.0409
       },
       {
         "score": "3:1",
-        "probability": 0.0477
+        "probability": 0.039
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.7701,
-        "home_or_away": 0.6832,
-        "draw_or_away": 0.5468
+        "home_or_draw": 0.7288,
+        "home_or_away": 0.6407,
+        "draw_or_away": 0.6305
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.818,
-          "under": 0.182
+          "over": 0.8143,
+          "under": 0.1857
         },
         {
           "line": 2.5,
-          "over": 0.5757,
-          "under": 0.4243
+          "over": 0.5553,
+          "under": 0.4447
         },
         {
           "line": 3.5,
-          "over": 0.3584,
-          "under": 0.6416
+          "over": 0.3554,
+          "under": 0.6446
         }
       ],
       "btts": {
-        "yes": 0.6452,
-        "no": 0.3548
+        "yes": 0.6431,
+        "no": 0.3569
       },
       "win_margin": {
-        "home_1plus": 0.4532,
-        "home_2plus": 0.1749,
-        "home_3plus": 0.0495,
-        "away_1plus": 0.2299,
-        "away_2plus": 0.1477,
-        "away_3plus": 0.0772
+        "home_1plus": 0.3695,
+        "home_2plus": 0.1448,
+        "home_3plus": 0.0417,
+        "away_1plus": 0.2712,
+        "away_2plus": 0.1706,
+        "away_3plus": 0.0868
       },
       "scenario": "Ghana are favored to win, in a high-scoring game."
     }
@@ -78,91 +78,91 @@
   "game_flow": {
     "match_type": "Balanced & Open",
     "match_description": "Both teams play attacking football at an even level",
-    "dominance_index": -0.34,
-    "total_xg": 3.24,
+    "dominance_index": -0.31,
+    "total_xg": 3.18,
     "first_goal": {
-      "Ghana_scores_first": 0.317,
-      "Panama_scores_first": 0.644,
-      "no_goals": 0.039,
-      "expected_minute": 27
+      "Ghana_scores_first": 0.329,
+      "Panama_scores_first": 0.63,
+      "no_goals": 0.042,
+      "expected_minute": 28
     },
     "halftime_xg": {
-      "Ghana": 0.5,
-      "Panama": 1.02
+      "Ghana": 0.51,
+      "Panama": 0.98
     },
     "top_halftime_scores": [
       {
-        "score": "0:1",
-        "probability": 0.223
-      },
-      {
         "score": "0:0",
-        "probability": 0.219
+        "probability": 0.225
       },
       {
-        "score": "0:2",
-        "probability": 0.114
-      },
-      {
-        "score": "1:1",
-        "probability": 0.112
+        "score": "0:1",
+        "probability": 0.221
       },
       {
         "score": "1:0",
-        "probability": 0.11
+        "probability": 0.115
+      },
+      {
+        "score": "1:1",
+        "probability": 0.113
+      },
+      {
+        "score": "0:2",
+        "probability": 0.109
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Ghana": 0.144,
-        "Panama": 0.293
+        "Ghana": 0.147,
+        "Panama": 0.282
       },
       "16-30'": {
-        "Ghana": 0.166,
-        "Panama": 0.336
+        "Ghana": 0.169,
+        "Panama": 0.324
       },
       "31-45'": {
-        "Ghana": 0.193,
-        "Panama": 0.391
+        "Ghana": 0.196,
+        "Panama": 0.376
       },
       "46-60'": {
-        "Ghana": 0.155,
-        "Panama": 0.315
+        "Ghana": 0.158,
+        "Panama": 0.303
       },
       "61-75'": {
-        "Ghana": 0.198,
-        "Panama": 0.401
+        "Ghana": 0.202,
+        "Panama": 0.387
       },
       "76-90'": {
-        "Ghana": 0.214,
-        "Panama": 0.434
+        "Ghana": 0.218,
+        "Panama": 0.418
       }
     },
     "comeback_probability": {
-      "Ghana": 0.02,
-      "Panama": 0.039
+      "Ghana": 0.021,
+      "Panama": 0.038
     },
-    "late_drama_probability": 0.477,
+    "late_drama_probability": 0.471,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.201
+        "wahrscheinlichkeit": 0.208
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.183
+        "wahrscheinlichkeit": 0.186
       },
       {
         "szenario": "Panama dominiert früh",
         "beschreibung": "Panama geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.116
+        "wahrscheinlichkeit": 0.11
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "Panama trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.087
+        "wahrscheinlichkeit": 0.089
       }
     ],
     "predicted_stats": {
@@ -280,23 +280,23 @@
       "Panama": 1384.0
     },
     "form_last_10_avg_pts": {
-      "Ghana": 1.16,
-      "Panama": 1.22
+      "Ghana": 0.86,
+      "Panama": 0.77
     },
     "win_rate_last_10": {
-      "Ghana": "37%",
-      "Panama": "32%"
+      "Ghana": "24%",
+      "Panama": "21%"
     },
     "avg_goals_scored": {
-      "Ghana": 1.25,
+      "Ghana": 0.97,
       "Panama": 1.27
     },
     "avg_goals_conceded": {
-      "Ghana": 1.8,
+      "Ghana": 1.62,
       "Panama": 1.59
     },
     "clean_sheet_rate": {
-      "Ghana": "20%",
+      "Ghana": "27%",
       "Panama": "25%"
     },
     "h2h_last_10": {

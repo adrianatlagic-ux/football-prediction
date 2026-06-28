@@ -1,163 +1,163 @@
 {
   "home_team": "Haiti",
   "away_team": "Scotland",
-  "prediction": "H",
-  "prediction_label": "Home Win",
-  "probability_home_win": 0.3827,
-  "probability_draw": 0.2748,
-  "probability_away_win": 0.3425,
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.1829,
+  "probability_draw": 0.2046,
+  "probability_away_win": 0.6125,
   "score_prediction": {
-    "home_xg": 1.12,
-    "away_xg": 2.27,
+    "home_xg": 1.16,
+    "away_xg": 2.35,
     "rho": -0.13,
-    "most_likely_score": "2:1",
-    "result": "H",
-    "probability_home_win": 0.3827,
-    "probability_draw": 0.2748,
-    "probability_away_win": 0.3425,
+    "most_likely_score": "1:2",
+    "result": "A",
+    "probability_home_win": 0.1829,
+    "probability_draw": 0.2046,
+    "probability_away_win": 0.6125,
     "top_scorelines": [
       {
-        "score": "2:1",
-        "probability": 0.1118
+        "score": "1:2",
+        "probability": 0.0936
       },
       {
-        "score": "1:0",
-        "probability": 0.0624
+        "score": "0:2",
+        "probability": 0.081
       },
       {
-        "score": "2:0",
-        "probability": 0.0493
+        "score": "1:3",
+        "probability": 0.0732
       },
       {
-        "score": "3:2",
-        "probability": 0.0471
+        "score": "0:3",
+        "probability": 0.0633
       },
       {
-        "score": "3:1",
-        "probability": 0.0416
+        "score": "0:1",
+        "probability": 0.0586
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.6575,
-        "home_or_away": 0.7252,
-        "draw_or_away": 0.6173
+        "home_or_draw": 0.3875,
+        "home_or_away": 0.7954,
+        "draw_or_away": 0.8171
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8431,
-          "under": 0.1569
+          "over": 0.8742,
+          "under": 0.1258
         },
         {
           "line": 2.5,
-          "over": 0.6212,
-          "under": 0.3788
+          "over": 0.68,
+          "under": 0.32
         },
         {
           "line": 3.5,
-          "over": 0.401,
-          "under": 0.599
+          "over": 0.4616,
+          "under": 0.5384
         }
       ],
       "btts": {
-        "yes": 0.6497,
-        "no": 0.3503
+        "yes": 0.6311,
+        "no": 0.3689
       },
       "win_margin": {
-        "home_1plus": 0.3827,
-        "home_2plus": 0.1499,
-        "home_3plus": 0.0435,
-        "away_1plus": 0.3425,
-        "away_2plus": 0.2244,
-        "away_3plus": 0.1204
+        "home_1plus": 0.1829,
+        "home_2plus": 0.0728,
+        "home_3plus": 0.0217,
+        "away_1plus": 0.6125,
+        "away_2plus": 0.407,
+        "away_3plus": 0.223
       },
-      "scenario": "Haiti are favored to win, in a high-scoring game."
+      "scenario": "Scotland are favored to win, likely by 2+ goals, in a high-scoring game."
     }
   },
   "game_flow": {
-    "match_type": "Balanced & Open",
-    "match_description": "Both teams play attacking football at an even level",
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
     "dominance_index": -0.34,
-    "total_xg": 3.39,
+    "total_xg": 3.51,
     "first_goal": {
-      "Haiti_scores_first": 0.319,
-      "Scotland_scores_first": 0.647,
-      "no_goals": 0.034,
-      "expected_minute": 26
+      "Haiti_scores_first": 0.321,
+      "Scotland_scores_first": 0.649,
+      "no_goals": 0.03,
+      "expected_minute": 25
     },
     "halftime_xg": {
-      "Haiti": 0.53,
-      "Scotland": 1.07
+      "Haiti": 0.55,
+      "Scotland": 1.1
     },
     "top_halftime_scores": [
       {
         "score": "0:1",
-        "probability": 0.218
+        "probability": 0.213
       },
       {
         "score": "0:0",
-        "probability": 0.204
+        "probability": 0.193
       },
       {
         "score": "0:2",
-        "probability": 0.116
+        "probability": 0.118
       },
       {
         "score": "1:1",
-        "probability": 0.115
+        "probability": 0.116
       },
       {
         "score": "1:0",
-        "probability": 0.108
+        "probability": 0.105
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Haiti": 0.151,
-        "Scotland": 0.306
+        "Haiti": 0.157,
+        "Scotland": 0.317
       },
       "16-30'": {
-        "Haiti": 0.174,
-        "Scotland": 0.352
+        "Haiti": 0.18,
+        "Scotland": 0.364
       },
       "31-45'": {
-        "Haiti": 0.202,
-        "Scotland": 0.409
+        "Haiti": 0.209,
+        "Scotland": 0.423
       },
       "46-60'": {
-        "Haiti": 0.162,
-        "Scotland": 0.329
+        "Haiti": 0.168,
+        "Scotland": 0.341
       },
       "61-75'": {
-        "Haiti": 0.207,
-        "Scotland": 0.42
+        "Haiti": 0.215,
+        "Scotland": 0.435
       },
       "76-90'": {
-        "Haiti": 0.224,
-        "Scotland": 0.454
+        "Haiti": 0.232,
+        "Scotland": 0.47
       }
     },
     "comeback_probability": {
       "Haiti": 0.022,
-      "Scotland": 0.041
+      "Scotland": 0.043
     },
-    "late_drama_probability": 0.492,
+    "late_drama_probability": 0.504,
     "match_stories": [
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.174
+        "wahrscheinlichkeit": 0.167
       },
       {
         "szenario": "Scotland dominiert früh",
         "beschreibung": "Scotland geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.119
+        "wahrscheinlichkeit": 0.121
       },
       {
         "szenario": "Scotland dreht es noch",
         "beschreibung": "Scotland liegt zur Halbzeit zurück, dreht das Spiel in H2",
-        "wahrscheinlichkeit": 0.041
+        "wahrscheinlichkeit": 0.043
       }
     ],
     "predicted_stats": {
@@ -166,12 +166,12 @@
         "away": 56
       },
       "shots": {
-        "home": 11,
+        "home": 12,
         "away": 19
       },
       "shots_on_target": {
         "home": 4,
-        "away": 7
+        "away": 8
       },
       "corners": {
         "home": 5,
@@ -192,76 +192,76 @@
         "score_after": "0:0"
       },
       {
-        "minute": 9,
-        "type": "goal",
-        "team": "Haiti",
-        "headline": "GOAL! Haiti!",
-        "description": "Haiti score to make it 1:0.",
-        "score_after": "1:0"
-      },
-      {
-        "minute": 44,
-        "type": "chance",
-        "team": "Haiti",
-        "headline": "Big chance for Haiti!",
-        "description": "Haiti create a great opportunity but fail to convert.",
-        "score_after": "1:0"
-      },
-      {
-        "minute": 45,
+        "minute": 26,
         "type": "chance",
         "team": "Scotland",
         "headline": "Big chance for Scotland!",
         "description": "Scotland create a great opportunity but fail to convert.",
-        "score_after": "1:0"
+        "score_after": "0:0"
+      },
+      {
+        "minute": 33,
+        "type": "chance",
+        "team": "Scotland",
+        "headline": "Big chance for Scotland!",
+        "description": "Scotland create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "goal",
+        "team": "Scotland",
+        "headline": "GOAL! Scotland!",
+        "description": "Scotland score to make it 0:1.",
+        "score_after": "0:1"
       },
       {
         "minute": 45,
         "type": "halftime",
         "team": null,
         "headline": "Half-time",
-        "description": "The teams go into the break at 1:0.",
-        "score_after": "1:0"
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
       },
       {
-        "minute": 58,
+        "minute": 51,
         "type": "goal",
         "team": "Scotland",
         "headline": "GOAL! Scotland!",
-        "description": "Scotland score to make it 1:1.",
-        "score_after": "1:1"
+        "description": "Scotland score to make it 0:2.",
+        "score_after": "0:2"
       },
       {
-        "minute": 62,
-        "type": "goal",
-        "team": "Haiti",
-        "headline": "GOAL! Haiti!",
-        "description": "Haiti score to make it 2:1.",
-        "score_after": "2:1"
+        "minute": 75,
+        "type": "chance",
+        "team": "Scotland",
+        "headline": "Big chance for Scotland!",
+        "description": "Scotland create a great opportunity but fail to convert.",
+        "score_after": "0:2"
       },
       {
         "minute": 81,
-        "type": "chance",
-        "team": "Scotland",
-        "headline": "Big chance for Scotland!",
-        "description": "Scotland create a great opportunity but fail to convert.",
-        "score_after": "2:1"
+        "type": "goal",
+        "team": "Haiti",
+        "headline": "GOAL! Haiti!",
+        "description": "Haiti score to make it 1:2.",
+        "score_after": "1:2"
       },
       {
-        "minute": 85,
+        "minute": 84,
         "type": "chance",
         "team": "Scotland",
         "headline": "Big chance for Scotland!",
         "description": "Scotland create a great opportunity but fail to convert.",
-        "score_after": "2:1"
+        "score_after": "1:2"
       },
       {
         "minute": 90,
         "type": "fulltime",
         "team": null,
         "headline": "Full-time",
-        "description": "The final score finishes 2:1.",
-        "score_after": "2:1"
+        "description": "The final score finishes 1:2.",
+        "score_after": "1:2"
       }
     ]
   },
@@ -275,23 +275,23 @@
       "Scotland": 1224.0
     },
     "form_last_10_avg_pts": {
-      "Haiti": 1.14,
-      "Scotland": 1.91
+      "Haiti": 0.82,
+      "Scotland": 1.28
     },
     "win_rate_last_10": {
-      "Haiti": "29%",
-      "Scotland": "62%"
+      "Haiti": "22%",
+      "Scotland": "43%"
     },
     "avg_goals_scored": {
-      "Haiti": 2.61,
+      "Haiti": 1.79,
       "Scotland": 1.32
     },
     "avg_goals_conceded": {
-      "Haiti": 1.39,
+      "Haiti": 2.08,
       "Scotland": 0.82
     },
     "clean_sheet_rate": {
-      "Haiti": "43%",
+      "Haiti": "29%",
       "Scotland": "55%"
     },
     "h2h_last_10": {

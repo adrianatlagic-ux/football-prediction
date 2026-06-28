@@ -1,0 +1,277 @@
+{
+  "home_team": "DR Congo",
+  "away_team": "Uzbekistan",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.466,
+  "probability_draw": 0.2821,
+  "probability_away_win": 0.2519,
+  "score_prediction": {
+    "home_xg": 1.2,
+    "away_xg": 0.94,
+    "rho": -0.13,
+    "most_likely_score": "1:0",
+    "result": "H",
+    "probability_home_win": 0.466,
+    "probability_draw": 0.2821,
+    "probability_away_win": 0.2519,
+    "top_scorelines": [
+      {
+        "score": "1:0",
+        "probability": 0.1433
+      },
+      {
+        "score": "2:0",
+        "probability": 0.098
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0925
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0391
+      },
+      {
+        "score": "3:1",
+        "probability": 0.037
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7481,
+        "home_or_away": 0.7179,
+        "draw_or_away": 0.534
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.6541,
+          "under": 0.3459
+        },
+        {
+          "line": 2.5,
+          "over": 0.3783,
+          "under": 0.6217
+        },
+        {
+          "line": 3.5,
+          "over": 0.1733,
+          "under": 0.8267
+        }
+      ],
+      "btts": {
+        "yes": 0.4336,
+        "no": 0.5664
+      },
+      "win_margin": {
+        "home_1plus": 0.466,
+        "home_2plus": 0.211,
+        "home_3plus": 0.0704,
+        "away_1plus": 0.2519,
+        "away_2plus": 0.0951,
+        "away_3plus": 0.0255
+      },
+      "scenario": "DR Congo are favored to win, in a low-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Tactically Balanced",
+    "match_description": "A tight game where goals will make the difference",
+    "dominance_index": 0.12,
+    "total_xg": 2.14,
+    "first_goal": {
+      "DR Congo_scores_first": 0.495,
+      "Uzbekistan_scores_first": 0.388,
+      "no_goals": 0.118,
+      "expected_minute": 42
+    },
+    "halftime_xg": {
+      "DR Congo": 0.56,
+      "Uzbekistan": 0.44
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.366
+      },
+      {
+        "score": "1:0",
+        "probability": 0.206
+      },
+      {
+        "score": "0:1",
+        "probability": 0.162
+      },
+      {
+        "score": "1:1",
+        "probability": 0.091
+      },
+      {
+        "score": "2:0",
+        "probability": 0.058
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "DR Congo": 0.162,
+        "Uzbekistan": 0.127
+      },
+      "16-30'": {
+        "DR Congo": 0.186,
+        "Uzbekistan": 0.146
+      },
+      "31-45'": {
+        "DR Congo": 0.216,
+        "Uzbekistan": 0.169
+      },
+      "46-60'": {
+        "DR Congo": 0.174,
+        "Uzbekistan": 0.136
+      },
+      "61-75'": {
+        "DR Congo": 0.222,
+        "Uzbekistan": 0.174
+      },
+      "76-90'": {
+        "DR Congo": 0.24,
+        "Uzbekistan": 0.188
+      }
+    },
+    "comeback_probability": {
+      "DR Congo": 0.02,
+      "Uzbekistan": 0.016
+    },
+    "late_drama_probability": 0.348,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.293
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.249
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "DR Congo trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.141
+      },
+      {
+        "szenario": "DR Congo dominiert früh",
+        "beschreibung": "DR Congo geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.058
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 52,
+        "away": 48
+      },
+      "shots": {
+        "home": 12,
+        "away": 10
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 4
+      },
+      "corners": {
+        "home": 5,
+        "away": 4
+      },
+      "passes": {
+        "home": 270,
+        "away": 250
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between DR Congo and Uzbekistan is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 11,
+        "type": "chance",
+        "team": "DR Congo",
+        "headline": "Big chance for DR Congo!",
+        "description": "DR Congo create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 68,
+        "type": "goal",
+        "team": "DR Congo",
+        "headline": "GOAL! DR Congo!",
+        "description": "DR Congo score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 87,
+        "type": "chance",
+        "team": "Uzbekistan",
+        "headline": "Big chance for Uzbekistan!",
+        "description": "Uzbekistan create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:0.",
+        "score_after": "1:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "DR Congo": 46,
+      "Uzbekistan": 50
+    },
+    "fifa_points": {
+      "DR Congo": 1176.0,
+      "Uzbekistan": 1112.0
+    },
+    "form_last_10_avg_pts": {
+      "DR Congo": 1.8,
+      "Uzbekistan": 0.92
+    },
+    "win_rate_last_10": {
+      "DR Congo": "52%",
+      "Uzbekistan": "21%"
+    },
+    "avg_goals_scored": {
+      "DR Congo": 1.19,
+      "Uzbekistan": 0.9
+    },
+    "avg_goals_conceded": {
+      "DR Congo": 0.65,
+      "Uzbekistan": 1.82
+    },
+    "clean_sheet_rate": {
+      "DR Congo": "35%",
+      "Uzbekistan": "44%"
+    },
+    "h2h_last_10": {
+      "DR Congo wins": "100%",
+      "draws": "0%",
+      "Uzbekistan wins": "0%",
+      "total_h2h_games": 1
+    }
+  }
+}

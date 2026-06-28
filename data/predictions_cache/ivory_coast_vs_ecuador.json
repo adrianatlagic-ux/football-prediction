@@ -3,74 +3,74 @@
   "away_team": "Ecuador",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.4794,
-  "probability_draw": 0.1911,
-  "probability_away_win": 0.3295,
+  "probability_home_win": 0.4145,
+  "probability_draw": 0.2176,
+  "probability_away_win": 0.3679,
   "score_prediction": {
-    "home_xg": 0.8,
+    "home_xg": 0.78,
     "away_xg": 1.19,
     "rho": -0.13,
     "most_likely_score": "1:0",
     "result": "H",
-    "probability_home_win": 0.4794,
-    "probability_draw": 0.1911,
-    "probability_away_win": 0.3295,
+    "probability_home_win": 0.4145,
+    "probability_draw": 0.2176,
+    "probability_away_win": 0.3679,
     "top_scorelines": [
       {
         "score": "1:0",
-        "probability": 0.1929
+        "probability": 0.1706
       },
       {
         "score": "2:1",
-        "probability": 0.108
+        "probability": 0.0927
       },
       {
         "score": "2:0",
-        "probability": 0.0907
+        "probability": 0.0782
       },
       {
         "score": "3:1",
-        "probability": 0.0286
+        "probability": 0.0239
       },
       {
         "score": "3:0",
-        "probability": 0.024
+        "probability": 0.0202
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.6705,
-        "home_or_away": 0.8089,
-        "draw_or_away": 0.5206
+        "home_or_draw": 0.6321,
+        "home_or_away": 0.7824,
+        "draw_or_away": 0.5855
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.6077,
-          "under": 0.3923
+          "over": 0.6017,
+          "under": 0.3983
         },
         {
           "line": 2.5,
-          "over": 0.3597,
-          "under": 0.6403
+          "over": 0.3461,
+          "under": 0.6539
         },
         {
           "line": 3.5,
-          "over": 0.14,
-          "under": 0.86
+          "over": 0.1363,
+          "under": 0.8637
         }
       ],
       "btts": {
-        "yes": 0.3732,
-        "no": 0.6268
+        "yes": 0.3705,
+        "no": 0.6295
       },
       "win_margin": {
-        "home_1plus": 0.4794,
-        "home_2plus": 0.1599,
-        "home_3plus": 0.037,
-        "away_1plus": 0.3295,
-        "away_2plus": 0.1499,
-        "away_3plus": 0.0502
+        "home_1plus": 0.4145,
+        "home_2plus": 0.1358,
+        "home_3plus": 0.0307,
+        "away_1plus": 0.3679,
+        "away_2plus": 0.1673,
+        "away_3plus": 0.0559
       },
       "scenario": "Ivory Coast are favored to win, in a low-scoring game."
     }
@@ -78,86 +78,86 @@
   "game_flow": {
     "match_type": "Tactically Balanced",
     "match_description": "A tight game where goals will make the difference",
-    "dominance_index": -0.2,
-    "total_xg": 1.99,
+    "dominance_index": -0.21,
+    "total_xg": 1.97,
     "first_goal": {
-      "Ivory Coast_scores_first": 0.347,
-      "Ecuador_scores_first": 0.516,
-      "no_goals": 0.137,
+      "Ivory Coast_scores_first": 0.341,
+      "Ecuador_scores_first": 0.52,
+      "no_goals": 0.139,
       "expected_minute": 45
     },
     "halftime_xg": {
-      "Ivory Coast": 0.38,
+      "Ivory Coast": 0.37,
       "Ecuador": 0.56
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.393
+        "probability": 0.396
       },
       {
         "score": "0:1",
-        "probability": 0.22
+        "probability": 0.222
       },
       {
         "score": "1:0",
-        "probability": 0.148
+        "probability": 0.145
       },
       {
         "score": "1:1",
-        "probability": 0.083
+        "probability": 0.081
       },
       {
         "score": "0:2",
-        "probability": 0.061
+        "probability": 0.062
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Ivory Coast": 0.108,
+        "Ivory Coast": 0.105,
         "Ecuador": 0.161
       },
       "16-30'": {
-        "Ivory Coast": 0.124,
+        "Ivory Coast": 0.121,
         "Ecuador": 0.184
       },
       "31-45'": {
-        "Ivory Coast": 0.144,
+        "Ivory Coast": 0.14,
         "Ecuador": 0.214
       },
       "46-60'": {
-        "Ivory Coast": 0.116,
+        "Ivory Coast": 0.113,
         "Ecuador": 0.173
       },
       "61-75'": {
-        "Ivory Coast": 0.148,
+        "Ivory Coast": 0.144,
         "Ecuador": 0.22
       },
       "76-90'": {
-        "Ivory Coast": 0.16,
+        "Ivory Coast": 0.156,
         "Ecuador": 0.238
       }
     },
     "comeback_probability": {
-      "Ivory Coast": 0.013,
-      "Ecuador": 0.019
+      "Ivory Coast": 0.012,
+      "Ecuador": 0.018
     },
-    "late_drama_probability": 0.328,
+    "late_drama_probability": 0.326,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 0:0",
-        "wahrscheinlichkeit": 0.302
+        "wahrscheinlichkeit": 0.303
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.257
+        "wahrscheinlichkeit": 0.258
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "Ecuador trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.163
+        "wahrscheinlichkeit": 0.166
       },
       {
         "szenario": "Ecuador dominiert früh",
@@ -248,23 +248,23 @@
       "Ecuador": 1544.0
     },
     "form_last_10_avg_pts": {
-      "Ivory Coast": 2.36,
-      "Ecuador": 1.44
+      "Ivory Coast": 2.05,
+      "Ecuador": 1.73
     },
     "win_rate_last_10": {
-      "Ivory Coast": "76%",
-      "Ecuador": "31%"
+      "Ivory Coast": "66%",
+      "Ecuador": "44%"
     },
     "avg_goals_scored": {
-      "Ivory Coast": 1.82,
+      "Ivory Coast": 1.75,
       "Ecuador": 0.52
     },
     "avg_goals_conceded": {
-      "Ivory Coast": 1.04,
+      "Ivory Coast": 1.21,
       "Ecuador": 0.64
     },
     "clean_sheet_rate": {
-      "Ivory Coast": "46%",
+      "Ivory Coast": "40%",
       "Ecuador": "36%"
     },
     "h2h_last_10": {

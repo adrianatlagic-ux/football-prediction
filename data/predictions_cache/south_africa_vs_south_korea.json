@@ -1,0 +1,301 @@
+{
+  "home_team": "South Africa",
+  "away_team": "South Korea",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.2901,
+  "probability_draw": 0.2985,
+  "probability_away_win": 0.4114,
+  "score_prediction": {
+    "home_xg": 0.99,
+    "away_xg": 1.97,
+    "rho": -0.13,
+    "most_likely_score": "0:2",
+    "result": "A",
+    "probability_home_win": 0.2901,
+    "probability_draw": 0.2985,
+    "probability_away_win": 0.4114,
+    "top_scorelines": [
+      {
+        "score": "0:2",
+        "probability": 0.0703
+      },
+      {
+        "score": "1:2",
+        "probability": 0.0695
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0622
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0462
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0457
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.5886,
+        "home_or_away": 0.7015,
+        "draw_or_away": 0.7099
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7916,
+          "under": 0.2084
+        },
+        {
+          "line": 2.5,
+          "over": 0.5365,
+          "under": 0.4635
+        },
+        {
+          "line": 3.5,
+          "over": 0.3216,
+          "under": 0.6784
+        }
+      ],
+      "btts": {
+        "yes": 0.5778,
+        "no": 0.4222
+      },
+      "win_margin": {
+        "home_1plus": 0.2901,
+        "home_2plus": 0.1075,
+        "home_3plus": 0.0286,
+        "away_1plus": 0.4114,
+        "away_2plus": 0.2527,
+        "away_3plus": 0.1241
+      },
+      "scenario": "South Korea are favored to win, likely by 2+ goals."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.33,
+    "total_xg": 2.96,
+    "first_goal": {
+      "South Africa_scores_first": 0.317,
+      "South Korea_scores_first": 0.631,
+      "no_goals": 0.052,
+      "expected_minute": 30
+    },
+    "halftime_xg": {
+      "South Africa": 0.47,
+      "South Korea": 0.93
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.249
+      },
+      {
+        "score": "0:1",
+        "probability": 0.231
+      },
+      {
+        "score": "1:0",
+        "probability": 0.116
+      },
+      {
+        "score": "1:1",
+        "probability": 0.107
+      },
+      {
+        "score": "0:2",
+        "probability": 0.107
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "South Africa": 0.134,
+        "South Korea": 0.266
+      },
+      "16-30'": {
+        "South Africa": 0.153,
+        "South Korea": 0.305
+      },
+      "31-45'": {
+        "South Africa": 0.178,
+        "South Korea": 0.355
+      },
+      "46-60'": {
+        "South Africa": 0.144,
+        "South Korea": 0.286
+      },
+      "61-75'": {
+        "South Africa": 0.183,
+        "South Korea": 0.364
+      },
+      "76-90'": {
+        "South Africa": 0.198,
+        "South Korea": 0.394
+      }
+    },
+    "comeback_probability": {
+      "South Africa": 0.018,
+      "South Korea": 0.035
+    },
+    "late_drama_probability": 0.447,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.216
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.2
+      },
+      {
+        "szenario": "South Korea dominiert früh",
+        "beschreibung": "South Korea geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.108
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "South Korea trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.104
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 44,
+        "away": 56
+      },
+      "shots": {
+        "home": 10,
+        "away": 17
+      },
+      "shots_on_target": {
+        "home": 4,
+        "away": 7
+      },
+      "corners": {
+        "home": 4,
+        "away": 7
+      },
+      "passes": {
+        "home": 229,
+        "away": 291
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between South Africa and South Korea is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 33,
+        "type": "chance",
+        "team": "South Africa",
+        "headline": "Big chance for South Africa!",
+        "description": "South Africa create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 37,
+        "type": "goal",
+        "team": "South Korea",
+        "headline": "GOAL! South Korea!",
+        "description": "South Korea score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 41,
+        "type": "chance",
+        "team": "South Korea",
+        "headline": "Big chance for South Korea!",
+        "description": "South Korea create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 56,
+        "type": "chance",
+        "team": "South Korea",
+        "headline": "Big chance for South Korea!",
+        "description": "South Korea create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 76,
+        "type": "goal",
+        "team": "South Korea",
+        "headline": "GOAL! South Korea!",
+        "description": "South Korea score to make it 0:2.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 88,
+        "type": "chance",
+        "team": "South Korea",
+        "headline": "Big chance for South Korea!",
+        "description": "South Korea create a great opportunity but fail to convert.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 0:2.",
+        "score_after": "0:2"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "South Africa": 60,
+      "South Korea": 25
+    },
+    "fifa_points": {
+      "South Africa": 960.0,
+      "South Korea": 1512.0
+    },
+    "form_last_10_avg_pts": {
+      "South Africa": 1.21,
+      "South Korea": 1.33
+    },
+    "win_rate_last_10": {
+      "South Africa": "29%",
+      "South Korea": "44%"
+    },
+    "avg_goals_scored": {
+      "South Africa": 1.41,
+      "South Korea": 0.86
+    },
+    "avg_goals_conceded": {
+      "South Africa": 1.26,
+      "South Korea": 1.23
+    },
+    "clean_sheet_rate": {
+      "South Africa": "19%",
+      "South Korea": "21%"
+    },
+    "h2h_last_10": {
+      "South Africa wins": "100%",
+      "draws": "0%",
+      "South Korea wins": "0%",
+      "total_h2h_games": 1
+    }
+  }
+}

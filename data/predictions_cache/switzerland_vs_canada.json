@@ -1,0 +1,309 @@
+{
+  "home_team": "Switzerland",
+  "away_team": "Canada",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4487,
+  "probability_draw": 0.3137,
+  "probability_away_win": 0.2375,
+  "score_prediction": {
+    "home_xg": 1.61,
+    "away_xg": 1.46,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.4487,
+    "probability_draw": 0.3137,
+    "probability_away_win": 0.2375,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.0989
+      },
+      {
+        "score": "1:0",
+        "probability": 0.068
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0676
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0531
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0388
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7625,
+        "home_or_away": 0.6863,
+        "draw_or_away": 0.5513
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8232,
+          "under": 0.1768
+        },
+        {
+          "line": 2.5,
+          "over": 0.5758,
+          "under": 0.4242
+        },
+        {
+          "line": 3.5,
+          "over": 0.3667,
+          "under": 0.6333
+        }
+      ],
+      "btts": {
+        "yes": 0.6373,
+        "no": 0.3627
+      },
+      "win_margin": {
+        "home_1plus": 0.4487,
+        "home_2plus": 0.2347,
+        "home_3plus": 0.0957,
+        "away_1plus": 0.2375,
+        "away_2plus": 0.1156,
+        "away_3plus": 0.0433
+      },
+      "scenario": "Switzerland are favored to win, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.05,
+    "total_xg": 3.07,
+    "first_goal": {
+      "Switzerland_scores_first": 0.5,
+      "Canada_scores_first": 0.453,
+      "no_goals": 0.046,
+      "expected_minute": 29
+    },
+    "halftime_xg": {
+      "Switzerland": 0.76,
+      "Canada": 0.69
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.237
+      },
+      {
+        "score": "1:0",
+        "probability": 0.179
+      },
+      {
+        "score": "0:1",
+        "probability": 0.162
+      },
+      {
+        "score": "1:1",
+        "probability": 0.123
+      },
+      {
+        "score": "2:0",
+        "probability": 0.068
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Switzerland": 0.217,
+        "Canada": 0.197
+      },
+      "16-30'": {
+        "Switzerland": 0.25,
+        "Canada": 0.226
+      },
+      "31-45'": {
+        "Switzerland": 0.29,
+        "Canada": 0.263
+      },
+      "46-60'": {
+        "Switzerland": 0.233,
+        "Canada": 0.212
+      },
+      "61-75'": {
+        "Switzerland": 0.298,
+        "Canada": 0.27
+      },
+      "76-90'": {
+        "Switzerland": 0.322,
+        "Canada": 0.292
+      }
+    },
+    "comeback_probability": {
+      "Switzerland": 0.034,
+      "Canada": 0.031
+    },
+    "late_drama_probability": 0.459,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.239
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.192
+      },
+      {
+        "szenario": "Switzerland dominiert früh",
+        "beschreibung": "Switzerland geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.069
+      },
+      {
+        "szenario": "Canada dominiert früh",
+        "beschreibung": "Canada geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.056
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 51,
+        "away": 49
+      },
+      "shots": {
+        "home": 14,
+        "away": 13
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 5
+      },
+      "corners": {
+        "home": 7,
+        "away": 6
+      },
+      "passes": {
+        "home": 265,
+        "away": 255
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Switzerland and Canada is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 30,
+        "type": "chance",
+        "team": "Canada",
+        "headline": "Big chance for Canada!",
+        "description": "Canada create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 38,
+        "type": "goal",
+        "team": "Switzerland",
+        "headline": "GOAL! Switzerland!",
+        "description": "Switzerland score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 40,
+        "type": "chance",
+        "team": "Switzerland",
+        "headline": "Big chance for Switzerland!",
+        "description": "Switzerland create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 66,
+        "type": "chance",
+        "team": "Switzerland",
+        "headline": "Big chance for Switzerland!",
+        "description": "Switzerland create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 74,
+        "type": "goal",
+        "team": "Canada",
+        "headline": "GOAL! Canada!",
+        "description": "Canada score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 77,
+        "type": "chance",
+        "team": "Switzerland",
+        "headline": "Big chance for Switzerland!",
+        "description": "Switzerland create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 83,
+        "type": "goal",
+        "team": "Switzerland",
+        "headline": "GOAL! Switzerland!",
+        "description": "Switzerland score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Switzerland": 19,
+      "Canada": 30
+    },
+    "fifa_points": {
+      "Switzerland": 1608.0,
+      "Canada": 1432.0
+    },
+    "form_last_10_avg_pts": {
+      "Switzerland": 1.87,
+      "Canada": 1.69
+    },
+    "win_rate_last_10": {
+      "Switzerland": "49%",
+      "Canada": "38%"
+    },
+    "avg_goals_scored": {
+      "Switzerland": 1.33,
+      "Canada": 1.34
+    },
+    "avg_goals_conceded": {
+      "Switzerland": 0.79,
+      "Canada": 0.51
+    },
+    "clean_sheet_rate": {
+      "Switzerland": "45%",
+      "Canada": "56%"
+    },
+    "h2h_last_10": {
+      "Switzerland wins": "0%",
+      "draws": "0%",
+      "Canada wins": "100%",
+      "total_h2h_games": 1
+    }
+  }
+}

@@ -1,0 +1,309 @@
+{
+  "home_team": "Portugal",
+  "away_team": "Croatia",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.5029,
+  "probability_draw": 0.2709,
+  "probability_away_win": 0.2262,
+  "score_prediction": {
+    "home_xg": 2.19,
+    "away_xg": 1.31,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.5029,
+    "probability_draw": 0.2709,
+    "probability_away_win": 0.2262,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.0849
+      },
+      {
+        "score": "2:0",
+        "probability": 0.065
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0619
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0494
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0473
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7738,
+        "home_or_away": 0.7291,
+        "draw_or_away": 0.4971
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8699,
+          "under": 0.1301
+        },
+        {
+          "line": 2.5,
+          "over": 0.6592,
+          "under": 0.3408
+        },
+        {
+          "line": 3.5,
+          "over": 0.4542,
+          "under": 0.5458
+        }
+      ],
+      "btts": {
+        "yes": 0.6695,
+        "no": 0.3305
+      },
+      "win_margin": {
+        "home_1plus": 0.5029,
+        "home_2plus": 0.3171,
+        "home_3plus": 0.1634,
+        "away_1plus": 0.2262,
+        "away_2plus": 0.098,
+        "away_3plus": 0.0324
+      },
+      "scenario": "Portugal are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.25,
+    "total_xg": 3.5,
+    "first_goal": {
+      "Portugal_scores_first": 0.607,
+      "Croatia_scores_first": 0.363,
+      "no_goals": 0.03,
+      "expected_minute": 25
+    },
+    "halftime_xg": {
+      "Portugal": 1.03,
+      "Croatia": 0.62
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.2
+      },
+      {
+        "score": "0:0",
+        "probability": 0.194
+      },
+      {
+        "score": "1:1",
+        "probability": 0.123
+      },
+      {
+        "score": "0:1",
+        "probability": 0.119
+      },
+      {
+        "score": "2:0",
+        "probability": 0.103
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Portugal": 0.296,
+        "Croatia": 0.177
+      },
+      "16-30'": {
+        "Portugal": 0.339,
+        "Croatia": 0.203
+      },
+      "31-45'": {
+        "Portugal": 0.394,
+        "Croatia": 0.236
+      },
+      "46-60'": {
+        "Portugal": 0.318,
+        "Croatia": 0.19
+      },
+      "61-75'": {
+        "Portugal": 0.405,
+        "Croatia": 0.242
+      },
+      "76-90'": {
+        "Portugal": 0.438,
+        "Croatia": 0.262
+      }
+    },
+    "comeback_probability": {
+      "Portugal": 0.044,
+      "Croatia": 0.027
+    },
+    "late_drama_probability": 0.503,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.204
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.167
+      },
+      {
+        "szenario": "Portugal dominiert früh",
+        "beschreibung": "Portugal geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.105
+      },
+      {
+        "szenario": "Portugal dreht es noch",
+        "beschreibung": "Portugal liegt zur Halbzeit zurück, dreht das Spiel in H2",
+        "wahrscheinlichkeit": 0.044
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 55,
+        "away": 45
+      },
+      "shots": {
+        "home": 18,
+        "away": 13
+      },
+      "shots_on_target": {
+        "home": 7,
+        "away": 5
+      },
+      "corners": {
+        "home": 7,
+        "away": 5
+      },
+      "passes": {
+        "home": 286,
+        "away": 234
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Portugal and Croatia is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 21,
+        "type": "chance",
+        "team": "Portugal",
+        "headline": "Big chance for Portugal!",
+        "description": "Portugal create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 34,
+        "type": "chance",
+        "team": "Portugal",
+        "headline": "Big chance for Portugal!",
+        "description": "Portugal create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 43,
+        "type": "goal",
+        "team": "Portugal",
+        "headline": "GOAL! Portugal!",
+        "description": "Portugal score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 59,
+        "type": "chance",
+        "team": "Portugal",
+        "headline": "Big chance for Portugal!",
+        "description": "Portugal create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 74,
+        "type": "chance",
+        "team": "Portugal",
+        "headline": "Big chance for Portugal!",
+        "description": "Portugal create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 82,
+        "type": "goal",
+        "team": "Croatia",
+        "headline": "GOAL! Croatia!",
+        "description": "Croatia score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 88,
+        "type": "goal",
+        "team": "Portugal",
+        "headline": "GOAL! Portugal!",
+        "description": "Portugal score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Portugal": 5,
+      "Croatia": 11
+    },
+    "fifa_points": {
+      "Portugal": 1832.0,
+      "Croatia": 1736.0
+    },
+    "form_last_10_avg_pts": {
+      "Portugal": 1.84,
+      "Croatia": 2.15
+    },
+    "win_rate_last_10": {
+      "Portugal": "46%",
+      "Croatia": "70%"
+    },
+    "avg_goals_scored": {
+      "Portugal": 1.24,
+      "Croatia": 1.66
+    },
+    "avg_goals_conceded": {
+      "Portugal": 0.62,
+      "Croatia": 1.47
+    },
+    "clean_sheet_rate": {
+      "Portugal": "59%",
+      "Croatia": "40%"
+    },
+    "h2h_last_10": {
+      "Portugal wins": "70%",
+      "draws": "20%",
+      "Croatia wins": "10%",
+      "total_h2h_games": 10
+    }
+  }
+}

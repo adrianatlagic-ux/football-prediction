@@ -1,0 +1,309 @@
+{
+  "home_team": "Ivory Coast",
+  "away_team": "Norway",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4167,
+  "probability_draw": 0.2008,
+  "probability_away_win": 0.3824,
+  "score_prediction": {
+    "home_xg": 1.38,
+    "away_xg": 1.83,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.4167,
+    "probability_draw": 0.2008,
+    "probability_away_win": 0.3824,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1056
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0637
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0577
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0486
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0445
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.6176,
+        "home_or_away": 0.7992,
+        "draw_or_away": 0.5833
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8448,
+          "under": 0.1552
+        },
+        {
+          "line": 2.5,
+          "over": 0.641,
+          "under": 0.359
+        },
+        {
+          "line": 3.5,
+          "over": 0.399,
+          "under": 0.601
+        }
+      ],
+      "btts": {
+        "yes": 0.636,
+        "no": 0.364
+      },
+      "win_margin": {
+        "home_1plus": 0.4167,
+        "home_2plus": 0.1924,
+        "home_3plus": 0.0678,
+        "away_1plus": 0.3824,
+        "away_2plus": 0.217,
+        "away_3plus": 0.0978
+      },
+      "scenario": "Ivory Coast are favored to win, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.14,
+    "total_xg": 3.21,
+    "first_goal": {
+      "Ivory Coast_scores_first": 0.413,
+      "Norway_scores_first": 0.547,
+      "no_goals": 0.04,
+      "expected_minute": 28
+    },
+    "halftime_xg": {
+      "Ivory Coast": 0.65,
+      "Norway": 0.86
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.222
+      },
+      {
+        "score": "0:1",
+        "probability": 0.191
+      },
+      {
+        "score": "1:0",
+        "probability": 0.144
+      },
+      {
+        "score": "1:1",
+        "probability": 0.124
+      },
+      {
+        "score": "0:2",
+        "probability": 0.082
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Ivory Coast": 0.186,
+        "Norway": 0.247
+      },
+      "16-30'": {
+        "Ivory Coast": 0.214,
+        "Norway": 0.284
+      },
+      "31-45'": {
+        "Ivory Coast": 0.248,
+        "Norway": 0.329
+      },
+      "46-60'": {
+        "Ivory Coast": 0.2,
+        "Norway": 0.265
+      },
+      "61-75'": {
+        "Ivory Coast": 0.255,
+        "Norway": 0.339
+      },
+      "76-90'": {
+        "Ivory Coast": 0.276,
+        "Norway": 0.366
+      }
+    },
+    "comeback_probability": {
+      "Ivory Coast": 0.03,
+      "Norway": 0.038
+    },
+    "late_drama_probability": 0.474,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.228
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.184
+      },
+      {
+        "szenario": "Norway dominiert früh",
+        "beschreibung": "Norway geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.083
+      },
+      {
+        "szenario": "Ivory Coast dominiert früh",
+        "beschreibung": "Ivory Coast geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.047
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 47,
+        "away": 53
+      },
+      "shots": {
+        "home": 13,
+        "away": 16
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 6
+      },
+      "corners": {
+        "home": 5,
+        "away": 7
+      },
+      "passes": {
+        "home": 244,
+        "away": 276
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Ivory Coast and Norway is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 14,
+        "type": "chance",
+        "team": "Norway",
+        "headline": "Big chance for Norway!",
+        "description": "Norway create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 20,
+        "type": "goal",
+        "team": "Ivory Coast",
+        "headline": "GOAL! Ivory Coast!",
+        "description": "Ivory Coast score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 38,
+        "type": "chance",
+        "team": "Ivory Coast",
+        "headline": "Big chance for Ivory Coast!",
+        "description": "Ivory Coast create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 50,
+        "type": "goal",
+        "team": "Ivory Coast",
+        "headline": "GOAL! Ivory Coast!",
+        "description": "Ivory Coast score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 74,
+        "type": "goal",
+        "team": "Norway",
+        "headline": "GOAL! Norway!",
+        "description": "Norway score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 82,
+        "type": "chance",
+        "team": "Norway",
+        "headline": "Big chance for Norway!",
+        "description": "Norway create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 85,
+        "type": "chance",
+        "team": "Norway",
+        "headline": "Big chance for Norway!",
+        "description": "Norway create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Ivory Coast": 34,
+      "Norway": 31
+    },
+    "fifa_points": {
+      "Ivory Coast": 1368.0,
+      "Norway": 1416.0
+    },
+    "form_last_10_avg_pts": {
+      "Ivory Coast": 2.05,
+      "Norway": 1.83
+    },
+    "win_rate_last_10": {
+      "Ivory Coast": "66%",
+      "Norway": "55%"
+    },
+    "avg_goals_scored": {
+      "Ivory Coast": 1.75,
+      "Norway": 2.72
+    },
+    "avg_goals_conceded": {
+      "Ivory Coast": 1.21,
+      "Norway": 1.35
+    },
+    "clean_sheet_rate": {
+      "Ivory Coast": "40%",
+      "Norway": "26%"
+    },
+    "h2h_last_10": {
+      "Ivory Coast wins": "0%",
+      "draws": "0%",
+      "Norway wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

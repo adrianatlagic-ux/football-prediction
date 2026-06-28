@@ -3,74 +3,74 @@
   "away_team": "Iran",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.6502,
-  "probability_draw": 0.2194,
-  "probability_away_win": 0.1304,
+  "probability_home_win": 0.5254,
+  "probability_draw": 0.2599,
+  "probability_away_win": 0.2147,
   "score_prediction": {
-    "home_xg": 1.55,
-    "away_xg": 1.65,
+    "home_xg": 1.65,
+    "away_xg": 1.47,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.6502,
-    "probability_draw": 0.2194,
-    "probability_away_win": 0.1304,
+    "probability_home_win": 0.5254,
+    "probability_draw": 0.2599,
+    "probability_away_win": 0.2147,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.1512
-      },
-      {
-        "score": "1:0",
-        "probability": 0.0928
+        "probability": 0.1142
       },
       {
         "score": "2:0",
-        "probability": 0.0914
+        "probability": 0.0779
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0766
       },
       {
         "score": "3:1",
-        "probability": 0.078
+        "probability": 0.0627
       },
       {
         "score": "3:2",
-        "probability": 0.0645
+        "probability": 0.046
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.8696,
-        "home_or_away": 0.7806,
-        "draw_or_away": 0.3498
+        "home_or_draw": 0.7853,
+        "home_or_away": 0.7401,
+        "draw_or_away": 0.4746
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8432,
-          "under": 0.1568
+          "over": 0.8322,
+          "under": 0.1678
         },
         {
           "line": 2.5,
-          "over": 0.6343,
-          "under": 0.3657
+          "over": 0.604,
+          "under": 0.396
         },
         {
           "line": 3.5,
-          "over": 0.3972,
-          "under": 0.6028
+          "over": 0.3802,
+          "under": 0.6198
         }
       ],
       "btts": {
-        "yes": 0.6442,
-        "no": 0.3558
+        "yes": 0.6318,
+        "no": 0.3682
       },
       "win_margin": {
-        "home_1plus": 0.6502,
-        "home_2plus": 0.3259,
-        "home_3plus": 0.1268,
-        "away_1plus": 0.1304,
-        "away_2plus": 0.0686,
-        "away_3plus": 0.0283
+        "home_1plus": 0.5254,
+        "home_2plus": 0.2779,
+        "home_3plus": 0.1151,
+        "away_1plus": 0.2147,
+        "away_2plus": 0.1041,
+        "away_3plus": 0.0389
       },
       "scenario": "Belgium are favored to win, in a high-scoring game."
     }
@@ -78,113 +78,113 @@
   "game_flow": {
     "match_type": "Balanced & Open",
     "match_description": "Both teams play attacking football at an even level",
-    "dominance_index": -0.03,
-    "total_xg": 3.2,
+    "dominance_index": 0.06,
+    "total_xg": 3.12,
     "first_goal": {
-      "Belgium_scores_first": 0.465,
-      "Iran_scores_first": 0.495,
-      "no_goals": 0.041,
+      "Belgium_scores_first": 0.505,
+      "Iran_scores_first": 0.45,
+      "no_goals": 0.044,
       "expected_minute": 28
     },
     "halftime_xg": {
-      "Belgium": 0.73,
-      "Iran": 0.78
+      "Belgium": 0.78,
+      "Iran": 0.69
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.223
-      },
-      {
-        "score": "0:1",
-        "probability": 0.173
+        "probability": 0.231
       },
       {
         "score": "1:0",
-        "probability": 0.162
+        "probability": 0.179
+      },
+      {
+        "score": "0:1",
+        "probability": 0.16
       },
       {
         "score": "1:1",
-        "probability": 0.126
+        "probability": 0.124
       },
       {
-        "score": "0:2",
-        "probability": 0.067
+        "score": "2:0",
+        "probability": 0.07
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Belgium": 0.209,
-        "Iran": 0.223
+        "Belgium": 0.223,
+        "Iran": 0.198
       },
       "16-30'": {
-        "Belgium": 0.24,
-        "Iran": 0.256
+        "Belgium": 0.256,
+        "Iran": 0.228
       },
       "31-45'": {
-        "Belgium": 0.279,
-        "Iran": 0.297
+        "Belgium": 0.297,
+        "Iran": 0.265
       },
       "46-60'": {
-        "Belgium": 0.225,
-        "Iran": 0.239
+        "Belgium": 0.239,
+        "Iran": 0.213
       },
       "61-75'": {
-        "Belgium": 0.287,
-        "Iran": 0.305
+        "Belgium": 0.305,
+        "Iran": 0.272
       },
       "76-90'": {
-        "Belgium": 0.31,
-        "Iran": 0.33
+        "Belgium": 0.33,
+        "Iran": 0.294
       }
     },
     "comeback_probability": {
-      "Belgium": 0.034,
-      "Iran": 0.036
+      "Belgium": 0.035,
+      "Iran": 0.032
     },
-    "late_drama_probability": 0.473,
+    "late_drama_probability": 0.464,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.233
+        "wahrscheinlichkeit": 0.236
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.184
-      },
-      {
-        "szenario": "Iran dominiert früh",
-        "beschreibung": "Iran geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.068
+        "wahrscheinlichkeit": 0.189
       },
       {
         "szenario": "Belgium dominiert früh",
         "beschreibung": "Belgium geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.06
+        "wahrscheinlichkeit": 0.07
+      },
+      {
+        "szenario": "Iran dominiert früh",
+        "beschreibung": "Iran geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.056
       }
     ],
     "predicted_stats": {
       "possession": {
-        "home": 49,
-        "away": 51
+        "home": 51,
+        "away": 49
       },
       "shots": {
-        "home": 14,
-        "away": 15
+        "home": 15,
+        "away": 14
       },
       "shots_on_target": {
-        "home": 5,
-        "away": 6
+        "home": 6,
+        "away": 5
       },
       "corners": {
-        "home": 6,
-        "away": 7
+        "home": 7,
+        "away": 6
       },
       "passes": {
-        "home": 255,
-        "away": 265
+        "home": 265,
+        "away": 255
       }
     },
     "match_ticker": [
@@ -280,30 +280,30 @@
       "Iran": 1576.0
     },
     "form_last_10_avg_pts": {
-      "Belgium": 2.01,
-      "Iran": 1.6
+      "Belgium": 1.95,
+      "Iran": 1.4
     },
     "win_rate_last_10": {
-      "Belgium": "50%",
-      "Iran": "41%"
+      "Belgium": "47%",
+      "Iran": "27%"
     },
     "avg_goals_scored": {
-      "Belgium": 2.38,
-      "Iran": 2.15
+      "Belgium": 2.94,
+      "Iran": 1.68
     },
     "avg_goals_conceded": {
-      "Belgium": 1.42,
-      "Iran": 1.14
+      "Belgium": 1.32,
+      "Iran": 0.92
     },
     "clean_sheet_rate": {
-      "Belgium": "10%",
-      "Iran": "39%"
+      "Belgium": "9%",
+      "Iran": "40%"
     },
     "h2h_last_10": {
       "Belgium wins": "0%",
-      "draws": "0%",
+      "draws": "100%",
       "Iran wins": "0%",
-      "total_h2h_games": 0
+      "total_h2h_games": 1
     }
   }
 }

@@ -1,0 +1,309 @@
+{
+  "home_team": "Turkey",
+  "away_team": "United States",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.2418,
+  "probability_draw": 0.1928,
+  "probability_away_win": 0.5654,
+  "score_prediction": {
+    "home_xg": 1.54,
+    "away_xg": 2.35,
+    "rho": -0.13,
+    "most_likely_score": "1:2",
+    "result": "A",
+    "probability_home_win": 0.2418,
+    "probability_draw": 0.1928,
+    "probability_away_win": 0.5654,
+    "top_scorelines": [
+      {
+        "score": "1:2",
+        "probability": 0.09
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0704
+      },
+      {
+        "score": "0:2",
+        "probability": 0.0583
+      },
+      {
+        "score": "2:3",
+        "probability": 0.0544
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0456
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.4346,
+        "home_or_away": 0.8072,
+        "draw_or_away": 0.7582
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.9111,
+          "under": 0.0889
+        },
+        {
+          "line": 2.5,
+          "over": 0.7532,
+          "under": 0.2468
+        },
+        {
+          "line": 3.5,
+          "over": 0.5471,
+          "under": 0.4529
+        }
+      ],
+      "btts": {
+        "yes": 0.7166,
+        "no": 0.2834
+      },
+      "win_margin": {
+        "home_1plus": 0.2418,
+        "home_2plus": 0.1142,
+        "home_3plus": 0.0424,
+        "away_1plus": 0.5654,
+        "away_2plus": 0.3614,
+        "away_3plus": 0.1918
+      },
+      "scenario": "United States are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": -0.21,
+    "total_xg": 3.89,
+    "first_goal": {
+      "Turkey_scores_first": 0.388,
+      "United States_scores_first": 0.592,
+      "no_goals": 0.02,
+      "expected_minute": 23
+    },
+    "halftime_xg": {
+      "Turkey": 0.72,
+      "United States": 1.1
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:1",
+        "probability": 0.179
+      },
+      {
+        "score": "0:0",
+        "probability": 0.162
+      },
+      {
+        "score": "1:1",
+        "probability": 0.129
+      },
+      {
+        "score": "1:0",
+        "probability": 0.117
+      },
+      {
+        "score": "0:2",
+        "probability": 0.099
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Turkey": 0.208,
+        "United States": 0.317
+      },
+      "16-30'": {
+        "Turkey": 0.239,
+        "United States": 0.364
+      },
+      "31-45'": {
+        "Turkey": 0.277,
+        "United States": 0.423
+      },
+      "46-60'": {
+        "Turkey": 0.223,
+        "United States": 0.341
+      },
+      "61-75'": {
+        "Turkey": 0.285,
+        "United States": 0.435
+      },
+      "76-90'": {
+        "Turkey": 0.308,
+        "United States": 0.47
+      }
+    },
+    "comeback_probability": {
+      "Turkey": 0.034,
+      "United States": 0.049
+    },
+    "late_drama_probability": 0.541,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.145
+      },
+      {
+        "szenario": "United States dominiert früh",
+        "beschreibung": "United States geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.101
+      },
+      {
+        "szenario": "United States dreht es noch",
+        "beschreibung": "United States liegt zur Halbzeit zurück, dreht das Spiel in H2",
+        "wahrscheinlichkeit": 0.049
+      },
+      {
+        "szenario": "Turkey dominiert früh",
+        "beschreibung": "Turkey geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.043
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 46,
+        "away": 54
+      },
+      "shots": {
+        "home": 14,
+        "away": 19
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 8
+      },
+      "corners": {
+        "home": 6,
+        "away": 8
+      },
+      "passes": {
+        "home": 239,
+        "away": 281
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Turkey and United States is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 29,
+        "type": "chance",
+        "team": "United States",
+        "headline": "Big chance for United States!",
+        "description": "United States create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 35,
+        "type": "chance",
+        "team": "Turkey",
+        "headline": "Big chance for Turkey!",
+        "description": "Turkey create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 39,
+        "type": "goal",
+        "team": "United States",
+        "headline": "GOAL! United States!",
+        "description": "United States score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 52,
+        "type": "goal",
+        "team": "United States",
+        "headline": "GOAL! United States!",
+        "description": "United States score to make it 0:2.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 54,
+        "type": "chance",
+        "team": "Turkey",
+        "headline": "Big chance for Turkey!",
+        "description": "Turkey create a great opportunity but fail to convert.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 69,
+        "type": "chance",
+        "team": "Turkey",
+        "headline": "Big chance for Turkey!",
+        "description": "Turkey create a great opportunity but fail to convert.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 89,
+        "type": "goal",
+        "team": "Turkey",
+        "headline": "GOAL! Turkey!",
+        "description": "Turkey score to make it 1:2.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:2.",
+        "score_after": "1:2"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Turkey": 22,
+      "United States": 16
+    },
+    "fifa_points": {
+      "Turkey": 1560.0,
+      "United States": 1656.0
+    },
+    "form_last_10_avg_pts": {
+      "Turkey": 1.66,
+      "United States": 2.25
+    },
+    "win_rate_last_10": {
+      "Turkey": "52%",
+      "United States": "73%"
+    },
+    "avg_goals_scored": {
+      "Turkey": 1.99,
+      "United States": 1.34
+    },
+    "avg_goals_conceded": {
+      "Turkey": 1.35,
+      "United States": 1.14
+    },
+    "clean_sheet_rate": {
+      "Turkey": "22%",
+      "United States": "40%"
+    },
+    "h2h_last_10": {
+      "Turkey wins": "40%",
+      "draws": "20%",
+      "United States wins": "40%",
+      "total_h2h_games": 5
+    }
+  }
+}

@@ -1,0 +1,296 @@
+{
+  "home_team": "Croatia",
+  "away_team": "Ghana",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.7135,
+  "probability_draw": 0.1736,
+  "probability_away_win": 0.113,
+  "score_prediction": {
+    "home_xg": 2.46,
+    "away_xg": 0.86,
+    "rho": -0.13,
+    "most_likely_score": "2:0",
+    "result": "H",
+    "probability_home_win": 0.7134,
+    "probability_draw": 0.1736,
+    "probability_away_win": 0.113,
+    "top_scorelines": [
+      {
+        "score": "2:0",
+        "probability": 0.1094
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0941
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0897
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0791
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0771
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.887,
+        "home_or_away": 0.8264,
+        "draw_or_away": 0.2866
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8537,
+          "under": 0.1463
+        },
+        {
+          "line": 2.5,
+          "over": 0.6478,
+          "under": 0.3522
+        },
+        {
+          "line": 3.5,
+          "over": 0.4231,
+          "under": 0.5769
+        }
+      ],
+      "btts": {
+        "yes": 0.5359,
+        "no": 0.4641
+      },
+      "win_margin": {
+        "home_1plus": 0.7134,
+        "home_2plus": 0.5004,
+        "home_3plus": 0.2903,
+        "away_1plus": 0.113,
+        "away_2plus": 0.0375,
+        "away_3plus": 0.0089
+      },
+      "scenario": "Croatia are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": 0.48,
+    "total_xg": 3.32,
+    "first_goal": {
+      "Croatia_scores_first": 0.714,
+      "Ghana_scores_first": 0.25,
+      "no_goals": 0.036,
+      "expected_minute": 27
+    },
+    "halftime_xg": {
+      "Croatia": 1.16,
+      "Ghana": 0.4
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.245
+      },
+      {
+        "score": "0:0",
+        "probability": 0.211
+      },
+      {
+        "score": "2:0",
+        "probability": 0.141
+      },
+      {
+        "score": "1:1",
+        "probability": 0.099
+      },
+      {
+        "score": "0:1",
+        "probability": 0.085
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Croatia": 0.332,
+        "Ghana": 0.116
+      },
+      "16-30'": {
+        "Croatia": 0.381,
+        "Ghana": 0.133
+      },
+      "31-45'": {
+        "Croatia": 0.443,
+        "Ghana": 0.155
+      },
+      "46-60'": {
+        "Croatia": 0.357,
+        "Ghana": 0.125
+      },
+      "61-75'": {
+        "Croatia": 0.455,
+        "Ghana": 0.159
+      },
+      "76-90'": {
+        "Croatia": 0.492,
+        "Ghana": 0.172
+      }
+    },
+    "comeback_probability": {
+      "Croatia": 0.036,
+      "Ghana": 0.014
+    },
+    "late_drama_probability": 0.485,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.179
+      },
+      {
+        "szenario": "Croatia dominiert früh",
+        "beschreibung": "Croatia geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.145
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Croatia trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.093
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 59,
+        "away": 41
+      },
+      "shots": {
+        "home": 20,
+        "away": 10
+      },
+      "shots_on_target": {
+        "home": 8,
+        "away": 3
+      },
+      "corners": {
+        "home": 8,
+        "away": 4
+      },
+      "passes": {
+        "home": 307,
+        "away": 213
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Croatia and Ghana is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 27,
+        "type": "goal",
+        "team": "Croatia",
+        "headline": "GOAL! Croatia!",
+        "description": "Croatia score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 29,
+        "type": "chance",
+        "team": "Croatia",
+        "headline": "Big chance for Croatia!",
+        "description": "Croatia create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 36,
+        "type": "chance",
+        "team": "Croatia",
+        "headline": "Big chance for Croatia!",
+        "description": "Croatia create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 59,
+        "type": "chance",
+        "team": "Ghana",
+        "headline": "Big chance for Ghana!",
+        "description": "Ghana create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 70,
+        "type": "goal",
+        "team": "Croatia",
+        "headline": "GOAL! Croatia!",
+        "description": "Croatia score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 87,
+        "type": "chance",
+        "team": "Croatia",
+        "headline": "Big chance for Croatia!",
+        "description": "Croatia create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Croatia": 11,
+      "Ghana": 74
+    },
+    "fifa_points": {
+      "Croatia": 1736.0,
+      "Ghana": 720.0
+    },
+    "form_last_10_avg_pts": {
+      "Croatia": 2.15,
+      "Ghana": 0.86
+    },
+    "win_rate_last_10": {
+      "Croatia": "70%",
+      "Ghana": "24%"
+    },
+    "avg_goals_scored": {
+      "Croatia": 1.66,
+      "Ghana": 0.97
+    },
+    "avg_goals_conceded": {
+      "Croatia": 1.47,
+      "Ghana": 1.62
+    },
+    "clean_sheet_rate": {
+      "Croatia": "40%",
+      "Ghana": "27%"
+    },
+    "h2h_last_10": {
+      "Croatia wins": "100%",
+      "draws": "0%",
+      "Ghana wins": "0%",
+      "total_h2h_games": 1
+    }
+  }
+}

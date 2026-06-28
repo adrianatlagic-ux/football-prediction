@@ -3,74 +3,74 @@
   "away_team": "Australia",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.7081,
-  "probability_draw": 0.1698,
-  "probability_away_win": 0.1222,
+  "probability_home_win": 0.6714,
+  "probability_draw": 0.1874,
+  "probability_away_win": 0.1412,
   "score_prediction": {
-    "home_xg": 1.59,
-    "away_xg": 1.68,
+    "home_xg": 1.6,
+    "away_xg": 1.53,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.708,
-    "probability_draw": 0.1698,
-    "probability_away_win": 0.1222,
+    "probability_home_win": 0.6714,
+    "probability_draw": 0.1874,
+    "probability_away_win": 0.1412,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.1624
+        "probability": 0.1501
       },
       {
         "score": "2:0",
-        "probability": 0.0969
+        "probability": 0.0979
       },
       {
         "score": "1:0",
-        "probability": 0.0956
+        "probability": 0.0977
       },
       {
         "score": "3:1",
-        "probability": 0.0859
+        "probability": 0.0803
       },
       {
         "score": "3:2",
-        "probability": 0.072
+        "probability": 0.0615
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.8778,
-        "home_or_away": 0.8302,
-        "draw_or_away": 0.292
+        "home_or_draw": 0.8588,
+        "home_or_away": 0.8126,
+        "draw_or_away": 0.3286
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8541,
-          "under": 0.1459
+          "over": 0.8403,
+          "under": 0.1597
         },
         {
           "line": 2.5,
-          "over": 0.6646,
-          "under": 0.3354
+          "over": 0.6365,
+          "under": 0.3635
         },
         {
           "line": 3.5,
-          "over": 0.4148,
-          "under": 0.5852
+          "over": 0.3909,
+          "under": 0.6091
         }
       ],
       "btts": {
-        "yes": 0.6449,
-        "no": 0.3551
+        "yes": 0.6237,
+        "no": 0.3763
       },
       "win_margin": {
-        "home_1plus": 0.708,
-        "home_2plus": 0.3597,
-        "home_3plus": 0.1427,
-        "away_1plus": 0.1222,
-        "away_2plus": 0.0646,
-        "away_3plus": 0.0268
+        "home_1plus": 0.6714,
+        "home_2plus": 0.3476,
+        "home_3plus": 0.1403,
+        "away_1plus": 0.1412,
+        "away_2plus": 0.0706,
+        "away_3plus": 0.0273
       },
       "scenario": "United States are favored to win, in a high-scoring game."
     }
@@ -78,113 +78,113 @@
   "game_flow": {
     "match_type": "Balanced & Open",
     "match_description": "Both teams play attacking football at an even level",
-    "dominance_index": -0.03,
-    "total_xg": 3.27,
+    "dominance_index": 0.02,
+    "total_xg": 3.13,
     "first_goal": {
-      "United States_scores_first": 0.468,
-      "Australia_scores_first": 0.494,
-      "no_goals": 0.038,
-      "expected_minute": 27
+      "United States_scores_first": 0.489,
+      "Australia_scores_first": 0.467,
+      "no_goals": 0.044,
+      "expected_minute": 28
     },
     "halftime_xg": {
       "United States": 0.75,
-      "Australia": 0.79
+      "Australia": 0.72
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.216
-      },
-      {
-        "score": "0:1",
-        "probability": 0.17
+        "probability": 0.23
       },
       {
         "score": "1:0",
-        "probability": 0.161
+        "probability": 0.173
+      },
+      {
+        "score": "0:1",
+        "probability": 0.165
       },
       {
         "score": "1:1",
-        "probability": 0.127
+        "probability": 0.124
       },
       {
-        "score": "0:2",
-        "probability": 0.067
+        "score": "2:0",
+        "probability": 0.065
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "United States": 0.215,
-        "Australia": 0.227
+        "United States": 0.216,
+        "Australia": 0.207
       },
       "16-30'": {
-        "United States": 0.246,
-        "Australia": 0.26
+        "United States": 0.248,
+        "Australia": 0.237
       },
       "31-45'": {
-        "United States": 0.286,
-        "Australia": 0.302
+        "United States": 0.288,
+        "Australia": 0.275
       },
       "46-60'": {
-        "United States": 0.231,
-        "Australia": 0.244
+        "United States": 0.232,
+        "Australia": 0.222
       },
       "61-75'": {
-        "United States": 0.294,
-        "Australia": 0.311
+        "United States": 0.296,
+        "Australia": 0.283
       },
       "76-90'": {
-        "United States": 0.318,
-        "Australia": 0.336
+        "United States": 0.32,
+        "Australia": 0.306
       }
     },
     "comeback_probability": {
       "United States": 0.035,
-      "Australia": 0.037
+      "Australia": 0.033
     },
-    "late_drama_probability": 0.48,
+    "late_drama_probability": 0.465,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.231
+        "wahrscheinlichkeit": 0.237
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.18
-      },
-      {
-        "szenario": "Australia dominiert früh",
-        "beschreibung": "Australia geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.068
+        "wahrscheinlichkeit": 0.189
       },
       {
         "szenario": "United States dominiert früh",
         "beschreibung": "United States geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.061
+        "wahrscheinlichkeit": 0.066
+      },
+      {
+        "szenario": "Australia dominiert früh",
+        "beschreibung": "Australia geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.06
       }
     ],
     "predicted_stats": {
       "possession": {
-        "home": 49,
-        "away": 51
+        "home": 51,
+        "away": 49
       },
       "shots": {
-        "home": 14,
-        "away": 15
+        "home": 15,
+        "away": 14
       },
       "shots_on_target": {
-        "home": 5,
-        "away": 6
+        "home": 6,
+        "away": 5
       },
       "corners": {
-        "home": 6,
-        "away": 7
+        "home": 7,
+        "away": 6
       },
       "passes": {
-        "home": 255,
-        "away": 265
+        "home": 265,
+        "away": 255
       }
     },
     "match_ticker": [
@@ -280,30 +280,30 @@
       "Australia": 1480.0
     },
     "form_last_10_avg_pts": {
-      "United States": 1.99,
-      "Australia": 1.77
+      "United States": 2.25,
+      "Australia": 1.27
     },
     "win_rate_last_10": {
-      "United States": "64%",
-      "Australia": "59%"
+      "United States": "73%",
+      "Australia": "37%"
     },
     "avg_goals_scored": {
       "United States": 1.34,
-      "Australia": 1.05
+      "Australia": 0.75
     },
     "avg_goals_conceded": {
       "United States": 1.14,
-      "Australia": 1.26
+      "Australia": 1.21
     },
     "clean_sheet_rate": {
       "United States": "40%",
-      "Australia": "24%"
+      "Australia": "32%"
     },
     "h2h_last_10": {
-      "United States wins": "67%",
-      "draws": "33%",
-      "Australia wins": "0%",
-      "total_h2h_games": 3
+      "United States wins": "60%",
+      "draws": "20%",
+      "Australia wins": "20%",
+      "total_h2h_games": 5
     }
   }
 }

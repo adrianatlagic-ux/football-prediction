@@ -1,0 +1,309 @@
+{
+  "home_team": "Brazil",
+  "away_team": "Japan",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4306,
+  "probability_draw": 0.2625,
+  "probability_away_win": 0.3069,
+  "score_prediction": {
+    "home_xg": 1.94,
+    "away_xg": 1.74,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.4306,
+    "probability_draw": 0.2625,
+    "probability_away_win": 0.3069,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.0847
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0546
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0486
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0476
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0388
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.6931,
+        "home_or_away": 0.7375,
+        "draw_or_away": 0.5694
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8914,
+          "under": 0.1086
+        },
+        {
+          "line": 2.5,
+          "over": 0.7022,
+          "under": 0.2978
+        },
+        {
+          "line": 3.5,
+          "over": 0.4995,
+          "under": 0.5005
+        }
+      ],
+      "btts": {
+        "yes": 0.7206,
+        "no": 0.2794
+      },
+      "win_margin": {
+        "home_1plus": 0.4306,
+        "home_2plus": 0.2435,
+        "home_3plus": 0.1113,
+        "away_1plus": 0.3069,
+        "away_2plus": 0.1607,
+        "away_3plus": 0.0671
+      },
+      "scenario": "Brazil are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.05,
+    "total_xg": 3.68,
+    "first_goal": {
+      "Brazil_scores_first": 0.514,
+      "Japan_scores_first": 0.461,
+      "no_goals": 0.025,
+      "expected_minute": 24
+    },
+    "halftime_xg": {
+      "Brazil": 0.91,
+      "Japan": 0.82
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.178
+      },
+      {
+        "score": "1:0",
+        "probability": 0.162
+      },
+      {
+        "score": "0:1",
+        "probability": 0.146
+      },
+      {
+        "score": "1:1",
+        "probability": 0.133
+      },
+      {
+        "score": "2:0",
+        "probability": 0.074
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Brazil": 0.262,
+        "Japan": 0.235
+      },
+      "16-30'": {
+        "Brazil": 0.301,
+        "Japan": 0.27
+      },
+      "31-45'": {
+        "Brazil": 0.349,
+        "Japan": 0.313
+      },
+      "46-60'": {
+        "Brazil": 0.281,
+        "Japan": 0.252
+      },
+      "61-75'": {
+        "Brazil": 0.359,
+        "Japan": 0.322
+      },
+      "76-90'": {
+        "Brazil": 0.388,
+        "Japan": 0.348
+      }
+    },
+    "comeback_probability": {
+      "Brazil": 0.044,
+      "Japan": 0.04
+    },
+    "late_drama_probability": 0.521,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.214
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.156
+      },
+      {
+        "szenario": "Brazil dominiert früh",
+        "beschreibung": "Brazil geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.076
+      },
+      {
+        "szenario": "Japan dominiert früh",
+        "beschreibung": "Japan geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.061
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 51,
+        "away": 49
+      },
+      "shots": {
+        "home": 17,
+        "away": 15
+      },
+      "shots_on_target": {
+        "home": 7,
+        "away": 6
+      },
+      "corners": {
+        "home": 7,
+        "away": 6
+      },
+      "passes": {
+        "home": 265,
+        "away": 255
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Brazil and Japan is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 6,
+        "type": "chance",
+        "team": "Brazil",
+        "headline": "Big chance for Brazil!",
+        "description": "Brazil create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 14,
+        "type": "goal",
+        "team": "Brazil",
+        "headline": "GOAL! Brazil!",
+        "description": "Brazil score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 37,
+        "type": "chance",
+        "team": "Japan",
+        "headline": "Big chance for Japan!",
+        "description": "Japan create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 48,
+        "type": "chance",
+        "team": "Japan",
+        "headline": "Big chance for Japan!",
+        "description": "Japan create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 60,
+        "type": "goal",
+        "team": "Japan",
+        "headline": "GOAL! Japan!",
+        "description": "Japan score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 67,
+        "type": "chance",
+        "team": "Brazil",
+        "headline": "Big chance for Brazil!",
+        "description": "Brazil create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 86,
+        "type": "goal",
+        "team": "Brazil",
+        "headline": "GOAL! Brazil!",
+        "description": "Brazil score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Brazil": 6,
+      "Japan": 18
+    },
+    "fifa_points": {
+      "Brazil": 1816.0,
+      "Japan": 1624.0
+    },
+    "form_last_10_avg_pts": {
+      "Brazil": 2.16,
+      "Japan": 2.29
+    },
+    "win_rate_last_10": {
+      "Brazil": "65%",
+      "Japan": "65%"
+    },
+    "avg_goals_scored": {
+      "Brazil": 1.76,
+      "Japan": 1.76
+    },
+    "avg_goals_conceded": {
+      "Brazil": 1.11,
+      "Japan": 0.64
+    },
+    "clean_sheet_rate": {
+      "Brazil": "45%",
+      "Japan": "61%"
+    },
+    "h2h_last_10": {
+      "Brazil wins": "70%",
+      "draws": "20%",
+      "Japan wins": "10%",
+      "total_h2h_games": 10
+    }
+  }
+}

@@ -3,74 +3,74 @@
   "away_team": "Cape Verde",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.5333,
-  "probability_draw": 0.3264,
-  "probability_away_win": 0.1403,
+  "probability_home_win": 0.5103,
+  "probability_draw": 0.2929,
+  "probability_away_win": 0.1967,
   "score_prediction": {
-    "home_xg": 2.37,
-    "away_xg": 0.64,
+    "home_xg": 2.41,
+    "away_xg": 0.63,
     "rho": -0.13,
     "most_likely_score": "2:0",
     "result": "H",
-    "probability_home_win": 0.5333,
-    "probability_draw": 0.3264,
-    "probability_away_win": 0.1403,
+    "probability_home_win": 0.5104,
+    "probability_draw": 0.2929,
+    "probability_away_win": 0.1967,
     "top_scorelines": [
       {
         "score": "2:0",
-        "probability": 0.0983
+        "probability": 0.0934
       },
       {
         "score": "3:0",
-        "probability": 0.0776
+        "probability": 0.075
       },
       {
         "score": "1:0",
-        "probability": 0.076
+        "probability": 0.0712
       },
       {
         "score": "2:1",
-        "probability": 0.0632
+        "probability": 0.059
       },
       {
         "score": "3:1",
-        "probability": 0.0499
+        "probability": 0.0474
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.8597,
-        "home_or_away": 0.6736,
-        "draw_or_away": 0.4667
+        "home_or_draw": 0.8033,
+        "home_or_away": 0.7071,
+        "draw_or_away": 0.4896
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.7735,
-          "under": 0.2265
+          "over": 0.7719,
+          "under": 0.2281
         },
         {
           "line": 2.5,
-          "over": 0.5,
-          "under": 0.5
+          "over": 0.5116,
+          "under": 0.4884
         },
         {
           "line": 3.5,
-          "over": 0.3087,
-          "under": 0.6913
+          "over": 0.3065,
+          "under": 0.6935
         }
       ],
       "btts": {
-        "yes": 0.4929,
-        "no": 0.5071
+        "yes": 0.4901,
+        "no": 0.5099
       },
       "win_margin": {
-        "home_1plus": 0.5333,
-        "home_2plus": 0.3758,
-        "home_3plus": 0.217,
-        "away_1plus": 0.1403,
-        "away_2plus": 0.0385,
-        "away_3plus": 0.007
+        "home_1plus": 0.5104,
+        "home_2plus": 0.3629,
+        "home_3plus": 0.2121,
+        "away_1plus": 0.1967,
+        "away_2plus": 0.0533,
+        "away_3plus": 0.0095
       },
       "scenario": "Uruguay are favored to win, likely by 2+ goals."
     }
@@ -78,95 +78,95 @@
   "game_flow": {
     "match_type": "One-Sided",
     "match_description": "One team is expected to dominate clearly",
-    "dominance_index": 0.57,
-    "total_xg": 3.01,
+    "dominance_index": 0.59,
+    "total_xg": 3.04,
     "first_goal": {
-      "Uruguay_scores_first": 0.749,
-      "Cape Verde_scores_first": 0.202,
-      "no_goals": 0.049,
+      "Uruguay_scores_first": 0.755,
+      "Cape Verde_scores_first": 0.197,
+      "no_goals": 0.048,
       "expected_minute": 29
     },
     "halftime_xg": {
-      "Uruguay": 1.11,
+      "Uruguay": 1.13,
       "Cape Verde": 0.3
     },
     "top_halftime_scores": [
       {
         "score": "1:0",
-        "probability": 0.272
+        "probability": 0.273
       },
       {
         "score": "0:0",
-        "probability": 0.244
+        "probability": 0.241
       },
       {
         "score": "2:0",
-        "probability": 0.152
+        "probability": 0.155
       },
       {
         "score": "1:1",
-        "probability": 0.082
+        "probability": 0.081
       },
       {
         "score": "0:1",
-        "probability": 0.074
+        "probability": 0.071
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Uruguay": 0.32,
-        "Cape Verde": 0.086
+        "Uruguay": 0.325,
+        "Cape Verde": 0.085
       },
       "16-30'": {
-        "Uruguay": 0.367,
-        "Cape Verde": 0.099
+        "Uruguay": 0.374,
+        "Cape Verde": 0.098
       },
       "31-45'": {
-        "Uruguay": 0.427,
-        "Cape Verde": 0.115
+        "Uruguay": 0.434,
+        "Cape Verde": 0.113
       },
       "46-60'": {
-        "Uruguay": 0.344,
-        "Cape Verde": 0.093
+        "Uruguay": 0.349,
+        "Cape Verde": 0.091
       },
       "61-75'": {
-        "Uruguay": 0.438,
-        "Cape Verde": 0.118
+        "Uruguay": 0.446,
+        "Cape Verde": 0.117
       },
       "76-90'": {
-        "Uruguay": 0.474,
-        "Cape Verde": 0.128
+        "Uruguay": 0.482,
+        "Cape Verde": 0.126
       }
     },
     "comeback_probability": {
-      "Uruguay": 0.029,
+      "Uruguay": 0.028,
       "Cape Verde": 0.008
     },
-    "late_drama_probability": 0.452,
+    "late_drama_probability": 0.456,
     "match_stories": [
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.199
+        "wahrscheinlichkeit": 0.197
       },
       {
         "szenario": "Uruguay dominiert früh",
         "beschreibung": "Uruguay geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.155
+        "wahrscheinlichkeit": 0.158
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "Uruguay trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.121
+        "wahrscheinlichkeit": 0.12
       }
     ],
     "predicted_stats": {
       "possession": {
-        "home": 60,
-        "away": 40
+        "home": 61,
+        "away": 39
       },
       "shots": {
-        "home": 19,
+        "home": 20,
         "away": 8
       },
       "shots_on_target": {
@@ -178,8 +178,8 @@
         "away": 4
       },
       "passes": {
-        "home": 312,
-        "away": 208
+        "home": 317,
+        "away": 203
       }
     },
     "match_ticker": [
@@ -267,30 +267,30 @@
       "Cape Verde": 816.0
     },
     "form_last_10_avg_pts": {
-      "Uruguay": 1.42,
-      "Cape Verde": 1.55
+      "Uruguay": 0.99,
+      "Cape Verde": 1.26
     },
     "win_rate_last_10": {
-      "Uruguay": "27%",
-      "Cape Verde": "33%"
+      "Uruguay": "12%",
+      "Cape Verde": "17%"
     },
     "avg_goals_scored": {
       "Uruguay": 0.64,
-      "Cape Verde": 1.33
+      "Cape Verde": 1.5
     },
     "avg_goals_conceded": {
       "Uruguay": 1.14,
-      "Cape Verde": 1.2
+      "Cape Verde": 1.35
     },
     "clean_sheet_rate": {
       "Uruguay": "38%",
-      "Cape Verde": "48%"
+      "Cape Verde": "42%"
     },
     "h2h_last_10": {
       "Uruguay wins": "0%",
-      "draws": "0%",
+      "draws": "100%",
       "Cape Verde wins": "0%",
-      "total_h2h_games": 0
+      "total_h2h_games": 1
     }
   }
 }

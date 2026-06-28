@@ -1,0 +1,309 @@
+{
+  "home_team": "Belgium",
+  "away_team": "Senegal",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4139,
+  "probability_draw": 0.2749,
+  "probability_away_win": 0.3111,
+  "score_prediction": {
+    "home_xg": 1.4,
+    "away_xg": 1.7,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.4139,
+    "probability_draw": 0.2749,
+    "probability_away_win": 0.3111,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1022
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0669
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0602
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0478
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0406
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.6889,
+        "home_or_away": 0.7251,
+        "draw_or_away": 0.5861
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8265,
+          "under": 0.1735
+        },
+        {
+          "line": 2.5,
+          "over": 0.5933,
+          "under": 0.4067
+        },
+        {
+          "line": 3.5,
+          "over": 0.3709,
+          "under": 0.6291
+        }
+      ],
+      "btts": {
+        "yes": 0.635,
+        "no": 0.365
+      },
+      "win_margin": {
+        "home_1plus": 0.4139,
+        "home_2plus": 0.1949,
+        "home_3plus": 0.0702,
+        "away_1plus": 0.3111,
+        "away_2plus": 0.1687,
+        "away_3plus": 0.0718
+      },
+      "scenario": "Belgium are favored to win, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.1,
+    "total_xg": 3.1,
+    "first_goal": {
+      "Belgium_scores_first": 0.431,
+      "Senegal_scores_first": 0.524,
+      "no_goals": 0.045,
+      "expected_minute": 29
+    },
+    "halftime_xg": {
+      "Belgium": 0.66,
+      "Senegal": 0.8
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.233
+      },
+      {
+        "score": "0:1",
+        "probability": 0.186
+      },
+      {
+        "score": "1:0",
+        "probability": 0.154
+      },
+      {
+        "score": "1:1",
+        "probability": 0.123
+      },
+      {
+        "score": "0:2",
+        "probability": 0.075
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Belgium": 0.189,
+        "Senegal": 0.23
+      },
+      "16-30'": {
+        "Belgium": 0.217,
+        "Senegal": 0.264
+      },
+      "31-45'": {
+        "Belgium": 0.252,
+        "Senegal": 0.306
+      },
+      "46-60'": {
+        "Belgium": 0.203,
+        "Senegal": 0.246
+      },
+      "61-75'": {
+        "Belgium": 0.259,
+        "Senegal": 0.315
+      },
+      "76-90'": {
+        "Belgium": 0.28,
+        "Senegal": 0.34
+      }
+    },
+    "comeback_probability": {
+      "Belgium": 0.03,
+      "Senegal": 0.036
+    },
+    "late_drama_probability": 0.462,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.236
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.191
+      },
+      {
+        "szenario": "Senegal dominiert früh",
+        "beschreibung": "Senegal geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.075
+      },
+      {
+        "szenario": "Belgium dominiert früh",
+        "beschreibung": "Belgium geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.051
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 48,
+        "away": 52
+      },
+      "shots": {
+        "home": 13,
+        "away": 15
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 6
+      },
+      "corners": {
+        "home": 6,
+        "away": 7
+      },
+      "passes": {
+        "home": 250,
+        "away": 270
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Belgium and Senegal is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 26,
+        "type": "chance",
+        "team": "Belgium",
+        "headline": "Big chance for Belgium!",
+        "description": "Belgium create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 38,
+        "type": "chance",
+        "team": "Senegal",
+        "headline": "Big chance for Senegal!",
+        "description": "Senegal create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 44,
+        "type": "goal",
+        "team": "Belgium",
+        "headline": "GOAL! Belgium!",
+        "description": "Belgium score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 56,
+        "type": "goal",
+        "team": "Belgium",
+        "headline": "GOAL! Belgium!",
+        "description": "Belgium score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 64,
+        "type": "chance",
+        "team": "Senegal",
+        "headline": "Big chance for Senegal!",
+        "description": "Senegal create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 72,
+        "type": "goal",
+        "team": "Senegal",
+        "headline": "GOAL! Senegal!",
+        "description": "Senegal score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 77,
+        "type": "chance",
+        "team": "Belgium",
+        "headline": "Big chance for Belgium!",
+        "description": "Belgium create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Belgium": 9,
+      "Senegal": 14
+    },
+    "fifa_points": {
+      "Belgium": 1768.0,
+      "Senegal": 1688.0
+    },
+    "form_last_10_avg_pts": {
+      "Belgium": 1.95,
+      "Senegal": 1.59
+    },
+    "win_rate_last_10": {
+      "Belgium": "47%",
+      "Senegal": "53%"
+    },
+    "avg_goals_scored": {
+      "Belgium": 2.94,
+      "Senegal": 2.15
+    },
+    "avg_goals_conceded": {
+      "Belgium": 1.32,
+      "Senegal": 1.93
+    },
+    "clean_sheet_rate": {
+      "Belgium": "9%",
+      "Senegal": "32%"
+    },
+    "h2h_last_10": {
+      "Belgium wins": "0%",
+      "draws": "0%",
+      "Senegal wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

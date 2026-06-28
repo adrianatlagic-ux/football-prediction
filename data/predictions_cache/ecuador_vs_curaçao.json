@@ -3,74 +3,74 @@
   "away_team": "Curaçao",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.691,
-  "probability_draw": 0.2117,
-  "probability_away_win": 0.0973,
+  "probability_home_win": 0.7514,
+  "probability_draw": 0.1755,
+  "probability_away_win": 0.0732,
   "score_prediction": {
-    "home_xg": 2.85,
-    "away_xg": 0.45,
+    "home_xg": 2.81,
+    "away_xg": 0.44,
     "rho": -0.13,
     "most_likely_score": "2:0",
     "result": "H",
-    "probability_home_win": 0.691,
-    "probability_draw": 0.2117,
-    "probability_away_win": 0.0973,
+    "probability_home_win": 0.7513,
+    "probability_draw": 0.1755,
+    "probability_away_win": 0.0732,
     "top_scorelines": [
       {
         "score": "2:0",
-        "probability": 0.1213
+        "probability": 0.1352
       },
       {
         "score": "3:0",
-        "probability": 0.1152
-      },
-      {
-        "score": "4:0",
-        "probability": 0.0821
+        "probability": 0.1266
       },
       {
         "score": "1:0",
-        "probability": 0.0802
+        "probability": 0.0908
+      },
+      {
+        "score": "4:0",
+        "probability": 0.0889
       },
       {
         "score": "2:1",
-        "probability": 0.0546
+        "probability": 0.0595
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.9027,
-        "home_or_away": 0.7883,
-        "draw_or_away": 0.309
+        "home_or_draw": 0.9268,
+        "home_or_away": 0.8245,
+        "draw_or_away": 0.2487
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.806,
-          "under": 0.194
+          "over": 0.8146,
+          "under": 0.1854
         },
         {
           "line": 2.5,
-          "over": 0.5733,
-          "under": 0.4267
+          "over": 0.5885,
+          "under": 0.4115
         },
         {
           "line": 3.5,
-          "over": 0.3673,
-          "under": 0.6327
+          "over": 0.3755,
+          "under": 0.6245
         }
       ],
       "btts": {
-        "yes": 0.3921,
-        "no": 0.6079
+        "yes": 0.3674,
+        "no": 0.6326
       },
       "win_margin": {
-        "home_1plus": 0.691,
-        "home_2plus": 0.5429,
-        "home_3plus": 0.3607,
-        "away_1plus": 0.0973,
-        "away_2plus": 0.021,
-        "away_3plus": 0.0028
+        "home_1plus": 0.7513,
+        "home_2plus": 0.5873,
+        "home_3plus": 0.3871,
+        "away_1plus": 0.0732,
+        "away_2plus": 0.0153,
+        "away_3plus": 0.0019
       },
       "scenario": "Ecuador are favored to win, likely by 2+ goals, in a high-scoring game."
     }
@@ -79,85 +79,85 @@
     "match_type": "One-Sided",
     "match_description": "One team is expected to dominate clearly",
     "dominance_index": 0.73,
-    "total_xg": 3.3,
+    "total_xg": 3.25,
     "first_goal": {
-      "Ecuador_scores_first": 0.832,
-      "Curaçao_scores_first": 0.131,
-      "no_goals": 0.037,
+      "Ecuador_scores_first": 0.831,
+      "Curaçao_scores_first": 0.13,
+      "no_goals": 0.039,
       "expected_minute": 27
     },
     "halftime_xg": {
-      "Ecuador": 1.34,
+      "Ecuador": 1.32,
       "Curaçao": 0.21
     },
     "top_halftime_scores": [
       {
         "score": "1:0",
-        "probability": 0.287
+        "probability": 0.29
       },
       {
         "score": "0:0",
-        "probability": 0.215
+        "probability": 0.22
       },
       {
         "score": "2:0",
-        "probability": 0.193
+        "probability": 0.191
       },
       {
         "score": "3:0",
-        "probability": 0.086
+        "probability": 0.084
       },
       {
         "score": "1:1",
-        "probability": 0.061
+        "probability": 0.06
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Ecuador": 0.385,
-        "Curaçao": 0.061
+        "Ecuador": 0.379,
+        "Curaçao": 0.059
       },
       "16-30'": {
-        "Ecuador": 0.442,
-        "Curaçao": 0.07
+        "Ecuador": 0.436,
+        "Curaçao": 0.068
       },
       "31-45'": {
-        "Ecuador": 0.513,
-        "Curaçao": 0.081
+        "Ecuador": 0.506,
+        "Curaçao": 0.079
       },
       "46-60'": {
-        "Ecuador": 0.413,
-        "Curaçao": 0.065
+        "Ecuador": 0.407,
+        "Curaçao": 0.064
       },
       "61-75'": {
-        "Ecuador": 0.527,
-        "Curaçao": 0.083
+        "Ecuador": 0.52,
+        "Curaçao": 0.081
       },
       "76-90'": {
-        "Ecuador": 0.57,
-        "Curaçao": 0.09
+        "Ecuador": 0.562,
+        "Curaçao": 0.088
       }
     },
     "comeback_probability": {
       "Ecuador": 0.022,
       "Curaçao": 0.004
     },
-    "late_drama_probability": 0.483,
+    "late_drama_probability": 0.478,
     "match_stories": [
       {
         "szenario": "Ecuador dominiert früh",
         "beschreibung": "Ecuador geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.2
+        "wahrscheinlichkeit": 0.198
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.183
+        "wahrscheinlichkeit": 0.186
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "Ecuador trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.113
+        "wahrscheinlichkeit": 0.117
       }
     ],
     "predicted_stats": {
@@ -166,7 +166,7 @@
         "away": 37
       },
       "shots": {
-        "home": 23,
+        "home": 22,
         "away": 7
       },
       "shots_on_target": {
@@ -267,11 +267,11 @@
       "Curaçao": 624.0
     },
     "form_last_10_avg_pts": {
-      "Ecuador": 1.44,
+      "Ecuador": 1.73,
       "Curaçao": 0.85
     },
     "win_rate_last_10": {
-      "Ecuador": "31%",
+      "Ecuador": "44%",
       "Curaçao": "21%"
     },
     "avg_goals_scored": {

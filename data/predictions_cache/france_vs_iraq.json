@@ -3,74 +3,74 @@
   "away_team": "Iraq",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.7746,
-  "probability_draw": 0.1503,
-  "probability_away_win": 0.0751,
+  "probability_home_win": 0.7711,
+  "probability_draw": 0.1732,
+  "probability_away_win": 0.0557,
   "score_prediction": {
-    "home_xg": 2.83,
-    "away_xg": 0.74,
+    "home_xg": 3.3,
+    "away_xg": 0.67,
     "rho": -0.13,
-    "most_likely_score": "2:0",
+    "most_likely_score": "3:0",
     "result": "H",
-    "probability_home_win": 0.7746,
-    "probability_draw": 0.1503,
-    "probability_away_win": 0.0751,
+    "probability_home_win": 0.7711,
+    "probability_draw": 0.1732,
+    "probability_away_win": 0.0557,
     "top_scorelines": [
       {
-        "score": "2:0",
-        "probability": 0.1106
-      },
-      {
         "score": "3:0",
-        "probability": 0.1042
+        "probability": 0.1019
       },
       {
-        "score": "2:1",
-        "probability": 0.0813
-      },
-      {
-        "score": "3:1",
-        "probability": 0.0767
+        "score": "2:0",
+        "probability": 0.0926
       },
       {
         "score": "4:0",
-        "probability": 0.0737
+        "probability": 0.0841
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0684
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0622
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.9249,
-        "home_or_away": 0.8497,
-        "draw_or_away": 0.2254
+        "home_or_draw": 0.9443,
+        "home_or_away": 0.8268,
+        "draw_or_away": 0.2289
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8748,
-          "under": 0.1252
+          "over": 0.8966,
+          "under": 0.1034
         },
         {
           "line": 2.5,
-          "over": 0.6841,
-          "under": 0.3159
+          "over": 0.7169,
+          "under": 0.2831
         },
         {
           "line": 3.5,
-          "over": 0.4701,
-          "under": 0.5299
+          "over": 0.5307,
+          "under": 0.4693
         }
       ],
       "btts": {
-        "yes": 0.5022,
-        "no": 0.4978
+        "yes": 0.5038,
+        "no": 0.4962
       },
       "win_margin": {
-        "home_1plus": 0.7746,
-        "home_2plus": 0.5888,
-        "home_3plus": 0.3786,
-        "away_1plus": 0.0751,
-        "away_2plus": 0.022,
-        "away_3plus": 0.0044
+        "home_1plus": 0.7711,
+        "home_2plus": 0.63,
+        "home_3plus": 0.4469,
+        "away_1plus": 0.0557,
+        "away_2plus": 0.0151,
+        "away_3plus": 0.0027
       },
       "scenario": "France are favored to win, likely by 2+ goals, in a high-scoring game."
     }
@@ -78,108 +78,103 @@
   "game_flow": {
     "match_type": "Goal Fest",
     "match_description": "A very open game with plenty of chances expected",
-    "dominance_index": 0.59,
-    "total_xg": 3.57,
+    "dominance_index": 0.66,
+    "total_xg": 3.97,
     "first_goal": {
-      "France_scores_first": 0.77,
-      "Iraq_scores_first": 0.201,
-      "no_goals": 0.028,
-      "expected_minute": 25
+      "France_scores_first": 0.816,
+      "Iraq_scores_first": 0.166,
+      "no_goals": 0.019,
+      "expected_minute": 22
     },
     "halftime_xg": {
-      "France": 1.33,
-      "Iraq": 0.35
+      "France": 1.55,
+      "Iraq": 0.31
     },
     "top_halftime_scores": [
       {
         "score": "1:0",
-        "probability": 0.251
-      },
-      {
-        "score": "0:0",
-        "probability": 0.189
+        "probability": 0.245
       },
       {
         "score": "2:0",
-        "probability": 0.167
+        "probability": 0.19
       },
       {
-        "score": "1:1",
-        "probability": 0.087
+        "score": "0:0",
+        "probability": 0.158
       },
       {
         "score": "3:0",
-        "probability": 0.074
+        "probability": 0.098
+      },
+      {
+        "score": "1:1",
+        "probability": 0.077
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "France": 0.382,
-        "Iraq": 0.1
+        "France": 0.446,
+        "Iraq": 0.09
       },
       "16-30'": {
-        "France": 0.439,
-        "Iraq": 0.115
+        "France": 0.511,
+        "Iraq": 0.104
       },
       "31-45'": {
-        "France": 0.509,
-        "Iraq": 0.133
+        "France": 0.594,
+        "Iraq": 0.121
       },
       "46-60'": {
-        "France": 0.41,
-        "Iraq": 0.107
+        "France": 0.478,
+        "Iraq": 0.097
       },
       "61-75'": {
-        "France": 0.524,
-        "Iraq": 0.137
+        "France": 0.61,
+        "Iraq": 0.124
       },
       "76-90'": {
-        "France": 0.566,
-        "Iraq": 0.148
+        "France": 0.66,
+        "Iraq": 0.134
       }
     },
     "comeback_probability": {
-      "France": 0.033,
-      "Iraq": 0.01
+      "France": 0.03,
+      "Iraq": 0.007
     },
-    "late_drama_probability": 0.51,
+    "late_drama_probability": 0.548,
     "match_stories": [
       {
         "szenario": "France dominiert früh",
         "beschreibung": "France geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.173
+        "wahrscheinlichkeit": 0.201
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.166
-      },
-      {
-        "szenario": "Knappes 1:0",
-        "beschreibung": "France trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.085
+        "wahrscheinlichkeit": 0.145
       }
     ],
     "predicted_stats": {
       "possession": {
-        "home": 61,
-        "away": 39
+        "home": 62,
+        "away": 38
       },
       "shots": {
-        "home": 22,
-        "away": 9
+        "home": 25,
+        "away": 8
       },
       "shots_on_target": {
-        "home": 9,
+        "home": 10,
         "away": 3
       },
       "corners": {
-        "home": 9,
+        "home": 10,
         "away": 4
       },
       "passes": {
-        "home": 317,
-        "away": 203
+        "home": 322,
+        "away": 198
       }
     },
     "match_ticker": [
@@ -192,7 +187,7 @@
         "score_after": "0:0"
       },
       {
-        "minute": 12,
+        "minute": 13,
         "type": "chance",
         "team": "France",
         "headline": "Big chance for France!",
@@ -200,19 +195,19 @@
         "score_after": "0:0"
       },
       {
-        "minute": 21,
-        "type": "chance",
-        "team": "France",
-        "headline": "Big chance for France!",
-        "description": "France create a great opportunity but fail to convert.",
-        "score_after": "0:0"
-      },
-      {
-        "minute": 43,
+        "minute": 29,
         "type": "goal",
         "team": "France",
         "headline": "GOAL! France!",
         "description": "France score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 43,
+        "type": "chance",
+        "team": "France",
+        "headline": "Big chance for France!",
+        "description": "France create a great opportunity but fail to convert.",
         "score_after": "1:0"
       },
       {
@@ -224,7 +219,7 @@
         "score_after": "1:0"
       },
       {
-        "minute": 47,
+        "minute": 51,
         "type": "chance",
         "team": "France",
         "headline": "Big chance for France!",
@@ -232,15 +227,7 @@
         "score_after": "1:0"
       },
       {
-        "minute": 67,
-        "type": "chance",
-        "team": "France",
-        "headline": "Big chance for France!",
-        "description": "France create a great opportunity but fail to convert.",
-        "score_after": "1:0"
-      },
-      {
-        "minute": 83,
+        "minute": 78,
         "type": "goal",
         "team": "France",
         "headline": "GOAL! France!",
@@ -248,12 +235,28 @@
         "score_after": "2:0"
       },
       {
+        "minute": 80,
+        "type": "chance",
+        "team": "France",
+        "headline": "Big chance for France!",
+        "description": "France create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 87,
+        "type": "goal",
+        "team": "France",
+        "headline": "GOAL! France!",
+        "description": "France score to make it 3:0.",
+        "score_after": "3:0"
+      },
+      {
         "minute": 90,
         "type": "fulltime",
         "team": null,
         "headline": "Full-time",
-        "description": "The final score finishes 2:0.",
-        "score_after": "2:0"
+        "description": "The final score finishes 3:0.",
+        "score_after": "3:0"
       }
     ]
   },
@@ -267,30 +270,30 @@
       "Iraq": 1008.0
     },
     "form_last_10_avg_pts": {
-      "France": 2.83,
-      "Iraq": 1.63
+      "France": 2.87,
+      "Iraq": 1.15
     },
     "win_rate_last_10": {
-      "France": "91%",
-      "Iraq": "51%"
+      "France": "93%",
+      "Iraq": "38%"
     },
     "avg_goals_scored": {
-      "France": 2.38,
-      "Iraq": 0.7
+      "France": 2.68,
+      "Iraq": 0.49
     },
     "avg_goals_conceded": {
-      "France": 1.29,
-      "Iraq": 0.72
+      "France": 1.26,
+      "Iraq": 1.7
     },
     "clean_sheet_rate": {
-      "France": "19%",
-      "Iraq": "51%"
+      "France": "16%",
+      "Iraq": "39%"
     },
     "h2h_last_10": {
-      "France wins": "0%",
+      "France wins": "100%",
       "draws": "0%",
       "Iraq wins": "0%",
-      "total_h2h_games": 0
+      "total_h2h_games": 1
     }
   }
 }

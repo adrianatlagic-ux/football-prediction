@@ -3,74 +3,74 @@
   "away_team": "Egypt",
   "prediction": "A",
   "prediction_label": "Away Win",
-  "probability_home_win": 0.1845,
-  "probability_draw": 0.2307,
-  "probability_away_win": 0.5848,
+  "probability_home_win": 0.1527,
+  "probability_draw": 0.3516,
+  "probability_away_win": 0.4957,
   "score_prediction": {
     "home_xg": 0.94,
-    "away_xg": 1.8,
+    "away_xg": 2.01,
     "rho": -0.13,
     "most_likely_score": "0:2",
     "result": "A",
-    "probability_home_win": 0.1845,
-    "probability_draw": 0.2307,
-    "probability_away_win": 0.5848,
+    "probability_home_win": 0.1527,
+    "probability_draw": 0.3516,
+    "probability_away_win": 0.4957,
     "top_scorelines": [
       {
         "score": "0:2",
-        "probability": 0.1093
-      },
-      {
-        "score": "0:1",
-        "probability": 0.1068
+        "probability": 0.0861
       },
       {
         "score": "1:2",
-        "probability": 0.1022
+        "probability": 0.0811
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0753
       },
       {
         "score": "0:3",
-        "probability": 0.0654
+        "probability": 0.0575
       },
       {
         "score": "1:3",
-        "probability": 0.0612
+        "probability": 0.0542
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.4152,
-        "home_or_away": 0.7693,
-        "draw_or_away": 0.8155
+        "home_or_draw": 0.5043,
+        "home_or_away": 0.6484,
+        "draw_or_away": 0.8473
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.7742,
-          "under": 0.2258
+          "over": 0.7911,
+          "under": 0.2089
         },
         {
           "line": 2.5,
-          "over": 0.5253,
-          "under": 0.4747
+          "over": 0.5149,
+          "under": 0.4851
         },
         {
           "line": 3.5,
-          "over": 0.296,
-          "under": 0.704
+          "over": 0.3237,
+          "under": 0.6763
         }
       ],
       "btts": {
-        "yes": 0.5143,
-        "no": 0.4857
+        "yes": 0.57,
+        "no": 0.43
       },
       "win_margin": {
-        "home_1plus": 0.1845,
-        "home_2plus": 0.0667,
-        "home_3plus": 0.0171,
-        "away_1plus": 0.5848,
-        "away_2plus": 0.3429,
-        "away_3plus": 0.158
+        "home_1plus": 0.1527,
+        "home_2plus": 0.0548,
+        "home_3plus": 0.014,
+        "away_1plus": 0.4957,
+        "away_2plus": 0.3091,
+        "away_3plus": 0.1543
       },
       "scenario": "Egypt are favored to win, likely by 2+ goals."
     }
@@ -78,113 +78,113 @@
   "game_flow": {
     "match_type": "Balanced & Open",
     "match_description": "Both teams play attacking football at an even level",
-    "dominance_index": -0.31,
-    "total_xg": 2.74,
+    "dominance_index": -0.36,
+    "total_xg": 2.95,
     "first_goal": {
-      "New Zealand_scores_first": 0.321,
-      "Egypt_scores_first": 0.615,
-      "no_goals": 0.065,
-      "expected_minute": 32
+      "New Zealand_scores_first": 0.302,
+      "Egypt_scores_first": 0.646,
+      "no_goals": 0.052,
+      "expected_minute": 30
     },
     "halftime_xg": {
       "New Zealand": 0.44,
-      "Egypt": 0.85
+      "Egypt": 0.94
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.276
+        "probability": 0.251
       },
       {
         "score": "0:1",
-        "probability": 0.234
-      },
-      {
-        "score": "1:0",
-        "probability": 0.122
-      },
-      {
-        "score": "1:1",
-        "probability": 0.103
+        "probability": 0.237
       },
       {
         "score": "0:2",
-        "probability": 0.099
+        "probability": 0.112
+      },
+      {
+        "score": "1:0",
+        "probability": 0.111
+      },
+      {
+        "score": "1:1",
+        "probability": 0.105
       }
     ],
     "goal_timing": {
       "1-15'": {
         "New Zealand": 0.127,
-        "Egypt": 0.243
+        "Egypt": 0.271
       },
       "16-30'": {
         "New Zealand": 0.146,
-        "Egypt": 0.279
+        "Egypt": 0.312
       },
       "31-45'": {
         "New Zealand": 0.169,
-        "Egypt": 0.324
+        "Egypt": 0.362
       },
       "46-60'": {
         "New Zealand": 0.136,
-        "Egypt": 0.261
+        "Egypt": 0.291
       },
       "61-75'": {
         "New Zealand": 0.174,
-        "Egypt": 0.333
+        "Egypt": 0.372
       },
       "76-90'": {
         "New Zealand": 0.188,
-        "Egypt": 0.36
+        "Egypt": 0.402
       }
     },
     "comeback_probability": {
       "New Zealand": 0.017,
-      "Egypt": 0.031
+      "Egypt": 0.034
     },
-    "late_drama_probability": 0.422,
+    "late_drama_probability": 0.446,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.231
+        "wahrscheinlichkeit": 0.211
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.214
-      },
-      {
-        "szenario": "Knappes 1:0",
-        "beschreibung": "Egypt trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.117
+        "wahrscheinlichkeit": 0.201
       },
       {
         "szenario": "Egypt dominiert früh",
         "beschreibung": "Egypt geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.1
+        "wahrscheinlichkeit": 0.113
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Egypt trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.107
       }
     ],
     "predicted_stats": {
       "possession": {
-        "home": 44,
-        "away": 56
+        "home": 43,
+        "away": 57
       },
       "shots": {
         "home": 10,
-        "away": 16
+        "away": 17
       },
       "shots_on_target": {
         "home": 4,
-        "away": 6
+        "away": 7
       },
       "corners": {
         "home": 4,
-        "away": 6
+        "away": 7
       },
       "passes": {
-        "home": 229,
-        "away": 291
+        "home": 224,
+        "away": 296
       }
     },
     "match_ticker": [
@@ -194,6 +194,14 @@
         "team": null,
         "headline": "Kickoff!",
         "description": "The match between New Zealand and Egypt is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 6,
+        "type": "chance",
+        "team": "Egypt",
+        "headline": "Big chance for Egypt!",
+        "description": "Egypt create a great opportunity but fail to convert.",
         "score_after": "0:0"
       },
       {
@@ -207,9 +215,9 @@
       {
         "minute": 16,
         "type": "chance",
-        "team": "New Zealand",
-        "headline": "Big chance for New Zealand!",
-        "description": "New Zealand create a great opportunity but fail to convert.",
+        "team": "Egypt",
+        "headline": "Big chance for Egypt!",
+        "description": "Egypt create a great opportunity but fail to convert.",
         "score_after": "0:1"
       },
       {
@@ -221,6 +229,14 @@
         "score_after": "0:1"
       },
       {
+        "minute": 53,
+        "type": "chance",
+        "team": "Egypt",
+        "headline": "Big chance for Egypt!",
+        "description": "Egypt create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
         "minute": 67,
         "type": "goal",
         "team": "Egypt",
@@ -229,19 +245,11 @@
         "score_after": "0:2"
       },
       {
-        "minute": 69,
+        "minute": 90,
         "type": "chance",
         "team": "Egypt",
         "headline": "Big chance for Egypt!",
         "description": "Egypt create a great opportunity but fail to convert.",
-        "score_after": "0:2"
-      },
-      {
-        "minute": 70,
-        "type": "chance",
-        "team": "New Zealand",
-        "headline": "Big chance for New Zealand!",
-        "description": "New Zealand create a great opportunity but fail to convert.",
         "score_after": "0:2"
       },
       {
@@ -264,30 +272,30 @@
       "Egypt": 1448.0
     },
     "form_last_10_avg_pts": {
-      "New Zealand": 0.71,
-      "Egypt": 1.82
+      "New Zealand": 0.54,
+      "Egypt": 1.85
     },
     "win_rate_last_10": {
-      "New Zealand": "15%",
-      "Egypt": "45%"
+      "New Zealand": "11%",
+      "Egypt": "46%"
     },
     "avg_goals_scored": {
       "New Zealand": 0.88,
-      "Egypt": 1.03
+      "Egypt": 1.41
     },
     "avg_goals_conceded": {
       "New Zealand": 1.44,
-      "Egypt": 0.58
+      "Egypt": 0.68
     },
     "clean_sheet_rate": {
       "New Zealand": "12%",
-      "Egypt": "49%"
+      "Egypt": "38%"
     },
     "h2h_last_10": {
       "New Zealand wins": "0%",
-      "draws": "33%",
-      "Egypt wins": "67%",
-      "total_h2h_games": 3
+      "draws": "25%",
+      "Egypt wins": "75%",
+      "total_h2h_games": 4
     }
   }
 }

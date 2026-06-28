@@ -3,74 +3,74 @@
   "away_team": "South Africa",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.5866,
-  "probability_draw": 0.3127,
-  "probability_away_win": 0.1007,
+  "probability_home_win": 0.7215,
+  "probability_draw": 0.2004,
+  "probability_away_win": 0.0781,
   "score_prediction": {
-    "home_xg": 2.16,
-    "away_xg": 0.75,
+    "home_xg": 2.01,
+    "away_xg": 0.76,
     "rho": -0.13,
     "most_likely_score": "2:0",
     "result": "H",
-    "probability_home_win": 0.5866,
-    "probability_draw": 0.3127,
-    "probability_away_win": 0.1007,
+    "probability_home_win": 0.7215,
+    "probability_draw": 0.2004,
+    "probability_away_win": 0.0781,
     "top_scorelines": [
       {
         "score": "2:0",
-        "probability": 0.1084
+        "probability": 0.1398
       },
       {
         "score": "1:0",
-        "probability": 0.0907
+        "probability": 0.1253
       },
       {
         "score": "2:1",
-        "probability": 0.0818
+        "probability": 0.1058
       },
       {
         "score": "3:0",
-        "probability": 0.078
+        "probability": 0.0938
       },
       {
         "score": "3:1",
-        "probability": 0.0588
+        "probability": 0.071
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.8993,
-        "home_or_away": 0.6873,
-        "draw_or_away": 0.4134
+        "home_or_draw": 0.9219,
+        "home_or_away": 0.7996,
+        "draw_or_away": 0.2785
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.7824,
-          "under": 0.2176
+          "over": 0.7846,
+          "under": 0.2154
         },
         {
           "line": 2.5,
-          "over": 0.5098,
-          "under": 0.4902
+          "over": 0.5374,
+          "under": 0.4626
         },
         {
           "line": 3.5,
-          "over": 0.3146,
-          "under": 0.6854
+          "over": 0.311,
+          "under": 0.689
         }
       ],
       "btts": {
-        "yes": 0.5076,
-        "no": 0.4924
+        "yes": 0.4606,
+        "no": 0.5394
       },
       "win_margin": {
-        "home_1plus": 0.5866,
-        "home_2plus": 0.3885,
-        "home_3plus": 0.2079,
-        "away_1plus": 0.1007,
-        "away_2plus": 0.0309,
-        "away_3plus": 0.0064
+        "home_1plus": 0.7215,
+        "home_2plus": 0.4595,
+        "home_3plus": 0.2337,
+        "away_1plus": 0.0781,
+        "away_2plus": 0.0242,
+        "away_3plus": 0.0052
       },
       "scenario": "Mexico are favored to win, likely by 2+ goals."
     }
@@ -78,95 +78,100 @@
   "game_flow": {
     "match_type": "One-Sided",
     "match_description": "One team is expected to dominate clearly",
-    "dominance_index": 0.48,
-    "total_xg": 2.91,
+    "dominance_index": 0.45,
+    "total_xg": 2.77,
     "first_goal": {
-      "Mexico_scores_first": 0.702,
-      "South Africa_scores_first": 0.244,
-      "no_goals": 0.054,
-      "expected_minute": 30
+      "Mexico_scores_first": 0.68,
+      "South Africa_scores_first": 0.257,
+      "no_goals": 0.063,
+      "expected_minute": 32
     },
     "halftime_xg": {
-      "Mexico": 1.02,
-      "South Africa": 0.35
+      "Mexico": 0.94,
+      "South Africa": 0.36
     },
     "top_halftime_scores": [
       {
-        "score": "1:0",
-        "probability": 0.26
+        "score": "0:0",
+        "probability": 0.273
       },
       {
-        "score": "0:0",
-        "probability": 0.256
+        "score": "1:0",
+        "probability": 0.258
       },
       {
         "score": "2:0",
-        "probability": 0.132
+        "probability": 0.122
+      },
+      {
+        "score": "0:1",
+        "probability": 0.097
       },
       {
         "score": "1:1",
         "probability": 0.092
-      },
-      {
-        "score": "0:1",
-        "probability": 0.09
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Mexico": 0.292,
-        "South Africa": 0.101
+        "Mexico": 0.271,
+        "South Africa": 0.103
       },
       "16-30'": {
-        "Mexico": 0.335,
-        "South Africa": 0.116
+        "Mexico": 0.312,
+        "South Africa": 0.118
       },
       "31-45'": {
-        "Mexico": 0.389,
-        "South Africa": 0.135
+        "Mexico": 0.362,
+        "South Africa": 0.137
       },
       "46-60'": {
-        "Mexico": 0.313,
-        "South Africa": 0.109
+        "Mexico": 0.291,
+        "South Africa": 0.11
       },
       "61-75'": {
-        "Mexico": 0.4,
-        "South Africa": 0.139
+        "Mexico": 0.372,
+        "South Africa": 0.141
       },
       "76-90'": {
-        "Mexico": 0.432,
-        "South Africa": 0.15
+        "Mexico": 0.402,
+        "South Africa": 0.152
       }
     },
     "comeback_probability": {
-      "Mexico": 0.031,
+      "Mexico": 0.03,
       "South Africa": 0.012
     },
-    "late_drama_probability": 0.441,
+    "late_drama_probability": 0.425,
     "match_stories": [
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.204
+        "wahrscheinlichkeit": 0.213
       },
       {
-        "szenario": "Mexico dominiert früh",
-        "beschreibung": "Mexico geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.134
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.205
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "Mexico trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.12
+        "wahrscheinlichkeit": 0.128
+      },
+      {
+        "szenario": "Mexico dominiert früh",
+        "beschreibung": "Mexico geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.123
       }
     ],
     "predicted_stats": {
       "possession": {
-        "home": 59,
-        "away": 41
+        "home": 58,
+        "away": 42
       },
       "shots": {
-        "home": 18,
+        "home": 17,
         "away": 9
       },
       "shots_on_target": {
@@ -178,8 +183,8 @@
         "away": 4
       },
       "passes": {
-        "home": 307,
-        "away": 213
+        "home": 302,
+        "away": 218
       }
     },
     "match_ticker": [
@@ -193,14 +198,6 @@
       },
       {
         "minute": 4,
-        "type": "chance",
-        "team": "Mexico",
-        "headline": "Big chance for Mexico!",
-        "description": "Mexico create a great opportunity but fail to convert.",
-        "score_after": "0:0"
-      },
-      {
-        "minute": 8,
         "type": "chance",
         "team": "Mexico",
         "headline": "Big chance for Mexico!",
@@ -232,7 +229,7 @@
         "score_after": "2:0"
       },
       {
-        "minute": 63,
+        "minute": 56,
         "type": "chance",
         "team": "Mexico",
         "headline": "Big chance for Mexico!",
@@ -240,7 +237,7 @@
         "score_after": "2:0"
       },
       {
-        "minute": 68,
+        "minute": 67,
         "type": "chance",
         "team": "Mexico",
         "headline": "Big chance for Mexico!",
@@ -267,30 +264,30 @@
       "South Africa": 960.0
     },
     "form_last_10_avg_pts": {
-      "Mexico": 2.3,
-      "South Africa": 1.04
+      "Mexico": 2.48,
+      "South Africa": 1.21
     },
     "win_rate_last_10": {
-      "Mexico": "68%",
-      "South Africa": "26%"
+      "Mexico": "77%",
+      "South Africa": "29%"
     },
     "avg_goals_scored": {
       "Mexico": 1.24,
-      "South Africa": 1.47
+      "South Africa": 1.41
     },
     "avg_goals_conceded": {
       "Mexico": 0.54,
-      "South Africa": 1.3
+      "South Africa": 1.26
     },
     "clean_sheet_rate": {
       "Mexico": "58%",
-      "South Africa": "21%"
+      "South Africa": "19%"
     },
     "h2h_last_10": {
-      "Mexico wins": "50%",
-      "draws": "25%",
-      "South Africa wins": "25%",
-      "total_h2h_games": 4
+      "Mexico wins": "60%",
+      "draws": "20%",
+      "South Africa wins": "20%",
+      "total_h2h_games": 5
     }
   }
 }

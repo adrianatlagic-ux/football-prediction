@@ -1,0 +1,296 @@
+{
+  "home_team": "Curaçao",
+  "away_team": "Ivory Coast",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.1594,
+  "probability_draw": 0.2223,
+  "probability_away_win": 0.6183,
+  "score_prediction": {
+    "home_xg": 0.64,
+    "away_xg": 2.67,
+    "rho": -0.13,
+    "most_likely_score": "0:2",
+    "result": "A",
+    "probability_home_win": 0.1594,
+    "probability_draw": 0.2223,
+    "probability_away_win": 0.6183,
+    "top_scorelines": [
+      {
+        "score": "0:2",
+        "probability": 0.1017
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0906
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0698
+      },
+      {
+        "score": "1:2",
+        "probability": 0.0646
+      },
+      {
+        "score": "0:4",
+        "probability": 0.0605
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.3817,
+        "home_or_away": 0.7777,
+        "draw_or_away": 0.8406
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8197,
+          "under": 0.1803
+        },
+        {
+          "line": 2.5,
+          "over": 0.5909,
+          "under": 0.4091
+        },
+        {
+          "line": 3.5,
+          "over": 0.3758,
+          "under": 0.6242
+        }
+      ],
+      "btts": {
+        "yes": 0.4868,
+        "no": 0.5132
+      },
+      "win_margin": {
+        "home_1plus": 0.1594,
+        "home_2plus": 0.043,
+        "home_3plus": 0.0076,
+        "away_1plus": 0.6183,
+        "away_2plus": 0.4628,
+        "away_3plus": 0.2899
+      },
+      "scenario": "Ivory Coast are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": -0.61,
+    "total_xg": 3.31,
+    "first_goal": {
+      "Curaçao_scores_first": 0.186,
+      "Ivory Coast_scores_first": 0.777,
+      "no_goals": 0.037,
+      "expected_minute": 27
+    },
+    "halftime_xg": {
+      "Curaçao": 0.3,
+      "Ivory Coast": 1.25
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:1",
+        "probability": 0.267
+      },
+      {
+        "score": "0:0",
+        "probability": 0.213
+      },
+      {
+        "score": "0:2",
+        "probability": 0.168
+      },
+      {
+        "score": "1:1",
+        "probability": 0.08
+      },
+      {
+        "score": "0:3",
+        "probability": 0.07
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Curaçao": 0.086,
+        "Ivory Coast": 0.36
+      },
+      "16-30'": {
+        "Curaçao": 0.099,
+        "Ivory Coast": 0.414
+      },
+      "31-45'": {
+        "Curaçao": 0.115,
+        "Ivory Coast": 0.481
+      },
+      "46-60'": {
+        "Curaçao": 0.093,
+        "Ivory Coast": 0.387
+      },
+      "61-75'": {
+        "Curaçao": 0.118,
+        "Ivory Coast": 0.494
+      },
+      "76-90'": {
+        "Curaçao": 0.128,
+        "Ivory Coast": 0.534
+      }
+    },
+    "comeback_probability": {
+      "Curaçao": 0.008,
+      "Ivory Coast": 0.029
+    },
+    "late_drama_probability": 0.484,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.181
+      },
+      {
+        "szenario": "Ivory Coast dominiert früh",
+        "beschreibung": "Ivory Coast geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.173
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Ivory Coast trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.103
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 39,
+        "away": 61
+      },
+      "shots": {
+        "home": 8,
+        "away": 21
+      },
+      "shots_on_target": {
+        "home": 3,
+        "away": 8
+      },
+      "corners": {
+        "home": 4,
+        "away": 9
+      },
+      "passes": {
+        "home": 203,
+        "away": 317
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Curaçao and Ivory Coast is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 11,
+        "type": "goal",
+        "team": "Ivory Coast",
+        "headline": "GOAL! Ivory Coast!",
+        "description": "Ivory Coast score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 20,
+        "type": "chance",
+        "team": "Ivory Coast",
+        "headline": "Big chance for Ivory Coast!",
+        "description": "Ivory Coast create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 25,
+        "type": "chance",
+        "team": "Ivory Coast",
+        "headline": "Big chance for Ivory Coast!",
+        "description": "Ivory Coast create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 60,
+        "type": "chance",
+        "team": "Ivory Coast",
+        "headline": "Big chance for Ivory Coast!",
+        "description": "Ivory Coast create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 79,
+        "type": "chance",
+        "team": "Ivory Coast",
+        "headline": "Big chance for Ivory Coast!",
+        "description": "Ivory Coast create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 85,
+        "type": "goal",
+        "team": "Ivory Coast",
+        "headline": "GOAL! Ivory Coast!",
+        "description": "Ivory Coast score to make it 0:2.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 0:2.",
+        "score_after": "0:2"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Curaçao": 82,
+      "Ivory Coast": 34
+    },
+    "fifa_points": {
+      "Curaçao": 624.0,
+      "Ivory Coast": 1368.0
+    },
+    "form_last_10_avg_pts": {
+      "Curaçao": 0.85,
+      "Ivory Coast": 2.05
+    },
+    "win_rate_last_10": {
+      "Curaçao": "21%",
+      "Ivory Coast": "66%"
+    },
+    "avg_goals_scored": {
+      "Curaçao": 1.41,
+      "Ivory Coast": 1.75
+    },
+    "avg_goals_conceded": {
+      "Curaçao": 2.98,
+      "Ivory Coast": 1.21
+    },
+    "clean_sheet_rate": {
+      "Curaçao": "26%",
+      "Ivory Coast": "40%"
+    },
+    "h2h_last_10": {
+      "Curaçao wins": "0%",
+      "draws": "0%",
+      "Ivory Coast wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

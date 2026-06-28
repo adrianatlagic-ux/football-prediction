@@ -1,185 +1,185 @@
 {
   "home_team": "Canada",
   "away_team": "Qatar",
-  "prediction": "D",
-  "prediction_label": "Draw",
-  "probability_home_win": 0.4456,
-  "probability_draw": 0.4464,
-  "probability_away_win": 0.1079,
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6514,
+  "probability_draw": 0.2587,
+  "probability_away_win": 0.0899,
   "score_prediction": {
-    "home_xg": 2.39,
-    "away_xg": 1.09,
+    "home_xg": 2.86,
+    "away_xg": 0.97,
     "rho": -0.13,
-    "most_likely_score": "1:1",
-    "result": "D",
-    "probability_home_win": 0.4456,
-    "probability_draw": 0.4464,
-    "probability_away_win": 0.1079,
+    "most_likely_score": "2:0",
+    "result": "H",
+    "probability_home_win": 0.6514,
+    "probability_draw": 0.2587,
+    "probability_away_win": 0.0899,
     "top_scorelines": [
       {
-        "score": "1:1",
-        "probability": 0.2001
+        "score": "2:0",
+        "probability": 0.0769
       },
       {
-        "score": "2:2",
-        "probability": 0.1158
+        "score": "2:1",
+        "probability": 0.0748
       },
       {
-        "score": "0:0",
-        "probability": 0.0907
+        "score": "3:0",
+        "probability": 0.0733
       },
       {
-        "score": "3:3",
-        "probability": 0.0337
+        "score": "3:1",
+        "probability": 0.0712
       },
       {
-        "score": "4:4",
-        "probability": 0.0055
+        "score": "4:0",
+        "probability": 0.0524
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.8921,
-        "home_or_away": 0.5536,
-        "draw_or_away": 0.5544
+        "home_or_draw": 0.9101,
+        "home_or_away": 0.7413,
+        "draw_or_away": 0.3486
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.849,
-          "under": 0.151
+          "over": 0.8903,
+          "under": 0.1097
         },
         {
           "line": 2.5,
-          "over": 0.5754,
-          "under": 0.4246
+          "over": 0.6896,
+          "under": 0.3104
         },
         {
           "line": 3.5,
-          "over": 0.4247,
-          "under": 0.5753
+          "over": 0.5094,
+          "under": 0.4906
         }
       ],
       "btts": {
-        "yes": 0.6706,
-        "no": 0.3294
+        "yes": 0.6212,
+        "no": 0.3788
       },
       "win_margin": {
-        "home_1plus": 0.4456,
-        "home_2plus": 0.3008,
-        "home_3plus": 0.1679,
-        "away_1plus": 0.1079,
-        "away_2plus": 0.0414,
-        "away_3plus": 0.0117
+        "home_1plus": 0.6514,
+        "home_2plus": 0.4856,
+        "home_3plus": 0.3077,
+        "away_1plus": 0.0899,
+        "away_2plus": 0.0312,
+        "away_3plus": 0.0079
       },
-      "scenario": "A close match — a draw is the single most likely outcome."
+      "scenario": "Canada are favored to win, likely by 2+ goals, in a high-scoring game."
     }
   },
   "game_flow": {
-    "match_type": "One-Sided",
-    "match_description": "One team is expected to dominate clearly",
-    "dominance_index": 0.37,
-    "total_xg": 3.48,
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.49,
+    "total_xg": 3.83,
     "first_goal": {
-      "Canada_scores_first": 0.666,
-      "Qatar_scores_first": 0.304,
-      "no_goals": 0.031,
-      "expected_minute": 25
+      "Canada_scores_first": 0.731,
+      "Qatar_scores_first": 0.248,
+      "no_goals": 0.022,
+      "expected_minute": 23
     },
     "halftime_xg": {
-      "Canada": 1.12,
-      "Qatar": 0.51
+      "Canada": 1.34,
+      "Qatar": 0.46
     },
     "top_halftime_scores": [
       {
         "score": "1:0",
-        "probability": 0.22
+        "probability": 0.225
       },
       {
         "score": "0:0",
-        "probability": 0.196
+        "probability": 0.167
       },
       {
         "score": "2:0",
-        "probability": 0.124
+        "probability": 0.151
       },
       {
         "score": "1:1",
-        "probability": 0.113
+        "probability": 0.103
       },
       {
         "score": "0:1",
-        "probability": 0.1
+        "probability": 0.076
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Canada": 0.323,
-        "Qatar": 0.147
+        "Canada": 0.386,
+        "Qatar": 0.131
       },
       "16-30'": {
-        "Canada": 0.37,
-        "Qatar": 0.169
+        "Canada": 0.443,
+        "Qatar": 0.15
       },
       "31-45'": {
-        "Canada": 0.43,
-        "Qatar": 0.196
+        "Canada": 0.515,
+        "Qatar": 0.175
       },
       "46-60'": {
-        "Canada": 0.347,
-        "Qatar": 0.158
+        "Canada": 0.415,
+        "Qatar": 0.141
       },
       "61-75'": {
-        "Canada": 0.442,
-        "Qatar": 0.202
+        "Canada": 0.529,
+        "Qatar": 0.179
       },
       "76-90'": {
-        "Canada": 0.478,
-        "Qatar": 0.218
+        "Canada": 0.572,
+        "Qatar": 0.194
       }
     },
     "comeback_probability": {
-      "Canada": 0.042,
-      "Qatar": 0.02
+      "Canada": 0.041,
+      "Qatar": 0.015
     },
-    "late_drama_probability": 0.501,
+    "late_drama_probability": 0.535,
     "match_stories": [
-      {
-        "szenario": "Torloser Krimi",
-        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.169
-      },
       {
         "szenario": "Canada dominiert früh",
         "beschreibung": "Canada geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.127
+        "wahrscheinlichkeit": 0.157
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.15
       },
       {
         "szenario": "Canada dreht es noch",
         "beschreibung": "Canada liegt zur Halbzeit zurück, dreht das Spiel in H2",
-        "wahrscheinlichkeit": 0.042
+        "wahrscheinlichkeit": 0.041
       }
     ],
     "predicted_stats": {
       "possession": {
-        "home": 57,
-        "away": 43
+        "home": 59,
+        "away": 41
       },
       "shots": {
-        "home": 20,
-        "away": 11
+        "home": 23,
+        "away": 10
       },
       "shots_on_target": {
-        "home": 8,
+        "home": 9,
         "away": 4
       },
       "corners": {
-        "home": 8,
-        "away": 5
+        "home": 9,
+        "away": 4
       },
       "passes": {
-        "home": 296,
-        "away": 224
+        "home": 307,
+        "away": 213
       }
     },
     "match_ticker": [
@@ -192,39 +192,7 @@
         "score_after": "0:0"
       },
       {
-        "minute": 4,
-        "type": "chance",
-        "team": "Qatar",
-        "headline": "Big chance for Qatar!",
-        "description": "Qatar create a great opportunity but fail to convert.",
-        "score_after": "0:0"
-      },
-      {
-        "minute": 17,
-        "type": "chance",
-        "team": "Canada",
-        "headline": "Big chance for Canada!",
-        "description": "Canada create a great opportunity but fail to convert.",
-        "score_after": "0:0"
-      },
-      {
-        "minute": 45,
-        "type": "halftime",
-        "team": null,
-        "headline": "Half-time",
-        "description": "The teams go into the break at 0:0.",
-        "score_after": "0:0"
-      },
-      {
-        "minute": 53,
-        "type": "chance",
-        "team": "Canada",
-        "headline": "Big chance for Canada!",
-        "description": "Canada create a great opportunity but fail to convert.",
-        "score_after": "0:0"
-      },
-      {
-        "minute": 68,
+        "minute": 25,
         "type": "goal",
         "team": "Canada",
         "headline": "GOAL! Canada!",
@@ -232,28 +200,60 @@
         "score_after": "1:0"
       },
       {
-        "minute": 70,
-        "type": "goal",
+        "minute": 40,
+        "type": "chance",
         "team": "Qatar",
-        "headline": "GOAL! Qatar!",
-        "description": "Qatar score to make it 1:1.",
-        "score_after": "1:1"
+        "headline": "Big chance for Qatar!",
+        "description": "Qatar create a great opportunity but fail to convert.",
+        "score_after": "1:0"
       },
       {
-        "minute": 71,
+        "minute": 45,
         "type": "chance",
         "team": "Canada",
         "headline": "Big chance for Canada!",
         "description": "Canada create a great opportunity but fail to convert.",
-        "score_after": "1:1"
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 66,
+        "type": "chance",
+        "team": "Canada",
+        "headline": "Big chance for Canada!",
+        "description": "Canada create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 72,
+        "type": "chance",
+        "team": "Qatar",
+        "headline": "Big chance for Qatar!",
+        "description": "Qatar create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 73,
+        "type": "goal",
+        "team": "Canada",
+        "headline": "GOAL! Canada!",
+        "description": "Canada score to make it 2:0.",
+        "score_after": "2:0"
       },
       {
         "minute": 90,
         "type": "fulltime",
         "team": null,
         "headline": "Full-time",
-        "description": "The final score finishes 1:1.",
-        "score_after": "1:1"
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
       }
     ]
   },
@@ -267,30 +267,30 @@
       "Qatar": 1040.0
     },
     "form_last_10_avg_pts": {
-      "Canada": 1.4,
-      "Qatar": 0.63
+      "Canada": 1.69,
+      "Qatar": 0.44
     },
     "win_rate_last_10": {
-      "Canada": "24%",
-      "Qatar": "8%"
+      "Canada": "38%",
+      "Qatar": "6%"
     },
     "avg_goals_scored": {
       "Canada": 1.34,
-      "Qatar": 0.65
+      "Qatar": 0.59
     },
     "avg_goals_conceded": {
       "Canada": 0.51,
-      "Qatar": 2.24
+      "Qatar": 3.08
     },
     "clean_sheet_rate": {
       "Canada": "56%",
-      "Qatar": "6%"
+      "Qatar": "0%"
     },
     "h2h_last_10": {
       "Canada wins": "100%",
       "draws": "0%",
       "Qatar wins": "0%",
-      "total_h2h_games": 1
+      "total_h2h_games": 2
     }
   }
 }

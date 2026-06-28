@@ -3,74 +3,74 @@
   "away_team": "Morocco",
   "prediction": "A",
   "prediction_label": "Away Win",
-  "probability_home_win": 0.3893,
-  "probability_draw": 0.2055,
-  "probability_away_win": 0.4052,
+  "probability_home_win": 0.3774,
+  "probability_draw": 0.2397,
+  "probability_away_win": 0.3829,
   "score_prediction": {
-    "home_xg": 1.42,
-    "away_xg": 1.6,
+    "home_xg": 1.43,
+    "away_xg": 1.46,
     "rho": -0.13,
     "most_likely_score": "1:2",
     "result": "A",
-    "probability_home_win": 0.3893,
-    "probability_draw": 0.2055,
-    "probability_away_win": 0.4052,
+    "probability_home_win": 0.3774,
+    "probability_draw": 0.2397,
+    "probability_away_win": 0.3829,
     "top_scorelines": [
       {
         "score": "1:2",
-        "probability": 0.0887
+        "probability": 0.0883
       },
       {
         "score": "0:1",
-        "probability": 0.0637
+        "probability": 0.0685
       },
       {
         "score": "0:2",
-        "probability": 0.0626
+        "probability": 0.0615
       },
       {
         "score": "1:3",
-        "probability": 0.0474
+        "probability": 0.043
       },
       {
         "score": "2:3",
-        "probability": 0.0336
+        "probability": 0.0309
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.5948,
-        "home_or_away": 0.7945,
-        "draw_or_away": 0.6107
+        "home_or_draw": 0.6171,
+        "home_or_away": 0.7603,
+        "draw_or_away": 0.6226
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8228,
-          "under": 0.1772
+          "over": 0.8023,
+          "under": 0.1977
         },
         {
           "line": 2.5,
-          "over": 0.606,
-          "under": 0.394
+          "over": 0.5676,
+          "under": 0.4324
         },
         {
           "line": 3.5,
-          "over": 0.3617,
-          "under": 0.6383
+          "over": 0.3321,
+          "under": 0.6679
         }
       ],
       "btts": {
-        "yes": 0.6074,
-        "no": 0.3926
+        "yes": 0.5921,
+        "no": 0.4079
       },
       "win_margin": {
-        "home_1plus": 0.3893,
-        "home_2plus": 0.186,
-        "home_3plus": 0.068,
-        "away_1plus": 0.4052,
-        "away_2plus": 0.2122,
-        "away_3plus": 0.0865
+        "home_1plus": 0.3774,
+        "home_2plus": 0.1838,
+        "home_3plus": 0.0685,
+        "away_1plus": 0.3829,
+        "away_2plus": 0.1891,
+        "away_3plus": 0.0716
       },
       "scenario": "Morocco are favored to win, in a high-scoring game."
     }
@@ -78,91 +78,91 @@
   "game_flow": {
     "match_type": "Balanced & Open",
     "match_description": "Both teams play attacking football at an even level",
-    "dominance_index": -0.06,
-    "total_xg": 3.02,
+    "dominance_index": -0.01,
+    "total_xg": 2.89,
     "first_goal": {
-      "Brazil_scores_first": 0.447,
-      "Morocco_scores_first": 0.504,
-      "no_goals": 0.049,
-      "expected_minute": 29
+      "Brazil_scores_first": 0.467,
+      "Morocco_scores_first": 0.477,
+      "no_goals": 0.056,
+      "expected_minute": 31
     },
     "halftime_xg": {
       "Brazil": 0.67,
-      "Morocco": 0.75
+      "Morocco": 0.69
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.242
+        "probability": 0.257
       },
       {
         "score": "0:1",
-        "probability": 0.182
+        "probability": 0.177
       },
       {
         "score": "1:0",
-        "probability": 0.162
+        "probability": 0.173
       },
       {
         "score": "1:1",
-        "probability": 0.122
+        "probability": 0.119
       },
       {
         "score": "0:2",
-        "probability": 0.069
+        "probability": 0.061
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Brazil": 0.192,
-        "Morocco": 0.216
+        "Brazil": 0.193,
+        "Morocco": 0.197
       },
       "16-30'": {
-        "Brazil": 0.22,
-        "Morocco": 0.248
+        "Brazil": 0.222,
+        "Morocco": 0.226
       },
       "31-45'": {
-        "Brazil": 0.256,
-        "Morocco": 0.288
+        "Brazil": 0.257,
+        "Morocco": 0.263
       },
       "46-60'": {
-        "Brazil": 0.206,
-        "Morocco": 0.232
+        "Brazil": 0.207,
+        "Morocco": 0.212
       },
       "61-75'": {
-        "Brazil": 0.263,
-        "Morocco": 0.296
+        "Brazil": 0.265,
+        "Morocco": 0.27
       },
       "76-90'": {
-        "Brazil": 0.284,
-        "Morocco": 0.32
+        "Brazil": 0.286,
+        "Morocco": 0.292
       }
     },
     "comeback_probability": {
       "Brazil": 0.03,
-      "Morocco": 0.034
+      "Morocco": 0.031
     },
-    "late_drama_probability": 0.453,
+    "late_drama_probability": 0.439,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.241
+        "wahrscheinlichkeit": 0.248
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.196
+        "wahrscheinlichkeit": 0.204
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Morocco trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.082
       },
       {
         "szenario": "Morocco dominiert früh",
         "beschreibung": "Morocco geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.069
-      },
-      {
-        "szenario": "Brazil dominiert früh",
-        "beschreibung": "Brazil geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.055
+        "wahrscheinlichkeit": 0.061
       }
     ],
     "predicted_stats": {
@@ -280,24 +280,24 @@
       "Morocco": 1784.0
     },
     "form_last_10_avg_pts": {
-      "Brazil": 1.72,
-      "Morocco": 2.16
+      "Brazil": 2.16,
+      "Morocco": 2.43
     },
     "win_rate_last_10": {
-      "Brazil": "48%",
-      "Morocco": "58%"
+      "Brazil": "65%",
+      "Morocco": "72%"
     },
     "avg_goals_scored": {
-      "Brazil": 1.63,
-      "Morocco": 1.76
+      "Brazil": 1.76,
+      "Morocco": 1.66
     },
     "avg_goals_conceded": {
-      "Brazil": 1.32,
-      "Morocco": 0.85
+      "Brazil": 1.11,
+      "Morocco": 0.65
     },
     "clean_sheet_rate": {
-      "Brazil": "32%",
-      "Morocco": "41%"
+      "Brazil": "45%",
+      "Morocco": "53%"
     },
     "h2h_last_10": {
       "Brazil wins": "50%",

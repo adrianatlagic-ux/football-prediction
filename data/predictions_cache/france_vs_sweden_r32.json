@@ -1,0 +1,312 @@
+{
+  "home_team": "France",
+  "away_team": "Sweden",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.5302,
+  "probability_draw": 0.3735,
+  "probability_away_win": 0.0963,
+  "score_prediction": {
+    "home_xg": 3.67,
+    "away_xg": 1.16,
+    "rho": -0.13,
+    "most_likely_score": "3:1",
+    "result": "H",
+    "probability_home_win": 0.5302,
+    "probability_draw": 0.3735,
+    "probability_away_win": 0.0963,
+    "top_scorelines": [
+      {
+        "score": "3:1",
+        "probability": 0.0501
+      },
+      {
+        "score": "4:1",
+        "probability": 0.046
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0434
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0409
+      },
+      {
+        "score": "4:0",
+        "probability": 0.0398
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.9037,
+        "home_or_away": 0.6265,
+        "draw_or_away": 0.4698
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.934,
+          "under": 0.066
+        },
+        {
+          "line": 2.5,
+          "over": 0.7599,
+          "under": 0.2401
+        },
+        {
+          "line": 3.5,
+          "over": 0.6457,
+          "under": 0.3543
+        }
+      ],
+      "btts": {
+        "yes": 0.7434,
+        "no": 0.2566
+      },
+      "win_margin": {
+        "home_1plus": 0.5302,
+        "home_2plus": 0.4312,
+        "home_3plus": 0.3101,
+        "away_1plus": 0.0963,
+        "away_2plus": 0.0346,
+        "away_3plus": 0.0094
+      },
+      "scenario": "France are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.52,
+    "total_xg": 4.83,
+    "first_goal": {
+      "France_scores_first": 0.754,
+      "Sweden_scores_first": 0.238,
+      "no_goals": 0.008,
+      "expected_minute": 18
+    },
+    "halftime_xg": {
+      "France": 1.72,
+      "Sweden": 0.55
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.184
+      },
+      {
+        "score": "2:0",
+        "probability": 0.159
+      },
+      {
+        "score": "0:0",
+        "probability": 0.107
+      },
+      {
+        "score": "1:1",
+        "probability": 0.1
+      },
+      {
+        "score": "3:0",
+        "probability": 0.091
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "France": 0.495,
+        "Sweden": 0.157
+      },
+      "16-30'": {
+        "France": 0.569,
+        "Sweden": 0.18
+      },
+      "31-45'": {
+        "France": 0.661,
+        "Sweden": 0.209
+      },
+      "46-60'": {
+        "France": 0.532,
+        "Sweden": 0.168
+      },
+      "61-75'": {
+        "France": 0.679,
+        "Sweden": 0.215
+      },
+      "76-90'": {
+        "France": 0.734,
+        "Sweden": 0.232
+      }
+    },
+    "comeback_probability": {
+      "France": 0.046,
+      "Sweden": 0.016
+    },
+    "late_drama_probability": 0.619,
+    "match_stories": [
+      {
+        "szenario": "France dominiert früh",
+        "beschreibung": "France geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.171
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.105
+      },
+      {
+        "szenario": "France dreht es noch",
+        "beschreibung": "France liegt zur Halbzeit zurück, dreht das Spiel in H2",
+        "wahrscheinlichkeit": 0.046
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 59,
+        "away": 41
+      },
+      "shots": {
+        "home": 28,
+        "away": 12
+      },
+      "shots_on_target": {
+        "home": 11,
+        "away": 4
+      },
+      "corners": {
+        "home": 11,
+        "away": 5
+      },
+      "passes": {
+        "home": 307,
+        "away": 213
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between France and Sweden is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 16,
+        "type": "goal",
+        "team": "France",
+        "headline": "GOAL! France!",
+        "description": "France score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 35,
+        "type": "chance",
+        "team": "France",
+        "headline": "Big chance for France!",
+        "description": "France create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 43,
+        "type": "chance",
+        "team": "Sweden",
+        "headline": "Big chance for Sweden!",
+        "description": "Sweden create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 55,
+        "type": "chance",
+        "team": "France",
+        "headline": "Big chance for France!",
+        "description": "France create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 60,
+        "type": "goal",
+        "team": "Sweden",
+        "headline": "GOAL! Sweden!",
+        "description": "Sweden score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 65,
+        "type": "chance",
+        "team": "France",
+        "headline": "Big chance for France!",
+        "description": "France create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 83,
+        "type": "goal",
+        "team": "France",
+        "headline": "GOAL! France!",
+        "description": "France score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "goal",
+        "team": "France",
+        "headline": "GOAL! France!",
+        "description": "France score to make it 3:1.",
+        "score_after": "3:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 3:1.",
+        "score_after": "3:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "France": 1,
+      "Sweden": 38
+    },
+    "fifa_points": {
+      "France": 1896.0,
+      "Sweden": 1304.0
+    },
+    "form_last_10_avg_pts": {
+      "France": 2.87,
+      "Sweden": 1.29
+    },
+    "win_rate_last_10": {
+      "France": "93%",
+      "Sweden": "34%"
+    },
+    "avg_goals_scored": {
+      "France": 2.68,
+      "Sweden": 1.42
+    },
+    "avg_goals_conceded": {
+      "France": 1.26,
+      "Sweden": 2.05
+    },
+    "clean_sheet_rate": {
+      "France": "16%",
+      "Sweden": "13%"
+    },
+    "h2h_last_10": {
+      "France wins": "60%",
+      "draws": "20%",
+      "Sweden wins": "20%",
+      "total_h2h_games": 10
+    }
+  }
+}

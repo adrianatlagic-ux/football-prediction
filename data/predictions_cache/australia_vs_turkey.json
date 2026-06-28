@@ -3,74 +3,74 @@
   "away_team": "Turkey",
   "prediction": "A",
   "prediction_label": "Away Win",
-  "probability_home_win": 0.2335,
-  "probability_draw": 0.2535,
-  "probability_away_win": 0.513,
+  "probability_home_win": 0.3346,
+  "probability_draw": 0.2766,
+  "probability_away_win": 0.3888,
   "score_prediction": {
-    "home_xg": 1.89,
-    "away_xg": 1.18,
+    "home_xg": 1.73,
+    "away_xg": 1.19,
     "rho": -0.13,
     "most_likely_score": "1:2",
     "result": "A",
-    "probability_home_win": 0.2335,
-    "probability_draw": 0.2535,
-    "probability_away_win": 0.513,
+    "probability_home_win": 0.3346,
+    "probability_draw": 0.2766,
+    "probability_away_win": 0.3888,
     "top_scorelines": [
       {
         "score": "1:2",
-        "probability": 0.1405
+        "probability": 0.1034
       },
       {
         "score": "0:1",
-        "probability": 0.0953
+        "probability": 0.0777
       },
       {
         "score": "0:2",
-        "probability": 0.0745
+        "probability": 0.0598
       },
       {
         "score": "1:3",
-        "probability": 0.0553
+        "probability": 0.0411
       },
       {
         "score": "2:3",
-        "probability": 0.0521
+        "probability": 0.0355
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.487,
-        "home_or_away": 0.7465,
-        "draw_or_away": 0.7665
+        "home_or_draw": 0.6112,
+        "home_or_away": 0.7234,
+        "draw_or_away": 0.6654
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.811,
-          "under": 0.189
+          "over": 0.7966,
+          "under": 0.2034
         },
         {
           "line": 2.5,
-          "over": 0.5814,
-          "under": 0.4186
+          "over": 0.5508,
+          "under": 0.4492
         },
         {
           "line": 3.5,
-          "over": 0.3449,
-          "under": 0.6551
+          "over": 0.3254,
+          "under": 0.6746
         }
       ],
       "btts": {
-        "yes": 0.6192,
-        "no": 0.3808
+        "yes": 0.5958,
+        "no": 0.4042
       },
       "win_margin": {
-        "home_1plus": 0.2335,
-        "home_2plus": 0.1374,
-        "home_3plus": 0.0643,
-        "away_1plus": 0.513,
-        "away_2plus": 0.2142,
-        "away_3plus": 0.0665
+        "home_1plus": 0.3346,
+        "home_2plus": 0.187,
+        "home_3plus": 0.082,
+        "away_1plus": 0.3888,
+        "away_2plus": 0.1653,
+        "away_3plus": 0.0522
       },
       "scenario": "Turkey are favored to win, in a high-scoring game."
     }
@@ -78,100 +78,100 @@
   "game_flow": {
     "match_type": "Balanced & Open",
     "match_description": "Both teams play attacking football at an even level",
-    "dominance_index": 0.23,
-    "total_xg": 3.07,
+    "dominance_index": 0.18,
+    "total_xg": 2.92,
     "first_goal": {
-      "Australia_scores_first": 0.587,
-      "Turkey_scores_first": 0.367,
-      "no_goals": 0.046,
-      "expected_minute": 29
+      "Australia_scores_first": 0.561,
+      "Turkey_scores_first": 0.386,
+      "no_goals": 0.054,
+      "expected_minute": 30
     },
     "halftime_xg": {
-      "Australia": 0.89,
-      "Turkey": 0.55
+      "Australia": 0.81,
+      "Turkey": 0.56
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.237
+        "probability": 0.254
       },
       {
         "score": "1:0",
-        "probability": 0.21
+        "probability": 0.206
       },
       {
         "score": "0:1",
-        "probability": 0.131
+        "probability": 0.142
       },
       {
         "score": "1:1",
-        "probability": 0.117
+        "probability": 0.115
       },
       {
         "score": "2:0",
-        "probability": 0.093
+        "probability": 0.084
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Australia": 0.255,
-        "Turkey": 0.159
+        "Australia": 0.234,
+        "Turkey": 0.161
       },
       "16-30'": {
-        "Australia": 0.293,
-        "Turkey": 0.183
+        "Australia": 0.268,
+        "Turkey": 0.184
       },
       "31-45'": {
-        "Australia": 0.34,
-        "Turkey": 0.212
+        "Australia": 0.311,
+        "Turkey": 0.214
       },
       "46-60'": {
-        "Australia": 0.274,
-        "Turkey": 0.171
+        "Australia": 0.251,
+        "Turkey": 0.173
       },
       "61-75'": {
-        "Australia": 0.35,
-        "Turkey": 0.218
+        "Australia": 0.32,
+        "Turkey": 0.22
       },
       "76-90'": {
-        "Australia": 0.378,
-        "Turkey": 0.236
+        "Australia": 0.346,
+        "Turkey": 0.238
       }
     },
     "comeback_probability": {
-      "Australia": 0.037,
+      "Australia": 0.034,
       "Turkey": 0.024
     },
-    "late_drama_probability": 0.459,
+    "late_drama_probability": 0.442,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.225
+        "wahrscheinlichkeit": 0.238
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.193
-      },
-      {
-        "szenario": "Australia dominiert früh",
-        "beschreibung": "Australia geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.095
+        "wahrscheinlichkeit": 0.202
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "Australia trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.089
+        "wahrscheinlichkeit": 0.094
+      },
+      {
+        "szenario": "Australia dominiert früh",
+        "beschreibung": "Australia geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.085
       }
     ],
     "predicted_stats": {
       "possession": {
-        "home": 54,
-        "away": 46
+        "home": 53,
+        "away": 47
       },
       "shots": {
-        "home": 16,
+        "home": 15,
         "away": 12
       },
       "shots_on_target": {
@@ -179,12 +179,12 @@
         "away": 4
       },
       "corners": {
-        "home": 7,
+        "home": 6,
         "away": 5
       },
       "passes": {
-        "home": 281,
-        "away": 239
+        "home": 276,
+        "away": 244
       }
     },
     "match_ticker": [
@@ -199,9 +199,9 @@
       {
         "minute": 18,
         "type": "chance",
-        "team": "Australia",
-        "headline": "Big chance for Australia!",
-        "description": "Australia create a great opportunity but fail to convert.",
+        "team": "Turkey",
+        "headline": "Big chance for Turkey!",
+        "description": "Turkey create a great opportunity but fail to convert.",
         "score_after": "0:0"
       },
       {
@@ -280,23 +280,23 @@
       "Turkey": 1560.0
     },
     "form_last_10_avg_pts": {
-      "Australia": 1.77,
-      "Turkey": 1.91
+      "Australia": 1.27,
+      "Turkey": 1.66
     },
     "win_rate_last_10": {
-      "Australia": "59%",
-      "Turkey": "60%"
+      "Australia": "37%",
+      "Turkey": "52%"
     },
     "avg_goals_scored": {
-      "Australia": 1.05,
+      "Australia": 0.75,
       "Turkey": 1.99
     },
     "avg_goals_conceded": {
-      "Australia": 1.26,
+      "Australia": 1.21,
       "Turkey": 1.35
     },
     "clean_sheet_rate": {
-      "Australia": "24%",
+      "Australia": "32%",
       "Turkey": "22%"
     },
     "h2h_last_10": {

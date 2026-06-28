@@ -3,74 +3,74 @@
   "away_team": "Ivory Coast",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.4178,
-  "probability_draw": 0.3142,
-  "probability_away_win": 0.268,
+  "probability_home_win": 0.6125,
+  "probability_draw": 0.1828,
+  "probability_away_win": 0.2047,
   "score_prediction": {
-    "home_xg": 2.07,
-    "away_xg": 1.18,
+    "home_xg": 2.17,
+    "away_xg": 1.17,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.4178,
-    "probability_draw": 0.3142,
-    "probability_away_win": 0.268,
+    "probability_home_win": 0.6125,
+    "probability_draw": 0.1828,
+    "probability_away_win": 0.2047,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.0724
+        "probability": 0.1014
       },
       {
         "score": "2:0",
-        "probability": 0.0613
-      },
-      {
-        "score": "1:0",
-        "probability": 0.0501
+        "probability": 0.0868
       },
       {
         "score": "3:1",
-        "probability": 0.05
+        "probability": 0.0734
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0678
       },
       {
         "score": "3:0",
-        "probability": 0.0423
+        "probability": 0.0628
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.732,
-        "home_or_away": 0.6858,
-        "draw_or_away": 0.5822
+        "home_or_draw": 0.7953,
+        "home_or_away": 0.8172,
+        "draw_or_away": 0.3875
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8367,
-          "under": 0.1633
+          "over": 0.8608,
+          "under": 0.1392
         },
         {
           "line": 2.5,
-          "over": 0.5957,
-          "under": 0.4043
+          "over": 0.6645,
+          "under": 0.3355
         },
         {
           "line": 3.5,
-          "over": 0.3917,
-          "under": 0.6083
+          "over": 0.4318,
+          "under": 0.5682
         }
       ],
       "btts": {
-        "yes": 0.642,
-        "no": 0.358
+        "yes": 0.6137,
+        "no": 0.3863
       },
       "win_margin": {
-        "home_1plus": 0.4178,
-        "home_2plus": 0.2592,
-        "home_3plus": 0.1298,
-        "away_1plus": 0.268,
-        "away_2plus": 0.1104,
-        "away_3plus": 0.0339
+        "home_1plus": 0.6125,
+        "home_2plus": 0.3901,
+        "home_3plus": 0.2023,
+        "away_1plus": 0.2047,
+        "away_2plus": 0.0829,
+        "away_3plus": 0.025
       },
       "scenario": "Germany are favored to win, likely by 2+ goals, in a high-scoring game."
     }
@@ -78,91 +78,91 @@
   "game_flow": {
     "match_type": "Balanced & Open",
     "match_description": "Both teams play attacking football at an even level",
-    "dominance_index": 0.27,
-    "total_xg": 3.25,
+    "dominance_index": 0.3,
+    "total_xg": 3.34,
     "first_goal": {
-      "Germany_scores_first": 0.612,
-      "Ivory Coast_scores_first": 0.349,
-      "no_goals": 0.039,
-      "expected_minute": 27
+      "Germany_scores_first": 0.627,
+      "Ivory Coast_scores_first": 0.338,
+      "no_goals": 0.035,
+      "expected_minute": 26
     },
     "halftime_xg": {
-      "Germany": 0.97,
+      "Germany": 1.02,
       "Ivory Coast": 0.55
     },
     "top_halftime_scores": [
       {
-        "score": "0:0",
-        "probability": 0.218
-      },
-      {
         "score": "1:0",
-        "probability": 0.212
+        "probability": 0.213
       },
       {
-        "score": "0:1",
-        "probability": 0.121
+        "score": "0:0",
+        "probability": 0.209
       },
       {
         "score": "1:1",
-        "probability": 0.118
+        "probability": 0.117
+      },
+      {
+        "score": "0:1",
+        "probability": 0.115
       },
       {
         "score": "2:0",
-        "probability": 0.103
+        "probability": 0.109
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Germany": 0.279,
-        "Ivory Coast": 0.159
+        "Germany": 0.293,
+        "Ivory Coast": 0.158
       },
       "16-30'": {
-        "Germany": 0.321,
-        "Ivory Coast": 0.183
+        "Germany": 0.336,
+        "Ivory Coast": 0.181
       },
       "31-45'": {
-        "Germany": 0.373,
-        "Ivory Coast": 0.212
+        "Germany": 0.391,
+        "Ivory Coast": 0.211
       },
       "46-60'": {
-        "Germany": 0.3,
-        "Ivory Coast": 0.171
+        "Germany": 0.315,
+        "Ivory Coast": 0.17
       },
       "61-75'": {
-        "Germany": 0.383,
-        "Ivory Coast": 0.218
+        "Germany": 0.401,
+        "Ivory Coast": 0.216
       },
       "76-90'": {
-        "Germany": 0.414,
-        "Ivory Coast": 0.236
+        "Germany": 0.434,
+        "Ivory Coast": 0.234
       }
     },
     "comeback_probability": {
-      "Germany": 0.04,
-      "Ivory Coast": 0.024
+      "Germany": 0.041,
+      "Ivory Coast": 0.023
     },
-    "late_drama_probability": 0.478,
+    "late_drama_probability": 0.487,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.211
+        "wahrscheinlichkeit": 0.204
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.182
+        "wahrscheinlichkeit": 0.177
       },
       {
         "szenario": "Germany dominiert früh",
         "beschreibung": "Germany geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.105
+        "wahrscheinlichkeit": 0.111
       },
       {
-        "szenario": "Knappes 1:0",
-        "beschreibung": "Germany trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.082
+        "szenario": "Germany dreht es noch",
+        "beschreibung": "Germany liegt zur Halbzeit zurück, dreht das Spiel in H2",
+        "wahrscheinlichkeit": 0.041
       }
     ],
     "predicted_stats": {
@@ -171,7 +171,7 @@
         "away": 45
       },
       "shots": {
-        "home": 17,
+        "home": 18,
         "away": 12
       },
       "shots_on_target": {
@@ -280,30 +280,30 @@
       "Ivory Coast": 1368.0
     },
     "form_last_10_avg_pts": {
-      "Germany": 2.85,
-      "Ivory Coast": 2.36
+      "Germany": 2.48,
+      "Ivory Coast": 2.05
     },
     "win_rate_last_10": {
-      "Germany": "95%",
-      "Ivory Coast": "76%"
+      "Germany": "83%",
+      "Ivory Coast": "66%"
     },
     "avg_goals_scored": {
-      "Germany": 1.8,
-      "Ivory Coast": 1.82
+      "Germany": 1.74,
+      "Ivory Coast": 1.75
     },
     "avg_goals_conceded": {
-      "Germany": 1.24,
-      "Ivory Coast": 1.04
+      "Germany": 1.33,
+      "Ivory Coast": 1.21
     },
     "clean_sheet_rate": {
-      "Germany": "34%",
-      "Ivory Coast": "46%"
+      "Germany": "29%",
+      "Ivory Coast": "40%"
     },
     "h2h_last_10": {
-      "Germany wins": "0%",
-      "draws": "100%",
+      "Germany wins": "50%",
+      "draws": "50%",
       "Ivory Coast wins": "0%",
-      "total_h2h_games": 1
+      "total_h2h_games": 2
     }
   }
 }

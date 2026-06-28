@@ -1,0 +1,296 @@
+{
+  "home_team": "Senegal",
+  "away_team": "Iraq",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6896,
+  "probability_draw": 0.2191,
+  "probability_away_win": 0.0912,
+  "score_prediction": {
+    "home_xg": 2.63,
+    "away_xg": 0.72,
+    "rho": -0.13,
+    "most_likely_score": "2:0",
+    "result": "H",
+    "probability_home_win": 0.6897,
+    "probability_draw": 0.2191,
+    "probability_away_win": 0.0912,
+    "top_scorelines": [
+      {
+        "score": "2:0",
+        "probability": 0.1084
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0952
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0781
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0747
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0685
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.9088,
+        "home_or_away": 0.7809,
+        "draw_or_away": 0.3103
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8429,
+          "under": 0.1571
+        },
+        {
+          "line": 2.5,
+          "over": 0.6183,
+          "under": 0.3817
+        },
+        {
+          "line": 3.5,
+          "over": 0.411,
+          "under": 0.589
+        }
+      ],
+      "btts": {
+        "yes": 0.5067,
+        "no": 0.4933
+      },
+      "win_margin": {
+        "home_1plus": 0.6897,
+        "home_2plus": 0.508,
+        "home_3plus": 0.3126,
+        "away_1plus": 0.0912,
+        "away_2plus": 0.0266,
+        "away_3plus": 0.0052
+      },
+      "scenario": "Senegal are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": 0.57,
+    "total_xg": 3.35,
+    "first_goal": {
+      "Senegal_scores_first": 0.758,
+      "Iraq_scores_first": 0.207,
+      "no_goals": 0.035,
+      "expected_minute": 26
+    },
+    "halftime_xg": {
+      "Senegal": 1.24,
+      "Iraq": 0.34
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.258
+      },
+      {
+        "score": "0:0",
+        "probability": 0.209
+      },
+      {
+        "score": "2:0",
+        "probability": 0.16
+      },
+      {
+        "score": "1:1",
+        "probability": 0.087
+      },
+      {
+        "score": "0:1",
+        "probability": 0.071
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Senegal": 0.355,
+        "Iraq": 0.097
+      },
+      "16-30'": {
+        "Senegal": 0.408,
+        "Iraq": 0.112
+      },
+      "31-45'": {
+        "Senegal": 0.473,
+        "Iraq": 0.13
+      },
+      "46-60'": {
+        "Senegal": 0.381,
+        "Iraq": 0.104
+      },
+      "61-75'": {
+        "Senegal": 0.487,
+        "Iraq": 0.133
+      },
+      "76-90'": {
+        "Senegal": 0.526,
+        "Iraq": 0.144
+      }
+    },
+    "comeback_probability": {
+      "Senegal": 0.032,
+      "Iraq": 0.01
+    },
+    "late_drama_probability": 0.488,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.178
+      },
+      {
+        "szenario": "Senegal dominiert früh",
+        "beschreibung": "Senegal geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.164
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Senegal trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.097
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 60,
+        "away": 40
+      },
+      "shots": {
+        "home": 21,
+        "away": 9
+      },
+      "shots_on_target": {
+        "home": 8,
+        "away": 3
+      },
+      "corners": {
+        "home": 9,
+        "away": 4
+      },
+      "passes": {
+        "home": 312,
+        "away": 208
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Senegal and Iraq is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 13,
+        "type": "chance",
+        "team": "Iraq",
+        "headline": "Big chance for Iraq!",
+        "description": "Iraq create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 35,
+        "type": "goal",
+        "team": "Senegal",
+        "headline": "GOAL! Senegal!",
+        "description": "Senegal score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 38,
+        "type": "chance",
+        "team": "Senegal",
+        "headline": "Big chance for Senegal!",
+        "description": "Senegal create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 55,
+        "type": "goal",
+        "team": "Senegal",
+        "headline": "GOAL! Senegal!",
+        "description": "Senegal score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 61,
+        "type": "chance",
+        "team": "Senegal",
+        "headline": "Big chance for Senegal!",
+        "description": "Senegal create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 81,
+        "type": "chance",
+        "team": "Senegal",
+        "headline": "Big chance for Senegal!",
+        "description": "Senegal create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Senegal": 14,
+      "Iraq": 57
+    },
+    "fifa_points": {
+      "Senegal": 1688.0,
+      "Iraq": 1008.0
+    },
+    "form_last_10_avg_pts": {
+      "Senegal": 1.59,
+      "Iraq": 1.15
+    },
+    "win_rate_last_10": {
+      "Senegal": "53%",
+      "Iraq": "38%"
+    },
+    "avg_goals_scored": {
+      "Senegal": 2.15,
+      "Iraq": 0.49
+    },
+    "avg_goals_conceded": {
+      "Senegal": 1.93,
+      "Iraq": 1.7
+    },
+    "clean_sheet_rate": {
+      "Senegal": "32%",
+      "Iraq": "39%"
+    },
+    "h2h_last_10": {
+      "Senegal wins": "100%",
+      "draws": "0%",
+      "Iraq wins": "0%",
+      "total_h2h_games": 1
+    }
+  }
+}

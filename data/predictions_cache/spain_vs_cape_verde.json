@@ -3,74 +3,74 @@
   "away_team": "Cape Verde",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.5449,
-  "probability_draw": 0.3692,
-  "probability_away_win": 0.0859,
+  "probability_home_win": 0.6672,
+  "probability_draw": 0.2927,
+  "probability_away_win": 0.0401,
   "score_prediction": {
-    "home_xg": 3.82,
-    "away_xg": 0.66,
+    "home_xg": 3.97,
+    "away_xg": 0.61,
     "rho": -0.13,
     "most_likely_score": "3:0",
     "result": "H",
-    "probability_home_win": 0.5449,
-    "probability_draw": 0.3692,
-    "probability_away_win": 0.0859,
+    "probability_home_win": 0.6672,
+    "probability_draw": 0.2927,
+    "probability_away_win": 0.0401,
     "top_scorelines": [
       {
         "score": "3:0",
-        "probability": 0.0647
+        "probability": 0.0792
       },
       {
         "score": "4:0",
-        "probability": 0.0618
-      },
-      {
-        "score": "2:0",
-        "probability": 0.0508
+        "probability": 0.0786
       },
       {
         "score": "5:0",
-        "probability": 0.0473
+        "probability": 0.0625
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0598
       },
       {
         "score": "3:1",
-        "probability": 0.0426
+        "probability": 0.0484
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.9141,
-        "home_or_away": 0.6308,
-        "draw_or_away": 0.4551
+        "home_or_draw": 0.9599,
+        "home_or_away": 0.7073,
+        "draw_or_away": 0.3328
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.884,
-          "under": 0.116
+          "over": 0.9018,
+          "under": 0.0982
         },
         {
           "line": 2.5,
-          "over": 0.6572,
-          "under": 0.3428
+          "over": 0.7041,
+          "under": 0.2959
         },
         {
           "line": 3.5,
-          "over": 0.5242,
-          "under": 0.4758
+          "over": 0.5717,
+          "under": 0.4283
         }
       ],
       "btts": {
-        "yes": 0.5942,
-        "no": 0.4058
+        "yes": 0.5402,
+        "no": 0.4598
       },
       "win_margin": {
-        "home_1plus": 0.5449,
-        "home_2plus": 0.4698,
-        "home_3plus": 0.3606,
-        "away_1plus": 0.0859,
-        "away_2plus": 0.0224,
-        "away_3plus": 0.0039
+        "home_1plus": 0.6672,
+        "home_2plus": 0.5846,
+        "home_3plus": 0.4591,
+        "away_1plus": 0.0401,
+        "away_2plus": 0.01,
+        "away_3plus": 0.0016
       },
       "scenario": "Spain are favored to win, likely by 2+ goals, in a high-scoring game."
     }
@@ -78,81 +78,81 @@
   "game_flow": {
     "match_type": "Goal Fest",
     "match_description": "A very open game with plenty of chances expected",
-    "dominance_index": 0.71,
-    "total_xg": 4.48,
+    "dominance_index": 0.73,
+    "total_xg": 4.58,
     "first_goal": {
-      "Spain_scores_first": 0.843,
-      "Cape Verde_scores_first": 0.146,
-      "no_goals": 0.011,
-      "expected_minute": 20
+      "Spain_scores_first": 0.858,
+      "Cape Verde_scores_first": 0.132,
+      "no_goals": 0.01,
+      "expected_minute": 19
     },
     "halftime_xg": {
-      "Spain": 1.8,
-      "Cape Verde": 0.31
+      "Spain": 1.87,
+      "Cape Verde": 0.29
     },
     "top_halftime_scores": [
       {
         "score": "1:0",
-        "probability": 0.227
+        "probability": 0.226
       },
       {
         "score": "2:0",
-        "probability": 0.204
-      },
-      {
-        "score": "0:0",
-        "probability": 0.126
+        "probability": 0.211
       },
       {
         "score": "3:0",
-        "probability": 0.122
+        "probability": 0.131
+      },
+      {
+        "score": "0:0",
+        "probability": 0.121
       },
       {
         "score": "1:1",
-        "probability": 0.07
+        "probability": 0.065
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Spain": 0.516,
-        "Cape Verde": 0.089
+        "Spain": 0.536,
+        "Cape Verde": 0.082
       },
       "16-30'": {
-        "Spain": 0.592,
-        "Cape Verde": 0.102
+        "Spain": 0.615,
+        "Cape Verde": 0.095
       },
       "31-45'": {
-        "Spain": 0.688,
-        "Cape Verde": 0.119
+        "Spain": 0.715,
+        "Cape Verde": 0.11
       },
       "46-60'": {
-        "Spain": 0.554,
-        "Cape Verde": 0.096
+        "Spain": 0.576,
+        "Cape Verde": 0.088
       },
       "61-75'": {
-        "Spain": 0.707,
-        "Cape Verde": 0.122
+        "Spain": 0.734,
+        "Cape Verde": 0.113
       },
       "76-90'": {
-        "Spain": 0.764,
-        "Cape Verde": 0.132
+        "Spain": 0.794,
+        "Cape Verde": 0.122
       }
     },
     "comeback_probability": {
-      "Spain": 0.028,
-      "Cape Verde": 0.006
+      "Spain": 0.026,
+      "Cape Verde": 0.005
     },
-    "late_drama_probability": 0.592,
+    "late_drama_probability": 0.6,
     "match_stories": [
       {
         "szenario": "Spain dominiert früh",
         "beschreibung": "Spain geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.22
+        "wahrscheinlichkeit": 0.23
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.123
+        "wahrscheinlichkeit": 0.119
       }
     ],
     "predicted_stats": {
@@ -161,7 +161,7 @@
         "away": 37
       },
       "shots": {
-        "home": 29,
+        "home": 30,
         "away": 8
       },
       "shots_on_target": {
@@ -270,24 +270,24 @@
       "Cape Verde": 816.0
     },
     "form_last_10_avg_pts": {
-      "Spain": 2.03,
-      "Cape Verde": 1.55
+      "Spain": 2.34,
+      "Cape Verde": 1.26
     },
     "win_rate_last_10": {
-      "Spain": "51%",
-      "Cape Verde": "33%"
+      "Spain": "67%",
+      "Cape Verde": "17%"
     },
     "avg_goals_scored": {
-      "Spain": 3.05,
-      "Cape Verde": 1.33
+      "Spain": 2.78,
+      "Cape Verde": 1.5
     },
     "avg_goals_conceded": {
-      "Spain": 0.64,
-      "Cape Verde": 1.2
+      "Spain": 0.56,
+      "Cape Verde": 1.35
     },
     "clean_sheet_rate": {
-      "Spain": "57%",
-      "Cape Verde": "48%"
+      "Spain": "62%",
+      "Cape Verde": "42%"
     },
     "h2h_last_10": {
       "Spain wins": "0%",

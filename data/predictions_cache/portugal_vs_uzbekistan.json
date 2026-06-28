@@ -3,188 +3,183 @@
   "away_team": "Uzbekistan",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.7505,
-  "probability_draw": 0.1756,
-  "probability_away_win": 0.074,
+  "probability_home_win": 0.6149,
+  "probability_draw": 0.2941,
+  "probability_away_win": 0.091,
   "score_prediction": {
-    "home_xg": 2.09,
-    "away_xg": 1.0,
+    "home_xg": 2.58,
+    "away_xg": 0.9,
     "rho": -0.13,
     "most_likely_score": "2:0",
     "result": "H",
-    "probability_home_win": 0.7504,
-    "probability_draw": 0.1756,
-    "probability_away_win": 0.074,
+    "probability_home_win": 0.6149,
+    "probability_draw": 0.2941,
+    "probability_away_win": 0.091,
     "top_scorelines": [
       {
         "score": "2:0",
-        "probability": 0.1222
+        "probability": 0.0871
       },
       {
         "score": "2:1",
-        "probability": 0.1216
-      },
-      {
-        "score": "1:0",
-        "probability": 0.1017
+        "probability": 0.0784
       },
       {
         "score": "3:0",
-        "probability": 0.0852
+        "probability": 0.0748
       },
       {
         "score": "3:1",
-        "probability": 0.0848
+        "probability": 0.0674
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0597
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.926,
-        "home_or_away": 0.8244,
-        "draw_or_away": 0.2496
+        "home_or_draw": 0.909,
+        "home_or_away": 0.7059,
+        "draw_or_away": 0.3851
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8382,
-          "under": 0.1618
+          "over": 0.8558,
+          "under": 0.1442
         },
         {
           "line": 2.5,
-          "over": 0.6228,
-          "under": 0.3772
+          "over": 0.6213,
+          "under": 0.3787
         },
         {
           "line": 3.5,
-          "over": 0.3904,
-          "under": 0.6096
+          "over": 0.4352,
+          "under": 0.5648
         }
       ],
       "btts": {
-        "yes": 0.5437,
-        "no": 0.4563
+        "yes": 0.5893,
+        "no": 0.4107
       },
       "win_margin": {
-        "home_1plus": 0.7504,
-        "home_2plus": 0.4768,
-        "home_3plus": 0.2443,
-        "away_1plus": 0.074,
-        "away_2plus": 0.0274,
-        "away_3plus": 0.0074
+        "home_1plus": 0.6149,
+        "home_2plus": 0.4396,
+        "home_3plus": 0.2623,
+        "away_1plus": 0.091,
+        "away_2plus": 0.0308,
+        "away_3plus": 0.0075
       },
       "scenario": "Portugal are favored to win, likely by 2+ goals, in a high-scoring game."
     }
   },
   "game_flow": {
-    "match_type": "Balanced & Open",
-    "match_description": "Both teams play attacking football at an even level",
-    "dominance_index": 0.35,
-    "total_xg": 3.09,
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": 0.48,
+    "total_xg": 3.48,
     "first_goal": {
-      "Portugal_scores_first": 0.646,
-      "Uzbekistan_scores_first": 0.309,
-      "no_goals": 0.046,
-      "expected_minute": 29
+      "Portugal_scores_first": 0.719,
+      "Uzbekistan_scores_first": 0.251,
+      "no_goals": 0.031,
+      "expected_minute": 25
     },
     "halftime_xg": {
-      "Portugal": 0.98,
-      "Uzbekistan": 0.47
+      "Portugal": 1.21,
+      "Uzbekistan": 0.42
     },
     "top_halftime_scores": [
       {
-        "score": "0:0",
-        "probability": 0.235
+        "score": "1:0",
+        "probability": 0.238
       },
       {
-        "score": "1:0",
-        "probability": 0.231
+        "score": "0:0",
+        "probability": 0.196
       },
       {
         "score": "2:0",
-        "probability": 0.113
-      },
-      {
-        "score": "0:1",
-        "probability": 0.11
+        "probability": 0.144
       },
       {
         "score": "1:1",
-        "probability": 0.108
+        "probability": 0.101
+      },
+      {
+        "score": "0:1",
+        "probability": 0.083
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Portugal": 0.282,
-        "Uzbekistan": 0.135
+        "Portugal": 0.348,
+        "Uzbekistan": 0.122
       },
       "16-30'": {
-        "Portugal": 0.324,
-        "Uzbekistan": 0.155
+        "Portugal": 0.4,
+        "Uzbekistan": 0.14
       },
       "31-45'": {
-        "Portugal": 0.376,
-        "Uzbekistan": 0.18
+        "Portugal": 0.464,
+        "Uzbekistan": 0.162
       },
       "46-60'": {
-        "Portugal": 0.303,
-        "Uzbekistan": 0.145
+        "Portugal": 0.374,
+        "Uzbekistan": 0.131
       },
       "61-75'": {
-        "Portugal": 0.387,
-        "Uzbekistan": 0.185
+        "Portugal": 0.477,
+        "Uzbekistan": 0.167
       },
       "76-90'": {
-        "Portugal": 0.418,
-        "Uzbekistan": 0.2
+        "Portugal": 0.516,
+        "Uzbekistan": 0.18
       }
     },
     "comeback_probability": {
-      "Portugal": 0.036,
-      "Uzbekistan": 0.018
+      "Portugal": 0.038,
+      "Uzbekistan": 0.014
     },
-    "late_drama_probability": 0.461,
+    "late_drama_probability": 0.501,
     "match_stories": [
-      {
-        "szenario": "Ausgeglichenes Unentschieden",
-        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.206
-      },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.192
+        "wahrscheinlichkeit": 0.17
       },
       {
         "szenario": "Portugal dominiert früh",
         "beschreibung": "Portugal geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.115
+        "wahrscheinlichkeit": 0.149
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "Portugal trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.097
+        "wahrscheinlichkeit": 0.083
       }
     ],
     "predicted_stats": {
       "possession": {
-        "home": 56,
-        "away": 44
+        "home": 59,
+        "away": 41
       },
       "shots": {
-        "home": 18,
+        "home": 21,
         "away": 10
       },
       "shots_on_target": {
-        "home": 7,
+        "home": 8,
         "away": 4
       },
       "corners": {
-        "home": 7,
+        "home": 8,
         "away": 4
       },
       "passes": {
-        "home": 291,
-        "away": 229
+        "home": 307,
+        "away": 213
       }
     },
     "match_ticker": [
@@ -272,30 +267,30 @@
       "Uzbekistan": 1112.0
     },
     "form_last_10_avg_pts": {
-      "Portugal": 2.05,
-      "Uzbekistan": 1.43
+      "Portugal": 1.84,
+      "Uzbekistan": 0.92
     },
     "win_rate_last_10": {
-      "Portugal": "58%",
-      "Uzbekistan": "34%"
+      "Portugal": "46%",
+      "Uzbekistan": "21%"
     },
     "avg_goals_scored": {
-      "Portugal": 1.57,
-      "Uzbekistan": 1.07
+      "Portugal": 1.24,
+      "Uzbekistan": 0.9
     },
     "avg_goals_conceded": {
-      "Portugal": 0.77,
-      "Uzbekistan": 0.84
+      "Portugal": 0.62,
+      "Uzbekistan": 1.82
     },
     "clean_sheet_rate": {
-      "Portugal": "48%",
-      "Uzbekistan": "58%"
+      "Portugal": "59%",
+      "Uzbekistan": "44%"
     },
     "h2h_last_10": {
-      "Portugal wins": "0%",
+      "Portugal wins": "100%",
       "draws": "0%",
       "Uzbekistan wins": "0%",
-      "total_h2h_games": 0
+      "total_h2h_games": 1
     }
   }
 }

@@ -3,74 +3,74 @@
   "away_team": "Haiti",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.6678,
-  "probability_draw": 0.2448,
-  "probability_away_win": 0.0874,
+  "probability_home_win": 0.7965,
+  "probability_draw": 0.1458,
+  "probability_away_win": 0.0577,
   "score_prediction": {
-    "home_xg": 4.53,
-    "away_xg": 0.71,
+    "home_xg": 4.73,
+    "away_xg": 0.68,
     "rho": -0.13,
     "most_likely_score": "4:0",
     "result": "H",
-    "probability_home_win": 0.6678,
-    "probability_draw": 0.2448,
-    "probability_away_win": 0.0874,
+    "probability_home_win": 0.7965,
+    "probability_draw": 0.1458,
+    "probability_away_win": 0.0577,
     "top_scorelines": [
       {
         "score": "4:0",
-        "probability": 0.0694
+        "probability": 0.0831
       },
       {
         "score": "5:0",
-        "probability": 0.0628
+        "probability": 0.0787
       },
       {
         "score": "3:0",
-        "probability": 0.0613
-      },
-      {
-        "score": "4:1",
-        "probability": 0.0492
+        "probability": 0.0702
       },
       {
         "score": "6:0",
-        "probability": 0.0474
+        "probability": 0.0621
+      },
+      {
+        "score": "4:1",
+        "probability": 0.0562
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.9126,
-        "home_or_away": 0.7552,
-        "draw_or_away": 0.3322
+        "home_or_draw": 0.9423,
+        "home_or_away": 0.8542,
+        "draw_or_away": 0.2035
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.9356,
-          "under": 0.0644
+          "over": 0.9538,
+          "under": 0.0462
         },
         {
           "line": 2.5,
-          "over": 0.7864,
-          "under": 0.2136
+          "over": 0.8441,
+          "under": 0.1559
         },
         {
           "line": 3.5,
-          "over": 0.6618,
-          "under": 0.3382
+          "over": 0.7206,
+          "under": 0.2794
         }
       ],
       "btts": {
-        "yes": 0.5968,
-        "no": 0.4032
+        "yes": 0.5424,
+        "no": 0.4576
       },
       "win_margin": {
-        "home_1plus": 0.6678,
-        "home_2plus": 0.6022,
-        "home_3plus": 0.4964,
-        "away_1plus": 0.0874,
-        "away_2plus": 0.0231,
-        "away_3plus": 0.0042
+        "home_1plus": 0.7965,
+        "home_2plus": 0.7279,
+        "home_3plus": 0.6123,
+        "away_1plus": 0.0577,
+        "away_2plus": 0.0147,
+        "away_3plus": 0.0025
       },
       "scenario": "Brazil are favored to win, likely by 2+ goals, in a high-scoring game."
     }
@@ -78,81 +78,81 @@
   "game_flow": {
     "match_type": "Goal Fest",
     "match_description": "A very open game with plenty of chances expected",
-    "dominance_index": 0.73,
-    "total_xg": 5.24,
+    "dominance_index": 0.75,
+    "total_xg": 5.41,
     "first_goal": {
-      "Brazil_scores_first": 0.86,
-      "Haiti_scores_first": 0.135,
-      "no_goals": 0.005,
-      "expected_minute": 17
+      "Brazil_scores_first": 0.87,
+      "Haiti_scores_first": 0.125,
+      "no_goals": 0.004,
+      "expected_minute": 16
     },
     "halftime_xg": {
-      "Brazil": 2.13,
-      "Haiti": 0.33
+      "Brazil": 2.22,
+      "Haiti": 0.32
     },
     "top_halftime_scores": [
       {
         "score": "2:0",
-        "probability": 0.207
+        "probability": 0.21
       },
       {
         "score": "1:0",
-        "probability": 0.194
+        "probability": 0.189
       },
       {
         "score": "3:0",
-        "probability": 0.147
-      },
-      {
-        "score": "0:0",
-        "probability": 0.091
+        "probability": 0.156
       },
       {
         "score": "4:0",
-        "probability": 0.078
+        "probability": 0.087
+      },
+      {
+        "score": "0:0",
+        "probability": 0.085
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Brazil": 0.612,
-        "Haiti": 0.096
+        "Brazil": 0.639,
+        "Haiti": 0.092
       },
       "16-30'": {
-        "Brazil": 0.702,
-        "Haiti": 0.11
+        "Brazil": 0.733,
+        "Haiti": 0.105
       },
       "31-45'": {
-        "Brazil": 0.815,
-        "Haiti": 0.128
+        "Brazil": 0.851,
+        "Haiti": 0.122
       },
       "46-60'": {
-        "Brazil": 0.657,
-        "Haiti": 0.103
+        "Brazil": 0.686,
+        "Haiti": 0.099
       },
       "61-75'": {
-        "Brazil": 0.838,
-        "Haiti": 0.131
+        "Brazil": 0.875,
+        "Haiti": 0.126
       },
       "76-90'": {
-        "Brazil": 0.906,
-        "Haiti": 0.142
+        "Brazil": 0.946,
+        "Haiti": 0.136
       }
     },
     "comeback_probability": {
-      "Brazil": 0.026,
-      "Haiti": 0.005
+      "Brazil": 0.024,
+      "Haiti": 0.004
     },
-    "late_drama_probability": 0.649,
+    "late_drama_probability": 0.661,
     "match_stories": [
       {
         "szenario": "Brazil dominiert früh",
         "beschreibung": "Brazil geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.232
+        "wahrscheinlichkeit": 0.239
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.095
+        "wahrscheinlichkeit": 0.09
       }
     ],
     "predicted_stats": {
@@ -161,15 +161,15 @@
         "away": 37
       },
       "shots": {
-        "home": 33,
-        "away": 9
+        "home": 35,
+        "away": 8
       },
       "shots_on_target": {
         "home": 14,
         "away": 3
       },
       "corners": {
-        "home": 13,
+        "home": 14,
         "away": 4
       },
       "passes": {
@@ -197,9 +197,9 @@
       {
         "minute": 20,
         "type": "chance",
-        "team": "Haiti",
-        "headline": "Big chance for Haiti!",
-        "description": "Haiti create a great opportunity but fail to convert.",
+        "team": "Brazil",
+        "headline": "Big chance for Brazil!",
+        "description": "Brazil create a great opportunity but fail to convert.",
         "score_after": "0:0"
       },
       {
@@ -278,30 +278,30 @@
       "Haiti": 608.0
     },
     "form_last_10_avg_pts": {
-      "Brazil": 1.72,
-      "Haiti": 1.14
+      "Brazil": 2.16,
+      "Haiti": 0.82
     },
     "win_rate_last_10": {
-      "Brazil": "48%",
-      "Haiti": "29%"
+      "Brazil": "65%",
+      "Haiti": "22%"
     },
     "avg_goals_scored": {
-      "Brazil": 1.63,
-      "Haiti": 2.61
+      "Brazil": 1.76,
+      "Haiti": 1.79
     },
     "avg_goals_conceded": {
-      "Brazil": 1.32,
-      "Haiti": 1.39
+      "Brazil": 1.11,
+      "Haiti": 2.08
     },
     "clean_sheet_rate": {
-      "Brazil": "32%",
-      "Haiti": "43%"
+      "Brazil": "45%",
+      "Haiti": "29%"
     },
     "h2h_last_10": {
       "Brazil wins": "100%",
       "draws": "0%",
       "Haiti wins": "0%",
-      "total_h2h_games": 2
+      "total_h2h_games": 3
     }
   }
 }

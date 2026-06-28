@@ -1,0 +1,296 @@
+{
+  "home_team": "Panama",
+  "away_team": "England",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.0754,
+  "probability_draw": 0.2438,
+  "probability_away_win": 0.6809,
+  "score_prediction": {
+    "home_xg": 0.93,
+    "away_xg": 2.27,
+    "rho": -0.13,
+    "most_likely_score": "0:2",
+    "result": "A",
+    "probability_home_win": 0.0754,
+    "probability_draw": 0.2438,
+    "probability_away_win": 0.6808,
+    "top_scorelines": [
+      {
+        "score": "0:2",
+        "probability": 0.1079
+      },
+      {
+        "score": "1:2",
+        "probability": 0.0998
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0835
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0818
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0756
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.3192,
+        "home_or_away": 0.7562,
+        "draw_or_away": 0.9246
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8389,
+          "under": 0.1611
+        },
+        {
+          "line": 2.5,
+          "over": 0.606,
+          "under": 0.394
+        },
+        {
+          "line": 3.5,
+          "over": 0.3977,
+          "under": 0.6023
+        }
+      ],
+      "btts": {
+        "yes": 0.556,
+        "no": 0.444
+      },
+      "win_margin": {
+        "home_1plus": 0.0754,
+        "home_2plus": 0.0262,
+        "home_3plus": 0.0065,
+        "away_1plus": 0.6808,
+        "away_2plus": 0.4556,
+        "away_3plus": 0.2492
+      },
+      "scenario": "England are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": -0.42,
+    "total_xg": 3.2,
+    "first_goal": {
+      "Panama_scores_first": 0.279,
+      "England_scores_first": 0.68,
+      "no_goals": 0.041,
+      "expected_minute": 28
+    },
+    "halftime_xg": {
+      "Panama": 0.44,
+      "England": 1.07
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:1",
+        "probability": 0.238
+      },
+      {
+        "score": "0:0",
+        "probability": 0.223
+      },
+      {
+        "score": "0:2",
+        "probability": 0.127
+      },
+      {
+        "score": "1:1",
+        "probability": 0.104
+      },
+      {
+        "score": "1:0",
+        "probability": 0.098
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Panama": 0.126,
+        "England": 0.306
+      },
+      "16-30'": {
+        "Panama": 0.144,
+        "England": 0.352
+      },
+      "31-45'": {
+        "Panama": 0.167,
+        "England": 0.409
+      },
+      "46-60'": {
+        "Panama": 0.135,
+        "England": 0.329
+      },
+      "61-75'": {
+        "Panama": 0.172,
+        "England": 0.42
+      },
+      "76-90'": {
+        "Panama": 0.186,
+        "England": 0.454
+      }
+    },
+    "comeback_probability": {
+      "Panama": 0.016,
+      "England": 0.037
+    },
+    "late_drama_probability": 0.473,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.186
+      },
+      {
+        "szenario": "England dominiert früh",
+        "beschreibung": "England geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.13
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "England trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.095
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 42,
+        "away": 58
+      },
+      "shots": {
+        "home": 10,
+        "away": 19
+      },
+      "shots_on_target": {
+        "home": 4,
+        "away": 7
+      },
+      "corners": {
+        "home": 4,
+        "away": 8
+      },
+      "passes": {
+        "home": 218,
+        "away": 302
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Panama and England is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 4,
+        "type": "goal",
+        "team": "England",
+        "headline": "GOAL! England!",
+        "description": "England score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 20,
+        "type": "chance",
+        "team": "Panama",
+        "headline": "Big chance for Panama!",
+        "description": "Panama create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 44,
+        "type": "chance",
+        "team": "England",
+        "headline": "Big chance for England!",
+        "description": "England create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 50,
+        "type": "chance",
+        "team": "England",
+        "headline": "Big chance for England!",
+        "description": "England create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 52,
+        "type": "chance",
+        "team": "Panama",
+        "headline": "Big chance for Panama!",
+        "description": "Panama create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 58,
+        "type": "goal",
+        "team": "England",
+        "headline": "GOAL! England!",
+        "description": "England score to make it 0:2.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 0:2.",
+        "score_after": "0:2"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Panama": 33,
+      "England": 4
+    },
+    "fifa_points": {
+      "Panama": 1384.0,
+      "England": 1848.0
+    },
+    "form_last_10_avg_pts": {
+      "Panama": 0.77,
+      "England": 2.16
+    },
+    "win_rate_last_10": {
+      "Panama": "21%",
+      "England": "64%"
+    },
+    "avg_goals_scored": {
+      "Panama": 1.27,
+      "England": 2.74
+    },
+    "avg_goals_conceded": {
+      "Panama": 1.59,
+      "England": 0.24
+    },
+    "clean_sheet_rate": {
+      "Panama": "25%",
+      "England": "82%"
+    },
+    "h2h_last_10": {
+      "Panama wins": "0%",
+      "draws": "0%",
+      "England wins": "100%",
+      "total_h2h_games": 2
+    }
+  }
+}

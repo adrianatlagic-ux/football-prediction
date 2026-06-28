@@ -1,0 +1,301 @@
+{
+  "home_team": "Ecuador",
+  "away_team": "Germany",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.241,
+  "probability_draw": 0.2195,
+  "probability_away_win": 0.5395,
+  "score_prediction": {
+    "home_xg": 1.24,
+    "away_xg": 1.51,
+    "rho": -0.13,
+    "most_likely_score": "1:2",
+    "result": "A",
+    "probability_home_win": 0.241,
+    "probability_draw": 0.2195,
+    "probability_away_win": 0.5395,
+    "top_scorelines": [
+      {
+        "score": "1:2",
+        "probability": 0.1163
+      },
+      {
+        "score": "0:1",
+        "probability": 0.1036
+      },
+      {
+        "score": "0:2",
+        "probability": 0.0934
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0586
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0471
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.4605,
+        "home_or_away": 0.7805,
+        "draw_or_away": 0.759
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7837,
+          "under": 0.2163
+        },
+        {
+          "line": 2.5,
+          "over": 0.5459,
+          "under": 0.4541
+        },
+        {
+          "line": 3.5,
+          "over": 0.3057,
+          "under": 0.6943
+        }
+      ],
+      "btts": {
+        "yes": 0.5551,
+        "no": 0.4449
+      },
+      "win_margin": {
+        "home_1plus": 0.241,
+        "home_2plus": 0.1071,
+        "home_3plus": 0.0355,
+        "away_1plus": 0.5395,
+        "away_2plus": 0.2768,
+        "away_3plus": 0.1092
+      },
+      "scenario": "Germany are favored to win."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.1,
+    "total_xg": 2.75,
+    "first_goal": {
+      "Ecuador_scores_first": 0.422,
+      "Germany_scores_first": 0.514,
+      "no_goals": 0.064,
+      "expected_minute": 32
+    },
+    "halftime_xg": {
+      "Ecuador": 0.58,
+      "Germany": 0.71
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.275
+      },
+      {
+        "score": "0:1",
+        "probability": 0.195
+      },
+      {
+        "score": "1:0",
+        "probability": 0.16
+      },
+      {
+        "score": "1:1",
+        "probability": 0.114
+      },
+      {
+        "score": "0:2",
+        "probability": 0.069
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Ecuador": 0.167,
+        "Germany": 0.204
+      },
+      "16-30'": {
+        "Ecuador": 0.192,
+        "Germany": 0.234
+      },
+      "31-45'": {
+        "Ecuador": 0.223,
+        "Germany": 0.272
+      },
+      "46-60'": {
+        "Ecuador": 0.18,
+        "Germany": 0.219
+      },
+      "61-75'": {
+        "Ecuador": 0.229,
+        "Germany": 0.279
+      },
+      "76-90'": {
+        "Ecuador": 0.248,
+        "Germany": 0.302
+      }
+    },
+    "comeback_probability": {
+      "Ecuador": 0.025,
+      "Germany": 0.03
+    },
+    "late_drama_probability": 0.423,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.253
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.213
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Germany trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.097
+      },
+      {
+        "szenario": "Germany dominiert früh",
+        "beschreibung": "Germany geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.07
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 48,
+        "away": 52
+      },
+      "shots": {
+        "home": 12,
+        "away": 14
+      },
+      "shots_on_target": {
+        "home": 4,
+        "away": 5
+      },
+      "corners": {
+        "home": 5,
+        "away": 6
+      },
+      "passes": {
+        "home": 250,
+        "away": 270
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Ecuador and Germany is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 22,
+        "type": "goal",
+        "team": "Germany",
+        "headline": "GOAL! Germany!",
+        "description": "Germany score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 44,
+        "type": "chance",
+        "team": "Germany",
+        "headline": "Big chance for Germany!",
+        "description": "Germany create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 54,
+        "type": "chance",
+        "team": "Ecuador",
+        "headline": "Big chance for Ecuador!",
+        "description": "Ecuador create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 58,
+        "type": "goal",
+        "team": "Ecuador",
+        "headline": "GOAL! Ecuador!",
+        "description": "Ecuador score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 73,
+        "type": "chance",
+        "team": "Germany",
+        "headline": "Big chance for Germany!",
+        "description": "Germany create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 75,
+        "type": "goal",
+        "team": "Germany",
+        "headline": "GOAL! Germany!",
+        "description": "Germany score to make it 1:2.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:2.",
+        "score_after": "1:2"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Ecuador": 23,
+      "Germany": 10
+    },
+    "fifa_points": {
+      "Ecuador": 1544.0,
+      "Germany": 1752.0
+    },
+    "form_last_10_avg_pts": {
+      "Ecuador": 1.73,
+      "Germany": 2.48
+    },
+    "win_rate_last_10": {
+      "Ecuador": "44%",
+      "Germany": "83%"
+    },
+    "avg_goals_scored": {
+      "Ecuador": 0.52,
+      "Germany": 1.74
+    },
+    "avg_goals_conceded": {
+      "Ecuador": 0.64,
+      "Germany": 1.33
+    },
+    "clean_sheet_rate": {
+      "Ecuador": "36%",
+      "Germany": "29%"
+    },
+    "h2h_last_10": {
+      "Ecuador wins": "33%",
+      "draws": "0%",
+      "Germany wins": "67%",
+      "total_h2h_games": 3
+    }
+  }
+}

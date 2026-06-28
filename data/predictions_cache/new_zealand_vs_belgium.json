@@ -1,0 +1,291 @@
+{
+  "home_team": "New Zealand",
+  "away_team": "Belgium",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.0869,
+  "probability_draw": 0.2406,
+  "probability_away_win": 0.6725,
+  "score_prediction": {
+    "home_xg": 0.89,
+    "away_xg": 2.73,
+    "rho": -0.13,
+    "most_likely_score": "0:2",
+    "result": "A",
+    "probability_home_win": 0.0869,
+    "probability_draw": 0.2406,
+    "probability_away_win": 0.6725,
+    "top_scorelines": [
+      {
+        "score": "0:2",
+        "probability": 0.0894
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0814
+      },
+      {
+        "score": "1:2",
+        "probability": 0.0796
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0726
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0578
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.3275,
+        "home_or_away": 0.7594,
+        "draw_or_away": 0.9131
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8743,
+          "under": 0.1257
+        },
+        {
+          "line": 2.5,
+          "over": 0.6644,
+          "under": 0.3356
+        },
+        {
+          "line": 3.5,
+          "over": 0.4717,
+          "under": 0.5283
+        }
+      ],
+      "btts": {
+        "yes": 0.5818,
+        "no": 0.4182
+      },
+      "win_margin": {
+        "home_1plus": 0.0869,
+        "home_2plus": 0.0289,
+        "home_3plus": 0.0069,
+        "away_1plus": 0.6725,
+        "away_2plus": 0.4952,
+        "away_3plus": 0.3071
+      },
+      "scenario": "Belgium are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": -0.51,
+    "total_xg": 3.62,
+    "first_goal": {
+      "New Zealand_scores_first": 0.239,
+      "Belgium_scores_first": 0.734,
+      "no_goals": 0.027,
+      "expected_minute": 24
+    },
+    "halftime_xg": {
+      "New Zealand": 0.42,
+      "Belgium": 1.28
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:1",
+        "probability": 0.236
+      },
+      {
+        "score": "0:0",
+        "probability": 0.184
+      },
+      {
+        "score": "0:2",
+        "probability": 0.152
+      },
+      {
+        "score": "1:1",
+        "probability": 0.099
+      },
+      {
+        "score": "1:0",
+        "probability": 0.077
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "New Zealand": 0.12,
+        "Belgium": 0.369
+      },
+      "16-30'": {
+        "New Zealand": 0.138,
+        "Belgium": 0.423
+      },
+      "31-45'": {
+        "New Zealand": 0.16,
+        "Belgium": 0.491
+      },
+      "46-60'": {
+        "New Zealand": 0.129,
+        "Belgium": 0.396
+      },
+      "61-75'": {
+        "New Zealand": 0.165,
+        "Belgium": 0.505
+      },
+      "76-90'": {
+        "New Zealand": 0.178,
+        "Belgium": 0.546
+      }
+    },
+    "comeback_probability": {
+      "New Zealand": 0.014,
+      "Belgium": 0.038
+    },
+    "late_drama_probability": 0.515,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.162
+      },
+      {
+        "szenario": "Belgium dominiert früh",
+        "beschreibung": "Belgium geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.157
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 41,
+        "away": 59
+      },
+      "shots": {
+        "home": 10,
+        "away": 22
+      },
+      "shots_on_target": {
+        "home": 3,
+        "away": 9
+      },
+      "corners": {
+        "home": 4,
+        "away": 9
+      },
+      "passes": {
+        "home": 213,
+        "away": 307
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between New Zealand and Belgium is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 17,
+        "type": "goal",
+        "team": "Belgium",
+        "headline": "GOAL! Belgium!",
+        "description": "Belgium score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 37,
+        "type": "chance",
+        "team": "New Zealand",
+        "headline": "Big chance for New Zealand!",
+        "description": "New Zealand create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 43,
+        "type": "chance",
+        "team": "New Zealand",
+        "headline": "Big chance for New Zealand!",
+        "description": "New Zealand create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 51,
+        "type": "chance",
+        "team": "Belgium",
+        "headline": "Big chance for Belgium!",
+        "description": "Belgium create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 78,
+        "type": "chance",
+        "team": "Belgium",
+        "headline": "Big chance for Belgium!",
+        "description": "Belgium create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 85,
+        "type": "goal",
+        "team": "Belgium",
+        "headline": "GOAL! Belgium!",
+        "description": "Belgium score to make it 0:2.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 0:2.",
+        "score_after": "0:2"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "New Zealand": 85,
+      "Belgium": 9
+    },
+    "fifa_points": {
+      "New Zealand": 480.0,
+      "Belgium": 1768.0
+    },
+    "form_last_10_avg_pts": {
+      "New Zealand": 0.54,
+      "Belgium": 1.95
+    },
+    "win_rate_last_10": {
+      "New Zealand": "11%",
+      "Belgium": "47%"
+    },
+    "avg_goals_scored": {
+      "New Zealand": 0.88,
+      "Belgium": 2.94
+    },
+    "avg_goals_conceded": {
+      "New Zealand": 1.44,
+      "Belgium": 1.32
+    },
+    "clean_sheet_rate": {
+      "New Zealand": "12%",
+      "Belgium": "9%"
+    },
+    "h2h_last_10": {
+      "New Zealand wins": "0%",
+      "draws": "0%",
+      "Belgium wins": "100%",
+      "total_h2h_games": 1
+    }
+  }
+}

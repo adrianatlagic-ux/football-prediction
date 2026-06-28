@@ -1,0 +1,309 @@
+{
+  "home_team": "Switzerland",
+  "away_team": "Algeria",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4255,
+  "probability_draw": 0.3658,
+  "probability_away_win": 0.2088,
+  "score_prediction": {
+    "home_xg": 1.92,
+    "away_xg": 1.81,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.4255,
+    "probability_draw": 0.3658,
+    "probability_away_win": 0.2088,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.0844
+      },
+      {
+        "score": "3:1",
+        "probability": 0.054
+      },
+      {
+        "score": "3:2",
+        "probability": 0.049
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0465
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0371
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7912,
+        "home_or_away": 0.6342,
+        "draw_or_away": 0.5745
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8903,
+          "under": 0.1097
+        },
+        {
+          "line": 2.5,
+          "over": 0.6754,
+          "under": 0.3246
+        },
+        {
+          "line": 3.5,
+          "over": 0.5037,
+          "under": 0.4963
+        }
+      ],
+      "btts": {
+        "yes": 0.7458,
+        "no": 0.2542
+      },
+      "win_margin": {
+        "home_1plus": 0.4255,
+        "home_2plus": 0.2381,
+        "home_3plus": 0.1077,
+        "away_1plus": 0.2088,
+        "away_2plus": 0.112,
+        "away_3plus": 0.0482
+      },
+      "scenario": "Switzerland are favored to win, likely by 2+ goals, in a high-scoring game."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.03,
+    "total_xg": 3.73,
+    "first_goal": {
+      "Switzerland_scores_first": 0.502,
+      "Algeria_scores_first": 0.474,
+      "no_goals": 0.024,
+      "expected_minute": 24
+    },
+    "halftime_xg": {
+      "Switzerland": 0.9,
+      "Algeria": 0.85
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.174
+      },
+      {
+        "score": "1:0",
+        "probability": 0.157
+      },
+      {
+        "score": "0:1",
+        "probability": 0.148
+      },
+      {
+        "score": "1:1",
+        "probability": 0.134
+      },
+      {
+        "score": "2:0",
+        "probability": 0.071
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Switzerland": 0.259,
+        "Algeria": 0.244
+      },
+      "16-30'": {
+        "Switzerland": 0.298,
+        "Algeria": 0.281
+      },
+      "31-45'": {
+        "Switzerland": 0.346,
+        "Algeria": 0.326
+      },
+      "46-60'": {
+        "Switzerland": 0.278,
+        "Algeria": 0.262
+      },
+      "61-75'": {
+        "Switzerland": 0.355,
+        "Algeria": 0.335
+      },
+      "76-90'": {
+        "Switzerland": 0.384,
+        "Algeria": 0.362
+      }
+    },
+    "comeback_probability": {
+      "Switzerland": 0.044,
+      "Algeria": 0.041
+    },
+    "late_drama_probability": 0.526,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.213
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.153
+      },
+      {
+        "szenario": "Switzerland dominiert früh",
+        "beschreibung": "Switzerland geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.072
+      },
+      {
+        "szenario": "Algeria dominiert früh",
+        "beschreibung": "Algeria geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.064
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 51,
+        "away": 49
+      },
+      "shots": {
+        "home": 17,
+        "away": 16
+      },
+      "shots_on_target": {
+        "home": 7,
+        "away": 6
+      },
+      "corners": {
+        "home": 8,
+        "away": 7
+      },
+      "passes": {
+        "home": 265,
+        "away": 255
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Switzerland and Algeria is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 4,
+        "type": "chance",
+        "team": "Algeria",
+        "headline": "Big chance for Algeria!",
+        "description": "Algeria create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 35,
+        "type": "chance",
+        "team": "Switzerland",
+        "headline": "Big chance for Switzerland!",
+        "description": "Switzerland create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 41,
+        "type": "goal",
+        "team": "Switzerland",
+        "headline": "GOAL! Switzerland!",
+        "description": "Switzerland score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 64,
+        "type": "chance",
+        "team": "Switzerland",
+        "headline": "Big chance for Switzerland!",
+        "description": "Switzerland create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 69,
+        "type": "chance",
+        "team": "Switzerland",
+        "headline": "Big chance for Switzerland!",
+        "description": "Switzerland create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 78,
+        "type": "goal",
+        "team": "Switzerland",
+        "headline": "GOAL! Switzerland!",
+        "description": "Switzerland score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 82,
+        "type": "goal",
+        "team": "Algeria",
+        "headline": "GOAL! Algeria!",
+        "description": "Algeria score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Switzerland": 19,
+      "Algeria": 28
+    },
+    "fifa_points": {
+      "Switzerland": 1608.0,
+      "Algeria": 1464.0
+    },
+    "form_last_10_avg_pts": {
+      "Switzerland": 1.87,
+      "Algeria": 1.78
+    },
+    "win_rate_last_10": {
+      "Switzerland": "49%",
+      "Algeria": "50%"
+    },
+    "avg_goals_scored": {
+      "Switzerland": 1.33,
+      "Algeria": 1.98
+    },
+    "avg_goals_conceded": {
+      "Switzerland": 0.79,
+      "Algeria": 1.23
+    },
+    "clean_sheet_rate": {
+      "Switzerland": "45%",
+      "Algeria": "29%"
+    },
+    "h2h_last_10": {
+      "Switzerland wins": "0%",
+      "draws": "0%",
+      "Algeria wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}
