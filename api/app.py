@@ -941,54 +941,13 @@ def _get_agent_pick(home_team: str, away_team: str) -> Optional[dict]:
     return _agent_picks_cache.get((_norm_team(home_team), _norm_team(away_team)))
 
 
-# Besides the once-daily refresh (anchored to the odds refresh, ~17:00 CEST),
-# each match individually gets ONE extra agent-only re-check exactly in the
-# hour before its own kickoff - lineups are usually confirmed around then, so
-# this catches news the 17:00 pass couldn't have seen yet. This is deliberately
-# per-match, not a second blanket refresh of every match in the window: each
-# match crosses its own "1h before kickoff" point at a different time, so only
-# the one match currently in that window gets re-evaluated, never all of them
-# at once.
-_agent_prekickoff_done: set[tuple[str, str]] = set()
-_agent_prekickoff_in_progress: set[tuple[str, str]] = set()
-PREKICKOFF_WINDOW_HOURS = 1
-
-
-def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
-    for data in _get_prediction_index().values():
-        home, away = data["home_team"], data["away_team"]
-        key = (_norm_team(home), _norm_team(away))
-        if key in _agent_prekickoff_done or key in _agent_prekickoff_in_progress:
-            continue
-        try:
-            vb = _compute_value_bets(data, odds, home, away)
-        except Exception:
-            continue
-        if not vb.get("odds_found") or vb.get("in_play"):
-            continue
-        commence = vb.get("commence_time")
-        if not commence:
-            continue
-        try:
-            kickoff = datetime.fromisoformat(commence.replace("Z", "+00:00"))
-            hours_away = (kickoff - datetime.now(timezone.utc)).total_seconds() / 3600
-        except ValueError:
-            continue
-        if not (0 <= hours_away <= PREKICKOFF_WINDOW_HOURS):
-            continue
-
-        _agent_prekickoff_in_progress.add(key)
-
-        def _run(data=data, vb=vb, home=home, away=away, key=key):
-            try:
-                agent = _call_gemini_agent_pick(data, vb, home, away)
-                if agent is not None:
-                    _agent_picks_cache[key] = agent
-            finally:
-                _agent_prekickoff_done.add(key)
-                _agent_prekickoff_in_progress.discard(key)
-
-        threading.Thread(target=_run, daemon=True).start()
+# A second per-match refresh in the hour before kickoff was tried and removed:
+# it silently overwrote the daily 17:00 pick with a fresh (but not necessarily
+# better) one, with no way to tell which take was right after the fact except
+# in hindsight. The hypothesis that "fresher lineups = better pick" was never
+# actually validated, and the real cost (a worse late pick replacing a better
+# early one, invisibly) outweighed the unproven benefit. One stable, auditable
+# pick per match per day is simpler and more trustworthy.
 
 
 _prediction_index: dict[tuple[str, str], dict] = {}
@@ -1033,7 +992,6 @@ def value_bets(home_team: str, away_team: str):
             prediction = _get_predictor().predict_match(home_team, away_team)
         result = _compute_value_bets(prediction, odds, home_team, away_team)
         _refresh_agent_picks(odds)
-        _maybe_prekickoff_refresh(odds)
         result["agent_eval"] = _get_agent_pick(home_team, away_team)
         return result
     except HTTPException:
@@ -1059,7 +1017,6 @@ def best_bets():
         raise HTTPException(status_code=503, detail=f"Odds API unavailable: {exc}")
 
     _refresh_agent_picks(odds)
-    _maybe_prekickoff_refresh(odds)
 
     out = []
     for data in _get_prediction_index().values():
@@ -1100,7 +1057,6 @@ def all_bets():
         raise HTTPException(status_code=503, detail=f"Odds API unavailable: {exc}")
 
     _refresh_agent_picks(odds)
-    _maybe_prekickoff_refresh(odds)
 
     out = []
     for data in _get_prediction_index().values():
