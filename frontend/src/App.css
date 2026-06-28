@@ -699,6 +699,70 @@ body {
   margin: 0;
 }
 
+.form-rating-box {
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-elevated);
+}
+
+.form-rating-box h4 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.9rem;
+}
+
+.form-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.3rem;
+}
+
+.form-rating-label {
+  font-size: 0.9rem;
+  width: 130px;
+  flex-shrink: 0;
+}
+
+.form-rating-flame {
+  margin-left: 0.3rem;
+}
+
+.form-rating-track {
+  flex: 1;
+  height: 10px;
+  border-radius: 6px;
+  background: #141416;
+  overflow: hidden;
+}
+
+.form-rating-fill {
+  height: 100%;
+  border-radius: 6px;
+}
+
+.form-rating-value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  width: 32px;
+  text-align: right;
+}
+
+.form-rating-detail {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0 0 1rem 142px;
+}
+
+.form-rating-row:last-of-type + .form-rating-detail,
+.form-rating-detail:last-child {
+  margin-bottom: 0;
+}
+
 .scenario-highlight {
   color: var(--gold-light);
   font-weight: 700;
@@ -1316,14 +1380,6 @@ body {
   align-items: baseline;
   gap: 0.45rem;
   margin-bottom: 0.2rem;
-}
-
-.smart-bet-agent-tag {
-  font-size: 0.66rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #a78bfa;
 }
 
 .smart-bet-agent-headline {

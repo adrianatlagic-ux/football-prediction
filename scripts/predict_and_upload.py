@@ -18,6 +18,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from src.predictor import FootballPredictor
+from src.scenario_agent import generate_ai_scenario
 
 FIXTURES_PATH = Path(__file__).parent.parent / "frontend" / "src" / "wc2026_fixtures.json"
 DEFAULT_API = "https://football-prediction.fly.dev"
@@ -55,12 +56,19 @@ def main():
 
     ok, failed = 0, []
     for f in games:
+        is_knockout = "round of" in f.get("group", "").lower() or f.get("group", "") in (
+            "Round of 16", "Quarter-final", "Semi-final", "Final",
+        )
         try:
             result = predictor.predict_match(f["home_team"], f["away_team"])
         except Exception as exc:
             print(f"  FEHLER bei Vorhersage {f['home_team']} vs {f['away_team']}: {exc}")
             failed.append(f["match_id"])
             continue
+
+        ai_scenario = generate_ai_scenario(result, f["home_team"], f["away_team"], is_knockout=is_knockout)
+        if ai_scenario:
+            result["score_prediction"]["betting_markets"]["scenario"] = ai_scenario
 
         cache_path = cache_dir / f"{f['match_id']}.json"
         cache_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")

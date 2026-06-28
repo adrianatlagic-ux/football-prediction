@@ -124,14 +124,6 @@ const TEAM_FLAGS = {
   'Uzbekistan': '🇺🇿',
 }
 
-const TICKER_ICONS = {
-  kickoff: '🟢',
-  goal: '⚽',
-  chance: '🔥',
-  halftime: '⏸️',
-  fulltime: '🏁',
-}
-
 function TeamLabel({ name }) {
   const flag = TEAM_FLAGS[name]
   return <>{flag && <span style={{ marginRight: '0.4em' }}>{flag}</span>}{name}</>
@@ -167,7 +159,7 @@ function AnimatedBarFill({ className, targetPct, style }) {
   return <div className={className} style={{ ...style, width: `${pct}%` }} />
 }
 
-function ProbabilityBar({ label, value, color, animate }) {
+function ProbabilityBar({ label, value, color, animate, valueColor }) {
   const [width, setWidth] = useState(animate ? 0 : value * 100)
 
   useEffect(() => {
@@ -182,7 +174,7 @@ function ProbabilityBar({ label, value, color, animate }) {
       <div className="prob-bar-track">
         <div className="prob-bar-fill" style={{ width: `${width}%`, background: color }} />
       </div>
-      <span className="prob-value">
+      <span className="prob-value" style={valueColor ? { color: valueColor } : undefined}>
         {animate ? <AnimatedNumber value={value * 100} decimals={1} suffix="%" /> : `${(value * 100).toFixed(1)}%`}
       </span>
     </div>
@@ -200,13 +192,65 @@ function renderScenario(text, home, away) {
   )
 }
 
+function computeFormRating(explanation, team) {
+  const formPts = explanation.form_last_10_avg_pts?.[team] ?? 0
+  const winRate = parseFloat(explanation.win_rate_last_10?.[team] ?? '0') || 0
+  const scored = explanation.avg_goals_scored?.[team] ?? 0
+  const conceded = explanation.avg_goals_conceded?.[team] ?? 0
+  const goalDiffScore = Math.min(100, Math.max(0, ((scored - conceded) + 2) / 4 * 100))
+  const formPtsScore = Math.min(100, Math.max(0, (formPts / 3) * 100))
+  return Math.round((formPtsScore + winRate + goalDiffScore) / 3)
+}
+
+function FormRating({ data }) {
+  const explanation = data.explanation
+  if (!explanation) return null
+
+  const home = data.home_team
+  const away = data.away_team
+  const homeRating = computeFormRating(explanation, home)
+  const awayRating = computeFormRating(explanation, away)
+  const homeBetter = homeRating >= awayRating
+
+  return (
+    <div className="form-rating-box">
+      <h4>Form Rating</h4>
+      <div className="form-rating-row">
+        <span className="form-rating-label">
+          <TeamLabel name={home} />{homeBetter && <span className="form-rating-flame">🔥</span>}
+        </span>
+        <div className="form-rating-track">
+          <div className="form-rating-fill" style={{ width: `${homeRating}%`, background: "linear-gradient(90deg,var(--gold),var(--gold-light))" }} />
+        </div>
+        <span className="form-rating-value">{homeRating}</span>
+      </div>
+      <p className="form-rating-detail">
+        {explanation.form_last_10_avg_pts[home]} pts/game &middot; {explanation.avg_goals_scored[home]} scored &middot; {explanation.avg_goals_conceded[home]} conceded &middot; {explanation.clean_sheet_rate[home]} clean sheets
+      </p>
+
+      <div className="form-rating-row">
+        <span className="form-rating-label">
+          <TeamLabel name={away} />{!homeBetter && <span className="form-rating-flame">🔥</span>}
+        </span>
+        <div className="form-rating-track">
+          <div className="form-rating-fill" style={{ width: `${awayRating}%`, background: "linear-gradient(90deg,#ef4444,#f97316)" }} />
+        </div>
+        <span className="form-rating-value">{awayRating}</span>
+      </div>
+      <p className="form-rating-detail">
+        {explanation.form_last_10_avg_pts[away]} pts/game &middot; {explanation.avg_goals_scored[away]} scored &middot; {explanation.avg_goals_conceded[away]} conceded &middot; {explanation.clean_sheet_rate[away]} clean sheets
+      </p>
+    </div>
+  )
+}
+
 function BettingMarkets({ data }) {
   const bm = (data.score_prediction || {}).betting_markets
   if (!bm) return null
 
   const home = data.home_team
   const away = data.away_team
-  const { double_chance: dc, over_under: ou = [], win_margin: wm, btts } = bm
+  const { over_under: ou = [], win_margin: wm, btts } = bm
 
   const favoriteIsHome = data.probability_home_win >= data.probability_away_win
   const favorite = favoriteIsHome ? home : away
@@ -221,23 +265,7 @@ function BettingMarkets({ data }) {
         <p>{renderScenario(bm.scenario, home, away)}</p>
       </div>
 
-      <div>
-        <h4>Double Chance</h4>
-        <div className="market-grid">
-          <div className="market-card">
-            <div className="market-card-label"><TeamLabel name={home} /> or Draw</div>
-            <div className="market-card-value"><AnimatedNumber value={dc.home_or_draw * 100} decimals={1} suffix="%" /></div>
-          </div>
-          <div className="market-card">
-            <div className="market-card-label"><TeamLabel name={home} /> or <TeamLabel name={away} /></div>
-            <div className="market-card-value"><AnimatedNumber value={dc.home_or_away * 100} decimals={1} suffix="%" /></div>
-          </div>
-          <div className="market-card">
-            <div className="market-card-label">Draw or <TeamLabel name={away} /></div>
-            <div className="market-card-value"><AnimatedNumber value={dc.draw_or_away * 100} decimals={1} suffix="%" /></div>
-          </div>
-        </div>
-      </div>
+      <FormRating data={data} />
 
       <div>
         <h4>Total Goals (Over / Under)</h4>
@@ -475,8 +503,7 @@ function SmartBetCard({ betStep, betInfo }) {
       {agentEval && (
         <div className="smart-bet-agent">
           <div className="smart-bet-agent-headtitle">
-            <span className="smart-bet-agent-tag">✨ AI</span>
-            <span className="smart-bet-agent-headline">{agentEval.bet_headline}</span>
+            <span className="smart-bet-agent-headline">✨ AI predicts: {agentEval.bet_headline}</span>
           </div>
           {agentPick && (
             <span className="smart-bet-agent-agree">
@@ -576,9 +603,20 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
       )}
 
       <RevealSection visible={show(1)} className="probabilities">
-        <ProbabilityBar label={<TeamLabel name={data.home_team} />} value={data.probability_home_win} color="linear-gradient(90deg,var(--gold),var(--gold-light))" animate />
-        <ProbabilityBar label="Draw" value={data.probability_draw} color="linear-gradient(90deg,#6b7280,#9ca3af)" animate />
-        <ProbabilityBar label={<TeamLabel name={data.away_team} />} value={data.probability_away_win} color="linear-gradient(90deg,#ef4444,#f97316)" animate />
+        {(() => {
+          const probs = [data.probability_home_win, data.probability_draw, data.probability_away_win]
+          const maxProb = Math.max(...probs)
+          const grayColor = "linear-gradient(90deg,#6b7280,#9ca3af)"
+          const winColor = "linear-gradient(90deg,var(--gold),var(--gold-light))"
+          const goldText = "var(--gold-light)"
+          return (
+            <>
+              <ProbabilityBar label={<TeamLabel name={data.home_team} />} value={data.probability_home_win} color={data.probability_home_win === maxProb ? winColor : grayColor} valueColor={data.probability_home_win === maxProb ? goldText : undefined} animate />
+              <ProbabilityBar label="Draw" value={data.probability_draw} color={data.probability_draw === maxProb ? winColor : grayColor} valueColor={data.probability_draw === maxProb ? goldText : undefined} animate />
+              <ProbabilityBar label={<TeamLabel name={data.away_team} />} value={data.probability_away_win} color={data.probability_away_win === maxProb ? winColor : grayColor} valueColor={data.probability_away_win === maxProb ? goldText : undefined} animate />
+            </>
+          )
+        })()}
       </RevealSection>
 
       <RevealSection visible={show(2)}>
@@ -633,24 +671,6 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
       {gf.match_description && (
         <RevealSection visible={show(5)}>
           <p className="wm-description">{gf.match_description}</p>
-        </RevealSection>
-      )}
-
-      {(gf.match_ticker || []).length > 0 && (
-        <RevealSection visible={show(5)} className="wm-stories">
-          <h4>Match Ticker</h4>
-          {gf.match_ticker.map((e, i) => (
-            <div className={`wm-ticker-event wm-ticker-${e.type}`} key={i} style={{ animationDelay: `${i * 0.4}s` }}>
-              <span className="wm-ticker-minute">{e.minute}'</span>
-              <div className="wm-ticker-body">
-                <div className="wm-ticker-head">
-                  <span>{TICKER_ICONS[e.type] || '▪️'} {e.headline}</span>
-                  {e.score_after && <span className="wm-ticker-score">{e.score_after}</span>}
-                </div>
-                <p>{e.description}</p>
-              </div>
-            </div>
-          ))}
         </RevealSection>
       )}
 

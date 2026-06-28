@@ -113,8 +113,18 @@ def compute_betting_markets(
 
     over_2_5 = over_under[1]["over"]
 
+    # How far apart the top two outcomes are - a tiny gap means the model
+    # sees this as close to a toss-up, even if one side is technically
+    # "favored". Only speak with confidence once the gap is meaningful.
+    sorted_probs = sorted([home_win_prob, draw_prob, away_win_prob], reverse=True)
+    top_gap = sorted_probs[0] - sorted_probs[1]
+    CLOSE_GAP_THRESHOLD = 0.08
+
     if draw_prob >= home_win_prob and draw_prob >= away_win_prob:
-        scenario = "A close match — a draw is the single most likely outcome."
+        if top_gap < CLOSE_GAP_THRESHOLD:
+            scenario = "A tight three-way contest, with a draw the slightly more likely outcome."
+        else:
+            scenario = "A close match — a draw is the single most likely outcome."
     else:
         if home_win_prob >= away_win_prob:
             favorite, fav_prob, margin_2plus = home_team, home_win_prob, home_2plus
@@ -122,9 +132,14 @@ def compute_betting_markets(
             favorite, fav_prob, margin_2plus = away_team, away_win_prob, away_2plus
 
         margin_share = margin_2plus / fav_prob if fav_prob > 0 else 0.0
-        sentence = f"{favorite} are favored to win"
-        if margin_share > 0.55:
-            sentence += ", likely by 2+ goals"
+
+        if top_gap < CLOSE_GAP_THRESHOLD:
+            sentence = f"A tight three-way contest, with {favorite} holding a slight edge"
+        else:
+            sentence = f"{favorite} are favored to win"
+            if margin_share > 0.55:
+                sentence += ", likely by 2+ goals"
+
         sentence += ", in a high-scoring game." if over_2_5 > 0.55 \
             else ", in a low-scoring game." if over_2_5 < 0.45 \
             else "."

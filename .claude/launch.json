@@ -7,6 +7,12 @@
       "runtimeArgs": ["vite", "--port", "5180"],
       "cwd": "frontend",
       "port": 5180
+    },
+    {
+      "name": "backend",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "uvicorn", "api.app:app", "--port", "8000", "--loop", "asyncio", "--http", "h11"],
+      "port": 8000
     }
   ]
 }
