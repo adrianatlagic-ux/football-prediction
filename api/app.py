@@ -739,7 +739,10 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
     }
 
 
-def _call_gemini_agent_pick(prediction: dict, value_bets: dict, home_team: str, away_team: str) -> Optional[dict]:
+def _call_gemini_agent_pick(
+    prediction: dict, value_bets: dict, home_team: str, away_team: str,
+    previous_eval: Optional[dict] = None,
+) -> Optional[dict]:
     """Ask Gemini (with Google Search grounding) to research current context our
     stats model can't see, and separately evaluate the candidate bets against it.
 
@@ -752,6 +755,13 @@ def _call_gemini_agent_pick(prediction: dict, value_bets: dict, home_team: str, 
     - "bet_headline" / "bet_reasoning" / "bet_points": the betting verdict -
       a plain-language pick label, one sentence of reasoning, and a couple of
       short supporting bullets - shown only in the Smart Bet section.
+
+    If `previous_eval` is given (an earlier agent_eval for this same match),
+    the agent is told what it concluded before and asked to explicitly confirm
+    or revise it with a reason - rather than re-researching from a blank slate
+    and potentially flip-flopping for no real reason. This is what lets us
+    safely re-check a match later (e.g. closer to kickoff) without the earlier,
+    possibly-better take silently vanishing without explanation.
 
     Returns None if the call fails (caller treats that as "no agent opinion",
     not block the rest of the response).
@@ -780,6 +790,23 @@ def _call_gemini_agent_pick(prediction: dict, value_bets: dict, home_team: str, 
         if model_rec else "none (no clean positive-edge bet found)"
     )
 
+    previous_block = ""
+    if previous_eval and previous_eval.get("bet_headline"):
+        prev_pick = previous_eval.get("pick")
+        prev_pick_desc = (
+            f"market={prev_pick['market']}, outcome={prev_pick.get('team') or prev_pick['outcome']}"
+            if prev_pick else "none"
+        )
+        previous_block = f"""
+
+YOUR EARLIER ASSESSMENT of this same match (from an earlier check today): \
+pick="{previous_eval['bet_headline']}" ({prev_pick_desc}), reasoning="{previous_eval.get('bet_reasoning', '')}"
+
+You are being asked again now, closer to kickoff, with a chance to search for newer information. \
+Do NOT change your pick just to seem thorough or different - only revise it if you find a CONCRETE, \
+NEW fact (e.g. a confirmed lineup change, injury, or news) that genuinely changes the picture. If \
+nothing material has changed, keep the same pick and say so explicitly in bet_reasoning."""
+
     prompt = f"""You are researching an upcoming World Cup 2026 match: {home_team} vs {away_team}.
 
 Our statistical model's probabilities: Home win {prediction['probability_home_win']:.0%}, \
@@ -788,7 +815,7 @@ Draw {prediction['probability_draw']:.0%}, Away win {prediction['probability_awa
 Our system's current top betting recommendation: {model_rec_desc}
 
 All candidate bets currently under consideration:
-{cand_lines}
+{cand_lines}{previous_block}
 
 STEP 1 - RESEARCH (use Google Search). Our stats model only sees historical results, so dig up CURRENT \
 context across as many of these angles as you can actually find information on - don't limit yourself \
@@ -855,10 +882,28 @@ supporting fact, max 8 words>"]}}"""
         and pick.get("team") == model_rec.get("team")
     )
 
+    # Same idea as agrees_with_model: whether the pick changed from the prior
+    # check is a plain fact, computed here rather than self-reported - so the
+    # UI can show "kept" vs "revised" reliably even if the model's own wording
+    # is inconsistent.
+    revised_from_previous = None
+    if previous_eval is not None:
+        prev_pick = previous_eval.get("pick")
+        revised_from_previous = not (
+            (pick is None and prev_pick is None)
+            or (
+                pick is not None and prev_pick is not None
+                and pick["market"] == prev_pick["market"]
+                and pick["outcome"] == prev_pick["outcome"]
+                and pick.get("team") == prev_pick.get("team")
+            )
+        )
+
     research = parsed.get("research") or {}
     return {
         "pick": pick,
         "agrees_with_model": agrees_with_model,
+        "revised_from_previous": revised_from_previous,
         "bet_headline": parsed.get("bet_headline") or "",
         "bet_reasoning": parsed.get("bet_reasoning") or "",
         "bet_points": [p for p in (parsed.get("bet_points") or []) if p],
@@ -941,13 +986,57 @@ def _get_agent_pick(home_team: str, away_team: str) -> Optional[dict]:
     return _agent_picks_cache.get((_norm_team(home_team), _norm_team(away_team)))
 
 
-# A second per-match refresh in the hour before kickoff was tried and removed:
-# it silently overwrote the daily 17:00 pick with a fresh (but not necessarily
-# better) one, with no way to tell which take was right after the fact except
-# in hindsight. The hypothesis that "fresher lineups = better pick" was never
-# actually validated, and the real cost (a worse late pick replacing a better
-# early one, invisibly) outweighed the unproven benefit. One stable, auditable
-# pick per match per day is simpler and more trustworthy.
+# A second per-match check, exactly in the hour before its own kickoff, so the
+# agent can catch lineup/news that wasn't out yet at the 17:00 pass. A first
+# version of this silently overwrote the earlier pick with a fresh one and, in
+# practice, sometimes made things worse with no way to tell which take to
+# trust. Fixed by feeding the agent its own earlier pick as context (see
+# `previous_eval` in _call_gemini_agent_pick) and explicitly telling it to
+# keep that pick unless it finds a genuinely new, concrete fact - so this is a
+# considered update, not a blind re-roll. Still strictly per-match: each match
+# crosses its own "1h before kickoff" point at a different time, so only the
+# one match currently in that window gets re-evaluated, never all of them.
+_agent_prekickoff_done: set[tuple[str, str]] = set()
+_agent_prekickoff_in_progress: set[tuple[str, str]] = set()
+PREKICKOFF_WINDOW_HOURS = 1
+
+
+def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
+    for data in _get_prediction_index().values():
+        home, away = data["home_team"], data["away_team"]
+        key = (_norm_team(home), _norm_team(away))
+        if key in _agent_prekickoff_done or key in _agent_prekickoff_in_progress:
+            continue
+        try:
+            vb = _compute_value_bets(data, odds, home, away)
+        except Exception:
+            continue
+        if not vb.get("odds_found") or vb.get("in_play"):
+            continue
+        commence = vb.get("commence_time")
+        if not commence:
+            continue
+        try:
+            kickoff = datetime.fromisoformat(commence.replace("Z", "+00:00"))
+            hours_away = (kickoff - datetime.now(timezone.utc)).total_seconds() / 3600
+        except ValueError:
+            continue
+        if not (0 <= hours_away <= PREKICKOFF_WINDOW_HOURS):
+            continue
+
+        _agent_prekickoff_in_progress.add(key)
+        previous_eval = _agent_picks_cache.get(key)
+
+        def _run(data=data, vb=vb, home=home, away=away, key=key, previous_eval=previous_eval):
+            try:
+                agent = _call_gemini_agent_pick(data, vb, home, away, previous_eval=previous_eval)
+                if agent is not None:
+                    _agent_picks_cache[key] = agent
+            finally:
+                _agent_prekickoff_done.add(key)
+                _agent_prekickoff_in_progress.discard(key)
+
+        threading.Thread(target=_run, daemon=True).start()
 
 
 _prediction_index: dict[tuple[str, str], dict] = {}
@@ -992,6 +1081,7 @@ def value_bets(home_team: str, away_team: str):
             prediction = _get_predictor().predict_match(home_team, away_team)
         result = _compute_value_bets(prediction, odds, home_team, away_team)
         _refresh_agent_picks(odds)
+        _maybe_prekickoff_refresh(odds)
         result["agent_eval"] = _get_agent_pick(home_team, away_team)
         return result
     except HTTPException:
@@ -1017,6 +1107,7 @@ def best_bets():
         raise HTTPException(status_code=503, detail=f"Odds API unavailable: {exc}")
 
     _refresh_agent_picks(odds)
+    _maybe_prekickoff_refresh(odds)
 
     out = []
     for data in _get_prediction_index().values():
@@ -1057,6 +1148,7 @@ def all_bets():
         raise HTTPException(status_code=503, detail=f"Odds API unavailable: {exc}")
 
     _refresh_agent_picks(odds)
+    _maybe_prekickoff_refresh(odds)
 
     out = []
     for data in _get_prediction_index().values():

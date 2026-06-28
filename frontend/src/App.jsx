@@ -528,6 +528,8 @@ function SmartBetCard({ betStep, betInfo }) {
           {agentPick && (
             <span className="smart-bet-agent-agree">
               {agentEval.agrees_with_model ? '✓ agrees with the model' : '↔ differs from the model'}
+              {agentEval.revised_from_previous === true && ' · revised after a closer look'}
+              {agentEval.revised_from_previous === false && ' · confirmed on a closer look'}
             </span>
           )}
           <p className="smart-bet-agent-text">{agentEval.bet_reasoning}</p>
