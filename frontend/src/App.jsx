@@ -250,7 +250,7 @@ function BettingMarkets({ data }) {
 
   const home = data.home_team
   const away = data.away_team
-  const { over_under: ou = [], win_margin: wm, btts } = bm
+  const { over_under: ou = [], win_margin: wm, btts, double_chance: dc } = bm
 
   const favoriteIsHome = data.probability_home_win >= data.probability_away_win
   const favorite = favoriteIsHome ? home : away
@@ -266,6 +266,26 @@ function BettingMarkets({ data }) {
       </div>
 
       <FormRating data={data} />
+
+      {dc && (
+        <div>
+          <h4>Double Chance</h4>
+          <div className="market-grid">
+            <div className="market-card">
+              <div className="market-card-label"><TeamLabel name={home} /> or Draw</div>
+              <div className="market-card-value"><AnimatedNumber value={dc.home_or_draw * 100} decimals={1} suffix="%" /></div>
+            </div>
+            <div className="market-card">
+              <div className="market-card-label"><TeamLabel name={home} /> or <TeamLabel name={away} /></div>
+              <div className="market-card-value"><AnimatedNumber value={dc.home_or_away * 100} decimals={1} suffix="%" /></div>
+            </div>
+            <div className="market-card">
+              <div className="market-card-label">Draw or <TeamLabel name={away} /></div>
+              <div className="market-card-value"><AnimatedNumber value={dc.draw_or_away * 100} decimals={1} suffix="%" /></div>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div>
         <h4>Total Goals (Over / Under)</h4>
