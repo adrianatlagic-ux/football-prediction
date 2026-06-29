@@ -510,6 +510,30 @@ function SmartBetCard({ betStep, betInfo }) {
         </p>
       )}
 
+      {combined && combined.movement_ranking && combined.movement_ranking.length > 0 && (
+        <div className="smart-bet-movement">
+          <span className="smart-bet-label">Market Movement Ranking</span>
+          <p className="smart-bet-movement-sub">
+            Since the day's early odds, ranked by how much the market has moved toward (or away from) each signal's pick.
+          </p>
+          {combined.movement_ranking.map((r) => {
+            const moved = r.movement_pct
+            const positive = moved != null && moved > 0
+            const negative = moved != null && moved < 0
+            return (
+              <div className={`smart-bet-movement-row ${r.rank === 1 ? 'is-top' : ''}`} key={r.rank}>
+                <span className="smart-bet-movement-rank">#{r.rank}</span>
+                <span className="smart-bet-movement-signal">{r.signal}</span>
+                <span className="smart-bet-movement-pick">{betOutcomeLabel(r.bet)}</span>
+                <span className={`smart-bet-movement-pct ${positive ? 'positive' : negative ? 'negative' : ''}`}>
+                  {moved == null ? '–' : `${positive ? '▲' : negative ? '▼' : '–'} ${moved > 0 ? '+' : ''}${moved.toFixed(1)} pp`}
+                </span>
+              </div>
+            )
+          })}
+        </div>
+      )}
+
       {(greens.length > 0 || reds.length > 0) && (
         <div className="smart-bet-table">
           <div className="smart-bet-table-head">
@@ -549,7 +573,9 @@ function SmartBetCard({ betStep, betInfo }) {
         <p><strong>★</strong> top pick by edge. <strong>✨</strong> AI agent's own pick after live research. <strong>◆</strong> model's
         most likely outcome (no proven market edge required). <strong>🛡</strong> safest pick across all markets (highest
         model probability among bets priced at odds 1.50 or below, confirming the market also sees it
-        as near-certain). The Top Recommendation above only appears when at least two of the first three signals agree.</p>
+        as near-certain). Before kickoff eve, the Top Recommendation needs at least two of the first three signals to
+        agree. In the last hour before kickoff it switches to whichever signal's pick the market has moved toward the
+        most since the day's early odds (see Market Movement Ranking above).</p>
 
       {[...greens, ...reds].some(b => b.market.startsWith('Handicap')) && (
         <p>

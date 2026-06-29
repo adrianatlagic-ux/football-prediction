@@ -348,13 +348,20 @@ ODDS_API_KEY = os.getenv("ODDS_API_KEY", "")
 #
 # Refresh is anchored to a fixed clock time (15:00 UTC = 17:00 CEST) rather
 # than a rolling 24h window, so it's predictable for everyone regardless of
-# when they happen to load the site. 15:00 UTC sits a few hours before the
-# evening kickoff slot (~18:00 UTC / 20:00 German time) - close enough that
-# lineups/team news are mostly priced in, but safely before any match of the
-# day has started.
-ODDS_REFRESH_HOUR_UTC = 15
+# when they happen to load the site. 13:00 UTC (15:00 German summer time)
+# sits well before the evening kickoff slot (~18:00 UTC / 20:00 German time) -
+# early enough that this snapshot is a genuine "early" baseline odds can still
+# move away from before the pre-kickoff re-check, rather than catching them
+# only an hour or two apart.
+ODDS_REFRESH_HOUR_UTC = 13
 _odds_cache: list[dict] = []
 _odds_cache_date: str | None = None  # UTC date (YYYY-MM-DD) of the last successful fetch
+
+# Snapshot of each candidate bet's odds taken the first time it's seen each
+# day (i.e. at the ODDS_REFRESH_HOUR_UTC refresh) - the baseline the
+# pre-kickoff re-check later compares against to measure market movement.
+_odds_baseline: dict[tuple[str, str], dict[tuple, float]] = {}
+_odds_baseline_date: str | None = None
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 # Agent picks are computed once per match per day, anchored to the same clock
@@ -393,6 +400,24 @@ def _get_odds() -> list[dict]:
             if not _odds_cache:
                 raise
     return _odds_cache
+
+
+def _fetch_event_odds(event_id: str) -> Optional[dict]:
+    """Single-event odds refetch for the pre-kickoff movement check - much
+    cheaper than a full slate refresh (see The Odds API's per-event pricing)
+    since we only need one match, not the whole matchday."""
+    if not ODDS_API_KEY:
+        return None
+    url = (
+        f"https://api.the-odds-api.com/v4/sports/soccer_fifa_world_cup/events/{event_id}/odds"
+        f"?apiKey={ODDS_API_KEY}&regions=eu&markets=h2h,totals,spreads&oddsFormat=decimal"
+    )
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    try:
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            return json.loads(resp.read())
+    except Exception:
+        return None
 
 
 # The Odds API uses different team names than our fixtures for a few
@@ -513,6 +538,42 @@ def get_odds():
         return {"events": _get_odds()}
     except Exception as exc:
         raise HTTPException(status_code=503, detail=f"Odds API unavailable: {exc}")
+
+
+def _candidate_id(c: dict) -> tuple:
+    return (c["market"], c["outcome"], c.get("team"))
+
+
+def _record_odds_baseline(key: tuple[str, str], candidates: list[dict]) -> None:
+    """Store each candidate's odds the first time they're seen each day (i.e.
+    at the ODDS_REFRESH_HOUR_UTC refresh) - the early baseline the pre-kickoff
+    re-check later compares against to measure market movement. Never
+    overwritten again the same day, so later (e.g. pre-kickoff) calls compare
+    against the same fixed early snapshot rather than a constantly moving one.
+    """
+    global _odds_baseline, _odds_baseline_date
+    today = datetime.now(timezone.utc).date().isoformat()
+    if _odds_baseline_date != today:
+        _odds_baseline = {}
+        _odds_baseline_date = today
+    if key not in _odds_baseline:
+        _odds_baseline[key] = {_candidate_id(c): c["best_odds"] for c in candidates}
+
+
+def _odds_movement_pct(key: tuple[str, str], candidate: dict) -> Optional[float]:
+    """How many percentage points a candidate's implied probability has moved
+    in our favor since the day's early baseline (positive = market has moved
+    toward agreeing with this pick since we first saw it; negative = away
+    from it). None if no baseline odds were recorded for this candidate."""
+    baseline = _odds_baseline.get(key)
+    if not baseline:
+        return None
+    baseline_odds = baseline.get(_candidate_id(candidate))
+    if not baseline_odds or not candidate.get("best_odds"):
+        return None
+    baseline_prob = 1 / baseline_odds
+    current_prob = 1 / candidate["best_odds"]
+    return round((current_prob - baseline_prob) * 100, 2)
 
 
 def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away_team: str) -> dict:
@@ -694,6 +755,8 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
                 _add_candidate(f"Handicap {sign}{point}", "handicap", team_name, prob, best, market_prob)
 
     candidates.sort(key=lambda c: c["expected_value"], reverse=True)
+
+    _record_odds_baseline((_norm_team(home_team), _norm_team(away_team)), candidates)
 
     # "Verdächtig" = zu hoher Vorteil (Modellfehler) oder starke Modell-Markt-
     # Abweichung. Solche Wetten zeigen wir an, aber nicht als sichere Empfehlung.
@@ -1064,6 +1127,22 @@ def _combine_recommendation(vb: dict, agent_eval: Optional[dict]) -> dict:
         consensus_pick = None
         label = "keine Übereinstimmung zwischen Modell, Value-Edge und KI"
 
+    # Once the pre-kickoff movement re-check has run for this match, prefer
+    # its ranking over the agreement-vote above: which of our four signals
+    # has the market itself moved towards the most since the day's early
+    # odds snapshot is a live, continuously-updating confirmation, whereas
+    # the agreement vote is a static one-time judgement made hours earlier.
+    movement_ranking = vb.get("movement_ranking")
+    if movement_ranking:
+        top = movement_ranking[0]
+        consensus_pick = top["bet"]
+        moved_to_us = top["movement_pct"] is not None and top["movement_pct"] > 0
+        if top["movement_pct"] is None:
+            label = f"Markt-Bewegung: {top['signal']} (keine Bewegungsdaten)"
+        else:
+            arrow = "▲" if moved_to_us else "▼"
+            label = f"Markt-Bewegung: {top['signal']} hat sich seit dem frühen Quotenstand am meisten {'zu' if moved_to_us else 'gegen'} uns bewegt ({arrow} {top['movement_pct']:+.1f} %-Punkte)"
+
     return {
         "model_favorite": model_fav,
         "value_pick": value_pick,
@@ -1071,11 +1150,12 @@ def _combine_recommendation(vb: dict, agent_eval: Optional[dict]) -> dict:
         "consensus_pick": consensus_pick,
         "consensus_label": label,
         "agreement_count": agreement_count,
+        "movement_ranking": movement_ranking,
     }
 
 
 # A second per-match check, exactly in the hour before its own kickoff, so the
-# agent can catch lineup/news that wasn't out yet at the 17:00 pass. A first
+# agent can catch lineup/news that wasn't out yet at the early-afternoon pass. A first
 # version of this silently overwrote the earlier pick with a fresh one and, in
 # practice, sometimes made things worse with no way to tell which take to
 # trust. Fixed by feeding the agent its own earlier pick as context (see
@@ -1087,6 +1167,35 @@ def _combine_recommendation(vb: dict, agent_eval: Optional[dict]) -> dict:
 _agent_prekickoff_done: set[tuple[str, str]] = set()
 _agent_prekickoff_in_progress: set[tuple[str, str]] = set()
 PREKICKOFF_WINDOW_HOURS = 1
+
+# Each match's movement ranking, computed once at the pre-kickoff re-check
+# (see _rank_by_movement) and reused by every request afterwards until the
+# match kicks off - it's not recomputed per-request.
+_movement_cache: dict[tuple[str, str], list[dict]] = {}
+
+
+def _rank_by_movement(key: tuple[str, str], vb: dict, agent_eval: Optional[dict]) -> list[dict]:
+    """Rank the four signals (model favorite, value pick, AI pick, safest
+    pick) by how much the market has moved towards each of them since the
+    day's early odds snapshot - the bet the market itself increasingly
+    confirms ranks first, the one it's moving away from ranks last. Every
+    signal that has a bet gets a rank, including unfavorable movers (they
+    just rank low and show red in the UI)."""
+    signals = [
+        ("Modell-Favorit", vb.get("model_favorite")),
+        ("Value-Pick", vb.get("recommendation")),
+        ("KI-Pick", agent_eval.get("pick") if agent_eval else None),
+        ("Sicherster Tipp", vb.get("safest_pick")),
+    ]
+    ranked = [
+        {"signal": label, "bet": bet, "movement_pct": _odds_movement_pct(key, bet)}
+        for label, bet in signals
+        if bet is not None
+    ]
+    ranked.sort(key=lambda r: r["movement_pct"] if r["movement_pct"] is not None else float("-inf"), reverse=True)
+    for i, r in enumerate(ranked, start=1):
+        r["rank"] = i
+    return ranked
 
 
 def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
@@ -1114,12 +1223,23 @@ def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
 
         _agent_prekickoff_in_progress.add(key)
         previous_eval = _agent_picks_cache.get(key)
+        event = _find_odds_match(odds, home, away)
+        event_id = event.get("id") if event else None
 
-        def _run(data=data, vb=vb, home=home, away=away, key=key, previous_eval=previous_eval):
+        def _run(data=data, vb=vb, home=home, away=away, key=key, previous_eval=previous_eval, event_id=event_id):
             try:
-                agent = _call_gemini_agent_pick(data, vb, home, away, previous_eval=previous_eval)
+                # Single-event refetch right before the agent re-check, so the
+                # movement ranking compares the day's early snapshot against
+                # odds that are actually fresh at this point - not the same
+                # daily-cached odds the rest of the day runs on.
+                fresh_event = _fetch_event_odds(event_id) if event_id else None
+                fresh_vb = _compute_value_bets(data, [fresh_event], home, away) if fresh_event else vb
+
+                agent = _call_gemini_agent_pick(data, fresh_vb, home, away, previous_eval=previous_eval)
                 if agent is not None:
                     _agent_picks_cache[key] = agent
+
+                _movement_cache[key] = _rank_by_movement(key, fresh_vb, agent or previous_eval)
             finally:
                 _agent_prekickoff_done.add(key)
                 _agent_prekickoff_in_progress.discard(key)
@@ -1172,6 +1292,7 @@ def value_bets(home_team: str, away_team: str):
         _maybe_prekickoff_refresh(odds)
         agent_eval = _get_agent_pick(home_team, away_team)
         result["agent_eval"] = agent_eval
+        result["movement_ranking"] = _movement_cache.get((_norm_team(home_team), _norm_team(away_team)))
         result["combined"] = _combine_recommendation(result, agent_eval)
         return result
     except HTTPException:
@@ -1209,6 +1330,7 @@ def best_bets():
         if not vb.get("odds_found") or vb.get("in_play"):
             continue
         agent_eval = _get_agent_pick(home, away)
+        vb["movement_ranking"] = _movement_cache.get((_norm_team(home), _norm_team(away)))
         combined = _combine_recommendation(vb, agent_eval)
         if combined["consensus_pick"] is None:
             continue
