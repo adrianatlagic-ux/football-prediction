@@ -456,6 +456,7 @@ function SmartBetCard({ betStep, betInfo }) {
   const consensusPick = combined && combined.consensus_pick
   const modelFavorite = betInfo.model_favorite
   const safestPick = betInfo.safest_pick
+  const oddsRefreshed = betInfo.odds_refreshed
   const sameBet = (a, b) => a.market === b.market && a.outcome === b.outcome && a.team === b.team
   const greens = betInfo.green_bets || []
   const reds = betInfo.red_bets || []
@@ -485,6 +486,9 @@ function SmartBetCard({ betStep, betInfo }) {
       {consensusPick ? (
         <div className={`smart-bet-best ${combined.agreement_count === 0 ? 'is-warning' : ''}`}>
           <span className="smart-bet-label">Top Recommendation</span>
+          {oddsRefreshed && (
+            <span className="smart-bet-refreshed">🔄 odds refreshed ~1h before kickoff — may differ from the earlier pick</span>
+          )}
           <div className="smart-bet-pick">{betOutcomeLabel(consensusPick)}</div>
           <div className="smart-bet-odds-row">
             <span className="smart-bet-odds">{consensusPick.best_odds.toFixed(2)}</span>
@@ -575,7 +579,8 @@ function SmartBetCard({ betStep, betInfo }) {
         model probability among bets priced at odds 1.50 or below, confirming the market also sees it
         as near-certain). Before kickoff eve, the Top Recommendation needs at least two of the first three signals to
         agree. In the last hour before kickoff it switches to whichever signal's pick the market has moved toward the
-        most since the day's early odds (see Market Movement Ranking above).</p>
+        most since the day's early odds (see Market Movement Ranking above). <strong>🔄</strong> means the odds shown
+        were refreshed in that last hour and may no longer match the pick shown earlier in the day.</p>
 
       {[...greens, ...reds].some(b => b.market.startsWith('Handicap')) && (
         <p>

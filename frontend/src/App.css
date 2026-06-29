@@ -1310,6 +1310,13 @@ body {
   margin-bottom: 0.3rem;
 }
 
+.smart-bet-refreshed {
+  display: block;
+  font-size: 0.68rem;
+  color: #fbbf24;
+  margin-bottom: 0.4rem;
+}
+
 .smart-bet-pick {
   font-size: 1.2rem;
   font-weight: 700;

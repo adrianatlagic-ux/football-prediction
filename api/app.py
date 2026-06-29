@@ -756,7 +756,16 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
 
     candidates.sort(key=lambda c: c["expected_value"], reverse=True)
 
-    _record_odds_baseline((_norm_team(home_team), _norm_team(away_team)), candidates)
+    match_key = (_norm_team(home_team), _norm_team(away_team))
+    _record_odds_baseline(match_key, candidates)
+
+    # Filled in only once the pre-kickoff single-event refetch has run for
+    # this match (see _maybe_prekickoff_refresh) - None for every candidate
+    # the rest of the day, when there's nothing fresher than the baseline
+    # itself to compare against.
+    pct_by_candidate = _movement_pct_cache.get(match_key, {})
+    for c in candidates:
+        c["movement_pct"] = pct_by_candidate.get(_candidate_id(c))
 
     # "Verdächtig" = zu hoher Vorteil (Modellfehler) oder starke Modell-Markt-
     # Abweichung. Solche Wetten zeigen wir an, aber nicht als sichere Empfehlung.
@@ -1172,6 +1181,17 @@ PREKICKOFF_WINDOW_HOURS = 1
 # (see _rank_by_movement) and reused by every request afterwards until the
 # match kicks off - it's not recomputed per-request.
 _movement_cache: dict[tuple[str, str], list[dict]] = {}
+# Per-candidate movement (percentage points) from the same pre-kickoff
+# refetch, keyed by candidate id - lets _compute_value_bets annotate every
+# bet in the table (not just the 4 signals) without an extra API call.
+_movement_pct_cache: dict[tuple[str, str], dict[tuple, float]] = {}
+# The full value-bets result computed from the fresh single-event odds at the
+# pre-kickoff refetch. Once this exists for a match, callers should serve it
+# instead of recomputing from the stale once-a-day odds cache - odds (and so
+# the recommended pick) can genuinely move in that last hour, and showing the
+# headline pick from hours-old odds while the movement ranking below it
+# already reflects fresher ones would be inconsistent.
+_prekickoff_vb_cache: dict[tuple[str, str], dict] = {}
 
 
 def _rank_by_movement(key: tuple[str, str], vb: dict, agent_eval: Optional[dict]) -> list[dict]:
@@ -1235,6 +1255,13 @@ def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
                 fresh_event = _fetch_event_odds(event_id) if event_id else None
                 fresh_vb = _compute_value_bets(data, [fresh_event], home, away) if fresh_event else vb
 
+                if fresh_event:
+                    for c in fresh_vb.get("bets", []):
+                        c["movement_pct"] = _odds_movement_pct(key, c)
+                    _movement_pct_cache[key] = {_candidate_id(c): c["movement_pct"] for c in fresh_vb.get("bets", [])}
+                    fresh_vb["odds_refreshed"] = True
+                    _prekickoff_vb_cache[key] = fresh_vb
+
                 agent = _call_gemini_agent_pick(data, fresh_vb, home, away, previous_eval=previous_eval)
                 if agent is not None:
                     _agent_picks_cache[key] = agent
@@ -1287,12 +1314,17 @@ def value_bets(home_team: str, away_team: str):
         prediction = _find_cached_prediction(home_team, away_team)
         if prediction is None:
             prediction = _get_predictor().predict_match(home_team, away_team)
-        result = _compute_value_bets(prediction, odds, home_team, away_team)
+        match_key = (_norm_team(home_team), _norm_team(away_team))
+        # Within the pre-kickoff window, prefer the result already recomputed
+        # from genuinely fresh odds over recomputing from the stale daily
+        # cache - otherwise the headline pick/odds here could silently
+        # disagree with the movement ranking shown right below it.
+        result = _prekickoff_vb_cache.get(match_key) or _compute_value_bets(prediction, odds, home_team, away_team)
         _refresh_agent_picks(odds)
         _maybe_prekickoff_refresh(odds)
         agent_eval = _get_agent_pick(home_team, away_team)
         result["agent_eval"] = agent_eval
-        result["movement_ranking"] = _movement_cache.get((_norm_team(home_team), _norm_team(away_team)))
+        result["movement_ranking"] = _movement_cache.get(match_key)
         result["combined"] = _combine_recommendation(result, agent_eval)
         return result
     except HTTPException:
@@ -1324,13 +1356,14 @@ def best_bets():
     for data in _get_prediction_index().values():
         try:
             home, away = data["home_team"], data["away_team"]
-            vb = _compute_value_bets(data, odds, home, away)
+            match_key = (_norm_team(home), _norm_team(away))
+            vb = _prekickoff_vb_cache.get(match_key) or _compute_value_bets(data, odds, home, away)
         except Exception:
             continue
         if not vb.get("odds_found") or vb.get("in_play"):
             continue
         agent_eval = _get_agent_pick(home, away)
-        vb["movement_ranking"] = _movement_cache.get((_norm_team(home), _norm_team(away)))
+        vb["movement_ranking"] = _movement_cache.get(match_key)
         combined = _combine_recommendation(vb, agent_eval)
         if combined["consensus_pick"] is None:
             continue
@@ -1339,6 +1372,7 @@ def best_bets():
             "away_team": vb["away_team"],
             "commence_time": vb.get("commence_time"),
             "recommendation": vb.get("recommendation"),
+            "odds_refreshed": vb.get("odds_refreshed", False),
             "agent_eval": agent_eval,
             "combined": combined,
         })
