@@ -418,7 +418,7 @@ function plainBetPhrase(b) {
   return b.market
 }
 
-function SmartBetCard({ betStep, betInfo }) {
+function SmartBetCard({ betStep, betInfo, data }) {
   const analyzing = betStep < BET_STEPS.length
   if (analyzing) {
     return (
@@ -456,6 +456,7 @@ function SmartBetCard({ betStep, betInfo }) {
   const consensusPick = combined && combined.consensus_pick
   const modelFavorite = betInfo.model_favorite
   const safestPick = betInfo.safest_pick
+  const scenarioText = data?.score_prediction?.betting_markets?.scenario
   const oddsRefreshed = betInfo.odds_refreshed
   const sameBet = (a, b) => a.market === b.market && a.outcome === b.outcome && a.team === b.team
   const greens = betInfo.green_bets || []
@@ -578,11 +579,19 @@ function SmartBetCard({ betStep, betInfo }) {
           <div className="smart-bet-agent-headtitle">
             <span className="smart-bet-signal-headline">★ Value Bet: {betOutcomeLabel(best)}</span>
           </div>
+          {modelFavorite && (
+            <span className="smart-bet-agent-agree">
+              {sameBet(best, modelFavorite) ? '✓ agrees with the model' : '↔ differs from the model'}
+            </span>
+          )}
           <p className="smart-bet-agent-text">
-            at {best.bookmaker} · model estimates {(best.probability * 100).toFixed(0)}%
-            {best.market_probability != null && `, market estimates ${(best.market_probability * 100).toFixed(0)}%`}
-            {best.market_probability != null && (
-              ` — the model rating this ${Math.round((best.probability - best.market_probability) * 100)}pp higher than the market is where the edge comes from.`
+            {best.market_probability != null ? (
+              <>The model gives this a {(best.probability * 100).toFixed(0)}% chance, but {best.bookmaker}'s odds of {best.best_odds.toFixed(2)} only
+              imply {(best.market_probability * 100).toFixed(0)}% — that {Math.round((best.probability - best.market_probability) * 100)} percentage-point
+              gap is the edge: the model thinks this is more likely to happen than the price suggests.</>
+            ) : (
+              <>The model gives this a {(best.probability * 100).toFixed(0)}% chance at odds of {best.best_odds.toFixed(2)} from {best.bookmaker}, with no
+              reliable market comparison available for this one.</>
             )}
           </p>
         </div>
@@ -594,8 +603,10 @@ function SmartBetCard({ betStep, betInfo }) {
             <span className="smart-bet-signal-headline">◆ Most Likely Scenario: {betOutcomeLabel(modelFavorite)}</span>
           </div>
           <p className="smart-bet-agent-text">
-            at {modelFavorite.bookmaker} · model estimates {(modelFavorite.probability * 100).toFixed(0)}%
-            {modelFavorite.market_probability != null && `, market estimates ${(modelFavorite.market_probability * 100).toFixed(0)}%`}
+            {scenarioText
+              ? renderScenario(scenarioText, data.home_team, data.away_team)
+              : <>at {modelFavorite.bookmaker} · model estimates {(modelFavorite.probability * 100).toFixed(0)}%
+                {modelFavorite.market_probability != null && `, market estimates ${(modelFavorite.market_probability * 100).toFixed(0)}%`}</>}
           </p>
         </div>
       )}
@@ -605,18 +616,27 @@ function SmartBetCard({ betStep, betInfo }) {
           <div className="smart-bet-agent-headtitle">
             <span className="smart-bet-signal-headline">🛡 Safest Bet: {betOutcomeLabel(safestPick)}</span>
           </div>
+          {modelFavorite && (
+            <span className="smart-bet-agent-agree">
+              {sameBet(safestPick, modelFavorite) ? '✓ agrees with the model' : '↔ differs from the model'}
+            </span>
+          )}
           <p className="smart-bet-agent-text">
-            priced at {safestPick.best_odds.toFixed(2)} (model estimates {(safestPick.probability * 100).toFixed(0)}%)
-            — among the lowest odds across all markets for this match, meaning the bookmaker also rates it as close to a sure thing.
+            At odds of {safestPick.best_odds.toFixed(2)} from {safestPick.bookmaker}, this is the lowest-risk pick across every market
+            we checked for this match — the model gives it a {(safestPick.probability * 100).toFixed(0)}% chance, and the bookmaker's own
+            short odds mean they rate it as close to a sure thing too.
           </p>
         </div>
       ) : (
         <div className="smart-bet-signal-box is-red">
           <div className="smart-bet-agent-headtitle">
-            <span className="smart-bet-signal-headline">🛡 Safest Bet: none</span>
+            <span className="smart-bet-signal-headline">🛡 Safest Bet: No Bet Available</span>
           </div>
           <p className="smart-bet-agent-text">
-            no market for this match is priced at 1.50 odds or below, so nothing clears the safety bar today.
+            No outcome in this match is priced at 1.50 odds or below
+            {modelFavorite && <> — even the model's favorite, {betOutcomeLabel(modelFavorite)}, sits at {modelFavorite.best_odds.toFixed(2)}</>} —
+            so nothing here is safe enough to clear our bar today. That's not a glitch: it just means the bookmaker doesn't see a
+            heavily lopsided outcome in this match.
           </p>
         </div>
       )}
@@ -806,7 +826,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
               Smart Bet Tip
             </button>
           ) : (
-            <SmartBetCard betStep={betStep} betInfo={betInfo} />
+            <SmartBetCard betStep={betStep} betInfo={betInfo} data={data} />
           )}
         </div>
       )}
