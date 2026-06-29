@@ -742,6 +742,18 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
         (c for c in candidates if c["market"] == "1X2" and c["outcome"] == predicted_winner), None
     )
 
+    # The model's highest-probability bet across ALL market types (1X2, Double
+    # Chance, Over/Under, Handicap), restricted to odds the bookmaker also
+    # prices as near-certain. The odds filter is what keeps this honest:
+    # comparing raw probabilities across markets is unfair since Double Chance
+    # is mathematically >= its corresponding 1X2 outcome (win+draw >= win
+    # alone) and would otherwise always win. Requiring low odds means the
+    # market independently agrees it's safe, not just that it covers more
+    # outcomes.
+    SAFEST_PICK_MAX_ODDS = 1.50
+    safest_candidates = [c for c in candidates if c["best_odds"] is not None and c["best_odds"] <= SAFEST_PICK_MAX_ODDS]
+    safest_pick = max(safest_candidates, key=lambda c: c["probability"], default=None)
+
     return {
         "home_team": event["home_team"],
         "away_team": event["away_team"],
@@ -750,6 +762,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
         "recommendation": recommendation,
         "recommendation_warning": rec_warning,
         "model_favorite": model_favorite,
+        "safest_pick": safest_pick,
         "green_bets": greens,
         "red_bets": reds,
         "bets": candidates,

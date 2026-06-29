@@ -455,6 +455,7 @@ function SmartBetCard({ betStep, betInfo }) {
   const combined = betInfo.combined
   const consensusPick = combined && combined.consensus_pick
   const modelFavorite = betInfo.model_favorite
+  const safestPick = betInfo.safest_pick
   const sameBet = (a, b) => a.market === b.market && a.outcome === b.outcome && a.team === b.team
   const greens = betInfo.green_bets || []
   const reds = betInfo.red_bets || []
@@ -463,11 +464,12 @@ function SmartBetCard({ betStep, betInfo }) {
     const isRec = best && sameBet(b, best)
     const isAgentPick = agentPick && sameBet(b, agentPick)
     const isModelFavorite = modelFavorite && sameBet(b, modelFavorite)
+    const isSafestPick = safestPick && sameBet(b, safestPick)
     return (
       <div className={`smart-bet-table-row ${kind === 'red' ? 'is-red' : ''} ${isRec ? 'is-rec' : ''}`} key={`${kind}-${i}`}>
         <span className="smart-bet-col-market">{marketGroupLabel(b.market)}{b.suspicious ? ' ⚠' : ''}</span>
         <span className="smart-bet-col-pick">
-          {isRec ? '★ ' : ''}{isAgentPick ? '✨ ' : ''}{isModelFavorite ? '◆ ' : ''}{betOutcomeLabel(b)}
+          {isRec ? '★ ' : ''}{isAgentPick ? '✨ ' : ''}{isModelFavorite ? '◆ ' : ''}{isSafestPick ? '🛡 ' : ''}{betOutcomeLabel(b)}
         </span>
         <span className="smart-bet-col-odds">{b.best_odds.toFixed(2)}</span>
         <span className={`smart-bet-col-edge ${b.expected_value >= 0 ? 'positive' : 'negative'}`}>
@@ -545,8 +547,9 @@ function SmartBetCard({ betStep, betInfo }) {
 
       <div className="smart-bet-finePrint">
         <p><strong>★</strong> top pick by edge. <strong>✨</strong> AI agent's own pick after live research. <strong>◆</strong> model's
-        most likely outcome (no proven market edge required). The Top Recommendation above only appears when at least
-        two of these three agree.</p>
+        most likely outcome (no proven market edge required). <strong>🛡</strong> safest pick across all markets (highest
+        model probability among bets priced at odds 1.50 or below, confirming the market also sees it
+        as near-certain). The Top Recommendation above only appears when at least two of the first three signals agree.</p>
 
       {[...greens, ...reds].some(b => b.market.startsWith('Handicap')) && (
         <p>
