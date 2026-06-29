@@ -600,7 +600,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
       {modelFavorite && (
         <div className="smart-bet-signal-box is-gold">
           <div className="smart-bet-agent-headtitle">
-            <span className="smart-bet-signal-headline">◆ Most Likely Scenario: {betOutcomeLabel(modelFavorite)}</span>
+            <span className="smart-bet-signal-headline">◆ Model's Choice: {betOutcomeLabel(modelFavorite)}</span>
           </div>
           <p className="smart-bet-agent-text">
             {scenarioText
@@ -635,8 +635,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
           <p className="smart-bet-agent-text">
             No outcome in this match is priced at 1.50 odds or below
             {modelFavorite && <> — even the model's favorite, {betOutcomeLabel(modelFavorite)}, sits at {modelFavorite.best_odds.toFixed(2)}</>} —
-            so nothing here is safe enough to clear our bar today. That's not a glitch: it just means the bookmaker doesn't see a
-            heavily lopsided outcome in this match.
+            so nothing here is safe enough to clear our bar today.
           </p>
         </div>
       )}

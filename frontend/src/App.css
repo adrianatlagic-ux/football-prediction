@@ -1527,6 +1527,10 @@ body {
 .smart-bet-signal-box.is-gold .smart-bet-signal-headline { color: #d4af37; }
 .smart-bet-signal-box.is-red .smart-bet-signal-headline { color: #f87171; }
 
+.smart-bet-signal-box.is-green .smart-bet-agent-agree { color: #4ade80; }
+.smart-bet-signal-box.is-gold .smart-bet-agent-agree { color: #d4af37; }
+.smart-bet-signal-box.is-red .smart-bet-agent-agree { color: #f87171; }
+
 .smart-bet-finePrint {
   margin-top: 0.8rem;
   padding-top: 0.6rem;
