@@ -826,6 +826,18 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
     safest_candidates = [c for c in candidates if c["best_odds"] is not None and c["best_odds"] <= SAFEST_PICK_MAX_ODDS]
     safest_pick = max(safest_candidates, key=lambda c: c["probability"], default=None)
 
+    # model_favorite and safest_pick must always be visible in the table, even
+    # with negative edge - "reds" above is capped to the 3 least-bad
+    # candidates, which can silently cut one of them if its edge is worse
+    # than that. Without this, the ◆/🛡 marker would point at a row that
+    # simply isn't shown.
+    for extra in (model_favorite, safest_pick):
+        if extra is None or extra["expected_value"] > 0:
+            continue
+        if not any(_candidate_id(c) == _candidate_id(extra) for c in reds):
+            reds.append(extra)
+    reds.sort(key=lambda c: c["expected_value"], reverse=True)
+
     return {
         "home_team": event["home_team"],
         "away_team": event["away_team"],

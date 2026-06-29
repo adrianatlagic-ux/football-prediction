@@ -466,8 +466,13 @@ function SmartBetCard({ betStep, betInfo }) {
     const isAgentPick = agentPick && sameBet(b, agentPick)
     const isModelFavorite = modelFavorite && sameBet(b, modelFavorite)
     const isSafestPick = safestPick && sameBet(b, safestPick)
+    // Model favorite and safest pick are headline signals in their own
+    // right - dimming their row to 40% opacity just because their edge
+    // happens to be negative buries them visually even though we deliberately
+    // show them regardless of edge.
+    const keepFullOpacity = isModelFavorite || isSafestPick
     return (
-      <div className={`smart-bet-table-row ${kind === 'red' ? 'is-red' : ''} ${isRec ? 'is-rec' : ''}`} key={`${kind}-${i}`}>
+      <div className={`smart-bet-table-row ${kind === 'red' && !keepFullOpacity ? 'is-red' : ''} ${isRec ? 'is-rec' : ''}`} key={`${kind}-${i}`}>
         <span className="smart-bet-col-market">{marketGroupLabel(b.market)}{b.suspicious ? ' ⚠' : ''}</span>
         <span className="smart-bet-col-pick">
           {isRec ? '★ ' : ''}{isAgentPick ? '✨ ' : ''}{isModelFavorite ? '◆ ' : ''}{isSafestPick ? '🛡 ' : ''}{betOutcomeLabel(b)}
@@ -565,11 +570,39 @@ function SmartBetCard({ betStep, betInfo }) {
             </span>
           )}
           <p className="smart-bet-agent-text">{agentEval.bet_reasoning}</p>
-          {agentEval.bet_points.length > 0 && (
-            <ul className="smart-bet-agent-points">
-              {agentEval.bet_points.map((p, i) => <li key={i}>{p}</li>)}
-            </ul>
-          )}
+        </div>
+      )}
+
+      {best && (
+        <div className="smart-bet-signal-box is-green">
+          <span className="smart-bet-signal-label">Value Bet</span>
+          <div className="smart-bet-signal-pick">{betOutcomeLabel(best)} <span className="smart-bet-signal-icon">★</span></div>
+          <p className="smart-bet-signal-meta">
+            at {best.bookmaker} · model estimates {(best.probability * 100).toFixed(0)}%
+            {best.market_probability != null && `, market estimates ${(best.market_probability * 100).toFixed(0)}%`}
+          </p>
+        </div>
+      )}
+
+      {modelFavorite && (
+        <div className="smart-bet-signal-box is-gold">
+          <span className="smart-bet-signal-label">Most Likely Scenario</span>
+          <div className="smart-bet-signal-pick">{betOutcomeLabel(modelFavorite)} <span className="smart-bet-signal-icon">◆</span></div>
+          <p className="smart-bet-signal-meta">
+            at {modelFavorite.bookmaker} · model estimates {(modelFavorite.probability * 100).toFixed(0)}%
+            {modelFavorite.market_probability != null && `, market estimates ${(modelFavorite.market_probability * 100).toFixed(0)}%`}
+          </p>
+        </div>
+      )}
+
+      {safestPick && (
+        <div className="smart-bet-signal-box is-red">
+          <span className="smart-bet-signal-label">Safest Bet</span>
+          <div className="smart-bet-signal-pick">{betOutcomeLabel(safestPick)} <span className="smart-bet-signal-icon">🛡</span></div>
+          <p className="smart-bet-signal-meta">
+            at {safestPick.bookmaker} · model estimates {(safestPick.probability * 100).toFixed(0)}%
+            {safestPick.market_probability != null && `, market estimates ${(safestPick.market_probability * 100).toFixed(0)}%`}
+          </p>
         </div>
       )}
 
