@@ -575,33 +575,48 @@ function SmartBetCard({ betStep, betInfo }) {
 
       {best && (
         <div className="smart-bet-signal-box is-green">
-          <span className="smart-bet-signal-label">Value Bet</span>
-          <div className="smart-bet-signal-pick">{betOutcomeLabel(best)} <span className="smart-bet-signal-icon">★</span></div>
-          <p className="smart-bet-signal-meta">
+          <div className="smart-bet-agent-headtitle">
+            <span className="smart-bet-signal-headline">★ Value Bet: {betOutcomeLabel(best)}</span>
+          </div>
+          <p className="smart-bet-agent-text">
             at {best.bookmaker} · model estimates {(best.probability * 100).toFixed(0)}%
             {best.market_probability != null && `, market estimates ${(best.market_probability * 100).toFixed(0)}%`}
+            {best.market_probability != null && (
+              ` — the model rating this ${Math.round((best.probability - best.market_probability) * 100)}pp higher than the market is where the edge comes from.`
+            )}
           </p>
         </div>
       )}
 
       {modelFavorite && (
         <div className="smart-bet-signal-box is-gold">
-          <span className="smart-bet-signal-label">Most Likely Scenario</span>
-          <div className="smart-bet-signal-pick">{betOutcomeLabel(modelFavorite)} <span className="smart-bet-signal-icon">◆</span></div>
-          <p className="smart-bet-signal-meta">
+          <div className="smart-bet-agent-headtitle">
+            <span className="smart-bet-signal-headline">◆ Most Likely Scenario: {betOutcomeLabel(modelFavorite)}</span>
+          </div>
+          <p className="smart-bet-agent-text">
             at {modelFavorite.bookmaker} · model estimates {(modelFavorite.probability * 100).toFixed(0)}%
             {modelFavorite.market_probability != null && `, market estimates ${(modelFavorite.market_probability * 100).toFixed(0)}%`}
           </p>
         </div>
       )}
 
-      {safestPick && (
+      {safestPick ? (
         <div className="smart-bet-signal-box is-red">
-          <span className="smart-bet-signal-label">Safest Bet</span>
-          <div className="smart-bet-signal-pick">{betOutcomeLabel(safestPick)} <span className="smart-bet-signal-icon">🛡</span></div>
-          <p className="smart-bet-signal-meta">
-            at {safestPick.bookmaker} · model estimates {(safestPick.probability * 100).toFixed(0)}%
-            {safestPick.market_probability != null && `, market estimates ${(safestPick.market_probability * 100).toFixed(0)}%`}
+          <div className="smart-bet-agent-headtitle">
+            <span className="smart-bet-signal-headline">🛡 Safest Bet: {betOutcomeLabel(safestPick)}</span>
+          </div>
+          <p className="smart-bet-agent-text">
+            priced at {safestPick.best_odds.toFixed(2)} (model estimates {(safestPick.probability * 100).toFixed(0)}%)
+            — among the lowest odds across all markets for this match, meaning the bookmaker also rates it as close to a sure thing.
+          </p>
+        </div>
+      ) : (
+        <div className="smart-bet-signal-box is-red">
+          <div className="smart-bet-agent-headtitle">
+            <span className="smart-bet-signal-headline">🛡 Safest Bet: none</span>
+          </div>
+          <p className="smart-bet-agent-text">
+            no market for this match is priced at 1.50 odds or below, so nothing clears the safety bar today.
           </p>
         </div>
       )}

@@ -1517,37 +1517,15 @@ body {
   border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
-.smart-bet-signal-label {
-  display: block;
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.25rem;
-}
-
-.smart-bet-signal-box.is-green .smart-bet-signal-label { color: #4ade80; }
-.smart-bet-signal-box.is-gold .smart-bet-signal-label { color: #d4af37; }
-.smart-bet-signal-box.is-red .smart-bet-signal-label { color: #f87171; }
-
-.smart-bet-signal-pick {
-  font-size: 0.95rem;
+.smart-bet-signal-headline {
+  font-size: 1rem;
   font-weight: 700;
-  color: #f1f5f9;
+  color: #fff;
 }
 
-.smart-bet-signal-icon {
-  font-size: 0.85rem;
-}
-
-.smart-bet-signal-box.is-green .smart-bet-signal-icon { color: #4ade80; }
-.smart-bet-signal-box.is-gold .smart-bet-signal-icon { color: #d4af37; }
-.smart-bet-signal-box.is-red .smart-bet-signal-icon { color: #f87171; }
-
-.smart-bet-signal-meta {
-  margin: 0.3rem 0 0;
-  font-size: 0.72rem;
-  color: #9ca3af;
-}
+.smart-bet-signal-box.is-green .smart-bet-signal-headline { color: #4ade80; }
+.smart-bet-signal-box.is-gold .smart-bet-signal-headline { color: #d4af37; }
+.smart-bet-signal-box.is-red .smart-bet-signal-headline { color: #f87171; }
 
 .smart-bet-finePrint {
   margin-top: 0.8rem;

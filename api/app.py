@@ -1132,21 +1132,21 @@ def _combine_recommendation(vb: dict, agent_eval: Optional[dict]) -> dict:
     if value_pick is not None and (value_agrees_model or value_agrees_agent):
         consensus_pick = value_pick
         if value_agrees_model and value_agrees_agent:
-            label = "Value-Edge, von Modell-Favorit UND KI bestätigt"
+            label = "Value edge, confirmed by model favorite AND AI"
         elif value_agrees_model:
-            label = "Value-Edge, vom Modell-Favoriten bestätigt"
+            label = "Value edge, confirmed by model favorite"
         else:
-            label = "Value-Edge, von der KI bestätigt"
+            label = "Value edge, confirmed by AI"
     elif model_agrees_agent:
         consensus_pick = model_fav
-        label = "Modell und KI stimmen überein - kein nachgewiesener Markt-Vorteil"
+        label = "Model and AI agree - no proven market edge"
     else:
         # Deliberately no fallback to a lone, unconfirmed signal here (e.g. a
         # thin value edge that neither the model favorite nor the agent
         # backs) - that's exactly the "Draw at +2.8%/0.2% stake shown as a
         # confident Top Recommendation" problem this was built to fix.
         consensus_pick = None
-        label = "keine Übereinstimmung zwischen Modell, Value-Edge und KI"
+        label = "no agreement between model, value edge, and AI"
 
     # Once the pre-kickoff movement re-check has run for this match, prefer
     # its ranking over the agreement-vote above: which of our four signals
@@ -1159,10 +1159,10 @@ def _combine_recommendation(vb: dict, agent_eval: Optional[dict]) -> dict:
         consensus_pick = top["bet"]
         moved_to_us = top["movement_pct"] is not None and top["movement_pct"] > 0
         if top["movement_pct"] is None:
-            label = f"Markt-Bewegung: {top['signal']} (keine Bewegungsdaten)"
+            label = f"Market movement: {top['signal']} (no movement data)"
         else:
             arrow = "▲" if moved_to_us else "▼"
-            label = f"Markt-Bewegung: {top['signal']} hat sich seit dem frühen Quotenstand am meisten {'zu' if moved_to_us else 'gegen'} uns bewegt ({arrow} {top['movement_pct']:+.1f} %-Punkte)"
+            label = f"Market movement: {top['signal']} has moved {'toward' if moved_to_us else 'away from'} us the most since the early odds ({arrow} {top['movement_pct']:+.1f}pp)"
 
     return {
         "model_favorite": model_fav,
@@ -1214,10 +1214,10 @@ def _rank_by_movement(key: tuple[str, str], vb: dict, agent_eval: Optional[dict]
     signal that has a bet gets a rank, including unfavorable movers (they
     just rank low and show red in the UI)."""
     signals = [
-        ("Modell-Favorit", vb.get("model_favorite")),
-        ("Value-Pick", vb.get("recommendation")),
-        ("KI-Pick", agent_eval.get("pick") if agent_eval else None),
-        ("Sicherster Tipp", vb.get("safest_pick")),
+        ("Model Favorite", vb.get("model_favorite")),
+        ("Value Pick", vb.get("recommendation")),
+        ("AI Pick", agent_eval.get("pick") if agent_eval else None),
+        ("Safest Pick", vb.get("safest_pick")),
     ]
     ranked = [
         {"signal": label, "bet": bet, "movement_pct": _odds_movement_pct(key, bet)}
