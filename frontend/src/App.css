@@ -1359,6 +1359,13 @@ body {
   color: #9ca3af;
 }
 
+.smart-bet-consensus {
+  margin-top: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--gold-light);
+}
+
 .smart-bet-notip {
   text-align: center;
   font-size: 0.85rem;
@@ -1649,6 +1656,14 @@ body {
   color: #e2e8f0;
 }
 .best-bet-card-stats .positive { color: #4ade80; font-weight: 700; }
+.best-bet-card-stats .negative { color: #f87171; font-weight: 700; }
+.best-bet-card-consensus {
+  margin-top: 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  text-align: left;
+}
 .bb-stat-label {
   font-size: 0.62rem;
   text-transform: uppercase;

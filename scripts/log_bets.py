@@ -74,6 +74,8 @@ def main():
                 "green_bets": m.get("green_bets", []),
                 "red_bets": m.get("red_bets", []),
                 "agent_eval": m.get("agent_eval"),
+                "model_favorite": m.get("model_favorite"),
+                "combined": m.get("combined"),
             }
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
             existing.add(key)

@@ -452,6 +452,9 @@ function SmartBetCard({ betStep, betInfo }) {
   const recWarning = betInfo.recommendation_warning
   const agentEval = betInfo.agent_eval
   const agentPick = agentEval && agentEval.pick
+  const combined = betInfo.combined
+  const consensusPick = combined && combined.consensus_pick
+  const modelFavorite = betInfo.model_favorite
   const sameBet = (a, b) => a.market === b.market && a.outcome === b.outcome && a.team === b.team
   const greens = betInfo.green_bets || []
   const reds = betInfo.red_bets || []
@@ -459,10 +462,13 @@ function SmartBetCard({ betStep, betInfo }) {
   const renderRow = (b, i, kind) => {
     const isRec = best && sameBet(b, best)
     const isAgentPick = agentPick && sameBet(b, agentPick)
+    const isModelFavorite = modelFavorite && sameBet(b, modelFavorite)
     return (
       <div className={`smart-bet-table-row ${kind === 'red' ? 'is-red' : ''} ${isRec ? 'is-rec' : ''}`} key={`${kind}-${i}`}>
         <span className="smart-bet-col-market">{marketGroupLabel(b.market)}{b.suspicious ? ' ⚠' : ''}</span>
-        <span className="smart-bet-col-pick">{isRec ? '★ ' : ''}{isAgentPick ? '✨ ' : ''}{betOutcomeLabel(b)}</span>
+        <span className="smart-bet-col-pick">
+          {isRec ? '★ ' : ''}{isAgentPick ? '✨ ' : ''}{isModelFavorite ? '◆ ' : ''}{betOutcomeLabel(b)}
+        </span>
         <span className="smart-bet-col-odds">{b.best_odds.toFixed(2)}</span>
         <span className={`smart-bet-col-edge ${b.expected_value >= 0 ? 'positive' : 'negative'}`}>
           {b.expected_value >= 0 ? '+' : ''}{(b.expected_value * 100).toFixed(0)}%
@@ -474,35 +480,31 @@ function SmartBetCard({ betStep, betInfo }) {
 
   return (
     <div className="wm-reveal smart-bet-card">
-      {best ? (
-        <div className={`smart-bet-best ${recWarning ? 'is-warning' : ''}`}>
+      {consensusPick ? (
+        <div className={`smart-bet-best ${combined.agreement_count === 0 ? 'is-warning' : ''}`}>
           <span className="smart-bet-label">Top Recommendation</span>
-          <div className="smart-bet-pick">{betOutcomeLabel(best)}</div>
+          <div className="smart-bet-pick">{betOutcomeLabel(consensusPick)}</div>
           <div className="smart-bet-odds-row">
-            <span className="smart-bet-odds">{best.best_odds.toFixed(2)}</span>
-            <span className="smart-bet-edge positive">
-              +{(best.expected_value * 100).toFixed(0)}% edge
+            <span className="smart-bet-odds">{consensusPick.best_odds.toFixed(2)}</span>
+            <span className={`smart-bet-edge ${consensusPick.expected_value >= 0 ? 'positive' : 'negative'}`}>
+              {consensusPick.expected_value >= 0 ? '+' : ''}{(consensusPick.expected_value * 100).toFixed(0)}% edge
             </span>
           </div>
           <div className="smart-bet-best-meta">
-            at {best.bookmaker} · model estimates {(best.probability * 100).toFixed(0)}%
-            {best.market_probability != null && `, market estimates ${(best.market_probability * 100).toFixed(0)}%`}
+            at {consensusPick.bookmaker} · model estimates {(consensusPick.probability * 100).toFixed(0)}%
+            {consensusPick.market_probability != null && `, market estimates ${(consensusPick.market_probability * 100).toFixed(0)}%`}
           </div>
-          {recWarning ? (
-            <div className="smart-bet-warning">
-              ⚠ High edge with a large deviation from the market — likely a model weakness, not a real tip.
-              Treat with caution.
-            </div>
-          ) : best.kelly_stake_pct > 0 && (
+          <div className="smart-bet-consensus">{combined.consensus_label}</div>
+          {consensusPick.kelly_stake_pct > 0 && consensusPick.expected_value > 0 && (
             <div className="smart-bet-kelly">
-              Recommended stake: <strong>{best.kelly_stake_pct}%</strong> of your bankroll (Quarter-Kelly)
+              Recommended stake: <strong>{consensusPick.kelly_stake_pct}%</strong> of your bankroll (Quarter-Kelly)
             </div>
           )}
         </div>
       ) : (
         <p className="smart-bet-notip">
           <strong>No clear tip for this match.</strong><br />
-          No bet offers an edge here — better to sit this one out. Odds below for comparison.
+          Model favorite, value edge, and AI pick don't agree — better to sit this one out. Odds below for comparison.
         </p>
       )}
 
@@ -542,7 +544,9 @@ function SmartBetCard({ betStep, betInfo }) {
       )}
 
       <div className="smart-bet-finePrint">
-        <p><strong>★</strong> top pick by edge. <strong>✨</strong> AI agent's own pick after live research — may agree or differ.</p>
+        <p><strong>★</strong> top pick by edge. <strong>✨</strong> AI agent's own pick after live research. <strong>◆</strong> model's
+        most likely outcome (no proven market edge required). The Top Recommendation above only appears when at least
+        two of these three agree.</p>
 
       {[...greens, ...reds].some(b => b.market.startsWith('Handicap')) && (
         <p>
@@ -1234,10 +1238,11 @@ export default function App() {
           .then(r => ({ fixture: f, data: r.data })).catch(() => null)
       ))
       const clean = results
-        .filter(x => x && x.data.odds_found && x.data.recommendation && !x.data.recommendation_warning)
+        .filter(x => x && x.data.odds_found && x.data.combined && x.data.combined.consensus_pick)
         .map(x => ({
           fixture: x.fixture,
-          rec: x.data.recommendation,
+          rec: x.data.combined.consensus_pick,
+          consensusLabel: x.data.combined.consensus_label,
           commence: x.data.commence_time,
           agentEval: x.data.agent_eval,
         }))
@@ -1478,9 +1483,10 @@ export default function App() {
                             <div className="best-bet-card-pick">{plainBetPhrase(r)}</div>
                             <div className="best-bet-card-stats">
                               <span><span className="bb-stat-label">Odds</span> {r.best_odds.toFixed(2)}</span>
-                              <span><span className="bb-stat-label">Edge</span> <span className="positive">+{(r.expected_value * 100).toFixed(0)}%</span></span>
-                              <span><span className="bb-stat-label">Stake</span> {r.kelly_stake_pct}% of budget</span>
+                              <span><span className="bb-stat-label">Edge</span> <span className={r.expected_value >= 0 ? 'positive' : 'negative'}>{r.expected_value >= 0 ? '+' : ''}{(r.expected_value * 100).toFixed(0)}%</span></span>
+                              {r.expected_value > 0 && <span><span className="bb-stat-label">Stake</span> {r.kelly_stake_pct}% of budget</span>}
                             </div>
+                            <div className="best-bet-card-consensus">{b.consensusLabel}</div>
                             {b.agentEval && (
                               <div className="best-bet-card-agent">
                                 ✨ {b.agentEval.agrees_with_model ? 'AI agrees' : 'AI sees it differently'} — {b.agentEval.bet_reasoning}

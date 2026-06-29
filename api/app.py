@@ -718,13 +718,29 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
         reverse=True,
     )[:3]
 
-    clean = [c for c in greens if not c["suspicious"]]
+    # A "clean" bet with a tiny Kelly stake (e.g. 0.2%) technically has a
+    # positive edge, but it's not a real tip - the system's own sizing says
+    # "barely worth a bet". Below this threshold, treat it the same as "no
+    # value pick" rather than presenting a near-zero edge as a confident
+    # recommendation (see Brazil vs Japan: a +2.8%/0.2%-stake Draw was shown
+    # as the headline pick while +30%+ edges sat filtered out as suspicious).
+    MIN_KELLY_FOR_RECOMMENDATION = 1.0
+
+    clean = [c for c in greens if not c["suspicious"] and c["kelly_stake_pct"] >= MIN_KELLY_FOR_RECOMMENDATION]
     if clean:
         recommendation, rec_warning = clean[0], False
     elif greens:
         recommendation, rec_warning = greens[0], True
     else:
         recommendation, rec_warning = None, False
+
+    # The model's own favorite (highest H/D/A probability), shown as a 1X2
+    # candidate regardless of whether it clears the value-edge bar - so the
+    # "most likely outcome" is never hidden just because the market already
+    # prices it fairly. Clearly labeled as "no proven edge" wherever it's used.
+    model_favorite = next(
+        (c for c in candidates if c["market"] == "1X2" and c["outcome"] == predicted_winner), None
+    )
 
     return {
         "home_team": event["home_team"],
@@ -733,6 +749,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
         "odds_found": True,
         "recommendation": recommendation,
         "recommendation_warning": rec_warning,
+        "model_favorite": model_favorite,
         "green_bets": greens,
         "red_bets": reds,
         "bets": candidates,
@@ -986,6 +1003,64 @@ def _get_agent_pick(home_team: str, away_team: str) -> Optional[dict]:
     return _agent_picks_cache.get((_norm_team(home_team), _norm_team(away_team)))
 
 
+def _same_bet(a: Optional[dict], b: Optional[dict]) -> bool:
+    if a is None or b is None:
+        return False
+    return a["market"] == b["market"] and a["outcome"] == b["outcome"] and a.get("team") == b.get("team")
+
+
+def _combine_recommendation(vb: dict, agent_eval: Optional[dict]) -> dict:
+    """Combine three independent signals into one verdict, instead of quietly
+    picking whichever one happens to pass a filter:
+    - model_favorite: the model's own most-likely outcome (no edge required)
+    - value_pick: the best clean, above-threshold positive-edge bet (may be None)
+    - agent_pick: the Gemini agent's research-informed pick (may be None)
+
+    When they agree, that's a real (if still unproven) consensus worth
+    surfacing confidently. When they don't, that disagreement is itself
+    useful information - showing one of them as "the" top pick would hide it.
+    """
+    model_fav = vb.get("model_favorite")
+    # A recommendation with a warning means nothing cleared the clean/above-
+    # threshold bar - it's a fallback display, not a real value pick, so it
+    # shouldn't count as a signal here.
+    value_pick = vb.get("recommendation") if not vb.get("recommendation_warning") else None
+    agent_pick = agent_eval.get("pick") if agent_eval else None
+
+    value_agrees_model = _same_bet(value_pick, model_fav)
+    value_agrees_agent = _same_bet(value_pick, agent_pick)
+    model_agrees_agent = _same_bet(model_fav, agent_pick)
+    agreement_count = sum([value_agrees_model, value_agrees_agent, model_agrees_agent])
+
+    if value_pick is not None and (value_agrees_model or value_agrees_agent):
+        consensus_pick = value_pick
+        if value_agrees_model and value_agrees_agent:
+            label = "Value-Edge, von Modell-Favorit UND KI bestätigt"
+        elif value_agrees_model:
+            label = "Value-Edge, vom Modell-Favoriten bestätigt"
+        else:
+            label = "Value-Edge, von der KI bestätigt"
+    elif model_agrees_agent:
+        consensus_pick = model_fav
+        label = "Modell und KI stimmen überein - kein nachgewiesener Markt-Vorteil"
+    else:
+        # Deliberately no fallback to a lone, unconfirmed signal here (e.g. a
+        # thin value edge that neither the model favorite nor the agent
+        # backs) - that's exactly the "Draw at +2.8%/0.2% stake shown as a
+        # confident Top Recommendation" problem this was built to fix.
+        consensus_pick = None
+        label = "keine Übereinstimmung zwischen Modell, Value-Edge und KI"
+
+    return {
+        "model_favorite": model_fav,
+        "value_pick": value_pick,
+        "agent_pick": agent_pick,
+        "consensus_pick": consensus_pick,
+        "consensus_label": label,
+        "agreement_count": agreement_count,
+    }
+
+
 # A second per-match check, exactly in the hour before its own kickoff, so the
 # agent can catch lineup/news that wasn't out yet at the 17:00 pass. A first
 # version of this silently overwrote the earlier pick with a fresh one and, in
@@ -1082,7 +1157,9 @@ def value_bets(home_team: str, away_team: str):
         result = _compute_value_bets(prediction, odds, home_team, away_team)
         _refresh_agent_picks(odds)
         _maybe_prekickoff_refresh(odds)
-        result["agent_eval"] = _get_agent_pick(home_team, away_team)
+        agent_eval = _get_agent_pick(home_team, away_team)
+        result["agent_eval"] = agent_eval
+        result["combined"] = _combine_recommendation(result, agent_eval)
         return result
     except HTTPException:
         raise
@@ -1116,15 +1193,20 @@ def best_bets():
             vb = _compute_value_bets(data, odds, home, away)
         except Exception:
             continue
-        rec = vb.get("recommendation")
-        if vb.get("odds_found") and rec and not vb.get("recommendation_warning"):
-            out.append({
-                "home_team": vb["home_team"],
-                "away_team": vb["away_team"],
-                "commence_time": vb.get("commence_time"),
-                "recommendation": rec,
-                "agent_eval": _get_agent_pick(home, away),
-            })
+        if not vb.get("odds_found") or vb.get("in_play"):
+            continue
+        agent_eval = _get_agent_pick(home, away)
+        combined = _combine_recommendation(vb, agent_eval)
+        if combined["consensus_pick"] is None:
+            continue
+        out.append({
+            "home_team": vb["home_team"],
+            "away_team": vb["away_team"],
+            "commence_time": vb.get("commence_time"),
+            "recommendation": vb.get("recommendation"),
+            "agent_eval": agent_eval,
+            "combined": combined,
+        })
 
     out.sort(key=lambda x: x.get("commence_time") or "")
     return {"best_bets": out}
@@ -1159,15 +1241,18 @@ def all_bets():
             continue
         if not vb.get("odds_found") or vb.get("in_play"):
             continue
+        agent_eval = _get_agent_pick(home, away)
         out.append({
             "home_team": vb["home_team"],
             "away_team": vb["away_team"],
             "commence_time": vb.get("commence_time"),
             "recommendation": vb.get("recommendation"),
             "recommendation_warning": vb.get("recommendation_warning"),
+            "model_favorite": vb.get("model_favorite"),
             "green_bets": vb.get("green_bets", []),
             "red_bets": vb.get("red_bets", []),
-            "agent_eval": _get_agent_pick(home, away),
+            "agent_eval": agent_eval,
+            "combined": _combine_recommendation(vb, agent_eval),
         })
 
     out.sort(key=lambda x: x.get("commence_time") or "")

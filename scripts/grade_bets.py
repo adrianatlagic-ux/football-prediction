@@ -137,6 +137,7 @@ def main():
     suspicious_green = Bucket("...davon verdächtige (⚠)")
     all_red = Bucket("Alle roten Wetten (zur Kontrolle)")
     top_rec = Bucket("Nur Top-Empfehlung pro Spiel")
+    consensus = Bucket("Konsens-Empfehlung (Modell+Value+KI kombiniert)")
     agent_pick = Bucket("KIs eigener Pick")
     agent_agrees = Bucket("Top-Tipp, KI stimmt zu")
     agent_disagrees = Bucket("Top-Tipp, KI widerspricht")
@@ -161,6 +162,9 @@ def main():
             agent = entry.get("agent_eval")
             a_pick = agent.get("pick") if agent else None
 
+            combined = entry.get("combined") or {}
+            consensus_pick = combined.get("consensus_pick")
+
             for b in entry.get("green_bets", []):
                 g = grade(b, home, away, hs, as_)
                 if g is None:
@@ -175,11 +179,15 @@ def main():
                         agent_agrees.add(g, b["best_odds"])
                     else:
                         agent_disagrees.add(g, b["best_odds"])
+                if _same_bet(b, consensus_pick):
+                    consensus.add(g, b["best_odds"])
 
             for b in entry.get("red_bets", []):
                 g = grade(b, home, away, hs, as_)
                 if g is not None:
                     all_red.add(g, b["best_odds"])
+                    if _same_bet(b, consensus_pick):
+                        consensus.add(g, b["best_odds"])
 
             rec_desc = f"{rec['market']} {rec.get('team') or rec['outcome']}" if rec else "-"
             match_rows.append(f"  {home} {hs}-{as_} {away:18} | {len(entry.get('green_bets', [])):2} grüne Tipps | Top: {rec_desc}")
@@ -198,7 +206,7 @@ def main():
 
     print("\n" + "=" * 60)
     print(f"Spiele ausgewertet: {len(match_rows)}  (noch offen: {pending})\n")
-    for bucket in [all_green, clean_green, suspicious_green, all_red, top_rec]:
+    for bucket in [all_green, clean_green, suspicious_green, all_red, top_rec, consensus]:
         print(bucket.report())
 
     if agent_pick.decided or agent_agrees.decided or agent_disagrees.decided:
