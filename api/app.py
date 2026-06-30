@@ -380,6 +380,12 @@ REALISTIC_EV_CEILING = 0.30
 # because the model is overconfident vs the market - see _add_candidate and
 # scripts/evaluate_model.py. Experimental knob, not a tuned value.
 MODEL_MARKET_BLEND = 0.5
+# Over/Under (the Poisson goals model) is our weakest market: across the user's
+# real placed Tipico bets it went 2W/4L for -45% ROI, while 1X2 was +44%. So we
+# trust the goals model even less - keep only a small slice of it and lean
+# harder on the market for totals. Still experimental (can't be precisely tuned
+# until enough O/U bets finish and get logged in full format).
+MODEL_MARKET_BLEND_TOTALS = 0.3
 
 
 def _fetch_odds() -> list[dict]:
@@ -652,8 +658,9 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
         # rest is the market. This shrinks phantom "value" that was really just
         # model overconfidence. It is an experiment, not a tuned value - we
         # can't fit it on ~9 graded bets - so it lives as one obvious knob.
+        blend = MODEL_MARKET_BLEND_TOTALS if market.startswith("Over/Under") else MODEL_MARKET_BLEND
         if market_prob is not None:
-            prob = MODEL_MARKET_BLEND * raw_prob + (1 - MODEL_MARKET_BLEND) * market_prob
+            prob = blend * raw_prob + (1 - blend) * market_prob
         else:
             prob = raw_prob
         ev = prob * best["price"] - 1
