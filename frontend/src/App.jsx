@@ -448,8 +448,12 @@ function SmartBetCard({ betStep, betInfo, data }) {
     )
   }
 
-  const best = betInfo.recommendation
+  // A recommendation with a warning means nothing cleared the clean/above-
+  // threshold bar (see MIN_KELLY_FOR_RECOMMENDATION in the backend) - it's a
+  // thin fallback, not a real tip, so it must not be promoted to ★/Value Bet
+  // status just because it was the least-bad green available.
   const recWarning = betInfo.recommendation_warning
+  const best = recWarning ? null : betInfo.recommendation
   const agentEval = betInfo.agent_eval
   const agentPick = agentEval && agentEval.pick
   const combined = betInfo.combined
@@ -482,7 +486,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
         <span className={`smart-bet-col-edge ${b.expected_value >= 0 ? 'positive' : 'negative'}`}>
           {b.expected_value >= 0 ? '+' : ''}{(b.expected_value * 100).toFixed(0)}%
         </span>
-        <span className="smart-bet-col-stake">{b.expected_value > 0 ? `${b.kelly_stake_pct}%` : '–'}</span>
+        <span className="smart-bet-col-stake">{b.kelly_stake_pct}%</span>
       </div>
     )
   }
@@ -574,7 +578,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
         </div>
       )}
 
-      {best && (
+      {best ? (
         <div className="smart-bet-signal-box is-green">
           <div className="smart-bet-agent-headtitle">
             <span className="smart-bet-signal-headline">★ Value Bet: {betOutcomeLabel(best)}</span>
@@ -586,13 +590,24 @@ function SmartBetCard({ betStep, betInfo, data }) {
           )}
           <p className="smart-bet-agent-text">
             {best.market_probability != null ? (
-              <>The model gives this a {(best.probability * 100).toFixed(0)}% chance, but {best.bookmaker}'s odds of {best.best_odds.toFixed(2)} only
-              imply {(best.market_probability * 100).toFixed(0)}% — that {Math.round((best.probability - best.market_probability) * 100)} percentage-point
-              gap is the edge: the model thinks this is more likely to happen than the price suggests.</>
+              <>We rate this at {(best.probability * 100).toFixed(0)}% (our model pulled partway toward the market to correct for its
+              overconfidence), while {best.bookmaker}'s odds of {best.best_odds.toFixed(2)} imply {(best.market_probability * 100).toFixed(0)}% —
+              that remaining {Math.round((best.probability - best.market_probability) * 100)} percentage-point gap is the edge.</>
             ) : (
-              <>The model gives this a {(best.probability * 100).toFixed(0)}% chance at odds of {best.best_odds.toFixed(2)} from {best.bookmaker}, with no
+              <>We rate this at {(best.probability * 100).toFixed(0)}% at odds of {best.best_odds.toFixed(2)} from {best.bookmaker}, with no
               reliable market comparison available for this one.</>
             )}
+          </p>
+        </div>
+      ) : (
+        <div className="smart-bet-signal-box is-green">
+          <div className="smart-bet-agent-headtitle">
+            <span className="smart-bet-signal-headline">★ Value Bet: No Bet Available</span>
+          </div>
+          <p className="smart-bet-agent-text">
+            {recWarning
+              ? 'The best positive-edge candidate today has a Kelly stake under 1% - too thin to count as a real value bet, so we are not recommending it.'
+              : 'No bet in this match has a positive edge over the market today.'}
           </p>
         </div>
       )}
@@ -644,10 +659,12 @@ function SmartBetCard({ betStep, betInfo, data }) {
         <p><strong>★</strong> top pick by edge. <strong>✨</strong> AI agent's own pick after live research. <strong>◆</strong> model's
         most likely outcome (no proven market edge required). <strong>🛡</strong> safest pick across all markets (highest
         model probability among bets priced at odds 1.50 or below, confirming the market also sees it
-        as near-certain). Before kickoff eve, the Top Recommendation needs at least two of the first three signals to
-        agree. In the last hour before kickoff it switches to whichever signal's pick the market has moved toward the
-        most since the day's early odds (see Market Movement Ranking above). <strong>🔄</strong> means the odds shown
-        were refreshed in that last hour and may no longer match the pick shown earlier in the day.</p>
+        as near-certain). The Top Recommendation only appears when the two independent sources — our statistical
+        model and the AI agent (which researches the match without being told our pick) — land on the same bet. The
+        value edge is a property of that bet, not a separate vote. In the last hour before kickoff it switches to
+        whichever pick the market has moved toward the most since the day's early odds (see Market Movement Ranking
+        above). <strong>🔄</strong> means the odds shown were refreshed in that last hour and may no longer match the
+        pick shown earlier in the day.</p>
 
       {[...greens, ...reds].some(b => b.market.startsWith('Handicap')) && (
         <p>

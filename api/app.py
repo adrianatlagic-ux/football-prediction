@@ -372,7 +372,14 @@ _agent_picks_cache_date: str | None = None
 
 # Vorteile über dieser Grenze sind praktisch immer ein Modellfehler, kein echter
 # Value - sie werden nicht als Empfehlung ausgesprochen. Tiefer = konservativer.
-REALISTIC_EV_CEILING = 0.25
+REALISTIC_EV_CEILING = 0.30
+
+# How much of our own model we keep when sizing a bet; the rest is pulled from
+# the devig'd market price. 1.0 = trust the model fully (old behaviour), 0.0 =
+# just follow the market (no value bet would ever appear). Set below 1.0
+# because the model is overconfident vs the market - see _add_candidate and
+# scripts/evaluate_model.py. Experimental knob, not a tuned value.
+MODEL_MARKET_BLEND = 0.5
 
 
 def _fetch_odds() -> list[dict]:
@@ -634,8 +641,21 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
     )
 
     def _add_candidate(market, outcome, team, prob, best, market_prob):
-        prob = float(prob)
+        raw_prob = float(prob)
         market_prob = float(market_prob) if market_prob is not None else None
+        # Calibration shrinkage: our model is measurably overconfident vs the
+        # market (scripts/evaluate_model.py - it rated bets 60% that won 50%,
+        # and the market's Brier score beat ours). So we don't trust the
+        # model's disagreement with the market at face value: the probability
+        # that actually drives EV/Kelly is blended toward the devig'd market
+        # price. MODEL_MARKET_BLEND = how much of our own model we keep; the
+        # rest is the market. This shrinks phantom "value" that was really just
+        # model overconfidence. It is an experiment, not a tuned value - we
+        # can't fit it on ~9 graded bets - so it lives as one obvious knob.
+        if market_prob is not None:
+            prob = MODEL_MARKET_BLEND * raw_prob + (1 - MODEL_MARKET_BLEND) * market_prob
+        else:
+            prob = raw_prob
         ev = prob * best["price"] - 1
         deviation = abs(prob - market_prob) if market_prob is not None else None
         # "Double Chance" (Handicap +0.5) is just "this team or draw" - if we
@@ -659,6 +679,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
             "outcome": outcome,
             "team": team,
             "probability": round(prob, 4),
+            "model_probability_raw": round(raw_prob, 4),
             "market_probability": round(market_prob, 4) if market_prob is not None else None,
             "best_odds": best["price"],
             "bookmaker": best["bookmaker"],
@@ -892,16 +913,16 @@ def _call_gemini_agent_pick(
     if not candidates:
         return None
 
+    # Deliberately give the agent ONLY the market + outcome + odds for each
+    # candidate - NOT our model's per-bet probability or expected value, and
+    # NOT which bet our system already recommends. Revealing those anchored the
+    # agent into rubber-stamping our pick, so its "agreement" carried no
+    # independent information (see Netherlands-Morocco: agent just echoed the
+    # lone green bet). With only the raw market on the table it has to form its
+    # own view, which is the entire point of having a second opinion.
     cand_lines = "\n".join(
-        f"- market={c['market']}, outcome={c.get('team') or c['outcome']}, "
-        f"odds={c['best_odds']}, our_probability={c['probability']:.0%}, "
-        f"expected_value={c['expected_value']:+.0%}"
+        f"- market={c['market']}, outcome={c.get('team') or c['outcome']}, odds={c['best_odds']}"
         for c in candidates
-    )
-    model_rec = value_bets.get("recommendation")
-    model_rec_desc = (
-        f"market={model_rec['market']}, outcome={model_rec.get('team') or model_rec['outcome']}"
-        if model_rec else "none (no clean positive-edge bet found)"
     )
 
     previous_block = ""
@@ -923,12 +944,13 @@ nothing material has changed, keep the same pick and say so explicitly in bet_re
 
     prompt = f"""You are researching an upcoming World Cup 2026 match: {home_team} vs {away_team}.
 
-Our statistical model's probabilities: Home win {prediction['probability_home_win']:.0%}, \
-Draw {prediction['probability_draw']:.0%}, Away win {prediction['probability_away_win']:.0%}.
+For reference only, our statistical model's headline probabilities: Home win \
+{prediction['probability_home_win']:.0%}, Draw {prediction['probability_draw']:.0%}, \
+Away win {prediction['probability_away_win']:.0%}. Treat these as one input to weigh \
+against your own research - NOT as the answer to agree with.
 
-Our system's current top betting recommendation: {model_rec_desc}
-
-All candidate bets currently under consideration:
+The bets available to pick from (market and current odds only - decide for yourself \
+which, if any, is worth backing):
 {cand_lines}{previous_block}
 
 STEP 1 - RESEARCH (use Google Search). Our stats model only sees historical results, so dig up CURRENT \
@@ -943,14 +965,11 @@ already decided?
 - Head-to-head history or tactical matchup notes if genuinely relevant
 - Any other concrete, current fact you find that could matter
 
-STEP 2 - BETTING VERDICT. Given everything above AND the model's numbers, decide which ONE candidate \
-bet from the list is the safest bet to actually make money on - or none, if nothing looks good. Then \
-write bet_reasoning covering exactly one of these three cases:
-- Your pick matches our system's top recommendation: explain briefly why the research supports it too.
-- Your pick is a DIFFERENT candidate from the list: explain what you found that makes this one better \
-than the top recommendation.
-- None of the candidates look good: say so plainly and explain why (e.g. too unpredictable, conflicting \
-signals, no real edge).
+STEP 2 - BETTING VERDICT. Based on YOUR research plus the odds, decide which ONE bet from the list is \
+the best one to actually back - or none, if nothing looks good. Form this view independently; do not \
+assume the model's most-likely outcome is the right bet. Then write bet_reasoning as exactly one \
+sentence explaining why you landed on that pick (or why none of them are worth backing - e.g. too \
+unpredictable, no real edge, the odds don't justify it).
 
 Keep everything SHORT - this renders in a small card, not an article. Respond with ONLY raw JSON, no \
 markdown formatting, no code fences, exactly this shape - everything in English:
@@ -986,14 +1005,17 @@ supporting fact, max 8 words>"]}}"""
                 pick = c
                 break
 
-    # Whether the agent "agrees with the top bet" is a plain fact (does its pick
-    # match our system's top recommendation) - compute it ourselves rather than
-    # trust the model to self-report it, since that's strictly more reliable.
+    # Whether the agent's INDEPENDENT pick happens to match the model's
+    # most-likely outcome - the meaningful "do our two independent sources
+    # agree" comparison (consistent with _combine_recommendation). Compared
+    # against the model favorite, not the value rec, and computed ourselves
+    # rather than trusting the agent to self-report it.
+    model_fav = value_bets.get("model_favorite")
     agrees_with_model = bool(
-        pick is not None and model_rec is not None
-        and pick["market"] == model_rec["market"]
-        and pick["outcome"] == model_rec["outcome"]
-        and pick.get("team") == model_rec.get("team")
+        pick is not None and model_fav is not None
+        and pick["market"] == model_fav["market"]
+        and pick["outcome"] == model_fav["outcome"]
+        and pick.get("team") == model_fav.get("team")
     )
 
     # Same idea as agrees_with_model: whether the pick changed from the prior
@@ -1107,46 +1129,43 @@ def _same_bet(a: Optional[dict], b: Optional[dict]) -> bool:
 
 
 def _combine_recommendation(vb: dict, agent_eval: Optional[dict]) -> dict:
-    """Combine three independent signals into one verdict, instead of quietly
-    picking whichever one happens to pass a filter:
-    - model_favorite: the model's own most-likely outcome (no edge required)
-    - value_pick: the best clean, above-threshold positive-edge bet (may be None)
-    - agent_pick: the Gemini agent's research-informed pick (may be None)
+    """Combine the genuinely INDEPENDENT opinions into one verdict.
 
-    When they agree, that's a real (if still unproven) consensus worth
-    surfacing confidently. When they don't, that disagreement is itself
-    useful information - showing one of them as "the" top pick would hide it.
+    There are only two independent sources of opinion about which bet to make:
+    - the statistical model (its most-likely outcome = model_favorite)
+    - the AI research agent (its own researched pick)
+
+    The "value pick" is NOT a third opinion: it's the SAME model number read
+    through the market (model_prob x odds - 1 > 0), so counting it as another
+    vote was double-counting the model and made agreement look stronger than it
+    was (e.g. Netherlands-Morocco showed "3 signals agree" when it was really
+    one model opinion the de-anchored agent then echoed). So value is treated
+    as a *property* of the consensus bet (does it also beat the market?), not a
+    vote. A real consensus = the model and the AI, two independent sources,
+    landing on the same bet.
     """
     model_fav = vb.get("model_favorite")
-    # A recommendation with a warning means nothing cleared the clean/above-
-    # threshold bar - it's a fallback display, not a real value pick, so it
-    # shouldn't count as a signal here.
+    # Whether the consensus bet also carries a genuine market edge - a flavour,
+    # not a vote. Warninged recs (sub-threshold/thin) don't count as value.
     value_pick = vb.get("recommendation") if not vb.get("recommendation_warning") else None
     agent_pick = agent_eval.get("pick") if agent_eval else None
 
-    value_agrees_model = _same_bet(value_pick, model_fav)
-    value_agrees_agent = _same_bet(value_pick, agent_pick)
     model_agrees_agent = _same_bet(model_fav, agent_pick)
-    agreement_count = sum([value_agrees_model, value_agrees_agent, model_agrees_agent])
+    agreement_count = 2 if model_agrees_agent else (1 if agent_pick is not None else 0)
 
-    if value_pick is not None and (value_agrees_model or value_agrees_agent):
-        consensus_pick = value_pick
-        if value_agrees_model and value_agrees_agent:
-            label = "Value edge, confirmed by model favorite AND AI"
-        elif value_agrees_model:
-            label = "Value edge, confirmed by model favorite"
-        else:
-            label = "Value edge, confirmed by AI"
-    elif model_agrees_agent:
+    if model_agrees_agent:
         consensus_pick = model_fav
-        label = "Model and AI agree - no proven market edge"
+        has_value = _same_bet(consensus_pick, value_pick)
+        if has_value:
+            label = "Model and AI independently agree - and it also beats the market (value edge)"
+        else:
+            label = "Model and AI independently agree - but no edge over the market"
     else:
-        # Deliberately no fallback to a lone, unconfirmed signal here (e.g. a
-        # thin value edge that neither the model favorite nor the agent
-        # backs) - that's exactly the "Draw at +2.8%/0.2% stake shown as a
-        # confident Top Recommendation" problem this was built to fix.
+        # The two independent sources disagree (or the agent had no opinion).
+        # Don't manufacture a confident pick from a single source - the
+        # disagreement is itself the honest answer.
         consensus_pick = None
-        label = "no agreement between model, value edge, and AI"
+        label = "Model and AI disagree - no confident pick"
 
     # Once the pre-kickoff movement re-check has run for this match, prefer
     # its ranking over the agreement-vote above: which of our four signals
