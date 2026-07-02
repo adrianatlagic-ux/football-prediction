@@ -1,18 +1,21 @@
 """Record EVERY match's full betting breakdown - not just the curated top pick -
 so we can later check honestly how every tip the system ever considered performed.
 
-Run this regularly (e.g. once a day, after the daily odds refresh, before that
-day's matches kick off):
+Run this regularly, e.g. hourly (a match's odds can move a lot over the days
+before kickoff, so a single run per day isn't enough - see FIRST_LOG_WINDOW_HOURS
+below):
 
     python3 scripts/log_bets.py
     python3 scripts/log_bets.py --api https://football-prediction.fly.dev
 
 It fetches the live /all-bets list (every match with odds, full breakdown -
-exactly what the frontend's SmartBetCard shows) and appends each NEW match to
-data/bet_log.jsonl (one JSON object per line, append-only). Matches already in
-the log are skipped, so running it repeatedly is safe - each match is captured
-once, with the odds available at that moment, before they disappear once the
-match finishes.
+exactly what the frontend's SmartBetCard shows). A match only gets its FIRST
+log entry once it's within FIRST_LOG_WINDOW_HOURS of its own kickoff - logging
+it days early would capture a stale pick that may bear no resemblance to what
+was actually recommended right before kickoff. Once logged, an entry is
+updated in place the first time its pre-kickoff movement ranking appears.
+Matches with neither condition met are skipped, so running this repeatedly is
+safe.
 
 Grade the log later with scripts/grade_bets.py once matches have finished.
 """
@@ -68,6 +71,17 @@ def _build_entry(m, now):
     }
 
 
+# A match's FIRST log entry is only created within this many hours of its own
+# kickoff - not days ahead. Logging the day-1 snapshot (whatever odds happen
+# to exist when a match first appears in the feed, sometimes 2-3 days out)
+# captured a pick that could be stale garbage by the time the match actually
+# kicked off - see Belgium-Senegal, logged 2 days early as "Over 1.5" (would
+# have won), while the pick that actually stood right before kickoff was a
+# different bet that lost. Aligning the first log with the pre-kickoff
+# odds-refresh window means the very first snapshot IS the near-kickoff one.
+FIRST_LOG_WINDOW_HOURS = 1
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--api", default=DEFAULT_API)
@@ -77,17 +91,29 @@ def main():
     matches = data.get("all_bets", [])
 
     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
-    now = datetime.now(timezone.utc).isoformat()
+    now_dt = datetime.now(timezone.utc)
+    now = now_dt.isoformat()
 
     entries = _load_log()
     by_key = {(_norm(e["home_team"]), _norm(e["away_team"])): e for e in entries}
 
-    added = updated = 0
+    added = updated = skipped_early = 0
     for m in matches:
         key = (_norm(m["home_team"]), _norm(m["away_team"]))
         new_entry = _build_entry(m, now)
         old = by_key.get(key)
         if old is None:
+            commence = m.get("commence_time")
+            hours_away = None
+            if commence:
+                try:
+                    kickoff = datetime.fromisoformat(commence.replace("Z", "+00:00"))
+                    hours_away = (kickoff - now_dt).total_seconds() / 3600
+                except ValueError:
+                    pass
+            if hours_away is None or hours_away > FIRST_LOG_WINDOW_HOURS:
+                skipped_early += 1
+                continue
             entries.append(new_entry)
             by_key[key] = new_entry
             added += 1
@@ -112,7 +138,8 @@ def main():
             for e in entries:
                 f.write(json.dumps(e, ensure_ascii=False) + "\n")
 
-    print(f"\n{added} neu, {updated} mit Movement-Ranking aktualisiert. "
+    print(f"\n{added} neu, {updated} mit Movement-Ranking aktualisiert, "
+          f"{skipped_early} noch zu früh (>{FIRST_LOG_WINDOW_HOURS}h vor Anpfiff, noch nicht geloggt). "
           f"Log: {LOG_PATH} ({len(entries)} insgesamt).")
 
 
