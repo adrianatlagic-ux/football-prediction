@@ -461,7 +461,6 @@ function SmartBetCard({ betStep, betInfo, data }) {
   const modelFavorite = betInfo.model_favorite
   const safestPick = betInfo.safest_pick
   const scenarioText = data?.score_prediction?.betting_markets?.scenario
-  const oddsRefreshed = betInfo.odds_refreshed
   const sameBet = (a, b) => a.market === b.market && a.outcome === b.outcome && a.team === b.team
   const greens = betInfo.green_bets || []
   const reds = betInfo.red_bets || []
@@ -496,9 +495,6 @@ function SmartBetCard({ betStep, betInfo, data }) {
       {consensusPick ? (
         <div className={`smart-bet-best ${combined.agreement_count === 0 ? 'is-warning' : ''}`}>
           <span className="smart-bet-label">Top Recommendation</span>
-          {oddsRefreshed && (
-            <span className="smart-bet-refreshed">🔄 odds refreshed ~1h before kickoff — may differ from the earlier pick</span>
-          )}
           <div className="smart-bet-pick">{betOutcomeLabel(consensusPick)}</div>
           <div className="smart-bet-odds-row">
             <span className="smart-bet-odds">{consensusPick.best_odds.toFixed(2)}</span>
@@ -659,12 +655,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
         <p><strong>★</strong> top pick by edge. <strong>✨</strong> AI agent's own pick after live research. <strong>◆</strong> model's
         most likely outcome (no proven market edge required). <strong>🛡</strong> safest pick across all markets (highest
         model probability among bets priced at odds 1.50 or below, confirming the market also sees it
-        as near-certain). The Top Recommendation only appears when the two independent sources — our statistical
-        model and the AI agent (which researches the match without being told our pick) — land on the same bet. The
-        value edge is a property of that bet, not a separate vote. In the last hour before kickoff it switches to
-        whichever pick the market has moved toward the most since the day's early odds (see Market Movement Ranking
-        above). <strong>🔄</strong> means the odds shown were refreshed in that last hour and may no longer match the
-        pick shown earlier in the day.</p>
+        as near-certain).</p>
 
       {[...greens, ...reds].some(b => b.market.startsWith('Handicap')) && (
         <p>
@@ -678,6 +669,12 @@ function SmartBetCard({ betStep, betInfo, data }) {
           <strong>⚠</strong> = large edge or model/market gap — likely a model weakness, not a real tip.
         </p>
       )}
+
+      <p className="smart-bet-disclaimer">
+        For entertainment and informational purposes only. This is a statistical model, not betting advice — it
+        does not guarantee profit and has no proven edge over bookmaker odds. Betting involves risk of financial
+        loss; if you choose to bet, do so responsibly and only with money you can afford to lose. 18+.
+      </p>
       </div>
     </div>
   )
