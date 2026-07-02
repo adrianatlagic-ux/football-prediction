@@ -79,7 +79,11 @@ def _build_entry(m, now):
 # have won), while the pick that actually stood right before kickoff was a
 # different bet that lost. Aligning the first log with the pre-kickoff
 # odds-refresh window means the very first snapshot IS the near-kickoff one.
-FIRST_LOG_WINDOW_HOURS = 1
+# 0.5h (30 min): the pre-kickoff agent re-check (research + Gemini call, both
+# triggered up to 1h before kickoff) is reliably finished by 30 minutes out, so
+# logging then captures the fully-settled pick including the movement ranking,
+# not a still-in-progress one.
+FIRST_LOG_WINDOW_HOURS = 0.5
 
 
 def main():
