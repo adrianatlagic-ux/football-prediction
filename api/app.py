@@ -842,6 +842,29 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
         (c for c in candidates if c["market"] == "1X2" and c["outcome"] == predicted_winner), None
     )
 
+    # 1X2 is a coin-flip in plenty of matches (e.g. Belgium vs Senegal: 43%
+    # favorite) while the SAME model is confident elsewhere (e.g. 76% on Over
+    # 1.5) - showing the weak 1X2 number as "the model's favorite" buries the
+    # stronger, more useful signal the model actually has for that match.
+    # Thresholds are grounded in scripts/evaluate_model.py's calibration
+    # buckets across all logged bets: below ~60% the model's stated
+    # probability is unreliable in every market (hit rate 14-29%), at 60%+ it
+    # becomes trustworthy (hit rate 33-100%, mostly good). WEAK_1X2 sits just
+    # under that line, STRONG_ALTERNATIVE just over it, so we only override
+    # 1X2 when it's genuinely a toss-up AND the alternative has demonstrably
+    # reliable footing - not simply because DC/O-U mathematically score higher
+    # (they always do; see the earlier Double Chance discussion).
+    WEAK_1X2_THRESHOLD = 0.55
+    STRONG_ALTERNATIVE_THRESHOLD = 0.65
+    if model_favorite is not None and model_favorite["probability"] < WEAK_1X2_THRESHOLD:
+        alternative = max(
+            (c for c in candidates if c["market"] != "1X2" and c["probability"] >= STRONG_ALTERNATIVE_THRESHOLD),
+            key=lambda c: c["probability"],
+            default=None,
+        )
+        if alternative is not None:
+            model_favorite = alternative
+
     # The model's highest-probability bet across ALL market types (1X2, Double
     # Chance, Over/Under, Handicap), restricted to odds the bookmaker also
     # prices as near-certain. The odds filter is what keeps this honest:
@@ -1444,11 +1467,21 @@ def all_bets():
         try:
             home, away = data["home_team"], data["away_team"]
             match_key = (_norm_team(home), _norm_team(away))
+            cached = _prekickoff_vb_cache.get(match_key)
+            fresh = _compute_value_bets(data, odds, home, away)
             # Prefer the fresh pre-kickoff recompute (with movement ranking) so
             # the log captures what the site actually showed near kickoff, not
             # just the early-afternoon snapshot. Otherwise the movement-ranked
             # Top Recommendation the user saw would never make it into the log.
-            vb = _prekickoff_vb_cache.get(match_key) or _compute_value_bets(data, odds, home, away)
+            #
+            # If the match has since gone in-play, `fresh` would report
+            # in_play=True and get filtered below - but the movement ranking
+            # was computed in the background (~30s Gemini call) and may not
+            # have landed in the cache before kickoff crossed over. Falling
+            # back to the cached pre-kickoff snapshot here means a match
+            # doesn't vanish from the log mid-way through getting its ranking
+            # just because kickoff happened in the gap between hourly log runs.
+            vb = cached if (cached and fresh.get("in_play")) else fresh
         except Exception:
             continue
         if not vb.get("odds_found") or vb.get("in_play"):
