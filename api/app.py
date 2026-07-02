@@ -1443,12 +1443,18 @@ def all_bets():
     for data in _get_prediction_index().values():
         try:
             home, away = data["home_team"], data["away_team"]
-            vb = _compute_value_bets(data, odds, home, away)
+            match_key = (_norm_team(home), _norm_team(away))
+            # Prefer the fresh pre-kickoff recompute (with movement ranking) so
+            # the log captures what the site actually showed near kickoff, not
+            # just the early-afternoon snapshot. Otherwise the movement-ranked
+            # Top Recommendation the user saw would never make it into the log.
+            vb = _prekickoff_vb_cache.get(match_key) or _compute_value_bets(data, odds, home, away)
         except Exception:
             continue
         if not vb.get("odds_found") or vb.get("in_play"):
             continue
         agent_eval = _get_agent_pick(home, away)
+        vb["movement_ranking"] = _movement_cache.get(match_key)
         out.append({
             "home_team": vb["home_team"],
             "away_team": vb["away_team"],
@@ -1456,6 +1462,8 @@ def all_bets():
             "recommendation": vb.get("recommendation"),
             "recommendation_warning": vb.get("recommendation_warning"),
             "model_favorite": vb.get("model_favorite"),
+            "safest_pick": vb.get("safest_pick"),
+            "odds_refreshed": vb.get("odds_refreshed", False),
             "green_bets": vb.get("green_bets", []),
             "red_bets": vb.get("red_bets", []),
             "agent_eval": agent_eval,

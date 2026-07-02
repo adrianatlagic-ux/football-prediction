@@ -33,18 +33,39 @@ def _norm(name: str) -> str:
     return {"usa": "unitedstates"}.get(n, n)
 
 
-def _existing_keys() -> set:
-    keys = set()
+def _load_log() -> list:
+    entries = []
     if LOG_PATH.exists():
         for line in LOG_PATH.read_text(encoding="utf-8").splitlines():
             if not line.strip():
                 continue
             try:
-                e = json.loads(line)
-                keys.add((_norm(e["home_team"]), _norm(e["away_team"])))
+                entries.append(json.loads(line))
             except Exception:
                 continue
-    return keys
+    return entries
+
+
+def _has_movement(entry) -> bool:
+    return bool((entry.get("combined") or {}).get("movement_ranking"))
+
+
+def _build_entry(m, now):
+    return {
+        "logged_at": now,
+        "home_team": m["home_team"],
+        "away_team": m["away_team"],
+        "commence_time": m.get("commence_time"),
+        "recommendation": m.get("recommendation"),
+        "recommendation_warning": m.get("recommendation_warning"),
+        "green_bets": m.get("green_bets", []),
+        "red_bets": m.get("red_bets", []),
+        "agent_eval": m.get("agent_eval"),
+        "model_favorite": m.get("model_favorite"),
+        "safest_pick": m.get("safest_pick"),
+        "odds_refreshed": m.get("odds_refreshed", False),
+        "combined": m.get("combined"),
+    }
 
 
 def main():
@@ -54,39 +75,45 @@ def main():
 
     data = json.load(urllib.request.urlopen(f"{args.api}/all-bets", timeout=60))
     matches = data.get("all_bets", [])
-    existing = _existing_keys()
 
     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
     now = datetime.now(timezone.utc).isoformat()
-    added = 0
-    with LOG_PATH.open("a", encoding="utf-8") as f:
-        for m in matches:
-            key = (_norm(m["home_team"]), _norm(m["away_team"]))
-            if key in existing:
-                continue
-            entry = {
-                "logged_at": now,
-                "home_team": m["home_team"],
-                "away_team": m["away_team"],
-                "commence_time": m.get("commence_time"),
-                "recommendation": m.get("recommendation"),
-                "recommendation_warning": m.get("recommendation_warning"),
-                "green_bets": m.get("green_bets", []),
-                "red_bets": m.get("red_bets", []),
-                "agent_eval": m.get("agent_eval"),
-                "model_favorite": m.get("model_favorite"),
-                "combined": m.get("combined"),
-            }
-            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
-            existing.add(key)
-            added += 1
-            n_green = len(entry["green_bets"])
-            rec = entry["recommendation"]
-            rec_desc = f"{rec['market']} {rec.get('team') or rec['outcome']}" if rec else "no clean rec"
-            print(f"  + {m['home_team']} vs {m['away_team']}: {n_green} green bets, top={rec_desc}")
 
-    print(f"\n{added} neue(s) Spiel(e) protokolliert (komplette Wett-Aufschlüsselung). "
-          f"Log: {LOG_PATH} ({len(existing)} insgesamt).")
+    entries = _load_log()
+    by_key = {(_norm(e["home_team"]), _norm(e["away_team"])): e for e in entries}
+
+    added = updated = 0
+    for m in matches:
+        key = (_norm(m["home_team"]), _norm(m["away_team"]))
+        new_entry = _build_entry(m, now)
+        old = by_key.get(key)
+        if old is None:
+            entries.append(new_entry)
+            by_key[key] = new_entry
+            added += 1
+            tag = "+"
+        elif not _has_movement(old) and _has_movement(new_entry):
+            # The first (early-afternoon) snapshot had no movement ranking yet;
+            # this later run near kickoff does. Upgrade the stored entry so the
+            # log captures the movement-ranked pick the site actually showed at
+            # kickoff - the whole reason a single 15:30 run kept missing it.
+            old.update(new_entry)
+            updated += 1
+            tag = "~"
+        else:
+            continue
+        rec = new_entry["recommendation"]
+        rec_desc = f"{rec['market']} {rec.get('team') or rec['outcome']}" if rec else "no clean rec"
+        mv = "  +movement" if _has_movement(new_entry) else ""
+        print(f"  {tag} {m['home_team']} vs {m['away_team']}: {len(new_entry['green_bets'])} green bets, top={rec_desc}{mv}")
+
+    if added or updated:
+        with LOG_PATH.open("w", encoding="utf-8") as f:
+            for e in entries:
+                f.write(json.dumps(e, ensure_ascii=False) + "\n")
+
+    print(f"\n{added} neu, {updated} mit Movement-Ranking aktualisiert. "
+          f"Log: {LOG_PATH} ({len(entries)} insgesamt).")
 
 
 if __name__ == "__main__":
