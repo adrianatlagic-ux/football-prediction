@@ -516,7 +516,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
       ) : (
         <p className="smart-bet-notip">
           <strong>No clear tip for this match.</strong><br />
-          Model favorite, value edge, and AI pick don't agree — better to sit this one out. Odds below for comparison.
+          No bet has a real value edge, and the model and AI don't agree — better to sit this one out. Odds below for comparison.
         </p>
       )}
 

@@ -1175,43 +1175,43 @@ def _combine_recommendation(vb: dict, agent_eval: Optional[dict]) -> dict:
     landing on the same bet.
     """
     model_fav = vb.get("model_favorite")
-    # Whether the consensus bet also carries a genuine market edge - a flavour,
-    # not a vote. Warninged recs (sub-threshold/thin) don't count as value.
+    # Warninged recs (sub-threshold/thin) don't count as a real value pick.
     value_pick = vb.get("recommendation") if not vb.get("recommendation_warning") else None
     agent_pick = agent_eval.get("pick") if agent_eval else None
 
     model_agrees_agent = _same_bet(model_fav, agent_pick)
     agreement_count = 2 if model_agrees_agent else (1 if agent_pick is not None else 0)
 
-    if model_agrees_agent:
+    # The clean value pick leads: it's the only signal with a decent graded
+    # record so far (4W/2L, 67% across the fully-logged matches), so it should
+    # not be displaced by anything unproven. Model/AI agreement is shown as
+    # supporting context on it, not as a competing pick.
+    if value_pick is not None:
+        consensus_pick = value_pick
+        backed_by_model = _same_bet(value_pick, model_fav)
+        backed_by_agent = _same_bet(value_pick, agent_pick)
+        if backed_by_model and backed_by_agent:
+            label = "Value bet, backed by both the model favorite and the AI"
+        elif backed_by_model:
+            label = "Value bet, matching the model's favorite"
+        elif backed_by_agent:
+            label = "Value bet, independently backed by the AI"
+        else:
+            label = "Value bet - positive edge, though model favorite and AI point elsewhere"
+    elif model_agrees_agent:
         consensus_pick = model_fav
-        has_value = _same_bet(consensus_pick, value_pick)
-        if has_value:
-            label = "Model and AI independently agree - and it also beats the market (value edge)"
-        else:
-            label = "Model and AI independently agree - but no edge over the market"
+        label = "Model and AI independently agree - but no proven edge over the market"
     else:
-        # The two independent sources disagree (or the agent had no opinion).
-        # Don't manufacture a confident pick from a single source - the
-        # disagreement is itself the honest answer.
         consensus_pick = None
-        label = "Model and AI disagree - no confident pick"
+        label = "No value edge, and model and AI disagree - no confident pick"
 
-    # Once the pre-kickoff movement re-check has run for this match, prefer
-    # its ranking over the agreement-vote above: which of our four signals
-    # has the market itself moved towards the most since the day's early
-    # odds snapshot is a live, continuously-updating confirmation, whereas
-    # the agreement vote is a static one-time judgement made hours earlier.
+    # The movement ranking is display-only context. An earlier version let it
+    # OVERRIDE the pick above in the final hour before kickoff - which meant
+    # the one signal with an actual track record (the value pick) kept getting
+    # displaced by an unvalidated experiment (e.g. Belgium-Senegal: a -8%-edge
+    # "Win Belgium" replaced the value pick purely because its odds had
+    # drifted). Never again: ranking informs, it doesn't decide.
     movement_ranking = vb.get("movement_ranking")
-    if movement_ranking:
-        top = movement_ranking[0]
-        consensus_pick = top["bet"]
-        moved_to_us = top["movement_pct"] is not None and top["movement_pct"] > 0
-        if top["movement_pct"] is None:
-            label = f"Market movement: {top['signal']} (no movement data)"
-        else:
-            arrow = "▲" if moved_to_us else "▼"
-            label = f"Market movement: {top['signal']} has moved {'toward' if moved_to_us else 'away from'} us the most since the early odds ({arrow} {top['movement_pct']:+.1f}pp)"
 
     return {
         "model_favorite": model_fav,
