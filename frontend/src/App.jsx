@@ -494,29 +494,30 @@ function SmartBetCard({ betStep, betInfo, data }) {
     <div className="wm-reveal smart-bet-card">
       {consensusPick ? (
         <div className={`smart-bet-best ${combined.agreement_count === 0 ? 'is-warning' : ''}`}>
-          <span className="smart-bet-label">Top Recommendation</span>
+          <span className="smart-bet-label">Top Pick</span>
           <div className="smart-bet-pick">{betOutcomeLabel(consensusPick)}</div>
           <div className="smart-bet-odds-row">
             <span className="smart-bet-odds">{consensusPick.best_odds.toFixed(2)}</span>
-            <span className={`smart-bet-edge ${consensusPick.expected_value >= 0 ? 'positive' : 'negative'}`}>
-              {consensusPick.expected_value >= 0 ? '+' : ''}{(consensusPick.expected_value * 100).toFixed(0)}% edge
+            {consensusPick.market_probability != null && (
+              <span className="smart-bet-winprob">
+                {(consensusPick.market_probability * 100).toFixed(0)}% win chance
+              </span>
+            )}
+          </div>
+          <div className="smart-bet-best-meta">at {consensusPick.bookmaker}</div>
+          <div className="smart-bet-agree-row">
+            <span className={`smart-bet-agree-chip ${combined.model_agrees ? 'yes' : 'no'}`}>
+              {combined.model_agrees ? 'Model agrees ✓' : 'Model differs ✕'}
+            </span>
+            <span className={`smart-bet-agree-chip ${combined.agent_agrees ? 'yes' : 'no'}`}>
+              {combined.agent_agrees ? 'AI agrees ✓' : 'AI differs ✕'}
             </span>
           </div>
-          <div className="smart-bet-best-meta">
-            at {consensusPick.bookmaker} · model estimates {(consensusPick.probability * 100).toFixed(0)}%
-            {consensusPick.market_probability != null && `, market estimates ${(consensusPick.market_probability * 100).toFixed(0)}%`}
-          </div>
-          <div className="smart-bet-consensus">{combined.consensus_label}</div>
-          {consensusPick.kelly_stake_pct > 0 && consensusPick.expected_value > 0 && (
-            <div className="smart-bet-kelly">
-              Recommended stake: <strong>{consensusPick.kelly_stake_pct}%</strong> of your bankroll (Quarter-Kelly)
-            </div>
-          )}
         </div>
       ) : (
         <p className="smart-bet-notip">
           <strong>No clear tip for this match.</strong><br />
-          No bet has a real value edge, and the model and AI don't agree — better to sit this one out. Odds below for comparison.
+          The market doesn't have a clear favorite here — better to sit this one out. Odds below for comparison.
         </p>
       )}
 

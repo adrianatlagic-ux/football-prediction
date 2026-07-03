@@ -1360,6 +1360,40 @@ body {
   color: #f87171;
 }
 
+.smart-bet-winprob {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 50px;
+  background: rgba(74,222,128,0.15);
+  color: #4ade80;
+}
+
+.smart-bet-agree-row {
+  margin-top: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.smart-bet-agree-chip {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+}
+
+.smart-bet-agree-chip.yes {
+  background: rgba(74,222,128,0.15);
+  color: #4ade80;
+}
+
+.smart-bet-agree-chip.no {
+  background: rgba(148,163,184,0.12);
+  color: #94a3b8;
+}
+
 .smart-bet-best-meta {
   margin-top: 0.4rem;
   font-size: 0.72rem;

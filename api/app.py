@@ -882,7 +882,22 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
     # candidates, which can silently cut one of them if its edge is worse
     # than that. Without this, the ◆/🛡 marker would point at a row that
     # simply isn't shown.
-    for extra in (model_favorite, safest_pick):
+    # The MARKET's favorite: the 1X2 outcome the bookmaker prices shortest
+    # (highest implied probability). This is "swim with the market" - back the
+    # team the market itself makes favorite to win outright. In a backtest over
+    # the logged, finished matches this simple pick hit ~82% (9W/2L) - better
+    # than our value bets (56%) or any cleverer cross-market pick (73%), which
+    # kept wandering into the losing Double Chance market. Small sample, will
+    # regress toward ~65-70% long-run, but it's the single best-performing and
+    # simplest signal we have, so it leads the headline. Not a value bet: at
+    # short odds the edge is usually flat/negative, which is expected and fine.
+    market_favorite = min(
+        (c for c in candidates if c["market"] == "1X2"),
+        key=lambda c: c["best_odds"],
+        default=None,
+    )
+
+    for extra in (model_favorite, safest_pick, market_favorite):
         if extra is None or extra["expected_value"] > 0:
             continue
         if not any(_candidate_id(c) == _candidate_id(extra) for c in reds):
@@ -897,6 +912,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
         "recommendation": recommendation,
         "recommendation_warning": rec_warning,
         "model_favorite": model_favorite,
+        "market_favorite": market_favorite,
         "safest_pick": safest_pick,
         "green_bets": greens,
         "red_bets": reds,
@@ -1174,51 +1190,52 @@ def _combine_recommendation(vb: dict, agent_eval: Optional[dict]) -> dict:
     vote. A real consensus = the model and the AI, two independent sources,
     landing on the same bet.
     """
+    market_fav = vb.get("market_favorite")
     model_fav = vb.get("model_favorite")
     # Warninged recs (sub-threshold/thin) don't count as a real value pick.
     value_pick = vb.get("recommendation") if not vb.get("recommendation_warning") else None
     agent_pick = agent_eval.get("pick") if agent_eval else None
 
-    model_agrees_agent = _same_bet(model_fav, agent_pick)
-    agreement_count = 2 if model_agrees_agent else (1 if agent_pick is not None else 0)
+    # The market favorite ("swim with the market" - back the team the market
+    # itself makes favorite) leads the headline: it's the best-performing and
+    # simplest signal we have (~82% hit in backtest vs 56% for value bets). The
+    # model and AI act as a confidence traffic light on it, not as competing
+    # picks - the whole point is to stop being cleverer than the market.
+    model_agrees = _same_bet(market_fav, model_fav)
+    agent_agrees = _same_bet(market_fav, agent_pick)
+    agreement_count = int(model_agrees) + int(agent_agrees)
 
-    # The clean value pick leads: it's the only signal with a decent graded
-    # record so far (4W/2L, 67% across the fully-logged matches), so it should
-    # not be displaced by anything unproven. Model/AI agreement is shown as
-    # supporting context on it, not as a competing pick.
-    if value_pick is not None:
-        consensus_pick = value_pick
-        backed_by_model = _same_bet(value_pick, model_fav)
-        backed_by_agent = _same_bet(value_pick, agent_pick)
-        if backed_by_model and backed_by_agent:
-            label = "Value bet, backed by both the model favorite and the AI"
-        elif backed_by_model:
-            label = "Value bet, matching the model's favorite"
-        elif backed_by_agent:
-            label = "Value bet, independently backed by the AI"
+    if market_fav is not None:
+        consensus_pick = market_fav
+        if model_agrees and agent_agrees:
+            label = "Market favorite — our model and the AI both agree"
+        elif model_agrees:
+            label = "Market favorite — our model agrees"
+        elif agent_agrees:
+            label = "Market favorite — the AI agrees"
         else:
-            label = "Value bet - positive edge, though model favorite and AI point elsewhere"
-    elif model_agrees_agent:
-        consensus_pick = model_fav
-        label = "Model and AI independently agree - but no proven edge over the market"
+            label = "Market favorite — note: our model and the AI see it differently"
     else:
         consensus_pick = None
-        label = "No value edge, and model and AI disagree - no confident pick"
+        label = "No clear market favorite for this match"
 
     # The movement ranking is display-only context. An earlier version let it
     # OVERRIDE the pick above in the final hour before kickoff - which meant
-    # the one signal with an actual track record (the value pick) kept getting
-    # displaced by an unvalidated experiment (e.g. Belgium-Senegal: a -8%-edge
-    # "Win Belgium" replaced the value pick purely because its odds had
-    # drifted). Never again: ranking informs, it doesn't decide.
+    # the best-tracked signal kept getting displaced by an unvalidated
+    # experiment (e.g. Belgium-Senegal: a -8%-edge "Win Belgium" replaced the
+    # pick purely because its odds had drifted). Never again: it informs, it
+    # doesn't decide.
     movement_ranking = vb.get("movement_ranking")
 
     return {
+        "market_favorite": market_fav,
         "model_favorite": model_fav,
         "value_pick": value_pick,
         "agent_pick": agent_pick,
         "consensus_pick": consensus_pick,
         "consensus_label": label,
+        "model_agrees": model_agrees,
+        "agent_agrees": agent_agrees,
         "agreement_count": agreement_count,
         "movement_ranking": movement_ranking,
     }
@@ -1495,6 +1512,7 @@ def all_bets():
             "recommendation": vb.get("recommendation"),
             "recommendation_warning": vb.get("recommendation_warning"),
             "model_favorite": vb.get("model_favorite"),
+            "market_favorite": vb.get("market_favorite"),
             "safest_pick": vb.get("safest_pick"),
             "odds_refreshed": vb.get("odds_refreshed", False),
             "green_bets": vb.get("green_bets", []),
