@@ -1,0 +1,285 @@
+{
+  "home_team": "Mexico",
+  "away_team": "England",
+  "prediction": "D",
+  "prediction_label": "Draw",
+  "probability_home_win": 0.2308,
+  "probability_draw": 0.3922,
+  "probability_away_win": 0.3771,
+  "score_prediction": {
+    "home_xg": 1.04,
+    "away_xg": 1.21,
+    "rho": -0.13,
+    "most_likely_score": "1:1",
+    "result": "D",
+    "probability_home_win": 0.2308,
+    "probability_draw": 0.3922,
+    "probability_away_win": 0.3771,
+    "top_scorelines": [
+      {
+        "score": "1:1",
+        "probability": 0.1834
+      },
+      {
+        "score": "0:0",
+        "probability": 0.1499
+      },
+      {
+        "score": "2:2",
+        "probability": 0.0511
+      },
+      {
+        "score": "3:3",
+        "probability": 0.0071
+      },
+      {
+        "score": "4:4",
+        "probability": 0.0006
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.6229,
+        "home_or_away": 0.6078,
+        "draw_or_away": 0.7692
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.6692,
+          "under": 0.3308
+        },
+        {
+          "line": 2.5,
+          "over": 0.3655,
+          "under": 0.6345
+        },
+        {
+          "line": 3.5,
+          "over": 0.1866,
+          "under": 0.8134
+        }
+      ],
+      "btts": {
+        "yes": 0.4858,
+        "no": 0.5142
+      },
+      "win_margin": {
+        "home_1plus": 0.2308,
+        "home_2plus": 0.0929,
+        "home_3plus": 0.027,
+        "away_1plus": 0.3771,
+        "away_2plus": 0.1704,
+        "away_3plus": 0.0569
+      },
+      "scenario": "A 1:1 draw is the most likely outcome, despite Mexico's strong recent form, with England holding a narrow win probability advantage."
+    }
+  },
+  "game_flow": {
+    "match_type": "Tactically Balanced",
+    "match_description": "A tight game where goals will make the difference",
+    "dominance_index": -0.08,
+    "total_xg": 2.25,
+    "first_goal": {
+      "Mexico_scores_first": 0.414,
+      "England_scores_first": 0.481,
+      "no_goals": 0.105,
+      "expected_minute": 40
+    },
+    "halftime_xg": {
+      "Mexico": 0.49,
+      "England": 0.57
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.347
+      },
+      {
+        "score": "0:1",
+        "probability": 0.198
+      },
+      {
+        "score": "1:0",
+        "probability": 0.17
+      },
+      {
+        "score": "1:1",
+        "probability": 0.097
+      },
+      {
+        "score": "0:2",
+        "probability": 0.056
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Mexico": 0.14,
+        "England": 0.163
+      },
+      "16-30'": {
+        "Mexico": 0.161,
+        "England": 0.188
+      },
+      "31-45'": {
+        "Mexico": 0.187,
+        "England": 0.218
+      },
+      "46-60'": {
+        "Mexico": 0.151,
+        "England": 0.175
+      },
+      "61-75'": {
+        "Mexico": 0.192,
+        "England": 0.224
+      },
+      "76-90'": {
+        "Mexico": 0.208,
+        "England": 0.242
+      }
+    },
+    "comeback_probability": {
+      "Mexico": 0.019,
+      "England": 0.022
+    },
+    "late_drama_probability": 0.362,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.286
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.243
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "England trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.128
+      },
+      {
+        "szenario": "England dominiert früh",
+        "beschreibung": "England geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.056
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 49,
+        "away": 51
+      },
+      "shots": {
+        "home": 11,
+        "away": 12
+      },
+      "shots_on_target": {
+        "home": 4,
+        "away": 5
+      },
+      "corners": {
+        "home": 5,
+        "away": 6
+      },
+      "passes": {
+        "home": 255,
+        "away": 265
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Mexico and England is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 41,
+        "type": "chance",
+        "team": "Mexico",
+        "headline": "Big chance for Mexico!",
+        "description": "Mexico create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 59,
+        "type": "chance",
+        "team": "England",
+        "headline": "Big chance for England!",
+        "description": "England create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 75,
+        "type": "goal",
+        "team": "Mexico",
+        "headline": "GOAL! Mexico!",
+        "description": "Mexico score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 77,
+        "type": "goal",
+        "team": "England",
+        "headline": "GOAL! England!",
+        "description": "England score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:1.",
+        "score_after": "1:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Mexico": 15,
+      "England": 4
+    },
+    "fifa_points": {
+      "Mexico": 1672.0,
+      "England": 1848.0
+    },
+    "form_last_10_avg_pts": {
+      "Mexico": 2.76,
+      "England": 2.27
+    },
+    "win_rate_last_10": {
+      "Mexico": "88%",
+      "England": "68%"
+    },
+    "avg_goals_scored": {
+      "Mexico": 1.6,
+      "England": 2.74
+    },
+    "avg_goals_conceded": {
+      "Mexico": 0.39,
+      "England": 0.24
+    },
+    "clean_sheet_rate": {
+      "Mexico": "68%",
+      "England": "82%"
+    },
+    "h2h_last_10": {
+      "Mexico wins": "0%",
+      "draws": "0%",
+      "England wins": "100%",
+      "total_h2h_games": 3
+    }
+  }
+}

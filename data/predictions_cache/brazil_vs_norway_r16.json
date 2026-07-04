@@ -1,0 +1,304 @@
+{
+  "home_team": "Brazil",
+  "away_team": "Norway",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.5585,
+  "probability_draw": 0.2419,
+  "probability_away_win": 0.1995,
+  "score_prediction": {
+    "home_xg": 2.33,
+    "away_xg": 1.43,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.5586,
+    "probability_draw": 0.2419,
+    "probability_away_win": 0.1995,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.0892
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0693
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0623
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0497
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0484
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8005,
+        "home_or_away": 0.7581,
+        "draw_or_away": 0.4414
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8977,
+          "under": 0.1023
+        },
+        {
+          "line": 2.5,
+          "over": 0.7153,
+          "under": 0.2847
+        },
+        {
+          "line": 3.5,
+          "over": 0.5167,
+          "under": 0.4833
+        }
+      ],
+      "btts": {
+        "yes": 0.7011,
+        "no": 0.2989
+      },
+      "win_margin": {
+        "home_1plus": 0.5586,
+        "home_2plus": 0.3594,
+        "home_3plus": 0.1914,
+        "away_1plus": 0.1995,
+        "away_2plus": 0.0904,
+        "away_3plus": 0.0319
+      },
+      "scenario": "Brazil is significantly favored to win with a 2-1 score most likely, and a high probability for both teams to score."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.24,
+    "total_xg": 3.76,
+    "first_goal": {
+      "Brazil_scores_first": 0.605,
+      "Norway_scores_first": 0.371,
+      "no_goals": 0.023,
+      "expected_minute": 23
+    },
+    "halftime_xg": {
+      "Brazil": 1.1,
+      "Norway": 0.67
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.188
+      },
+      {
+        "score": "0:0",
+        "probability": 0.172
+      },
+      {
+        "score": "1:1",
+        "probability": 0.126
+      },
+      {
+        "score": "0:1",
+        "probability": 0.115
+      },
+      {
+        "score": "2:0",
+        "probability": 0.103
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Brazil": 0.315,
+        "Norway": 0.193
+      },
+      "16-30'": {
+        "Brazil": 0.361,
+        "Norway": 0.222
+      },
+      "31-45'": {
+        "Brazil": 0.419,
+        "Norway": 0.257
+      },
+      "46-60'": {
+        "Brazil": 0.338,
+        "Norway": 0.207
+      },
+      "61-75'": {
+        "Brazil": 0.431,
+        "Norway": 0.265
+      },
+      "76-90'": {
+        "Brazil": 0.466,
+        "Norway": 0.286
+      }
+    },
+    "comeback_probability": {
+      "Brazil": 0.048,
+      "Norway": 0.03
+    },
+    "late_drama_probability": 0.529,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.152
+      },
+      {
+        "szenario": "Brazil dominiert früh",
+        "beschreibung": "Brazil geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.106
+      },
+      {
+        "szenario": "Brazil dreht es noch",
+        "beschreibung": "Brazil liegt zur Halbzeit zurück, dreht das Spiel in H2",
+        "wahrscheinlichkeit": 0.048
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 54,
+        "away": 46
+      },
+      "shots": {
+        "home": 19,
+        "away": 13
+      },
+      "shots_on_target": {
+        "home": 8,
+        "away": 5
+      },
+      "corners": {
+        "home": 8,
+        "away": 6
+      },
+      "passes": {
+        "home": 281,
+        "away": 239
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Brazil and Norway is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 6,
+        "type": "chance",
+        "team": "Brazil",
+        "headline": "Big chance for Brazil!",
+        "description": "Brazil create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 15,
+        "type": "goal",
+        "team": "Brazil",
+        "headline": "GOAL! Brazil!",
+        "description": "Brazil score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 22,
+        "type": "chance",
+        "team": "Brazil",
+        "headline": "Big chance for Brazil!",
+        "description": "Brazil create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 60,
+        "type": "goal",
+        "team": "Norway",
+        "headline": "GOAL! Norway!",
+        "description": "Norway score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 71,
+        "type": "chance",
+        "team": "Brazil",
+        "headline": "Big chance for Brazil!",
+        "description": "Brazil create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 73,
+        "type": "chance",
+        "team": "Brazil",
+        "headline": "Big chance for Brazil!",
+        "description": "Brazil create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 74,
+        "type": "goal",
+        "team": "Brazil",
+        "headline": "GOAL! Brazil!",
+        "description": "Brazil score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Brazil": 6,
+      "Norway": 31
+    },
+    "fifa_points": {
+      "Brazil": 1816.0,
+      "Norway": 1416.0
+    },
+    "form_last_10_avg_pts": {
+      "Brazil": 2.49,
+      "Norway": 2.05
+    },
+    "win_rate_last_10": {
+      "Brazil": "78%",
+      "Norway": "64%"
+    },
+    "avg_goals_scored": {
+      "Brazil": 1.76,
+      "Norway": 2.67
+    },
+    "avg_goals_conceded": {
+      "Brazil": 1.11,
+      "Norway": 1.22
+    },
+    "clean_sheet_rate": {
+      "Brazil": "45%",
+      "Norway": "22%"
+    },
+    "h2h_last_10": {
+      "Brazil wins": "0%",
+      "draws": "33%",
+      "Norway wins": "67%",
+      "total_h2h_games": 3
+    }
+  }
+}

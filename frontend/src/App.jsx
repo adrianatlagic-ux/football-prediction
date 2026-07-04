@@ -7,7 +7,18 @@ import wc2026Logo from './assets/wc2026-logo.png'
 
 const API_BASE = import.meta.env.DEV ? 'http://127.0.0.1:8000' : ''
 
-const GROUPS = [...new Set(WC2026_FIXTURES.map(f => f.group))].sort()
+// Knockout rounds after the group stage, in tournament order - a plain
+// alphabetical sort would put "Round of 16" before "Round of 32" (since '1' <
+// '3'), which is backwards since Round of 32 happens first.
+const KNOCKOUT_ROUND_ORDER = ['Round of 32', 'Round of 16', 'Quarter-finals', 'Semi-finals', 'Final']
+const GROUPS = [...new Set(WC2026_FIXTURES.map(f => f.group))].sort((a, b) => {
+  const ai = KNOCKOUT_ROUND_ORDER.indexOf(a)
+  const bi = KNOCKOUT_ROUND_ORDER.indexOf(b)
+  if (ai !== -1 && bi !== -1) return ai - bi
+  if (ai !== -1) return 1
+  if (bi !== -1) return -1
+  return a.localeCompare(b)
+})
 
 function fixtureDateTime(f) {
   return new Date(`${f.date}T${f.time}:00`)
@@ -470,11 +481,11 @@ function SmartBetCard({ betStep, betInfo, data }) {
     const isAgentPick = agentPick && sameBet(b, agentPick)
     const isModelFavorite = modelFavorite && sameBet(b, modelFavorite)
     const isSafestPick = safestPick && sameBet(b, safestPick)
-    // Model favorite and safest pick are headline signals in their own
-    // right - dimming their row to 40% opacity just because their edge
-    // happens to be negative buries them visually even though we deliberately
-    // show them regardless of edge.
-    const keepFullOpacity = isModelFavorite || isSafestPick
+    // Any marked signal (market favorite ★, AI pick ✨, model favorite ◆,
+    // safest pick 🛡) is a headline in its own right - dimming its row to 40%
+    // opacity just because its edge happens to be negative buries it visually
+    // even though we deliberately show these regardless of edge.
+    const keepFullOpacity = isRec || isAgentPick || isModelFavorite || isSafestPick
     return (
       <div className={`smart-bet-table-row ${kind === 'red' && !keepFullOpacity ? 'is-red' : ''} ${isRec ? 'is-rec' : ''}`} key={`${kind}-${i}`}>
         <span className="smart-bet-col-market">{marketGroupLabel(b.market)}{b.suspicious ? ' ⚠' : ''}</span>
@@ -519,30 +530,6 @@ function SmartBetCard({ betStep, betInfo, data }) {
           <strong>No clear tip for this match.</strong><br />
           The market doesn't have a clear favorite here — better to sit this one out. Odds below for comparison.
         </p>
-      )}
-
-      {combined && combined.movement_ranking && combined.movement_ranking.length > 0 && (
-        <div className="smart-bet-movement">
-          <span className="smart-bet-label">Market Movement Ranking</span>
-          <p className="smart-bet-movement-sub">
-            Since the day's early odds, ranked by how much the market has moved toward (or away from) each signal's pick.
-          </p>
-          {combined.movement_ranking.map((r) => {
-            const moved = r.movement_pct
-            const positive = moved != null && moved > 0
-            const negative = moved != null && moved < 0
-            return (
-              <div className={`smart-bet-movement-row ${r.rank === 1 ? 'is-top' : ''}`} key={r.rank}>
-                <span className="smart-bet-movement-rank">#{r.rank}</span>
-                <span className="smart-bet-movement-signal">{r.signal}</span>
-                <span className="smart-bet-movement-pick">{betOutcomeLabel(r.bet)}</span>
-                <span className={`smart-bet-movement-pct ${positive ? 'positive' : negative ? 'negative' : ''}`}>
-                  {moved == null ? '–' : `${positive ? '▲' : negative ? '▼' : '–'} ${moved > 0 ? '+' : ''}${moved.toFixed(1)} pp`}
-                </span>
-              </div>
-            )
-          })}
-        </div>
       )}
 
       {(greens.length > 0 || reds.length > 0) && (

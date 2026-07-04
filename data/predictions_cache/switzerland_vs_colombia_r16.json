@@ -1,0 +1,309 @@
+{
+  "home_team": "Switzerland",
+  "away_team": "Colombia",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.2189,
+  "probability_draw": 0.2334,
+  "probability_away_win": 0.5477,
+  "score_prediction": {
+    "home_xg": 1.15,
+    "away_xg": 2.06,
+    "rho": -0.13,
+    "most_likely_score": "1:2",
+    "result": "A",
+    "probability_home_win": 0.2189,
+    "probability_draw": 0.2334,
+    "probability_away_win": 0.5477,
+    "top_scorelines": [
+      {
+        "score": "1:2",
+        "probability": 0.0945
+      },
+      {
+        "score": "0:2",
+        "probability": 0.0821
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0677
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0649
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0564
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.4523,
+        "home_or_away": 0.7666,
+        "draw_or_away": 0.7811
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8413,
+          "under": 0.1587
+        },
+        {
+          "line": 2.5,
+          "over": 0.6218,
+          "under": 0.3782
+        },
+        {
+          "line": 3.5,
+          "over": 0.3975,
+          "under": 0.6025
+        }
+      ],
+      "btts": {
+        "yes": 0.6104,
+        "no": 0.3896
+      },
+      "win_margin": {
+        "home_1plus": 0.2189,
+        "home_2plus": 0.0885,
+        "home_3plus": 0.0266,
+        "away_1plus": 0.5477,
+        "away_2plus": 0.3396,
+        "away_3plus": 0.17
+      },
+      "scenario": "Colombia is expected to win, with a 1:2 score most probable, and a significant chance of winning by two or more goals."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.28,
+    "total_xg": 3.21,
+    "first_goal": {
+      "Switzerland_scores_first": 0.344,
+      "Colombia_scores_first": 0.616,
+      "no_goals": 0.04,
+      "expected_minute": 28
+    },
+    "halftime_xg": {
+      "Switzerland": 0.54,
+      "Colombia": 0.97
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.222
+      },
+      {
+        "score": "0:1",
+        "probability": 0.215
+      },
+      {
+        "score": "1:0",
+        "probability": 0.12
+      },
+      {
+        "score": "1:1",
+        "probability": 0.116
+      },
+      {
+        "score": "0:2",
+        "probability": 0.104
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Switzerland": 0.155,
+        "Colombia": 0.278
+      },
+      "16-30'": {
+        "Switzerland": 0.178,
+        "Colombia": 0.319
+      },
+      "31-45'": {
+        "Switzerland": 0.207,
+        "Colombia": 0.371
+      },
+      "46-60'": {
+        "Switzerland": 0.167,
+        "Colombia": 0.299
+      },
+      "61-75'": {
+        "Switzerland": 0.213,
+        "Colombia": 0.381
+      },
+      "76-90'": {
+        "Switzerland": 0.23,
+        "Colombia": 0.412
+      }
+    },
+    "comeback_probability": {
+      "Switzerland": 0.023,
+      "Colombia": 0.039
+    },
+    "late_drama_probability": 0.474,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.212
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.184
+      },
+      {
+        "szenario": "Colombia dominiert früh",
+        "beschreibung": "Colombia geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.106
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Colombia trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.085
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 45,
+        "away": 55
+      },
+      "shots": {
+        "home": 11,
+        "away": 17
+      },
+      "shots_on_target": {
+        "home": 4,
+        "away": 7
+      },
+      "corners": {
+        "home": 5,
+        "away": 7
+      },
+      "passes": {
+        "home": 234,
+        "away": 286
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Switzerland and Colombia is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 39,
+        "type": "goal",
+        "team": "Colombia",
+        "headline": "GOAL! Colombia!",
+        "description": "Colombia score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 44,
+        "type": "chance",
+        "team": "Switzerland",
+        "headline": "Big chance for Switzerland!",
+        "description": "Switzerland create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "chance",
+        "team": "Colombia",
+        "headline": "Big chance for Colombia!",
+        "description": "Colombia create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 68,
+        "type": "goal",
+        "team": "Switzerland",
+        "headline": "GOAL! Switzerland!",
+        "description": "Switzerland score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 73,
+        "type": "chance",
+        "team": "Switzerland",
+        "headline": "Big chance for Switzerland!",
+        "description": "Switzerland create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 74,
+        "type": "goal",
+        "team": "Colombia",
+        "headline": "GOAL! Colombia!",
+        "description": "Colombia score to make it 1:2.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 85,
+        "type": "chance",
+        "team": "Switzerland",
+        "headline": "Big chance for Switzerland!",
+        "description": "Switzerland create a great opportunity but fail to convert.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:2.",
+        "score_after": "1:2"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Switzerland": 19,
+      "Colombia": 13
+    },
+    "fifa_points": {
+      "Switzerland": 1608.0,
+      "Colombia": 1704.0
+    },
+    "form_last_10_avg_pts": {
+      "Switzerland": 2.14,
+      "Colombia": 2.28
+    },
+    "win_rate_last_10": {
+      "Switzerland": "61%",
+      "Colombia": "71%"
+    },
+    "avg_goals_scored": {
+      "Switzerland": 1.33,
+      "Colombia": 2.36
+    },
+    "avg_goals_conceded": {
+      "Switzerland": 0.79,
+      "Colombia": 1.16
+    },
+    "clean_sheet_rate": {
+      "Switzerland": "45%",
+      "Colombia": "24%"
+    },
+    "h2h_last_10": {
+      "Switzerland wins": "33%",
+      "draws": "0%",
+      "Colombia wins": "67%",
+      "total_h2h_games": 3
+    }
+  }
+}

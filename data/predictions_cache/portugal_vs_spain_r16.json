@@ -1,0 +1,301 @@
+{
+  "home_team": "Portugal",
+  "away_team": "Spain",
+  "prediction": "D",
+  "prediction_label": "Draw",
+  "probability_home_win": 0.2264,
+  "probability_draw": 0.4835,
+  "probability_away_win": 0.2901,
+  "score_prediction": {
+    "home_xg": 1.31,
+    "away_xg": 2.0,
+    "rho": -0.13,
+    "most_likely_score": "1:1",
+    "result": "D",
+    "probability_home_win": 0.2264,
+    "probability_draw": 0.4835,
+    "probability_away_win": 0.2901,
+    "top_scorelines": [
+      {
+        "score": "1:1",
+        "probability": 0.2168
+      },
+      {
+        "score": "2:2",
+        "probability": 0.1253
+      },
+      {
+        "score": "0:0",
+        "probability": 0.0984
+      },
+      {
+        "score": "3:3",
+        "probability": 0.0364
+      },
+      {
+        "score": "4:4",
+        "probability": 0.0059
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7099,
+        "home_or_away": 0.5165,
+        "draw_or_away": 0.7736
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8335,
+          "under": 0.1665
+        },
+        {
+          "line": 2.5,
+          "over": 0.546,
+          "under": 0.454
+        },
+        {
+          "line": 3.5,
+          "over": 0.3926,
+          "under": 0.6074
+        }
+      ],
+      "btts": {
+        "yes": 0.6957,
+        "no": 0.3043
+      },
+      "win_margin": {
+        "home_1plus": 0.2264,
+        "home_2plus": 0.0997,
+        "home_3plus": 0.0333,
+        "away_1plus": 0.2901,
+        "away_2plus": 0.174,
+        "away_3plus": 0.0841
+      },
+      "scenario": "A draw, specifically 1-1, is the most probable outcome with nearly 50% chance, despite Spain showing better recent form and scoring more goals."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.21,
+    "total_xg": 3.31,
+    "first_goal": {
+      "Portugal_scores_first": 0.381,
+      "Spain_scores_first": 0.582,
+      "no_goals": 0.037,
+      "expected_minute": 27
+    },
+    "halftime_xg": {
+      "Portugal": 0.62,
+      "Spain": 0.94
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.212
+      },
+      {
+        "score": "0:1",
+        "probability": 0.199
+      },
+      {
+        "score": "1:0",
+        "probability": 0.13
+      },
+      {
+        "score": "1:1",
+        "probability": 0.123
+      },
+      {
+        "score": "0:2",
+        "probability": 0.094
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Portugal": 0.177,
+        "Spain": 0.27
+      },
+      "16-30'": {
+        "Portugal": 0.203,
+        "Spain": 0.31
+      },
+      "31-45'": {
+        "Portugal": 0.236,
+        "Spain": 0.36
+      },
+      "46-60'": {
+        "Portugal": 0.19,
+        "Spain": 0.29
+      },
+      "61-75'": {
+        "Portugal": 0.242,
+        "Spain": 0.37
+      },
+      "76-90'": {
+        "Portugal": 0.262,
+        "Spain": 0.4
+      }
+    },
+    "comeback_probability": {
+      "Portugal": 0.028,
+      "Spain": 0.041
+    },
+    "late_drama_probability": 0.484,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.217
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.178
+      },
+      {
+        "szenario": "Spain dominiert früh",
+        "beschreibung": "Spain geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.095
+      },
+      {
+        "szenario": "Portugal dominiert früh",
+        "beschreibung": "Portugal geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.041
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 46,
+        "away": 54
+      },
+      "shots": {
+        "home": 13,
+        "away": 17
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 7
+      },
+      "corners": {
+        "home": 5,
+        "away": 7
+      },
+      "passes": {
+        "home": 239,
+        "away": 281
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Portugal and Spain is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 12,
+        "type": "chance",
+        "team": "Spain",
+        "headline": "Big chance for Spain!",
+        "description": "Spain create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 35,
+        "type": "chance",
+        "team": "Spain",
+        "headline": "Big chance for Spain!",
+        "description": "Spain create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 46,
+        "type": "chance",
+        "team": "Spain",
+        "headline": "Big chance for Spain!",
+        "description": "Spain create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 62,
+        "type": "chance",
+        "team": "Spain",
+        "headline": "Big chance for Spain!",
+        "description": "Spain create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 79,
+        "type": "goal",
+        "team": "Portugal",
+        "headline": "GOAL! Portugal!",
+        "description": "Portugal score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 87,
+        "type": "goal",
+        "team": "Spain",
+        "headline": "GOAL! Spain!",
+        "description": "Spain score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:1.",
+        "score_after": "1:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Portugal": 5,
+      "Spain": 2
+    },
+    "fifa_points": {
+      "Portugal": 1832.0,
+      "Spain": 1880.0
+    },
+    "form_last_10_avg_pts": {
+      "Portugal": 1.99,
+      "Spain": 2.5
+    },
+    "win_rate_last_10": {
+      "Portugal": "53%",
+      "Spain": "75%"
+    },
+    "avg_goals_scored": {
+      "Portugal": 1.24,
+      "Spain": 2.51
+    },
+    "avg_goals_conceded": {
+      "Portugal": 0.62,
+      "Spain": 0.45
+    },
+    "clean_sheet_rate": {
+      "Portugal": "59%",
+      "Spain": "72%"
+    },
+    "h2h_last_10": {
+      "Portugal wins": "20%",
+      "draws": "60%",
+      "Spain wins": "20%",
+      "total_h2h_games": 10
+    }
+  }
+}

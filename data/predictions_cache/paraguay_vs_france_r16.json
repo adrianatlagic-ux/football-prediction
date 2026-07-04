@@ -1,0 +1,277 @@
+{
+  "home_team": "Paraguay",
+  "away_team": "France",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.1052,
+  "probability_draw": 0.3455,
+  "probability_away_win": 0.5493,
+  "score_prediction": {
+    "home_xg": 0.68,
+    "away_xg": 1.8,
+    "rho": -0.13,
+    "most_likely_score": "0:1",
+    "result": "A",
+    "probability_home_win": 0.1052,
+    "probability_draw": 0.3455,
+    "probability_away_win": 0.5493,
+    "top_scorelines": [
+      {
+        "score": "0:1",
+        "probability": 0.1202
+      },
+      {
+        "score": "0:2",
+        "probability": 0.1186
+      },
+      {
+        "score": "1:2",
+        "probability": 0.0803
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0712
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0482
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.4507,
+        "home_or_away": 0.6545,
+        "draw_or_away": 0.8948
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7063,
+          "under": 0.2937
+        },
+        {
+          "line": 2.5,
+          "over": 0.4103,
+          "under": 0.5897
+        },
+        {
+          "line": 3.5,
+          "over": 0.2249,
+          "under": 0.7751
+        }
+      ],
+      "btts": {
+        "yes": 0.4472,
+        "no": 0.5528
+      },
+      "win_margin": {
+        "home_1plus": 0.1052,
+        "home_2plus": 0.0305,
+        "home_3plus": 0.0059,
+        "away_1plus": 0.5493,
+        "away_2plus": 0.3303,
+        "away_3plus": 0.1556
+      },
+      "scenario": "France, boasting a 94% recent win rate, are 55% likely to win, but a 0:1 score is most likely, with a draw also a significant 34.5% possibility."
+    }
+  },
+  "game_flow": {
+    "match_type": "Controlled",
+    "match_description": "The favorite controls the game against little resistance",
+    "dominance_index": -0.45,
+    "total_xg": 2.48,
+    "first_goal": {
+      "Paraguay_scores_first": 0.251,
+      "France_scores_first": 0.665,
+      "no_goals": 0.084,
+      "expected_minute": 36
+    },
+    "halftime_xg": {
+      "Paraguay": 0.32,
+      "France": 0.85
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.312
+      },
+      {
+        "score": "0:1",
+        "probability": 0.264
+      },
+      {
+        "score": "0:2",
+        "probability": 0.112
+      },
+      {
+        "score": "1:0",
+        "probability": 0.1
+      },
+      {
+        "score": "1:1",
+        "probability": 0.084
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Paraguay": 0.092,
+        "France": 0.243
+      },
+      "16-30'": {
+        "Paraguay": 0.105,
+        "France": 0.279
+      },
+      "31-45'": {
+        "Paraguay": 0.122,
+        "France": 0.324
+      },
+      "46-60'": {
+        "Paraguay": 0.099,
+        "France": 0.261
+      },
+      "61-75'": {
+        "Paraguay": 0.126,
+        "France": 0.333
+      },
+      "76-90'": {
+        "Paraguay": 0.136,
+        "France": 0.36
+      }
+    },
+    "comeback_probability": {
+      "Paraguay": 0.01,
+      "France": 0.025
+    },
+    "late_drama_probability": 0.391,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.231
+      },
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.224
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "France trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.152
+      },
+      {
+        "szenario": "France dominiert früh",
+        "beschreibung": "France geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.113
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 42,
+        "away": 58
+      },
+      "shots": {
+        "home": 8,
+        "away": 16
+      },
+      "shots_on_target": {
+        "home": 3,
+        "away": 6
+      },
+      "corners": {
+        "home": 4,
+        "away": 6
+      },
+      "passes": {
+        "home": 218,
+        "away": 302
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Paraguay and France is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 11,
+        "type": "chance",
+        "team": "Paraguay",
+        "headline": "Big chance for Paraguay!",
+        "description": "Paraguay create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 86,
+        "type": "goal",
+        "team": "France",
+        "headline": "GOAL! France!",
+        "description": "France score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 88,
+        "type": "chance",
+        "team": "France",
+        "headline": "Big chance for France!",
+        "description": "France create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 0:1.",
+        "score_after": "0:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Paraguay": 40,
+      "France": 1
+    },
+    "fifa_points": {
+      "Paraguay": 1272.0,
+      "France": 1896.0
+    },
+    "form_last_10_avg_pts": {
+      "Paraguay": 1.41,
+      "France": 2.89
+    },
+    "win_rate_last_10": {
+      "Paraguay": "32%",
+      "France": "94%"
+    },
+    "avg_goals_scored": {
+      "Paraguay": 1.02,
+      "France": 2.68
+    },
+    "avg_goals_conceded": {
+      "Paraguay": 1.48,
+      "France": 1.26
+    },
+    "clean_sheet_rate": {
+      "Paraguay": "36%",
+      "France": "16%"
+    },
+    "h2h_last_10": {
+      "Paraguay wins": "0%",
+      "draws": "50%",
+      "France wins": "50%",
+      "total_h2h_games": 4
+    }
+  }
+}

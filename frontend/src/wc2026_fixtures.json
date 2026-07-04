@@ -702,5 +702,69 @@
     "home_team": "Argentina",
     "away_team": "Cape Verde",
     "match_id": "argentina_vs_cape_verde_r32"
+  },
+  {
+    "group": "Round of 16",
+    "date": "2026-07-04",
+    "time": "19:00",
+    "home_team": "Canada",
+    "away_team": "Morocco",
+    "match_id": "canada_vs_morocco_r16"
+  },
+  {
+    "group": "Round of 16",
+    "date": "2026-07-04",
+    "time": "23:00",
+    "home_team": "Paraguay",
+    "away_team": "France",
+    "match_id": "paraguay_vs_france_r16"
+  },
+  {
+    "group": "Round of 16",
+    "date": "2026-07-05",
+    "time": "22:00",
+    "home_team": "Brazil",
+    "away_team": "Norway",
+    "match_id": "brazil_vs_norway_r16"
+  },
+  {
+    "group": "Round of 16",
+    "date": "2026-07-06",
+    "time": "02:00",
+    "home_team": "Mexico",
+    "away_team": "England",
+    "match_id": "mexico_vs_england_r16"
+  },
+  {
+    "group": "Round of 16",
+    "date": "2026-07-06",
+    "time": "21:00",
+    "home_team": "Portugal",
+    "away_team": "Spain",
+    "match_id": "portugal_vs_spain_r16"
+  },
+  {
+    "group": "Round of 16",
+    "date": "2026-07-07",
+    "time": "02:00",
+    "home_team": "USA",
+    "away_team": "Belgium",
+    "match_id": "usa_vs_belgium_r16"
+  },
+  {
+    "group": "Round of 16",
+    "date": "2026-07-07",
+    "time": "18:00",
+    "home_team": "Argentina",
+    "away_team": "Egypt",
+    "match_id": "argentina_vs_egypt_r16"
+  },
+  {
+    "group": "Round of 16",
+    "date": "2026-07-07",
+    "time": "22:00",
+    "home_team": "Switzerland",
+    "away_team": "Colombia",
+    "match_id": "switzerland_vs_colombia_r16"
   }
 ]

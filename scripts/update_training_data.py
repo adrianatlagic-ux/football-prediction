@@ -61,18 +61,29 @@ def fetch_espn_results() -> list[dict]:
         competitors = comp["competitors"]
         home_c = next((c for c in competitors if c.get("homeAway") == "home"), competitors[0])
         away_c = next((c for c in competitors if c.get("homeAway") == "away"), competitors[1])
+        venue = comp.get("venue", {}).get("address", {})
         results.append({
             "home_team": _espn_team(home_c["team"]["displayName"]),
             "away_team": _espn_team(away_c["team"]["displayName"]),
             "home_score": int(home_c.get("score", 0)),
             "away_score": int(away_c.get("score", 0)),
+            "date": (comp.get("date") or event.get("date") or "")[:10],
+            "city": venue.get("city", ""),
+            "country": venue.get("country", ""),
         })
     return results
 
 
 def update_csv(results: list[dict]) -> int:
+    """Fill in scores for existing (pre-scheduled) rows, and APPEND a new row
+    for results with no matching row at all. Knockout-round matchups (Round
+    of 32 onward) aren't known until the group stage finishes, so there's no
+    pre-existing template row for them the way there is for group-stage
+    fixtures - without this append step, every knockout result was silently
+    dropped and never made it into training data at all."""
     df = pd.read_csv(CSV_PATH)
     updated = 0
+    new_rows = []
     for r in results:
         mask = (
             (df["home_team"] == r["home_team"])
@@ -83,6 +94,29 @@ def update_csv(results: list[dict]) -> int:
             df.loc[mask, "home_score"] = r["home_score"]
             df.loc[mask, "away_score"] = r["away_score"]
             updated += mask.sum()
+            continue
+        already_has_result = (
+            (df["home_team"] == r["home_team"])
+            & (df["away_team"] == r["away_team"])
+            & (df["date"] == r["date"])
+            & df["home_score"].notna()
+        ).any()
+        if already_has_result:
+            continue
+        new_rows.append({
+            "date": r["date"],
+            "home_team": r["home_team"],
+            "away_team": r["away_team"],
+            "home_score": r["home_score"],
+            "away_score": r["away_score"],
+            "tournament": "FIFA World Cup",
+            "city": r["city"],
+            "country": r["country"],
+            "neutral": True,
+        })
+    if new_rows:
+        df = pd.concat([df, pd.DataFrame(new_rows)], ignore_index=True)
+        updated += len(new_rows)
     if updated:
         df.to_csv(CSV_PATH, index=False)
     return updated
