@@ -1444,7 +1444,7 @@ body {
   display: flex;
   align-items: baseline;
   gap: 0.45rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.7rem;
 }
 
 .smart-bet-agent-headline {
@@ -1454,7 +1454,7 @@ body {
 }
 
 .smart-bet-agent-text {
-  margin: 0 0 0.4rem;
+  margin: 0.3rem 0 0.4rem;
   font-size: 0.78rem;
   line-height: 1.5;
   color: #d1d5db;

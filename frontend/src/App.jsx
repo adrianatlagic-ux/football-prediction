@@ -195,11 +195,17 @@ function ProbabilityBar({ label, value, color, animate, valueColor }) {
 function renderScenario(text, home, away) {
   const terms = [home, away, '2+ goals', '3+ goals', 'high-scoring game', 'low-scoring game']
   const escaped = terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
-  const parts = text.split(new RegExp(`(${escaped.join('|')})`, 'g'))
+  // Also highlight standalone numbers - win rates, probabilities, scorelines
+  // (e.g. "94%", "55%", "0:1") - these are the figures a reader actually
+  // scans for, same treatment as the highlighted numbers in the other boxes.
+  const numberPattern = String.raw`\d+(?:\.\d+)?%|\d+:\d+`
+  const parts = text.split(new RegExp(`(${escaped.join('|')}|${numberPattern})`, 'g'))
   return parts.map((part, i) =>
     terms.includes(part)
       ? <span className="scenario-highlight" key={i}>{part}</span>
-      : <span key={i}>{part}</span>
+      : /^(\d+(?:\.\d+)?%|\d+:\d+)$/.test(part)
+        ? <strong className="smart-bet-highlight" key={i}>{part}</strong>
+        : <span key={i}>{part}</span>
   )
 }
 
