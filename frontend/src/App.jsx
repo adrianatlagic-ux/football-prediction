@@ -484,14 +484,18 @@ function SmartBetCard({ betStep, betInfo, data }) {
 
   const renderRow = (b, i, kind) => {
     const isRec = best && sameBet(b, best)
+    const isGamePick = consensusPick && sameBet(b, consensusPick)
     const isAgentPick = agentPick && sameBet(b, agentPick)
     const isModelFavorite = modelFavorite && sameBet(b, modelFavorite)
     const isSafestPick = safestPick && sameBet(b, safestPick)
-    // Any marked signal (market favorite ★, AI pick ✨, model favorite ◆,
+    // Any marked signal (Game Pick, value bet, AI pick ✨, model favorite ◆,
     // safest pick 🛡) is a headline in its own right - dimming its row to 40%
     // opacity just because its edge happens to be negative buries it visually
-    // even though we deliberately show these regardless of edge.
-    const keepFullOpacity = isRec || isAgentPick || isModelFavorite || isSafestPick
+    // even though we deliberately show these regardless of edge. The Game
+    // Pick especially is *expected* to have flat/negative edge at short odds
+    // (that's the whole "swim with the market" point), so graying it out
+    // here would visually contradict the headline box above.
+    const keepFullOpacity = isRec || isGamePick || isAgentPick || isModelFavorite || isSafestPick
     return (
       <div className={`smart-bet-table-row ${kind === 'red' && !keepFullOpacity ? 'is-red' : ''} ${isRec ? 'is-rec' : ''}`} key={`${kind}-${i}`}>
         <span className="smart-bet-col-market">{marketGroupLabel(b.market)}{b.suspicious ? ' ⚠' : ''}</span>

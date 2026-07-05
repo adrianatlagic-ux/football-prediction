@@ -358,11 +358,15 @@ _odds_cache: list[dict] = []
 _odds_cache_date: str | None = None  # UTC date (YYYY-MM-DD) of the last successful fetch
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-# Agent picks are computed once per match per day, anchored to the same clock
-# time as the odds refresh - one Gemini call per match that has odds that day,
-# not per request. Keeps volume identical to (and as predictable as) the odds.
+# Agent picks are cached per match indefinitely once computed (see
+# _refresh_agent_picks) - never recomputed for a match that already has one.
 _agent_picks_cache: dict[tuple[str, str], dict] = {}
-_agent_picks_cache_date: str | None = None
+# Throttles how often a background pass is even considered, independent of
+# whether it finds anything to do - without this, every request would spawn a
+# pass just to discover every remaining gap is a finished/too-far-out match,
+# since those never get a cache entry to short-circuit on.
+_agent_picks_last_check: float = 0.0
+AGENT_PICKS_CHECK_COOLDOWN_SECONDS = 180
 
 # Vorteile über dieser Grenze sind praktisch immer ein Modellfehler, kein echter
 # Value - sie werden nicht als Empfehlung ausgesprochen. Tiefer = konservativer.
@@ -1061,22 +1065,34 @@ AGENT_EVAL_WINDOW_HOURS = 15
 
 
 def _refresh_agent_picks(odds: list[dict]) -> None:
-    """Compute one Gemini pick per match in today's matchday window, once per day.
+    """Compute a Gemini pick for every match that has newly entered the
+    matchday window (AGENT_EVAL_WINDOW_HOURS) since it was last checked.
 
     Runs in a background thread - even a handful of sequential Gemini calls is
     ~30s each, which must never block the request that happens to trigger it.
     The cache simply stays empty/stale until the background pass finishes;
     callers already handle agent_eval being None.
-    """
-    global _agent_picks_cache, _agent_picks_cache_date, _agent_picks_refresh_in_progress
-    today = datetime.now(timezone.utc).date().isoformat()
-    if _agent_picks_cache_date == today or _agent_picks_refresh_in_progress:
-        return
 
-    _agent_picks_refresh_in_progress = True
+    Tracked per-match (not once-per-day globally): a match whose kickoff is
+    >15h away when the day's first pass runs would otherwise never get picked
+    up again until the separate 1-hour pre-kickoff re-check - leaving it with
+    no AI pick for most of the day even though it's well within the window by
+    the afternoon. Re-checking on every call (cheap: only Gemini-calls matches
+    not yet in the cache) fixes that gap.
+    """
+    global _agent_picks_cache, _agent_picks_refresh_in_progress, _agent_picks_last_check
+    if _agent_picks_refresh_in_progress:
+        return
+    now = time.monotonic()
+    if now - _agent_picks_last_check < AGENT_PICKS_CHECK_COOLDOWN_SECONDS:
+        return
+    _agent_picks_last_check = now
 
     def _eval_one(data):
         home, away = data["home_team"], data["away_team"]
+        key = (_norm_team(home), _norm_team(away))
+        if key in _agent_picks_cache:
+            return None
         vb = _compute_value_bets(data, odds, home, away)
         if not vb.get("odds_found") or vb.get("in_play"):
             return None
@@ -1092,23 +1108,26 @@ def _refresh_agent_picks(odds: list[dict]) -> None:
         agent = _call_gemini_agent_pick(data, vb, home, away)
         if agent is None:
             return None
-        return (_norm_team(home), _norm_team(away)), agent
+        return key, agent
+
+    fixtures = list(_get_prediction_index().values())
+    if not any((_norm_team(f["home_team"]), _norm_team(f["away_team"])) not in _agent_picks_cache for f in fixtures):
+        return
+
+    _agent_picks_refresh_in_progress = True
 
     def _run():
-        global _agent_picks_cache, _agent_picks_cache_date, _agent_picks_refresh_in_progress
-        picks: dict[tuple[str, str], dict] = {}
+        global _agent_picks_cache, _agent_picks_refresh_in_progress
         try:
             # Each Gemini call (with search grounding) takes ~30s; a few
-            # concurrent workers keep the daily refresh to ~1-2 minutes
-            # instead of 8+ minutes run sequentially, without spiking rate
-            # limits the way full parallelism would.
+            # concurrent workers keep the refresh to ~1-2 minutes instead of
+            # 8+ minutes run sequentially, without spiking rate limits the
+            # way full parallelism would.
             with ThreadPoolExecutor(max_workers=4) as pool:
-                for result in pool.map(_eval_one, list(_get_prediction_index().values())):
+                for result in pool.map(_eval_one, fixtures):
                     if result is not None:
                         key, agent = result
-                        picks[key] = agent
-            _agent_picks_cache = picks
-            _agent_picks_cache_date = today
+                        _agent_picks_cache[key] = agent
         finally:
             _agent_picks_refresh_in_progress = False
 
