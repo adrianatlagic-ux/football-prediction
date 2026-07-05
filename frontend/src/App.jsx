@@ -192,6 +192,16 @@ function ProbabilityBar({ label, value, color, animate, valueColor }) {
   )
 }
 
+function renderBoldMarkdown(text, highlightClass) {
+  if (!text) return text
+  const parts = text.split(/(\*\*[^*]+\*\*)/g)
+  return parts.map((part, i) =>
+    part.startsWith('**') && part.endsWith('**')
+      ? <strong className={highlightClass} key={i}>{part.slice(2, -2)}</strong>
+      : <span key={i}>{part}</span>
+  )
+}
+
 function renderScenario(text, home, away, highlightClass = 'smart-bet-highlight-gold') {
   const terms = [home, away, '2+ goals', '3+ goals', 'high-scoring game', 'low-scoring game']
   const escaped = terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
@@ -562,7 +572,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
             <span className="smart-bet-agent-headline">✨ AI predicts: {agentEval.bet_headline}</span>
           </div>
           <p className="smart-bet-agent-text">
-            {renderScenario(agentEval.bet_reasoning, data.home_team, data.away_team, 'smart-bet-highlight-purple')}
+            {renderBoldMarkdown(agentEval.bet_reasoning, 'smart-bet-highlight-purple')}
           </p>
         </div>
       )}

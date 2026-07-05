@@ -970,7 +970,10 @@ STEP 2 - BETTING VERDICT. Based on YOUR research plus the odds, decide which ONE
 the best one to actually back - or none, if nothing looks good. Form this view independently; do not \
 assume the model's most-likely outcome is the right bet. Then write bet_reasoning as exactly one \
 sentence explaining why you landed on that pick (or why none of them are worth backing - e.g. too \
-unpredictable, no real edge, the odds don't justify it).
+unpredictable, no real edge, the odds don't justify it). Wrap the 2-4 words/phrases in that sentence \
+that most directly justify the pick (the actual stat or fact doing the work, e.g. "zero goals \
+conceded", "erratic form", "unbeaten in 8") in double asterisks like **this** - not team names, not \
+filler words, only the specific evidence a reader would want to see highlighted.
 
 Keep everything SHORT - this renders in a small card, not an article. Respond with ONLY raw JSON, no \
 markdown formatting, no code fences, exactly this shape - everything in English:
