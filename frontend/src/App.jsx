@@ -192,7 +192,7 @@ function ProbabilityBar({ label, value, color, animate, valueColor }) {
   )
 }
 
-function renderScenario(text, home, away) {
+function renderScenario(text, home, away, highlightClass = 'smart-bet-highlight-gold') {
   const terms = [home, away, '2+ goals', '3+ goals', 'high-scoring game', 'low-scoring game']
   const escaped = terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
   // Also highlight standalone numbers - win rates, probabilities, scorelines
@@ -204,7 +204,7 @@ function renderScenario(text, home, away) {
     terms.includes(part)
       ? <span className="scenario-highlight" key={i}>{part}</span>
       : /^(\d+(?:\.\d+)?%|\d+:\d+)$/.test(part)
-        ? <strong className="smart-bet-highlight" key={i}>{part}</strong>
+        ? <strong className={highlightClass} key={i}>{part}</strong>
         : <span key={i}>{part}</span>
   )
 }
@@ -524,10 +524,10 @@ function SmartBetCard({ betStep, betInfo, data }) {
           <div className="smart-bet-best-meta">at {consensusPick.bookmaker}</div>
           <div className="smart-bet-agree-row">
             <span className={`smart-bet-agree-chip ${combined.model_agrees ? 'yes' : 'no'}`}>
-              {combined.model_agrees ? 'Model agrees ✓' : 'Model differs ✕'}
+              {combined.model_agrees ? '◆ Model agrees ✓' : '◆ Model differs ✕'}
             </span>
             <span className={`smart-bet-agree-chip ${combined.agent_agrees ? 'yes' : 'no'}`}>
-              {combined.agent_agrees ? 'AI agrees ✓' : 'AI differs ✕'}
+              {combined.agent_agrees ? '✨ AI agrees ✓' : '✨ AI differs ✕'}
             </span>
           </div>
         </div>
@@ -557,19 +557,6 @@ function SmartBetCard({ betStep, betInfo, data }) {
           <div className="smart-bet-agent-headtitle">
             <span className="smart-bet-agent-headline">✨ AI predicts: {agentEval.bet_headline}</span>
           </div>
-          {agentPick && (
-            <div className="smart-bet-agree-row">
-              <span className={`smart-bet-agree-chip ${agentEval.agrees_with_model ? 'yes' : 'no'}`}>
-                {agentEval.agrees_with_model ? 'Model agrees ✓' : 'Model differs ✕'}
-              </span>
-              {agentEval.revised_from_previous === true && (
-                <span className="smart-bet-agree-note">revised after a closer look</span>
-              )}
-              {agentEval.revised_from_previous === false && (
-                <span className="smart-bet-agree-note">confirmed on a closer look</span>
-              )}
-            </div>
-          )}
           <p className="smart-bet-agent-text">{agentEval.bet_reasoning}</p>
         </div>
       )}
@@ -579,20 +566,13 @@ function SmartBetCard({ betStep, betInfo, data }) {
           <div className="smart-bet-agent-headtitle">
             <span className="smart-bet-signal-headline">★ Value Bet: {betOutcomeLabel(best)}</span>
           </div>
-          {modelFavorite && (
-            <div className="smart-bet-agree-row">
-              <span className={`smart-bet-agree-chip ${sameBet(best, modelFavorite) ? 'yes' : 'no'}`}>
-                {sameBet(best, modelFavorite) ? 'Model agrees ✓' : 'Model differs ✕'}
-              </span>
-            </div>
-          )}
           <p className="smart-bet-agent-text">
             {best.market_probability != null ? (
-              <>We rate this at <strong className="smart-bet-highlight">{(best.probability * 100).toFixed(0)}%</strong> (our model pulled partway toward the market to correct for its
-              overconfidence), while {best.bookmaker}'s odds of <strong className="smart-bet-highlight">{best.best_odds.toFixed(2)}</strong> imply {(best.market_probability * 100).toFixed(0)}% —
+              <>We rate this at <strong className="smart-bet-highlight-green">{(best.probability * 100).toFixed(0)}%</strong> (our model pulled partway toward the market to correct for its
+              overconfidence), while {best.bookmaker}'s odds of <strong className="smart-bet-highlight-green">{best.best_odds.toFixed(2)}</strong> imply {(best.market_probability * 100).toFixed(0)}% —
               that remaining {Math.round((best.probability - best.market_probability) * 100)} percentage-point gap is the edge.</>
             ) : (
-              <>We rate this at <strong className="smart-bet-highlight">{(best.probability * 100).toFixed(0)}%</strong> at odds of <strong className="smart-bet-highlight">{best.best_odds.toFixed(2)}</strong> from {best.bookmaker}, with no
+              <>We rate this at <strong className="smart-bet-highlight-green">{(best.probability * 100).toFixed(0)}%</strong> at odds of <strong className="smart-bet-highlight-green">{best.best_odds.toFixed(2)}</strong> from {best.bookmaker}, with no
               reliable market comparison available for this one.</>
             )}
           </p>
@@ -618,7 +598,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
           <p className="smart-bet-agent-text">
             {scenarioText
               ? renderScenario(scenarioText, data.home_team, data.away_team)
-              : <>at {modelFavorite.bookmaker} · model estimates <strong className="smart-bet-highlight">{(modelFavorite.probability * 100).toFixed(0)}%</strong>
+              : <>at {modelFavorite.bookmaker} · model estimates <strong className="smart-bet-highlight-gold">{(modelFavorite.probability * 100).toFixed(0)}%</strong>
                 {modelFavorite.market_probability != null && <>, market estimates {(modelFavorite.market_probability * 100).toFixed(0)}%</>}</>}
           </p>
         </div>
@@ -629,16 +609,9 @@ function SmartBetCard({ betStep, betInfo, data }) {
           <div className="smart-bet-agent-headtitle">
             <span className="smart-bet-signal-headline">🛡 Safest Bet: {betOutcomeLabel(safestPick)}</span>
           </div>
-          {modelFavorite && (
-            <div className="smart-bet-agree-row">
-              <span className={`smart-bet-agree-chip ${sameBet(safestPick, modelFavorite) ? 'yes' : 'no'}`}>
-                {sameBet(safestPick, modelFavorite) ? 'Model agrees ✓' : 'Model differs ✕'}
-              </span>
-            </div>
-          )}
           <p className="smart-bet-agent-text">
-            At odds of <strong className="smart-bet-highlight">{safestPick.best_odds.toFixed(2)}</strong> from {safestPick.bookmaker}, this is the lowest-risk pick across every market
-            we checked for this match — the model gives it a <strong className="smart-bet-highlight">{(safestPick.probability * 100).toFixed(0)}%</strong> chance, and the bookmaker's own
+            At odds of <strong className="smart-bet-highlight-red">{safestPick.best_odds.toFixed(2)}</strong> from {safestPick.bookmaker}, this is the lowest-risk pick across every market
+            we checked for this match — the model gives it a <strong className="smart-bet-highlight-red">{(safestPick.probability * 100).toFixed(0)}%</strong> chance, and the bookmaker's own
             short odds mean they rate it as close to a sure thing too.
           </p>
         </div>
