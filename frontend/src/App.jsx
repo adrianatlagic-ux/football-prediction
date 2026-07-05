@@ -573,6 +573,9 @@ function SmartBetCard({ betStep, betInfo, data }) {
           </div>
           <p className="smart-bet-agent-text">
             {renderBoldMarkdown(agentEval.bet_reasoning, 'smart-bet-highlight-purple')}
+            {agentPick && (
+              <> Our model rates this at <strong className="smart-bet-highlight-purple">{(agentPick.probability * 100).toFixed(0)}%</strong>.</>
+            )}
           </p>
         </div>
       )}
