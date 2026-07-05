@@ -616,7 +616,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
           </div>
           <p className="smart-bet-agent-text">
             {scenarioText
-              ? renderScenario(scenarioText, data.home_team, data.away_team)
+              ? <>{renderScenario(scenarioText, data.home_team, data.away_team)} Our model rates this at <strong className="smart-bet-highlight-gold">{(modelFavorite.probability * 100).toFixed(0)}%</strong>.</>
               : <>at {modelFavorite.bookmaker} · model estimates <strong className="smart-bet-highlight-gold">{(modelFavorite.probability * 100).toFixed(0)}%</strong>
                 {modelFavorite.market_probability != null && <>, market estimates {(modelFavorite.market_probability * 100).toFixed(0)}%</>}</>}
           </p>
