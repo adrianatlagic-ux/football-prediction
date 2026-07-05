@@ -557,7 +557,9 @@ function SmartBetCard({ betStep, betInfo, data }) {
           <div className="smart-bet-agent-headtitle">
             <span className="smart-bet-agent-headline">✨ AI predicts: {agentEval.bet_headline}</span>
           </div>
-          <p className="smart-bet-agent-text">{agentEval.bet_reasoning}</p>
+          <p className="smart-bet-agent-text">
+            {renderScenario(agentEval.bet_reasoning, data.home_team, data.away_team, 'smart-bet-highlight-purple')}
+          </p>
         </div>
       )}
 
@@ -610,9 +612,9 @@ function SmartBetCard({ betStep, betInfo, data }) {
             <span className="smart-bet-signal-headline">🛡 Safest Bet: {betOutcomeLabel(safestPick)}</span>
           </div>
           <p className="smart-bet-agent-text">
-            At odds of <strong className="smart-bet-highlight-red">{safestPick.best_odds.toFixed(2)}</strong> from {safestPick.bookmaker}, this is the lowest-risk pick across every market
+            At odds of <strong className="smart-bet-highlight-red">{safestPick.best_odds.toFixed(2)}</strong> from {safestPick.bookmaker}, this is the <strong className="smart-bet-highlight-red">lowest-risk pick</strong> across every market
             we checked for this match — the model gives it a <strong className="smart-bet-highlight-red">{(safestPick.probability * 100).toFixed(0)}%</strong> chance, and the bookmaker's own
-            short odds mean they rate it as close to a sure thing too.
+            short odds mean they rate it as <strong className="smart-bet-highlight-red">close to a sure thing</strong> too.
           </p>
         </div>
       ) : (
