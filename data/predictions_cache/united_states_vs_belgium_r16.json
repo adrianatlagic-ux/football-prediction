@@ -1,0 +1,309 @@
+{
+  "home_team": "United States",
+  "away_team": "Belgium",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.3022,
+  "probability_draw": 0.2174,
+  "probability_away_win": 0.4805,
+  "score_prediction": {
+    "home_xg": 1.65,
+    "away_xg": 1.74,
+    "rho": -0.13,
+    "most_likely_score": "1:2",
+    "result": "A",
+    "probability_home_win": 0.3022,
+    "probability_draw": 0.2174,
+    "probability_away_win": 0.4805,
+    "top_scorelines": [
+      {
+        "score": "1:2",
+        "probability": 0.1029
+      },
+      {
+        "score": "0:2",
+        "probability": 0.0624
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0597
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0563
+      },
+      {
+        "score": "2:3",
+        "probability": 0.0493
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.5195,
+        "home_or_away": 0.7826,
+        "draw_or_away": 0.6978
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.867,
+          "under": 0.133
+        },
+        {
+          "line": 2.5,
+          "over": 0.6712,
+          "under": 0.3288
+        },
+        {
+          "line": 3.5,
+          "over": 0.4428,
+          "under": 0.5572
+        }
+      ],
+      "btts": {
+        "yes": 0.6719,
+        "no": 0.3281
+      },
+      "win_margin": {
+        "home_1plus": 0.3022,
+        "home_2plus": 0.156,
+        "home_3plus": 0.0634,
+        "away_1plus": 0.4805,
+        "away_2plus": 0.2583,
+        "away_3plus": 0.1101
+      },
+      "scenario": "Belgium are favorites with a 48% win probability and 1-2 most likely score, supported by a perfect head-to-head record against the US."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.03,
+    "total_xg": 3.39,
+    "first_goal": {
+      "United States_scores_first": 0.47,
+      "Belgium_scores_first": 0.496,
+      "no_goals": 0.034,
+      "expected_minute": 26
+    },
+    "halftime_xg": {
+      "United States": 0.78,
+      "Belgium": 0.82
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.204
+      },
+      {
+        "score": "0:1",
+        "probability": 0.167
+      },
+      {
+        "score": "1:0",
+        "probability": 0.158
+      },
+      {
+        "score": "1:1",
+        "probability": 0.129
+      },
+      {
+        "score": "0:2",
+        "probability": 0.068
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "United States": 0.223,
+        "Belgium": 0.235
+      },
+      "16-30'": {
+        "United States": 0.256,
+        "Belgium": 0.27
+      },
+      "31-45'": {
+        "United States": 0.297,
+        "Belgium": 0.313
+      },
+      "46-60'": {
+        "United States": 0.239,
+        "Belgium": 0.252
+      },
+      "61-75'": {
+        "United States": 0.305,
+        "Belgium": 0.322
+      },
+      "76-90'": {
+        "United States": 0.33,
+        "Belgium": 0.348
+      }
+    },
+    "comeback_probability": {
+      "United States": 0.037,
+      "Belgium": 0.039
+    },
+    "late_drama_probability": 0.492,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.226
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.173
+      },
+      {
+        "szenario": "Belgium dominiert früh",
+        "beschreibung": "Belgium geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.069
+      },
+      {
+        "szenario": "United States dominiert früh",
+        "beschreibung": "United States geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.062
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 49,
+        "away": 51
+      },
+      "shots": {
+        "home": 15,
+        "away": 16
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 7
+      },
+      "corners": {
+        "home": 6,
+        "away": 7
+      },
+      "passes": {
+        "home": 255,
+        "away": 265
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between United States and Belgium is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 7,
+        "type": "chance",
+        "team": "United States",
+        "headline": "Big chance for United States!",
+        "description": "United States create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 13,
+        "type": "goal",
+        "team": "Belgium",
+        "headline": "GOAL! Belgium!",
+        "description": "Belgium score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 32,
+        "type": "chance",
+        "team": "United States",
+        "headline": "Big chance for United States!",
+        "description": "United States create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 54,
+        "type": "chance",
+        "team": "Belgium",
+        "headline": "Big chance for Belgium!",
+        "description": "Belgium create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 66,
+        "type": "goal",
+        "team": "United States",
+        "headline": "GOAL! United States!",
+        "description": "United States score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 69,
+        "type": "goal",
+        "team": "Belgium",
+        "headline": "GOAL! Belgium!",
+        "description": "Belgium score to make it 1:2.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 90,
+        "type": "chance",
+        "team": "Belgium",
+        "headline": "Big chance for Belgium!",
+        "description": "Belgium create a great opportunity but fail to convert.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:2.",
+        "score_after": "1:2"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "United States": 16,
+      "Belgium": 9
+    },
+    "fifa_points": {
+      "United States": 1656.0,
+      "Belgium": 1768.0
+    },
+    "form_last_10_avg_pts": {
+      "United States": 2.13,
+      "Belgium": 2.29
+    },
+    "win_rate_last_10": {
+      "United States": "71%",
+      "Belgium": "64%"
+    },
+    "avg_goals_scored": {
+      "United States": 1.46,
+      "Belgium": 3.33
+    },
+    "avg_goals_conceded": {
+      "United States": 1.46,
+      "Belgium": 1.24
+    },
+    "clean_sheet_rate": {
+      "United States": "35%",
+      "Belgium": "8%"
+    },
+    "h2h_last_10": {
+      "United States wins": "0%",
+      "draws": "0%",
+      "Belgium wins": "100%",
+      "total_h2h_games": 6
+    }
+  }
+}
