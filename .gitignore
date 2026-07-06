@@ -24,3 +24,9 @@ data/processed/
 htmlcov/
 .coverage
 .fly_token
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
