@@ -137,7 +137,7 @@ def main():
     suspicious_green = Bucket("...davon verdächtige (⚠)")
     all_red = Bucket("Alle roten Wetten (zur Kontrolle)")
     top_rec = Bucket("Nur Top-Empfehlung pro Spiel")
-    consensus = Bucket("Konsens-Empfehlung (Modell+Value+KI kombiniert)")
+    consensus = Bucket("Game Pick (Markt-Favorit)")
     agent_pick = Bucket("KIs eigener Pick")
     agent_agrees = Bucket("Top-Tipp, KI stimmt zu")
     agent_disagrees = Bucket("Top-Tipp, KI widerspricht")
