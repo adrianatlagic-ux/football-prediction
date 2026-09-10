@@ -3,76 +3,76 @@
   "away_team": "Shakhtar Donetsk",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.6173,
-  "probability_draw": 0.1546,
-  "probability_away_win": 0.2282,
+  "probability_home_win": 0.5367,
+  "probability_draw": 0.1955,
+  "probability_away_win": 0.2678,
   "score_prediction": {
     "home_xg": 1.7,
     "away_xg": 1.7,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.6172,
-    "probability_draw": 0.1546,
-    "probability_away_win": 0.2282,
+    "probability_home_win": 0.5367,
+    "probability_draw": 0.1955,
+    "probability_away_win": 0.2678,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.1353
+        "probability": 0.1177
       },
       {
         "score": "2:0",
-        "probability": 0.0797
+        "probability": 0.0693
       },
       {
         "score": "3:1",
-        "probability": 0.0766
+        "probability": 0.0666
       },
       {
         "score": "1:0",
-        "probability": 0.0731
+        "probability": 0.0636
       },
       {
         "score": "3:2",
-        "probability": 0.0651
+        "probability": 0.0566
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.7718,
-        "home_or_away": 0.8454,
-        "draw_or_away": 0.3828
+        "home_or_draw": 0.7322,
+        "home_or_away": 0.8045,
+        "draw_or_away": 0.4633
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8717,
-          "under": 0.1283
+          "over": 0.8693,
+          "under": 0.1307
         },
         {
           "line": 2.5,
-          "over": 0.6955,
-          "under": 0.3045
+          "over": 0.6806,
+          "under": 0.3194
         },
         {
           "line": 3.5,
-          "over": 0.4484,
-          "under": 0.5516
+          "over": 0.4454,
+          "under": 0.5546
         }
       ],
       "btts": {
-        "yes": 0.6623,
-        "no": 0.3377
+        "yes": 0.67,
+        "no": 0.33
       },
       "win_margin": {
-        "home_1plus": 0.6172,
-        "home_2plus": 0.3256,
-        "home_3plus": 0.1357,
-        "away_1plus": 0.2282,
-        "away_2plus": 0.1206,
-        "away_3plus": 0.0504
+        "home_1plus": 0.5367,
+        "home_2plus": 0.2832,
+        "home_3plus": 0.1181,
+        "away_1plus": 0.2678,
+        "away_2plus": 0.1415,
+        "away_3plus": 0.0591
       },
-      "scenario": "Despite poor form, PSV are strong favorites to win with a 2-1 score most likely and a high probability for over 2.5 goals."
+      "scenario": "PSV are favored to win with a likely 2-1 score, and goals are expected from both sides."
     }
   },
   "game_flow": {

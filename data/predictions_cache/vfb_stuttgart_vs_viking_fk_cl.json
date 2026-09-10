@@ -3,76 +3,76 @@
   "away_team": "Viking FK",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.4624,
-  "probability_draw": 0.2982,
-  "probability_away_win": 0.2394,
+  "probability_home_win": 0.4358,
+  "probability_draw": 0.2762,
+  "probability_away_win": 0.2879,
   "score_prediction": {
     "home_xg": 1.7,
     "away_xg": 1.7,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.4624,
-    "probability_draw": 0.2982,
-    "probability_away_win": 0.2394,
+    "probability_home_win": 0.4358,
+    "probability_draw": 0.2762,
+    "probability_away_win": 0.2879,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.1014
+        "probability": 0.0955
       },
       {
         "score": "2:0",
-        "probability": 0.0597
+        "probability": 0.0563
       },
       {
         "score": "3:1",
-        "probability": 0.0574
+        "probability": 0.0541
       },
       {
         "score": "1:0",
-        "probability": 0.0548
+        "probability": 0.0516
       },
       {
         "score": "3:2",
-        "probability": 0.0487
+        "probability": 0.0459
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.7606,
-        "home_or_away": 0.7018,
-        "draw_or_away": 0.5376
+        "home_or_draw": 0.7121,
+        "home_or_away": 0.7238,
+        "draw_or_away": 0.5642
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8623,
-          "under": 0.1377
+          "over": 0.8638,
+          "under": 0.1362
         },
         {
           "line": 2.5,
-          "over": 0.6424,
-          "under": 0.3576
+          "over": 0.6505,
+          "under": 0.3495
         },
         {
           "line": 3.5,
-          "over": 0.4372,
-          "under": 0.5628
+          "over": 0.4391,
+          "under": 0.5609
         }
       ],
       "btts": {
-        "yes": 0.6886,
-        "no": 0.3114
+        "yes": 0.6847,
+        "no": 0.3153
       },
       "win_margin": {
-        "home_1plus": 0.4624,
-        "home_2plus": 0.244,
-        "home_3plus": 0.1017,
-        "away_1plus": 0.2394,
-        "away_2plus": 0.1261,
-        "away_3plus": 0.0525
+        "home_1plus": 0.4358,
+        "home_2plus": 0.2301,
+        "home_3plus": 0.0959,
+        "away_1plus": 0.2879,
+        "away_2plus": 0.152,
+        "away_3plus": 0.0634
       },
-      "scenario": "VfB Stuttgart is favored to win with a 46% chance, and a 2-1 score with both teams scoring is likely."
+      "scenario": "VfB Stuttgart are favorites with a 2-1 score most likely, and both teams are highly expected to score."
     }
   },
   "game_flow": {

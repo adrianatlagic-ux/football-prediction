@@ -3,76 +3,76 @@
   "away_team": "Bodø/Glimt",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.7541,
-  "probability_draw": 0.1343,
-  "probability_away_win": 0.1116,
+  "probability_home_win": 0.6697,
+  "probability_draw": 0.1566,
+  "probability_away_win": 0.1737,
   "score_prediction": {
     "home_xg": 1.7,
     "away_xg": 1.7,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.7541,
-    "probability_draw": 0.1343,
-    "probability_away_win": 0.1116,
+    "probability_home_win": 0.6697,
+    "probability_draw": 0.1566,
+    "probability_away_win": 0.1737,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.1653
+        "probability": 0.1468
       },
       {
         "score": "2:0",
-        "probability": 0.0973
+        "probability": 0.0864
       },
       {
         "score": "3:1",
-        "probability": 0.0936
+        "probability": 0.0831
       },
       {
         "score": "1:0",
-        "probability": 0.0893
+        "probability": 0.0793
       },
       {
         "score": "3:2",
-        "probability": 0.0795
+        "probability": 0.0706
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.8884,
-        "home_or_away": 0.8657,
-        "draw_or_away": 0.2459
+        "home_or_draw": 0.8263,
+        "home_or_away": 0.8434,
+        "draw_or_away": 0.3303
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8726,
-          "under": 0.1274
+          "over": 0.8712,
+          "under": 0.1288
         },
         {
           "line": 2.5,
-          "over": 0.7027,
-          "under": 0.2973
+          "over": 0.6945,
+          "under": 0.3055
         },
         {
           "line": 3.5,
-          "over": 0.4496,
-          "under": 0.5504
+          "over": 0.448,
+          "under": 0.552
         }
       ],
       "btts": {
-        "yes": 0.6584,
-        "no": 0.3416
+        "yes": 0.6625,
+        "no": 0.3375
       },
       "win_margin": {
-        "home_1plus": 0.7541,
-        "home_2plus": 0.3975,
-        "home_3plus": 0.1655,
-        "away_1plus": 0.1116,
-        "away_2plus": 0.059,
-        "away_3plus": 0.0246
+        "home_1plus": 0.6697,
+        "home_2plus": 0.3534,
+        "home_3plus": 0.1473,
+        "away_1plus": 0.1737,
+        "away_2plus": 0.0914,
+        "away_3plus": 0.0379
       },
-      "scenario": "Bayern are heavily favored with a 75% win chance, likely 2-1, given Bodø/Glimt's recent lack of form and zero goals scored."
+      "scenario": "Bayern Munich are strong favorites with a 67% chance to win, and a 2-1 score is most likely, suggesting both teams will score."
     }
   },
   "game_flow": {

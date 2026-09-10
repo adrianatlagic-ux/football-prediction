@@ -3,76 +3,76 @@
   "away_team": "ŠK Slovan Bratislava",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.7355,
-  "probability_draw": 0.1811,
-  "probability_away_win": 0.0833,
+  "probability_home_win": 0.7255,
+  "probability_draw": 0.1708,
+  "probability_away_win": 0.1037,
   "score_prediction": {
     "home_xg": 2.72,
     "away_xg": 1.33,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.7356,
-    "probability_draw": 0.1811,
-    "probability_away_win": 0.0833,
+    "probability_home_win": 0.7255,
+    "probability_draw": 0.1708,
+    "probability_away_win": 0.1037,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.0958
+        "probability": 0.0945
       },
       {
         "score": "3:1",
-        "probability": 0.0869
+        "probability": 0.0857
       },
       {
         "score": "2:0",
-        "probability": 0.0721
+        "probability": 0.0712
       },
       {
         "score": "3:0",
-        "probability": 0.0654
+        "probability": 0.0645
       },
       {
         "score": "4:1",
-        "probability": 0.0591
+        "probability": 0.0583
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.9167,
-        "home_or_away": 0.8189,
-        "draw_or_away": 0.2644
+        "home_or_draw": 0.8963,
+        "home_or_away": 0.8292,
+        "draw_or_away": 0.2745
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.9228,
-          "under": 0.0772
+          "over": 0.9224,
+          "under": 0.0776
         },
         {
           "line": 2.5,
-          "over": 0.772,
-          "under": 0.228
+          "over": 0.7745,
+          "under": 0.2255
         },
         {
           "line": 3.5,
-          "over": 0.585,
-          "under": 0.415
+          "over": 0.5834,
+          "under": 0.4166
         }
       ],
       "btts": {
-        "yes": 0.6865,
-        "no": 0.3135
+        "yes": 0.6859,
+        "no": 0.3141
       },
       "win_margin": {
-        "home_1plus": 0.7356,
-        "home_2plus": 0.5174,
-        "home_3plus": 0.3081,
-        "away_1plus": 0.0833,
-        "away_2plus": 0.0349,
-        "away_3plus": 0.0113
+        "home_1plus": 0.7255,
+        "home_2plus": 0.5098,
+        "home_3plus": 0.3034,
+        "away_1plus": 0.1037,
+        "away_2plus": 0.0435,
+        "away_3plus": 0.0142
       },
-      "scenario": "Paris Saint Germain are strong favorites to win with a 73% chance, a 2-1 score being most likely, and both teams are expected to score."
+      "scenario": "Paris Saint Germain are strong favourites with a 72% win chance, expected to win by two or more goals against a ŠK Slovan Bratislava side with zero recent form."
     }
   },
   "game_flow": {

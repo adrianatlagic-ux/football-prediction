@@ -3,76 +3,76 @@
   "away_team": "AS Roma",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.6444,
-  "probability_draw": 0.1686,
-  "probability_away_win": 0.187,
+  "probability_home_win": 0.5827,
+  "probability_draw": 0.19,
+  "probability_away_win": 0.2274,
   "score_prediction": {
     "home_xg": 1.7,
     "away_xg": 1.7,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.6444,
-    "probability_draw": 0.1686,
-    "probability_away_win": 0.187,
+    "probability_home_win": 0.5826,
+    "probability_draw": 0.19,
+    "probability_away_win": 0.2274,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.1413
+        "probability": 0.1277
       },
       {
         "score": "2:0",
-        "probability": 0.0832
+        "probability": 0.0752
       },
       {
         "score": "3:1",
-        "probability": 0.08
+        "probability": 0.0723
       },
       {
         "score": "1:0",
-        "probability": 0.0763
+        "probability": 0.069
       },
       {
         "score": "3:2",
-        "probability": 0.0679
+        "probability": 0.0614
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.813,
-        "home_or_away": 0.8314,
-        "draw_or_away": 0.3556
+        "home_or_draw": 0.7726,
+        "home_or_away": 0.81,
+        "draw_or_away": 0.4174
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8707,
-          "under": 0.1293
+          "over": 0.8694,
+          "under": 0.1306
         },
         {
           "line": 2.5,
-          "over": 0.6903,
-          "under": 0.3097
+          "over": 0.6825,
+          "under": 0.3175
         },
         {
           "line": 3.5,
-          "over": 0.4472,
-          "under": 0.5528
+          "over": 0.4458,
+          "under": 0.5542
         }
       ],
       "btts": {
-        "yes": 0.6648,
-        "no": 0.3352
+        "yes": 0.6689,
+        "no": 0.3311
       },
       "win_margin": {
-        "home_1plus": 0.6444,
-        "home_2plus": 0.3402,
-        "home_3plus": 0.1419,
-        "away_1plus": 0.187,
-        "away_2plus": 0.0984,
-        "away_3plus": 0.0409
+        "home_1plus": 0.5826,
+        "home_2plus": 0.3072,
+        "home_3plus": 0.128,
+        "away_1plus": 0.2274,
+        "away_2plus": 0.1202,
+        "away_3plus": 0.0503
       },
-      "scenario": "Fenerbahce are strong favorites with a 64% win probability, a 2-1 score most likely, against an AS Roma side with only a 10% win rate."
+      "scenario": "Fenerbahce is favored with a 58% chance, predicted to win 2-1, in a match likely to feature over 2.5 goals."
     }
   },
   "game_flow": {

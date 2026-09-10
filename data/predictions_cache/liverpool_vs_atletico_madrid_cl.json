@@ -3,76 +3,76 @@
   "away_team": "Atlético Madrid",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.7341,
-  "probability_draw": 0.1587,
-  "probability_away_win": 0.1072,
+  "probability_home_win": 0.7016,
+  "probability_draw": 0.1639,
+  "probability_away_win": 0.1344,
   "score_prediction": {
     "home_xg": 2.3,
     "away_xg": 1.23,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.7341,
-    "probability_draw": 0.1587,
-    "probability_away_win": 0.1072,
+    "probability_home_win": 0.7017,
+    "probability_draw": 0.1639,
+    "probability_away_win": 0.1344,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.1162
+        "probability": 0.1111
       },
       {
         "score": "2:0",
-        "probability": 0.0947
+        "probability": 0.0905
       },
       {
         "score": "3:1",
-        "probability": 0.0891
+        "probability": 0.0851
       },
       {
         "score": "3:0",
-        "probability": 0.0726
+        "probability": 0.0694
       },
       {
         "score": "1:0",
-        "probability": 0.0692
+        "probability": 0.0661
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.8928,
-        "home_or_away": 0.8413,
-        "draw_or_away": 0.2659
+        "home_or_draw": 0.8656,
+        "home_or_away": 0.8361,
+        "draw_or_away": 0.2983
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8861,
-          "under": 0.1139
+          "over": 0.8842,
+          "under": 0.1158
         },
         {
           "line": 2.5,
-          "over": 0.709,
-          "under": 0.291
+          "over": 0.7057,
+          "under": 0.2943
         },
         {
           "line": 3.5,
-          "over": 0.4849,
-          "under": 0.5151
+          "over": 0.4809,
+          "under": 0.5191
         }
       ],
       "btts": {
-        "yes": 0.627,
-        "no": 0.373
+        "yes": 0.6305,
+        "no": 0.3695
       },
       "win_margin": {
-        "home_1plus": 0.7341,
-        "home_2plus": 0.4792,
-        "home_3plus": 0.2573,
-        "away_1plus": 0.1072,
-        "away_2plus": 0.0443,
-        "away_3plus": 0.0138
+        "home_1plus": 0.7017,
+        "home_2plus": 0.4579,
+        "home_3plus": 0.2459,
+        "away_1plus": 0.1344,
+        "away_2plus": 0.0554,
+        "away_3plus": 0.0172
       },
-      "scenario": "Liverpool are strong favourites with a 73% chance to win and 2-1 as the most likely score, suggesting over 2.5 goals."
+      "scenario": "Liverpool are strong favourites with a 70% win chance and 2-1 is the most likely score, reinforced by their better recent form."
     }
   },
   "game_flow": {

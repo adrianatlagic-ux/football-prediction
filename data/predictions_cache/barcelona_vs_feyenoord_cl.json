@@ -3,76 +3,76 @@
   "away_team": "Feyenoord",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.6705,
-  "probability_draw": 0.1443,
-  "probability_away_win": 0.1852,
+  "probability_home_win": 0.6039,
+  "probability_draw": 0.1728,
+  "probability_away_win": 0.2233,
   "score_prediction": {
     "home_xg": 2.46,
     "away_xg": 1.43,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.6705,
-    "probability_draw": 0.1443,
-    "probability_away_win": 0.1852,
+    "probability_home_win": 0.6039,
+    "probability_draw": 0.1728,
+    "probability_away_win": 0.2233,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.1002
+        "probability": 0.0903
       },
       {
         "score": "3:1",
-        "probability": 0.0823
+        "probability": 0.0741
       },
       {
         "score": "2:0",
-        "probability": 0.0701
+        "probability": 0.0631
       },
       {
         "score": "3:2",
-        "probability": 0.0589
+        "probability": 0.053
       },
       {
         "score": "3:0",
-        "probability": 0.0575
+        "probability": 0.0518
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.8148,
-        "home_or_away": 0.8557,
-        "draw_or_away": 0.3295
+        "home_or_draw": 0.7767,
+        "home_or_away": 0.8272,
+        "draw_or_away": 0.3961
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.9144,
-          "under": 0.0856
+          "over": 0.9113,
+          "under": 0.0887
         },
         {
           "line": 2.5,
-          "over": 0.7682,
-          "under": 0.2318
+          "over": 0.7569,
+          "under": 0.2431
         },
         {
           "line": 3.5,
-          "over": 0.5545,
-          "under": 0.4455
+          "over": 0.5472,
+          "under": 0.4528
         }
       ],
       "btts": {
-        "yes": 0.691,
-        "no": 0.309
+        "yes": 0.6999,
+        "no": 0.3001
       },
       "win_margin": {
-        "home_1plus": 0.6705,
-        "home_2plus": 0.4444,
-        "home_3plus": 0.2458,
-        "away_1plus": 0.1852,
-        "away_2plus": 0.0826,
-        "away_3plus": 0.0287
+        "home_1plus": 0.6039,
+        "home_2plus": 0.4001,
+        "home_3plus": 0.2213,
+        "away_1plus": 0.2233,
+        "away_2plus": 0.1,
+        "away_3plus": 0.0349
       },
-      "scenario": "Barcelona are strong favorites to win with a 67% chance, 2-1 is the most likely score, and over 2.5 goals are highly probable."
+      "scenario": "Barcelona are strong favorites with a 60% win chance, 2-1 being the most likely score, and both teams are expected to find the net."
     }
   },
   "game_flow": {

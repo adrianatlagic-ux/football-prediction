@@ -3,76 +3,76 @@
   "away_team": "Sabah FK",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.6069,
-  "probability_draw": 0.2212,
-  "probability_away_win": 0.1719,
+  "probability_home_win": 0.5008,
+  "probability_draw": 0.2589,
+  "probability_away_win": 0.2403,
   "score_prediction": {
     "home_xg": 1.46,
     "away_xg": 1.62,
     "rho": -0.13,
     "most_likely_score": "2:1",
     "result": "H",
-    "probability_home_win": 0.6069,
-    "probability_draw": 0.2212,
-    "probability_away_win": 0.1719,
+    "probability_home_win": 0.5008,
+    "probability_draw": 0.2589,
+    "probability_away_win": 0.2403,
     "top_scorelines": [
       {
         "score": "2:1",
-        "probability": 0.145
+        "probability": 0.1196
       },
       {
         "score": "1:0",
-        "probability": 0.0971
+        "probability": 0.0801
       },
       {
         "score": "2:0",
-        "probability": 0.0898
+        "probability": 0.0741
       },
       {
         "score": "3:1",
-        "probability": 0.0706
+        "probability": 0.0583
       },
       {
         "score": "3:2",
-        "probability": 0.057
+        "probability": 0.0471
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.8281,
-        "home_or_away": 0.7788,
-        "draw_or_away": 0.3931
+        "home_or_draw": 0.7597,
+        "home_or_away": 0.7411,
+        "draw_or_away": 0.4992
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8268,
-          "under": 0.1732
+          "over": 0.8251,
+          "under": 0.1749
         },
         {
           "line": 2.5,
-          "over": 0.6092,
-          "under": 0.3908
+          "over": 0.5956,
+          "under": 0.4044
         },
         {
           "line": 3.5,
-          "over": 0.3688,
-          "under": 0.6312
+          "over": 0.3676,
+          "under": 0.6324
         }
       ],
       "btts": {
-        "yes": 0.6235,
-        "no": 0.3765
+        "yes": 0.6298,
+        "no": 0.3702
       },
       "win_margin": {
-        "home_1plus": 0.6069,
-        "home_2plus": 0.2952,
-        "home_3plus": 0.1104,
-        "away_1plus": 0.1719,
-        "away_2plus": 0.0898,
-        "away_3plus": 0.0366
+        "home_1plus": 0.5008,
+        "home_2plus": 0.2436,
+        "home_3plus": 0.091,
+        "away_1plus": 0.2403,
+        "away_2plus": 0.1257,
+        "away_3plus": 0.0513
       },
-      "scenario": "Manchester United are strong favourites at over 60% likelihood to win, with 2-1 the most probable score despite Sabah FK's current lack of form or goals."
+      "scenario": "Despite a 22% win rate, Manchester United are still favoured for a tight 2-1 victory over Sabah FK, with both teams expected to score."
     }
   },
   "game_flow": {

@@ -14,10 +14,13 @@ from .evaluation import evaluate
 
 RESULT_LABELS = {"H": "Home Win", "D": "Draw", "A": "Away Win"}
 
-# Same Poisson/classifier blend ratio as the national-team model (see
-# src/predictor.py) - no club-specific tuning done yet, revisit once there's
-# a graded track record to tune against (scripts/tune_blend.py equivalent).
-POISSON_BLEND = 0.20
+# Empirically tuned via scripts/tune_club_blend.py: 40% Poisson maximizes
+# accuracy (47.2% -> 51.6%) and log-loss keeps improving up to ~60-70%
+# Poisson, unlike the WC model where 20% was optimal. Makes sense - club
+# teams play far more matches than national teams, so the Poisson
+# attack/defense ratings have much more data to work with and carry more
+# signal here than the classifier's sparser feature set.
+POISSON_BLEND = 0.40
 
 
 class ClubFootballPredictor:
@@ -69,9 +72,15 @@ class ClubFootballPredictor:
         # Simple recency decay only - no tournament-tier weighting like the WC
         # model (there's no "qualifier vs friendly" distinction for clubs;
         # league and Champions League matches are both fully competitive).
+        #
+        # half_life_days tuned via scripts/tune_club_recency.py: 545 days (18
+        # months) beats the initial guess of 365 by a wide margin (47.9% ->
+        # 50.9% accuracy). With only ~3000 matches total, decaying too
+        # aggressively throws away scarce signal faster than it buys
+        # relevance - a longer half-life keeps more effective sample size.
         ref_date = pd.Timestamp.now()
         days_ago = (ref_date - df["date"]).dt.days.clip(lower=0).values
-        half_life_days = 365
+        half_life_days = 545
         weights = np.exp(-np.log(2) / half_life_days * days_ago)
         return weights / weights.mean()
 
