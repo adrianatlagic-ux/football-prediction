@@ -1,0 +1,98 @@
+[
+  {
+    "group": "League Phase",
+    "date": "2026-09-09",
+    "time": "16:45",
+    "home_team": "Barcelona",
+    "away_team": "Feyenoord",
+    "match_id": "barcelona_vs_feyenoord_cl"
+  },
+  {
+    "group": "League Phase",
+    "date": "2026-09-09",
+    "time": "16:45",
+    "home_team": "VfB Stuttgart",
+    "away_team": "Viking FK",
+    "match_id": "vfb_stuttgart_vs_viking_fk_cl"
+  },
+  {
+    "group": "League Phase",
+    "date": "2026-09-09",
+    "time": "19:00",
+    "home_team": "Napoli",
+    "away_team": "Arsenal",
+    "match_id": "napoli_vs_arsenal_cl"
+  },
+  {
+    "group": "League Phase",
+    "date": "2026-09-09",
+    "time": "19:00",
+    "home_team": "Liverpool",
+    "away_team": "Atlético Madrid",
+    "match_id": "liverpool_vs_atletico_madrid_cl"
+  },
+  {
+    "group": "League Phase",
+    "date": "2026-09-09",
+    "time": "19:00",
+    "home_team": "Sporting Lisbon",
+    "away_team": "Galatasaray",
+    "match_id": "sporting_lisbon_vs_galatasaray_cl"
+  },
+  {
+    "group": "League Phase",
+    "date": "2026-09-09",
+    "time": "19:00",
+    "home_team": "Paris Saint Germain",
+    "away_team": "ŠK Slovan Bratislava",
+    "match_id": "paris_saint_germain_vs_sk_slovan_bratislava_cl"
+  },
+  {
+    "group": "League Phase",
+    "date": "2026-09-10",
+    "time": "16:45",
+    "home_team": "Fenerbahce",
+    "away_team": "AS Roma",
+    "match_id": "fenerbahce_vs_as_roma_cl"
+  },
+  {
+    "group": "League Phase",
+    "date": "2026-09-10",
+    "time": "16:45",
+    "home_team": "PSV Eindhoven",
+    "away_team": "Shakhtar Donetsk",
+    "match_id": "psv_eindhoven_vs_shakhtar_donetsk_cl"
+  },
+  {
+    "group": "League Phase",
+    "date": "2026-09-10",
+    "time": "19:00",
+    "home_team": "Bayern Munich",
+    "away_team": "Bodø/Glimt",
+    "match_id": "bayern_munich_vs_bod_glimt_cl"
+  },
+  {
+    "group": "League Phase",
+    "date": "2026-09-10",
+    "time": "19:00",
+    "home_team": "Como",
+    "away_team": "RB Leipzig",
+    "match_id": "como_vs_rb_leipzig_cl"
+  },
+  {
+    "group": "League Phase",
+    "date": "2026-09-10",
+    "time": "19:00",
+    "home_team": "Manchester United",
+    "away_team": "Sabah FK",
+    "match_id": "manchester_united_vs_sabah_fk_cl"
+  },
+  {
+    "group": "League Phase",
+    "date": "2026-09-10",
+    "time": "19:00",
+    "home_team": "Slavia Praha",
+    "away_team": "RC Lens",
+    "match_id": "slavia_praha_vs_rc_lens_cl"
+  }
+]

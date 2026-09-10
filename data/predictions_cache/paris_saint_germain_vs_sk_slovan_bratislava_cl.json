@@ -1,0 +1,296 @@
+{
+  "home_team": "Paris Saint Germain",
+  "away_team": "ŠK Slovan Bratislava",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.7355,
+  "probability_draw": 0.1811,
+  "probability_away_win": 0.0833,
+  "score_prediction": {
+    "home_xg": 2.72,
+    "away_xg": 1.33,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.7356,
+    "probability_draw": 0.1811,
+    "probability_away_win": 0.0833,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.0958
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0869
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0721
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0654
+      },
+      {
+        "score": "4:1",
+        "probability": 0.0591
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.9167,
+        "home_or_away": 0.8189,
+        "draw_or_away": 0.2644
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.9228,
+          "under": 0.0772
+        },
+        {
+          "line": 2.5,
+          "over": 0.772,
+          "under": 0.228
+        },
+        {
+          "line": 3.5,
+          "over": 0.585,
+          "under": 0.415
+        }
+      ],
+      "btts": {
+        "yes": 0.6865,
+        "no": 0.3135
+      },
+      "win_margin": {
+        "home_1plus": 0.7356,
+        "home_2plus": 0.5174,
+        "home_3plus": 0.3081,
+        "away_1plus": 0.0833,
+        "away_2plus": 0.0349,
+        "away_3plus": 0.0113
+      },
+      "scenario": "Paris Saint Germain are strong favorites to win with a 73% chance, a 2-1 score being most likely, and both teams are expected to score."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.34,
+    "total_xg": 4.05,
+    "first_goal": {
+      "Paris Saint Germain_scores_first": 0.66,
+      "ŠK Slovan Bratislava_scores_first": 0.323,
+      "no_goals": 0.017,
+      "expected_minute": 22
+    },
+    "halftime_xg": {
+      "Paris Saint Germain": 1.28,
+      "ŠK Slovan Bratislava": 0.63
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.193
+      },
+      {
+        "score": "0:0",
+        "probability": 0.151
+      },
+      {
+        "score": "2:0",
+        "probability": 0.123
+      },
+      {
+        "score": "1:1",
+        "probability": 0.12
+      },
+      {
+        "score": "0:1",
+        "probability": 0.094
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Paris Saint Germain": 0.367,
+        "ŠK Slovan Bratislava": 0.18
+      },
+      "16-30'": {
+        "Paris Saint Germain": 0.422,
+        "ŠK Slovan Bratislava": 0.206
+      },
+      "31-45'": {
+        "Paris Saint Germain": 0.49,
+        "ŠK Slovan Bratislava": 0.239
+      },
+      "46-60'": {
+        "Paris Saint Germain": 0.394,
+        "ŠK Slovan Bratislava": 0.193
+      },
+      "61-75'": {
+        "Paris Saint Germain": 0.503,
+        "ŠK Slovan Bratislava": 0.246
+      },
+      "76-90'": {
+        "Paris Saint Germain": 0.544,
+        "ŠK Slovan Bratislava": 0.266
+      }
+    },
+    "comeback_probability": {
+      "Paris Saint Germain": 0.05,
+      "ŠK Slovan Bratislava": 0.026
+    },
+    "late_drama_probability": 0.555,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.137
+      },
+      {
+        "szenario": "Paris Saint Germain dominiert früh",
+        "beschreibung": "Paris Saint Germain geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.127
+      },
+      {
+        "szenario": "Paris Saint Germain dreht es noch",
+        "beschreibung": "Paris Saint Germain liegt zur Halbzeit zurück, dreht das Spiel in H2",
+        "wahrscheinlichkeit": 0.05
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 56,
+        "away": 44
+      },
+      "shots": {
+        "home": 22,
+        "away": 13
+      },
+      "shots_on_target": {
+        "home": 9,
+        "away": 5
+      },
+      "corners": {
+        "home": 9,
+        "away": 5
+      },
+      "passes": {
+        "home": 291,
+        "away": 229
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Paris Saint Germain and ŠK Slovan Bratislava is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 9,
+        "type": "chance",
+        "team": "Paris Saint Germain",
+        "headline": "Big chance for Paris Saint Germain!",
+        "description": "Paris Saint Germain create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 21,
+        "type": "chance",
+        "team": "Paris Saint Germain",
+        "headline": "Big chance for Paris Saint Germain!",
+        "description": "Paris Saint Germain create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 33,
+        "type": "goal",
+        "team": "Paris Saint Germain",
+        "headline": "GOAL! Paris Saint Germain!",
+        "description": "Paris Saint Germain score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 46,
+        "type": "chance",
+        "team": "ŠK Slovan Bratislava",
+        "headline": "Big chance for ŠK Slovan Bratislava!",
+        "description": "ŠK Slovan Bratislava create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 59,
+        "type": "chance",
+        "team": "ŠK Slovan Bratislava",
+        "headline": "Big chance for ŠK Slovan Bratislava!",
+        "description": "ŠK Slovan Bratislava create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 61,
+        "type": "goal",
+        "team": "ŠK Slovan Bratislava",
+        "headline": "GOAL! ŠK Slovan Bratislava!",
+        "description": "ŠK Slovan Bratislava score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 78,
+        "type": "goal",
+        "team": "Paris Saint Germain",
+        "headline": "GOAL! Paris Saint Germain!",
+        "description": "Paris Saint Germain score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Paris Saint Germain": 2.12,
+      "ŠK Slovan Bratislava": 0.0
+    },
+    "win_rate_last_10": {
+      "Paris Saint Germain": "56%",
+      "ŠK Slovan Bratislava": "0%"
+    },
+    "avg_goals_scored": {
+      "Paris Saint Germain": 2.16,
+      "ŠK Slovan Bratislava": 0.0
+    },
+    "avg_goals_conceded": {
+      "Paris Saint Germain": 0.92,
+      "ŠK Slovan Bratislava": 0.0
+    },
+    "clean_sheet_rate": {
+      "Paris Saint Germain": "37%",
+      "ŠK Slovan Bratislava": "0%"
+    },
+    "h2h_last_10": {
+      "Paris Saint Germain wins": "0%",
+      "draws": "0%",
+      "ŠK Slovan Bratislava wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

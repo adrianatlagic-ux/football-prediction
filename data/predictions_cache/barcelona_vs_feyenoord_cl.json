@@ -1,0 +1,296 @@
+{
+  "home_team": "Barcelona",
+  "away_team": "Feyenoord",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6705,
+  "probability_draw": 0.1443,
+  "probability_away_win": 0.1852,
+  "score_prediction": {
+    "home_xg": 2.46,
+    "away_xg": 1.43,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.6705,
+    "probability_draw": 0.1443,
+    "probability_away_win": 0.1852,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1002
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0823
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0701
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0589
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0575
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8148,
+        "home_or_away": 0.8557,
+        "draw_or_away": 0.3295
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.9144,
+          "under": 0.0856
+        },
+        {
+          "line": 2.5,
+          "over": 0.7682,
+          "under": 0.2318
+        },
+        {
+          "line": 3.5,
+          "over": 0.5545,
+          "under": 0.4455
+        }
+      ],
+      "btts": {
+        "yes": 0.691,
+        "no": 0.309
+      },
+      "win_margin": {
+        "home_1plus": 0.6705,
+        "home_2plus": 0.4444,
+        "home_3plus": 0.2458,
+        "away_1plus": 0.1852,
+        "away_2plus": 0.0826,
+        "away_3plus": 0.0287
+      },
+      "scenario": "Barcelona are strong favorites to win with a 67% chance, 2-1 is the most likely score, and over 2.5 goals are highly probable."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.26,
+    "total_xg": 3.89,
+    "first_goal": {
+      "Barcelona_scores_first": 0.619,
+      "Feyenoord_scores_first": 0.36,
+      "no_goals": 0.02,
+      "expected_minute": 23
+    },
+    "halftime_xg": {
+      "Barcelona": 1.16,
+      "Feyenoord": 0.67
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.187
+      },
+      {
+        "score": "0:0",
+        "probability": 0.162
+      },
+      {
+        "score": "1:1",
+        "probability": 0.126
+      },
+      {
+        "score": "0:1",
+        "probability": 0.109
+      },
+      {
+        "score": "2:0",
+        "probability": 0.108
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Barcelona": 0.332,
+        "Feyenoord": 0.193
+      },
+      "16-30'": {
+        "Barcelona": 0.381,
+        "Feyenoord": 0.222
+      },
+      "31-45'": {
+        "Barcelona": 0.443,
+        "Feyenoord": 0.257
+      },
+      "46-60'": {
+        "Barcelona": 0.357,
+        "Feyenoord": 0.207
+      },
+      "61-75'": {
+        "Barcelona": 0.455,
+        "Feyenoord": 0.265
+      },
+      "76-90'": {
+        "Barcelona": 0.492,
+        "Feyenoord": 0.286
+      }
+    },
+    "comeback_probability": {
+      "Barcelona": 0.049,
+      "Feyenoord": 0.03
+    },
+    "late_drama_probability": 0.541,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.145
+      },
+      {
+        "szenario": "Barcelona dominiert früh",
+        "beschreibung": "Barcelona geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.111
+      },
+      {
+        "szenario": "Barcelona dreht es noch",
+        "beschreibung": "Barcelona liegt zur Halbzeit zurück, dreht das Spiel in H2",
+        "wahrscheinlichkeit": 0.049
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 55,
+        "away": 45
+      },
+      "shots": {
+        "home": 20,
+        "away": 13
+      },
+      "shots_on_target": {
+        "home": 8,
+        "away": 5
+      },
+      "corners": {
+        "home": 8,
+        "away": 6
+      },
+      "passes": {
+        "home": 286,
+        "away": 234
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Barcelona and Feyenoord is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 11,
+        "type": "chance",
+        "team": "Barcelona",
+        "headline": "Big chance for Barcelona!",
+        "description": "Barcelona create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 42,
+        "type": "chance",
+        "team": "Feyenoord",
+        "headline": "Big chance for Feyenoord!",
+        "description": "Feyenoord create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 43,
+        "type": "goal",
+        "team": "Barcelona",
+        "headline": "GOAL! Barcelona!",
+        "description": "Barcelona score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 66,
+        "type": "goal",
+        "team": "Barcelona",
+        "headline": "GOAL! Barcelona!",
+        "description": "Barcelona score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 77,
+        "type": "goal",
+        "team": "Feyenoord",
+        "headline": "GOAL! Feyenoord!",
+        "description": "Feyenoord score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 78,
+        "type": "chance",
+        "team": "Barcelona",
+        "headline": "Big chance for Barcelona!",
+        "description": "Barcelona create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "chance",
+        "team": "Barcelona",
+        "headline": "Big chance for Barcelona!",
+        "description": "Barcelona create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Barcelona": 2.01,
+      "Feyenoord": 0.8
+    },
+    "win_rate_last_10": {
+      "Barcelona": "61%",
+      "Feyenoord": "27%"
+    },
+    "avg_goals_scored": {
+      "Barcelona": 1.89,
+      "Feyenoord": 1.35
+    },
+    "avg_goals_conceded": {
+      "Barcelona": 1.75,
+      "Feyenoord": 1.76
+    },
+    "clean_sheet_rate": {
+      "Barcelona": "0%",
+      "Feyenoord": "11%"
+    },
+    "h2h_last_10": {
+      "Barcelona wins": "0%",
+      "draws": "0%",
+      "Feyenoord wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

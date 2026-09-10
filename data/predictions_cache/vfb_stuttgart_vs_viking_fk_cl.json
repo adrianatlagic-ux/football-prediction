@@ -1,0 +1,301 @@
+{
+  "home_team": "VfB Stuttgart",
+  "away_team": "Viking FK",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4624,
+  "probability_draw": 0.2982,
+  "probability_away_win": 0.2394,
+  "score_prediction": {
+    "home_xg": 1.7,
+    "away_xg": 1.7,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.4624,
+    "probability_draw": 0.2982,
+    "probability_away_win": 0.2394,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1014
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0597
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0574
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0548
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0487
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7606,
+        "home_or_away": 0.7018,
+        "draw_or_away": 0.5376
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8623,
+          "under": 0.1377
+        },
+        {
+          "line": 2.5,
+          "over": 0.6424,
+          "under": 0.3576
+        },
+        {
+          "line": 3.5,
+          "over": 0.4372,
+          "under": 0.5628
+        }
+      ],
+      "btts": {
+        "yes": 0.6886,
+        "no": 0.3114
+      },
+      "win_margin": {
+        "home_1plus": 0.4624,
+        "home_2plus": 0.244,
+        "home_3plus": 0.1017,
+        "away_1plus": 0.2394,
+        "away_2plus": 0.1261,
+        "away_3plus": 0.0525
+      },
+      "scenario": "VfB Stuttgart is favored to win with a 46% chance, and a 2-1 score with both teams scoring is likely."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.0,
+    "total_xg": 3.4,
+    "first_goal": {
+      "VfB Stuttgart_scores_first": 0.483,
+      "Viking FK_scores_first": 0.483,
+      "no_goals": 0.033,
+      "expected_minute": 26
+    },
+    "halftime_xg": {
+      "VfB Stuttgart": 0.8,
+      "Viking FK": 0.8
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.203
+      },
+      {
+        "score": "0:1",
+        "probability": 0.162
+      },
+      {
+        "score": "1:0",
+        "probability": 0.162
+      },
+      {
+        "score": "1:1",
+        "probability": 0.13
+      },
+      {
+        "score": "0:2",
+        "probability": 0.065
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "VfB Stuttgart": 0.23,
+        "Viking FK": 0.23
+      },
+      "16-30'": {
+        "VfB Stuttgart": 0.264,
+        "Viking FK": 0.264
+      },
+      "31-45'": {
+        "VfB Stuttgart": 0.306,
+        "Viking FK": 0.306
+      },
+      "46-60'": {
+        "VfB Stuttgart": 0.246,
+        "Viking FK": 0.246
+      },
+      "61-75'": {
+        "VfB Stuttgart": 0.315,
+        "Viking FK": 0.315
+      },
+      "76-90'": {
+        "VfB Stuttgart": 0.34,
+        "Viking FK": 0.34
+      }
+    },
+    "comeback_probability": {
+      "VfB Stuttgart": 0.038,
+      "Viking FK": 0.038
+    },
+    "late_drama_probability": 0.493,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.225
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.172
+      },
+      {
+        "szenario": "VfB Stuttgart dominiert früh",
+        "beschreibung": "VfB Stuttgart geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.066
+      },
+      {
+        "szenario": "Viking FK dominiert früh",
+        "beschreibung": "Viking FK geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.066
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 50,
+        "away": 50
+      },
+      "shots": {
+        "home": 15,
+        "away": 15
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 6
+      },
+      "corners": {
+        "home": 6,
+        "away": 6
+      },
+      "passes": {
+        "home": 260,
+        "away": 260
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between VfB Stuttgart and Viking FK is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 1,
+        "type": "chance",
+        "team": "VfB Stuttgart",
+        "headline": "Big chance for VfB Stuttgart!",
+        "description": "VfB Stuttgart create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 11,
+        "type": "chance",
+        "team": "VfB Stuttgart",
+        "headline": "Big chance for VfB Stuttgart!",
+        "description": "VfB Stuttgart create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 37,
+        "type": "goal",
+        "team": "VfB Stuttgart",
+        "headline": "GOAL! VfB Stuttgart!",
+        "description": "VfB Stuttgart score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 58,
+        "type": "goal",
+        "team": "VfB Stuttgart",
+        "headline": "GOAL! VfB Stuttgart!",
+        "description": "VfB Stuttgart score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 77,
+        "type": "goal",
+        "team": "Viking FK",
+        "headline": "GOAL! Viking FK!",
+        "description": "Viking FK score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 79,
+        "type": "chance",
+        "team": "Viking FK",
+        "headline": "Big chance for Viking FK!",
+        "description": "Viking FK create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 87,
+        "type": "chance",
+        "team": "Viking FK",
+        "headline": "Big chance for Viking FK!",
+        "description": "Viking FK create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "VfB Stuttgart": 0.0,
+      "Viking FK": 0.0
+    },
+    "win_rate_last_10": {
+      "VfB Stuttgart": "0%",
+      "Viking FK": "0%"
+    },
+    "avg_goals_scored": {
+      "VfB Stuttgart": 0.0,
+      "Viking FK": 0.0
+    },
+    "avg_goals_conceded": {
+      "VfB Stuttgart": 0.0,
+      "Viking FK": 0.0
+    },
+    "clean_sheet_rate": {
+      "VfB Stuttgart": "0%",
+      "Viking FK": "0%"
+    },
+    "h2h_last_10": {
+      "VfB Stuttgart wins": "0%",
+      "draws": "0%",
+      "Viking FK wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

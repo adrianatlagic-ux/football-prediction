@@ -1,0 +1,2965 @@
+date,home_team,away_team,home_score,away_score
+2011-09-13,Chelsea,Bayer Leverkusen,2,0
+2011-09-13,Genk,Valencia,0,0
+2011-09-13,Borussia Dortmund,Arsenal,1,1
+2011-09-13,Olympiacos,Marseille,0,1
+2011-09-13,APOEL,Zenit,2,1
+2011-09-13,Porto,Shakhtar Donetsk,2,1
+2011-09-13,Barcelona,Milan,2,2
+2011-09-13,Viktoria Plzen,BATE Borisov,1,1
+2011-09-14,Manchester City,Napoli,1,1
+2011-09-14,Villarreal,Bayern Munich,0,2
+2011-09-14,Lille,CSKA Moscow,2,2
+2011-09-14,Inter Milan,Trabzonspor,0,1
+2011-09-14,Basel,Otelul Galati,2,1
+2011-09-14,Benfica,Manchester United,1,1
+2011-09-14,Ajax,Lyon,0,0
+2011-09-14,Dinamo Zagreb,Real Madrid,0,1
+2011-09-27,Bayern Munich,Manchester City,2,0
+2011-09-27,Napoli,Villarreal,2,0
+2011-09-27,CSKA Moscow,Inter Milan,2,3
+2011-09-27,Trabzonspor,Lille,1,1
+2011-09-27,Manchester United,Basel,3,3
+2011-09-27,Otelul Galati,Benfica,0,1
+2011-09-27,Lyon,Dinamo Zagreb,2,0
+2011-09-27,Real Madrid,Ajax,3,0
+2011-09-28,Bayer Leverkusen,Genk,2,0
+2011-09-28,Valencia,Chelsea,1,1
+2011-09-28,Arsenal,Olympiacos,2,1
+2011-09-28,Marseille,Borussia Dortmund,3,0
+2011-09-28,Zenit,Porto,3,1
+2011-09-28,Shakhtar Donetsk,APOEL,1,1
+2011-09-28,Milan,Viktoria Plzen,2,0
+2011-09-28,BATE Borisov,Barcelona,0,5
+2011-10-18,Manchester City,Villarreal,2,1
+2011-10-18,Napoli,Bayern Munich,1,1
+2011-10-18,CSKA Moscow,Trabzonspor,3,0
+2011-10-18,Lille,Inter Milan,0,1
+2011-10-18,Basel,Benfica,0,2
+2011-10-18,Otelul Galati,Manchester United,0,2
+2011-10-18,Dinamo Zagreb,Ajax,0,2
+2011-10-18,Real Madrid,Lyon,4,0
+2011-10-19,Bayer Leverkusen,Valencia,2,1
+2011-10-19,Chelsea,Genk,5,0
+2011-10-19,Olympiacos,Borussia Dortmund,3,1
+2011-10-19,Marseille,Arsenal,0,1
+2011-10-19,Porto,APOEL,1,1
+2011-10-19,Shakhtar Donetsk,Zenit,2,2
+2011-10-19,Milan,BATE Borisov,2,0
+2011-10-19,Barcelona,Viktoria Plzen,2,0
+2011-11-01,Genk,Chelsea,1,1
+2011-11-01,Valencia,Bayer Leverkusen,3,1
+2011-11-01,Arsenal,Marseille,0,0
+2011-11-01,Borussia Dortmund,Olympiacos,1,0
+2011-11-01,Zenit,Shakhtar Donetsk,1,0
+2011-11-01,APOEL,Porto,2,1
+2011-11-01,BATE Borisov,Milan,1,1
+2011-11-01,Viktoria Plzen,Barcelona,0,4
+2011-11-02,Bayern Munich,Napoli,3,2
+2011-11-02,Villarreal,Manchester City,0,3
+2011-11-02,Trabzonspor,CSKA Moscow,0,0
+2011-11-02,Inter Milan,Lille,2,1
+2011-11-02,Manchester United,Otelul Galati,2,0
+2011-11-02,Benfica,Basel,1,1
+2011-11-02,Ajax,Dinamo Zagreb,4,0
+2011-11-02,Lyon,Real Madrid,0,2
+2011-11-22,Bayern Munich,Villarreal,3,1
+2011-11-22,Napoli,Manchester City,2,1
+2011-11-22,CSKA Moscow,Lille,0,2
+2011-11-22,Trabzonspor,Inter Milan,1,1
+2011-11-22,Manchester United,Benfica,2,2
+2011-11-22,Otelul Galati,Basel,2,3
+2011-11-22,Lyon,Ajax,0,0
+2011-11-22,Real Madrid,Dinamo Zagreb,6,2
+2011-11-23,Bayer Leverkusen,Chelsea,2,1
+2011-11-23,Valencia,Genk,7,0
+2011-11-23,Arsenal,Borussia Dortmund,2,1
+2011-11-23,Marseille,Olympiacos,0,1
+2011-11-23,Zenit,APOEL,0,0
+2011-11-23,Shakhtar Donetsk,Porto,0,2
+2011-11-23,BATE Borisov,Viktoria Plzen,0,1
+2011-11-23,Milan,Barcelona,2,3
+2011-12-06,Chelsea,Valencia,3,0
+2011-12-06,Genk,Bayer Leverkusen,1,1
+2011-12-06,Borussia Dortmund,Marseille,2,3
+2011-12-06,Olympiacos,Arsenal,3,1
+2011-12-06,APOEL,Shakhtar Donetsk,0,2
+2011-12-06,Porto,Zenit,0,0
+2011-12-06,Barcelona,BATE Borisov,4,0
+2011-12-06,Viktoria Plzen,Milan,2,2
+2011-12-07,Manchester City,Bayern Munich,2,0
+2011-12-07,Villarreal,Napoli,0,2
+2011-12-07,Inter Milan,CSKA Moscow,1,2
+2011-12-07,Lille,Trabzonspor,0,0
+2011-12-07,Basel,Manchester United,2,1
+2011-12-07,Benfica,Otelul Galati,1,0
+2011-12-07,Ajax,Real Madrid,0,3
+2011-12-07,Dinamo Zagreb,Lyon,1,7
+2012-02-14,Lyon,APOEL,1,0
+2012-02-14,Bayer Leverkusen,Barcelona,1,3
+2012-02-15,Zenit,Benfica,3,2
+2012-02-15,Milan,Arsenal,4,0
+2012-02-21,CSKA Moscow,Real Madrid,1,1
+2012-02-21,Napoli,Chelsea,3,1
+2012-02-22,Basel,Bayern Munich,1,0
+2012-02-22,Marseille,Inter Milan,1,0
+2012-03-06,Arsenal,Milan,3,0
+2012-03-06,Benfica,Zenit,2,0
+2012-03-07,APOEL,Lyon,1,0
+2012-03-07,Barcelona,Bayer Leverkusen,7,1
+2012-03-13,Bayern Munich,Basel,7,0
+2012-03-13,Inter Milan,Marseille,2,1
+2012-03-14,Chelsea,Napoli,4,1
+2012-03-14,Real Madrid,CSKA Moscow,4,1
+2012-03-27,APOEL,Real Madrid,0,3
+2012-03-27,Benfica,Chelsea,0,1
+2012-03-28,Marseille,Bayern Munich,0,2
+2012-03-28,Milan,Barcelona,0,0
+2012-04-03,Bayern Munich,Marseille,2,0
+2012-04-03,Barcelona,Milan,3,1
+2012-04-04,Real Madrid,APOEL,5,2
+2012-04-04,Chelsea,Benfica,2,1
+2012-04-17,Bayern Munich,Real Madrid,2,1
+2012-04-18,Chelsea,Barcelona,1,0
+2012-04-24,Barcelona,Chelsea,2,2
+2012-04-25,Real Madrid,Bayern Munich,2,1
+2012-05-19,Bayern Munich,Chelsea,1,1
+2014-09-16,Olympiacos,Atlético Madrid,3,2
+2014-09-16,Juventus,Malmo FF,2,0
+2014-09-16,Real Madrid,Basel,5,1
+2014-09-16,Liverpool,Ludogorets Razgrad,2,1
+2014-09-16,Monaco,Bayer Leverkusen,1,0
+2014-09-16,Benfica,Zenit,0,2
+2014-09-16,Borussia Dortmund,Arsenal,2,0
+2014-09-16,Galatasaray,Anderlecht,1,1
+2014-09-17,AS Roma,CSKA Moscow,5,1
+2014-09-17,Bayern Munich,Manchester City,1,0
+2014-09-17,Ajax,Paris Saint Germain,1,1
+2014-09-17,Barcelona,APOEL,1,0
+2014-09-17,Chelsea,Schalke 04,1,1
+2014-09-17,Maribor,Sporting Lisbon,1,1
+2014-09-17,Athletic Bilbao,Shakhtar Donetsk,0,0
+2014-09-17,Porto,BATE Borisov,6,0
+2014-09-30,CSKA Moscow,Bayern Munich,0,1
+2014-09-30,Manchester City,AS Roma,1,1
+2014-09-30,APOEL,Ajax,1,1
+2014-09-30,Paris Saint Germain,Barcelona,3,2
+2014-09-30,Sporting Lisbon,Chelsea,0,1
+2014-09-30,Schalke 04,Maribor,1,1
+2014-09-30,BATE Borisov,Athletic Bilbao,2,1
+2014-09-30,Shakhtar Donetsk,Porto,2,2
+2014-10-01,Atlético Madrid,Juventus,1,0
+2014-10-01,Malmo FF,Olympiacos,2,0
+2014-10-01,Basel,Liverpool,1,0
+2014-10-01,Ludogorets Razgrad,Real Madrid,1,2
+2014-10-01,Zenit,Monaco,0,0
+2014-10-01,Bayer Leverkusen,Benfica,3,1
+2014-10-01,Arsenal,Galatasaray,4,1
+2014-10-01,Anderlecht,Borussia Dortmund,0,3
+2014-10-21,CSKA Moscow,Manchester City,2,2
+2014-10-21,AS Roma,Bayern Munich,1,7
+2014-10-21,Barcelona,Ajax,3,1
+2014-10-21,APOEL,Paris Saint Germain,0,1
+2014-10-21,Chelsea,Maribor,6,0
+2014-10-21,Schalke 04,Sporting Lisbon,4,3
+2014-10-21,Porto,Athletic Bilbao,2,1
+2014-10-21,BATE Borisov,Shakhtar Donetsk,0,7
+2014-10-22,Atlético Madrid,Malmo FF,5,0
+2014-10-22,Olympiacos,Juventus,1,0
+2014-10-22,Ludogorets Razgrad,Basel,1,0
+2014-10-22,Liverpool,Real Madrid,0,3
+2014-10-22,Monaco,Benfica,0,0
+2014-10-22,Bayer Leverkusen,Zenit,2,0
+2014-10-22,Anderlecht,Arsenal,1,2
+2014-10-22,Galatasaray,Borussia Dortmund,0,4
+2014-11-04,Malmo FF,Atlético Madrid,0,2
+2014-11-04,Juventus,Olympiacos,3,2
+2014-11-04,Basel,Ludogorets Razgrad,4,0
+2014-11-04,Real Madrid,Liverpool,1,0
+2014-11-04,Zenit,Bayer Leverkusen,1,2
+2014-11-04,Benfica,Monaco,1,0
+2014-11-04,Arsenal,Anderlecht,3,3
+2014-11-04,Borussia Dortmund,Galatasaray,4,1
+2014-11-05,Bayern Munich,AS Roma,2,0
+2014-11-05,Manchester City,CSKA Moscow,1,2
+2014-11-05,Ajax,Barcelona,0,2
+2014-11-05,Paris Saint Germain,APOEL,1,0
+2014-11-05,Maribor,Chelsea,1,1
+2014-11-05,Sporting Lisbon,Schalke 04,4,2
+2014-11-05,Athletic Bilbao,Porto,0,2
+2014-11-05,Shakhtar Donetsk,BATE Borisov,5,0
+2014-11-25,CSKA Moscow,AS Roma,1,1
+2014-11-25,Manchester City,Bayern Munich,3,2
+2014-11-25,Paris Saint Germain,Ajax,3,1
+2014-11-25,APOEL,Barcelona,0,4
+2014-11-25,Schalke 04,Chelsea,0,5
+2014-11-25,Sporting Lisbon,Maribor,3,1
+2014-11-25,BATE Borisov,Porto,0,3
+2014-11-25,Shakhtar Donetsk,Athletic Bilbao,0,1
+2014-11-26,Atlético Madrid,Olympiacos,4,0
+2014-11-26,Malmo FF,Juventus,0,2
+2014-11-26,Basel,Real Madrid,0,1
+2014-11-26,Ludogorets Razgrad,Liverpool,2,2
+2014-11-26,Zenit,Benfica,1,0
+2014-11-26,Bayer Leverkusen,Monaco,0,1
+2014-11-26,Arsenal,Borussia Dortmund,2,0
+2014-11-26,Anderlecht,Galatasaray,2,0
+2014-12-09,Juventus,Atlético Madrid,0,0
+2014-12-09,Olympiacos,Malmo FF,4,2
+2014-12-09,Liverpool,Basel,1,1
+2014-12-09,Real Madrid,Ludogorets Razgrad,4,0
+2014-12-09,Monaco,Zenit,2,0
+2014-12-09,Benfica,Bayer Leverkusen,0,0
+2014-12-09,Galatasaray,Arsenal,1,4
+2014-12-09,Borussia Dortmund,Anderlecht,1,1
+2014-12-10,AS Roma,Manchester City,0,2
+2014-12-10,Bayern Munich,CSKA Moscow,3,0
+2014-12-10,Ajax,APOEL,4,0
+2014-12-10,Barcelona,Paris Saint Germain,3,1
+2014-12-10,Chelsea,Sporting Lisbon,3,1
+2014-12-10,Maribor,Schalke 04,0,1
+2014-12-10,Athletic Bilbao,BATE Borisov,2,0
+2014-12-10,Porto,Shakhtar Donetsk,1,1
+2015-02-17,Paris Saint Germain,Chelsea,1,1
+2015-02-17,Shakhtar Donetsk,Bayern Munich,0,0
+2015-02-18,Schalke 04,Real Madrid,0,2
+2015-02-18,Basel,Porto,1,1
+2015-02-24,Manchester City,Barcelona,1,2
+2015-02-24,Juventus,Borussia Dortmund,2,1
+2015-02-25,Bayer Leverkusen,Atlético Madrid,1,0
+2015-02-25,Arsenal,Monaco,1,3
+2015-03-10,Real Madrid,Schalke 04,3,4
+2015-03-10,Porto,Basel,4,0
+2015-03-11,Chelsea,Paris Saint Germain,2,2
+2015-03-11,Bayern Munich,Shakhtar Donetsk,7,0
+2015-03-17,Atlético Madrid,Bayer Leverkusen,1,0
+2015-03-17,Monaco,Arsenal,0,2
+2015-03-18,Barcelona,Manchester City,1,0
+2015-03-18,Borussia Dortmund,Juventus,0,3
+2015-04-14,Atlético Madrid,Real Madrid,0,0
+2015-04-14,Juventus,Monaco,1,0
+2015-04-15,Paris Saint Germain,Barcelona,1,3
+2015-04-15,Porto,Bayern Munich,3,1
+2015-04-21,Barcelona,Paris Saint Germain,2,0
+2015-04-21,Bayern Munich,Porto,6,1
+2015-04-22,Real Madrid,Atlético Madrid,1,0
+2015-04-22,Monaco,Juventus,0,0
+2015-05-05,Juventus,Real Madrid,2,1
+2015-05-06,Barcelona,Bayern Munich,3,0
+2015-05-12,Bayern Munich,Barcelona,3,2
+2015-05-13,Real Madrid,Juventus,1,1
+2015-06-06,Juventus,Barcelona,1,3
+2015-09-15,Real Madrid,Shakhtar Donetsk,4,0
+2015-09-15,Paris Saint Germain,Malmo FF,2,0
+2015-09-15,Wolfsburg,CSKA Moscow,1,0
+2015-09-15,PSV Eindhoven,Manchester United,2,1
+2015-09-15,Benfica,Astana,2,0
+2015-09-15,Galatasaray,Atlético Madrid,0,2
+2015-09-15,Sevilla,Borussia Mönchengladbach,3,0
+2015-09-15,Manchester City,Juventus,1,2
+2015-09-16,AS Roma,Barcelona,1,1
+2015-09-16,Bayer Leverkusen,BATE Borisov,4,1
+2015-09-16,Olympiacos,Bayern Munich,0,3
+2015-09-16,Dinamo Zagreb,Arsenal,2,1
+2015-09-16,Dynamo Kyiv,Porto,2,2
+2015-09-16,Chelsea,Maccabi Tel Aviv,4,0
+2015-09-16,Valencia,Zenit,2,3
+2015-09-16,Gent,Lyon,1,1
+2015-09-29,Barcelona,Bayer Leverkusen,2,1
+2015-09-29,BATE Borisov,AS Roma,3,2
+2015-09-29,Arsenal,Olympiacos,2,3
+2015-09-29,Bayern Munich,Dinamo Zagreb,5,0
+2015-09-29,Porto,Chelsea,2,1
+2015-09-29,Maccabi Tel Aviv,Dynamo Kyiv,0,2
+2015-09-29,Lyon,Valencia,0,1
+2015-09-29,Zenit,Gent,2,1
+2015-09-30,Malmo FF,Real Madrid,0,2
+2015-09-30,Shakhtar Donetsk,Paris Saint Germain,0,3
+2015-09-30,CSKA Moscow,PSV Eindhoven,3,2
+2015-09-30,Manchester United,Wolfsburg,2,1
+2015-09-30,Astana,Galatasaray,2,2
+2015-09-30,Atlético Madrid,Benfica,1,2
+2015-09-30,Juventus,Sevilla,2,0
+2015-09-30,Borussia Mönchengladbach,Manchester City,1,2
+2015-10-20,BATE Borisov,Barcelona,0,2
+2015-10-20,Bayer Leverkusen,AS Roma,4,4
+2015-10-20,Arsenal,Bayern Munich,2,0
+2015-10-20,Dinamo Zagreb,Olympiacos,0,1
+2015-10-20,Porto,Maccabi Tel Aviv,2,0
+2015-10-20,Dynamo Kyiv,Chelsea,0,0
+2015-10-20,Valencia,Gent,2,1
+2015-10-20,Zenit,Lyon,3,1
+2015-10-21,Paris Saint Germain,Real Madrid,0,0
+2015-10-21,Malmo FF,Shakhtar Donetsk,1,0
+2015-10-21,CSKA Moscow,Manchester United,1,1
+2015-10-21,Wolfsburg,PSV Eindhoven,2,0
+2015-10-21,Galatasaray,Benfica,2,1
+2015-10-21,Atlético Madrid,Astana,4,0
+2015-10-21,Manchester City,Sevilla,2,1
+2015-10-21,Juventus,Borussia Mönchengladbach,0,0
+2015-11-03,Real Madrid,Paris Saint Germain,1,0
+2015-11-03,Shakhtar Donetsk,Malmo FF,4,0
+2015-11-03,PSV Eindhoven,Wolfsburg,2,0
+2015-11-03,Manchester United,CSKA Moscow,1,0
+2015-11-03,Astana,Atlético Madrid,0,0
+2015-11-03,Benfica,Galatasaray,2,1
+2015-11-03,Borussia Mönchengladbach,Juventus,1,1
+2015-11-03,Sevilla,Manchester City,1,3
+2015-11-04,AS Roma,Bayer Leverkusen,3,2
+2015-11-04,Barcelona,BATE Borisov,3,0
+2015-11-04,Bayern Munich,Arsenal,5,1
+2015-11-04,Olympiacos,Dinamo Zagreb,2,1
+2015-11-04,Chelsea,Dynamo Kyiv,2,1
+2015-11-04,Maccabi Tel Aviv,Porto,1,3
+2015-11-04,Lyon,Zenit,0,2
+2015-11-04,Gent,Valencia,1,0
+2015-11-24,BATE Borisov,Bayer Leverkusen,1,1
+2015-11-24,Barcelona,AS Roma,6,1
+2015-11-24,Bayern Munich,Olympiacos,4,0
+2015-11-24,Arsenal,Dinamo Zagreb,3,0
+2015-11-24,Maccabi Tel Aviv,Chelsea,0,4
+2015-11-24,Porto,Dynamo Kyiv,0,2
+2015-11-24,Zenit,Valencia,2,0
+2015-11-24,Lyon,Gent,1,2
+2015-11-25,Malmo FF,Paris Saint Germain,0,5
+2015-11-25,Shakhtar Donetsk,Real Madrid,3,4
+2015-11-25,CSKA Moscow,Wolfsburg,0,2
+2015-11-25,Manchester United,PSV Eindhoven,0,0
+2015-11-25,Astana,Benfica,2,2
+2015-11-25,Atlético Madrid,Galatasaray,2,0
+2015-11-25,Juventus,Manchester City,1,0
+2015-11-25,Borussia Mönchengladbach,Sevilla,4,2
+2015-12-08,Paris Saint Germain,Shakhtar Donetsk,2,0
+2015-12-08,Real Madrid,Malmo FF,8,0
+2015-12-08,Wolfsburg,Manchester United,3,2
+2015-12-08,PSV Eindhoven,CSKA Moscow,2,1
+2015-12-08,Galatasaray,Astana,1,1
+2015-12-08,Benfica,Atlético Madrid,1,2
+2015-12-08,Manchester City,Borussia Mönchengladbach,4,2
+2015-12-08,Sevilla,Juventus,1,0
+2015-12-09,Bayer Leverkusen,Barcelona,1,1
+2015-12-09,AS Roma,BATE Borisov,0,0
+2015-12-09,Dinamo Zagreb,Bayern Munich,0,2
+2015-12-09,Olympiacos,Arsenal,0,3
+2015-12-09,Chelsea,Porto,2,0
+2015-12-09,Dynamo Kyiv,Maccabi Tel Aviv,1,0
+2015-12-09,Valencia,Lyon,0,2
+2015-12-09,Gent,Zenit,2,1
+2016-02-16,Paris Saint Germain,Chelsea,2,1
+2016-02-16,Benfica,Zenit,1,0
+2016-02-17,Gent,Wolfsburg,2,3
+2016-02-17,AS Roma,Real Madrid,0,2
+2016-02-23,Arsenal,Barcelona,0,2
+2016-02-23,Juventus,Bayern Munich,2,2
+2016-02-24,PSV Eindhoven,Atlético Madrid,0,0
+2016-02-24,Dynamo Kyiv,Manchester City,1,3
+2016-03-08,Wolfsburg,Gent,1,0
+2016-03-08,Real Madrid,AS Roma,2,0
+2016-03-09,Zenit,Benfica,1,2
+2016-03-09,Chelsea,Paris Saint Germain,1,2
+2016-03-15,Atlético Madrid,PSV Eindhoven,0,0
+2016-03-15,Manchester City,Dynamo Kyiv,0,0
+2016-03-16,Barcelona,Arsenal,3,1
+2016-03-16,Bayern Munich,Juventus,4,2
+2016-04-05,Bayern Munich,Benfica,1,0
+2016-04-05,Barcelona,Atlético Madrid,2,1
+2016-04-06,Wolfsburg,Real Madrid,2,0
+2016-04-06,Paris Saint Germain,Manchester City,2,2
+2016-04-12,Real Madrid,Wolfsburg,3,0
+2016-04-12,Manchester City,Paris Saint Germain,1,0
+2016-04-13,Benfica,Bayern Munich,2,2
+2016-04-13,Atlético Madrid,Barcelona,2,0
+2016-04-26,Manchester City,Real Madrid,0,0
+2016-04-27,Atlético Madrid,Bayern Munich,1,0
+2016-05-03,Bayern Munich,Atlético Madrid,2,1
+2016-05-04,Real Madrid,Manchester City,1,0
+2016-05-28,Real Madrid,Atlético Madrid,1,1
+2016-09-13,Basel,Ludogorets Razgrad,1,1
+2016-09-13,Paris Saint Germain,Arsenal,1,1
+2016-09-13,Dynamo Kyiv,Napoli,1,2
+2016-09-13,Benfica,Besiktas,1,1
+2016-09-13,Barcelona,Celtic,7,0
+2016-09-13,Bayern Munich,Rostov,5,0
+2016-09-13,PSV Eindhoven,Atlético Madrid,0,1
+2016-09-14,Manchester City,Borussia Mönchengladbach,4,0
+2016-09-14,Bayer Leverkusen,CSKA Moscow,2,2
+2016-09-14,Tottenham,Monaco,1,2
+2016-09-14,Legia Warsaw,Borussia Dortmund,0,6
+2016-09-14,Real Madrid,Sporting Lisbon,2,1
+2016-09-14,Club Brugge,Leicester City,0,3
+2016-09-14,Porto,Copenhagen,1,1
+2016-09-14,Juventus,Sevilla,0,0
+2016-09-14,Lyon,Dinamo Zagreb,3,0
+2016-09-27,Monaco,Bayer Leverkusen,1,1
+2016-09-27,CSKA Moscow,Tottenham,0,1
+2016-09-27,Borussia Dortmund,Real Madrid,2,2
+2016-09-27,Sporting Lisbon,Legia Warsaw,2,0
+2016-09-27,Copenhagen,Club Brugge,4,0
+2016-09-27,Leicester City,Porto,1,0
+2016-09-27,Dinamo Zagreb,Juventus,0,4
+2016-09-27,Sevilla,Lyon,1,0
+2016-09-28,Arsenal,Basel,2,0
+2016-09-28,Ludogorets Razgrad,Paris Saint Germain,1,3
+2016-09-28,Besiktas,Dynamo Kyiv,1,1
+2016-09-28,Napoli,Benfica,4,2
+2016-09-28,Borussia Mönchengladbach,Barcelona,1,2
+2016-09-28,Celtic,Manchester City,3,3
+2016-09-28,Atlético Madrid,Bayern Munich,1,0
+2016-09-28,Rostov,PSV Eindhoven,2,2
+2016-10-18,Bayer Leverkusen,Tottenham,0,0
+2016-10-18,CSKA Moscow,Monaco,1,1
+2016-10-18,Real Madrid,Legia Warsaw,5,1
+2016-10-18,Sporting Lisbon,Borussia Dortmund,1,2
+2016-10-18,Club Brugge,Porto,1,2
+2016-10-18,Leicester City,Copenhagen,1,0
+2016-10-18,Dinamo Zagreb,Sevilla,0,1
+2016-10-18,Lyon,Juventus,0,1
+2016-10-19,Arsenal,Ludogorets Razgrad,6,0
+2016-10-19,Paris Saint Germain,Basel,3,0
+2016-10-19,Dynamo Kyiv,Benfica,0,2
+2016-10-19,Napoli,Besiktas,2,3
+2016-10-19,Celtic,Borussia Mönchengladbach,0,2
+2016-10-19,Barcelona,Manchester City,4,0
+2016-10-19,Bayern Munich,PSV Eindhoven,4,1
+2016-10-19,Rostov,Atlético Madrid,0,1
+2016-11-01,Basel,Paris Saint Germain,1,2
+2016-11-01,Ludogorets Razgrad,Arsenal,2,3
+2016-11-01,Besiktas,Napoli,1,1
+2016-11-01,Benfica,Dynamo Kyiv,1,0
+2016-11-01,Borussia Mönchengladbach,Celtic,1,1
+2016-11-01,Manchester City,Barcelona,3,1
+2016-11-01,Atlético Madrid,Rostov,2,1
+2016-11-01,PSV Eindhoven,Bayern Munich,1,2
+2016-11-02,Monaco,CSKA Moscow,3,0
+2016-11-02,Tottenham,Bayer Leverkusen,0,1
+2016-11-02,Borussia Dortmund,Sporting Lisbon,1,0
+2016-11-02,Legia Warsaw,Real Madrid,3,3
+2016-11-02,Copenhagen,Leicester City,0,0
+2016-11-02,Porto,Club Brugge,1,0
+2016-11-02,Juventus,Lyon,1,1
+2016-11-02,Sevilla,Dinamo Zagreb,4,0
+2016-11-22,CSKA Moscow,Bayer Leverkusen,1,1
+2016-11-22,Monaco,Tottenham,2,1
+2016-11-22,Borussia Dortmund,Legia Warsaw,8,4
+2016-11-22,Sporting Lisbon,Real Madrid,1,2
+2016-11-22,Copenhagen,Porto,0,0
+2016-11-22,Leicester City,Club Brugge,2,1
+2016-11-22,Dinamo Zagreb,Lyon,0,1
+2016-11-22,Sevilla,Juventus,1,3
+2016-11-23,Arsenal,Paris Saint Germain,2,2
+2016-11-23,Ludogorets Razgrad,Basel,0,0
+2016-11-23,Besiktas,Benfica,3,3
+2016-11-23,Napoli,Dynamo Kyiv,0,0
+2016-11-23,Borussia Mönchengladbach,Manchester City,1,1
+2016-11-23,Celtic,Barcelona,0,2
+2016-11-23,Rostov,Bayern Munich,3,2
+2016-11-23,Atlético Madrid,PSV Eindhoven,2,0
+2016-12-06,Basel,Arsenal,1,4
+2016-12-06,Paris Saint Germain,Ludogorets Razgrad,2,2
+2016-12-06,Dynamo Kyiv,Besiktas,6,0
+2016-12-06,Benfica,Napoli,1,2
+2016-12-06,Barcelona,Borussia Mönchengladbach,4,0
+2016-12-06,Manchester City,Celtic,1,1
+2016-12-06,Bayern Munich,Atlético Madrid,1,0
+2016-12-06,PSV Eindhoven,Rostov,0,0
+2016-12-07,Bayer Leverkusen,Monaco,3,0
+2016-12-07,Tottenham,CSKA Moscow,3,1
+2016-12-07,Legia Warsaw,Sporting Lisbon,1,0
+2016-12-07,Real Madrid,Borussia Dortmund,2,2
+2016-12-07,Club Brugge,Copenhagen,0,2
+2016-12-07,Porto,Leicester City,5,0
+2016-12-07,Juventus,Dinamo Zagreb,2,0
+2016-12-07,Lyon,Sevilla,0,0
+2017-02-14,Benfica,Borussia Dortmund,1,0
+2017-02-14,Paris Saint Germain,Barcelona,4,0
+2017-02-15,Real Madrid,Napoli,3,1
+2017-02-15,Bayern Munich,Arsenal,5,1
+2017-02-21,Manchester City,Monaco,5,3
+2017-02-21,Bayer Leverkusen,Atlético Madrid,2,4
+2017-02-22,Porto,Juventus,0,2
+2017-02-22,Sevilla,Leicester City,2,1
+2017-03-07,Napoli,Real Madrid,1,3
+2017-03-07,Arsenal,Bayern Munich,1,5
+2017-03-08,Borussia Dortmund,Benfica,4,0
+2017-03-08,Barcelona,Paris Saint Germain,6,1
+2017-03-14,Juventus,Porto,1,0
+2017-03-14,Leicester City,Sevilla,2,0
+2017-03-15,Monaco,Manchester City,3,1
+2017-03-15,Atlético Madrid,Bayer Leverkusen,0,0
+2017-04-11,Juventus,Barcelona,3,0
+2017-04-12,Borussia Dortmund,Monaco,2,3
+2017-04-12,Atlético Madrid,Leicester City,1,0
+2017-04-12,Bayern Munich,Real Madrid,1,2
+2017-04-18,Leicester City,Atlético Madrid,1,1
+2017-04-18,Real Madrid,Bayern Munich,4,2
+2017-04-19,Barcelona,Juventus,0,0
+2017-04-19,Monaco,Borussia Dortmund,3,1
+2017-05-02,Real Madrid,Atlético Madrid,3,0
+2017-05-03,Monaco,Juventus,0,2
+2017-05-09,Juventus,Monaco,2,1
+2017-05-10,Atlético Madrid,Real Madrid,2,1
+2017-06-03,Juventus,Real Madrid,1,4
+2020-09-12,Fulham,Arsenal,0,3
+2020-09-12,Crystal Palace,Southampton,1,0
+2020-09-12,Liverpool,Leeds United,4,3
+2020-09-12,West Ham United,Newcastle United,0,2
+2020-09-13,West Bromwich Albion,Leicester City,0,3
+2020-09-13,Tottenham,Everton,0,1
+2020-09-14,Sheffield United,Wolverhampton Wanderers,0,2
+2020-09-14,Brighton & Hove Albion,Chelsea,1,3
+2020-09-19,Everton,West Bromwich Albion,5,2
+2020-09-19,Leeds United,Fulham,4,3
+2020-09-19,Manchester United,Crystal Palace,1,3
+2020-09-19,Arsenal,West Ham United,2,1
+2020-09-20,Southampton,Tottenham,2,5
+2020-09-20,Newcastle United,Brighton & Hove Albion,0,3
+2020-09-20,Chelsea,Liverpool,0,2
+2020-09-20,Leicester City,Burnley,4,2
+2020-09-21,Aston Villa,Sheffield United,1,0
+2020-09-21,Wolverhampton Wanderers,Manchester City,1,3
+2020-09-26,Brighton & Hove Albion,Manchester United,2,3
+2020-09-26,Crystal Palace,Everton,1,2
+2020-09-26,West Bromwich Albion,Chelsea,3,3
+2020-09-26,Burnley,Southampton,0,1
+2020-09-27,Sheffield United,Leeds United,0,1
+2020-09-27,Tottenham,Newcastle United,1,1
+2020-09-27,Manchester City,Leicester City,2,5
+2020-09-27,West Ham United,Wolverhampton Wanderers,4,0
+2020-09-28,Fulham,Aston Villa,0,3
+2020-09-28,Liverpool,Arsenal,3,1
+2020-10-03,Chelsea,Crystal Palace,4,0
+2020-10-03,Everton,Brighton & Hove Albion,4,2
+2020-10-03,Leeds United,Manchester City,1,1
+2020-10-03,Newcastle United,Burnley,3,1
+2020-10-04,Leicester City,West Ham United,0,3
+2020-10-04,Southampton,West Bromwich Albion,2,0
+2020-10-04,Arsenal,Sheffield United,2,1
+2020-10-04,Wolverhampton Wanderers,Fulham,1,0
+2020-10-04,Manchester United,Tottenham,1,6
+2020-10-04,Aston Villa,Liverpool,7,2
+2020-10-17,Everton,Liverpool,2,2
+2020-10-17,Chelsea,Southampton,3,3
+2020-10-17,Manchester City,Arsenal,1,0
+2020-10-17,Newcastle United,Manchester United,1,4
+2020-10-18,Sheffield United,Fulham,1,1
+2020-10-18,Crystal Palace,Brighton & Hove Albion,1,1
+2020-10-18,Tottenham,West Ham United,3,3
+2020-10-18,Leicester City,Aston Villa,0,1
+2020-10-19,West Bromwich Albion,Burnley,0,0
+2020-10-19,Leeds United,Wolverhampton Wanderers,0,1
+2020-10-23,Aston Villa,Leeds United,0,3
+2020-10-24,West Ham United,Manchester City,1,1
+2020-10-24,Fulham,Crystal Palace,1,2
+2020-10-24,Manchester United,Chelsea,0,0
+2020-10-24,Liverpool,Sheffield United,2,1
+2020-10-25,Southampton,Everton,2,0
+2020-10-25,Wolverhampton Wanderers,Newcastle United,1,1
+2020-10-25,Arsenal,Leicester City,0,1
+2020-10-26,Brighton & Hove Albion,West Bromwich Albion,1,1
+2020-10-26,Burnley,Tottenham,0,1
+2020-10-30,Wolverhampton Wanderers,Crystal Palace,2,0
+2020-10-31,Sheffield United,Manchester City,0,1
+2020-10-31,Burnley,Chelsea,0,3
+2020-10-31,Liverpool,West Ham United,2,1
+2020-11-01,Aston Villa,Southampton,3,4
+2020-11-01,Newcastle United,Everton,2,1
+2020-11-01,Manchester United,Arsenal,0,1
+2020-11-01,Tottenham,Brighton & Hove Albion,2,1
+2020-11-02,Fulham,West Bromwich Albion,2,0
+2020-11-02,Leeds United,Leicester City,1,4
+2020-11-06,Brighton & Hove Albion,Burnley,0,0
+2020-11-06,Southampton,Newcastle United,2,0
+2020-11-07,Everton,Manchester United,1,3
+2020-11-07,Crystal Palace,Leeds United,4,1
+2020-11-07,Chelsea,Sheffield United,4,1
+2020-11-07,West Ham United,Fulham,1,0
+2020-11-08,West Bromwich Albion,Tottenham,0,1
+2020-11-08,Leicester City,Wolverhampton Wanderers,1,0
+2020-11-08,Manchester City,Liverpool,1,1
+2020-11-08,Arsenal,Aston Villa,0,3
+2020-11-21,Newcastle United,Chelsea,0,2
+2020-11-21,Aston Villa,Brighton & Hove Albion,1,2
+2020-11-21,Tottenham,Manchester City,2,0
+2020-11-21,Manchester United,West Bromwich Albion,1,0
+2020-11-22,Fulham,Everton,2,3
+2020-11-22,Sheffield United,West Ham United,0,1
+2020-11-22,Leeds United,Arsenal,0,0
+2020-11-22,Liverpool,Leicester City,3,0
+2020-11-23,Burnley,Crystal Palace,1,0
+2020-11-23,Wolverhampton Wanderers,Southampton,1,1
+2020-11-27,Crystal Palace,Newcastle United,0,2
+2020-11-28,Brighton & Hove Albion,Liverpool,1,1
+2020-11-28,Manchester City,Burnley,5,0
+2020-11-28,Everton,Leeds United,0,1
+2020-11-28,West Bromwich Albion,Sheffield United,1,0
+2020-11-29,Southampton,Manchester United,2,3
+2020-11-29,Chelsea,Tottenham,0,0
+2020-11-29,Arsenal,Wolverhampton Wanderers,1,2
+2020-11-30,Leicester City,Fulham,1,2
+2020-11-30,West Ham United,Aston Villa,2,1
+2020-12-05,Burnley,Everton,1,1
+2020-12-05,Manchester City,Fulham,2,0
+2020-12-05,West Ham United,Manchester United,1,3
+2020-12-05,Chelsea,Leeds United,3,1
+2020-12-06,West Bromwich Albion,Crystal Palace,1,5
+2020-12-06,Sheffield United,Leicester City,1,2
+2020-12-06,Tottenham,Arsenal,2,0
+2020-12-06,Liverpool,Wolverhampton Wanderers,4,0
+2020-12-07,Brighton & Hove Albion,Southampton,1,2
+2020-12-11,Leeds United,West Ham United,1,2
+2020-12-12,Wolverhampton Wanderers,Aston Villa,0,1
+2020-12-12,Newcastle United,West Bromwich Albion,2,1
+2020-12-12,Manchester United,Manchester City,0,0
+2020-12-12,Everton,Chelsea,1,0
+2020-12-13,Southampton,Sheffield United,3,0
+2020-12-13,Crystal Palace,Tottenham,1,1
+2020-12-13,Fulham,Liverpool,1,1
+2020-12-13,Arsenal,Burnley,0,1
+2020-12-13,Leicester City,Brighton & Hove Albion,3,0
+2020-12-15,Wolverhampton Wanderers,Chelsea,2,1
+2020-12-15,Manchester City,West Bromwich Albion,1,1
+2020-12-16,Arsenal,Southampton,1,1
+2020-12-16,Leeds United,Newcastle United,5,2
+2020-12-16,Leicester City,Everton,0,2
+2020-12-16,Fulham,Brighton & Hove Albion,0,0
+2020-12-16,Liverpool,Tottenham,2,1
+2020-12-16,West Ham United,Crystal Palace,1,1
+2020-12-17,Aston Villa,Burnley,0,0
+2020-12-17,Sheffield United,Manchester United,2,3
+2020-12-19,Crystal Palace,Liverpool,0,7
+2020-12-19,Southampton,Manchester City,0,1
+2020-12-19,Everton,Arsenal,2,1
+2020-12-19,Newcastle United,Fulham,1,1
+2020-12-20,Brighton & Hove Albion,Sheffield United,1,1
+2020-12-20,Tottenham,Leicester City,0,2
+2020-12-20,Manchester United,Leeds United,6,2
+2020-12-20,West Bromwich Albion,Aston Villa,0,3
+2020-12-21,Burnley,Wolverhampton Wanderers,2,1
+2020-12-21,Chelsea,West Ham United,3,0
+2020-12-26,Leicester City,Manchester United,2,2
+2020-12-26,Aston Villa,Crystal Palace,3,0
+2020-12-26,Fulham,Southampton,0,0
+2020-12-26,Arsenal,Chelsea,3,1
+2020-12-26,Manchester City,Newcastle United,2,0
+2020-12-26,Sheffield United,Everton,0,1
+2020-12-27,Leeds United,Burnley,1,0
+2020-12-27,West Ham United,Brighton & Hove Albion,2,2
+2020-12-27,Liverpool,West Bromwich Albion,1,1
+2020-12-27,Wolverhampton Wanderers,Tottenham,1,1
+2020-12-28,Crystal Palace,Leicester City,1,1
+2020-12-28,Chelsea,Aston Villa,1,1
+2020-12-29,Brighton & Hove Albion,Arsenal,0,1
+2020-12-29,Burnley,Sheffield United,1,0
+2020-12-29,Southampton,West Ham United,0,0
+2020-12-29,West Bromwich Albion,Leeds United,0,5
+2020-12-29,Manchester United,Wolverhampton Wanderers,1,0
+2020-12-30,Newcastle United,Liverpool,0,0
+2021-01-01,Everton,West Ham United,0,1
+2021-01-01,Manchester United,Aston Villa,2,1
+2021-01-02,Tottenham,Leeds United,3,0
+2021-01-02,Crystal Palace,Sheffield United,2,0
+2021-01-02,Brighton & Hove Albion,Wolverhampton Wanderers,3,3
+2021-01-02,West Bromwich Albion,Arsenal,0,4
+2021-01-03,Newcastle United,Leicester City,1,2
+2021-01-03,Chelsea,Manchester City,1,3
+2021-01-04,Southampton,Liverpool,1,0
+2021-01-12,Sheffield United,Newcastle United,1,0
+2021-01-12,Burnley,Manchester United,0,1
+2021-01-12,Wolverhampton Wanderers,Everton,1,2
+2021-01-13,Manchester City,Brighton & Hove Albion,1,0
+2021-01-13,Tottenham,Fulham,1,1
+2021-01-14,Arsenal,Crystal Palace,0,0
+2021-01-16,Wolverhampton Wanderers,West Bromwich Albion,2,3
+2021-01-16,Leeds United,Brighton & Hove Albion,0,1
+2021-01-16,West Ham United,Burnley,1,0
+2021-01-16,Fulham,Chelsea,0,1
+2021-01-16,Leicester City,Southampton,2,0
+2021-01-17,Sheffield United,Tottenham,1,3
+2021-01-17,Liverpool,Manchester United,0,0
+2021-01-17,Manchester City,Crystal Palace,4,0
+2021-01-18,Arsenal,Newcastle United,3,0
+2021-01-19,West Ham United,West Bromwich Albion,2,1
+2021-01-19,Leicester City,Chelsea,2,0
+2021-01-20,Manchester City,Aston Villa,2,0
+2021-01-20,Fulham,Manchester United,1,2
+2021-01-21,Liverpool,Burnley,0,1
+2021-01-23,Aston Villa,Newcastle United,2,0
+2021-01-26,Crystal Palace,West Ham United,2,3
+2021-01-26,Newcastle United,Leeds United,1,2
+2021-01-26,Southampton,Arsenal,1,3
+2021-01-26,West Bromwich Albion,Manchester City,0,5
+2021-01-27,Burnley,Aston Villa,3,2
+2021-01-27,Chelsea,Wolverhampton Wanderers,0,0
+2021-01-27,Brighton & Hove Albion,Fulham,0,0
+2021-01-27,Everton,Leicester City,1,1
+2021-01-27,Manchester United,Sheffield United,1,2
+2021-01-28,Tottenham,Liverpool,1,3
+2021-01-30,Everton,Newcastle United,0,2
+2021-01-30,Crystal Palace,Wolverhampton Wanderers,1,0
+2021-01-30,Manchester City,Sheffield United,1,0
+2021-01-30,West Bromwich Albion,Fulham,2,2
+2021-01-30,Arsenal,Manchester United,0,0
+2021-01-30,Southampton,Aston Villa,0,1
+2021-01-31,Chelsea,Burnley,2,0
+2021-01-31,Leicester City,Leeds United,1,3
+2021-01-31,West Ham United,Liverpool,1,3
+2021-01-31,Brighton & Hove Albion,Tottenham,1,0
+2021-02-02,Sheffield United,West Bromwich Albion,2,1
+2021-02-02,Wolverhampton Wanderers,Arsenal,2,1
+2021-02-02,Manchester United,Southampton,9,0
+2021-02-02,Newcastle United,Crystal Palace,1,2
+2021-02-03,Burnley,Manchester City,0,2
+2021-02-03,Fulham,Leicester City,0,2
+2021-02-03,Leeds United,Everton,1,2
+2021-02-03,Aston Villa,West Ham United,1,3
+2021-02-03,Liverpool,Brighton & Hove Albion,0,1
+2021-02-04,Tottenham,Chelsea,0,1
+2021-02-06,Aston Villa,Arsenal,1,0
+2021-02-06,Burnley,Brighton & Hove Albion,1,1
+2021-02-06,Newcastle United,Southampton,3,2
+2021-02-06,Fulham,West Ham United,0,0
+2021-02-06,Manchester United,Everton,3,3
+2021-02-07,Tottenham,West Bromwich Albion,2,0
+2021-02-07,Wolverhampton Wanderers,Leicester City,0,0
+2021-02-07,Liverpool,Manchester City,1,4
+2021-02-07,Sheffield United,Chelsea,1,2
+2021-02-08,Leeds United,Crystal Palace,2,0
+2021-02-13,Leicester City,Liverpool,3,1
+2021-02-13,Crystal Palace,Burnley,0,3
+2021-02-13,Manchester City,Tottenham,3,0
+2021-02-13,Brighton & Hove Albion,Aston Villa,0,0
+2021-02-14,Southampton,Wolverhampton Wanderers,1,2
+2021-02-14,West Bromwich Albion,Manchester United,1,1
+2021-02-14,Arsenal,Leeds United,4,2
+2021-02-14,Everton,Fulham,0,2
+2021-02-15,West Ham United,Sheffield United,3,0
+2021-02-15,Chelsea,Newcastle United,2,0
+2021-02-17,Burnley,Fulham,1,1
+2021-02-17,Everton,Manchester City,1,3
+2021-02-19,Wolverhampton Wanderers,Leeds United,1,0
+2021-02-20,Southampton,Chelsea,1,1
+2021-02-20,Burnley,West Bromwich Albion,0,0
+2021-02-20,Liverpool,Everton,0,2
+2021-02-20,Fulham,Sheffield United,1,0
+2021-02-21,West Ham United,Tottenham,2,1
+2021-02-21,Aston Villa,Leicester City,1,2
+2021-02-21,Arsenal,Manchester City,0,1
+2021-02-21,Manchester United,Newcastle United,3,1
+2021-02-22,Brighton & Hove Albion,Crystal Palace,1,2
+2021-02-23,Leeds United,Southampton,3,0
+2021-02-27,Manchester City,West Ham United,2,1
+2021-02-27,West Bromwich Albion,Brighton & Hove Albion,1,0
+2021-02-27,Leeds United,Aston Villa,0,1
+2021-02-27,Newcastle United,Wolverhampton Wanderers,1,1
+2021-02-28,Crystal Palace,Fulham,0,0
+2021-02-28,Leicester City,Arsenal,1,3
+2021-02-28,Tottenham,Burnley,4,0
+2021-02-28,Chelsea,Manchester United,0,0
+2021-02-28,Sheffield United,Liverpool,0,2
+2021-03-01,Everton,Southampton,1,0
+2021-03-02,Manchester City,Wolverhampton Wanderers,4,1
+2021-03-03,Burnley,Leicester City,1,1
+2021-03-03,Sheffield United,Aston Villa,1,0
+2021-03-03,Crystal Palace,Manchester United,0,0
+2021-03-04,Fulham,Tottenham,0,1
+2021-03-04,West Bromwich Albion,Everton,0,1
+2021-03-04,Liverpool,Chelsea,0,1
+2021-03-06,Burnley,Arsenal,1,1
+2021-03-06,Sheffield United,Southampton,0,2
+2021-03-06,Aston Villa,Wolverhampton Wanderers,0,0
+2021-03-06,Brighton & Hove Albion,Leicester City,1,2
+2021-03-07,West Bromwich Albion,Newcastle United,0,0
+2021-03-07,Liverpool,Fulham,0,1
+2021-03-07,Manchester City,Manchester United,0,2
+2021-03-07,Tottenham,Crystal Palace,4,1
+2021-03-08,Chelsea,Everton,2,0
+2021-03-08,West Ham United,Leeds United,2,0
+2021-03-10,Manchester City,Southampton,5,2
+2021-03-12,Newcastle United,Aston Villa,1,1
+2021-03-13,Leeds United,Chelsea,0,0
+2021-03-13,Crystal Palace,West Bromwich Albion,1,0
+2021-03-13,Everton,Burnley,1,2
+2021-03-13,Fulham,Manchester City,0,3
+2021-03-14,Southampton,Brighton & Hove Albion,1,2
+2021-03-14,Leicester City,Sheffield United,5,0
+2021-03-14,Arsenal,Tottenham,2,1
+2021-03-14,Manchester United,West Ham United,1,0
+2021-03-15,Wolverhampton Wanderers,Liverpool,0,1
+2021-03-19,Fulham,Leeds United,1,2
+2021-03-20,Brighton & Hove Albion,Newcastle United,3,0
+2021-03-21,West Ham United,Arsenal,3,3
+2021-03-21,Aston Villa,Tottenham,0,2
+2021-04-03,Chelsea,West Bromwich Albion,2,5
+2021-04-03,Leeds United,Sheffield United,2,1
+2021-04-03,Leicester City,Manchester City,0,2
+2021-04-03,Arsenal,Liverpool,0,3
+2021-04-04,Southampton,Burnley,3,2
+2021-04-04,Newcastle United,Tottenham,2,2
+2021-04-04,Aston Villa,Fulham,3,1
+2021-04-04,Manchester United,Brighton & Hove Albion,2,1
+2021-04-05,Everton,Crystal Palace,1,1
+2021-04-05,Wolverhampton Wanderers,West Ham United,2,3
+2021-04-09,Fulham,Wolverhampton Wanderers,0,1
+2021-04-10,Manchester City,Leeds United,1,2
+2021-04-10,Liverpool,Aston Villa,2,1
+2021-04-10,Crystal Palace,Chelsea,1,4
+2021-04-11,Burnley,Newcastle United,1,2
+2021-04-11,West Ham United,Leicester City,3,2
+2021-04-11,Tottenham,Manchester United,1,3
+2021-04-11,Sheffield United,Arsenal,0,3
+2021-04-12,West Bromwich Albion,Southampton,3,0
+2021-04-12,Brighton & Hove Albion,Everton,0,0
+2021-04-16,Everton,Tottenham,2,2
+2021-04-17,Newcastle United,West Ham United,3,2
+2021-04-17,Wolverhampton Wanderers,Sheffield United,1,0
+2021-04-18,Arsenal,Fulham,1,1
+2021-04-18,Manchester United,Burnley,3,1
+2021-04-19,Leeds United,Liverpool,1,1
+2021-04-20,Chelsea,Brighton & Hove Albion,0,0
+2021-04-21,Tottenham,Southampton,2,1
+2021-04-21,Aston Villa,Manchester City,1,2
+2021-04-22,Leicester City,West Bromwich Albion,3,0
+2021-04-23,Arsenal,Everton,0,1
+2021-04-24,Liverpool,Newcastle United,1,1
+2021-04-24,West Ham United,Chelsea,0,1
+2021-04-24,Sheffield United,Brighton & Hove Albion,1,0
+2021-04-25,Wolverhampton Wanderers,Burnley,0,4
+2021-04-25,Leeds United,Manchester United,0,0
+2021-04-25,Aston Villa,West Bromwich Albion,2,2
+2021-04-26,Leicester City,Crystal Palace,2,1
+2021-04-30,Southampton,Leicester City,1,1
+2021-05-01,Crystal Palace,Manchester City,0,2
+2021-05-01,Brighton & Hove Albion,Leeds United,2,0
+2021-05-01,Chelsea,Fulham,2,0
+2021-05-01,Everton,Aston Villa,1,2
+2021-05-02,Newcastle United,Arsenal,0,2
+2021-05-02,Tottenham,Sheffield United,4,0
+2021-05-03,West Bromwich Albion,Wolverhampton Wanderers,1,1
+2021-05-03,Burnley,West Ham United,1,2
+2021-05-07,Leicester City,Newcastle United,2,4
+2021-05-08,Leeds United,Tottenham,3,1
+2021-05-08,Sheffield United,Crystal Palace,0,2
+2021-05-08,Manchester City,Chelsea,1,2
+2021-05-08,Liverpool,Southampton,2,0
+2021-05-09,Wolverhampton Wanderers,Brighton & Hove Albion,2,1
+2021-05-09,Aston Villa,Manchester United,1,3
+2021-05-09,West Ham United,Everton,0,1
+2021-05-09,Arsenal,West Bromwich Albion,3,1
+2021-05-10,Fulham,Burnley,0,2
+2021-05-11,Manchester United,Leicester City,1,2
+2021-05-11,Southampton,Crystal Palace,3,1
+2021-05-12,Chelsea,Arsenal,0,1
+2021-05-13,Aston Villa,Everton,0,0
+2021-05-13,Manchester United,Liverpool,2,4
+2021-05-14,Newcastle United,Manchester City,3,4
+2021-05-15,Burnley,Leeds United,0,4
+2021-05-15,Southampton,Fulham,3,1
+2021-05-15,Brighton & Hove Albion,West Ham United,1,1
+2021-05-16,Crystal Palace,Aston Villa,3,2
+2021-05-16,Tottenham,Wolverhampton Wanderers,2,0
+2021-05-16,West Bromwich Albion,Liverpool,1,2
+2021-05-16,Everton,Sheffield United,0,1
+2021-05-18,Manchester United,Fulham,1,1
+2021-05-18,Southampton,Leeds United,0,2
+2021-05-18,Brighton & Hove Albion,Manchester City,3,2
+2021-05-18,Chelsea,Leicester City,2,1
+2021-05-19,Everton,Wolverhampton Wanderers,1,0
+2021-05-19,Newcastle United,Sheffield United,1,0
+2021-05-19,Tottenham,Aston Villa,1,2
+2021-05-19,Crystal Palace,Arsenal,1,3
+2021-05-19,Burnley,Liverpool,0,3
+2021-05-19,West Bromwich Albion,West Ham United,1,3
+2021-05-23,Arsenal,Brighton & Hove Albion,2,0
+2021-05-23,Aston Villa,Chelsea,2,1
+2021-05-23,Fulham,Newcastle United,0,2
+2021-05-23,Leeds United,West Bromwich Albion,3,1
+2021-05-23,Leicester City,Tottenham,2,4
+2021-05-23,Liverpool,Crystal Palace,2,0
+2021-05-23,Manchester City,Everton,5,0
+2021-05-23,Sheffield United,Burnley,1,0
+2021-05-23,West Ham United,Southampton,3,0
+2021-05-23,Wolverhampton Wanderers,Manchester United,1,2
+2021-08-13,Brentford,Arsenal,2,0
+2021-08-14,Manchester United,Leeds United,5,1
+2021-08-14,Burnley,Brighton & Hove Albion,1,2
+2021-08-14,Chelsea,Crystal Palace,3,0
+2021-08-14,Everton,Southampton,3,1
+2021-08-14,Leicester City,Wolverhampton Wanderers,1,0
+2021-08-14,Watford,Aston Villa,3,2
+2021-08-14,Norwich City,Liverpool,0,3
+2021-08-15,Newcastle United,West Ham United,2,4
+2021-08-15,Tottenham,Manchester City,1,0
+2021-08-21,Liverpool,Burnley,2,0
+2021-08-21,Aston Villa,Newcastle United,2,0
+2021-08-21,Crystal Palace,Brentford,0,0
+2021-08-21,Leeds United,Everton,2,2
+2021-08-21,Manchester City,Norwich City,5,0
+2021-08-21,Brighton & Hove Albion,Watford,2,0
+2021-08-22,Southampton,Manchester United,1,1
+2021-08-22,Wolverhampton Wanderers,Tottenham,0,1
+2021-08-22,Arsenal,Chelsea,0,2
+2021-08-23,West Ham United,Leicester City,4,1
+2021-08-28,Manchester City,Arsenal,5,0
+2021-08-28,Aston Villa,Brentford,1,1
+2021-08-28,Brighton & Hove Albion,Everton,0,2
+2021-08-28,Newcastle United,Southampton,2,2
+2021-08-28,Norwich City,Leicester City,1,2
+2021-08-28,West Ham United,Crystal Palace,2,2
+2021-08-28,Liverpool,Chelsea,1,1
+2021-08-29,Burnley,Leeds United,1,1
+2021-08-29,Tottenham,Watford,1,0
+2021-08-29,Wolverhampton Wanderers,Manchester United,0,1
+2021-09-11,Crystal Palace,Tottenham,3,0
+2021-09-11,Arsenal,Norwich City,1,0
+2021-09-11,Brentford,Brighton & Hove Albion,0,1
+2021-09-11,Leicester City,Manchester City,0,1
+2021-09-11,Manchester United,Newcastle United,4,1
+2021-09-11,Southampton,West Ham United,0,0
+2021-09-11,Watford,Wolverhampton Wanderers,0,2
+2021-09-11,Chelsea,Aston Villa,3,0
+2021-09-12,Leeds United,Liverpool,0,3
+2021-09-13,Everton,Burnley,3,1
+2021-09-14,Barcelona,Bayern Munich,0,3
+2021-09-14,Dynamo Kyiv,Benfica,0,0
+2021-09-14,BSC Young Boys,Manchester United,2,1
+2021-09-14,Villarreal,Atalanta,2,2
+2021-09-14,Sevilla,RB Salzburg,1,1
+2021-09-14,Lille,Wolfsburg,0,0
+2021-09-14,Chelsea,Zenit,1,0
+2021-09-14,Malmo FF,Juventus,0,3
+2021-09-15,Manchester City,RB Leipzig,6,3
+2021-09-15,Club Brugge,Paris Saint Germain,1,1
+2021-09-15,Atlético Madrid,Porto,0,0
+2021-09-15,Liverpool,Milan,3,2
+2021-09-15,Besiktas,Borussia Dortmund,1,2
+2021-09-15,Sporting Lisbon,Ajax,1,5
+2021-09-15,FC Sheriff,Shakhtar Donetsk,2,0
+2021-09-15,Inter Milan,Real Madrid,0,1
+2021-09-17,Newcastle United,Leeds United,1,1
+2021-09-18,Wolverhampton Wanderers,Brentford,0,2
+2021-09-18,Burnley,Arsenal,0,1
+2021-09-18,Liverpool,Crystal Palace,3,0
+2021-09-18,Manchester City,Southampton,0,0
+2021-09-18,Norwich City,Watford,1,3
+2021-09-18,Aston Villa,Everton,3,0
+2021-09-19,Brighton & Hove Albion,Leicester City,2,1
+2021-09-19,West Ham United,Manchester United,1,2
+2021-09-19,Tottenham,Chelsea,0,3
+2021-09-25,Chelsea,Manchester City,0,1
+2021-09-25,Manchester United,Aston Villa,0,1
+2021-09-25,Everton,Norwich City,2,0
+2021-09-25,Leeds United,West Ham United,1,2
+2021-09-25,Leicester City,Burnley,2,2
+2021-09-25,Watford,Newcastle United,1,1
+2021-09-25,Brentford,Liverpool,3,3
+2021-09-26,Southampton,Wolverhampton Wanderers,0,1
+2021-09-26,Arsenal,Tottenham,3,1
+2021-09-27,Crystal Palace,Brighton & Hove Albion,1,1
+2021-09-28,Paris Saint Germain,Manchester City,2,0
+2021-09-28,RB Leipzig,Club Brugge,1,2
+2021-09-28,Porto,Liverpool,1,5
+2021-09-28,Milan,Atlético Madrid,1,2
+2021-09-28,Ajax,Besiktas,2,0
+2021-09-28,Borussia Dortmund,Sporting Lisbon,1,0
+2021-09-28,Shakhtar Donetsk,Inter Milan,0,0
+2021-09-28,Real Madrid,FC Sheriff,1,2
+2021-09-29,Benfica,Barcelona,3,0
+2021-09-29,Bayern Munich,Dynamo Kyiv,5,0
+2021-09-29,Atalanta,BSC Young Boys,1,0
+2021-09-29,Manchester United,Villarreal,2,1
+2021-09-29,RB Salzburg,Lille,2,1
+2021-09-29,Wolfsburg,Sevilla,1,1
+2021-09-29,Zenit,Malmo FF,4,0
+2021-09-29,Juventus,Chelsea,1,0
+2021-10-02,Manchester United,Everton,1,1
+2021-10-02,Burnley,Norwich City,0,0
+2021-10-02,Chelsea,Southampton,3,1
+2021-10-02,Leeds United,Watford,1,0
+2021-10-02,Wolverhampton Wanderers,Newcastle United,2,1
+2021-10-02,Brighton & Hove Albion,Arsenal,0,0
+2021-10-03,Crystal Palace,Leicester City,2,2
+2021-10-03,Tottenham,Aston Villa,2,1
+2021-10-03,West Ham United,Brentford,1,2
+2021-10-03,Liverpool,Manchester City,2,2
+2021-10-16,Watford,Liverpool,0,5
+2021-10-16,Aston Villa,Wolverhampton Wanderers,2,3
+2021-10-16,Leicester City,Manchester United,4,2
+2021-10-16,Manchester City,Burnley,2,0
+2021-10-16,Norwich City,Brighton & Hove Albion,0,0
+2021-10-16,Southampton,Leeds United,1,0
+2021-10-16,Brentford,Chelsea,0,1
+2021-10-17,Everton,West Ham United,0,1
+2021-10-17,Newcastle United,Tottenham,2,3
+2021-10-18,Arsenal,Crystal Palace,2,2
+2021-10-19,Club Brugge,Manchester City,1,5
+2021-10-19,Paris Saint Germain,RB Leipzig,3,2
+2021-10-19,Atlético Madrid,Liverpool,2,3
+2021-10-19,Porto,Milan,1,0
+2021-10-19,Besiktas,Sporting Lisbon,1,4
+2021-10-19,Ajax,Borussia Dortmund,4,0
+2021-10-19,Shakhtar Donetsk,Real Madrid,0,5
+2021-10-19,Inter Milan,FC Sheriff,3,1
+2021-10-20,Barcelona,Dynamo Kyiv,1,0
+2021-10-20,Benfica,Bayern Munich,0,4
+2021-10-20,Manchester United,Atalanta,3,2
+2021-10-20,BSC Young Boys,Villarreal,1,4
+2021-10-20,RB Salzburg,Wolfsburg,3,1
+2021-10-20,Lille,Sevilla,0,0
+2021-10-20,Zenit,Juventus,0,1
+2021-10-20,Chelsea,Malmo FF,4,0
+2021-10-22,Arsenal,Aston Villa,3,1
+2021-10-23,Chelsea,Norwich City,7,0
+2021-10-23,Crystal Palace,Newcastle United,1,1
+2021-10-23,Everton,Watford,2,5
+2021-10-23,Leeds United,Wolverhampton Wanderers,1,1
+2021-10-23,Southampton,Burnley,2,2
+2021-10-23,Brighton & Hove Albion,Manchester City,1,4
+2021-10-24,Brentford,Leicester City,1,2
+2021-10-24,West Ham United,Tottenham,1,0
+2021-10-24,Manchester United,Liverpool,0,5
+2021-10-30,Leicester City,Arsenal,0,2
+2021-10-30,Burnley,Brentford,3,1
+2021-10-30,Liverpool,Brighton & Hove Albion,2,2
+2021-10-30,Manchester City,Crystal Palace,0,2
+2021-10-30,Newcastle United,Chelsea,0,3
+2021-10-30,Watford,Southampton,0,1
+2021-10-30,Tottenham,Manchester United,0,3
+2021-10-31,Norwich City,Leeds United,1,2
+2021-10-31,Aston Villa,West Ham United,1,4
+2021-11-01,Wolverhampton Wanderers,Everton,2,1
+2021-11-02,Bayern Munich,Benfica,5,2
+2021-11-02,Dynamo Kyiv,Barcelona,0,1
+2021-11-02,Atalanta,Manchester United,2,2
+2021-11-02,Villarreal,BSC Young Boys,2,0
+2021-11-02,Wolfsburg,RB Salzburg,2,1
+2021-11-02,Sevilla,Lille,1,2
+2021-11-02,Malmo FF,Chelsea,0,1
+2021-11-02,Juventus,Zenit,4,2
+2021-11-03,RB Leipzig,Paris Saint Germain,2,2
+2021-11-03,Manchester City,Club Brugge,4,1
+2021-11-03,Milan,Porto,1,1
+2021-11-03,Liverpool,Atlético Madrid,2,0
+2021-11-03,Borussia Dortmund,Ajax,1,3
+2021-11-03,Sporting Lisbon,Besiktas,4,0
+2021-11-03,Real Madrid,Shakhtar Donetsk,2,1
+2021-11-03,FC Sheriff,Inter Milan,1,3
+2021-11-05,Southampton,Aston Villa,1,0
+2021-11-06,Manchester United,Manchester City,0,2
+2021-11-06,Brentford,Norwich City,1,2
+2021-11-06,Chelsea,Burnley,1,1
+2021-11-06,Crystal Palace,Wolverhampton Wanderers,2,0
+2021-11-06,Brighton & Hove Albion,Newcastle United,1,1
+2021-11-07,Arsenal,Watford,1,0
+2021-11-07,Everton,Tottenham,0,0
+2021-11-07,Leeds United,Leicester City,1,1
+2021-11-07,West Ham United,Liverpool,3,2
+2021-11-20,Leicester City,Chelsea,0,3
+2021-11-20,Aston Villa,Brighton & Hove Albion,2,0
+2021-11-20,Burnley,Crystal Palace,3,3
+2021-11-20,Newcastle United,Brentford,3,3
+2021-11-20,Norwich City,Southampton,2,1
+2021-11-20,Watford,Manchester United,4,1
+2021-11-20,Wolverhampton Wanderers,West Ham United,1,0
+2021-11-20,Liverpool,Arsenal,4,0
+2021-11-21,Manchester City,Everton,3,0
+2021-11-21,Tottenham,Leeds United,2,1
+2021-11-23,Dynamo Kyiv,Bayern Munich,1,2
+2021-11-23,Barcelona,Benfica,0,0
+2021-11-23,Villarreal,Manchester United,0,2
+2021-11-23,BSC Young Boys,Atalanta,3,3
+2021-11-23,Lille,RB Salzburg,1,0
+2021-11-23,Sevilla,Wolfsburg,2,0
+2021-11-23,Chelsea,Juventus,4,0
+2021-11-23,Malmo FF,Zenit,1,1
+2021-11-24,Manchester City,Paris Saint Germain,2,1
+2021-11-24,Club Brugge,RB Leipzig,0,5
+2021-11-24,Liverpool,Porto,2,0
+2021-11-24,Atlético Madrid,Milan,0,1
+2021-11-24,Besiktas,Ajax,1,2
+2021-11-24,Sporting Lisbon,Borussia Dortmund,3,1
+2021-11-24,Inter Milan,Shakhtar Donetsk,2,0
+2021-11-24,FC Sheriff,Real Madrid,0,3
+2021-11-27,Arsenal,Newcastle United,2,0
+2021-11-27,Crystal Palace,Aston Villa,1,2
+2021-11-27,Liverpool,Southampton,4,0
+2021-11-27,Norwich City,Wolverhampton Wanderers,0,0
+2021-11-27,Brighton & Hove Albion,Leeds United,0,0
+2021-11-28,Brentford,Everton,1,0
+2021-11-28,Leicester City,Watford,4,2
+2021-11-28,Manchester City,West Ham United,2,1
+2021-11-28,Chelsea,Manchester United,1,1
+2021-11-30,Newcastle United,Norwich City,1,1
+2021-11-30,Leeds United,Crystal Palace,1,0
+2021-12-01,Southampton,Leicester City,2,2
+2021-12-01,Watford,Chelsea,1,2
+2021-12-01,West Ham United,Brighton & Hove Albion,1,1
+2021-12-01,Wolverhampton Wanderers,Burnley,0,0
+2021-12-01,Aston Villa,Manchester City,1,2
+2021-12-01,Everton,Liverpool,1,4
+2021-12-02,Tottenham,Brentford,2,0
+2021-12-02,Manchester United,Arsenal,3,2
+2021-12-04,West Ham United,Chelsea,3,2
+2021-12-04,Newcastle United,Burnley,1,0
+2021-12-04,Southampton,Brighton & Hove Albion,1,1
+2021-12-04,Wolverhampton Wanderers,Liverpool,0,1
+2021-12-04,Watford,Manchester City,1,3
+2021-12-05,Leeds United,Brentford,2,2
+2021-12-05,Manchester United,Crystal Palace,1,0
+2021-12-05,Tottenham,Norwich City,3,0
+2021-12-05,Aston Villa,Leicester City,2,1
+2021-12-06,Everton,Arsenal,2,1
+2021-12-07,RB Leipzig,Manchester City,2,1
+2021-12-07,Paris Saint Germain,Club Brugge,4,1
+2021-12-07,Porto,Atlético Madrid,1,3
+2021-12-07,Milan,Liverpool,1,2
+2021-12-07,Ajax,Sporting Lisbon,4,2
+2021-12-07,Borussia Dortmund,Besiktas,5,0
+2021-12-07,Real Madrid,Inter Milan,2,0
+2021-12-07,Shakhtar Donetsk,FC Sheriff,1,1
+2021-12-08,Bayern Munich,Barcelona,3,0
+2021-12-08,Benfica,Dynamo Kyiv,2,0
+2021-12-08,Manchester United,BSC Young Boys,1,1
+2021-12-08,RB Salzburg,Sevilla,1,0
+2021-12-08,Wolfsburg,Lille,1,3
+2021-12-08,Zenit,Chelsea,3,3
+2021-12-08,Juventus,Malmo FF,1,0
+2021-12-09,Atalanta,Villarreal,2,3
+2021-12-10,Brentford,Watford,2,1
+2021-12-11,Manchester City,Wolverhampton Wanderers,1,0
+2021-12-11,Arsenal,Southampton,3,0
+2021-12-11,Chelsea,Leeds United,3,2
+2021-12-11,Liverpool,Aston Villa,1,0
+2021-12-11,Norwich City,Manchester United,0,1
+2021-12-12,Burnley,West Ham United,0,0
+2021-12-12,Leicester City,Newcastle United,4,0
+2021-12-12,Crystal Palace,Everton,3,1
+2021-12-14,Norwich City,Aston Villa,0,2
+2021-12-14,Manchester City,Leeds United,7,0
+2021-12-15,Brighton & Hove Albion,Wolverhampton Wanderers,0,1
+2021-12-15,Crystal Palace,Southampton,2,2
+2021-12-15,Arsenal,West Ham United,2,0
+2021-12-16,Chelsea,Everton,1,1
+2021-12-16,Liverpool,Newcastle United,3,1
+2021-12-18,Leeds United,Arsenal,1,4
+2021-12-19,Newcastle United,Manchester City,0,4
+2021-12-19,Wolverhampton Wanderers,Chelsea,0,0
+2021-12-19,Tottenham,Liverpool,2,2
+2021-12-26,Manchester City,Leicester City,6,3
+2021-12-26,Norwich City,Arsenal,0,5
+2021-12-26,Tottenham,Crystal Palace,3,0
+2021-12-26,West Ham United,Southampton,2,3
+2021-12-26,Aston Villa,Chelsea,1,3
+2021-12-26,Brighton & Hove Albion,Brentford,2,0
+2021-12-27,Newcastle United,Manchester United,1,1
+2021-12-28,Crystal Palace,Norwich City,3,0
+2021-12-28,Southampton,Tottenham,1,1
+2021-12-28,Watford,West Ham United,1,4
+2021-12-28,Leicester City,Liverpool,1,0
+2021-12-29,Chelsea,Brighton & Hove Albion,1,1
+2021-12-29,Brentford,Manchester City,0,1
+2021-12-30,Manchester United,Burnley,3,1
+2022-01-01,Arsenal,Manchester City,1,2
+2022-01-01,Watford,Tottenham,0,1
+2022-01-01,Crystal Palace,West Ham United,2,3
+2022-01-02,Brentford,Aston Villa,2,1
+2022-01-02,Everton,Brighton & Hove Albion,2,3
+2022-01-02,Leeds United,Burnley,3,1
+2022-01-02,Chelsea,Liverpool,2,2
+2022-01-03,Manchester United,Wolverhampton Wanderers,0,1
+2022-01-11,Southampton,Brentford,4,1
+2022-01-12,West Ham United,Norwich City,2,0
+2022-01-14,Brighton & Hove Albion,Crystal Palace,1,1
+2022-01-15,Manchester City,Chelsea,1,0
+2022-01-15,Newcastle United,Watford,1,1
+2022-01-15,Norwich City,Everton,2,1
+2022-01-15,Wolverhampton Wanderers,Southampton,3,1
+2022-01-15,Aston Villa,Manchester United,2,2
+2022-01-16,Liverpool,Brentford,3,0
+2022-01-16,West Ham United,Leeds United,2,3
+2022-01-18,Brighton & Hove Albion,Chelsea,1,1
+2022-01-19,Leicester City,Tottenham,2,3
+2022-01-19,Brentford,Manchester United,1,3
+2022-01-21,Watford,Norwich City,0,3
+2022-01-22,Everton,Aston Villa,0,1
+2022-01-22,Brentford,Wolverhampton Wanderers,1,2
+2022-01-22,Leeds United,Newcastle United,0,1
+2022-01-22,Manchester United,West Ham United,1,0
+2022-01-22,Southampton,Manchester City,1,1
+2022-01-23,Arsenal,Burnley,0,0
+2022-01-23,Crystal Palace,Liverpool,1,3
+2022-01-23,Leicester City,Brighton & Hove Albion,1,1
+2022-01-23,Chelsea,Tottenham,2,0
+2022-02-05,Burnley,Watford,0,0
+2022-02-08,Newcastle United,Everton,3,1
+2022-02-08,West Ham United,Watford,1,0
+2022-02-08,Burnley,Manchester United,1,1
+2022-02-09,Manchester City,Brentford,2,0
+2022-02-09,Norwich City,Crystal Palace,1,1
+2022-02-09,Tottenham,Southampton,2,3
+2022-02-09,Aston Villa,Leeds United,3,3
+2022-02-10,Liverpool,Leicester City,2,0
+2022-02-10,Wolverhampton Wanderers,Arsenal,0,1
+2022-02-12,Manchester United,Southampton,1,1
+2022-02-12,Brentford,Crystal Palace,0,0
+2022-02-12,Everton,Leeds United,3,0
+2022-02-12,Watford,Brighton & Hove Albion,0,2
+2022-02-12,Norwich City,Manchester City,0,4
+2022-02-13,Burnley,Liverpool,0,1
+2022-02-13,Newcastle United,Aston Villa,1,0
+2022-02-13,Tottenham,Wolverhampton Wanderers,0,2
+2022-02-13,Leicester City,West Ham United,2,2
+2022-02-15,Sporting Lisbon,Manchester City,0,5
+2022-02-15,Paris Saint Germain,Real Madrid,1,0
+2022-02-15,Manchester United,Brighton & Hove Albion,2,0
+2022-02-16,RB Salzburg,Bayern Munich,1,1
+2022-02-16,Inter Milan,Liverpool,0,2
+2022-02-19,West Ham United,Newcastle United,1,1
+2022-02-19,Arsenal,Brentford,2,1
+2022-02-19,Aston Villa,Watford,0,1
+2022-02-19,Brighton & Hove Albion,Burnley,0,3
+2022-02-19,Crystal Palace,Chelsea,0,1
+2022-02-19,Liverpool,Norwich City,3,1
+2022-02-19,Southampton,Everton,2,0
+2022-02-19,Manchester City,Tottenham,2,3
+2022-02-20,Leeds United,Manchester United,2,4
+2022-02-20,Wolverhampton Wanderers,Leicester City,2,1
+2022-02-22,Chelsea,Lille,2,0
+2022-02-22,Villarreal,Juventus,1,1
+2022-02-23,Benfica,Ajax,2,2
+2022-02-23,Atlético Madrid,Manchester United,1,1
+2022-02-23,Burnley,Tottenham,1,0
+2022-02-23,Watford,Crystal Palace,1,4
+2022-02-23,Liverpool,Leeds United,6,0
+2022-02-24,Arsenal,Wolverhampton Wanderers,2,1
+2022-02-25,Southampton,Norwich City,2,0
+2022-02-26,Leeds United,Tottenham,0,4
+2022-02-26,Brentford,Newcastle United,0,2
+2022-02-26,Crystal Palace,Burnley,1,1
+2022-02-26,Manchester United,Watford,0,0
+2022-02-26,Brighton & Hove Albion,Aston Villa,0,2
+2022-02-26,Everton,Manchester City,0,1
+2022-02-27,West Ham United,Wolverhampton Wanderers,1,0
+2022-03-01,Burnley,Leicester City,0,2
+2022-03-05,Leicester City,Leeds United,1,0
+2022-03-05,Aston Villa,Southampton,4,0
+2022-03-05,Burnley,Chelsea,0,4
+2022-03-05,Newcastle United,Brighton & Hove Albion,2,1
+2022-03-05,Norwich City,Brentford,1,3
+2022-03-05,Wolverhampton Wanderers,Crystal Palace,0,2
+2022-03-05,Liverpool,West Ham United,1,0
+2022-03-06,Watford,Arsenal,2,3
+2022-03-06,Manchester City,Manchester United,4,1
+2022-03-07,Tottenham,Everton,5,0
+2022-03-08,Bayern Munich,RB Salzburg,7,1
+2022-03-08,Liverpool,Inter Milan,0,1
+2022-03-09,Manchester City,Sporting Lisbon,0,0
+2022-03-09,Real Madrid,Paris Saint Germain,3,1
+2022-03-10,Norwich City,Chelsea,1,3
+2022-03-10,Southampton,Newcastle United,1,2
+2022-03-10,Wolverhampton Wanderers,Watford,4,0
+2022-03-10,Leeds United,Aston Villa,0,3
+2022-03-12,Brighton & Hove Albion,Liverpool,0,2
+2022-03-12,Brentford,Burnley,2,0
+2022-03-12,Manchester United,Tottenham,3,2
+2022-03-13,Chelsea,Newcastle United,1,0
+2022-03-13,Everton,Wolverhampton Wanderers,0,1
+2022-03-13,Leeds United,Norwich City,2,1
+2022-03-13,Southampton,Watford,1,2
+2022-03-13,West Ham United,Aston Villa,2,1
+2022-03-13,Arsenal,Leicester City,2,0
+2022-03-14,Crystal Palace,Manchester City,0,0
+2022-03-15,Ajax,Benfica,0,1
+2022-03-15,Manchester United,Atlético Madrid,0,1
+2022-03-16,Lille,Chelsea,1,2
+2022-03-16,Juventus,Villarreal,0,3
+2022-03-16,Brighton & Hove Albion,Tottenham,0,2
+2022-03-16,Arsenal,Liverpool,0,2
+2022-03-17,Everton,Newcastle United,1,0
+2022-03-18,Wolverhampton Wanderers,Leeds United,2,3
+2022-03-19,Aston Villa,Arsenal,0,1
+2022-03-20,Leicester City,Brentford,2,1
+2022-03-20,Tottenham,West Ham United,3,1
+2022-04-02,Liverpool,Watford,2,0
+2022-04-02,Brighton & Hove Albion,Norwich City,0,0
+2022-04-02,Burnley,Manchester City,0,2
+2022-04-02,Chelsea,Brentford,1,4
+2022-04-02,Leeds United,Southampton,1,1
+2022-04-02,Wolverhampton Wanderers,Aston Villa,2,1
+2022-04-02,Manchester United,Leicester City,1,1
+2022-04-03,West Ham United,Everton,2,1
+2022-04-03,Tottenham,Newcastle United,5,1
+2022-04-04,Crystal Palace,Arsenal,3,0
+2022-04-05,Manchester City,Atlético Madrid,1,0
+2022-04-05,Benfica,Liverpool,1,3
+2022-04-06,Chelsea,Real Madrid,1,3
+2022-04-06,Villarreal,Bayern Munich,1,0
+2022-04-06,Burnley,Everton,3,2
+2022-04-08,Newcastle United,Wolverhampton Wanderers,1,0
+2022-04-09,Everton,Manchester United,1,0
+2022-04-09,Arsenal,Brighton & Hove Albion,1,2
+2022-04-09,Southampton,Chelsea,0,6
+2022-04-09,Watford,Leeds United,0,3
+2022-04-09,Aston Villa,Tottenham,0,4
+2022-04-10,Brentford,West Ham United,2,0
+2022-04-10,Leicester City,Crystal Palace,2,1
+2022-04-10,Norwich City,Burnley,2,0
+2022-04-10,Manchester City,Liverpool,2,2
+2022-04-12,Real Madrid,Chelsea,2,3
+2022-04-12,Bayern Munich,Villarreal,1,1
+2022-04-13,Atlético Madrid,Manchester City,0,0
+2022-04-13,Liverpool,Benfica,3,3
+2022-04-16,Tottenham,Brighton & Hove Albion,0,1
+2022-04-16,Manchester United,Norwich City,3,2
+2022-04-16,Southampton,Arsenal,1,0
+2022-04-16,Watford,Brentford,1,2
+2022-04-17,Newcastle United,Leicester City,2,1
+2022-04-17,West Ham United,Burnley,1,1
+2022-04-19,Liverpool,Manchester United,4,0
+2022-04-20,Chelsea,Arsenal,2,4
+2022-04-20,Everton,Leicester City,1,1
+2022-04-20,Newcastle United,Crystal Palace,1,0
+2022-04-20,Manchester City,Brighton & Hove Albion,3,0
+2022-04-21,Burnley,Southampton,2,0
+2022-04-23,Arsenal,Manchester United,3,1
+2022-04-23,Leicester City,Aston Villa,0,0
+2022-04-23,Manchester City,Watford,5,1
+2022-04-23,Norwich City,Newcastle United,0,3
+2022-04-23,Brentford,Tottenham,0,0
+2022-04-24,Brighton & Hove Albion,Southampton,2,2
+2022-04-24,Burnley,Wolverhampton Wanderers,1,0
+2022-04-24,Chelsea,West Ham United,1,0
+2022-04-24,Liverpool,Everton,2,0
+2022-04-25,Crystal Palace,Leeds United,0,0
+2022-04-26,Manchester City,Real Madrid,4,3
+2022-04-27,Liverpool,Villarreal,2,0
+2022-04-28,Manchester United,Chelsea,1,1
+2022-04-30,Newcastle United,Liverpool,0,1
+2022-04-30,Aston Villa,Norwich City,2,0
+2022-04-30,Southampton,Crystal Palace,1,2
+2022-04-30,Watford,Burnley,1,2
+2022-04-30,Wolverhampton Wanderers,Brighton & Hove Albion,0,3
+2022-04-30,Leeds United,Manchester City,0,4
+2022-05-01,Everton,Chelsea,1,0
+2022-05-01,Tottenham,Leicester City,3,1
+2022-05-01,West Ham United,Arsenal,1,2
+2022-05-02,Manchester United,Brentford,3,0
+2022-05-03,Villarreal,Liverpool,2,3
+2022-05-04,Real Madrid,Manchester City,3,1
+2022-05-07,Brentford,Southampton,3,0
+2022-05-07,Burnley,Aston Villa,1,3
+2022-05-07,Chelsea,Wolverhampton Wanderers,2,2
+2022-05-07,Crystal Palace,Watford,1,0
+2022-05-07,Brighton & Hove Albion,Manchester United,4,0
+2022-05-07,Liverpool,Tottenham,1,1
+2022-05-08,Arsenal,Leeds United,2,1
+2022-05-08,Leicester City,Everton,1,2
+2022-05-08,Norwich City,West Ham United,0,4
+2022-05-08,Manchester City,Newcastle United,5,0
+2022-05-10,Aston Villa,Liverpool,1,2
+2022-05-11,Leeds United,Chelsea,0,3
+2022-05-11,Leicester City,Norwich City,3,0
+2022-05-11,Watford,Everton,0,0
+2022-05-11,Wolverhampton Wanderers,Manchester City,1,5
+2022-05-12,Tottenham,Arsenal,3,0
+2022-05-15,Tottenham,Burnley,1,0
+2022-05-15,Aston Villa,Crystal Palace,1,1
+2022-05-15,Leeds United,Brighton & Hove Albion,1,1
+2022-05-15,Watford,Leicester City,1,5
+2022-05-15,West Ham United,Manchester City,2,2
+2022-05-15,Wolverhampton Wanderers,Norwich City,1,1
+2022-05-15,Everton,Brentford,2,3
+2022-05-16,Newcastle United,Arsenal,2,0
+2022-05-17,Southampton,Liverpool,1,2
+2022-05-19,Everton,Crystal Palace,3,2
+2022-05-19,Aston Villa,Burnley,1,1
+2022-05-19,Chelsea,Leicester City,1,1
+2022-05-22,Arsenal,Everton,5,1
+2022-05-22,Brentford,Leeds United,1,2
+2022-05-22,Brighton & Hove Albion,West Ham United,3,1
+2022-05-22,Burnley,Newcastle United,1,2
+2022-05-22,Chelsea,Watford,2,1
+2022-05-22,Crystal Palace,Manchester United,1,0
+2022-05-22,Leicester City,Southampton,4,1
+2022-05-22,Liverpool,Wolverhampton Wanderers,3,1
+2022-05-22,Manchester City,Aston Villa,3,2
+2022-05-22,Norwich City,Tottenham,0,5
+2022-05-28,Liverpool,Real Madrid,0,1
+2022-08-05,Crystal Palace,Arsenal,0,2
+2022-08-06,Fulham,Liverpool,2,2
+2022-08-06,Bournemouth,Aston Villa,2,0
+2022-08-06,Leeds United,Wolverhampton Wanderers,2,1
+2022-08-06,Newcastle United,Nottingham Forest,2,0
+2022-08-06,Tottenham,Southampton,4,1
+2022-08-06,Everton,Chelsea,0,1
+2022-08-07,Leicester City,Brentford,2,2
+2022-08-07,Manchester United,Brighton & Hove Albion,1,2
+2022-08-07,West Ham United,Manchester City,0,2
+2022-08-13,Aston Villa,Everton,2,1
+2022-08-13,Arsenal,Leicester City,4,2
+2022-08-13,Brighton & Hove Albion,Newcastle United,0,0
+2022-08-13,Manchester City,Bournemouth,4,0
+2022-08-13,Southampton,Leeds United,2,2
+2022-08-13,Wolverhampton Wanderers,Fulham,0,0
+2022-08-13,Brentford,Manchester United,4,0
+2022-08-14,Nottingham Forest,West Ham United,1,0
+2022-08-14,Chelsea,Tottenham,2,2
+2022-08-15,Liverpool,Crystal Palace,1,1
+2022-08-20,Tottenham,Wolverhampton Wanderers,1,0
+2022-08-20,Crystal Palace,Aston Villa,3,1
+2022-08-20,Everton,Nottingham Forest,1,1
+2022-08-20,Fulham,Brentford,3,2
+2022-08-20,Leicester City,Southampton,1,2
+2022-08-20,Bournemouth,Arsenal,0,3
+2022-08-21,Leeds United,Chelsea,3,0
+2022-08-21,West Ham United,Brighton & Hove Albion,0,2
+2022-08-21,Newcastle United,Manchester City,3,3
+2022-08-22,Manchester United,Liverpool,2,1
+2022-08-27,Southampton,Manchester United,0,1
+2022-08-27,Brentford,Everton,1,1
+2022-08-27,Brighton & Hove Albion,Leeds United,1,0
+2022-08-27,Chelsea,Leicester City,2,1
+2022-08-27,Liverpool,Bournemouth,9,0
+2022-08-27,Manchester City,Crystal Palace,4,2
+2022-08-27,Arsenal,Fulham,2,1
+2022-08-28,Aston Villa,West Ham United,0,1
+2022-08-28,Wolverhampton Wanderers,Newcastle United,1,1
+2022-08-28,Nottingham Forest,Tottenham,0,2
+2022-08-30,Crystal Palace,Brentford,1,1
+2022-08-30,Fulham,Brighton & Hove Albion,2,1
+2022-08-30,Southampton,Chelsea,2,1
+2022-08-30,Leeds United,Everton,1,1
+2022-08-31,Arsenal,Aston Villa,2,1
+2022-08-31,Bournemouth,Wolverhampton Wanderers,0,0
+2022-08-31,Manchester City,Nottingham Forest,6,0
+2022-08-31,West Ham United,Tottenham,1,1
+2022-08-31,Liverpool,Newcastle United,2,1
+2022-09-01,Leicester City,Manchester United,0,1
+2022-09-03,Everton,Liverpool,0,0
+2022-09-03,Brentford,Leeds United,5,2
+2022-09-03,Chelsea,West Ham United,2,1
+2022-09-03,Newcastle United,Crystal Palace,0,0
+2022-09-03,Nottingham Forest,Bournemouth,2,3
+2022-09-03,Tottenham,Fulham,2,1
+2022-09-03,Wolverhampton Wanderers,Southampton,1,0
+2022-09-03,Aston Villa,Manchester City,1,1
+2022-09-04,Brighton & Hove Albion,Leicester City,5,2
+2022-09-04,Manchester United,Arsenal,3,1
+2022-09-06,Dinamo Zagreb,Chelsea,1,0
+2022-09-06,RB Salzburg,Milan,1,1
+2022-09-06,Celtic,Real Madrid,0,3
+2022-09-06,RB Leipzig,Shakhtar Donetsk,1,4
+2022-09-06,Borussia Dortmund,Copenhagen,3,0
+2022-09-06,Sevilla,Manchester City,0,4
+2022-09-06,Paris Saint Germain,Juventus,2,1
+2022-09-06,Benfica,Maccabi Haifa,2,0
+2022-09-07,Ajax,Rangers FC,4,0
+2022-09-07,Napoli,Liverpool,4,1
+2022-09-07,Atlético Madrid,Porto,2,1
+2022-09-07,Club Brugge,Bayer Leverkusen,1,0
+2022-09-07,Inter Milan,Bayern Munich,0,2
+2022-09-07,Barcelona,Viktoria Plzen,5,1
+2022-09-07,Eintracht Frankfurt,Sporting Lisbon,0,3
+2022-09-07,Tottenham,Marseille,2,0
+2022-09-13,Liverpool,Ajax,2,1
+2022-09-13,Bayer Leverkusen,Atlético Madrid,2,0
+2022-09-13,Porto,Club Brugge,0,4
+2022-09-13,Viktoria Plzen,Inter Milan,0,2
+2022-09-13,Bayern Munich,Barcelona,2,0
+2022-09-13,Sporting Lisbon,Tottenham,2,0
+2022-09-13,Marseille,Eintracht Frankfurt,0,1
+2022-09-14,Rangers FC,Napoli,0,3
+2022-09-14,Milan,Dinamo Zagreb,3,1
+2022-09-14,Chelsea,RB Salzburg,1,1
+2022-09-14,Shakhtar Donetsk,Celtic,1,1
+2022-09-14,Real Madrid,RB Leipzig,2,0
+2022-09-14,Manchester City,Borussia Dortmund,2,1
+2022-09-14,Copenhagen,Sevilla,0,0
+2022-09-14,Juventus,Benfica,1,2
+2022-09-14,Maccabi Haifa,Paris Saint Germain,1,3
+2022-09-16,Aston Villa,Southampton,1,0
+2022-09-16,Nottingham Forest,Fulham,2,3
+2022-09-17,Wolverhampton Wanderers,Manchester City,0,3
+2022-09-17,Newcastle United,Bournemouth,1,1
+2022-09-17,Tottenham,Leicester City,6,2
+2022-09-18,Brentford,Arsenal,0,3
+2022-09-18,Everton,West Ham United,1,0
+2022-10-01,Arsenal,Tottenham,3,1
+2022-10-01,Bournemouth,Brentford,0,0
+2022-10-01,Crystal Palace,Chelsea,1,2
+2022-10-01,Fulham,Newcastle United,1,4
+2022-10-01,Liverpool,Brighton & Hove Albion,3,3
+2022-10-01,Southampton,Everton,1,2
+2022-10-01,West Ham United,Wolverhampton Wanderers,2,0
+2022-10-02,Manchester City,Manchester United,6,3
+2022-10-02,Leeds United,Aston Villa,0,0
+2022-10-03,Leicester City,Nottingham Forest,4,0
+2022-10-04,Ajax,Napoli,1,6
+2022-10-04,Liverpool,Rangers FC,2,0
+2022-10-04,Club Brugge,Atlético Madrid,2,0
+2022-10-04,Porto,Bayer Leverkusen,2,0
+2022-10-04,Bayern Munich,Viktoria Plzen,5,0
+2022-10-04,Inter Milan,Barcelona,1,0
+2022-10-04,Marseille,Sporting Lisbon,4,1
+2022-10-04,Eintracht Frankfurt,Tottenham,0,0
+2022-10-05,RB Salzburg,Dinamo Zagreb,1,0
+2022-10-05,Chelsea,Milan,3,0
+2022-10-05,RB Leipzig,Celtic,3,1
+2022-10-05,Real Madrid,Shakhtar Donetsk,2,1
+2022-10-05,Sevilla,Borussia Dortmund,1,4
+2022-10-05,Manchester City,Copenhagen,5,0
+2022-10-05,Juventus,Maccabi Haifa,3,1
+2022-10-05,Benfica,Paris Saint Germain,1,1
+2022-10-08,Bournemouth,Leicester City,2,1
+2022-10-08,Chelsea,Wolverhampton Wanderers,3,0
+2022-10-08,Manchester City,Southampton,4,0
+2022-10-08,Newcastle United,Brentford,5,1
+2022-10-08,Brighton & Hove Albion,Tottenham,0,1
+2022-10-09,Crystal Palace,Leeds United,2,1
+2022-10-09,West Ham United,Fulham,3,1
+2022-10-09,Arsenal,Liverpool,3,2
+2022-10-09,Everton,Manchester United,1,2
+2022-10-10,Nottingham Forest,Aston Villa,1,1
+2022-10-11,Milan,Chelsea,0,2
+2022-10-11,Dinamo Zagreb,RB Salzburg,1,1
+2022-10-11,Celtic,RB Leipzig,0,2
+2022-10-11,Shakhtar Donetsk,Real Madrid,1,1
+2022-10-11,Copenhagen,Manchester City,0,0
+2022-10-11,Borussia Dortmund,Sevilla,1,1
+2022-10-11,Maccabi Haifa,Juventus,2,0
+2022-10-11,Paris Saint Germain,Benfica,1,1
+2022-10-12,Napoli,Ajax,4,2
+2022-10-12,Rangers FC,Liverpool,1,7
+2022-10-12,Atlético Madrid,Club Brugge,0,0
+2022-10-12,Bayer Leverkusen,Porto,0,3
+2022-10-12,Viktoria Plzen,Bayern Munich,2,4
+2022-10-12,Barcelona,Inter Milan,3,3
+2022-10-12,Tottenham,Eintracht Frankfurt,3,2
+2022-10-12,Sporting Lisbon,Marseille,0,2
+2022-10-14,Brentford,Brighton & Hove Albion,2,0
+2022-10-15,Leicester City,Crystal Palace,0,0
+2022-10-15,Fulham,Bournemouth,2,2
+2022-10-15,Wolverhampton Wanderers,Nottingham Forest,1,0
+2022-10-15,Tottenham,Everton,2,0
+2022-10-16,Aston Villa,Chelsea,0,2
+2022-10-16,Leeds United,Arsenal,0,1
+2022-10-16,Manchester United,Newcastle United,0,0
+2022-10-16,Southampton,West Ham United,1,1
+2022-10-16,Liverpool,Manchester City,1,0
+2022-10-18,Brighton & Hove Albion,Nottingham Forest,0,0
+2022-10-18,Crystal Palace,Wolverhampton Wanderers,2,1
+2022-10-19,Bournemouth,Southampton,0,1
+2022-10-19,Brentford,Chelsea,0,0
+2022-10-19,Liverpool,West Ham United,1,0
+2022-10-19,Newcastle United,Everton,1,0
+2022-10-19,Manchester United,Tottenham,2,0
+2022-10-20,Fulham,Aston Villa,3,0
+2022-10-20,Leicester City,Leeds United,2,0
+2022-10-22,Nottingham Forest,Liverpool,1,0
+2022-10-22,Everton,Crystal Palace,3,0
+2022-10-22,Manchester City,Brighton & Hove Albion,3,1
+2022-10-22,Chelsea,Manchester United,1,1
+2022-10-23,Aston Villa,Brentford,4,0
+2022-10-23,Leeds United,Fulham,2,3
+2022-10-23,Southampton,Arsenal,1,1
+2022-10-23,Wolverhampton Wanderers,Leicester City,0,4
+2022-10-23,Tottenham,Newcastle United,1,2
+2022-10-24,West Ham United,Bournemouth,2,0
+2022-10-25,RB Salzburg,Chelsea,1,2
+2022-10-25,Dinamo Zagreb,Milan,0,4
+2022-10-25,Celtic,Shakhtar Donetsk,1,1
+2022-10-25,RB Leipzig,Real Madrid,3,2
+2022-10-25,Sevilla,Copenhagen,3,0
+2022-10-25,Borussia Dortmund,Manchester City,0,0
+2022-10-25,Benfica,Juventus,4,3
+2022-10-25,Paris Saint Germain,Maccabi Haifa,7,2
+2022-10-26,Ajax,Liverpool,0,3
+2022-10-26,Napoli,Rangers FC,3,0
+2022-10-26,Club Brugge,Porto,0,4
+2022-10-26,Atlético Madrid,Bayer Leverkusen,2,2
+2022-10-26,Inter Milan,Viktoria Plzen,4,0
+2022-10-26,Barcelona,Bayern Munich,0,3
+2022-10-26,Eintracht Frankfurt,Marseille,2,1
+2022-10-26,Tottenham,Sporting Lisbon,1,1
+2022-10-29,Leicester City,Manchester City,0,1
+2022-10-29,Bournemouth,Tottenham,2,3
+2022-10-29,Brentford,Wolverhampton Wanderers,1,1
+2022-10-29,Brighton & Hove Albion,Chelsea,4,1
+2022-10-29,Crystal Palace,Southampton,1,0
+2022-10-29,Newcastle United,Aston Villa,4,0
+2022-10-29,Fulham,Everton,0,0
+2022-10-29,Liverpool,Leeds United,1,2
+2022-10-30,Arsenal,Nottingham Forest,5,0
+2022-10-30,Manchester United,West Ham United,1,0
+2022-11-01,Rangers FC,Ajax,1,3
+2022-11-01,Liverpool,Napoli,2,0
+2022-11-01,Porto,Atlético Madrid,2,1
+2022-11-01,Bayer Leverkusen,Club Brugge,0,0
+2022-11-01,Bayern Munich,Inter Milan,2,0
+2022-11-01,Viktoria Plzen,Barcelona,2,4
+2022-11-01,Sporting Lisbon,Eintracht Frankfurt,1,2
+2022-11-01,Marseille,Tottenham,1,2
+2022-11-02,Milan,RB Salzburg,4,0
+2022-11-02,Chelsea,Dinamo Zagreb,2,1
+2022-11-02,Real Madrid,Celtic,5,1
+2022-11-02,Shakhtar Donetsk,RB Leipzig,0,4
+2022-11-02,Copenhagen,Borussia Dortmund,1,1
+2022-11-02,Manchester City,Sevilla,3,1
+2022-11-02,Juventus,Paris Saint Germain,1,2
+2022-11-02,Maccabi Haifa,Benfica,1,6
+2022-11-05,Leeds United,Bournemouth,4,3
+2022-11-05,Manchester City,Fulham,2,1
+2022-11-05,Nottingham Forest,Brentford,2,2
+2022-11-05,Wolverhampton Wanderers,Brighton & Hove Albion,2,3
+2022-11-05,Everton,Leicester City,0,2
+2022-11-06,Chelsea,Arsenal,0,1
+2022-11-06,Aston Villa,Manchester United,3,1
+2022-11-06,Southampton,Newcastle United,1,4
+2022-11-06,West Ham United,Crystal Palace,1,2
+2022-11-06,Tottenham,Liverpool,1,2
+2022-11-12,Manchester City,Brentford,1,2
+2022-11-12,Bournemouth,Everton,3,0
+2022-11-12,Liverpool,Southampton,3,1
+2022-11-12,Nottingham Forest,Crystal Palace,1,0
+2022-11-12,Tottenham,Leeds United,4,3
+2022-11-12,West Ham United,Leicester City,0,2
+2022-11-12,Newcastle United,Chelsea,1,0
+2022-11-12,Wolverhampton Wanderers,Arsenal,0,2
+2022-11-13,Brighton & Hove Albion,Aston Villa,1,2
+2022-11-13,Fulham,Manchester United,1,2
+2022-12-26,Brentford,Tottenham,2,2
+2022-12-26,Crystal Palace,Fulham,0,3
+2022-12-26,Everton,Wolverhampton Wanderers,1,2
+2022-12-26,Leicester City,Newcastle United,0,3
+2022-12-26,Southampton,Brighton & Hove Albion,1,3
+2022-12-26,Aston Villa,Liverpool,1,3
+2022-12-26,Arsenal,West Ham United,3,1
+2022-12-27,Chelsea,Bournemouth,2,0
+2022-12-27,Manchester United,Nottingham Forest,3,0
+2022-12-28,Leeds United,Manchester City,1,3
+2022-12-30,West Ham United,Brentford,0,2
+2022-12-30,Liverpool,Leicester City,2,1
+2022-12-31,Wolverhampton Wanderers,Manchester United,0,1
+2022-12-31,Bournemouth,Crystal Palace,0,2
+2022-12-31,Fulham,Southampton,2,1
+2022-12-31,Manchester City,Everton,1,1
+2022-12-31,Newcastle United,Leeds United,0,0
+2022-12-31,Brighton & Hove Albion,Arsenal,2,4
+2023-01-01,Tottenham,Aston Villa,0,2
+2023-01-01,Nottingham Forest,Chelsea,1,1
+2023-01-02,Brentford,Liverpool,3,1
+2023-01-03,Arsenal,Newcastle United,0,0
+2023-01-03,Everton,Brighton & Hove Albion,1,4
+2023-01-03,Leicester City,Fulham,0,1
+2023-01-03,Manchester United,Bournemouth,3,0
+2023-01-04,Southampton,Nottingham Forest,0,1
+2023-01-04,Leeds United,West Ham United,2,2
+2023-01-04,Aston Villa,Wolverhampton Wanderers,1,1
+2023-01-04,Crystal Palace,Tottenham,0,4
+2023-01-05,Chelsea,Manchester City,0,1
+2023-01-12,Fulham,Chelsea,2,1
+2023-01-13,Aston Villa,Leeds United,2,1
+2023-01-14,Manchester United,Manchester City,2,1
+2023-01-14,Brighton & Hove Albion,Liverpool,3,0
+2023-01-14,Everton,Southampton,1,2
+2023-01-14,Nottingham Forest,Leicester City,2,0
+2023-01-14,Wolverhampton Wanderers,West Ham United,1,0
+2023-01-14,Brentford,Bournemouth,2,0
+2023-01-15,Chelsea,Crystal Palace,1,0
+2023-01-15,Newcastle United,Fulham,1,0
+2023-01-15,Tottenham,Arsenal,0,2
+2023-01-18,Crystal Palace,Manchester United,1,1
+2023-01-19,Manchester City,Tottenham,4,2
+2023-01-21,Liverpool,Chelsea,0,0
+2023-01-21,Bournemouth,Nottingham Forest,1,1
+2023-01-21,Leicester City,Brighton & Hove Albion,2,2
+2023-01-21,Southampton,Aston Villa,0,1
+2023-01-21,West Ham United,Everton,2,0
+2023-01-21,Crystal Palace,Newcastle United,0,0
+2023-01-22,Leeds United,Brentford,0,0
+2023-01-22,Manchester City,Wolverhampton Wanderers,3,0
+2023-01-22,Arsenal,Manchester United,3,2
+2023-01-23,Fulham,Tottenham,0,1
+2023-02-03,Chelsea,Fulham,0,0
+2023-02-04,Everton,Arsenal,1,0
+2023-02-04,Aston Villa,Leicester City,2,4
+2023-02-04,Brentford,Southampton,3,0
+2023-02-04,Brighton & Hove Albion,Bournemouth,1,0
+2023-02-04,Manchester United,Crystal Palace,2,1
+2023-02-04,Wolverhampton Wanderers,Liverpool,3,0
+2023-02-04,Newcastle United,West Ham United,1,1
+2023-02-05,Nottingham Forest,Leeds United,1,0
+2023-02-05,Tottenham,Manchester City,1,0
+2023-02-08,Manchester United,Leeds United,2,2
+2023-02-11,West Ham United,Chelsea,1,1
+2023-02-11,Arsenal,Brentford,1,1
+2023-02-11,Crystal Palace,Brighton & Hove Albion,1,1
+2023-02-11,Fulham,Nottingham Forest,2,0
+2023-02-11,Leicester City,Tottenham,4,1
+2023-02-11,Southampton,Wolverhampton Wanderers,1,2
+2023-02-11,Bournemouth,Newcastle United,1,1
+2023-02-12,Leeds United,Manchester United,0,2
+2023-02-12,Manchester City,Aston Villa,3,1
+2023-02-13,Liverpool,Everton,2,0
+2023-02-14,Milan,Tottenham,1,0
+2023-02-14,Paris Saint Germain,Bayern Munich,0,1
+2023-02-15,Club Brugge,Benfica,0,2
+2023-02-15,Borussia Dortmund,Chelsea,1,0
+2023-02-15,Arsenal,Manchester City,1,3
+2023-02-18,Aston Villa,Arsenal,2,4
+2023-02-18,Brentford,Crystal Palace,1,1
+2023-02-18,Brighton & Hove Albion,Fulham,0,1
+2023-02-18,Chelsea,Southampton,0,1
+2023-02-18,Everton,Leeds United,1,0
+2023-02-18,Nottingham Forest,Manchester City,1,1
+2023-02-18,Wolverhampton Wanderers,Bournemouth,0,1
+2023-02-18,Newcastle United,Liverpool,0,2
+2023-02-19,Manchester United,Leicester City,3,0
+2023-02-19,Tottenham,West Ham United,2,0
+2023-02-21,Liverpool,Real Madrid,2,5
+2023-02-21,Eintracht Frankfurt,Napoli,0,2
+2023-02-22,RB Leipzig,Manchester City,1,1
+2023-02-22,Inter Milan,Porto,1,0
+2023-02-24,Fulham,Wolverhampton Wanderers,1,1
+2023-02-25,Everton,Aston Villa,0,2
+2023-02-25,Leeds United,Southampton,1,0
+2023-02-25,Leicester City,Arsenal,0,1
+2023-02-25,West Ham United,Nottingham Forest,4,0
+2023-02-25,Bournemouth,Manchester City,1,4
+2023-02-25,Crystal Palace,Liverpool,0,0
+2023-02-26,Tottenham,Chelsea,2,0
+2023-03-01,Arsenal,Everton,4,0
+2023-03-01,Liverpool,Wolverhampton Wanderers,2,0
+2023-03-04,Manchester City,Newcastle United,2,0
+2023-03-04,Arsenal,Bournemouth,3,2
+2023-03-04,Aston Villa,Crystal Palace,1,0
+2023-03-04,Brighton & Hove Albion,West Ham United,4,0
+2023-03-04,Chelsea,Leeds United,1,0
+2023-03-04,Wolverhampton Wanderers,Tottenham,1,0
+2023-03-04,Southampton,Leicester City,1,0
+2023-03-05,Nottingham Forest,Everton,2,2
+2023-03-05,Liverpool,Manchester United,7,0
+2023-03-06,Brentford,Fulham,3,2
+2023-03-07,Benfica,Club Brugge,5,1
+2023-03-07,Chelsea,Borussia Dortmund,2,0
+2023-03-08,Bayern Munich,Paris Saint Germain,2,0
+2023-03-08,Tottenham,Milan,0,0
+2023-03-11,Bournemouth,Liverpool,1,0
+2023-03-11,Everton,Brentford,1,0
+2023-03-11,Leeds United,Brighton & Hove Albion,2,2
+2023-03-11,Leicester City,Chelsea,1,3
+2023-03-11,Tottenham,Nottingham Forest,3,1
+2023-03-11,Crystal Palace,Manchester City,0,1
+2023-03-12,Fulham,Arsenal,0,3
+2023-03-12,Manchester United,Southampton,0,0
+2023-03-12,West Ham United,Aston Villa,1,1
+2023-03-12,Newcastle United,Wolverhampton Wanderers,2,1
+2023-03-14,Manchester City,RB Leipzig,7,0
+2023-03-14,Porto,Inter Milan,0,0
+2023-03-15,Real Madrid,Liverpool,1,0
+2023-03-15,Napoli,Eintracht Frankfurt,3,0
+2023-03-15,Brighton & Hove Albion,Crystal Palace,1,0
+2023-03-15,Southampton,Brentford,0,2
+2023-03-17,Nottingham Forest,Newcastle United,1,2
+2023-03-18,Aston Villa,Bournemouth,3,0
+2023-03-18,Brentford,Leicester City,1,1
+2023-03-18,Southampton,Tottenham,3,3
+2023-03-18,Wolverhampton Wanderers,Leeds United,2,4
+2023-03-18,Chelsea,Everton,2,2
+2023-03-19,Arsenal,Crystal Palace,4,1
+2023-04-01,Manchester City,Liverpool,4,1
+2023-04-01,Arsenal,Leeds United,4,1
+2023-04-01,Bournemouth,Fulham,2,1
+2023-04-01,Brighton & Hove Albion,Brentford,3,3
+2023-04-01,Crystal Palace,Leicester City,2,1
+2023-04-01,Nottingham Forest,Wolverhampton Wanderers,1,1
+2023-04-01,Chelsea,Aston Villa,0,2
+2023-04-02,West Ham United,Southampton,1,0
+2023-04-02,Newcastle United,Manchester United,2,0
+2023-04-03,Everton,Tottenham,1,1
+2023-04-04,Bournemouth,Brighton & Hove Albion,0,2
+2023-04-04,Leeds United,Nottingham Forest,2,1
+2023-04-04,Leicester City,Aston Villa,1,2
+2023-04-04,Chelsea,Liverpool,0,0
+2023-04-05,Manchester United,Brentford,1,0
+2023-04-05,West Ham United,Newcastle United,1,5
+2023-04-08,Manchester United,Everton,2,0
+2023-04-08,Aston Villa,Nottingham Forest,2,0
+2023-04-08,Brentford,Newcastle United,1,2
+2023-04-08,Fulham,West Ham United,0,1
+2023-04-08,Leicester City,Bournemouth,0,1
+2023-04-08,Tottenham,Brighton & Hove Albion,2,1
+2023-04-08,Wolverhampton Wanderers,Chelsea,1,0
+2023-04-08,Southampton,Manchester City,1,4
+2023-04-09,Leeds United,Crystal Palace,1,5
+2023-04-09,Liverpool,Arsenal,2,2
+2023-04-11,Benfica,Inter Milan,0,2
+2023-04-11,Manchester City,Bayern Munich,3,0
+2023-04-12,Real Madrid,Chelsea,2,0
+2023-04-12,Milan,Napoli,1,0
+2023-04-15,Aston Villa,Newcastle United,3,0
+2023-04-15,Chelsea,Brighton & Hove Albion,1,2
+2023-04-15,Everton,Fulham,1,3
+2023-04-15,Southampton,Crystal Palace,0,2
+2023-04-15,Wolverhampton Wanderers,Brentford,2,0
+2023-04-15,Tottenham,Bournemouth,2,3
+2023-04-15,Manchester City,Leicester City,3,1
+2023-04-16,West Ham United,Arsenal,2,2
+2023-04-16,Nottingham Forest,Manchester United,0,2
+2023-04-17,Leeds United,Liverpool,1,6
+2023-04-18,Chelsea,Real Madrid,0,2
+2023-04-18,Napoli,Milan,1,1
+2023-04-19,Inter Milan,Benfica,3,3
+2023-04-19,Bayern Munich,Manchester City,1,1
+2023-04-21,Arsenal,Southampton,3,3
+2023-04-22,Fulham,Leeds United,2,1
+2023-04-22,Brentford,Aston Villa,1,1
+2023-04-22,Crystal Palace,Everton,0,0
+2023-04-22,Leicester City,Wolverhampton Wanderers,2,1
+2023-04-22,Liverpool,Nottingham Forest,3,2
+2023-04-23,Bournemouth,West Ham United,0,4
+2023-04-23,Newcastle United,Tottenham,6,1
+2023-04-25,Wolverhampton Wanderers,Crystal Palace,2,0
+2023-04-25,Aston Villa,Fulham,1,0
+2023-04-25,Leeds United,Leicester City,1,1
+2023-04-26,Nottingham Forest,Brighton & Hove Albion,3,1
+2023-04-26,Chelsea,Brentford,0,2
+2023-04-26,West Ham United,Liverpool,1,2
+2023-04-26,Manchester City,Arsenal,4,1
+2023-04-27,Everton,Newcastle United,1,4
+2023-04-27,Southampton,Bournemouth,0,1
+2023-04-27,Tottenham,Manchester United,2,2
+2023-04-29,Crystal Palace,West Ham United,4,3
+2023-04-29,Brentford,Nottingham Forest,2,1
+2023-04-29,Brighton & Hove Albion,Wolverhampton Wanderers,6,0
+2023-04-30,Bournemouth,Leeds United,4,1
+2023-04-30,Fulham,Manchester City,1,2
+2023-04-30,Manchester United,Aston Villa,1,0
+2023-04-30,Newcastle United,Southampton,3,1
+2023-04-30,Liverpool,Tottenham,4,3
+2023-05-01,Leicester City,Everton,2,2
+2023-05-02,Arsenal,Chelsea,3,1
+2023-05-03,Liverpool,Fulham,1,0
+2023-05-03,Manchester City,West Ham United,3,0
+2023-05-04,Brighton & Hove Albion,Manchester United,1,0
+2023-05-06,Bournemouth,Chelsea,1,3
+2023-05-06,Manchester City,Leeds United,2,1
+2023-05-06,Tottenham,Crystal Palace,1,0
+2023-05-06,Wolverhampton Wanderers,Aston Villa,1,0
+2023-05-06,Liverpool,Brentford,1,0
+2023-05-07,Newcastle United,Arsenal,0,2
+2023-05-07,West Ham United,Manchester United,1,0
+2023-05-08,Fulham,Leicester City,5,3
+2023-05-08,Brighton & Hove Albion,Everton,1,5
+2023-05-08,Nottingham Forest,Southampton,4,3
+2023-05-09,Real Madrid,Manchester City,1,1
+2023-05-10,Milan,Inter Milan,0,2
+2023-05-13,Leeds United,Newcastle United,2,2
+2023-05-13,Aston Villa,Tottenham,2,1
+2023-05-13,Chelsea,Nottingham Forest,2,2
+2023-05-13,Crystal Palace,Bournemouth,2,0
+2023-05-13,Manchester United,Wolverhampton Wanderers,2,0
+2023-05-13,Southampton,Fulham,0,2
+2023-05-14,Brentford,West Ham United,2,0
+2023-05-14,Everton,Manchester City,0,3
+2023-05-14,Arsenal,Brighton & Hove Albion,0,3
+2023-05-15,Leicester City,Liverpool,0,3
+2023-05-16,Inter Milan,Milan,1,0
+2023-05-17,Manchester City,Real Madrid,4,0
+2023-05-18,Newcastle United,Brighton & Hove Albion,4,1
+2023-05-20,Tottenham,Brentford,1,3
+2023-05-20,Bournemouth,Manchester United,0,1
+2023-05-20,Fulham,Crystal Palace,2,2
+2023-05-20,Liverpool,Aston Villa,1,1
+2023-05-20,Wolverhampton Wanderers,Everton,1,1
+2023-05-20,Nottingham Forest,Arsenal,1,0
+2023-05-21,West Ham United,Leeds United,3,1
+2023-05-21,Brighton & Hove Albion,Southampton,3,1
+2023-05-21,Manchester City,Chelsea,1,0
+2023-05-22,Newcastle United,Leicester City,0,0
+2023-05-24,Brighton & Hove Albion,Manchester City,1,1
+2023-05-25,Manchester United,Chelsea,4,1
+2023-05-28,Arsenal,Wolverhampton Wanderers,5,0
+2023-05-28,Aston Villa,Brighton & Hove Albion,2,1
+2023-05-28,Brentford,Manchester City,1,0
+2023-05-28,Chelsea,Newcastle United,1,1
+2023-05-28,Crystal Palace,Nottingham Forest,1,1
+2023-05-28,Everton,Bournemouth,1,0
+2023-05-28,Leeds United,Tottenham,1,4
+2023-05-28,Leicester City,West Ham United,2,1
+2023-05-28,Manchester United,Fulham,2,1
+2023-05-28,Southampton,Liverpool,4,4
+2023-06-10,Manchester City,Inter Milan,1,0
+2023-08-11,Burnley,Manchester City,0,3
+2023-08-12,Arsenal,Nottingham Forest,2,1
+2023-08-12,Bournemouth,West Ham United,1,1
+2023-08-12,Brighton & Hove Albion,Luton Town,4,1
+2023-08-12,Everton,Fulham,0,1
+2023-08-12,Sheffield United,Crystal Palace,0,1
+2023-08-12,Newcastle United,Aston Villa,5,1
+2023-08-13,Brentford,Tottenham,2,2
+2023-08-13,Chelsea,Liverpool,1,1
+2023-08-14,Manchester United,Wolverhampton Wanderers,1,0
+2023-08-18,Nottingham Forest,Sheffield United,2,1
+2023-08-19,Fulham,Brentford,0,3
+2023-08-19,Liverpool,Bournemouth,3,1
+2023-08-19,Wolverhampton Wanderers,Brighton & Hove Albion,1,4
+2023-08-19,Tottenham,Manchester United,2,0
+2023-08-19,Manchester City,Newcastle United,1,0
+2023-08-20,Aston Villa,Everton,4,0
+2023-08-20,West Ham United,Chelsea,3,1
+2023-08-21,Crystal Palace,Arsenal,0,1
+2023-08-25,Chelsea,Luton Town,3,0
+2023-08-26,Bournemouth,Tottenham,0,2
+2023-08-26,Arsenal,Fulham,2,2
+2023-08-26,Brentford,Crystal Palace,1,1
+2023-08-26,Everton,Wolverhampton Wanderers,0,1
+2023-08-26,Manchester United,Nottingham Forest,3,2
+2023-08-26,Brighton & Hove Albion,West Ham United,1,3
+2023-08-27,Burnley,Aston Villa,1,3
+2023-08-27,Sheffield United,Manchester City,1,2
+2023-08-27,Newcastle United,Liverpool,1,2
+2023-09-01,Luton Town,West Ham United,1,2
+2023-09-02,Sheffield United,Everton,2,2
+2023-09-02,Brentford,Bournemouth,2,2
+2023-09-02,Burnley,Tottenham,2,5
+2023-09-02,Chelsea,Nottingham Forest,0,1
+2023-09-02,Manchester City,Fulham,5,1
+2023-09-02,Brighton & Hove Albion,Newcastle United,3,1
+2023-09-03,Crystal Palace,Wolverhampton Wanderers,3,2
+2023-09-03,Liverpool,Aston Villa,3,0
+2023-09-03,Arsenal,Manchester United,3,1
+2023-09-16,Wolverhampton Wanderers,Liverpool,1,3
+2023-09-16,Aston Villa,Crystal Palace,3,1
+2023-09-16,Fulham,Luton Town,1,0
+2023-09-16,Manchester United,Brighton & Hove Albion,1,3
+2023-09-16,Tottenham,Sheffield United,2,1
+2023-09-16,West Ham United,Manchester City,1,3
+2023-09-16,Newcastle United,Brentford,1,0
+2023-09-17,Bournemouth,Chelsea,0,0
+2023-09-17,Everton,Arsenal,0,1
+2023-09-18,Nottingham Forest,Burnley,1,1
+2023-09-19,Milan,Newcastle United FC,0,0
+2023-09-19,BSC Young Boys,RB Leipzig,1,3
+2023-09-19,SS Lazio,Club Atlético de Madrid,1,1
+2023-09-19,Feyenoord,Celtic,2,0
+2023-09-19,Paris Saint Germain,Borussia Dortmund,2,0
+2023-09-19,Manchester City FC,FK Crvena Zvezda,3,1
+2023-09-19,Barcelona,Royal Antwerp FC,5,0
+2023-09-19,FK Shakhtar Donetsk,Porto,1,3
+2023-09-20,Real Madrid CF,Union Berlin,1,0
+2023-09-20,Galatasaray SK,Copenhagen,2,2
+2023-09-20,Sevilla,RC Lens,1,1
+2023-09-20,Braga,Napoli,1,2
+2023-09-20,Real Sociedad de Fútbol,FC Internazionale Milano,1,1
+2023-09-20,Sport Lisboa e Benfica,FC Red Bull Salzburg,0,2
+2023-09-20,FC Bayern München,Manchester United FC,4,3
+2023-09-20,Arsenal,PSV,4,0
+2023-09-23,Crystal Palace,Fulham,0,0
+2023-09-23,Luton Town,Wolverhampton Wanderers,1,1
+2023-09-23,Manchester City,Nottingham Forest,2,0
+2023-09-23,Brentford,Everton,1,3
+2023-09-23,Burnley,Manchester United,0,1
+2023-09-24,Arsenal,Tottenham,2,2
+2023-09-24,Brighton & Hove Albion,Bournemouth,3,1
+2023-09-24,Chelsea,Aston Villa,0,1
+2023-09-24,Liverpool,West Ham United,3,1
+2023-09-24,Sheffield United,Newcastle United,0,8
+2023-09-30,Aston Villa,Brighton & Hove Albion,6,1
+2023-09-30,Bournemouth,Arsenal,0,4
+2023-09-30,Everton,Luton Town,1,2
+2023-09-30,Manchester United,Crystal Palace,0,1
+2023-09-30,Newcastle United,Burnley,2,0
+2023-09-30,West Ham United,Sheffield United,2,0
+2023-09-30,Wolverhampton Wanderers,Manchester City,2,1
+2023-09-30,Tottenham,Liverpool,2,1
+2023-10-01,Nottingham Forest,Brentford,1,1
+2023-10-02,Fulham,Chelsea,0,2
+2023-10-03,Union Berlin,Braga,2,3
+2023-10-03,FC Red Bull Salzburg,Real Sociedad de Fútbol,0,2
+2023-10-03,Napoli,Real Madrid CF,2,3
+2023-10-03,FC Internazionale Milano,Sport Lisboa e Benfica,1,0
+2023-10-03,Copenhagen,FC Bayern München,1,2
+2023-10-03,Manchester United FC,Galatasaray SK,2,3
+2023-10-03,RC Lens,Arsenal,2,1
+2023-10-03,PSV,Sevilla,2,2
+2023-10-03,Luton Town,Burnley,1,2
+2023-10-04,Club Atlético de Madrid,Feyenoord,3,2
+2023-10-04,Royal Antwerp FC,FK Shakhtar Donetsk,2,3
+2023-10-04,Celtic,SS Lazio,1,2
+2023-10-04,Borussia Dortmund,Milan,0,0
+2023-10-04,Newcastle United FC,Paris Saint Germain,4,1
+2023-10-04,FK Crvena Zvezda,BSC Young Boys,2,2
+2023-10-04,RB Leipzig,Manchester City FC,1,3
+2023-10-04,Porto,Barcelona,0,1
+2023-10-07,Luton Town,Tottenham,0,1
+2023-10-07,Burnley,Chelsea,1,4
+2023-10-07,Everton,Bournemouth,3,0
+2023-10-07,Fulham,Sheffield United,3,1
+2023-10-07,Manchester United,Brentford,2,1
+2023-10-07,Crystal Palace,Nottingham Forest,0,0
+2023-10-08,Brighton & Hove Albion,Liverpool,2,2
+2023-10-08,West Ham United,Newcastle United,2,2
+2023-10-08,Wolverhampton Wanderers,Aston Villa,1,1
+2023-10-08,Arsenal,Manchester City,1,0
+2023-10-21,Liverpool,Everton,2,0
+2023-10-21,Bournemouth,Wolverhampton Wanderers,1,2
+2023-10-21,Brentford,Burnley,3,0
+2023-10-21,Manchester City,Brighton & Hove Albion,2,1
+2023-10-21,Newcastle United,Crystal Palace,4,0
+2023-10-21,Nottingham Forest,Luton Town,2,2
+2023-10-21,Chelsea,Arsenal,2,2
+2023-10-21,Sheffield United,Manchester United,1,2
+2023-10-22,Aston Villa,West Ham United,4,1
+2023-10-23,Tottenham,Fulham,2,0
+2023-10-24,FC Internazionale Milano,FC Red Bull Salzburg,2,1
+2023-10-24,Galatasaray SK,FC Bayern München,1,3
+2023-10-24,Union Berlin,Napoli,0,1
+2023-10-24,Braga,Real Madrid CF,1,2
+2023-10-24,Sport Lisboa e Benfica,Real Sociedad de Fútbol,0,1
+2023-10-24,Manchester United FC,Copenhagen,1,0
+2023-10-24,Sevilla,Arsenal,1,2
+2023-10-24,RC Lens,PSV,1,1
+2023-10-25,Feyenoord,SS Lazio,3,1
+2023-10-25,Barcelona,FK Shakhtar Donetsk,2,1
+2023-10-25,Celtic,Club Atlético de Madrid,2,2
+2023-10-25,Paris Saint Germain,Milan,3,0
+2023-10-25,Newcastle United FC,Borussia Dortmund,0,1
+2023-10-25,BSC Young Boys,Manchester City FC,1,3
+2023-10-25,RB Leipzig,FK Crvena Zvezda,3,1
+2023-10-25,Royal Antwerp FC,Porto,1,4
+2023-10-27,Crystal Palace,Tottenham,1,2
+2023-10-28,Chelsea,Brentford,0,2
+2023-10-28,Arsenal,Sheffield United,5,0
+2023-10-28,Bournemouth,Burnley,2,1
+2023-10-28,Wolverhampton Wanderers,Newcastle United,2,2
+2023-10-29,West Ham United,Everton,0,1
+2023-10-29,Aston Villa,Luton Town,3,1
+2023-10-29,Brighton & Hove Albion,Fulham,1,1
+2023-10-29,Liverpool,Nottingham Forest,3,0
+2023-10-29,Manchester United,Manchester City,0,3
+2023-11-04,Fulham,Manchester United,0,1
+2023-11-04,Brentford,West Ham United,3,2
+2023-11-04,Burnley,Crystal Palace,0,2
+2023-11-04,Everton,Brighton & Hove Albion,1,1
+2023-11-04,Manchester City,Bournemouth,6,1
+2023-11-04,Sheffield United,Wolverhampton Wanderers,2,1
+2023-11-04,Newcastle United,Arsenal,1,0
+2023-11-05,Nottingham Forest,Aston Villa,2,0
+2023-11-05,Luton Town,Liverpool,1,1
+2023-11-06,Tottenham,Chelsea,1,4
+2023-11-07,Borussia Dortmund,Newcastle United FC,2,0
+2023-11-07,FK Shakhtar Donetsk,Barcelona,1,0
+2023-11-07,Club Atlético de Madrid,Celtic,6,0
+2023-11-07,SS Lazio,Feyenoord,1,0
+2023-11-07,Milan,Paris Saint Germain,2,1
+2023-11-07,Manchester City FC,BSC Young Boys,3,0
+2023-11-07,FK Crvena Zvezda,RB Leipzig,1,2
+2023-11-07,Porto,Royal Antwerp FC,2,0
+2023-11-08,Napoli,Union Berlin,1,1
+2023-11-08,Real Sociedad de Fútbol,Sport Lisboa e Benfica,3,1
+2023-11-08,Real Madrid CF,Braga,3,0
+2023-11-08,FC Red Bull Salzburg,FC Internazionale Milano,0,1
+2023-11-08,FC Bayern München,Galatasaray SK,2,1
+2023-11-08,Copenhagen,Manchester United FC,4,3
+2023-11-08,Arsenal,Sevilla,2,0
+2023-11-08,PSV,RC Lens,1,0
+2023-11-11,Wolverhampton Wanderers,Tottenham,2,1
+2023-11-11,Arsenal,Burnley,3,1
+2023-11-11,Crystal Palace,Everton,2,3
+2023-11-11,Manchester United,Luton Town,1,0
+2023-11-11,Bournemouth,Newcastle United,2,0
+2023-11-12,Aston Villa,Fulham,3,1
+2023-11-12,Brighton & Hove Albion,Sheffield United,1,1
+2023-11-12,Liverpool,Brentford,3,0
+2023-11-12,West Ham United,Nottingham Forest,3,2
+2023-11-12,Chelsea,Manchester City,4,4
+2023-11-25,Manchester City,Liverpool,1,1
+2023-11-25,Burnley,West Ham United,1,2
+2023-11-25,Luton Town,Crystal Palace,2,1
+2023-11-25,Newcastle United,Chelsea,4,1
+2023-11-25,Nottingham Forest,Brighton & Hove Albion,2,3
+2023-11-25,Sheffield United,Bournemouth,1,3
+2023-11-25,Brentford,Arsenal,0,1
+2023-11-26,Tottenham,Aston Villa,1,2
+2023-11-26,Everton,Manchester United,0,3
+2023-11-27,Fulham,Wolverhampton Wanderers,3,2
+2023-11-28,SS Lazio,Celtic,2,0
+2023-11-28,FK Shakhtar Donetsk,Royal Antwerp FC,1,0
+2023-11-28,Feyenoord,Club Atlético de Madrid,1,3
+2023-11-28,Milan,Borussia Dortmund,1,3
+2023-11-28,Paris Saint Germain,Newcastle United FC,1,1
+2023-11-28,BSC Young Boys,FK Crvena Zvezda,2,0
+2023-11-28,Manchester City FC,RB Leipzig,3,2
+2023-11-28,Barcelona,Porto,2,1
+2023-11-29,Galatasaray SK,Manchester United FC,3,3
+2023-11-29,Sevilla,PSV,2,3
+2023-11-29,Braga,Union Berlin,1,1
+2023-11-29,Real Madrid CF,Napoli,4,2
+2023-11-29,Sport Lisboa e Benfica,FC Internazionale Milano,3,3
+2023-11-29,Real Sociedad de Fútbol,FC Red Bull Salzburg,0,0
+2023-11-29,FC Bayern München,Copenhagen,0,0
+2023-11-29,Arsenal,RC Lens,6,0
+2023-12-02,Arsenal,Wolverhampton Wanderers,2,1
+2023-12-02,Brentford,Luton Town,3,1
+2023-12-02,Burnley,Sheffield United,5,0
+2023-12-02,Nottingham Forest,Everton,0,1
+2023-12-02,Newcastle United,Manchester United,1,0
+2023-12-03,Bournemouth,Aston Villa,2,2
+2023-12-03,Chelsea,Brighton & Hove Albion,3,2
+2023-12-03,Liverpool,Fulham,4,3
+2023-12-03,West Ham United,Crystal Palace,1,1
+2023-12-03,Manchester City,Tottenham,3,3
+2023-12-05,Wolverhampton Wanderers,Burnley,1,0
+2023-12-05,Luton Town,Arsenal,3,4
+2023-12-06,Brighton & Hove Albion,Brentford,2,1
+2023-12-06,Crystal Palace,Bournemouth,0,2
+2023-12-06,Fulham,Nottingham Forest,5,0
+2023-12-06,Sheffield United,Liverpool,0,2
+2023-12-06,Aston Villa,Manchester City,1,0
+2023-12-06,Manchester United,Chelsea,2,1
+2023-12-07,Everton,Newcastle United,3,0
+2023-12-07,Tottenham,West Ham United,1,2
+2023-12-09,Crystal Palace,Liverpool,1,2
+2023-12-09,Brighton & Hove Albion,Burnley,1,1
+2023-12-09,Manchester United,Bournemouth,0,3
+2023-12-09,Sheffield United,Brentford,1,0
+2023-12-09,Wolverhampton Wanderers,Nottingham Forest,1,1
+2023-12-09,Aston Villa,Arsenal,1,0
+2023-12-10,Everton,Chelsea,2,0
+2023-12-10,Fulham,West Ham United,5,0
+2023-12-10,Luton Town,Manchester City,1,2
+2023-12-10,Tottenham,Newcastle United,4,1
+2023-12-12,PSV,Arsenal,1,1
+2023-12-12,RC Lens,Sevilla,2,1
+2023-12-12,Union Berlin,Real Madrid CF,2,3
+2023-12-12,Napoli,Braga,2,0
+2023-12-12,FC Internazionale Milano,Real Sociedad de Fútbol,0,0
+2023-12-12,FC Red Bull Salzburg,Sport Lisboa e Benfica,1,3
+2023-12-12,Manchester United FC,FC Bayern München,0,1
+2023-12-12,Copenhagen,Galatasaray SK,1,0
+2023-12-13,RB Leipzig,BSC Young Boys,2,1
+2023-12-13,FK Crvena Zvezda,Manchester City FC,2,3
+2023-12-13,Club Atlético de Madrid,SS Lazio,2,0
+2023-12-13,Celtic,Feyenoord,2,1
+2023-12-13,Newcastle United FC,Milan,1,2
+2023-12-13,Borussia Dortmund,Paris Saint Germain,1,1
+2023-12-13,Royal Antwerp FC,Barcelona,3,2
+2023-12-13,Porto,FK Shakhtar Donetsk,5,3
+2023-12-15,Nottingham Forest,Tottenham,0,2
+2023-12-16,Chelsea,Sheffield United,2,0
+2023-12-16,Manchester City,Crystal Palace,2,2
+2023-12-16,Newcastle United,Fulham,3,0
+2023-12-16,Burnley,Everton,0,2
+2023-12-17,Arsenal,Brighton & Hove Albion,2,0
+2023-12-17,Brentford,Aston Villa,1,2
+2023-12-17,West Ham United,Wolverhampton Wanderers,3,0
+2023-12-17,Liverpool,Manchester United,0,0
+2023-12-21,Crystal Palace,Brighton & Hove Albion,1,1
+2023-12-22,Aston Villa,Sheffield United,1,1
+2023-12-23,West Ham United,Manchester United,2,0
+2023-12-23,Fulham,Burnley,0,2
+2023-12-23,Luton Town,Newcastle United,1,0
+2023-12-23,Nottingham Forest,Bournemouth,2,3
+2023-12-23,Tottenham,Everton,2,1
+2023-12-23,Liverpool,Arsenal,1,1
+2023-12-24,Wolverhampton Wanderers,Chelsea,2,1
+2023-12-26,Newcastle United,Nottingham Forest,1,3
+2023-12-26,Bournemouth,Fulham,3,0
+2023-12-26,Sheffield United,Luton Town,2,3
+2023-12-26,Burnley,Liverpool,0,2
+2023-12-26,Manchester United,Aston Villa,3,2
+2023-12-27,Brentford,Wolverhampton Wanderers,1,4
+2023-12-27,Chelsea,Crystal Palace,2,1
+2023-12-27,Everton,Manchester City,1,3
+2023-12-28,Brighton & Hove Albion,Tottenham,4,2
+2023-12-28,Arsenal,West Ham United,0,2
+2023-12-30,Luton Town,Chelsea,2,3
+2023-12-30,Aston Villa,Burnley,3,2
+2023-12-30,Crystal Palace,Brentford,3,1
+2023-12-30,Manchester City,Sheffield United,2,0
+2023-12-30,Wolverhampton Wanderers,Everton,3,0
+2023-12-30,Nottingham Forest,Manchester United,2,1
+2023-12-31,Fulham,Arsenal,2,1
+2023-12-31,Tottenham,Bournemouth,3,1
+2024-01-01,Liverpool,Newcastle United,4,2
+2024-01-02,West Ham United,Brighton & Hove Albion,0,0
+2024-01-12,Burnley,Luton Town,1,1
+2024-01-13,Chelsea,Fulham,1,0
+2024-01-13,Newcastle United,Manchester City,2,3
+2024-01-14,Everton,Aston Villa,0,0
+2024-01-14,Manchester United,Tottenham,2,2
+2024-01-20,Arsenal,Crystal Palace,5,0
+2024-01-20,Brentford,Nottingham Forest,3,2
+2024-01-21,Sheffield United,West Ham United,2,2
+2024-01-21,Bournemouth,Liverpool,0,4
+2024-01-22,Brighton & Hove Albion,Wolverhampton Wanderers,0,0
+2024-01-30,Nottingham Forest,Arsenal,1,2
+2024-01-30,Fulham,Everton,0,0
+2024-01-30,Luton Town,Brighton & Hove Albion,4,0
+2024-01-30,Crystal Palace,Sheffield United,3,2
+2024-01-30,Aston Villa,Newcastle United,1,3
+2024-01-31,Manchester City,Burnley,3,1
+2024-01-31,Tottenham,Brentford,3,2
+2024-01-31,Liverpool,Chelsea,4,1
+2024-02-01,West Ham United,Bournemouth,1,1
+2024-02-01,Wolverhampton Wanderers,Manchester United,3,4
+2024-02-03,Everton,Tottenham,2,2
+2024-02-03,Brighton & Hove Albion,Crystal Palace,4,1
+2024-02-03,Burnley,Fulham,2,2
+2024-02-03,Newcastle United,Luton Town,4,4
+2024-02-03,Sheffield United,Aston Villa,0,5
+2024-02-04,Bournemouth,Nottingham Forest,1,1
+2024-02-04,Chelsea,Wolverhampton Wanderers,2,4
+2024-02-04,Manchester United,West Ham United,3,0
+2024-02-04,Arsenal,Liverpool,3,1
+2024-02-05,Brentford,Manchester City,1,3
+2024-02-10,Manchester City,Everton,2,0
+2024-02-10,Fulham,Bournemouth,3,1
+2024-02-10,Liverpool,Burnley,3,1
+2024-02-10,Luton Town,Sheffield United,1,3
+2024-02-10,Tottenham,Brighton & Hove Albion,2,1
+2024-02-10,Wolverhampton Wanderers,Brentford,0,2
+2024-02-10,Nottingham Forest,Newcastle United,2,3
+2024-02-11,West Ham United,Arsenal,0,6
+2024-02-11,Aston Villa,Manchester United,1,2
+2024-02-12,Crystal Palace,Chelsea,1,3
+2024-02-13,Copenhagen,Manchester City FC,1,3
+2024-02-13,RB Leipzig,Real Madrid CF,0,1
+2024-02-14,Paris Saint Germain,Real Sociedad de Fútbol,2,0
+2024-02-14,SS Lazio,FC Bayern München,1,0
+2024-02-17,Brentford,Liverpool,1,4
+2024-02-17,Burnley,Arsenal,0,5
+2024-02-17,Fulham,Aston Villa,1,2
+2024-02-17,Newcastle United,Bournemouth,2,2
+2024-02-17,Nottingham Forest,West Ham United,2,0
+2024-02-17,Tottenham,Wolverhampton Wanderers,1,2
+2024-02-17,Manchester City,Chelsea,1,1
+2024-02-18,Sheffield United,Brighton & Hove Albion,0,5
+2024-02-18,Luton Town,Manchester United,1,2
+2024-02-19,Everton,Crystal Palace,1,1
+2024-02-20,FC Internazionale Milano,Club Atlético de Madrid,1,0
+2024-02-20,PSV,Borussia Dortmund,1,1
+2024-02-20,Manchester City,Brentford,1,0
+2024-02-21,Porto,Arsenal,1,0
+2024-02-21,Napoli,Barcelona,1,1
+2024-02-21,Liverpool,Luton Town,4,1
+2024-02-24,Aston Villa,Nottingham Forest,4,2
+2024-02-24,Brighton & Hove Albion,Everton,1,1
+2024-02-24,Crystal Palace,Burnley,3,0
+2024-02-24,Manchester United,Fulham,1,2
+2024-02-24,Bournemouth,Manchester City,0,1
+2024-02-24,Arsenal,Newcastle United,4,1
+2024-02-25,Wolverhampton Wanderers,Sheffield United,1,0
+2024-02-26,West Ham United,Brentford,4,2
+2024-03-02,Brentford,Chelsea,2,2
+2024-03-02,Everton,West Ham United,1,3
+2024-03-02,Fulham,Brighton & Hove Albion,3,0
+2024-03-02,Newcastle United,Wolverhampton Wanderers,3,0
+2024-03-02,Nottingham Forest,Liverpool,0,1
+2024-03-02,Tottenham,Crystal Palace,3,1
+2024-03-02,Luton Town,Aston Villa,2,3
+2024-03-03,Burnley,Bournemouth,0,2
+2024-03-03,Manchester City,Manchester United,3,1
+2024-03-04,Sheffield United,Arsenal,0,6
+2024-03-05,Real Sociedad de Fútbol,Paris Saint Germain,1,2
+2024-03-05,FC Bayern München,SS Lazio,3,0
+2024-03-06,Manchester City FC,Copenhagen,3,1
+2024-03-06,Real Madrid CF,RB Leipzig,1,1
+2024-03-09,Manchester United,Everton,2,0
+2024-03-09,Bournemouth,Sheffield United,2,2
+2024-03-09,Crystal Palace,Luton Town,1,1
+2024-03-09,Wolverhampton Wanderers,Fulham,2,1
+2024-03-09,Arsenal,Brentford,2,1
+2024-03-10,Aston Villa,Tottenham,0,4
+2024-03-10,Brighton & Hove Albion,Nottingham Forest,1,0
+2024-03-10,West Ham United,Burnley,2,2
+2024-03-10,Liverpool,Manchester City,1,1
+2024-03-11,Chelsea,Newcastle United,3,2
+2024-03-12,Arsenal,Porto,1,0
+2024-03-12,Barcelona,Napoli,3,1
+2024-03-13,Club Atlético de Madrid,FC Internazionale Milano,2,1
+2024-03-13,Borussia Dortmund,PSV,2,0
+2024-03-13,Bournemouth,Luton Town,4,3
+2024-03-16,Burnley,Brentford,2,1
+2024-03-16,Luton Town,Nottingham Forest,1,1
+2024-03-16,Fulham,Tottenham,3,0
+2024-03-17,West Ham United,Aston Villa,1,1
+2024-03-30,Newcastle United,West Ham United,4,3
+2024-03-30,Bournemouth,Everton,2,1
+2024-03-30,Chelsea,Burnley,2,2
+2024-03-30,Nottingham Forest,Crystal Palace,1,1
+2024-03-30,Sheffield United,Fulham,3,3
+2024-03-30,Tottenham,Luton Town,2,1
+2024-03-30,Aston Villa,Wolverhampton Wanderers,2,0
+2024-03-30,Brentford,Manchester United,1,1
+2024-03-31,Liverpool,Brighton & Hove Albion,2,1
+2024-03-31,Manchester City,Arsenal,0,0
+2024-04-02,Newcastle United,Everton,1,1
+2024-04-02,Nottingham Forest,Fulham,3,1
+2024-04-02,Bournemouth,Crystal Palace,1,0
+2024-04-02,Burnley,Wolverhampton Wanderers,1,1
+2024-04-02,West Ham United,Tottenham,1,1
+2024-04-03,Arsenal,Luton Town,2,0
+2024-04-03,Brentford,Brighton & Hove Albion,0,0
+2024-04-03,Manchester City,Aston Villa,4,1
+2024-04-04,Liverpool,Sheffield United,3,1
+2024-04-04,Chelsea,Manchester United,4,3
+2024-04-06,Crystal Palace,Manchester City,2,4
+2024-04-06,Aston Villa,Brentford,3,3
+2024-04-06,Everton,Burnley,1,0
+2024-04-06,Fulham,Newcastle United,0,1
+2024-04-06,Luton Town,Bournemouth,2,1
+2024-04-06,Wolverhampton Wanderers,West Ham United,1,2
+2024-04-06,Brighton & Hove Albion,Arsenal,0,3
+2024-04-07,Manchester United,Liverpool,2,2
+2024-04-07,Sheffield United,Chelsea,2,2
+2024-04-07,Tottenham,Nottingham Forest,3,1
+2024-04-09,Arsenal,FC Bayern München,2,2
+2024-04-09,Real Madrid CF,Manchester City FC,3,3
+2024-04-10,Club Atlético de Madrid,Borussia Dortmund,2,1
+2024-04-10,Paris Saint Germain,Barcelona,2,3
+2024-04-13,Newcastle United,Tottenham,4,0
+2024-04-13,Brentford,Sheffield United,2,0
+2024-04-13,Burnley,Brighton & Hove Albion,1,1
+2024-04-13,Manchester City,Luton Town,5,1
+2024-04-13,Nottingham Forest,Wolverhampton Wanderers,2,2
+2024-04-13,Bournemouth,Manchester United,2,2
+2024-04-14,Liverpool,Crystal Palace,0,1
+2024-04-14,West Ham United,Fulham,0,2
+2024-04-14,Arsenal,Aston Villa,0,2
+2024-04-15,Chelsea,Everton,6,0
+2024-04-16,Borussia Dortmund,Club Atlético de Madrid,4,2
+2024-04-16,Barcelona,Paris Saint Germain,1,4
+2024-04-17,FC Bayern München,Arsenal,1,0
+2024-04-17,Manchester City FC,Real Madrid CF,1,1
+2024-04-20,Luton Town,Brentford,1,5
+2024-04-20,Sheffield United,Burnley,1,4
+2024-04-20,Wolverhampton Wanderers,Arsenal,0,2
+2024-04-21,Everton,Nottingham Forest,2,0
+2024-04-21,Aston Villa,Bournemouth,3,1
+2024-04-21,Crystal Palace,West Ham United,5,2
+2024-04-21,Fulham,Liverpool,1,3
+2024-04-23,Arsenal,Chelsea,5,0
+2024-04-24,Wolverhampton Wanderers,Bournemouth,0,1
+2024-04-24,Crystal Palace,Newcastle United,2,0
+2024-04-24,Everton,Liverpool,2,0
+2024-04-24,Manchester United,Sheffield United,4,2
+2024-04-25,Brighton & Hove Albion,Manchester City,0,4
+2024-04-27,West Ham United,Liverpool,2,2
+2024-04-27,Fulham,Crystal Palace,1,1
+2024-04-27,Manchester United,Burnley,1,1
+2024-04-27,Newcastle United,Sheffield United,5,1
+2024-04-27,Wolverhampton Wanderers,Luton Town,2,1
+2024-04-27,Everton,Brentford,1,0
+2024-04-27,Aston Villa,Chelsea,2,2
+2024-04-28,Bournemouth,Brighton & Hove Albion,3,0
+2024-04-28,Tottenham,Arsenal,2,3
+2024-04-28,Nottingham Forest,Manchester City,0,2
+2024-04-30,FC Bayern München,Real Madrid CF,2,2
+2024-05-01,Borussia Dortmund,Paris Saint Germain,1,0
+2024-05-02,Chelsea,Tottenham,2,0
+2024-05-03,Luton Town,Everton,1,1
+2024-05-04,Arsenal,Bournemouth,3,0
+2024-05-04,Brentford,Fulham,0,0
+2024-05-04,Burnley,Newcastle United,1,4
+2024-05-04,Sheffield United,Nottingham Forest,1,3
+2024-05-04,Manchester City,Wolverhampton Wanderers,5,1
+2024-05-05,Brighton & Hove Albion,Aston Villa,1,0
+2024-05-05,Chelsea,West Ham United,5,0
+2024-05-05,Liverpool,Tottenham,4,2
+2024-05-06,Crystal Palace,Manchester United,4,0
+2024-05-07,Paris Saint Germain,Borussia Dortmund,0,1
+2024-05-08,Real Madrid CF,FC Bayern München,2,1
+2024-05-11,Fulham,Manchester City,0,4
+2024-05-11,Bournemouth,Brentford,1,2
+2024-05-11,Everton,Sheffield United,1,0
+2024-05-11,Newcastle United,Brighton & Hove Albion,1,1
+2024-05-11,Tottenham,Burnley,2,1
+2024-05-11,West Ham United,Luton Town,3,1
+2024-05-11,Wolverhampton Wanderers,Crystal Palace,1,3
+2024-05-11,Nottingham Forest,Chelsea,2,3
+2024-05-12,Manchester United,Arsenal,0,1
+2024-05-13,Aston Villa,Liverpool,3,3
+2024-05-14,Tottenham,Manchester City,0,2
+2024-05-15,Brighton & Hove Albion,Chelsea,1,2
+2024-05-15,Manchester United,Newcastle United,3,2
+2024-05-19,Arsenal,Everton,2,1
+2024-05-19,Brentford,Newcastle United,2,4
+2024-05-19,Brighton & Hove Albion,Manchester United,0,2
+2024-05-19,Burnley,Nottingham Forest,1,2
+2024-05-19,Chelsea,Bournemouth,2,1
+2024-05-19,Crystal Palace,Aston Villa,5,0
+2024-05-19,Liverpool,Wolverhampton Wanderers,2,0
+2024-05-19,Luton Town,Fulham,2,4
+2024-05-19,Manchester City,West Ham United,3,1
+2024-05-19,Sheffield United,Tottenham,0,3
+2024-06-01,Borussia Dortmund,Real Madrid CF,0,2
+2024-08-16,Manchester United,Fulham,1,0
+2024-08-17,Ipswich Town,Liverpool,0,2
+2024-08-17,Arsenal,Wolverhampton Wanderers,2,0
+2024-08-17,Everton,Brighton & Hove Albion,0,3
+2024-08-17,Newcastle United,Southampton,1,0
+2024-08-17,Nottingham Forest,Bournemouth,1,1
+2024-08-17,West Ham United,Aston Villa,1,2
+2024-08-18,Brentford,Crystal Palace,2,1
+2024-08-18,Chelsea,Manchester City,0,2
+2024-08-19,Leicester City,Tottenham,1,1
+2024-08-24,Brighton & Hove Albion,Manchester United,2,1
+2024-08-24,Crystal Palace,West Ham United,0,2
+2024-08-24,Fulham,Leicester City,2,1
+2024-08-24,Manchester City,Ipswich Town,4,1
+2024-08-24,Southampton,Nottingham Forest,0,1
+2024-08-24,Tottenham,Everton,4,0
+2024-08-24,Aston Villa,Arsenal,0,2
+2024-08-25,Bournemouth,Newcastle United,1,1
+2024-08-25,Wolverhampton Wanderers,Chelsea,2,6
+2024-08-25,Liverpool,Brentford,2,0
+2024-08-31,Arsenal,Brighton & Hove Albion,1,1
+2024-08-31,Brentford,Southampton,3,1
+2024-08-31,Everton,Bournemouth,2,3
+2024-08-31,Ipswich Town,Fulham,1,1
+2024-08-31,Leicester City,Aston Villa,1,2
+2024-08-31,Nottingham Forest,Wolverhampton Wanderers,1,1
+2024-08-31,West Ham United,Manchester City,1,3
+2024-09-01,Chelsea,Crystal Palace,1,1
+2024-09-01,Newcastle United,Tottenham,2,1
+2024-09-01,Manchester United,Liverpool,0,3
+2024-09-14,Southampton,Manchester United,0,3
+2024-09-14,Brighton & Hove Albion,Ipswich Town,0,0
+2024-09-14,Crystal Palace,Leicester City,2,2
+2024-09-14,Fulham,West Ham United,1,1
+2024-09-14,Liverpool,Nottingham Forest,0,1
+2024-09-14,Manchester City,Brentford,2,1
+2024-09-14,Aston Villa,Everton,3,2
+2024-09-14,Bournemouth,Chelsea,0,1
+2024-09-15,Tottenham,Arsenal,0,1
+2024-09-15,Wolverhampton Wanderers,Newcastle United,1,2
+2024-09-21,West Ham United,Chelsea,0,3
+2024-09-21,Aston Villa,Wolverhampton Wanderers,3,1
+2024-09-21,Fulham,Newcastle United,3,1
+2024-09-21,Leicester City,Everton,1,1
+2024-09-21,Liverpool,Bournemouth,3,0
+2024-09-21,Southampton,Ipswich Town,1,1
+2024-09-21,Tottenham,Brentford,3,1
+2024-09-21,Crystal Palace,Manchester United,0,0
+2024-09-22,Brighton & Hove Albion,Nottingham Forest,2,2
+2024-09-22,Manchester City,Arsenal,2,2
+2024-09-28,Newcastle United,Manchester City,1,1
+2024-09-28,Arsenal,Leicester City,4,2
+2024-09-28,Brentford,West Ham United,1,1
+2024-09-28,Chelsea,Brighton & Hove Albion,4,2
+2024-09-28,Everton,Crystal Palace,2,1
+2024-09-28,Nottingham Forest,Fulham,0,1
+2024-09-28,Wolverhampton Wanderers,Liverpool,1,2
+2024-09-29,Ipswich Town,Aston Villa,2,2
+2024-09-29,Manchester United,Tottenham,0,3
+2024-09-30,Bournemouth,Southampton,3,1
+2024-10-05,Crystal Palace,Liverpool,0,1
+2024-10-05,Arsenal,Southampton,3,1
+2024-10-05,Brentford,Wolverhampton Wanderers,5,3
+2024-10-05,Leicester City,Bournemouth,1,0
+2024-10-05,Manchester City,Fulham,3,2
+2024-10-05,West Ham United,Ipswich Town,4,1
+2024-10-05,Everton,Newcastle United,0,0
+2024-10-06,Aston Villa,Manchester United,0,0
+2024-10-06,Chelsea,Nottingham Forest,1,1
+2024-10-06,Brighton & Hove Albion,Tottenham,3,2
+2024-10-19,Tottenham,West Ham United,4,1
+2024-10-19,Fulham,Aston Villa,1,3
+2024-10-19,Manchester United,Brentford,2,1
+2024-10-19,Newcastle United,Brighton & Hove Albion,0,1
+2024-10-19,Southampton,Leicester City,2,3
+2024-10-19,Ipswich Town,Everton,0,2
+2024-10-19,Bournemouth,Arsenal,2,0
+2024-10-20,Wolverhampton Wanderers,Manchester City,1,2
+2024-10-20,Liverpool,Chelsea,2,1
+2024-10-21,Nottingham Forest,Crystal Palace,1,0
+2024-10-25,Leicester City,Nottingham Forest,1,3
+2024-10-26,Aston Villa,Bournemouth,1,1
+2024-10-26,Brentford,Ipswich Town,4,3
+2024-10-26,Brighton & Hove Albion,Wolverhampton Wanderers,2,2
+2024-10-26,Manchester City,Southampton,1,0
+2024-10-26,Everton,Fulham,1,1
+2024-10-27,Chelsea,Newcastle United,2,1
+2024-10-27,Crystal Palace,Tottenham,1,0
+2024-10-27,West Ham United,Manchester United,2,1
+2024-10-27,Arsenal,Liverpool,2,2
+2024-11-02,Newcastle United,Arsenal,1,0
+2024-11-02,Bournemouth,Manchester City,2,1
+2024-11-02,Ipswich Town,Leicester City,1,1
+2024-11-02,Liverpool,Brighton & Hove Albion,2,1
+2024-11-02,Nottingham Forest,West Ham United,3,0
+2024-11-02,Southampton,Everton,1,0
+2024-11-02,Wolverhampton Wanderers,Crystal Palace,2,2
+2024-11-03,Tottenham,Aston Villa,4,1
+2024-11-03,Manchester United,Chelsea,1,1
+2024-11-04,Fulham,Brentford,2,1
+2024-11-09,Brentford,Bournemouth,3,2
+2024-11-09,Crystal Palace,Fulham,0,2
+2024-11-09,West Ham United,Everton,0,0
+2024-11-09,Wolverhampton Wanderers,Southampton,2,0
+2024-11-09,Brighton & Hove Albion,Manchester City,2,1
+2024-11-09,Liverpool,Aston Villa,2,0
+2024-11-10,Manchester United,Leicester City,3,0
+2024-11-10,Nottingham Forest,Newcastle United,1,3
+2024-11-10,Tottenham,Ipswich Town,1,2
+2024-11-10,Chelsea,Arsenal,1,1
+2024-11-23,Leicester City,Chelsea,1,2
+2024-11-23,Arsenal,Nottingham Forest,3,0
+2024-11-23,Aston Villa,Crystal Palace,2,2
+2024-11-23,Bournemouth,Brighton & Hove Albion,1,2
+2024-11-23,Everton,Brentford,0,0
+2024-11-23,Fulham,Wolverhampton Wanderers,1,4
+2024-11-23,Manchester City,Tottenham,0,4
+2024-11-24,Southampton,Liverpool,2,3
+2024-11-24,Ipswich Town,Manchester United,1,1
+2024-11-25,Newcastle United,West Ham United,0,2
+2024-11-29,Brighton & Hove Albion,Southampton,1,1
+2024-11-30,Brentford,Leicester City,4,1
+2024-11-30,Crystal Palace,Newcastle United,1,1
+2024-11-30,Nottingham Forest,Ipswich Town,1,0
+2024-11-30,Wolverhampton Wanderers,Bournemouth,2,4
+2024-11-30,West Ham United,Arsenal,2,5
+2024-12-01,Chelsea,Aston Villa,3,0
+2024-12-01,Manchester United,Everton,4,0
+2024-12-01,Tottenham,Fulham,1,1
+2024-12-01,Liverpool,Manchester City,2,0
+2024-12-03,Ipswich Town,Crystal Palace,0,1
+2024-12-03,Leicester City,West Ham United,3,1
+2024-12-04,Everton,Wolverhampton Wanderers,4,0
+2024-12-04,Manchester City,Nottingham Forest,3,0
+2024-12-04,Newcastle United,Liverpool,3,3
+2024-12-04,Southampton,Chelsea,1,5
+2024-12-04,Arsenal,Manchester United,2,0
+2024-12-04,Aston Villa,Brentford,3,1
+2024-12-05,Fulham,Brighton & Hove Albion,3,1
+2024-12-05,Bournemouth,Tottenham,1,0
+2024-12-07,Aston Villa,Southampton,1,0
+2024-12-07,Brentford,Newcastle United,4,2
+2024-12-07,Crystal Palace,Manchester City,2,2
+2024-12-07,Manchester United,Nottingham Forest,2,3
+2024-12-08,Fulham,Arsenal,1,1
+2024-12-08,Ipswich Town,Bournemouth,1,2
+2024-12-08,Leicester City,Brighton & Hove Albion,2,2
+2024-12-08,Tottenham,Chelsea,3,4
+2024-12-09,West Ham United,Wolverhampton Wanderers,2,1
+2024-12-14,Arsenal,Everton,0,0
+2024-12-14,Liverpool,Fulham,2,2
+2024-12-14,Newcastle United,Leicester City,4,0
+2024-12-14,Wolverhampton Wanderers,Ipswich Town,1,2
+2024-12-14,Nottingham Forest,Aston Villa,2,1
+2024-12-15,Brighton & Hove Albion,Crystal Palace,1,3
+2024-12-15,Manchester City,Manchester United,1,2
+2024-12-15,Chelsea,Brentford,2,1
+2024-12-15,Southampton,Tottenham,0,5
+2024-12-16,Bournemouth,West Ham United,1,1
+2024-12-21,Aston Villa,Manchester City,2,1
+2024-12-21,Brentford,Nottingham Forest,0,2
+2024-12-21,Ipswich Town,Newcastle United,0,4
+2024-12-21,West Ham United,Brighton & Hove Albion,1,1
+2024-12-21,Crystal Palace,Arsenal,1,5
+2024-12-22,Everton,Chelsea,0,0
+2024-12-22,Fulham,Southampton,0,0
+2024-12-22,Leicester City,Wolverhampton Wanderers,0,3
+2024-12-22,Manchester United,Bournemouth,0,3
+2024-12-22,Tottenham,Liverpool,3,6
+2024-12-26,Manchester City,Everton,1,1
+2024-12-26,Bournemouth,Crystal Palace,0,0
+2024-12-26,Chelsea,Fulham,1,2
+2024-12-26,Newcastle United,Aston Villa,3,0
+2024-12-26,Nottingham Forest,Tottenham,1,0
+2024-12-26,Southampton,West Ham United,0,1
+2024-12-26,Wolverhampton Wanderers,Manchester United,2,0
+2024-12-26,Liverpool,Leicester City,3,1
+2024-12-27,Brighton & Hove Albion,Brentford,0,0
+2024-12-27,Arsenal,Ipswich Town,1,0
+2024-12-29,Leicester City,Manchester City,0,2
+2024-12-29,Crystal Palace,Southampton,2,1
+2024-12-29,Everton,Nottingham Forest,0,2
+2024-12-29,Fulham,Bournemouth,2,2
+2024-12-29,Tottenham,Wolverhampton Wanderers,2,2
+2024-12-29,West Ham United,Liverpool,0,5
+2024-12-30,Aston Villa,Brighton & Hove Albion,2,2
+2024-12-30,Ipswich Town,Chelsea,2,0
+2024-12-30,Manchester United,Newcastle United,0,2
+2025-01-01,Brentford,Arsenal,1,3
+2025-01-04,Tottenham,Newcastle United,1,2
+2025-01-04,Aston Villa,Leicester City,2,1
+2025-01-04,Bournemouth,Everton,1,0
+2025-01-04,Crystal Palace,Chelsea,1,1
+2025-01-04,Manchester City,West Ham United,4,1
+2025-01-04,Southampton,Brentford,0,5
+2025-01-04,Brighton & Hove Albion,Arsenal,1,1
+2025-01-05,Fulham,Ipswich Town,2,2
+2025-01-05,Liverpool,Manchester United,2,2
+2025-01-06,Wolverhampton Wanderers,Nottingham Forest,0,3
+2025-01-14,Brentford,Manchester City,2,2
+2025-01-14,Chelsea,Bournemouth,2,2
+2025-01-14,West Ham United,Fulham,3,2
+2025-01-14,Nottingham Forest,Liverpool,1,1
+2025-01-15,Everton,Aston Villa,0,1
+2025-01-15,Leicester City,Crystal Palace,0,2
+2025-01-15,Newcastle United,Wolverhampton Wanderers,3,0
+2025-01-15,Arsenal,Tottenham,2,1
+2025-01-16,Ipswich Town,Brighton & Hove Albion,0,2
+2025-01-16,Manchester United,Southampton,3,1
+2025-01-18,Newcastle United,Bournemouth,1,4
+2025-01-18,Brentford,Liverpool,0,2
+2025-01-18,Leicester City,Fulham,0,2
+2025-01-18,West Ham United,Crystal Palace,0,2
+2025-01-18,Arsenal,Aston Villa,2,2
+2025-01-19,Everton,Tottenham,3,2
+2025-01-19,Manchester United,Brighton & Hove Albion,1,3
+2025-01-19,Nottingham Forest,Southampton,3,2
+2025-01-19,Ipswich Town,Manchester City,0,6
+2025-01-20,Chelsea,Wolverhampton Wanderers,3,1
+2025-01-25,Bournemouth,Nottingham Forest,5,0
+2025-01-25,Brighton & Hove Albion,Everton,0,1
+2025-01-25,Liverpool,Ipswich Town,4,1
+2025-01-25,Southampton,Newcastle United,1,3
+2025-01-25,Wolverhampton Wanderers,Arsenal,0,1
+2025-01-25,Manchester City,Chelsea,3,1
+2025-01-26,Crystal Palace,Brentford,1,2
+2025-01-26,Tottenham,Leicester City,1,2
+2025-01-26,Aston Villa,West Ham United,1,1
+2025-01-26,Fulham,Manchester United,0,1
+2025-02-01,Nottingham Forest,Brighton & Hove Albion,7,0
+2025-02-01,Bournemouth,Liverpool,0,2
+2025-02-01,Everton,Leicester City,4,0
+2025-02-01,Ipswich Town,Southampton,1,2
+2025-02-01,Newcastle United,Fulham,1,2
+2025-02-01,Wolverhampton Wanderers,Aston Villa,2,0
+2025-02-02,Brentford,Tottenham,0,2
+2025-02-02,Manchester United,Crystal Palace,0,2
+2025-02-02,Arsenal,Manchester City,5,1
+2025-02-03,Chelsea,West Ham United,2,1
+2025-02-12,Everton,Liverpool,2,2
+2025-02-14,Brighton & Hove Albion,Chelsea,3,0
+2025-02-15,Leicester City,Arsenal,0,2
+2025-02-15,Aston Villa,Ipswich Town,1,1
+2025-02-15,Fulham,Nottingham Forest,2,1
+2025-02-15,Manchester City,Newcastle United,4,0
+2025-02-15,Southampton,Bournemouth,1,3
+2025-02-15,West Ham United,Brentford,0,1
+2025-02-15,Crystal Palace,Everton,1,2
+2025-02-16,Liverpool,Wolverhampton Wanderers,2,1
+2025-02-16,Tottenham,Manchester United,1,0
+2025-02-19,Aston Villa,Liverpool,2,2
+2025-02-21,Leicester City,Brentford,0,4
+2025-02-22,Everton,Manchester United,2,2
+2025-02-22,Arsenal,West Ham United,0,1
+2025-02-22,Bournemouth,Wolverhampton Wanderers,0,1
+2025-02-22,Fulham,Crystal Palace,0,2
+2025-02-22,Ipswich Town,Tottenham,1,4
+2025-02-22,Southampton,Brighton & Hove Albion,0,4
+2025-02-22,Aston Villa,Chelsea,2,1
+2025-02-23,Newcastle United,Nottingham Forest,4,3
+2025-02-23,Manchester City,Liverpool,0,2
+2025-02-25,Brighton & Hove Albion,Bournemouth,2,1
+2025-02-25,Crystal Palace,Aston Villa,4,1
+2025-02-25,Wolverhampton Wanderers,Fulham,1,2
+2025-02-25,Chelsea,Southampton,4,0
+2025-02-26,Brentford,Everton,1,1
+2025-02-26,Manchester United,Ipswich Town,3,2
+2025-02-26,Nottingham Forest,Arsenal,0,0
+2025-02-26,Tottenham,Manchester City,0,1
+2025-02-26,Liverpool,Newcastle United,2,0
+2025-02-27,West Ham United,Leicester City,2,0
+2025-03-08,Nottingham Forest,Manchester City,1,0
+2025-03-08,Brighton & Hove Albion,Fulham,2,1
+2025-03-08,Crystal Palace,Ipswich Town,1,0
+2025-03-08,Liverpool,Southampton,3,1
+2025-03-08,Brentford,Aston Villa,0,1
+2025-03-08,Wolverhampton Wanderers,Everton,1,1
+2025-03-09,Chelsea,Leicester City,1,0
+2025-03-09,Tottenham,Bournemouth,2,2
+2025-03-09,Manchester United,Arsenal,1,1
+2025-03-10,West Ham United,Newcastle United,0,1
+2025-03-15,Everton,West Ham United,1,1
+2025-03-15,Ipswich Town,Nottingham Forest,2,4
+2025-03-15,Manchester City,Brighton & Hove Albion,2,2
+2025-03-15,Southampton,Wolverhampton Wanderers,1,2
+2025-03-15,Bournemouth,Brentford,1,2
+2025-03-16,Arsenal,Chelsea,1,0
+2025-03-16,Fulham,Tottenham,2,0
+2025-03-16,Leicester City,Manchester United,0,3
+2025-04-01,Arsenal,Fulham,2,1
+2025-04-01,Wolverhampton Wanderers,West Ham United,1,0
+2025-04-01,Nottingham Forest,Manchester United,1,0
+2025-04-02,Bournemouth,Ipswich Town,1,2
+2025-04-02,Brighton & Hove Albion,Aston Villa,0,3
+2025-04-02,Manchester City,Leicester City,2,0
+2025-04-02,Newcastle United,Brentford,2,1
+2025-04-02,Southampton,Crystal Palace,1,1
+2025-04-02,Liverpool,Everton,1,0
+2025-04-03,Chelsea,Tottenham,1,0
+2025-04-05,Everton,Arsenal,1,1
+2025-04-05,Crystal Palace,Brighton & Hove Albion,2,1
+2025-04-05,Ipswich Town,Wolverhampton Wanderers,1,2
+2025-04-05,West Ham United,Bournemouth,2,2
+2025-04-05,Aston Villa,Nottingham Forest,2,1
+2025-04-06,Brentford,Chelsea,0,0
+2025-04-06,Fulham,Liverpool,3,2
+2025-04-06,Tottenham,Southampton,3,1
+2025-04-06,Manchester United,Manchester City,0,0
+2025-04-07,Leicester City,Newcastle United,0,3
+2025-04-12,Manchester City,Crystal Palace,5,2
+2025-04-12,Brighton & Hove Albion,Leicester City,2,2
+2025-04-12,Nottingham Forest,Everton,0,1
+2025-04-12,Southampton,Aston Villa,0,3
+2025-04-12,Arsenal,Brentford,1,1
+2025-04-13,Chelsea,Ipswich Town,2,2
+2025-04-13,Liverpool,West Ham United,2,1
+2025-04-13,Wolverhampton Wanderers,Tottenham,4,2
+2025-04-13,Newcastle United,Manchester United,4,1
+2025-04-14,Bournemouth,Fulham,1,0
+2025-04-16,Newcastle United,Crystal Palace,5,0
+2025-04-19,Brentford,Brighton & Hove Albion,4,2
+2025-04-19,Crystal Palace,Bournemouth,0,0
+2025-04-19,Everton,Manchester City,0,2
+2025-04-19,West Ham United,Southampton,1,1
+2025-04-19,Aston Villa,Newcastle United,4,1
+2025-04-20,Fulham,Chelsea,1,2
+2025-04-20,Ipswich Town,Arsenal,0,4
+2025-04-20,Manchester United,Wolverhampton Wanderers,0,1
+2025-04-20,Leicester City,Liverpool,0,1
+2025-04-21,Tottenham,Nottingham Forest,1,2
+2025-04-22,Manchester City,Aston Villa,2,1
+2025-04-23,Arsenal,Crystal Palace,2,2
+2025-04-26,Chelsea,Everton,1,0
+2025-04-26,Brighton & Hove Albion,West Ham United,3,2
+2025-04-26,Newcastle United,Ipswich Town,3,0
+2025-04-26,Southampton,Fulham,1,2
+2025-04-26,Wolverhampton Wanderers,Leicester City,3,0
+2025-04-27,Bournemouth,Manchester United,1,1
+2025-04-27,Liverpool,Tottenham,5,1
+2025-05-01,Nottingham Forest,Brentford,0,2
+2025-05-02,Manchester City,Wolverhampton Wanderers,1,0
+2025-05-03,Aston Villa,Fulham,1,0
+2025-05-03,Everton,Ipswich Town,2,2
+2025-05-03,Leicester City,Southampton,2,0
+2025-05-03,Arsenal,Bournemouth,1,2
+2025-05-04,Brentford,Manchester United,4,3
+2025-05-04,Brighton & Hove Albion,Newcastle United,1,1
+2025-05-04,West Ham United,Tottenham,1,1
+2025-05-04,Chelsea,Liverpool,3,1
+2025-05-05,Crystal Palace,Nottingham Forest,1,1
+2025-05-10,Fulham,Everton,1,3
+2025-05-10,Ipswich Town,Brentford,0,1
+2025-05-10,Southampton,Manchester City,0,0
+2025-05-10,Wolverhampton Wanderers,Brighton & Hove Albion,0,2
+2025-05-10,Bournemouth,Aston Villa,0,1
+2025-05-11,Newcastle United,Chelsea,2,0
+2025-05-11,Manchester United,West Ham United,0,2
+2025-05-11,Nottingham Forest,Leicester City,2,2
+2025-05-11,Tottenham,Crystal Palace,0,2
+2025-05-11,Liverpool,Arsenal,2,2
+2025-05-16,Aston Villa,Tottenham,2,0
+2025-05-16,Chelsea,Manchester United,1,0
+2025-05-18,Everton,Southampton,2,0
+2025-05-18,West Ham United,Nottingham Forest,1,2
+2025-05-18,Brentford,Fulham,2,3
+2025-05-18,Leicester City,Ipswich Town,2,0
+2025-05-18,Arsenal,Newcastle United,1,0
+2025-05-19,Brighton & Hove Albion,Liverpool,3,2
+2025-05-20,Crystal Palace,Wolverhampton Wanderers,4,2
+2025-05-20,Manchester City,Bournemouth,3,1
+2025-05-25,Bournemouth,Leicester City,2,0
+2025-05-25,Fulham,Manchester City,0,2
+2025-05-25,Ipswich Town,West Ham United,1,3
+2025-05-25,Liverpool,Crystal Palace,1,1
+2025-05-25,Manchester United,Aston Villa,2,0
+2025-05-25,Newcastle United,Everton,0,1
+2025-05-25,Nottingham Forest,Chelsea,0,1
+2025-05-25,Southampton,Arsenal,1,2
+2025-05-25,Tottenham,Brighton & Hove Albion,1,4
+2025-05-25,Wolverhampton Wanderers,Brentford,1,1
+2025-09-16,Athletic Bilbao,Arsenal,0,2
+2025-09-16,PSV,Royale Union Saint-Gilloise,1,3
+2025-09-16,Juventus FC,Borussia Dortmund,4,4
+2025-09-16,Sport Lisboa e Benfica,Qarabağ Ağdam FK,2,3
+2025-09-16,Tottenham Hotspur FC,Villarreal,1,0
+2025-09-16,Real Madrid CF,Olympique de Marseille,2,1
+2025-09-17,Slavia Praha,FK Bodø/Glimt,2,2
+2025-09-17,PAE Olympiakos SFP,Paphos FC,0,0
+2025-09-17,Ajax,FC Internazionale Milano,0,2
+2025-09-17,Liverpool,Club Atlético de Madrid,3,2
+2025-09-17,Paris Saint Germain,Atalanta BC,4,0
+2025-09-17,FC Bayern München,Chelsea,3,1
+2025-09-18,Copenhagen,Bayer 04 Leverkusen,2,2
+2025-09-18,Club Brugge,AS Monaco FC,4,1
+2025-09-18,Newcastle United FC,Barcelona,1,2
+2025-09-18,Manchester City FC,Napoli,2,0
+2025-09-18,Eintracht Frankfurt,Galatasaray SK,5,1
+2025-09-18,Sporting Lisbon,FK Kairat,4,1
+2025-09-30,Atalanta BC,Club Brugge,2,1
+2025-09-30,FK Kairat,Real Madrid CF,0,5
+2025-09-30,Galatasaray SK,Liverpool,1,0
+2025-09-30,Club Atlético de Madrid,Eintracht Frankfurt,5,1
+2025-09-30,Olympique de Marseille,Ajax,4,0
+2025-09-30,FK Bodø/Glimt,Tottenham Hotspur FC,2,2
+2025-09-30,Paphos FC,FC Bayern München,1,5
+2025-09-30,Chelsea,Sport Lisboa e Benfica,1,0
+2025-09-30,FC Internazionale Milano,Slavia Praha,3,0
+2025-10-01,Qarabağ Ağdam FK,Copenhagen,2,0
+2025-10-01,Royale Union Saint-Gilloise,Newcastle United FC,0,4
+2025-10-01,Borussia Dortmund,Athletic Bilbao,4,1
+2025-10-01,Barcelona,Paris Saint Germain,1,2
+2025-10-01,AS Monaco FC,Manchester City FC,2,2
+2025-10-01,Bayer 04 Leverkusen,PSV,1,1
+2025-10-01,Arsenal,PAE Olympiakos SFP,2,0
+2025-10-01,Villarreal,Juventus FC,2,2
+2025-10-01,Napoli,Sporting Lisbon,2,1
+2025-10-21,Barcelona,PAE Olympiakos SFP,6,1
+2025-10-21,FK Kairat,Paphos FC,0,0
+2025-10-21,Royale Union Saint-Gilloise,FC Internazionale Milano,0,4
+2025-10-21,Copenhagen,Borussia Dortmund,2,4
+2025-10-21,Bayer 04 Leverkusen,Paris Saint Germain,2,7
+2025-10-21,Villarreal,Manchester City FC,0,2
+2025-10-21,Arsenal,Club Atlético de Madrid,4,0
+2025-10-21,Newcastle United FC,Sport Lisboa e Benfica,3,0
+2025-10-21,PSV,Napoli,6,2
+2025-10-22,Galatasaray SK,FK Bodø/Glimt,3,1
+2025-10-22,Athletic Bilbao,Qarabağ Ağdam FK,3,1
+2025-10-22,Eintracht Frankfurt,Liverpool,1,5
+2025-10-22,Atalanta BC,Slavia Praha,0,0
+2025-10-22,Sporting Lisbon,Olympique de Marseille,2,1
+2025-10-22,AS Monaco FC,Tottenham Hotspur FC,0,0
+2025-10-22,FC Bayern München,Club Brugge,4,0
+2025-10-22,Chelsea,Ajax,5,1
+2025-10-22,Real Madrid CF,Juventus FC,1,0
+2025-11-04,Slavia Praha,Arsenal,0,3
+2025-11-04,Napoli,Eintracht Frankfurt,0,0
+2025-11-04,Juventus FC,Sporting Lisbon,1,1
+2025-11-04,Club Atlético de Madrid,Royale Union Saint-Gilloise,3,1
+2025-11-04,Tottenham Hotspur FC,Copenhagen,4,0
+2025-11-04,FK Bodø/Glimt,AS Monaco FC,0,1
+2025-11-04,PAE Olympiakos SFP,PSV,1,1
+2025-11-04,Paris Saint Germain,FC Bayern München,1,2
+2025-11-04,Liverpool,Real Madrid CF,1,0
+2025-11-05,Paphos FC,Villarreal,1,0
+2025-11-05,Qarabağ Ağdam FK,Chelsea,2,2
+2025-11-05,FC Internazionale Milano,FK Kairat,2,1
+2025-11-05,Manchester City FC,Borussia Dortmund,4,1
+2025-11-05,Club Brugge,Barcelona,3,3
+2025-11-05,Sport Lisboa e Benfica,Bayer 04 Leverkusen,0,1
+2025-11-05,Olympique de Marseille,Atalanta BC,0,1
+2025-11-05,Ajax,Galatasaray SK,0,3
+2025-11-05,Newcastle United FC,Athletic Bilbao,2,0
+2025-11-25,Ajax,Sport Lisboa e Benfica,0,2
+2025-11-25,Galatasaray SK,Royale Union Saint-Gilloise,0,1
+2025-11-25,Borussia Dortmund,Villarreal,4,0
+2025-11-25,Manchester City FC,Bayer 04 Leverkusen,0,2
+2025-11-25,FK Bodø/Glimt,Juventus FC,2,3
+2025-11-25,Olympique de Marseille,Newcastle United FC,2,1
+2025-11-25,Slavia Praha,Athletic Bilbao,0,0
+2025-11-25,Napoli,Qarabağ Ağdam FK,2,0
+2025-11-25,Chelsea,Barcelona,3,0
+2025-11-26,Paphos FC,AS Monaco FC,2,2
+2025-11-26,Copenhagen,FK Kairat,3,2
+2025-11-26,Liverpool,PSV,1,4
+2025-11-26,Paris Saint Germain,Tottenham Hotspur FC,5,3
+2025-11-26,Eintracht Frankfurt,Atalanta BC,0,3
+2025-11-26,Sporting Lisbon,Club Brugge,3,0
+2025-11-26,Arsenal,FC Bayern München,3,1
+2025-11-26,PAE Olympiakos SFP,Real Madrid CF,3,4
+2025-11-26,Club Atlético de Madrid,FC Internazionale Milano,2,1
+2025-12-09,FK Kairat,PAE Olympiakos SFP,0,1
+2025-12-09,FC Bayern München,Sporting Lisbon,3,1
+2025-12-09,Barcelona,Eintracht Frankfurt,2,1
+2025-12-09,PSV,Club Atlético de Madrid,2,3
+2025-12-09,Royale Union Saint-Gilloise,Olympique de Marseille,2,3
+2025-12-09,Tottenham Hotspur FC,Slavia Praha,3,0
+2025-12-09,AS Monaco FC,Galatasaray SK,1,0
+2025-12-09,Atalanta BC,Chelsea,2,1
+2025-12-09,FC Internazionale Milano,Liverpool,0,1
+2025-12-10,Villarreal,Copenhagen,2,3
+2025-12-10,Qarabağ Ağdam FK,Ajax,2,4
+2025-12-10,Borussia Dortmund,FK Bodø/Glimt,2,2
+2025-12-10,Athletic Bilbao,Paris Saint Germain,0,0
+2025-12-10,Bayer 04 Leverkusen,Newcastle United FC,2,2
+2025-12-10,Club Brugge,Arsenal,0,3
+2025-12-10,Sport Lisboa e Benfica,Napoli,2,0
+2025-12-10,Juventus FC,Paphos FC,2,0
+2025-12-10,Real Madrid CF,Manchester City FC,1,2
+2026-01-20,FK Kairat,Club Brugge,1,4
+2026-01-20,FK Bodø/Glimt,Manchester City FC,3,1
+2026-01-20,Tottenham Hotspur FC,Borussia Dortmund,2,0
+2026-01-20,Sporting Lisbon,Paris Saint Germain,2,1
+2026-01-20,PAE Olympiakos SFP,Bayer 04 Leverkusen,2,0
+2026-01-20,Villarreal,Ajax,1,2
+2026-01-20,Copenhagen,Napoli,1,1
+2026-01-20,Real Madrid CF,AS Monaco FC,6,1
+2026-01-20,FC Internazionale Milano,Arsenal,1,3
+2026-01-21,Qarabağ Ağdam FK,Eintracht Frankfurt,3,2
+2026-01-21,Galatasaray SK,Club Atlético de Madrid,1,1
+2026-01-21,Olympique de Marseille,Liverpool,0,3
+2026-01-21,Slavia Praha,Barcelona,2,4
+2026-01-21,Atalanta BC,Athletic Bilbao,2,3
+2026-01-21,Juventus FC,Sport Lisboa e Benfica,2,0
+2026-01-21,Newcastle United FC,PSV,3,0
+2026-01-21,FC Bayern München,Royale Union Saint-Gilloise,2,0
+2026-01-21,Chelsea,Paphos FC,1,0
+2026-01-28,Liverpool,Qarabağ Ağdam FK,6,0
+2026-01-28,Barcelona,Copenhagen,4,1
+2026-01-28,Manchester City FC,Galatasaray SK,2,0
+2026-01-28,Bayer 04 Leverkusen,Villarreal,3,0
+2026-01-28,Arsenal,FK Kairat,3,2
+2026-01-28,Royale Union Saint-Gilloise,Atalanta BC,1,0
+2026-01-28,Club Brugge,Olympique de Marseille,3,0
+2026-01-28,Eintracht Frankfurt,Tottenham Hotspur FC,0,2
+2026-01-28,AS Monaco FC,Juventus FC,0,0
+2026-01-28,Club Atlético de Madrid,FK Bodø/Glimt,1,2
+2026-01-28,Athletic Bilbao,Sporting Lisbon,2,3
+2026-01-28,Ajax,PAE Olympiakos SFP,1,2
+2026-01-28,Paris Saint Germain,Newcastle United FC,1,1
+2026-01-28,Paphos FC,Slavia Praha,4,1
+2026-01-28,PSV,FC Bayern München,1,2
+2026-01-28,Napoli,Chelsea,2,3
+2026-01-28,Sport Lisboa e Benfica,Real Madrid CF,4,2
+2026-01-28,Borussia Dortmund,FC Internazionale Milano,0,2
+2026-02-17,Galatasaray SK,Juventus FC,5,2
+2026-02-17,Sport Lisboa e Benfica,Real Madrid CF,0,1
+2026-02-17,AS Monaco FC,Paris Saint Germain,2,3
+2026-02-17,Borussia Dortmund,Atalanta BC,2,0
+2026-02-18,Qarabağ Ağdam FK,Newcastle United FC,1,6
+2026-02-18,Club Brugge,Club Atlético de Madrid,3,3
+2026-02-18,PAE Olympiakos SFP,Bayer 04 Leverkusen,0,2
+2026-02-18,FK Bodø/Glimt,FC Internazionale Milano,3,1
+2026-02-24,Club Atlético de Madrid,Club Brugge,4,1
+2026-02-24,Newcastle United FC,Qarabağ Ağdam FK,3,2
+2026-02-24,Bayer 04 Leverkusen,PAE Olympiakos SFP,0,0
+2026-02-24,FC Internazionale Milano,FK Bodø/Glimt,1,2
+2026-02-25,Atalanta BC,Borussia Dortmund,4,1
+2026-02-25,Real Madrid CF,Sport Lisboa e Benfica,2,1
+2026-02-25,Paris Saint Germain,AS Monaco FC,2,2
+2026-02-25,Juventus FC,Galatasaray SK,3,2
+2026-03-10,Galatasaray SK,Liverpool,1,0
+2026-03-10,Atalanta BC,FC Bayern München,1,6
+2026-03-10,Newcastle United FC,Barcelona,1,1
+2026-03-10,Club Atlético de Madrid,Tottenham Hotspur FC,5,2
+2026-03-11,Bayer 04 Leverkusen,Arsenal,1,1
+2026-03-11,Paris Saint Germain,Chelsea,5,2
+2026-03-11,Real Madrid CF,Manchester City FC,3,0
+2026-03-11,FK Bodø/Glimt,Sporting Lisbon,3,0
+2026-03-17,Sporting Lisbon,FK Bodø/Glimt,5,0
+2026-03-17,Chelsea,Paris Saint Germain,0,3
+2026-03-17,Manchester City FC,Real Madrid CF,1,2
+2026-03-17,Arsenal,Bayer 04 Leverkusen,2,0
+2026-03-18,Barcelona,Newcastle United FC,7,2
+2026-03-18,Liverpool,Galatasaray SK,4,0
+2026-03-18,FC Bayern München,Atalanta BC,4,1
+2026-03-18,Tottenham Hotspur FC,Club Atlético de Madrid,3,2
+2026-04-07,Real Madrid CF,FC Bayern München,1,2
+2026-04-07,Sporting Lisbon,Arsenal,0,1
+2026-04-08,Paris Saint Germain,Liverpool,2,0
+2026-04-08,Barcelona,Club Atlético de Madrid,0,2
+2026-04-14,Liverpool,Paris Saint Germain,0,2
+2026-04-14,Club Atlético de Madrid,Barcelona,1,2
+2026-04-15,FC Bayern München,Real Madrid CF,4,3
+2026-04-15,Arsenal,Sporting Lisbon,0,0
+2026-04-28,Paris Saint Germain,FC Bayern München,5,4
+2026-04-29,Club Atlético de Madrid,Arsenal,1,1
+2026-05-05,Arsenal,Club Atlético de Madrid,1,0
+2026-05-06,FC Bayern München,Paris Saint Germain,1,1
+2026-05-30,Paris Saint Germain,Arsenal,1,1

@@ -1,0 +1,126 @@
+date,home_team,away_team,home_score,away_score
+2014-09-16,Olympiakos Piraeus,Atlético Madrid,3,2
+2014-09-16,Juventus,Malmö FF,2,0
+2014-10-01,Atlético Madrid,Juventus,1,0
+2014-10-01,Malmö FF,Olympiakos Piraeus,2,0
+2014-10-22,Atlético Madrid,Malmö FF,5,0
+2014-10-22,Olympiakos Piraeus,Juventus,1,0
+2014-11-04,Malmö FF,Atlético Madrid,0,2
+2014-11-04,Juventus,Olympiakos Piraeus,3,2
+2014-11-26,Atlético Madrid,Olympiakos Piraeus,4,0
+2014-11-26,Malmö FF,Juventus,0,2
+2014-12-09,Juventus,Atlético Madrid,0,0
+2014-12-09,Olympiakos Piraeus,Malmö FF,4,2
+2014-09-16,Real Madrid,FC Basel 1893,5,1
+2014-09-16,Liverpool FC,PFC Ludogorets Razgrad,2,1
+2014-10-01,FC Basel 1893,Liverpool FC,1,0
+2014-10-01,PFC Ludogorets Razgrad,Real Madrid,1,2
+2014-10-22,PFC Ludogorets Razgrad,FC Basel 1893,1,0
+2014-10-22,Liverpool FC,Real Madrid,0,3
+2014-11-04,FC Basel 1893,PFC Ludogorets Razgrad,4,0
+2014-11-04,Real Madrid,Liverpool FC,1,0
+2014-11-26,FC Basel 1893,Real Madrid,0,1
+2014-11-26,PFC Ludogorets Razgrad,Liverpool FC,2,2
+2014-12-09,Liverpool FC,FC Basel 1893,1,1
+2014-12-09,Real Madrid,PFC Ludogorets Razgrad,4,0
+2014-09-16,AS Monaco,Bayer Leverkusen,1,0
+2014-09-16,SL Benfica,Zenit St. Petersburg,0,2
+2014-10-01,Zenit St. Petersburg,AS Monaco,0,0
+2014-10-01,Bayer Leverkusen,SL Benfica,3,1
+2014-10-22,AS Monaco,SL Benfica,0,0
+2014-10-22,Bayer Leverkusen,Zenit St. Petersburg,2,0
+2014-11-04,Zenit St. Petersburg,Bayer Leverkusen,1,2
+2014-11-04,SL Benfica,AS Monaco,1,0
+2014-11-26,Zenit St. Petersburg,SL Benfica,1,0
+2014-11-26,Bayer Leverkusen,AS Monaco,0,1
+2014-12-09,AS Monaco,Zenit St. Petersburg,2,0
+2014-12-09,SL Benfica,Bayer Leverkusen,0,0
+2014-09-16,Borussia Dortmund,Arsenal FC,2,0
+2014-09-16,Galatasaray,RSC Anderlecht,1,1
+2014-10-01,Arsenal FC,Galatasaray,4,1
+2014-10-01,RSC Anderlecht,Borussia Dortmund,0,3
+2014-10-22,RSC Anderlecht,Arsenal FC,1,2
+2014-10-22,Galatasaray,Borussia Dortmund,0,4
+2014-11-04,Arsenal FC,RSC Anderlecht,3,3
+2014-11-04,Borussia Dortmund,Galatasaray,4,1
+2014-11-26,Arsenal FC,Borussia Dortmund,2,0
+2014-11-26,RSC Anderlecht,Galatasaray,2,0
+2014-12-09,Galatasaray,Arsenal FC,1,4
+2014-12-09,Borussia Dortmund,RSC Anderlecht,1,1
+2014-09-17,AS Roma,CSKA Moskva,5,1
+2014-09-17,Bayern München,Manchester City,1,0
+2014-09-30,CSKA Moskva,Bayern München,0,1
+2014-09-30,Manchester City,AS Roma,1,1
+2014-10-21,CSKA Moskva,Manchester City,2,2
+2014-10-21,AS Roma,Bayern München,1,7
+2014-11-05,Bayern München,AS Roma,2,0
+2014-11-05,Manchester City,CSKA Moskva,1,2
+2014-11-25,CSKA Moskva,AS Roma,1,1
+2014-11-25,Manchester City,Bayern München,3,2
+2014-12-10,AS Roma,Manchester City,0,2
+2014-12-10,Bayern München,CSKA Moskva,3,0
+2014-09-17,AFC Ajax,Paris Saint-Germain,1,1
+2014-09-17,FC Barcelona,APOEL Nikosia,1,0
+2014-09-30,APOEL Nikosia,AFC Ajax,1,1
+2014-09-30,Paris Saint-Germain,FC Barcelona,3,2
+2014-10-21,FC Barcelona,AFC Ajax,3,1
+2014-10-21,APOEL Nikosia,Paris Saint-Germain,0,1
+2014-11-05,AFC Ajax,FC Barcelona,0,2
+2014-11-05,Paris Saint-Germain,APOEL Nikosia,1,0
+2014-11-25,Paris Saint-Germain,AFC Ajax,3,1
+2014-11-25,APOEL Nikosia,FC Barcelona,0,4
+2014-12-10,AFC Ajax,APOEL Nikosia,4,0
+2014-12-10,FC Barcelona,Paris Saint-Germain,3,1
+2014-09-17,Chelsea FC,FC Schalke 04,1,1
+2014-09-17,NK Maribor,Sporting CP,1,1
+2014-09-30,Sporting CP,Chelsea FC,0,1
+2014-09-30,FC Schalke 04,NK Maribor,1,1
+2014-10-21,Chelsea FC,NK Maribor,6,0
+2014-10-21,FC Schalke 04,Sporting CP,4,3
+2014-11-05,NK Maribor,Chelsea FC,1,1
+2014-11-05,Sporting CP,FC Schalke 04,4,2
+2014-11-25,FC Schalke 04,Chelsea FC,0,5
+2014-11-25,Sporting CP,NK Maribor,3,1
+2014-12-10,Chelsea FC,Sporting CP,3,1
+2014-12-10,NK Maribor,FC Schalke 04,0,1
+2014-09-17,Athletic Club,Shakhtar Donetsk,0,0
+2014-09-17,FC Porto,BATE Borisov,6,0
+2014-09-30,BATE Borisov,Athletic Club,2,1
+2014-09-30,Shakhtar Donetsk,FC Porto,2,2
+2014-10-21,FC Porto,Athletic Club,2,1
+2014-10-21,BATE Borisov,Shakhtar Donetsk,0,7
+2014-11-05,Athletic Club,FC Porto,0,2
+2014-11-05,Shakhtar Donetsk,BATE Borisov,5,0
+2014-11-25,BATE Borisov,FC Porto,0,3
+2014-11-25,Shakhtar Donetsk,Athletic Club,0,1
+2014-12-10,Athletic Club,BATE Borisov,2,0
+2014-12-10,FC Porto,Shakhtar Donetsk,1,1
+2015-02-17,Paris Saint-Germain,Chelsea FC,1,1
+2015-02-17,Shakhtar Donetsk,Bayern München,0,0
+2015-02-18,FC Schalke 04,Real Madrid,0,2
+2015-02-18,FC Basel 1893,FC Porto,1,1
+2015-02-24,Manchester City,FC Barcelona,1,2
+2015-02-24,Juventus,Borussia Dortmund,2,1
+2015-02-25,Bayer Leverkusen,Atlético Madrid,1,0
+2015-02-25,Arsenal FC,AS Monaco,1,3
+2015-03-10,Real Madrid,FC Schalke 04,3,4
+2015-03-10,FC Porto,FC Basel 1893,4,0
+2015-03-11,Chelsea FC,Paris Saint-Germain,2,2
+2015-03-11,Bayern München,Shakhtar Donetsk,7,0
+2015-03-17,Atlético Madrid,Bayer Leverkusen,1,0
+2015-03-17,AS Monaco,Arsenal FC,0,2
+2015-03-18,FC Barcelona,Manchester City,1,0
+2015-03-18,Borussia Dortmund,Juventus,0,3
+2015-04-14,Atlético Madrid,Real Madrid,0,0
+2015-04-14,Juventus,AS Monaco,1,0
+2015-04-15,Paris Saint-Germain,FC Barcelona,1,3
+2015-04-15,FC Porto,Bayern München,3,1
+2015-04-21,FC Barcelona,Paris Saint-Germain,2,0
+2015-04-21,Bayern München,FC Porto,6,1
+2015-04-22,Real Madrid,Atlético Madrid,1,0
+2015-04-22,AS Monaco,Juventus,0,0
+2015-05-05,Juventus,Real Madrid,2,1
+2015-05-06,FC Barcelona,Bayern München,3,0
+2015-05-12,Bayern München,FC Barcelona,3,2
+2015-05-13,Real Madrid,Juventus,1,1
+2015-06-06,Juventus,FC Barcelona,1,3

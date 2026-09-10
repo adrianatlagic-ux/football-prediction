@@ -1,0 +1,301 @@
+{
+  "home_team": "PSV Eindhoven",
+  "away_team": "Shakhtar Donetsk",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6173,
+  "probability_draw": 0.1546,
+  "probability_away_win": 0.2282,
+  "score_prediction": {
+    "home_xg": 1.7,
+    "away_xg": 1.7,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.6172,
+    "probability_draw": 0.1546,
+    "probability_away_win": 0.2282,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1353
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0797
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0766
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0731
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0651
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7718,
+        "home_or_away": 0.8454,
+        "draw_or_away": 0.3828
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8717,
+          "under": 0.1283
+        },
+        {
+          "line": 2.5,
+          "over": 0.6955,
+          "under": 0.3045
+        },
+        {
+          "line": 3.5,
+          "over": 0.4484,
+          "under": 0.5516
+        }
+      ],
+      "btts": {
+        "yes": 0.6623,
+        "no": 0.3377
+      },
+      "win_margin": {
+        "home_1plus": 0.6172,
+        "home_2plus": 0.3256,
+        "home_3plus": 0.1357,
+        "away_1plus": 0.2282,
+        "away_2plus": 0.1206,
+        "away_3plus": 0.0504
+      },
+      "scenario": "Despite poor form, PSV are strong favorites to win with a 2-1 score most likely and a high probability for over 2.5 goals."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.0,
+    "total_xg": 3.4,
+    "first_goal": {
+      "PSV Eindhoven_scores_first": 0.483,
+      "Shakhtar Donetsk_scores_first": 0.483,
+      "no_goals": 0.033,
+      "expected_minute": 26
+    },
+    "halftime_xg": {
+      "PSV Eindhoven": 0.8,
+      "Shakhtar Donetsk": 0.8
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.203
+      },
+      {
+        "score": "0:1",
+        "probability": 0.162
+      },
+      {
+        "score": "1:0",
+        "probability": 0.162
+      },
+      {
+        "score": "1:1",
+        "probability": 0.13
+      },
+      {
+        "score": "0:2",
+        "probability": 0.065
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "PSV Eindhoven": 0.23,
+        "Shakhtar Donetsk": 0.23
+      },
+      "16-30'": {
+        "PSV Eindhoven": 0.264,
+        "Shakhtar Donetsk": 0.264
+      },
+      "31-45'": {
+        "PSV Eindhoven": 0.306,
+        "Shakhtar Donetsk": 0.306
+      },
+      "46-60'": {
+        "PSV Eindhoven": 0.246,
+        "Shakhtar Donetsk": 0.246
+      },
+      "61-75'": {
+        "PSV Eindhoven": 0.315,
+        "Shakhtar Donetsk": 0.315
+      },
+      "76-90'": {
+        "PSV Eindhoven": 0.34,
+        "Shakhtar Donetsk": 0.34
+      }
+    },
+    "comeback_probability": {
+      "PSV Eindhoven": 0.038,
+      "Shakhtar Donetsk": 0.038
+    },
+    "late_drama_probability": 0.493,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.225
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.172
+      },
+      {
+        "szenario": "PSV Eindhoven dominiert früh",
+        "beschreibung": "PSV Eindhoven geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.066
+      },
+      {
+        "szenario": "Shakhtar Donetsk dominiert früh",
+        "beschreibung": "Shakhtar Donetsk geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.066
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 50,
+        "away": 50
+      },
+      "shots": {
+        "home": 15,
+        "away": 15
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 6
+      },
+      "corners": {
+        "home": 6,
+        "away": 6
+      },
+      "passes": {
+        "home": 260,
+        "away": 260
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between PSV Eindhoven and Shakhtar Donetsk is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 25,
+        "type": "goal",
+        "team": "PSV Eindhoven",
+        "headline": "GOAL! PSV Eindhoven!",
+        "description": "PSV Eindhoven score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 36,
+        "type": "chance",
+        "team": "PSV Eindhoven",
+        "headline": "Big chance for PSV Eindhoven!",
+        "description": "PSV Eindhoven create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "chance",
+        "team": "Shakhtar Donetsk",
+        "headline": "Big chance for Shakhtar Donetsk!",
+        "description": "Shakhtar Donetsk create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 50,
+        "type": "chance",
+        "team": "Shakhtar Donetsk",
+        "headline": "Big chance for Shakhtar Donetsk!",
+        "description": "Shakhtar Donetsk create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 65,
+        "type": "chance",
+        "team": "PSV Eindhoven",
+        "headline": "Big chance for PSV Eindhoven!",
+        "description": "PSV Eindhoven create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 73,
+        "type": "goal",
+        "team": "Shakhtar Donetsk",
+        "headline": "GOAL! Shakhtar Donetsk!",
+        "description": "Shakhtar Donetsk score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 74,
+        "type": "goal",
+        "team": "PSV Eindhoven",
+        "headline": "GOAL! PSV Eindhoven!",
+        "description": "PSV Eindhoven score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "PSV Eindhoven": 0.63,
+      "Shakhtar Donetsk": 0.71
+    },
+    "win_rate_last_10": {
+      "PSV Eindhoven": "6%",
+      "Shakhtar Donetsk": "9%"
+    },
+    "avg_goals_scored": {
+      "PSV Eindhoven": 0.62,
+      "Shakhtar Donetsk": 0.95
+    },
+    "avg_goals_conceded": {
+      "PSV Eindhoven": 1.77,
+      "Shakhtar Donetsk": 1.99
+    },
+    "clean_sheet_rate": {
+      "PSV Eindhoven": "28%",
+      "Shakhtar Donetsk": "0%"
+    },
+    "h2h_last_10": {
+      "PSV Eindhoven wins": "0%",
+      "draws": "0%",
+      "Shakhtar Donetsk wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

@@ -1,22 +1,20 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
-import WC2026_FIXTURES from './wc2026_fixtures.json'
-import FIFA_RANKINGS from './fifa_rankings.json'
-import wc2026Logo from './assets/wc2026-logo.png'
+import CL_FIXTURES from './cl_fixtures.json'
 
 const API_BASE = import.meta.env.DEV ? 'http://127.0.0.1:8000' : ''
 
-// Knockout rounds after the group stage, in tournament order - a plain
-// alphabetical sort would put "Round of 16" before "Round of 32" (since '1' <
-// '3'), which is backwards since Round of 32 happens first.
-const KNOCKOUT_ROUND_ORDER = ['Round of 32', 'Round of 16', 'Quarter-finals', 'Semi-finals', 'Final']
-const GROUPS = [...new Set(WC2026_FIXTURES.map(f => f.group))].sort((a, b) => {
-  const ai = KNOCKOUT_ROUND_ORDER.indexOf(a)
-  const bi = KNOCKOUT_ROUND_ORDER.indexOf(b)
+// Champions League stages in tournament order (2024/25+ format: a single
+// 36-team league phase, then a knockout bracket) - a plain alphabetical sort
+// would misorder these, so sort explicitly.
+const STAGE_ORDER = ['League Phase', 'Knockout Playoffs', 'Round of 16', 'Quarter-finals', 'Semi-finals', 'Final']
+const GROUPS = [...new Set(CL_FIXTURES.map(f => f.group))].sort((a, b) => {
+  const ai = STAGE_ORDER.indexOf(a)
+  const bi = STAGE_ORDER.indexOf(b)
   if (ai !== -1 && bi !== -1) return ai - bi
-  if (ai !== -1) return 1
-  if (bi !== -1) return -1
+  if (ai !== -1) return -1
+  if (bi !== -1) return 1
   return a.localeCompare(b)
 })
 
@@ -42,22 +40,9 @@ function nextGamesWindow(now = new Date()) {
 }
 
 const [_NG_START, _NG_END] = nextGamesWindow()
-const NEXT_GAMES = WC2026_FIXTURES
+const NEXT_GAMES = CL_FIXTURES
   .filter(f => { const d = fixtureDateTime(f); return d >= _NG_START && d < _NG_END })
   .sort((a, b) => fixtureDateTime(a) - fixtureDateTime(b))
-
-const WORST_RANK = Math.max(...Object.values(FIFA_RANKINGS))
-
-// Higher value = stronger team (rank 1 -> highest score)
-function teamStrength(team) {
-  const rank = FIFA_RANKINGS[team] || WORST_RANK
-  return WORST_RANK + 1 - rank
-}
-
-// How much "star power" a matchup has, based on both teams' FIFA rankings
-function matchQuality(fixture) {
-  return teamStrength(fixture.home_team) + teamStrength(fixture.away_team)
-}
 
 function excitementScore(data) {
   const probs = [data.probability_home_win, data.probability_draw, data.probability_away_win]
@@ -75,7 +60,7 @@ function getHotFixture(predictionsById) {
   let bestScore = -Infinity
   for (const fixture of NEXT_GAMES) {
     const data = predictionsById[fixture.match_id]
-    const score = matchQuality(fixture) * 3 + (data ? excitementScore(data) : 0)
+    const score = data ? excitementScore(data) : -1
     if (score > bestScore) {
       bestScore = score
       best = fixture
@@ -1021,10 +1006,10 @@ const FLOW_STEPS = [
     icon: <IconDataPoints />,
     title: 'Data Ingestion',
     description:
-      'Every analysis starts with decades of raw football history — international match ' +
-      'results since the 1990s, full datasets from the 2018 and 2022 World Cups, official FIFA ' +
-      'rankings, current squad market values and recent form for all 48 World Cup 2026 nations.',
-    tags: ['Historical Results', 'FIFA Rankings', 'Market Values', 'Recent Form'],
+      'Every analysis starts with real club football history — Champions League results ' +
+      'across multiple seasons, full Premier League match data, and rolling form/goal stats ' +
+      'for every club in the competition.',
+    tags: ['Historical Results', 'Head-to-Head', 'Goal Stats', 'Recent Form'],
   },
   {
     icon: <IconFeatures />,
@@ -1088,7 +1073,7 @@ function AnalysisFlowPage({ onBack }) {
       <span className="how-eyebrow">Behind the Predictions</span>
       <h2 className="section-title">How Our AI Analysis Works</h2>
       <p className="how-intro">
-        From the first raw data point to the final social media post — every World Cup 2026
+        From the first raw data point to the final social media post — every Champions League
         prediction passes through the same seven-stage pipeline. Here's what happens behind the
         scenes every time a match gets analyzed.
       </p>
@@ -1446,7 +1431,7 @@ export default function App() {
         ])
         if (listResp.status === 'fulfilled') {
           const ids = (listResp.value.data.match_ids || []).filter(id =>
-            WC2026_FIXTURES.some(f => f.match_id === id)
+            CL_FIXTURES.some(f => f.match_id === id)
           )
           const all = await Promise.all(
             ids.map(id => axios.get(`${API_BASE}/predictions/${id}`).then(r => ({ matchId: id, data: r.data })))
@@ -1484,31 +1469,30 @@ export default function App() {
             <div className="hero-grid">
               <div className="hero-content">
                 <div className="hero-top">
-                  <img src={wc2026Logo} alt="FIFA World Cup 2026" className="hero-logo" />
                   <span className="hero-eyebrow">A New Era of Football Intelligence</span>
                 </div>
-                <h1>AI-Powered World Cup 2026 Predictions</h1>
+                <h1>AI-Powered Champions League Predictions</h1>
                 <p>
-                  A breakthrough AI model — trained on millions of football data points — delivers
-                  instant, in-depth analysis for every World Cup 2026 fixture: match outcomes,
+                  A breakthrough AI model — trained on thousands of club football data points — delivers
+                  instant, in-depth analysis for every Champions League fixture: match outcomes,
                   scorelines and full match storylines, generated like never before.
                 </p>
                 <div className="hero-stats">
                   <div className="hero-stat">
-                    <span className="hero-stat-value">Millions</span>
+                    <span className="hero-stat-value">Thousands</span>
                     <span className="hero-stat-label">Data Points Analyzed</span>
                   </div>
                   <div className="hero-stat">
-                    <span className="hero-stat-value">72</span>
-                    <span className="hero-stat-label">Group Stage Matches</span>
+                    <span className="hero-stat-value">36</span>
+                    <span className="hero-stat-label">League Phase Clubs</span>
                   </div>
                   <div className="hero-stat">
-                    <span className="hero-stat-value">48</span>
-                    <span className="hero-stat-label">Teams</span>
+                    <span className="hero-stat-value">189</span>
+                    <span className="hero-stat-label">League Phase Matches</span>
                   </div>
                   <div className="hero-stat">
-                    <span className="hero-stat-value">12</span>
-                    <span className="hero-stat-label">Groups</span>
+                    <span className="hero-stat-value">1</span>
+                    <span className="hero-stat-label">Trophy</span>
                   </div>
                 </div>
               </div>
@@ -1518,7 +1502,7 @@ export default function App() {
 
           <main className="main">
             <section id="predictions" className="wm-section">
-              <h2 className="section-title">World Cup 2026 — Group Stage</h2>
+              <h2 className="section-title">UEFA Champions League</h2>
 
               <div className="group-tabs">
                 <button
@@ -1622,7 +1606,7 @@ export default function App() {
                     const hotFixture = getHotFixture(predictionsById)
                     fixtures = hotFixture ? [hotFixture] : []
                   } else {
-                    fixtures = WC2026_FIXTURES.filter(f => f.group === activeGroup)
+                    fixtures = CL_FIXTURES.filter(f => f.group === activeGroup)
                   }
                   return fixtures.map(fixture => {
                     const realKey = `${fixture.home_team}__${fixture.away_team}`
@@ -1683,7 +1667,7 @@ export default function App() {
       )}
 
       <footer className="footer">
-        <p>WC 2026 Predictor — AI-generated predictions for entertainment purposes only.</p>
+        <p>Champions League Predictor — AI-generated predictions for entertainment purposes only.</p>
       </footer>
     </div>
   )

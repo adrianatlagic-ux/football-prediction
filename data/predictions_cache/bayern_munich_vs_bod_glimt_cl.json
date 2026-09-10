@@ -1,0 +1,301 @@
+{
+  "home_team": "Bayern Munich",
+  "away_team": "Bodø/Glimt",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.7541,
+  "probability_draw": 0.1343,
+  "probability_away_win": 0.1116,
+  "score_prediction": {
+    "home_xg": 1.7,
+    "away_xg": 1.7,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.7541,
+    "probability_draw": 0.1343,
+    "probability_away_win": 0.1116,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1653
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0973
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0936
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0893
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0795
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8884,
+        "home_or_away": 0.8657,
+        "draw_or_away": 0.2459
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8726,
+          "under": 0.1274
+        },
+        {
+          "line": 2.5,
+          "over": 0.7027,
+          "under": 0.2973
+        },
+        {
+          "line": 3.5,
+          "over": 0.4496,
+          "under": 0.5504
+        }
+      ],
+      "btts": {
+        "yes": 0.6584,
+        "no": 0.3416
+      },
+      "win_margin": {
+        "home_1plus": 0.7541,
+        "home_2plus": 0.3975,
+        "home_3plus": 0.1655,
+        "away_1plus": 0.1116,
+        "away_2plus": 0.059,
+        "away_3plus": 0.0246
+      },
+      "scenario": "Bayern are heavily favored with a 75% win chance, likely 2-1, given Bodø/Glimt's recent lack of form and zero goals scored."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.0,
+    "total_xg": 3.4,
+    "first_goal": {
+      "Bayern Munich_scores_first": 0.483,
+      "Bodø/Glimt_scores_first": 0.483,
+      "no_goals": 0.033,
+      "expected_minute": 26
+    },
+    "halftime_xg": {
+      "Bayern Munich": 0.8,
+      "Bodø/Glimt": 0.8
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.203
+      },
+      {
+        "score": "0:1",
+        "probability": 0.162
+      },
+      {
+        "score": "1:0",
+        "probability": 0.162
+      },
+      {
+        "score": "1:1",
+        "probability": 0.13
+      },
+      {
+        "score": "0:2",
+        "probability": 0.065
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Bayern Munich": 0.23,
+        "Bodø/Glimt": 0.23
+      },
+      "16-30'": {
+        "Bayern Munich": 0.264,
+        "Bodø/Glimt": 0.264
+      },
+      "31-45'": {
+        "Bayern Munich": 0.306,
+        "Bodø/Glimt": 0.306
+      },
+      "46-60'": {
+        "Bayern Munich": 0.246,
+        "Bodø/Glimt": 0.246
+      },
+      "61-75'": {
+        "Bayern Munich": 0.315,
+        "Bodø/Glimt": 0.315
+      },
+      "76-90'": {
+        "Bayern Munich": 0.34,
+        "Bodø/Glimt": 0.34
+      }
+    },
+    "comeback_probability": {
+      "Bayern Munich": 0.038,
+      "Bodø/Glimt": 0.038
+    },
+    "late_drama_probability": 0.493,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.225
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.172
+      },
+      {
+        "szenario": "Bayern Munich dominiert früh",
+        "beschreibung": "Bayern Munich geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.066
+      },
+      {
+        "szenario": "Bodø/Glimt dominiert früh",
+        "beschreibung": "Bodø/Glimt geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.066
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 50,
+        "away": 50
+      },
+      "shots": {
+        "home": 15,
+        "away": 15
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 6
+      },
+      "corners": {
+        "home": 6,
+        "away": 6
+      },
+      "passes": {
+        "home": 260,
+        "away": 260
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Bayern Munich and Bodø/Glimt is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 37,
+        "type": "chance",
+        "team": "Bodø/Glimt",
+        "headline": "Big chance for Bodø/Glimt!",
+        "description": "Bodø/Glimt create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 38,
+        "type": "chance",
+        "team": "Bodø/Glimt",
+        "headline": "Big chance for Bodø/Glimt!",
+        "description": "Bodø/Glimt create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 42,
+        "type": "goal",
+        "team": "Bayern Munich",
+        "headline": "GOAL! Bayern Munich!",
+        "description": "Bayern Munich score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 63,
+        "type": "goal",
+        "team": "Bayern Munich",
+        "headline": "GOAL! Bayern Munich!",
+        "description": "Bayern Munich score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 75,
+        "type": "chance",
+        "team": "Bodø/Glimt",
+        "headline": "Big chance for Bodø/Glimt!",
+        "description": "Bodø/Glimt create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 82,
+        "type": "goal",
+        "team": "Bodø/Glimt",
+        "headline": "GOAL! Bodø/Glimt!",
+        "description": "Bodø/Glimt score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 83,
+        "type": "chance",
+        "team": "Bodø/Glimt",
+        "headline": "Big chance for Bodø/Glimt!",
+        "description": "Bodø/Glimt create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Bayern Munich": 2.2,
+      "Bodø/Glimt": 0.0
+    },
+    "win_rate_last_10": {
+      "Bayern Munich": "68%",
+      "Bodø/Glimt": "0%"
+    },
+    "avg_goals_scored": {
+      "Bayern Munich": 1.78,
+      "Bodø/Glimt": 0.0
+    },
+    "avg_goals_conceded": {
+      "Bayern Munich": 0.97,
+      "Bodø/Glimt": 0.0
+    },
+    "clean_sheet_rate": {
+      "Bayern Munich": "49%",
+      "Bodø/Glimt": "0%"
+    },
+    "h2h_last_10": {
+      "Bayern Munich wins": "0%",
+      "draws": "0%",
+      "Bodø/Glimt wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

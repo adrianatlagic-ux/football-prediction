@@ -1,0 +1,301 @@
+{
+  "home_team": "Slavia Praha",
+  "away_team": "RC Lens",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.2435,
+  "probability_draw": 0.2223,
+  "probability_away_win": 0.5343,
+  "score_prediction": {
+    "home_xg": 1.26,
+    "away_xg": 1.78,
+    "rho": -0.13,
+    "most_likely_score": "1:2",
+    "result": "A",
+    "probability_home_win": 0.2435,
+    "probability_draw": 0.2223,
+    "probability_away_win": 0.5342,
+    "top_scorelines": [
+      {
+        "score": "1:2",
+        "probability": 0.1059
+      },
+      {
+        "score": "0:2",
+        "probability": 0.0838
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0787
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0628
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0497
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.4658,
+        "home_or_away": 0.7777,
+        "draw_or_away": 0.7565
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.825,
+          "under": 0.175
+        },
+        {
+          "line": 2.5,
+          "over": 0.6019,
+          "under": 0.3981
+        },
+        {
+          "line": 3.5,
+          "over": 0.3673,
+          "under": 0.6327
+        }
+      ],
+      "btts": {
+        "yes": 0.6012,
+        "no": 0.3988
+      },
+      "win_margin": {
+        "home_1plus": 0.2435,
+        "home_2plus": 0.1068,
+        "home_3plus": 0.0352,
+        "away_1plus": 0.5342,
+        "away_2plus": 0.3017,
+        "away_3plus": 0.1346
+      },
+      "scenario": "RC Lens are firm favorites at 53% to win with a predicted 2-1 score, significantly outperforming Slavia Praha in recent form."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.17,
+    "total_xg": 3.04,
+    "first_goal": {
+      "Slavia Praha_scores_first": 0.395,
+      "RC Lens_scores_first": 0.558,
+      "no_goals": 0.048,
+      "expected_minute": 29
+    },
+    "halftime_xg": {
+      "Slavia Praha": 0.59,
+      "RC Lens": 0.84
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.24
+      },
+      {
+        "score": "0:1",
+        "probability": 0.201
+      },
+      {
+        "score": "1:0",
+        "probability": 0.142
+      },
+      {
+        "score": "1:1",
+        "probability": 0.119
+      },
+      {
+        "score": "0:2",
+        "probability": 0.084
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Slavia Praha": 0.17,
+        "RC Lens": 0.24
+      },
+      "16-30'": {
+        "Slavia Praha": 0.195,
+        "RC Lens": 0.276
+      },
+      "31-45'": {
+        "Slavia Praha": 0.227,
+        "RC Lens": 0.32
+      },
+      "46-60'": {
+        "Slavia Praha": 0.183,
+        "RC Lens": 0.258
+      },
+      "61-75'": {
+        "Slavia Praha": 0.233,
+        "RC Lens": 0.329
+      },
+      "76-90'": {
+        "Slavia Praha": 0.252,
+        "RC Lens": 0.356
+      }
+    },
+    "comeback_probability": {
+      "Slavia Praha": 0.026,
+      "RC Lens": 0.036
+    },
+    "late_drama_probability": 0.456,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.233
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.195
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "RC Lens trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.086
+      },
+      {
+        "szenario": "RC Lens dominiert früh",
+        "beschreibung": "RC Lens geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.085
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 47,
+        "away": 53
+      },
+      "shots": {
+        "home": 12,
+        "away": 16
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 6
+      },
+      "corners": {
+        "home": 5,
+        "away": 6
+      },
+      "passes": {
+        "home": 244,
+        "away": 276
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Slavia Praha and RC Lens is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 12,
+        "type": "chance",
+        "team": "Slavia Praha",
+        "headline": "Big chance for Slavia Praha!",
+        "description": "Slavia Praha create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 18,
+        "type": "goal",
+        "team": "RC Lens",
+        "headline": "GOAL! RC Lens!",
+        "description": "RC Lens score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 28,
+        "type": "chance",
+        "team": "RC Lens",
+        "headline": "Big chance for RC Lens!",
+        "description": "RC Lens create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 63,
+        "type": "goal",
+        "team": "Slavia Praha",
+        "headline": "GOAL! Slavia Praha!",
+        "description": "Slavia Praha score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 65,
+        "type": "goal",
+        "team": "RC Lens",
+        "headline": "GOAL! RC Lens!",
+        "description": "RC Lens score to make it 1:2.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 77,
+        "type": "chance",
+        "team": "Slavia Praha",
+        "headline": "Big chance for Slavia Praha!",
+        "description": "Slavia Praha create a great opportunity but fail to convert.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 81,
+        "type": "chance",
+        "team": "RC Lens",
+        "headline": "Big chance for RC Lens!",
+        "description": "RC Lens create a great opportunity but fail to convert.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:2.",
+        "score_after": "1:2"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Slavia Praha": 0.3,
+      "RC Lens": 1.35
+    },
+    "win_rate_last_10": {
+      "Slavia Praha": "0%",
+      "RC Lens": "36%"
+    },
+    "avg_goals_scored": {
+      "Slavia Praha": 0.56,
+      "RC Lens": 0.84
+    },
+    "avg_goals_conceded": {
+      "Slavia Praha": 2.5,
+      "RC Lens": 2.15
+    },
+    "clean_sheet_rate": {
+      "Slavia Praha": "24%",
+      "RC Lens": "0%"
+    },
+    "h2h_last_10": {
+      "Slavia Praha wins": "0%",
+      "draws": "0%",
+      "RC Lens wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

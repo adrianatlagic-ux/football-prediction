@@ -1,0 +1,126 @@
+date,home_team,away_team,home_score,away_score
+2015-09-15,Real Madrid,Shakhtar Donetsk,4,0
+2015-09-15,Paris Saint-Germain,Malmö FF,2,0
+2015-09-30,Malmö FF,Real Madrid,0,2
+2015-09-30,Shakhtar Donetsk,Paris Saint-Germain,0,3
+2015-10-21,Paris Saint-Germain,Real Madrid,0,0
+2015-10-21,Malmö FF,Shakhtar Donetsk,1,0
+2015-11-03,Real Madrid,Paris Saint-Germain,1,0
+2015-11-03,Shakhtar Donetsk,Malmö FF,4,0
+2015-11-25,Malmö FF,Paris Saint-Germain,0,5
+2015-11-25,Shakhtar Donetsk,Real Madrid,3,4
+2015-12-08,Paris Saint-Germain,Shakhtar Donetsk,2,0
+2015-12-08,Real Madrid,Malmö FF,8,0
+2015-09-15,VfL Wolfsburg,CSKA Moskva,1,0
+2015-09-15,PSV Eindhoven,Manchester United,2,1
+2015-09-30,CSKA Moskva,PSV Eindhoven,3,2
+2015-09-30,Manchester United,VfL Wolfsburg,2,1
+2015-10-21,CSKA Moskva,Manchester United,1,1
+2015-10-21,VfL Wolfsburg,PSV Eindhoven,2,0
+2015-11-03,PSV Eindhoven,VfL Wolfsburg,2,0
+2015-11-03,Manchester United,CSKA Moskva,1,0
+2015-11-25,CSKA Moskva,VfL Wolfsburg,0,2
+2015-11-25,Manchester United,PSV Eindhoven,0,0
+2015-12-08,VfL Wolfsburg,Manchester United,3,2
+2015-12-08,PSV Eindhoven,CSKA Moskva,2,1
+2015-09-15,SL Benfica,FK Astana,2,0
+2015-09-15,Galatasaray,Atlético Madrid,0,2
+2015-09-30,FK Astana,Galatasaray,2,2
+2015-09-30,Atlético Madrid,SL Benfica,1,2
+2015-10-21,Galatasaray,SL Benfica,2,1
+2015-10-21,Atlético Madrid,FK Astana,4,0
+2015-11-03,FK Astana,Atlético Madrid,0,0
+2015-11-03,SL Benfica,Galatasaray,2,1
+2015-11-25,FK Astana,SL Benfica,2,2
+2015-11-25,Atlético Madrid,Galatasaray,2,0
+2015-12-08,Galatasaray,FK Astana,1,1
+2015-12-08,SL Benfica,Atlético Madrid,1,2
+2015-09-15,Sevilla FC,Bor. Mönchengladbach,3,0
+2015-09-15,Manchester City,Juventus,1,2
+2015-09-30,Juventus,Sevilla FC,2,0
+2015-09-30,Bor. Mönchengladbach,Manchester City,1,2
+2015-10-21,Manchester City,Sevilla FC,2,1
+2015-10-21,Juventus,Bor. Mönchengladbach,0,0
+2015-11-03,Bor. Mönchengladbach,Juventus,1,1
+2015-11-03,Sevilla FC,Manchester City,1,3
+2015-11-25,Juventus,Manchester City,1,0
+2015-11-25,Bor. Mönchengladbach,Sevilla FC,4,2
+2015-12-08,Manchester City,Bor. Mönchengladbach,4,2
+2015-12-08,Sevilla FC,Juventus,1,0
+2015-09-16,AS Roma,FC Barcelona,1,1
+2015-09-16,Bayer Leverkusen,BATE Borisov,4,1
+2015-09-29,FC Barcelona,Bayer Leverkusen,2,1
+2015-09-29,BATE Borisov,AS Roma,3,2
+2015-10-20,BATE Borisov,FC Barcelona,0,2
+2015-10-20,Bayer Leverkusen,AS Roma,4,4
+2015-11-04,AS Roma,Bayer Leverkusen,3,2
+2015-11-04,FC Barcelona,BATE Borisov,3,0
+2015-11-24,BATE Borisov,Bayer Leverkusen,1,1
+2015-11-24,FC Barcelona,AS Roma,6,1
+2015-12-09,Bayer Leverkusen,FC Barcelona,1,1
+2015-12-09,AS Roma,BATE Borisov,0,0
+2015-09-16,Olympiakos Piraeus,Bayern München,0,3
+2015-09-16,Dinamo Zagreb,Arsenal FC,2,1
+2015-09-29,Arsenal FC,Olympiakos Piraeus,2,3
+2015-09-29,Bayern München,Dinamo Zagreb,5,0
+2015-10-20,Arsenal FC,Bayern München,2,0
+2015-10-20,Dinamo Zagreb,Olympiakos Piraeus,0,1
+2015-11-04,Bayern München,Arsenal FC,5,1
+2015-11-04,Olympiakos Piraeus,Dinamo Zagreb,2,1
+2015-11-24,Bayern München,Olympiakos Piraeus,4,0
+2015-11-24,Arsenal FC,Dinamo Zagreb,3,0
+2015-12-09,Dinamo Zagreb,Bayern München,0,2
+2015-12-09,Olympiakos Piraeus,Arsenal FC,0,3
+2015-09-16,Dinamo Kiev,FC Porto,2,2
+2015-09-16,Chelsea FC,Maccabi Tel Aviv,4,0
+2015-09-29,FC Porto,Chelsea FC,2,1
+2015-09-29,Maccabi Tel Aviv,Dinamo Kiev,0,2
+2015-10-20,FC Porto,Maccabi Tel Aviv,2,0
+2015-10-20,Dinamo Kiev,Chelsea FC,0,0
+2015-11-04,Chelsea FC,Dinamo Kiev,2,1
+2015-11-04,Maccabi Tel Aviv,FC Porto,1,3
+2015-11-24,Maccabi Tel Aviv,Chelsea FC,0,4
+2015-11-24,FC Porto,Dinamo Kiev,0,2
+2015-12-09,Chelsea FC,FC Porto,2,0
+2015-12-09,Dinamo Kiev,Maccabi Tel Aviv,1,0
+2015-09-16,Valencia CF,Zenit St. Petersburg,2,3
+2015-09-16,KAA Gent,Olympique Lyonnais,1,1
+2015-09-29,Olympique Lyonnais,Valencia CF,0,1
+2015-09-29,Zenit St. Petersburg,KAA Gent,2,1
+2015-10-20,Valencia CF,KAA Gent,2,1
+2015-10-20,Zenit St. Petersburg,Olympique Lyonnais,3,1
+2015-11-04,Olympique Lyonnais,Zenit St. Petersburg,0,2
+2015-11-04,KAA Gent,Valencia CF,1,0
+2015-11-24,Zenit St. Petersburg,Valencia CF,2,0
+2015-11-24,Olympique Lyonnais,KAA Gent,1,2
+2015-12-09,Valencia CF,Olympique Lyonnais,0,2
+2015-12-09,KAA Gent,Zenit St. Petersburg,2,1
+2016-02-16,Paris Saint-Germain,Chelsea FC,2,1
+2016-02-16,SL Benfica,Zenit St. Petersburg,1,0
+2016-02-17,KAA Gent,VfL Wolfsburg,2,3
+2016-02-17,AS Roma,Real Madrid,0,2
+2016-02-23,Arsenal FC,FC Barcelona,0,2
+2016-02-23,Juventus,Bayern München,2,2
+2016-02-24,PSV Eindhoven,Atlético Madrid,0,0
+2016-02-24,Dinamo Kiev,Manchester City,1,3
+2016-03-08,VfL Wolfsburg,KAA Gent,1,0
+2016-03-08,Real Madrid,AS Roma,2,0
+2016-03-09,Zenit St. Petersburg,SL Benfica,1,2
+2016-03-09,Chelsea FC,Paris Saint-Germain,1,2
+2016-03-15,Atlético Madrid,PSV Eindhoven,0,0
+2016-03-15,Manchester City,Dinamo Kiev,0,0
+2016-03-16,FC Barcelona,Arsenal FC,3,1
+2016-03-16,Bayern München,Juventus,4,2
+2016-04-05,Bayern München,SL Benfica,1,0
+2016-04-05,FC Barcelona,Atlético Madrid,2,1
+2016-04-06,VfL Wolfsburg,Real Madrid,2,0
+2016-04-06,Paris Saint-Germain,Manchester City,2,2
+2016-04-12,Real Madrid,VfL Wolfsburg,3,0
+2016-04-12,Manchester City,Paris Saint-Germain,1,0
+2016-04-13,SL Benfica,Bayern München,2,2
+2016-04-13,Atlético Madrid,FC Barcelona,2,0
+2016-04-26,Manchester City,Real Madrid,0,0
+2016-04-27,Atlético Madrid,Bayern München,1,0
+2016-05-03,Bayern München,Atlético Madrid,2,1
+2016-05-04,Real Madrid,Manchester City,1,0
+2016-05-28,Real Madrid,Atlético Madrid,1,1

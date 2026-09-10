@@ -1,0 +1,301 @@
+{
+  "home_team": "Sporting Lisbon",
+  "away_team": "Galatasaray",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6133,
+  "probability_draw": 0.234,
+  "probability_away_win": 0.1526,
+  "score_prediction": {
+    "home_xg": 1.83,
+    "away_xg": 1.37,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.6134,
+    "probability_draw": 0.234,
+    "probability_away_win": 0.1526,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1219
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0888
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0795
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0745
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0543
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8474,
+        "home_or_away": 0.766,
+        "draw_or_away": 0.3866
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8474,
+          "under": 0.1526
+        },
+        {
+          "line": 2.5,
+          "over": 0.6313,
+          "under": 0.3687
+        },
+        {
+          "line": 3.5,
+          "over": 0.4066,
+          "under": 0.5934
+        }
+      ],
+      "btts": {
+        "yes": 0.6313,
+        "no": 0.3687
+      },
+      "win_margin": {
+        "home_1plus": 0.6134,
+        "home_2plus": 0.3485,
+        "home_3plus": 0.1575,
+        "away_1plus": 0.1526,
+        "away_2plus": 0.0702,
+        "away_3plus": 0.0246
+      },
+      "scenario": "Sporting Lisbon are strong favorites with a 61% chance to win, a 2-1 score most likely, and significantly better recent form than Galatasaray."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.14,
+    "total_xg": 3.2,
+    "first_goal": {
+      "Sporting Lisbon_scores_first": 0.549,
+      "Galatasaray_scores_first": 0.411,
+      "no_goals": 0.041,
+      "expected_minute": 28
+    },
+    "halftime_xg": {
+      "Sporting Lisbon": 0.86,
+      "Galatasaray": 0.64
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.223
+      },
+      {
+        "score": "1:0",
+        "probability": 0.192
+      },
+      {
+        "score": "0:1",
+        "probability": 0.143
+      },
+      {
+        "score": "1:1",
+        "probability": 0.123
+      },
+      {
+        "score": "2:0",
+        "probability": 0.082
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Sporting Lisbon": 0.247,
+        "Galatasaray": 0.185
+      },
+      "16-30'": {
+        "Sporting Lisbon": 0.284,
+        "Galatasaray": 0.212
+      },
+      "31-45'": {
+        "Sporting Lisbon": 0.329,
+        "Galatasaray": 0.247
+      },
+      "46-60'": {
+        "Sporting Lisbon": 0.265,
+        "Galatasaray": 0.199
+      },
+      "61-75'": {
+        "Sporting Lisbon": 0.339,
+        "Galatasaray": 0.253
+      },
+      "76-90'": {
+        "Sporting Lisbon": 0.366,
+        "Galatasaray": 0.274
+      }
+    },
+    "comeback_probability": {
+      "Sporting Lisbon": 0.038,
+      "Galatasaray": 0.029
+    },
+    "late_drama_probability": 0.473,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.228
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.184
+      },
+      {
+        "szenario": "Sporting Lisbon dominiert früh",
+        "beschreibung": "Sporting Lisbon geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.084
+      },
+      {
+        "szenario": "Galatasaray dominiert früh",
+        "beschreibung": "Galatasaray geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.047
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 53,
+        "away": 47
+      },
+      "shots": {
+        "home": 16,
+        "away": 13
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 5
+      },
+      "corners": {
+        "home": 7,
+        "away": 5
+      },
+      "passes": {
+        "home": 276,
+        "away": 244
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Sporting Lisbon and Galatasaray is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 19,
+        "type": "chance",
+        "team": "Galatasaray",
+        "headline": "Big chance for Galatasaray!",
+        "description": "Galatasaray create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 41,
+        "type": "chance",
+        "team": "Sporting Lisbon",
+        "headline": "Big chance for Sporting Lisbon!",
+        "description": "Sporting Lisbon create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 44,
+        "type": "goal",
+        "team": "Sporting Lisbon",
+        "headline": "GOAL! Sporting Lisbon!",
+        "description": "Sporting Lisbon score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 72,
+        "type": "chance",
+        "team": "Galatasaray",
+        "headline": "Big chance for Galatasaray!",
+        "description": "Galatasaray create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 73,
+        "type": "chance",
+        "team": "Sporting Lisbon",
+        "headline": "Big chance for Sporting Lisbon!",
+        "description": "Sporting Lisbon create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 80,
+        "type": "goal",
+        "team": "Sporting Lisbon",
+        "headline": "GOAL! Sporting Lisbon!",
+        "description": "Sporting Lisbon score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 84,
+        "type": "goal",
+        "team": "Galatasaray",
+        "headline": "GOAL! Galatasaray!",
+        "description": "Galatasaray score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Sporting Lisbon": 1.52,
+      "Galatasaray": 0.61
+    },
+    "win_rate_last_10": {
+      "Sporting Lisbon": "43%",
+      "Galatasaray": "11%"
+    },
+    "avg_goals_scored": {
+      "Sporting Lisbon": 1.0,
+      "Galatasaray": 0.85
+    },
+    "avg_goals_conceded": {
+      "Sporting Lisbon": 1.66,
+      "Galatasaray": 2.33
+    },
+    "clean_sheet_rate": {
+      "Sporting Lisbon": "28%",
+      "Galatasaray": "0%"
+    },
+    "h2h_last_10": {
+      "Sporting Lisbon wins": "0%",
+      "draws": "0%",
+      "Galatasaray wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

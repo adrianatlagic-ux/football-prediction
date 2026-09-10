@@ -1,0 +1,301 @@
+{
+  "home_team": "Fenerbahce",
+  "away_team": "AS Roma",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6444,
+  "probability_draw": 0.1686,
+  "probability_away_win": 0.187,
+  "score_prediction": {
+    "home_xg": 1.7,
+    "away_xg": 1.7,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.6444,
+    "probability_draw": 0.1686,
+    "probability_away_win": 0.187,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1413
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0832
+      },
+      {
+        "score": "3:1",
+        "probability": 0.08
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0763
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0679
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.813,
+        "home_or_away": 0.8314,
+        "draw_or_away": 0.3556
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8707,
+          "under": 0.1293
+        },
+        {
+          "line": 2.5,
+          "over": 0.6903,
+          "under": 0.3097
+        },
+        {
+          "line": 3.5,
+          "over": 0.4472,
+          "under": 0.5528
+        }
+      ],
+      "btts": {
+        "yes": 0.6648,
+        "no": 0.3352
+      },
+      "win_margin": {
+        "home_1plus": 0.6444,
+        "home_2plus": 0.3402,
+        "home_3plus": 0.1419,
+        "away_1plus": 0.187,
+        "away_2plus": 0.0984,
+        "away_3plus": 0.0409
+      },
+      "scenario": "Fenerbahce are strong favorites with a 64% win probability, a 2-1 score most likely, against an AS Roma side with only a 10% win rate."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.0,
+    "total_xg": 3.4,
+    "first_goal": {
+      "Fenerbahce_scores_first": 0.483,
+      "AS Roma_scores_first": 0.483,
+      "no_goals": 0.033,
+      "expected_minute": 26
+    },
+    "halftime_xg": {
+      "Fenerbahce": 0.8,
+      "AS Roma": 0.8
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.203
+      },
+      {
+        "score": "0:1",
+        "probability": 0.162
+      },
+      {
+        "score": "1:0",
+        "probability": 0.162
+      },
+      {
+        "score": "1:1",
+        "probability": 0.13
+      },
+      {
+        "score": "0:2",
+        "probability": 0.065
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Fenerbahce": 0.23,
+        "AS Roma": 0.23
+      },
+      "16-30'": {
+        "Fenerbahce": 0.264,
+        "AS Roma": 0.264
+      },
+      "31-45'": {
+        "Fenerbahce": 0.306,
+        "AS Roma": 0.306
+      },
+      "46-60'": {
+        "Fenerbahce": 0.246,
+        "AS Roma": 0.246
+      },
+      "61-75'": {
+        "Fenerbahce": 0.315,
+        "AS Roma": 0.315
+      },
+      "76-90'": {
+        "Fenerbahce": 0.34,
+        "AS Roma": 0.34
+      }
+    },
+    "comeback_probability": {
+      "Fenerbahce": 0.038,
+      "AS Roma": 0.038
+    },
+    "late_drama_probability": 0.493,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.225
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.172
+      },
+      {
+        "szenario": "Fenerbahce dominiert früh",
+        "beschreibung": "Fenerbahce geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.066
+      },
+      {
+        "szenario": "AS Roma dominiert früh",
+        "beschreibung": "AS Roma geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.066
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 50,
+        "away": 50
+      },
+      "shots": {
+        "home": 15,
+        "away": 15
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 6
+      },
+      "corners": {
+        "home": 6,
+        "away": 6
+      },
+      "passes": {
+        "home": 260,
+        "away": 260
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Fenerbahce and AS Roma is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 4,
+        "type": "chance",
+        "team": "AS Roma",
+        "headline": "Big chance for AS Roma!",
+        "description": "AS Roma create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 31,
+        "type": "goal",
+        "team": "Fenerbahce",
+        "headline": "GOAL! Fenerbahce!",
+        "description": "Fenerbahce score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 32,
+        "type": "chance",
+        "team": "AS Roma",
+        "headline": "Big chance for AS Roma!",
+        "description": "AS Roma create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 81,
+        "type": "chance",
+        "team": "Fenerbahce",
+        "headline": "Big chance for Fenerbahce!",
+        "description": "Fenerbahce create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 82,
+        "type": "chance",
+        "team": "AS Roma",
+        "headline": "Big chance for AS Roma!",
+        "description": "AS Roma create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 83,
+        "type": "goal",
+        "team": "AS Roma",
+        "headline": "GOAL! AS Roma!",
+        "description": "AS Roma score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 88,
+        "type": "goal",
+        "team": "Fenerbahce",
+        "headline": "GOAL! Fenerbahce!",
+        "description": "Fenerbahce score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Fenerbahce": 0.0,
+      "AS Roma": 0.63
+    },
+    "win_rate_last_10": {
+      "Fenerbahce": "0%",
+      "AS Roma": "10%"
+    },
+    "avg_goals_scored": {
+      "Fenerbahce": 0.0,
+      "AS Roma": 1.22
+    },
+    "avg_goals_conceded": {
+      "Fenerbahce": 0.0,
+      "AS Roma": 2.69
+    },
+    "clean_sheet_rate": {
+      "Fenerbahce": "0%",
+      "AS Roma": "6%"
+    },
+    "h2h_last_10": {
+      "Fenerbahce wins": "0%",
+      "draws": "0%",
+      "AS Roma wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

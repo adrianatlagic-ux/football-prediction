@@ -1,0 +1,301 @@
+{
+  "home_team": "Manchester United",
+  "away_team": "Sabah FK",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6069,
+  "probability_draw": 0.2212,
+  "probability_away_win": 0.1719,
+  "score_prediction": {
+    "home_xg": 1.46,
+    "away_xg": 1.62,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.6069,
+    "probability_draw": 0.2212,
+    "probability_away_win": 0.1719,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.145
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0971
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0898
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0706
+      },
+      {
+        "score": "3:2",
+        "probability": 0.057
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8281,
+        "home_or_away": 0.7788,
+        "draw_or_away": 0.3931
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8268,
+          "under": 0.1732
+        },
+        {
+          "line": 2.5,
+          "over": 0.6092,
+          "under": 0.3908
+        },
+        {
+          "line": 3.5,
+          "over": 0.3688,
+          "under": 0.6312
+        }
+      ],
+      "btts": {
+        "yes": 0.6235,
+        "no": 0.3765
+      },
+      "win_margin": {
+        "home_1plus": 0.6069,
+        "home_2plus": 0.2952,
+        "home_3plus": 0.1104,
+        "away_1plus": 0.1719,
+        "away_2plus": 0.0898,
+        "away_3plus": 0.0366
+      },
+      "scenario": "Manchester United are strong favourites at over 60% likelihood to win, with 2-1 the most probable score despite Sabah FK's current lack of form or goals."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.05,
+    "total_xg": 3.08,
+    "first_goal": {
+      "Manchester United_scores_first": 0.452,
+      "Sabah FK_scores_first": 0.502,
+      "no_goals": 0.046,
+      "expected_minute": 29
+    },
+    "halftime_xg": {
+      "Manchester United": 0.69,
+      "Sabah FK": 0.76
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.236
+      },
+      {
+        "score": "0:1",
+        "probability": 0.179
+      },
+      {
+        "score": "1:0",
+        "probability": 0.162
+      },
+      {
+        "score": "1:1",
+        "probability": 0.123
+      },
+      {
+        "score": "0:2",
+        "probability": 0.068
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Manchester United": 0.197,
+        "Sabah FK": 0.219
+      },
+      "16-30'": {
+        "Manchester United": 0.226,
+        "Sabah FK": 0.251
+      },
+      "31-45'": {
+        "Manchester United": 0.263,
+        "Sabah FK": 0.292
+      },
+      "46-60'": {
+        "Manchester United": 0.212,
+        "Sabah FK": 0.235
+      },
+      "61-75'": {
+        "Manchester United": 0.27,
+        "Sabah FK": 0.3
+      },
+      "76-90'": {
+        "Manchester United": 0.292,
+        "Sabah FK": 0.324
+      }
+    },
+    "comeback_probability": {
+      "Manchester United": 0.031,
+      "Sabah FK": 0.035
+    },
+    "late_drama_probability": 0.46,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.238
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.192
+      },
+      {
+        "szenario": "Sabah FK dominiert früh",
+        "beschreibung": "Sabah FK geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.069
+      },
+      {
+        "szenario": "Manchester United dominiert früh",
+        "beschreibung": "Manchester United geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.056
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 49,
+        "away": 51
+      },
+      "shots": {
+        "home": 13,
+        "away": 15
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 6
+      },
+      "corners": {
+        "home": 6,
+        "away": 7
+      },
+      "passes": {
+        "home": 255,
+        "away": 265
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Manchester United and Sabah FK is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 10,
+        "type": "goal",
+        "team": "Manchester United",
+        "headline": "GOAL! Manchester United!",
+        "description": "Manchester United score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 16,
+        "type": "chance",
+        "team": "Sabah FK",
+        "headline": "Big chance for Sabah FK!",
+        "description": "Sabah FK create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 19,
+        "type": "chance",
+        "team": "Manchester United",
+        "headline": "Big chance for Manchester United!",
+        "description": "Manchester United create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 46,
+        "type": "chance",
+        "team": "Sabah FK",
+        "headline": "Big chance for Sabah FK!",
+        "description": "Sabah FK create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 66,
+        "type": "goal",
+        "team": "Manchester United",
+        "headline": "GOAL! Manchester United!",
+        "description": "Manchester United score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 84,
+        "type": "chance",
+        "team": "Sabah FK",
+        "headline": "Big chance for Sabah FK!",
+        "description": "Sabah FK create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 87,
+        "type": "goal",
+        "team": "Sabah FK",
+        "headline": "GOAL! Sabah FK!",
+        "description": "Sabah FK score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Manchester United": 0.83,
+      "Sabah FK": 0.0
+    },
+    "win_rate_last_10": {
+      "Manchester United": "22%",
+      "Sabah FK": "0%"
+    },
+    "avg_goals_scored": {
+      "Manchester United": 1.26,
+      "Sabah FK": 0.0
+    },
+    "avg_goals_conceded": {
+      "Manchester United": 1.77,
+      "Sabah FK": 0.0
+    },
+    "clean_sheet_rate": {
+      "Manchester United": "14%",
+      "Sabah FK": "0%"
+    },
+    "h2h_last_10": {
+      "Manchester United wins": "0%",
+      "draws": "0%",
+      "Sabah FK wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

@@ -22,9 +22,9 @@ from scipy.stats import poisson
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.predictor import FootballPredictor
+from src.club_predictor import ClubFootballPredictor as FootballPredictor
 
-MODEL_PATH = Path(os.getenv("MODEL_PATH", "model.joblib"))
+MODEL_PATH = Path(os.getenv("MODEL_PATH", "club_model.joblib"))
 PREDICTIONS_CACHE_DIR = Path(__file__).parent.parent / "data" / "predictions_cache"
 
 app = FastAPI(
@@ -152,7 +152,6 @@ def predict(req: PredictRequest):
         result = predictor.predict_match(
             req.home_team,
             req.away_team,
-            neutral=req.neutral,
         )
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
@@ -219,13 +218,12 @@ def list_predictions():
 # ── ESPN Real Results ──────────────────────────────────────────────────────
 
 _ESPN_NAME_MAP = {
-    "Czechia": "Czech Republic",
-    "Bosnia-Herzegovina": "Bosnia and Herzegovina",
-    "Türkiye": "Turkey",
-    "Curaçao": "Curacao",
-    "Ivory Coast": "Ivory Coast",
-    "Congo DR": "DR Congo",
-    "USA": "United States",
+    "Bayern Munich": "Bayern Munich",
+    "Man City": "Manchester City",
+    "Man United": "Manchester United",
+    "Spurs": "Tottenham",
+    "Paris Saint Germain": "Paris Saint-Germain",
+    "Atletico Madrid": "Atlético Madrid",
 }
 
 _espn_cache: dict[str, Any] = {}
@@ -238,10 +236,10 @@ def _espn_team(name: str) -> str:
 
 
 def _fetch_espn_results() -> list[dict]:
-    url = (
-        "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/"
-        "scoreboard?dates=20260611-20260719&limit=100"
-    )
+    # No fixed date window (unlike the WC2026 version) - the Champions League
+    # season runs September to May, not a few fixed weeks, so we just ask
+    # ESPN for whatever it has around "now" instead of a hardcoded range.
+    url = "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?limit=100"
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
     with urllib.request.urlopen(req, timeout=8) as resp:
         data = json.loads(resp.read())
@@ -390,7 +388,7 @@ def _fetch_odds() -> list[dict]:
     if not ODDS_API_KEY:
         raise HTTPException(status_code=503, detail="ODDS_API_KEY ist nicht konfiguriert.")
     url = (
-        "https://api.the-odds-api.com/v4/sports/soccer_fifa_world_cup/odds/"
+        "https://api.the-odds-api.com/v4/sports/soccer_uefa_champs_league/odds/"
         f"?apiKey={ODDS_API_KEY}&regions=eu&markets=h2h,totals,spreads&oddsFormat=decimal"
     )
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -420,7 +418,7 @@ def _fetch_event_odds(event_id: str) -> Optional[dict]:
     if not ODDS_API_KEY:
         return None
     url = (
-        f"https://api.the-odds-api.com/v4/sports/soccer_fifa_world_cup/events/{event_id}/odds"
+        f"https://api.the-odds-api.com/v4/sports/soccer_uefa_champs_league/events/{event_id}/odds"
         f"?apiKey={ODDS_API_KEY}&regions=eu&markets=h2h,totals,spreads&oddsFormat=decimal"
     )
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
