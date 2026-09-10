@@ -1,0 +1,35 @@
+name: Log Champions League bets
+
+# Runs independently of any chat session, so the bet log stays complete even
+# when nobody is actively working on the repo. log_bets.py only logs a match
+# once it's within 30 minutes of kickoff (see FIRST_LOG_WINDOW_HOURS in the
+# script), so a 15-minute interval is frequent enough to catch every match
+# without ever missing its window.
+on:
+  schedule:
+    - cron: "7,22,37,52 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Log current bets
+        run: python3 scripts/log_bets.py --api https://football-prediction.fly.dev
+
+      - name: Commit if the log changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/bet_log.jsonl
+          git diff --cached --quiet || git commit -m "Log Champions League bets [skip ci]"
+          git push
