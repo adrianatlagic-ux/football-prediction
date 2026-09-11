@@ -1,0 +1,301 @@
+{
+  "home_team": "Bodø/Glimt",
+  "away_team": "Borussia Dortmund",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.1708,
+  "probability_draw": 0.1281,
+  "probability_away_win": 0.7012,
+  "score_prediction": {
+    "home_xg": 1.38,
+    "away_xg": 1.86,
+    "rho": -0.13,
+    "most_likely_score": "1:2",
+    "result": "A",
+    "probability_home_win": 0.1708,
+    "probability_draw": 0.1281,
+    "probability_away_win": 0.7011,
+    "top_scorelines": [
+      {
+        "score": "1:2",
+        "probability": 0.1379
+      },
+      {
+        "score": "0:2",
+        "probability": 0.0997
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0878
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0856
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0619
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.2989,
+        "home_or_away": 0.8719,
+        "draw_or_away": 0.8292
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8596,
+          "under": 0.1404
+        },
+        {
+          "line": 2.5,
+          "over": 0.6789,
+          "under": 0.3211
+        },
+        {
+          "line": 3.5,
+          "over": 0.425,
+          "under": 0.575
+        }
+      ],
+      "btts": {
+        "yes": 0.6152,
+        "no": 0.3848
+      },
+      "win_margin": {
+        "home_1plus": 0.1708,
+        "home_2plus": 0.0785,
+        "home_3plus": 0.0276,
+        "away_1plus": 0.7011,
+        "away_2plus": 0.4014,
+        "away_3plus": 0.1833
+      },
+      "scenario": "Dortmund are strong favorites with a 70% win probability and 1:2 most likely score, with a good chance of over 2.5 total goals."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.15,
+    "total_xg": 3.24,
+    "first_goal": {
+      "Bodø/Glimt_scores_first": 0.409,
+      "Borussia Dortmund_scores_first": 0.552,
+      "no_goals": 0.039,
+      "expected_minute": 27
+    },
+    "halftime_xg": {
+      "Bodø/Glimt": 0.65,
+      "Borussia Dortmund": 0.87
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.219
+      },
+      {
+        "score": "0:1",
+        "probability": 0.191
+      },
+      {
+        "score": "1:0",
+        "probability": 0.142
+      },
+      {
+        "score": "1:1",
+        "probability": 0.124
+      },
+      {
+        "score": "0:2",
+        "probability": 0.084
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Bodø/Glimt": 0.186,
+        "Borussia Dortmund": 0.251
+      },
+      "16-30'": {
+        "Bodø/Glimt": 0.214,
+        "Borussia Dortmund": 0.288
+      },
+      "31-45'": {
+        "Bodø/Glimt": 0.248,
+        "Borussia Dortmund": 0.335
+      },
+      "46-60'": {
+        "Bodø/Glimt": 0.2,
+        "Borussia Dortmund": 0.27
+      },
+      "61-75'": {
+        "Bodø/Glimt": 0.255,
+        "Borussia Dortmund": 0.344
+      },
+      "76-90'": {
+        "Bodø/Glimt": 0.276,
+        "Borussia Dortmund": 0.372
+      }
+    },
+    "comeback_probability": {
+      "Bodø/Glimt": 0.03,
+      "Borussia Dortmund": 0.039
+    },
+    "late_drama_probability": 0.477,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.226
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.182
+      },
+      {
+        "szenario": "Borussia Dortmund dominiert früh",
+        "beschreibung": "Borussia Dortmund geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.085
+      },
+      {
+        "szenario": "Bodø/Glimt dominiert früh",
+        "beschreibung": "Bodø/Glimt geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.047
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 47,
+        "away": 53
+      },
+      "shots": {
+        "home": 13,
+        "away": 16
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 6
+      },
+      "corners": {
+        "home": 5,
+        "away": 7
+      },
+      "passes": {
+        "home": 244,
+        "away": 276
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Bodø/Glimt and Borussia Dortmund is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 21,
+        "type": "chance",
+        "team": "Bodø/Glimt",
+        "headline": "Big chance for Bodø/Glimt!",
+        "description": "Bodø/Glimt create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 33,
+        "type": "chance",
+        "team": "Borussia Dortmund",
+        "headline": "Big chance for Borussia Dortmund!",
+        "description": "Borussia Dortmund create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 42,
+        "type": "goal",
+        "team": "Borussia Dortmund",
+        "headline": "GOAL! Borussia Dortmund!",
+        "description": "Borussia Dortmund score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 65,
+        "type": "goal",
+        "team": "Bodø/Glimt",
+        "headline": "GOAL! Bodø/Glimt!",
+        "description": "Bodø/Glimt score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 69,
+        "type": "chance",
+        "team": "Bodø/Glimt",
+        "headline": "Big chance for Bodø/Glimt!",
+        "description": "Bodø/Glimt create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 78,
+        "type": "goal",
+        "team": "Borussia Dortmund",
+        "headline": "GOAL! Borussia Dortmund!",
+        "description": "Borussia Dortmund score to make it 1:2.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 81,
+        "type": "chance",
+        "team": "Bodø/Glimt",
+        "headline": "Big chance for Bodø/Glimt!",
+        "description": "Bodø/Glimt create a great opportunity but fail to convert.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:2.",
+        "score_after": "1:2"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Bodø/Glimt": 0.0,
+      "Borussia Dortmund": 1.23
+    },
+    "win_rate_last_10": {
+      "Bodø/Glimt": "0%",
+      "Borussia Dortmund": "36%"
+    },
+    "avg_goals_scored": {
+      "Bodø/Glimt": 0.0,
+      "Borussia Dortmund": 1.6
+    },
+    "avg_goals_conceded": {
+      "Bodø/Glimt": 0.0,
+      "Borussia Dortmund": 2.41
+    },
+    "clean_sheet_rate": {
+      "Bodø/Glimt": "0%",
+      "Borussia Dortmund": "14%"
+    },
+    "h2h_last_10": {
+      "Bodø/Glimt wins": "0%",
+      "draws": "0%",
+      "Borussia Dortmund wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

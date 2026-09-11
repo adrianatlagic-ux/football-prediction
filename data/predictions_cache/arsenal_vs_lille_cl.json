@@ -1,0 +1,288 @@
+{
+  "home_team": "Arsenal",
+  "away_team": "Lille",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.7672,
+  "probability_draw": 0.1385,
+  "probability_away_win": 0.0943,
+  "score_prediction": {
+    "home_xg": 2.16,
+    "away_xg": 0.9,
+    "rho": -0.13,
+    "most_likely_score": "2:0",
+    "result": "H",
+    "probability_home_win": 0.7672,
+    "probability_draw": 0.1385,
+    "probability_away_win": 0.0943,
+    "top_scorelines": [
+      {
+        "score": "2:0",
+        "probability": 0.1295
+      },
+      {
+        "score": "2:1",
+        "probability": 0.116
+      },
+      {
+        "score": "1:0",
+        "probability": 0.1059
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0932
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0835
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.9057,
+        "home_or_away": 0.8615,
+        "draw_or_away": 0.2328
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8345,
+          "under": 0.1655
+        },
+        {
+          "line": 2.5,
+          "over": 0.6257,
+          "under": 0.3743
+        },
+        {
+          "line": 3.5,
+          "over": 0.3834,
+          "under": 0.6166
+        }
+      ],
+      "btts": {
+        "yes": 0.5103,
+        "no": 0.4897
+      },
+      "win_margin": {
+        "home_1plus": 0.7672,
+        "home_2plus": 0.501,
+        "home_3plus": 0.265,
+        "away_1plus": 0.0943,
+        "away_2plus": 0.0325,
+        "away_3plus": 0.0079
+      },
+      "scenario": "Arsenal are overwhelming favorites to win, with a 2-0 most likely score and a good chance of a comfortable two-goal victory."
+    }
+  },
+  "game_flow": {
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": 0.41,
+    "total_xg": 3.06,
+    "first_goal": {
+      "Arsenal_scores_first": 0.673,
+      "Lille_scores_first": 0.28,
+      "no_goals": 0.047,
+      "expected_minute": 29
+    },
+    "halftime_xg": {
+      "Arsenal": 1.02,
+      "Lille": 0.42
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.242
+      },
+      {
+        "score": "0:0",
+        "probability": 0.238
+      },
+      {
+        "score": "2:0",
+        "probability": 0.123
+      },
+      {
+        "score": "1:1",
+        "probability": 0.102
+      },
+      {
+        "score": "0:1",
+        "probability": 0.101
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Arsenal": 0.292,
+        "Lille": 0.122
+      },
+      "16-30'": {
+        "Arsenal": 0.335,
+        "Lille": 0.14
+      },
+      "31-45'": {
+        "Arsenal": 0.389,
+        "Lille": 0.162
+      },
+      "46-60'": {
+        "Arsenal": 0.313,
+        "Lille": 0.131
+      },
+      "61-75'": {
+        "Arsenal": 0.4,
+        "Lille": 0.167
+      },
+      "76-90'": {
+        "Arsenal": 0.432,
+        "Lille": 0.18
+      }
+    },
+    "comeback_probability": {
+      "Arsenal": 0.035,
+      "Lille": 0.016
+    },
+    "late_drama_probability": 0.458,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.194
+      },
+      {
+        "szenario": "Arsenal dominiert früh",
+        "beschreibung": "Arsenal geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.125
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Arsenal trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.104
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 57,
+        "away": 43
+      },
+      "shots": {
+        "home": 18,
+        "away": 10
+      },
+      "shots_on_target": {
+        "home": 7,
+        "away": 4
+      },
+      "corners": {
+        "home": 7,
+        "away": 4
+      },
+      "passes": {
+        "home": 296,
+        "away": 224
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Arsenal and Lille is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 12,
+        "type": "chance",
+        "team": "Arsenal",
+        "headline": "Big chance for Arsenal!",
+        "description": "Arsenal create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 16,
+        "type": "goal",
+        "team": "Arsenal",
+        "headline": "GOAL! Arsenal!",
+        "description": "Arsenal score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 17,
+        "type": "chance",
+        "team": "Arsenal",
+        "headline": "Big chance for Arsenal!",
+        "description": "Arsenal create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 48,
+        "type": "goal",
+        "team": "Arsenal",
+        "headline": "GOAL! Arsenal!",
+        "description": "Arsenal score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 82,
+        "type": "chance",
+        "team": "Arsenal",
+        "headline": "Big chance for Arsenal!",
+        "description": "Arsenal create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 87,
+        "type": "chance",
+        "team": "Arsenal",
+        "headline": "Big chance for Arsenal!",
+        "description": "Arsenal create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Arsenal": 2.02,
+      "Lille": 1.39
+    },
+    "win_rate_last_10": {
+      "Arsenal": "51%",
+      "Lille": "39%"
+    },
+    "avg_goals_scored": {
+      "Arsenal": 1.69,
+      "Lille": 1.31
+    },
+    "avg_goals_conceded": {
+      "Arsenal": 0.69,
+      "Lille": 1.23
+    },
+    "clean_sheet_rate": {
+      "Arsenal": "36%",
+      "Lille": "21%"
+    },
+    "h2h_last_10": {
+      "Arsenal wins": "0%",
+      "draws": "0%",
+      "Lille wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

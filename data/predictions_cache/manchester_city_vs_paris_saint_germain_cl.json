@@ -1,0 +1,301 @@
+{
+  "home_team": "Manchester City",
+  "away_team": "Paris Saint Germain",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.5866,
+  "probability_draw": 0.2398,
+  "probability_away_win": 0.1736,
+  "score_prediction": {
+    "home_xg": 1.79,
+    "away_xg": 1.93,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.5866,
+    "probability_draw": 0.2398,
+    "probability_away_win": 0.1736,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1241
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0742
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0715
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0644
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0538
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8264,
+        "home_or_away": 0.7602,
+        "draw_or_away": 0.4134
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8955,
+          "under": 0.1045
+        },
+        {
+          "line": 2.5,
+          "over": 0.7162,
+          "under": 0.2838
+        },
+        {
+          "line": 3.5,
+          "over": 0.507,
+          "under": 0.493
+        }
+      ],
+      "btts": {
+        "yes": 0.7263,
+        "no": 0.2737
+      },
+      "win_margin": {
+        "home_1plus": 0.5866,
+        "home_2plus": 0.3128,
+        "home_3plus": 0.1335,
+        "away_1plus": 0.1736,
+        "away_2plus": 0.0973,
+        "away_3plus": 0.0442
+      },
+      "scenario": "Manchester City are strong favourites with a 58% chance to win, with 2-1 as the most likely score, and both teams expected to find the net."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": -0.04,
+    "total_xg": 3.72,
+    "first_goal": {
+      "Manchester City_scores_first": 0.47,
+      "Paris Saint Germain_scores_first": 0.506,
+      "no_goals": 0.024,
+      "expected_minute": 24
+    },
+    "halftime_xg": {
+      "Manchester City": 0.84,
+      "Paris Saint Germain": 0.91
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.175
+      },
+      {
+        "score": "0:1",
+        "probability": 0.159
+      },
+      {
+        "score": "1:0",
+        "probability": 0.147
+      },
+      {
+        "score": "1:1",
+        "probability": 0.133
+      },
+      {
+        "score": "0:2",
+        "probability": 0.072
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Manchester City": 0.242,
+        "Paris Saint Germain": 0.261
+      },
+      "16-30'": {
+        "Manchester City": 0.277,
+        "Paris Saint Germain": 0.299
+      },
+      "31-45'": {
+        "Manchester City": 0.322,
+        "Paris Saint Germain": 0.347
+      },
+      "46-60'": {
+        "Manchester City": 0.26,
+        "Paris Saint Germain": 0.28
+      },
+      "61-75'": {
+        "Manchester City": 0.331,
+        "Paris Saint Germain": 0.357
+      },
+      "76-90'": {
+        "Manchester City": 0.358,
+        "Paris Saint Germain": 0.386
+      }
+    },
+    "comeback_probability": {
+      "Manchester City": 0.041,
+      "Paris Saint Germain": 0.044
+    },
+    "late_drama_probability": 0.525,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.213
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.154
+      },
+      {
+        "szenario": "Paris Saint Germain dominiert früh",
+        "beschreibung": "Paris Saint Germain geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.073
+      },
+      {
+        "szenario": "Manchester City dominiert früh",
+        "beschreibung": "Manchester City geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.063
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 49,
+        "away": 51
+      },
+      "shots": {
+        "home": 16,
+        "away": 17
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 7
+      },
+      "corners": {
+        "home": 6,
+        "away": 7
+      },
+      "passes": {
+        "home": 255,
+        "away": 265
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Manchester City and Paris Saint Germain is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 15,
+        "type": "chance",
+        "team": "Paris Saint Germain",
+        "headline": "Big chance for Paris Saint Germain!",
+        "description": "Paris Saint Germain create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 22,
+        "type": "chance",
+        "team": "Manchester City",
+        "headline": "Big chance for Manchester City!",
+        "description": "Manchester City create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "goal",
+        "team": "Manchester City",
+        "headline": "GOAL! Manchester City!",
+        "description": "Manchester City score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 52,
+        "type": "goal",
+        "team": "Paris Saint Germain",
+        "headline": "GOAL! Paris Saint Germain!",
+        "description": "Paris Saint Germain score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 69,
+        "type": "chance",
+        "team": "Paris Saint Germain",
+        "headline": "Big chance for Paris Saint Germain!",
+        "description": "Paris Saint Germain create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 76,
+        "type": "goal",
+        "team": "Manchester City",
+        "headline": "GOAL! Manchester City!",
+        "description": "Manchester City score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 84,
+        "type": "chance",
+        "team": "Manchester City",
+        "headline": "Big chance for Manchester City!",
+        "description": "Manchester City create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Manchester City": 2.51,
+      "Paris Saint Germain": 2.12
+    },
+    "win_rate_last_10": {
+      "Manchester City": "75%",
+      "Paris Saint Germain": "56%"
+    },
+    "avg_goals_scored": {
+      "Manchester City": 1.37,
+      "Paris Saint Germain": 2.16
+    },
+    "avg_goals_conceded": {
+      "Manchester City": 0.59,
+      "Paris Saint Germain": 0.92
+    },
+    "clean_sheet_rate": {
+      "Manchester City": "77%",
+      "Paris Saint Germain": "37%"
+    },
+    "h2h_last_10": {
+      "Manchester City wins": "50%",
+      "draws": "25%",
+      "Paris Saint Germain wins": "25%",
+      "total_h2h_games": 4
+    }
+  }
+}

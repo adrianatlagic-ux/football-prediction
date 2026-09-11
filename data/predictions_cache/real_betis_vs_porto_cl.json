@@ -1,0 +1,301 @@
+{
+  "home_team": "Real Betis",
+  "away_team": "Porto",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.1595,
+  "probability_draw": 0.126,
+  "probability_away_win": 0.7146,
+  "score_prediction": {
+    "home_xg": 1.38,
+    "away_xg": 1.94,
+    "rho": -0.13,
+    "most_likely_score": "1:2",
+    "result": "A",
+    "probability_home_win": 0.1595,
+    "probability_draw": 0.126,
+    "probability_away_win": 0.7145,
+    "top_scorelines": [
+      {
+        "score": "1:2",
+        "probability": 0.1359
+      },
+      {
+        "score": "0:2",
+        "probability": 0.0988
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0879
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0837
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0639
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.2855,
+        "home_or_away": 0.874,
+        "draw_or_away": 0.8405
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8681,
+          "under": 0.1319
+        },
+        {
+          "line": 2.5,
+          "over": 0.6921,
+          "under": 0.3079
+        },
+        {
+          "line": 3.5,
+          "over": 0.4417,
+          "under": 0.5583
+        }
+      ],
+      "btts": {
+        "yes": 0.6219,
+        "no": 0.3781
+      },
+      "win_margin": {
+        "home_1plus": 0.1595,
+        "home_2plus": 0.0729,
+        "home_3plus": 0.0255,
+        "away_1plus": 0.7145,
+        "away_2plus": 0.4191,
+        "away_3plus": 0.1973
+      },
+      "scenario": "Porto are strong favourites with over a 70% chance to win, a 1-2 score being most likely given Real Betis's zero recent form."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.17,
+    "total_xg": 3.32,
+    "first_goal": {
+      "Real Betis_scores_first": 0.401,
+      "Porto_scores_first": 0.563,
+      "no_goals": 0.036,
+      "expected_minute": 27
+    },
+    "halftime_xg": {
+      "Real Betis": 0.65,
+      "Porto": 0.91
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.211
+      },
+      {
+        "score": "0:1",
+        "probability": 0.192
+      },
+      {
+        "score": "1:0",
+        "probability": 0.137
+      },
+      {
+        "score": "1:1",
+        "probability": 0.125
+      },
+      {
+        "score": "0:2",
+        "probability": 0.088
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Real Betis": 0.186,
+        "Porto": 0.262
+      },
+      "16-30'": {
+        "Real Betis": 0.214,
+        "Porto": 0.301
+      },
+      "31-45'": {
+        "Real Betis": 0.248,
+        "Porto": 0.349
+      },
+      "46-60'": {
+        "Real Betis": 0.2,
+        "Porto": 0.281
+      },
+      "61-75'": {
+        "Real Betis": 0.255,
+        "Porto": 0.359
+      },
+      "76-90'": {
+        "Real Betis": 0.276,
+        "Porto": 0.388
+      }
+    },
+    "comeback_probability": {
+      "Real Betis": 0.03,
+      "Porto": 0.041
+    },
+    "late_drama_probability": 0.485,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.221
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.177
+      },
+      {
+        "szenario": "Porto dominiert früh",
+        "beschreibung": "Porto geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.089
+      },
+      {
+        "szenario": "Real Betis dominiert früh",
+        "beschreibung": "Real Betis geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.045
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 47,
+        "away": 53
+      },
+      "shots": {
+        "home": 13,
+        "away": 17
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 6
+      },
+      "corners": {
+        "home": 5,
+        "away": 7
+      },
+      "passes": {
+        "home": 244,
+        "away": 276
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Real Betis and Porto is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 4,
+        "type": "goal",
+        "team": "Porto",
+        "headline": "GOAL! Porto!",
+        "description": "Porto score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 24,
+        "type": "chance",
+        "team": "Porto",
+        "headline": "Big chance for Porto!",
+        "description": "Porto create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 30,
+        "type": "chance",
+        "team": "Porto",
+        "headline": "Big chance for Porto!",
+        "description": "Porto create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 49,
+        "type": "chance",
+        "team": "Porto",
+        "headline": "Big chance for Porto!",
+        "description": "Porto create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 57,
+        "type": "goal",
+        "team": "Real Betis",
+        "headline": "GOAL! Real Betis!",
+        "description": "Real Betis score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 62,
+        "type": "chance",
+        "team": "Porto",
+        "headline": "Big chance for Porto!",
+        "description": "Porto create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 72,
+        "type": "goal",
+        "team": "Porto",
+        "headline": "GOAL! Porto!",
+        "description": "Porto score to make it 1:2.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:2.",
+        "score_after": "1:2"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Real Betis": 0.0,
+      "Porto": 1.65
+    },
+    "win_rate_last_10": {
+      "Real Betis": "0%",
+      "Porto": "53%"
+    },
+    "avg_goals_scored": {
+      "Real Betis": 0.0,
+      "Porto": 1.7
+    },
+    "avg_goals_conceded": {
+      "Real Betis": 0.0,
+      "Porto": 1.11
+    },
+    "clean_sheet_rate": {
+      "Real Betis": "0%",
+      "Porto": "16%"
+    },
+    "h2h_last_10": {
+      "Real Betis wins": "0%",
+      "draws": "0%",
+      "Porto wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

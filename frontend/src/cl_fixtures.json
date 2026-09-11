@@ -1,98 +1,146 @@
 [
   {
     "group": "League Phase",
-    "date": "2026-09-09",
+    "date": "2026-10-13",
     "time": "16:45",
-    "home_team": "Barcelona",
-    "away_team": "Feyenoord",
-    "match_id": "barcelona_vs_feyenoord_cl"
+    "home_team": "RC Lens",
+    "away_team": "Sporting Lisbon",
+    "match_id": "rc_lens_vs_sporting_lisbon_cl"
   },
   {
     "group": "League Phase",
-    "date": "2026-09-09",
+    "date": "2026-10-13",
     "time": "16:45",
-    "home_team": "VfB Stuttgart",
-    "away_team": "Viking FK",
-    "match_id": "vfb_stuttgart_vs_viking_fk_cl"
+    "home_team": "Sabah FK",
+    "away_team": "Slavia Praha",
+    "match_id": "sabah_fk_vs_slavia_praha_cl"
   },
   {
     "group": "League Phase",
-    "date": "2026-09-09",
+    "date": "2026-10-13",
     "time": "19:00",
-    "home_team": "Napoli",
-    "away_team": "Arsenal",
-    "match_id": "napoli_vs_arsenal_cl"
+    "home_team": "Arsenal",
+    "away_team": "Lille",
+    "match_id": "arsenal_vs_lille_cl"
   },
   {
     "group": "League Phase",
-    "date": "2026-09-09",
+    "date": "2026-10-13",
     "time": "19:00",
-    "home_team": "Liverpool",
-    "away_team": "Atlético Madrid",
-    "match_id": "liverpool_vs_atletico_madrid_cl"
+    "home_team": "Atlético Madrid",
+    "away_team": "Manchester United",
+    "match_id": "atletico_madrid_vs_manchester_united_cl"
   },
   {
     "group": "League Phase",
-    "date": "2026-09-09",
+    "date": "2026-10-13",
     "time": "19:00",
-    "home_team": "Sporting Lisbon",
-    "away_team": "Galatasaray",
-    "match_id": "sporting_lisbon_vs_galatasaray_cl"
+    "home_team": "Galatasaray",
+    "away_team": "Barcelona",
+    "match_id": "galatasaray_vs_barcelona_cl"
   },
   {
     "group": "League Phase",
-    "date": "2026-09-09",
+    "date": "2026-10-13",
     "time": "19:00",
-    "home_team": "Paris Saint Germain",
-    "away_team": "ŠK Slovan Bratislava",
-    "match_id": "paris_saint_germain_vs_sk_slovan_bratislava_cl"
+    "home_team": "Viking FK",
+    "away_team": "Bayern Munich",
+    "match_id": "viking_fk_vs_bayern_munich_cl"
   },
   {
     "group": "League Phase",
-    "date": "2026-09-10",
+    "date": "2026-10-13",
+    "time": "19:00",
+    "home_team": "Inter Milan",
+    "away_team": "Club Brugge",
+    "match_id": "inter_milan_vs_club_brugge_cl"
+  },
+  {
+    "group": "League Phase",
+    "date": "2026-10-13",
+    "time": "19:00",
+    "home_team": "Villarreal",
+    "away_team": "Napoli",
+    "match_id": "villarreal_vs_napoli_cl"
+  },
+  {
+    "group": "League Phase",
+    "date": "2026-10-13",
+    "time": "19:00",
+    "home_team": "RB Leipzig",
+    "away_team": "PSV Eindhoven",
+    "match_id": "rb_leipzig_vs_psv_eindhoven_cl"
+  },
+  {
+    "group": "League Phase",
+    "date": "2026-10-14",
     "time": "16:45",
-    "home_team": "Fenerbahce",
-    "away_team": "AS Roma",
-    "match_id": "fenerbahce_vs_as_roma_cl"
+    "home_team": "Feyenoord",
+    "away_team": "Como",
+    "match_id": "feyenoord_vs_como_cl"
   },
   {
     "group": "League Phase",
-    "date": "2026-09-10",
+    "date": "2026-10-14",
     "time": "16:45",
-    "home_team": "PSV Eindhoven",
-    "away_team": "Shakhtar Donetsk",
-    "match_id": "psv_eindhoven_vs_shakhtar_donetsk_cl"
+    "home_team": "LASK",
+    "away_team": "Liverpool",
+    "match_id": "lask_vs_liverpool_cl"
   },
   {
     "group": "League Phase",
-    "date": "2026-09-10",
+    "date": "2026-10-14",
     "time": "19:00",
-    "home_team": "Bayern Munich",
-    "away_team": "Bodø/Glimt",
-    "match_id": "bayern_munich_vs_bod_glimt_cl"
+    "home_team": "Shakhtar Donetsk",
+    "away_team": "AEK Athens",
+    "match_id": "shakhtar_donetsk_vs_aek_athens_cl"
   },
   {
     "group": "League Phase",
-    "date": "2026-09-10",
+    "date": "2026-10-14",
     "time": "19:00",
-    "home_team": "Como",
-    "away_team": "RB Leipzig",
-    "match_id": "como_vs_rb_leipzig_cl"
+    "home_team": "AS Roma",
+    "away_team": "Real Madrid",
+    "match_id": "as_roma_vs_real_madrid_cl"
   },
   {
     "group": "League Phase",
-    "date": "2026-09-10",
+    "date": "2026-10-14",
     "time": "19:00",
-    "home_team": "Manchester United",
-    "away_team": "Sabah FK",
-    "match_id": "manchester_united_vs_sabah_fk_cl"
+    "home_team": "Aston Villa",
+    "away_team": "Fenerbahce",
+    "match_id": "aston_villa_vs_fenerbahce_cl"
   },
   {
     "group": "League Phase",
-    "date": "2026-09-10",
+    "date": "2026-10-14",
     "time": "19:00",
-    "home_team": "Slavia Praha",
-    "away_team": "RC Lens",
-    "match_id": "slavia_praha_vs_rc_lens_cl"
+    "home_team": "Bodø/Glimt",
+    "away_team": "Borussia Dortmund",
+    "match_id": "bod_glimt_vs_borussia_dortmund_cl"
+  },
+  {
+    "group": "League Phase",
+    "date": "2026-10-14",
+    "time": "19:00",
+    "home_team": "Manchester City",
+    "away_team": "Paris Saint Germain",
+    "match_id": "manchester_city_vs_paris_saint_germain_cl"
+  },
+  {
+    "group": "League Phase",
+    "date": "2026-10-14",
+    "time": "19:00",
+    "home_team": "Real Betis",
+    "away_team": "Porto",
+    "match_id": "real_betis_vs_porto_cl"
+  },
+  {
+    "group": "League Phase",
+    "date": "2026-10-14",
+    "time": "19:00",
+    "home_team": "ŠK Slovan Bratislava",
+    "away_team": "VfB Stuttgart",
+    "match_id": "sk_slovan_bratislava_vs_vfb_stuttgart_cl"
   }
 ]

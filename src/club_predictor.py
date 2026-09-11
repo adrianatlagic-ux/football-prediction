@@ -14,13 +14,15 @@ from .evaluation import evaluate
 
 RESULT_LABELS = {"H": "Home Win", "D": "Draw", "A": "Away Win"}
 
-# Empirically tuned via scripts/tune_club_blend.py: 40% Poisson maximizes
-# accuracy (47.2% -> 51.6%) and log-loss keeps improving up to ~60-70%
-# Poisson, unlike the WC model where 20% was optimal. Makes sense - club
-# teams play far more matches than national teams, so the Poisson
-# attack/defense ratings have much more data to work with and carry more
-# signal here than the classifier's sparser feature set.
-POISSON_BLEND = 0.40
+# Empirically tuned via scripts/tune_club_blend.py. Re-tuned to 30% after
+# adding squad market value as a feature (src/club_market_values.py) - that
+# feature alone pushed classifier accuracy up (49.1% -> 52.3%) but made it
+# more overconfident (log-loss got worse), so the optimal Poisson share
+# dropped from 40% to 30% to pull the probabilities back down to calibrated
+# levels. Re-tune again any time the feature set changes - the optimal split
+# isn't a fixed property of the model, it depends on what else is already
+# informing the classifier.
+POISSON_BLEND = 0.30
 
 
 class ClubFootballPredictor:

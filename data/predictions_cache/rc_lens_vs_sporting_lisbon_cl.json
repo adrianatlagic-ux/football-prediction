@@ -1,0 +1,301 @@
+{
+  "home_team": "RC Lens",
+  "away_team": "Sporting Lisbon",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.2158,
+  "probability_draw": 0.2002,
+  "probability_away_win": 0.5839,
+  "score_prediction": {
+    "home_xg": 1.17,
+    "away_xg": 1.91,
+    "rho": -0.13,
+    "most_likely_score": "1:2",
+    "result": "A",
+    "probability_home_win": 0.2158,
+    "probability_draw": 0.2002,
+    "probability_away_win": 0.584,
+    "top_scorelines": [
+      {
+        "score": "1:2",
+        "probability": 0.1078
+      },
+      {
+        "score": "0:2",
+        "probability": 0.0919
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0818
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0684
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0584
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.416,
+        "home_or_away": 0.7998,
+        "draw_or_away": 0.7842
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8302,
+          "under": 0.1698
+        },
+        {
+          "line": 2.5,
+          "over": 0.6138,
+          "under": 0.3862
+        },
+        {
+          "line": 3.5,
+          "over": 0.376,
+          "under": 0.624
+        }
+      ],
+      "btts": {
+        "yes": 0.589,
+        "no": 0.411
+      },
+      "win_margin": {
+        "home_1plus": 0.2158,
+        "home_2plus": 0.0896,
+        "home_3plus": 0.0276,
+        "away_1plus": 0.584,
+        "away_2plus": 0.3457,
+        "away_3plus": 0.1632
+      },
+      "scenario": "Sporting Lisbon are strong favorites with around a 58% chance of victory, most likely 1-2, and over 2.5 goals are predicted."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.24,
+    "total_xg": 3.08,
+    "first_goal": {
+      "RC Lens_scores_first": 0.362,
+      "Sporting Lisbon_scores_first": 0.592,
+      "no_goals": 0.046,
+      "expected_minute": 29
+    },
+    "halftime_xg": {
+      "RC Lens": 0.55,
+      "Sporting Lisbon": 0.9
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.236
+      },
+      {
+        "score": "0:1",
+        "probability": 0.212
+      },
+      {
+        "score": "1:0",
+        "probability": 0.13
+      },
+      {
+        "score": "1:1",
+        "probability": 0.116
+      },
+      {
+        "score": "0:2",
+        "probability": 0.095
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "RC Lens": 0.158,
+        "Sporting Lisbon": 0.258
+      },
+      "16-30'": {
+        "RC Lens": 0.181,
+        "Sporting Lisbon": 0.296
+      },
+      "31-45'": {
+        "RC Lens": 0.211,
+        "Sporting Lisbon": 0.344
+      },
+      "46-60'": {
+        "RC Lens": 0.17,
+        "Sporting Lisbon": 0.277
+      },
+      "61-75'": {
+        "RC Lens": 0.216,
+        "Sporting Lisbon": 0.353
+      },
+      "76-90'": {
+        "RC Lens": 0.234,
+        "Sporting Lisbon": 0.382
+      }
+    },
+    "comeback_probability": {
+      "RC Lens": 0.024,
+      "Sporting Lisbon": 0.037
+    },
+    "late_drama_probability": 0.46,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.224
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.192
+      },
+      {
+        "szenario": "Sporting Lisbon dominiert früh",
+        "beschreibung": "Sporting Lisbon geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.096
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Sporting Lisbon trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.089
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 46,
+        "away": 54
+      },
+      "shots": {
+        "home": 12,
+        "away": 16
+      },
+      "shots_on_target": {
+        "home": 4,
+        "away": 6
+      },
+      "corners": {
+        "home": 5,
+        "away": 7
+      },
+      "passes": {
+        "home": 239,
+        "away": 281
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between RC Lens and Sporting Lisbon is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 21,
+        "type": "goal",
+        "team": "Sporting Lisbon",
+        "headline": "GOAL! Sporting Lisbon!",
+        "description": "Sporting Lisbon score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 33,
+        "type": "chance",
+        "team": "Sporting Lisbon",
+        "headline": "Big chance for Sporting Lisbon!",
+        "description": "Sporting Lisbon create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 37,
+        "type": "chance",
+        "team": "RC Lens",
+        "headline": "Big chance for RC Lens!",
+        "description": "RC Lens create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 52,
+        "type": "chance",
+        "team": "RC Lens",
+        "headline": "Big chance for RC Lens!",
+        "description": "RC Lens create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 62,
+        "type": "chance",
+        "team": "RC Lens",
+        "headline": "Big chance for RC Lens!",
+        "description": "RC Lens create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 76,
+        "type": "goal",
+        "team": "Sporting Lisbon",
+        "headline": "GOAL! Sporting Lisbon!",
+        "description": "Sporting Lisbon score to make it 0:2.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 80,
+        "type": "goal",
+        "team": "RC Lens",
+        "headline": "GOAL! RC Lens!",
+        "description": "RC Lens score to make it 1:2.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:2.",
+        "score_after": "1:2"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "RC Lens": 1.35,
+      "Sporting Lisbon": 1.52
+    },
+    "win_rate_last_10": {
+      "RC Lens": "36%",
+      "Sporting Lisbon": "43%"
+    },
+    "avg_goals_scored": {
+      "RC Lens": 0.84,
+      "Sporting Lisbon": 1.0
+    },
+    "avg_goals_conceded": {
+      "RC Lens": 2.15,
+      "Sporting Lisbon": 1.66
+    },
+    "clean_sheet_rate": {
+      "RC Lens": "0%",
+      "Sporting Lisbon": "28%"
+    },
+    "h2h_last_10": {
+      "RC Lens wins": "0%",
+      "draws": "0%",
+      "Sporting Lisbon wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

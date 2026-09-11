@@ -1,0 +1,301 @@
+{
+  "home_team": "Atlético Madrid",
+  "away_team": "Manchester United",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.3723,
+  "probability_draw": 0.3151,
+  "probability_away_win": 0.3125,
+  "score_prediction": {
+    "home_xg": 1.62,
+    "away_xg": 1.46,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.3723,
+    "probability_draw": 0.3151,
+    "probability_away_win": 0.3125,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.0819
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0562
+      },
+      {
+        "score": "2:0",
+        "probability": 0.056
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0441
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0322
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.6875,
+        "home_or_away": 0.6849,
+        "draw_or_away": 0.6277
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8227,
+          "under": 0.1773
+        },
+        {
+          "line": 2.5,
+          "over": 0.5754,
+          "under": 0.4246
+        },
+        {
+          "line": 3.5,
+          "over": 0.3661,
+          "under": 0.6339
+        }
+      ],
+      "btts": {
+        "yes": 0.6391,
+        "no": 0.3609
+      },
+      "win_margin": {
+        "home_1plus": 0.3723,
+        "home_2plus": 0.1949,
+        "home_3plus": 0.0796,
+        "away_1plus": 0.3125,
+        "away_2plus": 0.1519,
+        "away_3plus": 0.0567
+      },
+      "scenario": "Atlético Madrid are narrowly tipped for a 2-1 victory in what's predicted to be a game with goals from both sides, despite both teams' poor recent form."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.05,
+    "total_xg": 3.08,
+    "first_goal": {
+      "Atlético Madrid_scores_first": 0.502,
+      "Manchester United_scores_first": 0.452,
+      "no_goals": 0.046,
+      "expected_minute": 29
+    },
+    "halftime_xg": {
+      "Atlético Madrid": 0.76,
+      "Manchester United": 0.69
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.236
+      },
+      {
+        "score": "1:0",
+        "probability": 0.179
+      },
+      {
+        "score": "0:1",
+        "probability": 0.162
+      },
+      {
+        "score": "1:1",
+        "probability": 0.123
+      },
+      {
+        "score": "2:0",
+        "probability": 0.068
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Atlético Madrid": 0.219,
+        "Manchester United": 0.197
+      },
+      "16-30'": {
+        "Atlético Madrid": 0.251,
+        "Manchester United": 0.226
+      },
+      "31-45'": {
+        "Atlético Madrid": 0.292,
+        "Manchester United": 0.263
+      },
+      "46-60'": {
+        "Atlético Madrid": 0.235,
+        "Manchester United": 0.212
+      },
+      "61-75'": {
+        "Atlético Madrid": 0.3,
+        "Manchester United": 0.27
+      },
+      "76-90'": {
+        "Atlético Madrid": 0.324,
+        "Manchester United": 0.292
+      }
+    },
+    "comeback_probability": {
+      "Atlético Madrid": 0.035,
+      "Manchester United": 0.031
+    },
+    "late_drama_probability": 0.46,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.238
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.192
+      },
+      {
+        "szenario": "Atlético Madrid dominiert früh",
+        "beschreibung": "Atlético Madrid geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.069
+      },
+      {
+        "szenario": "Manchester United dominiert früh",
+        "beschreibung": "Manchester United geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.056
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 51,
+        "away": 49
+      },
+      "shots": {
+        "home": 15,
+        "away": 13
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 5
+      },
+      "corners": {
+        "home": 7,
+        "away": 6
+      },
+      "passes": {
+        "home": 265,
+        "away": 255
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Atlético Madrid and Manchester United is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 4,
+        "type": "chance",
+        "team": "Atlético Madrid",
+        "headline": "Big chance for Atlético Madrid!",
+        "description": "Atlético Madrid create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 8,
+        "type": "chance",
+        "team": "Atlético Madrid",
+        "headline": "Big chance for Atlético Madrid!",
+        "description": "Atlético Madrid create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "goal",
+        "team": "Atlético Madrid",
+        "headline": "GOAL! Atlético Madrid!",
+        "description": "Atlético Madrid score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 63,
+        "type": "goal",
+        "team": "Atlético Madrid",
+        "headline": "GOAL! Atlético Madrid!",
+        "description": "Atlético Madrid score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 67,
+        "type": "chance",
+        "team": "Atlético Madrid",
+        "headline": "Big chance for Atlético Madrid!",
+        "description": "Atlético Madrid create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 69,
+        "type": "goal",
+        "team": "Manchester United",
+        "headline": "GOAL! Manchester United!",
+        "description": "Manchester United score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "chance",
+        "team": "Manchester United",
+        "headline": "Big chance for Manchester United!",
+        "description": "Manchester United create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Atlético Madrid": 0.84,
+      "Manchester United": 0.83
+    },
+    "win_rate_last_10": {
+      "Atlético Madrid": "14%",
+      "Manchester United": "22%"
+    },
+    "avg_goals_scored": {
+      "Atlético Madrid": 0.71,
+      "Manchester United": 1.26
+    },
+    "avg_goals_conceded": {
+      "Atlético Madrid": 1.54,
+      "Manchester United": 1.77
+    },
+    "clean_sheet_rate": {
+      "Atlético Madrid": "10%",
+      "Manchester United": "14%"
+    },
+    "h2h_last_10": {
+      "Atlético Madrid wins": "50%",
+      "draws": "50%",
+      "Manchester United wins": "0%",
+      "total_h2h_games": 2
+    }
+  }
+}

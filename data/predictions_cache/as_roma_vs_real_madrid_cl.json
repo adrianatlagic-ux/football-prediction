@@ -1,0 +1,301 @@
+{
+  "home_team": "AS Roma",
+  "away_team": "Real Madrid",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.2423,
+  "probability_draw": 0.177,
+  "probability_away_win": 0.5807,
+  "score_prediction": {
+    "home_xg": 1.7,
+    "away_xg": 1.7,
+    "rho": -0.13,
+    "most_likely_score": "1:2",
+    "result": "A",
+    "probability_home_win": 0.2423,
+    "probability_draw": 0.177,
+    "probability_away_win": 0.5807,
+    "top_scorelines": [
+      {
+        "score": "1:2",
+        "probability": 0.1273
+      },
+      {
+        "score": "0:2",
+        "probability": 0.075
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0721
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0688
+      },
+      {
+        "score": "2:3",
+        "probability": 0.0612
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.4193,
+        "home_or_away": 0.823,
+        "draw_or_away": 0.7577
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8698,
+          "under": 0.1302
+        },
+        {
+          "line": 2.5,
+          "over": 0.6867,
+          "under": 0.3133
+        },
+        {
+          "line": 3.5,
+          "over": 0.4462,
+          "under": 0.5538
+        }
+      ],
+      "btts": {
+        "yes": 0.6661,
+        "no": 0.3339
+      },
+      "win_margin": {
+        "home_1plus": 0.2423,
+        "home_2plus": 0.1279,
+        "home_3plus": 0.0533,
+        "away_1plus": 0.5807,
+        "away_2plus": 0.3061,
+        "away_3plus": 0.1274
+      },
+      "scenario": "Real Madrid are clear favorites with nearly a 60% win probability, boasting vastly superior recent form compared to AS Roma."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.0,
+    "total_xg": 3.4,
+    "first_goal": {
+      "AS Roma_scores_first": 0.483,
+      "Real Madrid_scores_first": 0.483,
+      "no_goals": 0.033,
+      "expected_minute": 26
+    },
+    "halftime_xg": {
+      "AS Roma": 0.8,
+      "Real Madrid": 0.8
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.203
+      },
+      {
+        "score": "0:1",
+        "probability": 0.162
+      },
+      {
+        "score": "1:0",
+        "probability": 0.162
+      },
+      {
+        "score": "1:1",
+        "probability": 0.13
+      },
+      {
+        "score": "0:2",
+        "probability": 0.065
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "AS Roma": 0.23,
+        "Real Madrid": 0.23
+      },
+      "16-30'": {
+        "AS Roma": 0.264,
+        "Real Madrid": 0.264
+      },
+      "31-45'": {
+        "AS Roma": 0.306,
+        "Real Madrid": 0.306
+      },
+      "46-60'": {
+        "AS Roma": 0.246,
+        "Real Madrid": 0.246
+      },
+      "61-75'": {
+        "AS Roma": 0.315,
+        "Real Madrid": 0.315
+      },
+      "76-90'": {
+        "AS Roma": 0.34,
+        "Real Madrid": 0.34
+      }
+    },
+    "comeback_probability": {
+      "AS Roma": 0.038,
+      "Real Madrid": 0.038
+    },
+    "late_drama_probability": 0.493,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.225
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.172
+      },
+      {
+        "szenario": "AS Roma dominiert früh",
+        "beschreibung": "AS Roma geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.066
+      },
+      {
+        "szenario": "Real Madrid dominiert früh",
+        "beschreibung": "Real Madrid geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.066
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 50,
+        "away": 50
+      },
+      "shots": {
+        "home": 15,
+        "away": 15
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 6
+      },
+      "corners": {
+        "home": 6,
+        "away": 6
+      },
+      "passes": {
+        "home": 260,
+        "away": 260
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between AS Roma and Real Madrid is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 16,
+        "type": "chance",
+        "team": "Real Madrid",
+        "headline": "Big chance for Real Madrid!",
+        "description": "Real Madrid create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 22,
+        "type": "chance",
+        "team": "AS Roma",
+        "headline": "Big chance for AS Roma!",
+        "description": "AS Roma create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 37,
+        "type": "goal",
+        "team": "Real Madrid",
+        "headline": "GOAL! Real Madrid!",
+        "description": "Real Madrid score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 53,
+        "type": "goal",
+        "team": "Real Madrid",
+        "headline": "GOAL! Real Madrid!",
+        "description": "Real Madrid score to make it 0:2.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 75,
+        "type": "goal",
+        "team": "AS Roma",
+        "headline": "GOAL! AS Roma!",
+        "description": "AS Roma score to make it 1:2.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 78,
+        "type": "chance",
+        "team": "Real Madrid",
+        "headline": "Big chance for Real Madrid!",
+        "description": "Real Madrid create a great opportunity but fail to convert.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 81,
+        "type": "chance",
+        "team": "Real Madrid",
+        "headline": "Big chance for Real Madrid!",
+        "description": "Real Madrid create a great opportunity but fail to convert.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:2.",
+        "score_after": "1:2"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "AS Roma": 0.63,
+      "Real Madrid": 1.87
+    },
+    "win_rate_last_10": {
+      "AS Roma": "10%",
+      "Real Madrid": "55%"
+    },
+    "avg_goals_scored": {
+      "AS Roma": 1.22,
+      "Real Madrid": 1.98
+    },
+    "avg_goals_conceded": {
+      "AS Roma": 2.69,
+      "Real Madrid": 1.76
+    },
+    "clean_sheet_rate": {
+      "AS Roma": "6%",
+      "Real Madrid": "31%"
+    },
+    "h2h_last_10": {
+      "AS Roma wins": "0%",
+      "draws": "0%",
+      "Real Madrid wins": "100%",
+      "total_h2h_games": 2
+    }
+  }
+}

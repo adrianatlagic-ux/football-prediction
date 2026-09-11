@@ -1,0 +1,301 @@
+{
+  "home_team": "Feyenoord",
+  "away_team": "Como",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4919,
+  "probability_draw": 0.3021,
+  "probability_away_win": 0.206,
+  "score_prediction": {
+    "home_xg": 1.58,
+    "away_xg": 1.87,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.4919,
+    "probability_draw": 0.3021,
+    "probability_away_win": 0.206,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1149
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0615
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0606
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0589
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0566
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.794,
+        "home_or_away": 0.6979,
+        "draw_or_away": 0.5081
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8649,
+          "under": 0.1351
+        },
+        {
+          "line": 2.5,
+          "over": 0.6474,
+          "under": 0.3526
+        },
+        {
+          "line": 3.5,
+          "over": 0.4423,
+          "under": 0.5577
+        }
+      ],
+      "btts": {
+        "yes": 0.6987,
+        "no": 0.3013
+      },
+      "win_margin": {
+        "home_1plus": 0.4919,
+        "home_2plus": 0.2454,
+        "home_3plus": 0.096,
+        "away_1plus": 0.206,
+        "away_2plus": 0.116,
+        "away_3plus": 0.0524
+      },
+      "scenario": "Feyenoord are narrow favourites to win 2-1, especially considering Como's recent form shows zero goals scored."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.08,
+    "total_xg": 3.45,
+    "first_goal": {
+      "Feyenoord_scores_first": 0.443,
+      "Como_scores_first": 0.525,
+      "no_goals": 0.032,
+      "expected_minute": 26
+    },
+    "halftime_xg": {
+      "Feyenoord": 0.74,
+      "Como": 0.88
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.198
+      },
+      {
+        "score": "0:1",
+        "probability": 0.174
+      },
+      {
+        "score": "1:0",
+        "probability": 0.147
+      },
+      {
+        "score": "1:1",
+        "probability": 0.129
+      },
+      {
+        "score": "0:2",
+        "probability": 0.077
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Feyenoord": 0.213,
+        "Como": 0.252
+      },
+      "16-30'": {
+        "Feyenoord": 0.245,
+        "Como": 0.29
+      },
+      "31-45'": {
+        "Feyenoord": 0.284,
+        "Como": 0.337
+      },
+      "46-60'": {
+        "Feyenoord": 0.229,
+        "Como": 0.271
+      },
+      "61-75'": {
+        "Feyenoord": 0.292,
+        "Como": 0.346
+      },
+      "76-90'": {
+        "Feyenoord": 0.316,
+        "Como": 0.374
+      }
+    },
+    "comeback_probability": {
+      "Feyenoord": 0.035,
+      "Como": 0.041
+    },
+    "late_drama_probability": 0.498,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.222
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.169
+      },
+      {
+        "szenario": "Como dominiert früh",
+        "beschreibung": "Como geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.078
+      },
+      {
+        "szenario": "Feyenoord dominiert früh",
+        "beschreibung": "Feyenoord geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.056
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 48,
+        "away": 52
+      },
+      "shots": {
+        "home": 14,
+        "away": 16
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 6
+      },
+      "corners": {
+        "home": 6,
+        "away": 7
+      },
+      "passes": {
+        "home": 250,
+        "away": 270
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Feyenoord and Como is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 6,
+        "type": "chance",
+        "team": "Feyenoord",
+        "headline": "Big chance for Feyenoord!",
+        "description": "Feyenoord create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 27,
+        "type": "chance",
+        "team": "Como",
+        "headline": "Big chance for Como!",
+        "description": "Como create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 35,
+        "type": "goal",
+        "team": "Feyenoord",
+        "headline": "GOAL! Feyenoord!",
+        "description": "Feyenoord score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 46,
+        "type": "chance",
+        "team": "Feyenoord",
+        "headline": "Big chance for Feyenoord!",
+        "description": "Feyenoord create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 50,
+        "type": "chance",
+        "team": "Feyenoord",
+        "headline": "Big chance for Feyenoord!",
+        "description": "Feyenoord create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 83,
+        "type": "goal",
+        "team": "Feyenoord",
+        "headline": "GOAL! Feyenoord!",
+        "description": "Feyenoord score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 87,
+        "type": "goal",
+        "team": "Como",
+        "headline": "GOAL! Como!",
+        "description": "Como score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Feyenoord": 0.8,
+      "Como": 0.0
+    },
+    "win_rate_last_10": {
+      "Feyenoord": "27%",
+      "Como": "0%"
+    },
+    "avg_goals_scored": {
+      "Feyenoord": 1.35,
+      "Como": 0.0
+    },
+    "avg_goals_conceded": {
+      "Feyenoord": 1.76,
+      "Como": 0.0
+    },
+    "clean_sheet_rate": {
+      "Feyenoord": "11%",
+      "Como": "0%"
+    },
+    "h2h_last_10": {
+      "Feyenoord wins": "0%",
+      "draws": "0%",
+      "Como wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

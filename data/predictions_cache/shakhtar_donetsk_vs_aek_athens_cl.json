@@ -1,0 +1,301 @@
+{
+  "home_team": "Shakhtar Donetsk",
+  "away_team": "AEK Athens",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4526,
+  "probability_draw": 0.2969,
+  "probability_away_win": 0.2505,
+  "score_prediction": {
+    "home_xg": 1.7,
+    "away_xg": 1.7,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.4526,
+    "probability_draw": 0.2969,
+    "probability_away_win": 0.2505,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.0992
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0584
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0562
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0536
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0477
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7495,
+        "home_or_away": 0.7031,
+        "draw_or_away": 0.5474
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8625,
+          "under": 0.1375
+        },
+        {
+          "line": 2.5,
+          "over": 0.6431,
+          "under": 0.3569
+        },
+        {
+          "line": 3.5,
+          "over": 0.4376,
+          "under": 0.5624
+        }
+      ],
+      "btts": {
+        "yes": 0.6885,
+        "no": 0.3115
+      },
+      "win_margin": {
+        "home_1plus": 0.4526,
+        "home_2plus": 0.239,
+        "home_3plus": 0.0997,
+        "away_1plus": 0.2505,
+        "away_2plus": 0.1322,
+        "away_3plus": 0.0551
+      },
+      "scenario": "Shakhtar are strong favorites with around a 45% chance to win, 2-1 is the most likely score, and goals are expected with both teams likely to score."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.0,
+    "total_xg": 3.4,
+    "first_goal": {
+      "Shakhtar Donetsk_scores_first": 0.483,
+      "AEK Athens_scores_first": 0.483,
+      "no_goals": 0.033,
+      "expected_minute": 26
+    },
+    "halftime_xg": {
+      "Shakhtar Donetsk": 0.8,
+      "AEK Athens": 0.8
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.203
+      },
+      {
+        "score": "0:1",
+        "probability": 0.162
+      },
+      {
+        "score": "1:0",
+        "probability": 0.162
+      },
+      {
+        "score": "1:1",
+        "probability": 0.13
+      },
+      {
+        "score": "0:2",
+        "probability": 0.065
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Shakhtar Donetsk": 0.23,
+        "AEK Athens": 0.23
+      },
+      "16-30'": {
+        "Shakhtar Donetsk": 0.264,
+        "AEK Athens": 0.264
+      },
+      "31-45'": {
+        "Shakhtar Donetsk": 0.306,
+        "AEK Athens": 0.306
+      },
+      "46-60'": {
+        "Shakhtar Donetsk": 0.246,
+        "AEK Athens": 0.246
+      },
+      "61-75'": {
+        "Shakhtar Donetsk": 0.315,
+        "AEK Athens": 0.315
+      },
+      "76-90'": {
+        "Shakhtar Donetsk": 0.34,
+        "AEK Athens": 0.34
+      }
+    },
+    "comeback_probability": {
+      "Shakhtar Donetsk": 0.038,
+      "AEK Athens": 0.038
+    },
+    "late_drama_probability": 0.493,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.225
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.172
+      },
+      {
+        "szenario": "Shakhtar Donetsk dominiert früh",
+        "beschreibung": "Shakhtar Donetsk geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.066
+      },
+      {
+        "szenario": "AEK Athens dominiert früh",
+        "beschreibung": "AEK Athens geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.066
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 50,
+        "away": 50
+      },
+      "shots": {
+        "home": 15,
+        "away": 15
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 6
+      },
+      "corners": {
+        "home": 6,
+        "away": 6
+      },
+      "passes": {
+        "home": 260,
+        "away": 260
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Shakhtar Donetsk and AEK Athens is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 4,
+        "type": "chance",
+        "team": "Shakhtar Donetsk",
+        "headline": "Big chance for Shakhtar Donetsk!",
+        "description": "Shakhtar Donetsk create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 6,
+        "type": "chance",
+        "team": "Shakhtar Donetsk",
+        "headline": "Big chance for Shakhtar Donetsk!",
+        "description": "Shakhtar Donetsk create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 35,
+        "type": "goal",
+        "team": "Shakhtar Donetsk",
+        "headline": "GOAL! Shakhtar Donetsk!",
+        "description": "Shakhtar Donetsk score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 48,
+        "type": "goal",
+        "team": "AEK Athens",
+        "headline": "GOAL! AEK Athens!",
+        "description": "AEK Athens score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 55,
+        "type": "chance",
+        "team": "AEK Athens",
+        "headline": "Big chance for AEK Athens!",
+        "description": "AEK Athens create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 71,
+        "type": "chance",
+        "team": "Shakhtar Donetsk",
+        "headline": "Big chance for Shakhtar Donetsk!",
+        "description": "Shakhtar Donetsk create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 88,
+        "type": "goal",
+        "team": "Shakhtar Donetsk",
+        "headline": "GOAL! Shakhtar Donetsk!",
+        "description": "Shakhtar Donetsk score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Shakhtar Donetsk": 0.71,
+      "AEK Athens": 0.0
+    },
+    "win_rate_last_10": {
+      "Shakhtar Donetsk": "9%",
+      "AEK Athens": "0%"
+    },
+    "avg_goals_scored": {
+      "Shakhtar Donetsk": 0.95,
+      "AEK Athens": 0.0
+    },
+    "avg_goals_conceded": {
+      "Shakhtar Donetsk": 1.99,
+      "AEK Athens": 0.0
+    },
+    "clean_sheet_rate": {
+      "Shakhtar Donetsk": "0%",
+      "AEK Athens": "0%"
+    },
+    "h2h_last_10": {
+      "Shakhtar Donetsk wins": "0%",
+      "draws": "0%",
+      "AEK Athens wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

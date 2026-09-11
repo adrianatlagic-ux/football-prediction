@@ -1,0 +1,301 @@
+{
+  "home_team": "RB Leipzig",
+  "away_team": "PSV Eindhoven",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6109,
+  "probability_draw": 0.1751,
+  "probability_away_win": 0.214,
+  "score_prediction": {
+    "home_xg": 1.73,
+    "away_xg": 1.72,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.6109,
+    "probability_draw": 0.1751,
+    "probability_away_win": 0.214,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1322
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0768
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0763
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0689
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0656
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.786,
+        "home_or_away": 0.8249,
+        "draw_or_away": 0.3891
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8757,
+          "under": 0.1243
+        },
+        {
+          "line": 2.5,
+          "over": 0.697,
+          "under": 0.303
+        },
+        {
+          "line": 3.5,
+          "over": 0.4585,
+          "under": 0.5415
+        }
+      ],
+      "btts": {
+        "yes": 0.6742,
+        "no": 0.3258
+      },
+      "win_margin": {
+        "home_1plus": 0.6109,
+        "home_2plus": 0.325,
+        "home_3plus": 0.1371,
+        "away_1plus": 0.214,
+        "away_2plus": 0.1134,
+        "away_3plus": 0.0477
+      },
+      "scenario": "RB Leipzig are strong favorites with 2:1 as the most likely score, in a game also highly probable to see over 2.5 goals."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.0,
+    "total_xg": 3.45,
+    "first_goal": {
+      "RB Leipzig_scores_first": 0.486,
+      "PSV Eindhoven_scores_first": 0.483,
+      "no_goals": 0.032,
+      "expected_minute": 26
+    },
+    "halftime_xg": {
+      "RB Leipzig": 0.81,
+      "PSV Eindhoven": 0.81
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.198
+      },
+      {
+        "score": "1:0",
+        "probability": 0.161
+      },
+      {
+        "score": "0:1",
+        "probability": 0.16
+      },
+      {
+        "score": "1:1",
+        "probability": 0.13
+      },
+      {
+        "score": "2:0",
+        "probability": 0.066
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "RB Leipzig": 0.234,
+        "PSV Eindhoven": 0.232
+      },
+      "16-30'": {
+        "RB Leipzig": 0.268,
+        "PSV Eindhoven": 0.267
+      },
+      "31-45'": {
+        "RB Leipzig": 0.311,
+        "PSV Eindhoven": 0.31
+      },
+      "46-60'": {
+        "RB Leipzig": 0.251,
+        "PSV Eindhoven": 0.249
+      },
+      "61-75'": {
+        "RB Leipzig": 0.32,
+        "PSV Eindhoven": 0.318
+      },
+      "76-90'": {
+        "RB Leipzig": 0.346,
+        "PSV Eindhoven": 0.344
+      }
+    },
+    "comeback_probability": {
+      "RB Leipzig": 0.039,
+      "PSV Eindhoven": 0.038
+    },
+    "late_drama_probability": 0.498,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.224
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.169
+      },
+      {
+        "szenario": "RB Leipzig dominiert früh",
+        "beschreibung": "RB Leipzig geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.067
+      },
+      {
+        "szenario": "PSV Eindhoven dominiert früh",
+        "beschreibung": "PSV Eindhoven geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.066
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 51,
+        "away": 49
+      },
+      "shots": {
+        "home": 16,
+        "away": 15
+      },
+      "shots_on_target": {
+        "home": 7,
+        "away": 6
+      },
+      "corners": {
+        "home": 7,
+        "away": 6
+      },
+      "passes": {
+        "home": 265,
+        "away": 255
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between RB Leipzig and PSV Eindhoven is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 1,
+        "type": "chance",
+        "team": "RB Leipzig",
+        "headline": "Big chance for RB Leipzig!",
+        "description": "RB Leipzig create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 2,
+        "type": "chance",
+        "team": "PSV Eindhoven",
+        "headline": "Big chance for PSV Eindhoven!",
+        "description": "PSV Eindhoven create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "goal",
+        "team": "RB Leipzig",
+        "headline": "GOAL! RB Leipzig!",
+        "description": "RB Leipzig score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 54,
+        "type": "goal",
+        "team": "PSV Eindhoven",
+        "headline": "GOAL! PSV Eindhoven!",
+        "description": "PSV Eindhoven score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 74,
+        "type": "goal",
+        "team": "RB Leipzig",
+        "headline": "GOAL! RB Leipzig!",
+        "description": "RB Leipzig score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 80,
+        "type": "chance",
+        "team": "PSV Eindhoven",
+        "headline": "Big chance for PSV Eindhoven!",
+        "description": "PSV Eindhoven create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 86,
+        "type": "chance",
+        "team": "RB Leipzig",
+        "headline": "Big chance for RB Leipzig!",
+        "description": "RB Leipzig create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "RB Leipzig": 1.37,
+      "PSV Eindhoven": 0.82
+    },
+    "win_rate_last_10": {
+      "RB Leipzig": "38%",
+      "PSV Eindhoven": "20%"
+    },
+    "avg_goals_scored": {
+      "RB Leipzig": 1.96,
+      "PSV Eindhoven": 1.23
+    },
+    "avg_goals_conceded": {
+      "RB Leipzig": 1.84,
+      "PSV Eindhoven": 1.93
+    },
+    "clean_sheet_rate": {
+      "RB Leipzig": "22%",
+      "PSV Eindhoven": "0%"
+    },
+    "h2h_last_10": {
+      "RB Leipzig wins": "0%",
+      "draws": "0%",
+      "PSV Eindhoven wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

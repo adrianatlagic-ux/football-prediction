@@ -1,0 +1,301 @@
+{
+  "home_team": "Inter Milan",
+  "away_team": "Club Brugge",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6954,
+  "probability_draw": 0.1358,
+  "probability_away_win": 0.1688,
+  "score_prediction": {
+    "home_xg": 1.77,
+    "away_xg": 1.81,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.6954,
+    "probability_draw": 0.1358,
+    "probability_away_win": 0.1688,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1482
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0876
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0821
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0791
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0708
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8312,
+        "home_or_away": 0.8642,
+        "draw_or_away": 0.3046
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8899,
+          "under": 0.1101
+        },
+        {
+          "line": 2.5,
+          "over": 0.7315,
+          "under": 0.2685
+        },
+        {
+          "line": 3.5,
+          "over": 0.4874,
+          "under": 0.5126
+        }
+      ],
+      "btts": {
+        "yes": 0.6871,
+        "no": 0.3129
+      },
+      "win_margin": {
+        "home_1plus": 0.6954,
+        "home_2plus": 0.3724,
+        "home_3plus": 0.159,
+        "away_1plus": 0.1688,
+        "away_2plus": 0.0914,
+        "away_3plus": 0.0397
+      },
+      "scenario": "Inter Milan are strong favourites to win, with 2-1 being the most likely score in a match highly probable to see over 2.5 goals."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": -0.01,
+    "total_xg": 3.58,
+    "first_goal": {
+      "Inter Milan_scores_first": 0.481,
+      "Club Brugge_scores_first": 0.491,
+      "no_goals": 0.028,
+      "expected_minute": 25
+    },
+    "halftime_xg": {
+      "Inter Milan": 0.83,
+      "Club Brugge": 0.85
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.187
+      },
+      {
+        "score": "0:1",
+        "probability": 0.159
+      },
+      {
+        "score": "1:0",
+        "probability": 0.155
+      },
+      {
+        "score": "1:1",
+        "probability": 0.132
+      },
+      {
+        "score": "0:2",
+        "probability": 0.068
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Inter Milan": 0.239,
+        "Club Brugge": 0.244
+      },
+      "16-30'": {
+        "Inter Milan": 0.274,
+        "Club Brugge": 0.281
+      },
+      "31-45'": {
+        "Inter Milan": 0.319,
+        "Club Brugge": 0.326
+      },
+      "46-60'": {
+        "Inter Milan": 0.257,
+        "Club Brugge": 0.262
+      },
+      "61-75'": {
+        "Inter Milan": 0.327,
+        "Club Brugge": 0.335
+      },
+      "76-90'": {
+        "Inter Milan": 0.354,
+        "Club Brugge": 0.362
+      }
+    },
+    "comeback_probability": {
+      "Inter Milan": 0.04,
+      "Club Brugge": 0.041
+    },
+    "late_drama_probability": 0.511,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.219
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.162
+      },
+      {
+        "szenario": "Club Brugge dominiert früh",
+        "beschreibung": "Club Brugge geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.069
+      },
+      {
+        "szenario": "Inter Milan dominiert früh",
+        "beschreibung": "Inter Milan geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.066
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 49,
+        "away": 51
+      },
+      "shots": {
+        "home": 16,
+        "away": 17
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 7
+      },
+      "corners": {
+        "home": 6,
+        "away": 7
+      },
+      "passes": {
+        "home": 255,
+        "away": 265
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Inter Milan and Club Brugge is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 5,
+        "type": "goal",
+        "team": "Inter Milan",
+        "headline": "GOAL! Inter Milan!",
+        "description": "Inter Milan score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 10,
+        "type": "chance",
+        "team": "Inter Milan",
+        "headline": "Big chance for Inter Milan!",
+        "description": "Inter Milan create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 35,
+        "type": "chance",
+        "team": "Inter Milan",
+        "headline": "Big chance for Inter Milan!",
+        "description": "Inter Milan create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 49,
+        "type": "chance",
+        "team": "Club Brugge",
+        "headline": "Big chance for Club Brugge!",
+        "description": "Club Brugge create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 86,
+        "type": "goal",
+        "team": "Inter Milan",
+        "headline": "GOAL! Inter Milan!",
+        "description": "Inter Milan score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 89,
+        "type": "goal",
+        "team": "Club Brugge",
+        "headline": "GOAL! Club Brugge!",
+        "description": "Club Brugge score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "chance",
+        "team": "Inter Milan",
+        "headline": "Big chance for Inter Milan!",
+        "description": "Inter Milan create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Inter Milan": 1.79,
+      "Club Brugge": 1.11
+    },
+    "win_rate_last_10": {
+      "Inter Milan": "51%",
+      "Club Brugge": "29%"
+    },
+    "avg_goals_scored": {
+      "Inter Milan": 1.19,
+      "Club Brugge": 1.24
+    },
+    "avg_goals_conceded": {
+      "Inter Milan": 0.79,
+      "Club Brugge": 2.52
+    },
+    "clean_sheet_rate": {
+      "Inter Milan": "54%",
+      "Club Brugge": "20%"
+    },
+    "h2h_last_10": {
+      "Inter Milan wins": "0%",
+      "draws": "0%",
+      "Club Brugge wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}
