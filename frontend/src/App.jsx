@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
 import CL_FIXTURES from './cl_fixtures.json'
+import CLUB_CRESTS from './club_crests.json'
 
 const API_BASE = import.meta.env.DEV ? 'http://127.0.0.1:8000' : ''
 
@@ -121,6 +122,20 @@ const TEAM_FLAGS = {
 }
 
 function TeamLabel({ name }) {
+  const crest = CLUB_CRESTS[name]
+  if (crest) {
+    return (
+      <>
+        <img
+          src={crest.logo}
+          alt=""
+          className="team-crest"
+          onError={(e) => { e.currentTarget.style.display = 'none' }}
+        />
+        {name}
+      </>
+    )
+  }
   const flag = TEAM_FLAGS[name]
   return <>{flag && <span style={{ marginRight: '0.4em' }}>{flag}</span>}{name}</>
 }
@@ -984,18 +999,18 @@ function HeroPreviewCard() {
     <div className="hero-preview card">
       <div className="hero-preview-badge">AI Prediction</div>
       <div className="hero-preview-teams">
-        <span className="hero-preview-team">Brazil</span>
+        <span className="hero-preview-team"><TeamLabel name="Real Madrid" /></span>
         <span className="hero-preview-vs">vs</span>
-        <span className="hero-preview-team">Argentina</span>
+        <span className="hero-preview-team"><TeamLabel name="Barcelona" /></span>
       </div>
       <div className="hero-preview-score">2 – 1</div>
       <div className="hero-preview-bars">
-        <ProbabilityBar label="Brazil" value={0.48} color="linear-gradient(90deg,var(--gold),var(--gold-light))" />
+        <ProbabilityBar label="Real Madrid" value={0.48} color="linear-gradient(90deg,var(--gold),var(--gold-light))" />
         <ProbabilityBar label="Draw" value={0.24} color="linear-gradient(90deg,#6b7280,#9ca3af)" />
-        <ProbabilityBar label="Argentina" value={0.28} color="linear-gradient(90deg,#ef4444,#f97316)" />
+        <ProbabilityBar label="Barcelona" value={0.28} color="linear-gradient(90deg,#ef4444,#f97316)" />
       </div>
       <p className="hero-preview-note">
-        "Expect a tight first half — Brazil's pace on the counter breaks the deadlock after 60'."
+        "Expect a tight first half — Real Madrid's pace on the counter breaks the deadlock after 60'."
       </p>
     </div>
   )
