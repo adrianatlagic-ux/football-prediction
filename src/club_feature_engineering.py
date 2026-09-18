@@ -6,13 +6,19 @@ import numpy as np
 # Form/H2H/goal-stat helpers are club-vs-country agnostic (just rolling stats
 # over a team's own match history), so they're reused as-is from the WC
 # module. No FIFA-ranking or host-nation-bonus equivalent exists for clubs -
-# real home advantage is the only home/away signal. Squad market value DOES
-# have a club equivalent now (src/club_market_values.py, via Transfermarkt),
-# unlike when this module was first written.
+# real home advantage is the only home/away signal.
+#
+# Market value uses a DATED lookup (club_market_values_dated - Germany-only
+# so far), not the old single current-season snapshot in
+# club_market_values.py. That static snapshot applied today's values to
+# every historical match regardless of date - a look-ahead leak confirmed
+# and measured out via a walk-forward Bundesliga backtest (V1 + dated market
+# value + CatBoost beat plain V1 on accuracy/log-loss/Brier; adding Elo on
+# top of that made things worse, so it's deliberately left out here).
 from .feature_engineering import (
     encode_result, _team_form, _h2h_stats, _goal_stats,
 )
-from .club_market_values import get_market_value_normalized, get_market_value_ratio
+from .club_market_values_dated import get_market_value_normalized, get_market_value_ratio
 
 
 def build_features(df: pd.DataFrame) -> pd.DataFrame:
@@ -34,9 +40,9 @@ def build_features(df: pd.DataFrame) -> pd.DataFrame:
         features.update(_h2h_stats(past, row["home_team"], row["away_team"]))
         features.update(_goal_stats(past, row["home_team"], prefix="home"))
         features.update(_goal_stats(past, row["away_team"], prefix="away"))
-        features["home_market_value"] = get_market_value_normalized(row["home_team"])
-        features["away_market_value"] = get_market_value_normalized(row["away_team"])
-        features["market_value_ratio"] = get_market_value_ratio(row["home_team"], row["away_team"])
+        features["home_market_value"] = get_market_value_normalized(row["home_team"], row["date"])
+        features["away_market_value"] = get_market_value_normalized(row["away_team"], row["date"])
+        features["market_value_ratio"] = get_market_value_ratio(row["home_team"], row["away_team"], row["date"])
         records.append(features)
 
     return pd.DataFrame(records).fillna(0)
@@ -49,6 +55,9 @@ def build_prediction_row(df_history: pd.DataFrame, home_team: str, away_team: st
     features.update(_h2h_stats(df_history, home_team, away_team))
     features.update(_goal_stats(df_history, home_team, prefix="home"))
     features.update(_goal_stats(df_history, away_team, prefix="away"))
+    # No as_of for a live prediction - club_market_values_dated defaults to
+    # "now", which is correct here (not leakage: we're predicting a match
+    # that hasn't happened yet, so today's values are the right ones).
     features["home_market_value"] = get_market_value_normalized(home_team)
     features["away_market_value"] = get_market_value_normalized(away_team)
     features["market_value_ratio"] = get_market_value_ratio(home_team, away_team)

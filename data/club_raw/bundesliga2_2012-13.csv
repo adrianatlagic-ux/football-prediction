@@ -1,0 +1,307 @@
+date,home_team,away_team,home_score,away_score
+2012-08-03,FC Ingolstadt 04,Energie Cottbus,2,2
+2012-08-03,FC Erzgebirge Aue,FC St. Pauli,0,0
+2012-08-03,Hertha BSC,SC Paderborn 07,2,2
+2012-08-04,TSV 1860 München,Jahn Regensburg,1,0
+2012-08-04,VfL Bochum,Dynamo Dresden,2,1
+2012-08-05,MSV Duisburg,VfR Aalen,1,4
+2012-08-05,SV Sandhausen,FSV Frankfurt,1,1
+2012-08-05,Eintracht Braunschweig,1. FC Köln,1,0
+2012-08-06,1. FC Kaiserslautern,1. FC Union Berlin,3,3
+2012-08-10,1. FC Köln,SV Sandhausen,1,1
+2012-08-10,VfR Aalen,1. FC Kaiserslautern,1,2
+2012-08-10,Energie Cottbus,FC Erzgebirge Aue,3,0
+2012-08-11,SC Paderborn 07,VfL Bochum,4,0
+2012-08-11,FC St. Pauli,FC Ingolstadt 04,1,1
+2012-08-12,1. FC Union Berlin,Eintracht Braunschweig,0,1
+2012-08-12,Jahn Regensburg,MSV Duisburg,2,0
+2012-08-12,FSV Frankfurt,Hertha BSC,3,1
+2012-08-13,Dynamo Dresden,TSV 1860 München,2,2
+2012-08-24,Hertha BSC,Jahn Regensburg,2,1
+2012-08-24,Eintracht Braunschweig,SC Paderborn 07,2,1
+2012-08-24,SV Sandhausen,1. FC Union Berlin,2,0
+2012-08-25,MSV Duisburg,Dynamo Dresden,1,3
+2012-08-25,Energie Cottbus,FC St. Pauli,2,0
+2012-08-26,1. FC Kaiserslautern,TSV 1860 München,0,0
+2012-08-26,VfL Bochum,VfR Aalen,0,1
+2012-08-26,FC Ingolstadt 04,FSV Frankfurt,0,2
+2012-08-27,FC Erzgebirge Aue,1. FC Köln,2,0
+2012-08-31,TSV 1860 München,MSV Duisburg,3,0
+2012-08-31,Dynamo Dresden,1. FC Kaiserslautern,1,3
+2012-08-31,1. FC Köln,Energie Cottbus,0,1
+2012-09-01,FC St. Pauli,SV Sandhausen,2,1
+2012-09-01,VfR Aalen,Eintracht Braunschweig,0,3
+2012-09-02,SC Paderborn 07,FC Ingolstadt 04,1,3
+2012-09-02,FSV Frankfurt,FC Erzgebirge Aue,1,0
+2012-09-02,Jahn Regensburg,VfL Bochum,0,1
+2012-09-03,1. FC Union Berlin,Hertha BSC,1,2
+2012-09-14,VfL Bochum,TSV 1860 München,0,0
+2012-09-14,FC Ingolstadt 04,1. FC Union Berlin,2,1
+2012-09-14,Energie Cottbus,FSV Frankfurt,2,2
+2012-09-15,Eintracht Braunschweig,Jahn Regensburg,1,0
+2012-09-15,SV Sandhausen,Dynamo Dresden,1,1
+2012-09-16,Hertha BSC,VfR Aalen,2,0
+2012-09-16,1. FC Kaiserslautern,MSV Duisburg,2,1
+2012-09-16,FC Erzgebirge Aue,SC Paderborn 07,0,1
+2012-09-17,1. FC Köln,FC St. Pauli,0,0
+2012-09-21,FSV Frankfurt,FC St. Pauli,2,1
+2012-09-21,1. FC Union Berlin,1. FC Köln,2,1
+2012-09-21,VfR Aalen,FC Erzgebirge Aue,2,0
+2012-09-22,1. FC Kaiserslautern,Hertha BSC,1,1
+2012-09-22,SC Paderborn 07,SV Sandhausen,3,0
+2012-09-22,Jahn Regensburg,Energie Cottbus,0,1
+2012-09-23,TSV 1860 München,Eintracht Braunschweig,1,1
+2012-09-23,Dynamo Dresden,FC Ingolstadt 04,0,1
+2012-09-23,MSV Duisburg,VfL Bochum,0,0
+2012-09-25,1. FC Köln,FSV Frankfurt,2,1
+2012-09-25,FC St. Pauli,VfR Aalen,0,1
+2012-09-25,Energie Cottbus,SC Paderborn 07,2,1
+2012-09-25,SV Sandhausen,Jahn Regensburg,1,2
+2012-09-26,Hertha BSC,Dynamo Dresden,1,0
+2012-09-26,Eintracht Braunschweig,MSV Duisburg,3,0
+2012-09-26,FC Ingolstadt 04,TSV 1860 München,0,2
+2012-09-26,FC Erzgebirge Aue,1. FC Union Berlin,1,1
+2012-09-27,VfL Bochum,1. FC Kaiserslautern,1,2
+2012-09-28,SC Paderborn 07,1. FC Köln,1,2
+2012-09-28,Jahn Regensburg,FC St. Pauli,3,0
+2012-09-28,VfR Aalen,FSV Frankfurt,3,0
+2012-09-29,TSV 1860 München,SV Sandhausen,4,0
+2012-09-29,1. FC Union Berlin,Energie Cottbus,3,1
+2012-09-30,1. FC Kaiserslautern,Eintracht Braunschweig,1,1
+2012-09-30,Dynamo Dresden,FC Erzgebirge Aue,3,1
+2012-09-30,VfL Bochum,FC Ingolstadt 04,1,1
+2012-10-01,MSV Duisburg,Hertha BSC,2,2
+2012-10-05,Hertha BSC,TSV 1860 München,3,0
+2012-10-05,FC St. Pauli,1. FC Union Berlin,2,2
+2012-10-05,FSV Frankfurt,SC Paderborn 07,1,1
+2012-10-06,Eintracht Braunschweig,VfL Bochum,3,0
+2012-10-06,Energie Cottbus,MSV Duisburg,0,1
+2012-10-07,FC Ingolstadt 04,1. FC Kaiserslautern,1,1
+2012-10-07,FC Erzgebirge Aue,Jahn Regensburg,3,1
+2012-10-07,SV Sandhausen,VfR Aalen,1,0
+2012-10-08,1. FC Köln,Dynamo Dresden,1,1
+2012-10-19,1. FC Kaiserslautern,SV Sandhausen,3,1
+2012-10-19,MSV Duisburg,FC Ingolstadt 04,0,2
+2012-10-19,VfL Bochum,Hertha BSC,0,2
+2012-10-20,Dynamo Dresden,Eintracht Braunschweig,0,2
+2012-10-20,Jahn Regensburg,1. FC Köln,2,3
+2012-10-21,SC Paderborn 07,FC St. Pauli,1,1
+2012-10-21,1. FC Union Berlin,FSV Frankfurt,1,0
+2012-10-21,VfR Aalen,Energie Cottbus,1,1
+2012-10-22,TSV 1860 München,FC Erzgebirge Aue,1,1
+2012-10-26,1. FC Köln,1. FC Kaiserslautern,3,3
+2012-10-26,FC Ingolstadt 04,VfR Aalen,2,0
+2012-10-26,Energie Cottbus,TSV 1860 München,1,0
+2012-10-27,SV Sandhausen,MSV Duisburg,0,2
+2012-10-27,Eintracht Braunschweig,Hertha BSC,1,1
+2012-10-27,FC Erzgebirge Aue,VfL Bochum,6,1
+2012-10-28,FC St. Pauli,Dynamo Dresden,3,2
+2012-10-28,1. FC Union Berlin,SC Paderborn 07,0,1
+2012-10-28,FSV Frankfurt,Jahn Regensburg,3,1
+2012-11-02,Hertha BSC,FC Ingolstadt 04,0,0
+2012-11-02,Eintracht Braunschweig,SV Sandhausen,2,1
+2012-11-02,Jahn Regensburg,SC Paderborn 07,0,2
+2012-11-03,TSV 1860 München,FC St. Pauli,0,2
+2012-11-03,MSV Duisburg,FSV Frankfurt,1,2
+2012-11-04,Dynamo Dresden,1. FC Union Berlin,0,2
+2012-11-04,VfL Bochum,Energie Cottbus,2,2
+2012-11-04,VfR Aalen,1. FC Köln,2,0
+2012-11-05,1. FC Kaiserslautern,FC Erzgebirge Aue,4,1
+2012-11-09,1. FC Köln,MSV Duisburg,0,0
+2012-11-09,FC Erzgebirge Aue,Eintracht Braunschweig,1,1
+2012-11-09,SV Sandhausen,Hertha BSC,1,6
+2012-11-10,SC Paderborn 07,1. FC Kaiserslautern,1,1
+2012-11-10,1. FC Union Berlin,VfR Aalen,0,0
+2012-11-11,FC Ingolstadt 04,Jahn Regensburg,4,2
+2012-11-11,FSV Frankfurt,TSV 1860 München,0,1
+2012-11-11,Energie Cottbus,Dynamo Dresden,2,0
+2012-11-12,FC St. Pauli,VfL Bochum,1,1
+2012-11-16,1. FC Kaiserslautern,Energie Cottbus,1,0
+2012-11-16,Dynamo Dresden,FSV Frankfurt,2,1
+2012-11-16,TSV 1860 München,1. FC Köln,0,2
+2012-11-17,Eintracht Braunschweig,FC Ingolstadt 04,3,0
+2012-11-17,VfR Aalen,SC Paderborn 07,0,1
+2012-11-18,MSV Duisburg,FC Erzgebirge Aue,2,1
+2012-11-18,VfL Bochum,SV Sandhausen,5,2
+2012-11-18,Jahn Regensburg,1. FC Union Berlin,3,3
+2012-11-19,Hertha BSC,FC St. Pauli,1,0
+2012-11-23,1. FC Köln,VfL Bochum,3,1
+2012-11-23,SC Paderborn 07,Dynamo Dresden,2,2
+2012-11-23,Jahn Regensburg,VfR Aalen,1,3
+2012-11-24,1. FC Union Berlin,TSV 1860 München,2,2
+2012-11-24,FSV Frankfurt,1. FC Kaiserslautern,0,1
+2012-11-24,Energie Cottbus,Eintracht Braunschweig,3,1
+2012-11-25,FC St. Pauli,MSV Duisburg,4,1
+2012-11-25,FC Ingolstadt 04,SV Sandhausen,1,1
+2012-11-25,FC Erzgebirge Aue,Hertha BSC,0,4
+2012-11-27,1. FC Kaiserslautern,Jahn Regensburg,1,1
+2012-11-27,TSV 1860 München,SC Paderborn 07,1,0
+2012-11-27,Dynamo Dresden,VfR Aalen,0,0
+2012-11-27,VfL Bochum,FSV Frankfurt,1,3
+2012-11-28,Eintracht Braunschweig,FC St. Pauli,1,0
+2012-11-28,MSV Duisburg,1. FC Union Berlin,1,2
+2012-11-28,FC Ingolstadt 04,FC Erzgebirge Aue,1,2
+2012-11-28,SV Sandhausen,Energie Cottbus,3,1
+2012-11-29,Hertha BSC,1. FC Köln,1,1
+2012-11-30,VfR Aalen,TSV 1860 München,1,1
+2012-11-30,Jahn Regensburg,Dynamo Dresden,0,0
+2012-12-01,FC St. Pauli,1. FC Kaiserslautern,1,0
+2012-12-01,1. FC Union Berlin,VfL Bochum,2,1
+2012-12-01,FC Erzgebirge Aue,SV Sandhausen,2,2
+2012-12-02,1. FC Köln,FC Ingolstadt 04,1,0
+2012-12-02,SC Paderborn 07,MSV Duisburg,0,2
+2012-12-02,FSV Frankfurt,Eintracht Braunschweig,1,2
+2012-12-03,Energie Cottbus,Hertha BSC,1,2
+2012-12-07,1. FC Union Berlin,1. FC Kaiserslautern,2,0
+2012-12-07,FSV Frankfurt,SV Sandhausen,3,1
+2012-12-07,VfR Aalen,MSV Duisburg,0,1
+2012-12-08,SC Paderborn 07,Hertha BSC,0,1
+2012-12-08,Dynamo Dresden,VfL Bochum,0,3
+2012-12-09,FC St. Pauli,FC Erzgebirge Aue,0,3
+2012-12-09,Energie Cottbus,FC Ingolstadt 04,1,1
+2012-12-09,Jahn Regensburg,TSV 1860 München,1,1
+2012-12-10,1. FC Köln,Eintracht Braunschweig,2,2
+2012-12-14,1. FC Kaiserslautern,VfR Aalen,0,1
+2012-12-14,FC Erzgebirge Aue,Energie Cottbus,3,0
+2012-12-14,SV Sandhausen,1. FC Köln,0,0
+2012-12-15,Hertha BSC,FSV Frankfurt,2,1
+2012-12-15,FC Ingolstadt 04,FC St. Pauli,0,0
+2012-12-16,TSV 1860 München,Dynamo Dresden,1,1
+2012-12-16,MSV Duisburg,Jahn Regensburg,4,2
+2012-12-16,VfL Bochum,SC Paderborn 07,4,0
+2012-12-17,Eintracht Braunschweig,1. FC Union Berlin,4,3
+2013-02-01,1. FC Union Berlin,SV Sandhausen,3,1
+2013-02-01,Dynamo Dresden,MSV Duisburg,0,0
+2013-02-01,VfR Aalen,VfL Bochum,2,2
+2013-02-02,1. FC Köln,FC Erzgebirge Aue,2,1
+2013-02-02,SC Paderborn 07,Eintracht Braunschweig,1,2
+2013-02-03,FC St. Pauli,Energie Cottbus,0,0
+2013-02-03,FSV Frankfurt,FC Ingolstadt 04,0,2
+2013-02-03,Jahn Regensburg,Hertha BSC,1,5
+2013-02-04,TSV 1860 München,1. FC Kaiserslautern,0,1
+2013-02-08,Eintracht Braunschweig,VfR Aalen,1,1
+2013-02-08,FC Erzgebirge Aue,FSV Frankfurt,0,2
+2013-02-08,1. FC Kaiserslautern,Dynamo Dresden,3,0
+2013-02-09,MSV Duisburg,TSV 1860 München,1,3
+2013-02-09,Energie Cottbus,1. FC Köln,0,0
+2013-02-10,VfL Bochum,Jahn Regensburg,0,2
+2013-02-10,FC Ingolstadt 04,SC Paderborn 07,1,3
+2013-02-10,SV Sandhausen,FC St. Pauli,4,1
+2013-02-11,Hertha BSC,1. FC Union Berlin,2,2
+2013-02-15,SC Paderborn 07,FC Erzgebirge Aue,2,0
+2013-02-15,TSV 1860 München,VfL Bochum,0,1
+2013-02-15,Jahn Regensburg,Eintracht Braunschweig,0,1
+2013-02-16,1. FC Union Berlin,FC Ingolstadt 04,1,1
+2013-02-16,VfR Aalen,Hertha BSC,0,1
+2013-02-17,Dynamo Dresden,SV Sandhausen,3,1
+2013-02-17,MSV Duisburg,1. FC Kaiserslautern,0,0
+2013-02-17,FSV Frankfurt,Energie Cottbus,1,0
+2013-02-18,FC St. Pauli,1. FC Köln,0,1
+2013-02-22,FC St. Pauli,FSV Frankfurt,3,0
+2013-02-22,VfL Bochum,MSV Duisburg,2,2
+2013-02-22,FC Erzgebirge Aue,VfR Aalen,1,1
+2013-02-23,1. FC Köln,1. FC Union Berlin,2,0
+2013-02-23,FC Ingolstadt 04,Dynamo Dresden,1,1
+2013-02-24,Eintracht Braunschweig,TSV 1860 München,1,2
+2013-02-24,Energie Cottbus,Jahn Regensburg,1,1
+2013-02-24,SV Sandhausen,SC Paderborn 07,1,3
+2013-02-25,Hertha BSC,1. FC Kaiserslautern,1,0
+2013-03-01,SC Paderborn 07,Energie Cottbus,0,1
+2013-03-01,1. FC Union Berlin,FC Erzgebirge Aue,3,0
+2013-03-01,Jahn Regensburg,SV Sandhausen,1,3
+2013-03-02,1. FC Kaiserslautern,VfL Bochum,0,0
+2013-03-02,Dynamo Dresden,Hertha BSC,1,0
+2013-03-03,TSV 1860 München,FC Ingolstadt 04,1,1
+2013-03-03,FSV Frankfurt,1. FC Köln,1,1
+2013-03-03,VfR Aalen,FC St. Pauli,0,1
+2013-03-04,MSV Duisburg,Eintracht Braunschweig,1,0
+2013-03-08,FC St. Pauli,Jahn Regensburg,3,2
+2013-03-08,FSV Frankfurt,VfR Aalen,6,1
+2013-03-08,SV Sandhausen,TSV 1860 München,0,1
+2013-03-09,1. FC Köln,SC Paderborn 07,3,0
+2013-03-09,Energie Cottbus,1. FC Union Berlin,2,1
+2013-03-10,Hertha BSC,MSV Duisburg,4,2
+2013-03-10,FC Ingolstadt 04,VfL Bochum,2,1
+2013-03-10,FC Erzgebirge Aue,Dynamo Dresden,1,0
+2013-03-11,Eintracht Braunschweig,1. FC Kaiserslautern,1,1
+2013-03-15,SC Paderborn 07,FSV Frankfurt,3,0
+2013-03-15,1. FC Union Berlin,FC St. Pauli,4,2
+2013-03-15,MSV Duisburg,Energie Cottbus,2,1
+2013-03-16,TSV 1860 München,Hertha BSC,0,0
+2013-03-16,VfL Bochum,Eintracht Braunschweig,0,1
+2013-03-17,1. FC Kaiserslautern,FC Ingolstadt 04,3,0
+2013-03-17,VfR Aalen,SV Sandhausen,2,2
+2013-03-17,Jahn Regensburg,FC Erzgebirge Aue,1,1
+2013-03-18,Dynamo Dresden,1. FC Köln,0,2
+2013-03-28,Energie Cottbus,VfR Aalen,1,1
+2013-03-28,FC Erzgebirge Aue,TSV 1860 München,0,1
+2013-03-28,Eintracht Braunschweig,Dynamo Dresden,2,1
+2013-03-30,Hertha BSC,VfL Bochum,2,0
+2013-03-30,FC Ingolstadt 04,MSV Duisburg,0,1
+2013-03-31,1. FC Köln,Jahn Regensburg,2,1
+2013-03-31,FSV Frankfurt,1. FC Union Berlin,3,0
+2013-03-31,SV Sandhausen,1. FC Kaiserslautern,1,1
+2013-04-01,FC St. Pauli,SC Paderborn 07,2,2
+2013-04-05,1. FC Kaiserslautern,1. FC Köln,3,0
+2013-04-05,VfL Bochum,FC Erzgebirge Aue,0,3
+2013-04-05,VfR Aalen,FC Ingolstadt 04,2,1
+2013-04-06,Dynamo Dresden,FC St. Pauli,3,2
+2013-04-06,Jahn Regensburg,FSV Frankfurt,1,4
+2013-04-07,SC Paderborn 07,1. FC Union Berlin,1,1
+2013-04-07,TSV 1860 München,Energie Cottbus,1,1
+2013-04-07,MSV Duisburg,SV Sandhausen,2,1
+2013-04-08,Hertha BSC,Eintracht Braunschweig,3,0
+2013-04-12,1. FC Union Berlin,Dynamo Dresden,0,0
+2013-04-12,FC Ingolstadt 04,Hertha BSC,1,1
+2013-04-12,SV Sandhausen,Eintracht Braunschweig,1,3
+2013-04-13,FC St. Pauli,TSV 1860 München,3,1
+2013-04-13,FSV Frankfurt,MSV Duisburg,1,1
+2013-04-14,1. FC Köln,VfR Aalen,1,0
+2013-04-14,SC Paderborn 07,Jahn Regensburg,0,0
+2013-04-14,Energie Cottbus,VfL Bochum,0,2
+2013-04-15,FC Erzgebirge Aue,1. FC Kaiserslautern,1,1
+2013-04-19,VfL Bochum,FC St. Pauli,3,0
+2013-04-19,VfR Aalen,1. FC Union Berlin,3,0
+2013-04-19,Jahn Regensburg,FC Ingolstadt 04,1,2
+2013-04-20,1. FC Kaiserslautern,SC Paderborn 07,3,0
+2013-04-20,TSV 1860 München,FSV Frankfurt,1,2
+2013-04-21,Hertha BSC,SV Sandhausen,1,0
+2013-04-21,Eintracht Braunschweig,FC Erzgebirge Aue,1,1
+2013-04-21,Dynamo Dresden,Energie Cottbus,1,0
+2013-04-22,MSV Duisburg,1. FC Köln,1,1
+2013-04-26,1. FC Union Berlin,Jahn Regensburg,1,0
+2013-04-26,FC Ingolstadt 04,Eintracht Braunschweig,0,1
+2013-04-26,SV Sandhausen,VfL Bochum,0,1
+2013-04-27,FSV Frankfurt,Dynamo Dresden,3,1
+2013-04-27,FC Erzgebirge Aue,MSV Duisburg,0,0
+2013-04-28,1. FC Köln,TSV 1860 München,1,1
+2013-04-28,FC St. Pauli,Hertha BSC,2,3
+2013-04-28,SC Paderborn 07,VfR Aalen,2,2
+2013-04-29,Energie Cottbus,1. FC Kaiserslautern,4,2
+2013-05-03,Hertha BSC,FC Erzgebirge Aue,3,2
+2013-05-03,Dynamo Dresden,SC Paderborn 07,2,1
+2013-05-03,VfR Aalen,Jahn Regensburg,2,1
+2013-05-04,VfL Bochum,1. FC Köln,2,1
+2013-05-04,SV Sandhausen,FC Ingolstadt 04,3,1
+2013-05-05,1. FC Kaiserslautern,FSV Frankfurt,4,1
+2013-05-05,TSV 1860 München,1. FC Union Berlin,3,0
+2013-05-05,MSV Duisburg,FC St. Pauli,0,0
+2013-05-06,Eintracht Braunschweig,Energie Cottbus,0,0
+2013-05-12,1. FC Köln,Hertha BSC,1,2
+2013-05-12,FC St. Pauli,Eintracht Braunschweig,5,1
+2013-05-12,SC Paderborn 07,TSV 1860 München,2,0
+2013-05-12,1. FC Union Berlin,MSV Duisburg,2,1
+2013-05-12,FSV Frankfurt,VfL Bochum,2,1
+2013-05-12,Energie Cottbus,SV Sandhausen,3,0
+2013-05-12,FC Erzgebirge Aue,FC Ingolstadt 04,0,1
+2013-05-12,VfR Aalen,Dynamo Dresden,3,0
+2013-05-12,Jahn Regensburg,1. FC Kaiserslautern,1,3
+2013-05-19,Hertha BSC,Energie Cottbus,1,1
+2013-05-19,1. FC Kaiserslautern,FC St. Pauli,1,2
+2013-05-19,TSV 1860 München,VfR Aalen,3,0
+2013-05-19,Eintracht Braunschweig,FSV Frankfurt,2,2
+2013-05-19,Dynamo Dresden,Jahn Regensburg,3,1
+2013-05-19,MSV Duisburg,SC Paderborn 07,3,2
+2013-05-19,VfL Bochum,1. FC Union Berlin,1,2
+2013-05-19,FC Ingolstadt 04,1. FC Köln,0,3
+2013-05-19,SV Sandhausen,FC Erzgebirge Aue,0,1

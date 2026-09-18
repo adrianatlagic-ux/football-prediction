@@ -1,0 +1,307 @@
+date,home_team,away_team,home_score,away_score
+2021-07-23,FC Schalke 04,Hamburger SV,1,3
+2021-07-24,Hansa Rostock,Karlsruher SC,1,3
+2021-07-24,SV Darmstadt 98,Jahn Regensburg,0,2
+2021-07-24,1. FC Heidenheim 1846,SC Paderborn 07,0,0
+2021-07-24,Dynamo Dresden,FC Ingolstadt 04,3,0
+2021-07-24,SV Werder Bremen,Hannover 96,1,1
+2021-07-25,SV Sandhausen,Fortuna Düsseldorf,0,2
+2021-07-25,1. FC Nürnberg,Erzgebirge Aue,0,0
+2021-07-25,FC St. Pauli,Holstein Kiel,3,0
+2021-07-30,SC Paderborn 07,1. FC Nürnberg,2,2
+2021-07-30,Karlsruher SC,SV Darmstadt 98,3,0
+2021-07-31,Hannover 96,Hansa Rostock,0,3
+2021-07-31,Jahn Regensburg,SV Sandhausen,3,0
+2021-07-31,FC Ingolstadt 04,1. FC Heidenheim 1846,1,2
+2021-07-31,Fortuna Düsseldorf,SV Werder Bremen,2,3
+2021-08-01,Hamburger SV,Dynamo Dresden,1,1
+2021-08-01,Holstein Kiel,FC Schalke 04,0,3
+2021-08-01,Erzgebirge Aue,FC St. Pauli,0,0
+2021-08-13,FC Schalke 04,Erzgebirge Aue,1,1
+2021-08-13,FC St. Pauli,Hamburger SV,3,2
+2021-08-14,SV Sandhausen,Karlsruher SC,0,0
+2021-08-14,1. FC Nürnberg,Fortuna Düsseldorf,2,0
+2021-08-14,Holstein Kiel,Jahn Regensburg,0,3
+2021-08-14,Dynamo Dresden,Hannover 96,2,0
+2021-08-15,SV Werder Bremen,SC Paderborn 07,1,4
+2021-08-15,SV Darmstadt 98,FC Ingolstadt 04,6,1
+2021-08-15,1. FC Heidenheim 1846,Hansa Rostock,1,1
+2021-08-20,Hannover 96,1. FC Heidenheim 1846,1,0
+2021-08-20,Fortuna Düsseldorf,Holstein Kiel,2,2
+2021-08-21,SC Paderborn 07,FC St. Pauli,3,1
+2021-08-21,Jahn Regensburg,FC Schalke 04,4,1
+2021-08-21,Karlsruher SC,SV Werder Bremen,0,0
+2021-08-21,Hansa Rostock,Dynamo Dresden,1,3
+2021-08-22,Erzgebirge Aue,SV Sandhausen,1,3
+2021-08-22,Hamburger SV,SV Darmstadt 98,2,2
+2021-08-22,FC Ingolstadt 04,1. FC Nürnberg,0,0
+2021-08-27,1. FC Nürnberg,Karlsruher SC,2,1
+2021-08-27,SV Sandhausen,FC Ingolstadt 04,0,2
+2021-08-28,1. FC Heidenheim 1846,Hamburger SV,0,0
+2021-08-28,Holstein Kiel,Erzgebirge Aue,3,0
+2021-08-28,SV Darmstadt 98,Hannover 96,4,0
+2021-08-28,FC Schalke 04,Fortuna Düsseldorf,3,1
+2021-08-29,SV Werder Bremen,Hansa Rostock,3,0
+2021-08-29,Dynamo Dresden,SC Paderborn 07,0,3
+2021-08-29,FC St. Pauli,Jahn Regensburg,2,0
+2021-09-11,Karlsruher SC,Holstein Kiel,2,2
+2021-09-11,FC Ingolstadt 04,SV Werder Bremen,0,3
+2021-09-11,Hannover 96,FC St. Pauli,1,0
+2021-09-11,Hamburger SV,SV Sandhausen,2,1
+2021-09-12,Erzgebirge Aue,Fortuna Düsseldorf,0,1
+2021-09-12,1. FC Heidenheim 1846,Dynamo Dresden,2,1
+2021-09-12,Jahn Regensburg,1. FC Nürnberg,2,2
+2021-09-12,Hansa Rostock,SV Darmstadt 98,2,1
+2021-09-12,SC Paderborn 07,FC Schalke 04,0,1
+2021-09-17,FC Schalke 04,Karlsruher SC,1,2
+2021-09-17,1. FC Nürnberg,Hansa Rostock,1,0
+2021-09-18,Holstein Kiel,Hannover 96,0,3
+2021-09-18,Fortuna Düsseldorf,Jahn Regensburg,1,1
+2021-09-18,SV Sandhausen,1. FC Heidenheim 1846,1,3
+2021-09-18,SV Werder Bremen,Hamburger SV,0,2
+2021-09-19,SV Darmstadt 98,Dynamo Dresden,1,0
+2021-09-19,FC St. Pauli,FC Ingolstadt 04,4,1
+2021-09-19,Erzgebirge Aue,SC Paderborn 07,1,4
+2021-09-24,1. FC Heidenheim 1846,SV Darmstadt 98,2,1
+2021-09-24,Jahn Regensburg,Erzgebirge Aue,3,2
+2021-09-25,Karlsruher SC,FC St. Pauli,1,3
+2021-09-25,SC Paderborn 07,Holstein Kiel,1,2
+2021-09-25,FC Ingolstadt 04,Fortuna Düsseldorf,1,2
+2021-09-25,Hansa Rostock,FC Schalke 04,0,2
+2021-09-26,Hamburger SV,1. FC Nürnberg,2,2
+2021-09-26,Hannover 96,SV Sandhausen,1,2
+2021-09-26,Dynamo Dresden,SV Werder Bremen,3,0
+2021-10-01,SV Werder Bremen,1. FC Heidenheim 1846,3,0
+2021-10-01,Erzgebirge Aue,Hamburger SV,1,1
+2021-10-02,Holstein Kiel,Hansa Rostock,0,2
+2021-10-02,Fortuna Düsseldorf,SC Paderborn 07,2,3
+2021-10-02,Jahn Regensburg,Karlsruher SC,2,2
+2021-10-02,1. FC Nürnberg,Hannover 96,0,0
+2021-10-03,FC Schalke 04,FC Ingolstadt 04,3,0
+2021-10-03,FC St. Pauli,Dynamo Dresden,3,0
+2021-10-03,SV Sandhausen,SV Darmstadt 98,1,6
+2021-10-15,SC Paderborn 07,Jahn Regensburg,1,1
+2021-10-15,Hannover 96,FC Schalke 04,0,1
+2021-10-16,Hamburger SV,Fortuna Düsseldorf,1,1
+2021-10-16,Karlsruher SC,Erzgebirge Aue,2,1
+2021-10-16,1. FC Heidenheim 1846,FC St. Pauli,2,4
+2021-10-16,FC Ingolstadt 04,Holstein Kiel,1,1
+2021-10-17,SV Darmstadt 98,SV Werder Bremen,3,0
+2021-10-17,Dynamo Dresden,1. FC Nürnberg,0,1
+2021-10-17,Hansa Rostock,SV Sandhausen,1,1
+2021-10-22,SC Paderborn 07,Hamburger SV,1,2
+2021-10-22,Erzgebirge Aue,FC Ingolstadt 04,1,0
+2021-10-23,Holstein Kiel,SV Darmstadt 98,1,1
+2021-10-23,Fortuna Düsseldorf,Karlsruher SC,3,1
+2021-10-23,1. FC Nürnberg,1. FC Heidenheim 1846,4,0
+2021-10-23,FC Schalke 04,Dynamo Dresden,3,0
+2021-10-24,FC St. Pauli,Hansa Rostock,4,0
+2021-10-24,Jahn Regensburg,Hannover 96,3,1
+2021-10-24,SV Sandhausen,SV Werder Bremen,2,2
+2021-10-29,SV Darmstadt 98,1. FC Nürnberg,2,0
+2021-10-29,1. FC Heidenheim 1846,FC Schalke 04,1,0
+2021-10-30,SV Werder Bremen,FC St. Pauli,1,1
+2021-10-30,Hannover 96,Erzgebirge Aue,1,1
+2021-10-30,Dynamo Dresden,SV Sandhausen,0,1
+2021-10-30,Hamburger SV,Holstein Kiel,1,1
+2021-10-31,Karlsruher SC,SC Paderborn 07,2,4
+2021-10-31,Hansa Rostock,Fortuna Düsseldorf,2,1
+2021-10-31,FC Ingolstadt 04,Jahn Regensburg,0,3
+2021-11-05,Holstein Kiel,Dynamo Dresden,2,1
+2021-11-05,1. FC Nürnberg,SV Werder Bremen,1,2
+2021-11-06,Fortuna Düsseldorf,Hannover 96,1,1
+2021-11-06,SC Paderborn 07,FC Ingolstadt 04,2,1
+2021-11-06,Jahn Regensburg,Hansa Rostock,2,3
+2021-11-06,Karlsruher SC,Hamburger SV,1,1
+2021-11-07,FC Schalke 04,SV Darmstadt 98,2,4
+2021-11-07,Erzgebirge Aue,1. FC Heidenheim 1846,2,0
+2021-11-19,Hannover 96,SC Paderborn 07,0,0
+2021-11-19,SV Sandhausen,1. FC Nürnberg,1,2
+2021-11-20,Hamburger SV,Jahn Regensburg,4,1
+2021-11-20,SV Darmstadt 98,FC St. Pauli,4,0
+2021-11-20,Hansa Rostock,Erzgebirge Aue,1,2
+2021-11-20,SV Werder Bremen,FC Schalke 04,1,1
+2021-11-21,1. FC Heidenheim 1846,Holstein Kiel,2,1
+2021-11-21,Dynamo Dresden,Fortuna Düsseldorf,1,0
+2021-11-21,FC Ingolstadt 04,Karlsruher SC,1,1
+2021-11-24,FC St. Pauli,SV Sandhausen,3,1
+2021-11-26,Fortuna Düsseldorf,1. FC Heidenheim 1846,0,1
+2021-11-26,Jahn Regensburg,Dynamo Dresden,3,1
+2021-11-27,FC Schalke 04,SV Sandhausen,5,2
+2021-11-27,Karlsruher SC,Hannover 96,4,0
+2021-11-27,Erzgebirge Aue,SV Darmstadt 98,1,2
+2021-11-27,Holstein Kiel,SV Werder Bremen,2,1
+2021-11-28,Hamburger SV,FC Ingolstadt 04,3,0
+2021-11-28,SC Paderborn 07,Hansa Rostock,1,1
+2021-11-28,1. FC Nürnberg,FC St. Pauli,2,3
+2021-12-03,SV Werder Bremen,Erzgebirge Aue,4,0
+2021-12-03,SV Darmstadt 98,Fortuna Düsseldorf,1,3
+2021-12-04,1. FC Nürnberg,Holstein Kiel,2,1
+2021-12-04,SV Sandhausen,SC Paderborn 07,1,1
+2021-12-04,Hansa Rostock,FC Ingolstadt 04,1,1
+2021-12-04,FC St. Pauli,FC Schalke 04,2,1
+2021-12-05,1. FC Heidenheim 1846,Jahn Regensburg,3,0
+2021-12-05,Hannover 96,Hamburger SV,1,0
+2021-12-05,Dynamo Dresden,Karlsruher SC,3,1
+2021-12-10,FC Schalke 04,1. FC Nürnberg,4,1
+2021-12-10,Jahn Regensburg,SV Werder Bremen,2,3
+2021-12-11,Holstein Kiel,SV Sandhausen,2,2
+2021-12-11,SC Paderborn 07,SV Darmstadt 98,0,1
+2021-12-11,FC Ingolstadt 04,Hannover 96,1,2
+2021-12-11,Fortuna Düsseldorf,FC St. Pauli,1,1
+2021-12-12,Hamburger SV,Hansa Rostock,3,0
+2021-12-12,Karlsruher SC,1. FC Heidenheim 1846,3,2
+2021-12-12,Erzgebirge Aue,Dynamo Dresden,0,1
+2021-12-17,Holstein Kiel,FC St. Pauli,3,0
+2021-12-17,Fortuna Düsseldorf,SV Sandhausen,0,1
+2021-12-18,SC Paderborn 07,1. FC Heidenheim 1846,1,2
+2021-12-18,Erzgebirge Aue,1. FC Nürnberg,1,3
+2021-12-18,FC Ingolstadt 04,Dynamo Dresden,3,0
+2021-12-18,Hamburger SV,FC Schalke 04,1,1
+2021-12-19,Karlsruher SC,Hansa Rostock,2,2
+2021-12-19,Hannover 96,SV Werder Bremen,1,4
+2021-12-19,Jahn Regensburg,SV Darmstadt 98,0,2
+2022-01-14,Dynamo Dresden,Hamburger SV,1,1
+2022-01-14,Hansa Rostock,Hannover 96,0,1
+2022-01-15,SV Werder Bremen,Fortuna Düsseldorf,3,0
+2022-01-15,FC St. Pauli,Erzgebirge Aue,2,2
+2022-01-15,1. FC Nürnberg,SC Paderborn 07,1,2
+2022-01-15,SV Darmstadt 98,Karlsruher SC,2,2
+2022-01-16,FC Schalke 04,Holstein Kiel,1,1
+2022-01-16,1. FC Heidenheim 1846,FC Ingolstadt 04,2,1
+2022-01-16,SV Sandhausen,Jahn Regensburg,0,3
+2022-01-21,Hamburger SV,FC St. Pauli,2,1
+2022-01-21,Fortuna Düsseldorf,1. FC Nürnberg,0,1
+2022-01-22,SC Paderborn 07,SV Werder Bremen,3,4
+2022-01-22,Hansa Rostock,1. FC Heidenheim 1846,0,0
+2022-01-22,FC Ingolstadt 04,SV Darmstadt 98,0,2
+2022-01-22,Erzgebirge Aue,FC Schalke 04,0,5
+2022-01-23,Hannover 96,Dynamo Dresden,0,0
+2022-01-23,Jahn Regensburg,Holstein Kiel,1,2
+2022-02-04,1. FC Heidenheim 1846,Hannover 96,3,1
+2022-02-04,1. FC Nürnberg,FC Ingolstadt 04,0,5
+2022-02-05,SV Werder Bremen,Karlsruher SC,2,1
+2022-02-05,FC Schalke 04,Jahn Regensburg,2,1
+2022-02-05,SV Sandhausen,Erzgebirge Aue,2,0
+2022-02-05,FC St. Pauli,SC Paderborn 07,2,2
+2022-02-06,Holstein Kiel,Fortuna Düsseldorf,1,0
+2022-02-06,SV Darmstadt 98,Hamburger SV,0,5
+2022-02-06,Dynamo Dresden,Hansa Rostock,1,4
+2022-02-08,Karlsruher SC,SV Sandhausen,0,2
+2022-02-11,Erzgebirge Aue,Holstein Kiel,2,3
+2022-02-11,Hansa Rostock,SV Werder Bremen,1,2
+2022-02-12,Hamburger SV,1. FC Heidenheim 1846,2,0
+2022-02-12,Karlsruher SC,1. FC Nürnberg,4,1
+2022-02-12,SC Paderborn 07,Dynamo Dresden,0,0
+2022-02-12,Jahn Regensburg,FC St. Pauli,2,3
+2022-02-13,Fortuna Düsseldorf,FC Schalke 04,2,1
+2022-02-13,Hannover 96,SV Darmstadt 98,2,2
+2022-02-13,FC Ingolstadt 04,SV Sandhausen,0,0
+2022-02-18,FC Schalke 04,SC Paderborn 07,2,0
+2022-02-18,Dynamo Dresden,1. FC Heidenheim 1846,1,1
+2022-02-19,SV Werder Bremen,FC Ingolstadt 04,1,1
+2022-02-19,Holstein Kiel,Karlsruher SC,0,2
+2022-02-19,SV Sandhausen,Hamburger SV,1,1
+2022-02-19,1. FC Nürnberg,Jahn Regensburg,2,0
+2022-02-20,Fortuna Düsseldorf,Erzgebirge Aue,3,1
+2022-02-20,SV Darmstadt 98,Hansa Rostock,1,1
+2022-02-20,FC St. Pauli,Hannover 96,0,3
+2022-02-25,SC Paderborn 07,Erzgebirge Aue,3,3
+2022-02-25,Hannover 96,Holstein Kiel,2,0
+2022-02-26,Karlsruher SC,FC Schalke 04,1,1
+2022-02-26,Hansa Rostock,1. FC Nürnberg,0,2
+2022-02-26,FC Ingolstadt 04,FC St. Pauli,1,3
+2022-02-26,Dynamo Dresden,SV Darmstadt 98,0,1
+2022-02-27,Hamburger SV,SV Werder Bremen,2,3
+2022-02-27,1. FC Heidenheim 1846,SV Sandhausen,1,1
+2022-02-27,Jahn Regensburg,Fortuna Düsseldorf,0,0
+2022-03-04,Holstein Kiel,SC Paderborn 07,3,4
+2022-03-04,SV Darmstadt 98,1. FC Heidenheim 1846,3,2
+2022-03-05,FC Schalke 04,Hansa Rostock,3,4
+2022-03-05,FC St. Pauli,Karlsruher SC,3,1
+2022-03-05,SV Sandhausen,Hannover 96,3,1
+2022-03-05,1. FC Nürnberg,Hamburger SV,2,1
+2022-03-06,SV Werder Bremen,Dynamo Dresden,2,1
+2022-03-06,Fortuna Düsseldorf,FC Ingolstadt 04,3,0
+2022-03-06,Erzgebirge Aue,Jahn Regensburg,1,0
+2022-03-11,SV Darmstadt 98,SV Sandhausen,1,1
+2022-03-11,Hansa Rostock,Holstein Kiel,3,2
+2022-03-12,SC Paderborn 07,Fortuna Düsseldorf,1,1
+2022-03-12,Dynamo Dresden,FC St. Pauli,1,1
+2022-03-12,1. FC Heidenheim 1846,SV Werder Bremen,2,1
+2022-03-13,Karlsruher SC,Jahn Regensburg,1,1
+2022-03-13,Hannover 96,1. FC Nürnberg,0,3
+2022-03-13,FC Ingolstadt 04,FC Schalke 04,0,3
+2022-03-18,FC St. Pauli,1. FC Heidenheim 1846,1,0
+2022-03-18,Erzgebirge Aue,Karlsruher SC,0,3
+2022-03-19,FC Schalke 04,Hannover 96,2,1
+2022-03-19,Fortuna Düsseldorf,Hamburger SV,1,1
+2022-03-19,SV Sandhausen,Hansa Rostock,0,1
+2022-03-19,SV Werder Bremen,SV Darmstadt 98,1,0
+2022-03-20,Holstein Kiel,FC Ingolstadt 04,1,0
+2022-03-20,1. FC Nürnberg,Dynamo Dresden,1,1
+2022-03-20,Jahn Regensburg,SC Paderborn 07,1,0
+2022-04-01,Dynamo Dresden,FC Schalke 04,1,2
+2022-04-01,FC Ingolstadt 04,Erzgebirge Aue,3,2
+2022-04-02,Hamburger SV,SC Paderborn 07,1,2
+2022-04-02,SV Darmstadt 98,Holstein Kiel,3,1
+2022-04-02,Hannover 96,Jahn Regensburg,1,1
+2022-04-02,Hansa Rostock,FC St. Pauli,1,0
+2022-04-03,SV Werder Bremen,SV Sandhausen,1,1
+2022-04-03,Karlsruher SC,Fortuna Düsseldorf,2,2
+2022-04-03,1. FC Heidenheim 1846,1. FC Nürnberg,3,1
+2022-04-05,Hamburger SV,Erzgebirge Aue,4,0
+2022-04-08,Fortuna Düsseldorf,Hansa Rostock,3,0
+2022-04-08,Jahn Regensburg,FC Ingolstadt 04,1,1
+2022-04-09,FC Schalke 04,1. FC Heidenheim 1846,3,0
+2022-04-09,FC St. Pauli,SV Werder Bremen,1,1
+2022-04-09,Erzgebirge Aue,Hannover 96,1,3
+2022-04-09,1. FC Nürnberg,SV Darmstadt 98,3,1
+2022-04-10,Holstein Kiel,Hamburger SV,1,0
+2022-04-10,SC Paderborn 07,Karlsruher SC,2,2
+2022-04-10,SV Sandhausen,Dynamo Dresden,2,1
+2022-04-16,Hannover 96,Fortuna Düsseldorf,0,0
+2022-04-16,SV Sandhausen,FC St. Pauli,1,1
+2022-04-16,Dynamo Dresden,Holstein Kiel,0,0
+2022-04-16,Hamburger SV,Karlsruher SC,3,0
+2022-04-17,SV Werder Bremen,1. FC Nürnberg,1,1
+2022-04-17,SV Darmstadt 98,FC Schalke 04,2,5
+2022-04-17,1. FC Heidenheim 1846,Erzgebirge Aue,0,2
+2022-04-17,Hansa Rostock,Jahn Regensburg,1,1
+2022-04-17,FC Ingolstadt 04,SC Paderborn 07,0,1
+2022-04-22,Fortuna Düsseldorf,Dynamo Dresden,2,2
+2022-04-22,Karlsruher SC,FC Ingolstadt 04,2,2
+2022-04-23,FC Schalke 04,SV Werder Bremen,1,4
+2022-04-23,Holstein Kiel,1. FC Heidenheim 1846,1,1
+2022-04-23,Jahn Regensburg,Hamburger SV,2,4
+2022-04-23,FC St. Pauli,SV Darmstadt 98,1,2
+2022-04-24,SC Paderborn 07,Hannover 96,3,0
+2022-04-24,1. FC Nürnberg,SV Sandhausen,2,4
+2022-04-24,Erzgebirge Aue,Hansa Rostock,2,2
+2022-04-29,SV Werder Bremen,Holstein Kiel,2,3
+2022-04-29,1. FC Heidenheim 1846,Fortuna Düsseldorf,1,3
+2022-04-29,FC St. Pauli,1. FC Nürnberg,1,1
+2022-04-29,Hannover 96,Karlsruher SC,2,0
+2022-04-29,SV Sandhausen,FC Schalke 04,1,2
+2022-04-30,Dynamo Dresden,Jahn Regensburg,1,1
+2022-04-30,Hansa Rostock,SC Paderborn 07,0,0
+2022-04-30,FC Ingolstadt 04,Hamburger SV,0,4
+2022-04-30,SV Darmstadt 98,Erzgebirge Aue,6,0
+2022-05-06,Fortuna Düsseldorf,SV Darmstadt 98,2,1
+2022-05-06,SC Paderborn 07,SV Sandhausen,2,0
+2022-05-07,Hamburger SV,Hannover 96,2,1
+2022-05-07,Jahn Regensburg,1. FC Heidenheim 1846,0,2
+2022-05-07,FC Ingolstadt 04,Hansa Rostock,0,0
+2022-05-07,FC Schalke 04,FC St. Pauli,3,2
+2022-05-08,Holstein Kiel,1. FC Nürnberg,3,0
+2022-05-08,Karlsruher SC,Dynamo Dresden,2,2
+2022-05-08,Erzgebirge Aue,SV Werder Bremen,0,3
+2022-05-15,SV Werder Bremen,Jahn Regensburg,2,0
+2022-05-15,SV Darmstadt 98,SC Paderborn 07,3,0
+2022-05-15,1. FC Heidenheim 1846,Karlsruher SC,2,0
+2022-05-15,FC St. Pauli,Fortuna Düsseldorf,2,0
+2022-05-15,1. FC Nürnberg,FC Schalke 04,1,2
+2022-05-15,Hannover 96,FC Ingolstadt 04,3,2
+2022-05-15,SV Sandhausen,Holstein Kiel,3,1
+2022-05-15,Dynamo Dresden,Erzgebirge Aue,0,1
+2022-05-15,Hansa Rostock,Hamburger SV,2,3

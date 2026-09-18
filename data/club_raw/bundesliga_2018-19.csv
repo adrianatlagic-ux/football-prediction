@@ -1,0 +1,307 @@
+date,home_team,away_team,home_score,away_score
+2018-08-24,FC Bayern München,TSG Hoffenheim,3,1
+2018-08-25,Hertha BSC,1. FC Nürnberg,1,0
+2018-08-25,SV Werder Bremen,Hannover 96,1,1
+2018-08-25,SC Freiburg,Eintracht Frankfurt,0,2
+2018-08-25,VfL Wolfsburg,FC Schalke 04,2,1
+2018-08-25,Fortuna Düsseldorf,FC Augsburg,1,2
+2018-08-25,Borussia Mönchengladbach,Bayer 04 Leverkusen,2,0
+2018-08-26,1. FSV Mainz 05,VfB Stuttgart,1,0
+2018-08-26,Borussia Dortmund,RB Leipzig,4,1
+2018-08-31,Hannover 96,Borussia Dortmund,0,0
+2018-09-01,TSG Hoffenheim,SC Freiburg,3,1
+2018-09-01,Bayer 04 Leverkusen,VfL Wolfsburg,1,3
+2018-09-01,Eintracht Frankfurt,SV Werder Bremen,1,2
+2018-09-01,FC Augsburg,Borussia Mönchengladbach,1,1
+2018-09-01,1. FC Nürnberg,1. FSV Mainz 05,1,1
+2018-09-01,VfB Stuttgart,FC Bayern München,0,3
+2018-09-02,RB Leipzig,Fortuna Düsseldorf,1,1
+2018-09-02,FC Schalke 04,Hertha BSC,0,2
+2018-09-14,Borussia Dortmund,Eintracht Frankfurt,3,1
+2018-09-15,FC Bayern München,Bayer 04 Leverkusen,3,1
+2018-09-15,RB Leipzig,Hannover 96,3,2
+2018-09-15,1. FSV Mainz 05,FC Augsburg,2,1
+2018-09-15,VfL Wolfsburg,Hertha BSC,2,2
+2018-09-15,Fortuna Düsseldorf,TSG Hoffenheim,2,1
+2018-09-15,Borussia Mönchengladbach,FC Schalke 04,2,1
+2018-09-16,SV Werder Bremen,1. FC Nürnberg,1,1
+2018-09-16,SC Freiburg,VfB Stuttgart,3,3
+2018-09-21,VfB Stuttgart,Fortuna Düsseldorf,0,0
+2018-09-22,TSG Hoffenheim,Borussia Dortmund,1,1
+2018-09-22,Hertha BSC,Borussia Mönchengladbach,4,2
+2018-09-22,FC Augsburg,SV Werder Bremen,2,3
+2018-09-22,VfL Wolfsburg,SC Freiburg,1,3
+2018-09-22,1. FC Nürnberg,Hannover 96,2,0
+2018-09-22,FC Schalke 04,FC Bayern München,0,2
+2018-09-23,Bayer 04 Leverkusen,1. FSV Mainz 05,1,0
+2018-09-23,Eintracht Frankfurt,RB Leipzig,1,1
+2018-09-25,SV Werder Bremen,Hertha BSC,3,1
+2018-09-25,FC Bayern München,FC Augsburg,1,1
+2018-09-25,Hannover 96,TSG Hoffenheim,1,3
+2018-09-25,SC Freiburg,FC Schalke 04,1,0
+2018-09-26,Fortuna Düsseldorf,Bayer 04 Leverkusen,1,2
+2018-09-26,Borussia Dortmund,1. FC Nürnberg,7,0
+2018-09-26,RB Leipzig,VfB Stuttgart,2,0
+2018-09-26,Borussia Mönchengladbach,Eintracht Frankfurt,3,1
+2018-09-26,1. FSV Mainz 05,VfL Wolfsburg,0,0
+2018-09-28,Hertha BSC,FC Bayern München,2,0
+2018-09-29,FC Schalke 04,1. FSV Mainz 05,1,0
+2018-09-29,TSG Hoffenheim,RB Leipzig,1,2
+2018-09-29,VfB Stuttgart,SV Werder Bremen,2,1
+2018-09-29,VfL Wolfsburg,Borussia Mönchengladbach,2,2
+2018-09-29,1. FC Nürnberg,Fortuna Düsseldorf,3,0
+2018-09-29,Bayer 04 Leverkusen,Borussia Dortmund,2,4
+2018-09-30,Eintracht Frankfurt,Hannover 96,4,1
+2018-09-30,FC Augsburg,SC Freiburg,4,1
+2018-10-05,SV Werder Bremen,VfL Wolfsburg,2,0
+2018-10-06,Borussia Dortmund,FC Augsburg,4,3
+2018-10-06,Hannover 96,VfB Stuttgart,3,1
+2018-10-06,1. FSV Mainz 05,Hertha BSC,0,0
+2018-10-06,Fortuna Düsseldorf,FC Schalke 04,0,2
+2018-10-06,FC Bayern München,Borussia Mönchengladbach,0,3
+2018-10-07,SC Freiburg,Bayer 04 Leverkusen,0,0
+2018-10-07,TSG Hoffenheim,Eintracht Frankfurt,1,2
+2018-10-07,RB Leipzig,1. FC Nürnberg,6,0
+2018-10-19,Eintracht Frankfurt,Fortuna Düsseldorf,7,1
+2018-10-20,Bayer 04 Leverkusen,Hannover 96,2,2
+2018-10-20,VfB Stuttgart,Borussia Dortmund,0,4
+2018-10-20,FC Augsburg,RB Leipzig,0,0
+2018-10-20,VfL Wolfsburg,FC Bayern München,1,3
+2018-10-20,1. FC Nürnberg,TSG Hoffenheim,1,3
+2018-10-20,FC Schalke 04,SV Werder Bremen,0,2
+2018-10-21,Hertha BSC,SC Freiburg,1,1
+2018-10-21,Borussia Mönchengladbach,1. FSV Mainz 05,4,0
+2018-10-26,SC Freiburg,Borussia Mönchengladbach,3,1
+2018-10-27,Borussia Dortmund,Hertha BSC,2,2
+2018-10-27,Hannover 96,FC Augsburg,1,2
+2018-10-27,1. FSV Mainz 05,FC Bayern München,1,2
+2018-10-27,Fortuna Düsseldorf,VfL Wolfsburg,0,3
+2018-10-27,TSG Hoffenheim,VfB Stuttgart,4,0
+2018-10-28,1. FC Nürnberg,Eintracht Frankfurt,1,1
+2018-10-28,RB Leipzig,FC Schalke 04,0,0
+2018-10-28,SV Werder Bremen,Bayer 04 Leverkusen,2,6
+2018-11-02,VfB Stuttgart,Eintracht Frankfurt,0,3
+2018-11-03,FC Bayern München,SC Freiburg,1,1
+2018-11-03,FC Schalke 04,Hannover 96,3,1
+2018-11-03,Bayer 04 Leverkusen,TSG Hoffenheim,1,4
+2018-11-03,FC Augsburg,1. FC Nürnberg,2,2
+2018-11-03,VfL Wolfsburg,Borussia Dortmund,0,1
+2018-11-03,Hertha BSC,RB Leipzig,0,3
+2018-11-04,Borussia Mönchengladbach,Fortuna Düsseldorf,3,0
+2018-11-04,1. FSV Mainz 05,SV Werder Bremen,2,1
+2018-11-09,Hannover 96,VfL Wolfsburg,2,1
+2018-11-10,TSG Hoffenheim,FC Augsburg,2,1
+2018-11-10,SV Werder Bremen,Borussia Mönchengladbach,1,3
+2018-11-10,SC Freiburg,1. FSV Mainz 05,1,3
+2018-11-10,Fortuna Düsseldorf,Hertha BSC,4,1
+2018-11-10,1. FC Nürnberg,VfB Stuttgart,0,2
+2018-11-10,Borussia Dortmund,FC Bayern München,3,2
+2018-11-11,RB Leipzig,Bayer 04 Leverkusen,3,0
+2018-11-11,Eintracht Frankfurt,FC Schalke 04,3,0
+2018-11-23,Bayer 04 Leverkusen,VfB Stuttgart,2,0
+2018-11-24,FC Bayern München,Fortuna Düsseldorf,3,3
+2018-11-24,Hertha BSC,TSG Hoffenheim,3,3
+2018-11-24,FC Augsburg,Eintracht Frankfurt,1,3
+2018-11-24,1. FSV Mainz 05,Borussia Dortmund,1,2
+2018-11-24,VfL Wolfsburg,RB Leipzig,1,0
+2018-11-24,FC Schalke 04,1. FC Nürnberg,5,2
+2018-11-25,SC Freiburg,SV Werder Bremen,1,1
+2018-11-25,Borussia Mönchengladbach,Hannover 96,4,1
+2018-11-30,Fortuna Düsseldorf,1. FSV Mainz 05,0,1
+2018-12-01,Borussia Dortmund,SC Freiburg,2,0
+2018-12-01,VfB Stuttgart,FC Augsburg,1,0
+2018-12-01,SV Werder Bremen,FC Bayern München,1,2
+2018-12-01,Hannover 96,Hertha BSC,0,2
+2018-12-01,TSG Hoffenheim,FC Schalke 04,1,1
+2018-12-02,RB Leipzig,Borussia Mönchengladbach,2,0
+2018-12-02,Eintracht Frankfurt,VfL Wolfsburg,1,2
+2018-12-03,1. FC Nürnberg,Bayer 04 Leverkusen,1,1
+2018-12-07,SV Werder Bremen,Fortuna Düsseldorf,3,1
+2018-12-08,FC Bayern München,1. FC Nürnberg,3,0
+2018-12-08,FC Schalke 04,Borussia Dortmund,1,2
+2018-12-08,Bayer 04 Leverkusen,FC Augsburg,1,0
+2018-12-08,SC Freiburg,RB Leipzig,3,0
+2018-12-08,VfL Wolfsburg,TSG Hoffenheim,2,2
+2018-12-08,Hertha BSC,Eintracht Frankfurt,1,0
+2018-12-09,1. FSV Mainz 05,Hannover 96,1,1
+2018-12-09,Borussia Mönchengladbach,VfB Stuttgart,3,0
+2018-12-14,1. FC Nürnberg,VfL Wolfsburg,0,2
+2018-12-15,TSG Hoffenheim,Borussia Mönchengladbach,0,0
+2018-12-15,VfB Stuttgart,Hertha BSC,2,1
+2018-12-15,FC Augsburg,FC Schalke 04,1,1
+2018-12-15,Hannover 96,FC Bayern München,0,4
+2018-12-15,Fortuna Düsseldorf,SC Freiburg,2,0
+2018-12-15,Borussia Dortmund,SV Werder Bremen,2,1
+2018-12-16,RB Leipzig,1. FSV Mainz 05,4,1
+2018-12-16,Eintracht Frankfurt,Bayer 04 Leverkusen,2,1
+2018-12-18,Borussia Mönchengladbach,1. FC Nürnberg,2,0
+2018-12-18,Hertha BSC,FC Augsburg,2,2
+2018-12-18,VfL Wolfsburg,VfB Stuttgart,2,0
+2018-12-18,Fortuna Düsseldorf,Borussia Dortmund,2,1
+2018-12-19,FC Schalke 04,Bayer 04 Leverkusen,1,2
+2018-12-19,FC Bayern München,RB Leipzig,1,0
+2018-12-19,SV Werder Bremen,TSG Hoffenheim,1,1
+2018-12-19,SC Freiburg,Hannover 96,1,1
+2018-12-19,1. FSV Mainz 05,Eintracht Frankfurt,2,2
+2018-12-21,Borussia Dortmund,Borussia Mönchengladbach,2,1
+2018-12-22,Bayer 04 Leverkusen,Hertha BSC,3,1
+2018-12-22,RB Leipzig,SV Werder Bremen,3,2
+2018-12-22,VfB Stuttgart,FC Schalke 04,1,3
+2018-12-22,Hannover 96,Fortuna Düsseldorf,0,1
+2018-12-22,1. FC Nürnberg,SC Freiburg,0,1
+2018-12-22,Eintracht Frankfurt,FC Bayern München,0,3
+2018-12-23,FC Augsburg,VfL Wolfsburg,2,3
+2018-12-23,TSG Hoffenheim,1. FSV Mainz 05,1,1
+2019-01-18,TSG Hoffenheim,FC Bayern München,1,3
+2019-01-19,Bayer 04 Leverkusen,Borussia Mönchengladbach,0,1
+2019-01-19,VfB Stuttgart,1. FSV Mainz 05,2,3
+2019-01-19,Eintracht Frankfurt,SC Freiburg,3,1
+2019-01-19,FC Augsburg,Fortuna Düsseldorf,1,2
+2019-01-19,Hannover 96,SV Werder Bremen,0,1
+2019-01-19,RB Leipzig,Borussia Dortmund,0,1
+2019-01-20,1. FC Nürnberg,Hertha BSC,1,3
+2019-01-20,FC Schalke 04,VfL Wolfsburg,2,1
+2019-01-25,Hertha BSC,FC Schalke 04,2,2
+2019-01-26,Borussia Dortmund,Hannover 96,5,1
+2019-01-26,Borussia Mönchengladbach,FC Augsburg,2,0
+2019-01-26,SC Freiburg,TSG Hoffenheim,2,4
+2019-01-26,1. FSV Mainz 05,1. FC Nürnberg,2,1
+2019-01-26,VfL Wolfsburg,Bayer 04 Leverkusen,0,3
+2019-01-26,SV Werder Bremen,Eintracht Frankfurt,2,2
+2019-01-27,FC Bayern München,VfB Stuttgart,4,1
+2019-01-27,Fortuna Düsseldorf,RB Leipzig,0,4
+2019-02-01,Hannover 96,RB Leipzig,0,3
+2019-02-02,TSG Hoffenheim,Fortuna Düsseldorf,1,1
+2019-02-02,Bayer 04 Leverkusen,FC Bayern München,3,1
+2019-02-02,Eintracht Frankfurt,Borussia Dortmund,1,1
+2019-02-02,Hertha BSC,VfL Wolfsburg,0,1
+2019-02-02,1. FC Nürnberg,SV Werder Bremen,1,1
+2019-02-02,FC Schalke 04,Borussia Mönchengladbach,0,2
+2019-02-03,FC Augsburg,1. FSV Mainz 05,3,0
+2019-02-03,VfB Stuttgart,SC Freiburg,2,2
+2019-02-08,1. FSV Mainz 05,Bayer 04 Leverkusen,1,5
+2019-02-09,Borussia Dortmund,TSG Hoffenheim,3,3
+2019-02-09,RB Leipzig,Eintracht Frankfurt,0,0
+2019-02-09,Borussia Mönchengladbach,Hertha BSC,0,3
+2019-02-09,Hannover 96,1. FC Nürnberg,2,0
+2019-02-09,SC Freiburg,VfL Wolfsburg,3,3
+2019-02-09,FC Bayern München,FC Schalke 04,3,1
+2019-02-10,SV Werder Bremen,FC Augsburg,4,0
+2019-02-10,Fortuna Düsseldorf,VfB Stuttgart,3,0
+2019-02-15,FC Augsburg,FC Bayern München,2,3
+2019-02-16,FC Schalke 04,SC Freiburg,0,0
+2019-02-16,TSG Hoffenheim,Hannover 96,3,0
+2019-02-16,VfB Stuttgart,RB Leipzig,1,3
+2019-02-16,VfL Wolfsburg,1. FSV Mainz 05,3,0
+2019-02-16,Hertha BSC,SV Werder Bremen,1,1
+2019-02-17,Eintracht Frankfurt,Borussia Mönchengladbach,1,1
+2019-02-17,Bayer 04 Leverkusen,Fortuna Düsseldorf,2,0
+2019-02-18,1. FC Nürnberg,Borussia Dortmund,0,0
+2019-02-22,SV Werder Bremen,VfB Stuttgart,1,1
+2019-02-23,FC Bayern München,Hertha BSC,1,0
+2019-02-23,Borussia Mönchengladbach,VfL Wolfsburg,0,3
+2019-02-23,SC Freiburg,FC Augsburg,5,1
+2019-02-23,1. FSV Mainz 05,FC Schalke 04,3,0
+2019-02-23,Fortuna Düsseldorf,1. FC Nürnberg,2,1
+2019-02-24,Hannover 96,Eintracht Frankfurt,0,3
+2019-02-24,Borussia Dortmund,Bayer 04 Leverkusen,3,2
+2019-02-25,RB Leipzig,TSG Hoffenheim,1,1
+2019-03-01,FC Augsburg,Borussia Dortmund,2,1
+2019-03-02,FC Schalke 04,Fortuna Düsseldorf,0,4
+2019-03-02,Bayer 04 Leverkusen,SC Freiburg,2,0
+2019-03-02,Eintracht Frankfurt,TSG Hoffenheim,3,2
+2019-03-02,Hertha BSC,1. FSV Mainz 05,2,1
+2019-03-02,1. FC Nürnberg,RB Leipzig,0,1
+2019-03-02,Borussia Mönchengladbach,FC Bayern München,1,5
+2019-03-03,VfB Stuttgart,Hannover 96,5,1
+2019-03-03,VfL Wolfsburg,SV Werder Bremen,1,1
+2019-03-08,SV Werder Bremen,FC Schalke 04,4,2
+2019-03-09,FC Bayern München,VfL Wolfsburg,6,0
+2019-03-09,Borussia Dortmund,VfB Stuttgart,3,1
+2019-03-09,RB Leipzig,FC Augsburg,0,0
+2019-03-09,SC Freiburg,Hertha BSC,2,1
+2019-03-09,1. FSV Mainz 05,Borussia Mönchengladbach,0,1
+2019-03-10,TSG Hoffenheim,1. FC Nürnberg,2,1
+2019-03-10,Hannover 96,Bayer 04 Leverkusen,2,3
+2019-03-11,Fortuna Düsseldorf,Eintracht Frankfurt,0,3
+2019-03-15,Borussia Mönchengladbach,SC Freiburg,1,1
+2019-03-16,FC Schalke 04,RB Leipzig,0,1
+2019-03-16,VfB Stuttgart,TSG Hoffenheim,1,1
+2019-03-16,FC Augsburg,Hannover 96,3,1
+2019-03-16,VfL Wolfsburg,Fortuna Düsseldorf,5,2
+2019-03-16,Hertha BSC,Borussia Dortmund,2,3
+2019-03-17,Bayer 04 Leverkusen,SV Werder Bremen,1,3
+2019-03-17,Eintracht Frankfurt,1. FC Nürnberg,1,0
+2019-03-17,FC Bayern München,1. FSV Mainz 05,6,0
+2019-03-29,TSG Hoffenheim,Bayer 04 Leverkusen,4,1
+2019-03-30,Borussia Dortmund,VfL Wolfsburg,2,0
+2019-03-30,SV Werder Bremen,1. FSV Mainz 05,3,1
+2019-03-30,SC Freiburg,FC Bayern München,1,1
+2019-03-30,Fortuna Düsseldorf,Borussia Mönchengladbach,3,1
+2019-03-30,1. FC Nürnberg,FC Augsburg,3,0
+2019-03-30,RB Leipzig,Hertha BSC,5,0
+2019-03-31,Hannover 96,FC Schalke 04,0,1
+2019-03-31,Eintracht Frankfurt,VfB Stuttgart,3,0
+2019-04-05,1. FSV Mainz 05,SC Freiburg,5,0
+2019-04-06,FC Schalke 04,Eintracht Frankfurt,1,2
+2019-04-06,Bayer 04 Leverkusen,RB Leipzig,2,4
+2019-04-06,VfB Stuttgart,1. FC Nürnberg,1,1
+2019-04-06,Hertha BSC,Fortuna Düsseldorf,1,2
+2019-04-06,VfL Wolfsburg,Hannover 96,3,1
+2019-04-06,FC Bayern München,Borussia Dortmund,5,0
+2019-04-07,FC Augsburg,TSG Hoffenheim,0,4
+2019-04-07,Borussia Mönchengladbach,SV Werder Bremen,1,1
+2019-04-12,1. FC Nürnberg,FC Schalke 04,1,1
+2019-04-13,RB Leipzig,VfL Wolfsburg,2,0
+2019-04-13,VfB Stuttgart,Bayer 04 Leverkusen,0,1
+2019-04-13,SV Werder Bremen,SC Freiburg,2,1
+2019-04-13,Hannover 96,Borussia Mönchengladbach,0,1
+2019-04-13,Borussia Dortmund,1. FSV Mainz 05,2,1
+2019-04-14,TSG Hoffenheim,Hertha BSC,2,0
+2019-04-14,Fortuna Düsseldorf,FC Bayern München,1,4
+2019-04-14,Eintracht Frankfurt,FC Augsburg,1,3
+2019-04-20,FC Bayern München,SV Werder Bremen,1,0
+2019-04-20,Bayer 04 Leverkusen,1. FC Nürnberg,2,0
+2019-04-20,FC Augsburg,VfB Stuttgart,6,0
+2019-04-20,1. FSV Mainz 05,Fortuna Düsseldorf,3,1
+2019-04-20,Borussia Mönchengladbach,RB Leipzig,1,2
+2019-04-20,FC Schalke 04,TSG Hoffenheim,2,5
+2019-04-21,SC Freiburg,Borussia Dortmund,0,4
+2019-04-21,Hertha BSC,Hannover 96,0,0
+2019-04-22,VfL Wolfsburg,Eintracht Frankfurt,1,1
+2019-04-26,FC Augsburg,Bayer 04 Leverkusen,1,4
+2019-04-27,Borussia Dortmund,FC Schalke 04,2,4
+2019-04-27,RB Leipzig,SC Freiburg,2,1
+2019-04-27,Eintracht Frankfurt,Hertha BSC,0,0
+2019-04-27,Hannover 96,1. FSV Mainz 05,1,0
+2019-04-27,Fortuna Düsseldorf,SV Werder Bremen,4,1
+2019-04-27,VfB Stuttgart,Borussia Mönchengladbach,1,0
+2019-04-28,TSG Hoffenheim,VfL Wolfsburg,1,4
+2019-04-28,1. FC Nürnberg,FC Bayern München,1,1
+2019-05-03,1. FSV Mainz 05,RB Leipzig,3,3
+2019-05-04,FC Bayern München,Hannover 96,3,1
+2019-05-04,Borussia Mönchengladbach,TSG Hoffenheim,2,2
+2019-05-04,Hertha BSC,VfB Stuttgart,3,1
+2019-05-04,VfL Wolfsburg,1. FC Nürnberg,2,0
+2019-05-04,SV Werder Bremen,Borussia Dortmund,2,2
+2019-05-05,FC Schalke 04,FC Augsburg,0,0
+2019-05-05,SC Freiburg,Fortuna Düsseldorf,1,1
+2019-05-05,Bayer 04 Leverkusen,Eintracht Frankfurt,6,1
+2019-05-11,TSG Hoffenheim,SV Werder Bremen,0,1
+2019-05-11,Borussia Dortmund,Fortuna Düsseldorf,3,2
+2019-05-11,Bayer 04 Leverkusen,FC Schalke 04,1,1
+2019-05-11,RB Leipzig,FC Bayern München,0,0
+2019-05-11,VfB Stuttgart,VfL Wolfsburg,3,0
+2019-05-11,FC Augsburg,Hertha BSC,3,4
+2019-05-11,Hannover 96,SC Freiburg,3,0
+2019-05-11,1. FC Nürnberg,Borussia Mönchengladbach,0,4
+2019-05-12,Eintracht Frankfurt,1. FSV Mainz 05,0,2
+2019-05-18,FC Bayern München,Eintracht Frankfurt,5,1
+2019-05-18,FC Schalke 04,VfB Stuttgart,0,0
+2019-05-18,Borussia Mönchengladbach,Borussia Dortmund,0,2
+2019-05-18,Hertha BSC,Bayer 04 Leverkusen,1,5
+2019-05-18,SV Werder Bremen,RB Leipzig,2,1
+2019-05-18,SC Freiburg,1. FC Nürnberg,5,1
+2019-05-18,1. FSV Mainz 05,TSG Hoffenheim,4,2
+2019-05-18,VfL Wolfsburg,FC Augsburg,8,1
+2019-05-18,Fortuna Düsseldorf,Hannover 96,2,1

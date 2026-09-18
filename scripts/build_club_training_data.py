@@ -96,6 +96,50 @@ TEAM_ALIASES = {
     "FC Schalke 04": "Schalke 04",
     "VfL Wolfsburg": "Wolfsburg",
     "1. FC Union Berlin": "Union Berlin",
+
+    # Bundesliga + 2. Bundesliga (data/club_raw/bundesliga*_*.csv, from
+    # OpenLigaDB - see scripts/fetch_bundesliga_data.py). Canonical forms
+    # cross-checked against a live The Odds API events call for
+    # soccer_germany_bundesliga / soccer_germany_bundesliga2 (2026/27
+    # season), same rule as the rest of this table: canonical = whatever
+    # the Odds API calls the club, not the scraper's own convention.
+    #
+    # Two currently-live clubs are a known exception: The Odds API's actual
+    # strings are "FC Schalke 04" and "Borussia Monchengladbach" (no
+    # umlaut), which conflict with this project's already-established
+    # canonical forms above ("Schalke 04", "Borussia Mönchengladbach" with
+    # umlaut - both already used by existing CL-derived data). Kept as-is
+    # for internal consistency; matching live Bundesliga odds responses
+    # against these canonical names will need its own normalize+match layer
+    # (same pattern as api/app.py's _ESPN_NAME_MAP or the crest/market-value
+    # fuzzy matching), not a literal string comparison.
+    "Bayer 04 Leverkusen": "Bayer Leverkusen",
+    "DSC Arminia Bielefeld": "Arminia Bielefeld",
+    "Energie Cottbus": "FC Energie Cottbus",
+    "FC Augsburg": "Augsburg",
+    "Hertha BSC": "Hertha Berlin",
+    "SC Paderborn 07": "SC Paderborn",
+    "SV 07 Elversberg": "Elversberg",
+    "SV Werder Bremen": "Werder Bremen",
+    "SpVgg Greuther Fürth": "Greuther Fürth",
+    "TSG 1899 Hoffenheim": "TSG Hoffenheim",
+    "1. FC Heidenheim 1846": "1. FC Heidenheim",
+    # Not currently in the top two tiers (no Odds API ground truth) - just
+    # collapsing the one duplicate spelling OpenLigaDB itself uses across
+    # different seasons so it isn't split into two "teams".
+    "Erzgebirge Aue": "FC Erzgebirge Aue",
+
+    # Pre-existing duplicates found while auditing the merged team list for
+    # this change (same "same club, two spellings" bug as PSG/Barcelona/etc.
+    # above) - the CL scraper was inconsistent season-to-season about
+    # including "FC"/"FC" suffixes. Not related to the Bundesliga add, but
+    # caught in passing and worth fixing since it was splitting real match
+    # history for four clubs (10-20 matches each stranded under the "FC"
+    # variant).
+    "Juventus FC": "Juventus",
+    "Manchester City FC": "Manchester City",
+    "Manchester United FC": "Manchester United",
+    "Newcastle United FC": "Newcastle United",
 }
 
 

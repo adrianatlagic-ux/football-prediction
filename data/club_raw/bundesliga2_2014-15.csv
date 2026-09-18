@@ -1,0 +1,307 @@
+date,home_team,away_team,home_score,away_score
+2014-08-01,Fortuna Düsseldorf,Eintracht Braunschweig,2,2
+2014-08-02,RB Leipzig,VfR Aalen,0,0
+2014-08-02,FC St. Pauli,FC Ingolstadt 04,1,1
+2014-08-02,VfL Bochum,SpVgg Greuther Fürth,1,1
+2014-08-03,1. FC Heidenheim 1846,FSV Frankfurt,2,1
+2014-08-03,1. FC Nürnberg,Erzgebirge Aue,1,0
+2014-08-03,Karlsruher SC,1. FC Union Berlin,0,0
+2014-08-03,SV Darmstadt 98,SV Sandhausen,1,0
+2014-08-04,1. FC Kaiserslautern,TSV 1860 München,3,2
+2014-08-08,VfR Aalen,FC St. Pauli,2,0
+2014-08-08,FSV Frankfurt,Karlsruher SC,2,3
+2014-08-08,1. FC Union Berlin,Fortuna Düsseldorf,1,1
+2014-08-09,Eintracht Braunschweig,1. FC Heidenheim 1846,3,0
+2014-08-09,Erzgebirge Aue,VfL Bochum,1,5
+2014-08-10,FC Ingolstadt 04,SV Darmstadt 98,2,2
+2014-08-10,TSV 1860 München,RB Leipzig,0,3
+2014-08-10,SV Sandhausen,1. FC Kaiserslautern,1,1
+2014-08-11,SpVgg Greuther Fürth,1. FC Nürnberg,5,1
+2014-08-22,FC St. Pauli,SV Sandhausen,2,1
+2014-08-22,1. FC Heidenheim 1846,TSV 1860 München,2,2
+2014-08-22,RB Leipzig,Erzgebirge Aue,1,0
+2014-08-23,1. FC Nürnberg,FSV Frankfurt,0,1
+2014-08-23,Fortuna Düsseldorf,Karlsruher SC,0,2
+2014-08-24,1. FC Kaiserslautern,Eintracht Braunschweig,2,1
+2014-08-24,FC Ingolstadt 04,SpVgg Greuther Fürth,2,0
+2014-08-24,SV Darmstadt 98,VfR Aalen,2,0
+2014-08-25,VfL Bochum,1. FC Union Berlin,1,1
+2014-08-29,1. FC Union Berlin,1. FC Nürnberg,0,4
+2014-08-29,VfR Aalen,1. FC Kaiserslautern,2,2
+2014-08-29,FSV Frankfurt,RB Leipzig,0,0
+2014-08-30,Karlsruher SC,1. FC Heidenheim 1846,1,1
+2014-08-30,Erzgebirge Aue,Fortuna Düsseldorf,0,3
+2014-08-31,Eintracht Braunschweig,VfL Bochum,1,2
+2014-08-31,TSV 1860 München,SV Darmstadt 98,1,1
+2014-08-31,SV Sandhausen,FC Ingolstadt 04,0,3
+2014-09-01,SpVgg Greuther Fürth,FC St. Pauli,3,0
+2014-09-12,1. FC Kaiserslautern,FSV Frankfurt,1,0
+2014-09-12,FC Ingolstadt 04,VfR Aalen,4,1
+2014-09-12,VfL Bochum,Karlsruher SC,1,1
+2014-09-13,RB Leipzig,Eintracht Braunschweig,3,1
+2014-09-13,SV Darmstadt 98,Erzgebirge Aue,2,0
+2014-09-14,FC St. Pauli,TSV 1860 München,1,2
+2014-09-14,SV Sandhausen,SpVgg Greuther Fürth,1,0
+2014-09-14,1. FC Heidenheim 1846,1. FC Union Berlin,3,1
+2014-09-15,1. FC Nürnberg,Fortuna Düsseldorf,0,2
+2014-09-19,Eintracht Braunschweig,SV Darmstadt 98,2,0
+2014-09-19,VfR Aalen,SV Sandhausen,0,1
+2014-09-19,Erzgebirge Aue,FC St. Pauli,3,0
+2014-09-20,SpVgg Greuther Fürth,1. FC Kaiserslautern,2,1
+2014-09-20,TSV 1860 München,FC Ingolstadt 04,1,1
+2014-09-20,FSV Frankfurt,VfL Bochum,1,5
+2014-09-21,Karlsruher SC,1. FC Nürnberg,3,0
+2014-09-21,Fortuna Düsseldorf,1. FC Heidenheim 1846,3,2
+2014-09-21,1. FC Union Berlin,RB Leipzig,2,1
+2014-09-23,SpVgg Greuther Fürth,VfR Aalen,1,1
+2014-09-23,FC St. Pauli,Eintracht Braunschweig,1,0
+2014-09-23,FC Ingolstadt 04,Erzgebirge Aue,1,1
+2014-09-23,SV Sandhausen,TSV 1860 München,1,0
+2014-09-24,1. FC Kaiserslautern,1. FC Union Berlin,1,0
+2014-09-24,1. FC Heidenheim 1846,1. FC Nürnberg,3,0
+2014-09-24,RB Leipzig,Karlsruher SC,3,1
+2014-09-24,SV Darmstadt 98,FSV Frankfurt,4,0
+2014-09-25,VfL Bochum,Fortuna Düsseldorf,1,1
+2014-09-26,Eintracht Braunschweig,SV Sandhausen,2,1
+2014-09-26,TSV 1860 München,SpVgg Greuther Fürth,2,0
+2014-09-26,Erzgebirge Aue,VfR Aalen,1,0
+2014-09-27,Karlsruher SC,FC Ingolstadt 04,0,1
+2014-09-27,1. FC Union Berlin,SV Darmstadt 98,1,1
+2014-09-28,Fortuna Düsseldorf,RB Leipzig,2,2
+2014-09-28,FSV Frankfurt,FC St. Pauli,3,3
+2014-09-28,1. FC Heidenheim 1846,VfL Bochum,5,0
+2014-09-29,1. FC Nürnberg,1. FC Kaiserslautern,3,2
+2014-10-03,SpVgg Greuther Fürth,Erzgebirge Aue,2,0
+2014-10-03,VfR Aalen,TSV 1860 München,2,0
+2014-10-03,VfL Bochum,1. FC Nürnberg,1,1
+2014-10-04,1. FC Kaiserslautern,Karlsruher SC,2,0
+2014-10-04,FC St. Pauli,1. FC Union Berlin,3,0
+2014-10-05,FC Ingolstadt 04,Eintracht Braunschweig,1,0
+2014-10-05,SV Sandhausen,FSV Frankfurt,0,3
+2014-10-05,SV Darmstadt 98,Fortuna Düsseldorf,1,4
+2014-10-06,RB Leipzig,1. FC Heidenheim 1846,1,1
+2014-10-17,VfL Bochum,SV Darmstadt 98,1,1
+2014-10-17,1. FC Heidenheim 1846,1. FC Kaiserslautern,1,1
+2014-10-17,1. FC Nürnberg,RB Leipzig,1,0
+2014-10-18,Eintracht Braunschweig,SpVgg Greuther Fürth,2,2
+2014-10-18,1. FC Union Berlin,SV Sandhausen,3,1
+2014-10-19,Karlsruher SC,VfR Aalen,0,0
+2014-10-19,FSV Frankfurt,FC Ingolstadt 04,0,1
+2014-10-19,Erzgebirge Aue,TSV 1860 München,4,1
+2014-10-20,Fortuna Düsseldorf,FC St. Pauli,1,0
+2014-10-24,SpVgg Greuther Fürth,FSV Frankfurt,2,5
+2014-10-24,VfR Aalen,1. FC Union Berlin,1,2
+2014-10-24,RB Leipzig,VfL Bochum,2,0
+2014-10-25,1. FC Kaiserslautern,Fortuna Düsseldorf,1,1
+2014-10-25,FC St. Pauli,Karlsruher SC,0,4
+2014-10-26,TSV 1860 München,Eintracht Braunschweig,1,2
+2014-10-26,FC Ingolstadt 04,1. FC Heidenheim 1846,1,0
+2014-10-26,SV Sandhausen,Erzgebirge Aue,1,1
+2014-10-27,SV Darmstadt 98,1. FC Nürnberg,3,0
+2014-10-31,Karlsruher SC,SV Sandhausen,1,1
+2014-10-31,Fortuna Düsseldorf,FC Ingolstadt 04,0,0
+2014-10-31,1. FC Union Berlin,SpVgg Greuther Fürth,0,1
+2014-11-01,1. FC Nürnberg,FC St. Pauli,2,2
+2014-11-01,1. FC Heidenheim 1846,SV Darmstadt 98,1,1
+2014-11-02,Eintracht Braunschweig,VfR Aalen,2,1
+2014-11-02,FSV Frankfurt,Erzgebirge Aue,1,1
+2014-11-02,VfL Bochum,TSV 1860 München,0,3
+2014-11-03,RB Leipzig,1. FC Kaiserslautern,0,0
+2014-11-07,1. FC Kaiserslautern,VfL Bochum,2,2
+2014-11-07,VfR Aalen,FSV Frankfurt,0,1
+2014-11-07,SV Sandhausen,1. FC Nürnberg,2,1
+2014-11-08,FC St. Pauli,1. FC Heidenheim 1846,0,3
+2014-11-08,SV Darmstadt 98,RB Leipzig,1,0
+2014-11-09,SpVgg Greuther Fürth,Karlsruher SC,0,3
+2014-11-09,FC Ingolstadt 04,1. FC Union Berlin,3,3
+2014-11-09,Erzgebirge Aue,Eintracht Braunschweig,1,2
+2014-11-10,TSV 1860 München,Fortuna Düsseldorf,0,1
+2014-11-21,1. FC Heidenheim 1846,SV Sandhausen,3,0
+2014-11-21,VfL Bochum,VfR Aalen,4,0
+2014-11-21,1. FC Kaiserslautern,SV Darmstadt 98,0,0
+2014-11-22,1. FC Union Berlin,TSV 1860 München,1,4
+2014-11-22,FSV Frankfurt,Eintracht Braunschweig,0,3
+2014-11-23,1. FC Nürnberg,FC Ingolstadt 04,2,1
+2014-11-23,Karlsruher SC,Erzgebirge Aue,1,0
+2014-11-23,RB Leipzig,FC St. Pauli,4,1
+2014-11-24,Fortuna Düsseldorf,SpVgg Greuther Fürth,3,3
+2014-11-28,SpVgg Greuther Fürth,1. FC Heidenheim 1846,0,0
+2014-11-28,Erzgebirge Aue,1. FC Union Berlin,1,2
+2014-11-28,SV Darmstadt 98,Karlsruher SC,0,0
+2014-11-29,FC Ingolstadt 04,VfL Bochum,3,0
+2014-11-29,VfR Aalen,Fortuna Düsseldorf,2,0
+2014-11-30,TSV 1860 München,FSV Frankfurt,0,2
+2014-11-30,FC St. Pauli,1. FC Kaiserslautern,1,3
+2014-11-30,SV Sandhausen,RB Leipzig,0,0
+2014-12-01,Eintracht Braunschweig,1. FC Nürnberg,1,0
+2014-12-05,Fortuna Düsseldorf,SV Sandhausen,1,3
+2014-12-05,VfL Bochum,FC St. Pauli,3,3
+2014-12-05,1. FC Heidenheim 1846,VfR Aalen,0,1
+2014-12-06,1. FC Kaiserslautern,Erzgebirge Aue,3,0
+2014-12-06,SV Darmstadt 98,SpVgg Greuther Fürth,0,0
+2014-12-07,Karlsruher SC,Eintracht Braunschweig,1,0
+2014-12-07,1. FC Union Berlin,FSV Frankfurt,2,1
+2014-12-07,RB Leipzig,FC Ingolstadt 04,0,1
+2014-12-08,1. FC Nürnberg,TSV 1860 München,2,1
+2014-12-12,SpVgg Greuther Fürth,RB Leipzig,0,1
+2014-12-12,SV Sandhausen,VfL Bochum,0,0
+2014-12-12,Erzgebirge Aue,1. FC Heidenheim 1846,1,1
+2014-12-13,Eintracht Braunschweig,1. FC Union Berlin,1,1
+2014-12-13,TSV 1860 München,Karlsruher SC,2,3
+2014-12-13,FSV Frankfurt,Fortuna Düsseldorf,0,2
+2014-12-14,FC St. Pauli,SV Darmstadt 98,0,1
+2014-12-14,FC Ingolstadt 04,1. FC Kaiserslautern,2,0
+2014-12-14,VfR Aalen,1. FC Nürnberg,1,2
+2014-12-16,Eintracht Braunschweig,Fortuna Düsseldorf,2,1
+2014-12-16,SpVgg Greuther Fürth,VfL Bochum,0,0
+2014-12-16,1. FC Union Berlin,Karlsruher SC,2,0
+2014-12-16,FSV Frankfurt,1. FC Heidenheim 1846,2,0
+2014-12-17,TSV 1860 München,1. FC Kaiserslautern,1,1
+2014-12-17,FC Ingolstadt 04,FC St. Pauli,2,1
+2014-12-17,VfR Aalen,RB Leipzig,0,0
+2014-12-17,SV Sandhausen,SV Darmstadt 98,1,2
+2014-12-17,Erzgebirge Aue,1. FC Nürnberg,0,1
+2014-12-19,Karlsruher SC,FSV Frankfurt,4,1
+2014-12-19,Fortuna Düsseldorf,1. FC Union Berlin,1,0
+2014-12-19,1. FC Heidenheim 1846,Eintracht Braunschweig,0,1
+2014-12-20,1. FC Nürnberg,SpVgg Greuther Fürth,0,0
+2014-12-20,FC St. Pauli,VfR Aalen,3,1
+2014-12-21,1. FC Kaiserslautern,SV Sandhausen,1,0
+2014-12-21,VfL Bochum,Erzgebirge Aue,1,1
+2014-12-21,SV Darmstadt 98,FC Ingolstadt 04,2,2
+2014-12-22,RB Leipzig,TSV 1860 München,1,1
+2015-02-06,SpVgg Greuther Fürth,FC Ingolstadt 04,0,1
+2015-02-06,VfR Aalen,SV Darmstadt 98,0,0
+2015-02-06,Erzgebirge Aue,RB Leipzig,2,0
+2015-02-07,1. FC Union Berlin,VfL Bochum,2,1
+2015-02-07,SV Sandhausen,FC St. Pauli,0,0
+2015-02-08,Eintracht Braunschweig,1. FC Kaiserslautern,0,2
+2015-02-08,Karlsruher SC,Fortuna Düsseldorf,1,1
+2015-02-08,FSV Frankfurt,1. FC Nürnberg,2,1
+2015-02-09,TSV 1860 München,1. FC Heidenheim 1846,1,2
+2015-02-13,Fortuna Düsseldorf,Erzgebirge Aue,2,3
+2015-02-13,VfL Bochum,Eintracht Braunschweig,3,2
+2015-02-13,1. FC Heidenheim 1846,Karlsruher SC,0,1
+2015-02-14,1. FC Kaiserslautern,VfR Aalen,1,0
+2015-02-14,FC Ingolstadt 04,SV Sandhausen,1,3
+2015-02-15,1. FC Nürnberg,1. FC Union Berlin,3,1
+2015-02-15,RB Leipzig,FSV Frankfurt,0,1
+2015-02-15,SV Darmstadt 98,TSV 1860 München,1,1
+2015-02-16,FC St. Pauli,SpVgg Greuther Fürth,0,1
+2015-02-20,SpVgg Greuther Fürth,SV Sandhausen,0,0
+2015-02-20,VfR Aalen,FC Ingolstadt 04,1,1
+2015-02-20,Erzgebirge Aue,SV Darmstadt 98,0,1
+2015-02-21,Karlsruher SC,VfL Bochum,0,0
+2015-02-21,TSV 1860 München,FC St. Pauli,2,1
+2015-02-22,Fortuna Düsseldorf,1. FC Nürnberg,1,3
+2015-02-22,1. FC Union Berlin,1. FC Heidenheim 1846,3,1
+2015-02-22,FSV Frankfurt,1. FC Kaiserslautern,2,0
+2015-02-23,Eintracht Braunschweig,RB Leipzig,1,1
+2015-02-27,1. FC Kaiserslautern,SpVgg Greuther Fürth,2,1
+2015-02-27,VfL Bochum,FSV Frankfurt,3,3
+2015-02-27,SV Darmstadt 98,Eintracht Braunschweig,1,0
+2015-02-28,1. FC Nürnberg,Karlsruher SC,1,1
+2015-02-28,SV Sandhausen,VfR Aalen,2,0
+2015-03-01,FC St. Pauli,Erzgebirge Aue,0,0
+2015-03-01,1. FC Heidenheim 1846,Fortuna Düsseldorf,1,2
+2015-03-01,RB Leipzig,1. FC Union Berlin,3,2
+2015-03-02,FC Ingolstadt 04,TSV 1860 München,1,1
+2015-03-06,1. FC Nürnberg,1. FC Heidenheim 1846,0,1
+2015-03-06,Fortuna Düsseldorf,VfL Bochum,2,2
+2015-03-06,Erzgebirge Aue,FC Ingolstadt 04,0,3
+2015-03-07,Eintracht Braunschweig,FC St. Pauli,0,2
+2015-03-07,VfR Aalen,SpVgg Greuther Fürth,1,1
+2015-03-08,TSV 1860 München,SV Sandhausen,2,3
+2015-03-08,1. FC Union Berlin,1. FC Kaiserslautern,0,0
+2015-03-08,FSV Frankfurt,SV Darmstadt 98,1,1
+2015-03-09,Karlsruher SC,RB Leipzig,0,0
+2015-03-13,SpVgg Greuther Fürth,TSV 1860 München,0,3
+2015-03-13,VfL Bochum,1. FC Heidenheim 1846,4,1
+2015-03-13,SV Darmstadt 98,1. FC Union Berlin,5,0
+2015-03-14,1. FC Kaiserslautern,1. FC Nürnberg,2,1
+2015-03-14,FC St. Pauli,FSV Frankfurt,1,1
+2015-03-15,FC Ingolstadt 04,Karlsruher SC,1,3
+2015-03-15,VfR Aalen,Erzgebirge Aue,3,0
+2015-03-15,SV Sandhausen,Eintracht Braunschweig,0,1
+2015-03-16,RB Leipzig,Fortuna Düsseldorf,3,1
+2015-03-20,TSV 1860 München,VfR Aalen,1,1
+2015-03-20,1. FC Union Berlin,FC St. Pauli,1,0
+2015-03-20,FSV Frankfurt,SV Sandhausen,1,1
+2015-03-21,Eintracht Braunschweig,FC Ingolstadt 04,0,0
+2015-03-21,Fortuna Düsseldorf,SV Darmstadt 98,2,0
+2015-03-22,Karlsruher SC,1. FC Kaiserslautern,0,0
+2015-03-22,Erzgebirge Aue,SpVgg Greuther Fürth,0,0
+2015-03-22,1. FC Heidenheim 1846,RB Leipzig,1,0
+2015-03-23,1. FC Nürnberg,VfL Bochum,1,2
+2015-04-04,SpVgg Greuther Fürth,Eintracht Braunschweig,1,2
+2015-04-04,1. FC Kaiserslautern,1. FC Heidenheim 1846,4,0
+2015-04-05,TSV 1860 München,Erzgebirge Aue,0,1
+2015-04-05,FC Ingolstadt 04,FSV Frankfurt,2,0
+2015-04-05,VfR Aalen,Karlsruher SC,2,2
+2015-04-05,SV Sandhausen,1. FC Union Berlin,1,1
+2015-04-05,RB Leipzig,1. FC Nürnberg,2,1
+2015-04-05,SV Darmstadt 98,VfL Bochum,2,0
+2015-04-06,FC St. Pauli,Fortuna Düsseldorf,4,0
+2015-04-10,1. FC Nürnberg,SV Darmstadt 98,1,1
+2015-04-10,Karlsruher SC,FC St. Pauli,3,0
+2015-04-10,1. FC Heidenheim 1846,FC Ingolstadt 04,0,1
+2015-04-11,Eintracht Braunschweig,TSV 1860 München,2,0
+2015-04-11,FSV Frankfurt,SpVgg Greuther Fürth,1,1
+2015-04-12,1. FC Union Berlin,VfR Aalen,1,1
+2015-04-12,Erzgebirge Aue,SV Sandhausen,0,1
+2015-04-12,VfL Bochum,RB Leipzig,1,2
+2015-04-13,Fortuna Düsseldorf,1. FC Kaiserslautern,1,1
+2015-04-17,FC St. Pauli,1. FC Nürnberg,1,0
+2015-04-17,FC Ingolstadt 04,Fortuna Düsseldorf,3,2
+2015-04-17,SV Sandhausen,Karlsruher SC,0,0
+2015-04-18,TSV 1860 München,VfL Bochum,2,1
+2015-04-18,VfR Aalen,Eintracht Braunschweig,2,1
+2015-04-19,SpVgg Greuther Fürth,1. FC Union Berlin,2,2
+2015-04-19,Erzgebirge Aue,FSV Frankfurt,1,0
+2015-04-19,SV Darmstadt 98,1. FC Heidenheim 1846,1,1
+2015-04-20,1. FC Kaiserslautern,RB Leipzig,1,1
+2015-04-24,1. FC Nürnberg,SV Sandhausen,2,0
+2015-04-24,VfL Bochum,1. FC Kaiserslautern,0,2
+2015-04-24,RB Leipzig,SV Darmstadt 98,2,1
+2015-04-25,Karlsruher SC,SpVgg Greuther Fürth,2,1
+2015-04-25,Fortuna Düsseldorf,TSV 1860 München,1,1
+2015-04-26,1. FC Union Berlin,FC Ingolstadt 04,2,2
+2015-04-26,FSV Frankfurt,VfR Aalen,1,1
+2015-04-26,1. FC Heidenheim 1846,FC St. Pauli,2,1
+2015-04-27,Eintracht Braunschweig,Erzgebirge Aue,4,2
+2015-05-02,Eintracht Braunschweig,FSV Frankfurt,2,0
+2015-05-02,SV Darmstadt 98,1. FC Kaiserslautern,3,2
+2015-05-03,SpVgg Greuther Fürth,Fortuna Düsseldorf,3,0
+2015-05-03,TSV 1860 München,1. FC Union Berlin,0,3
+2015-05-03,FC St. Pauli,RB Leipzig,1,0
+2015-05-03,VfR Aalen,VfL Bochum,2,4
+2015-05-03,SV Sandhausen,1. FC Heidenheim 1846,2,2
+2015-05-03,Erzgebirge Aue,Karlsruher SC,3,1
+2015-05-04,FC Ingolstadt 04,1. FC Nürnberg,1,1
+2015-05-08,Fortuna Düsseldorf,VfR Aalen,0,2
+2015-05-08,FSV Frankfurt,TSV 1860 München,0,1
+2015-05-08,RB Leipzig,SV Sandhausen,0,4
+2015-05-09,1. FC Kaiserslautern,FC St. Pauli,0,2
+2015-05-09,1. FC Union Berlin,Erzgebirge Aue,1,2
+2015-05-10,1. FC Nürnberg,Eintracht Braunschweig,3,1
+2015-05-10,VfL Bochum,FC Ingolstadt 04,2,1
+2015-05-10,1. FC Heidenheim 1846,SpVgg Greuther Fürth,3,0
+2015-05-11,Karlsruher SC,SV Darmstadt 98,0,1
+2015-05-17,SpVgg Greuther Fürth,SV Darmstadt 98,1,0
+2015-05-17,Eintracht Braunschweig,Karlsruher SC,0,2
+2015-05-17,TSV 1860 München,1. FC Nürnberg,2,1
+2015-05-17,FC St. Pauli,VfL Bochum,5,1
+2015-05-17,FC Ingolstadt 04,RB Leipzig,2,1
+2015-05-17,VfR Aalen,1. FC Heidenheim 1846,2,4
+2015-05-17,SV Sandhausen,Fortuna Düsseldorf,0,2
+2015-05-17,FSV Frankfurt,1. FC Union Berlin,1,3
+2015-05-17,Erzgebirge Aue,1. FC Kaiserslautern,0,0
+2015-05-24,1. FC Nürnberg,VfR Aalen,2,1
+2015-05-24,1. FC Kaiserslautern,FC Ingolstadt 04,1,1
+2015-05-24,Karlsruher SC,TSV 1860 München,2,0
+2015-05-24,Fortuna Düsseldorf,FSV Frankfurt,2,3
+2015-05-24,1. FC Union Berlin,Eintracht Braunschweig,2,0
+2015-05-24,VfL Bochum,SV Sandhausen,0,0
+2015-05-24,1. FC Heidenheim 1846,Erzgebirge Aue,2,2
+2015-05-24,RB Leipzig,SpVgg Greuther Fürth,2,0
+2015-05-24,SV Darmstadt 98,FC St. Pauli,1,0

@@ -1,0 +1,307 @@
+date,home_team,away_team,home_score,away_score
+2016-08-26,FC Bayern München,SV Werder Bremen,6,0
+2016-08-27,Borussia Dortmund,1. FSV Mainz 05,2,1
+2016-08-27,1. FC Köln,SV Darmstadt 98,2,0
+2016-08-27,Hamburger SV,FC Ingolstadt 04,1,1
+2016-08-27,FC Augsburg,VfL Wolfsburg,0,2
+2016-08-27,Eintracht Frankfurt,FC Schalke 04,1,0
+2016-08-27,Borussia Mönchengladbach,Bayer 04 Leverkusen,2,1
+2016-08-28,Hertha BSC,SC Freiburg,2,1
+2016-08-28,TSG Hoffenheim,RB Leipzig,2,2
+2016-09-09,FC Schalke 04,FC Bayern München,0,2
+2016-09-10,Bayer 04 Leverkusen,Hamburger SV,3,1
+2016-09-10,VfL Wolfsburg,1. FC Köln,0,0
+2016-09-10,FC Ingolstadt 04,Hertha BSC,0,2
+2016-09-10,SV Darmstadt 98,Eintracht Frankfurt,1,0
+2016-09-10,SC Freiburg,Borussia Mönchengladbach,3,1
+2016-09-10,RB Leipzig,Borussia Dortmund,1,0
+2016-09-11,SV Werder Bremen,FC Augsburg,1,2
+2016-09-11,1. FSV Mainz 05,TSG Hoffenheim,4,4
+2016-09-16,1. FC Köln,SC Freiburg,3,0
+2016-09-17,FC Bayern München,FC Ingolstadt 04,3,1
+2016-09-17,Borussia Dortmund,SV Darmstadt 98,6,0
+2016-09-17,Hamburger SV,RB Leipzig,0,4
+2016-09-17,TSG Hoffenheim,VfL Wolfsburg,0,0
+2016-09-17,Eintracht Frankfurt,Bayer 04 Leverkusen,2,1
+2016-09-17,Borussia Mönchengladbach,SV Werder Bremen,4,1
+2016-09-18,FC Augsburg,1. FSV Mainz 05,1,3
+2016-09-18,Hertha BSC,FC Schalke 04,2,0
+2016-09-20,VfL Wolfsburg,Borussia Dortmund,1,5
+2016-09-20,FC Ingolstadt 04,Eintracht Frankfurt,0,2
+2016-09-20,SV Darmstadt 98,TSG Hoffenheim,1,1
+2016-09-20,SC Freiburg,Hamburger SV,1,0
+2016-09-21,FC Bayern München,Hertha BSC,3,0
+2016-09-21,Bayer 04 Leverkusen,FC Augsburg,0,0
+2016-09-21,FC Schalke 04,1. FC Köln,1,3
+2016-09-21,SV Werder Bremen,1. FSV Mainz 05,1,2
+2016-09-21,RB Leipzig,Borussia Mönchengladbach,1,1
+2016-09-23,Borussia Dortmund,SC Freiburg,3,1
+2016-09-24,Borussia Mönchengladbach,FC Ingolstadt 04,2,0
+2016-09-24,1. FSV Mainz 05,Bayer 04 Leverkusen,2,3
+2016-09-24,Hamburger SV,FC Bayern München,0,1
+2016-09-24,FC Augsburg,SV Darmstadt 98,1,0
+2016-09-24,Eintracht Frankfurt,Hertha BSC,3,3
+2016-09-24,SV Werder Bremen,VfL Wolfsburg,2,1
+2016-09-25,TSG Hoffenheim,FC Schalke 04,2,1
+2016-09-25,1. FC Köln,RB Leipzig,1,1
+2016-09-30,RB Leipzig,FC Augsburg,2,1
+2016-10-01,FC Bayern München,1. FC Köln,1,1
+2016-10-01,Hertha BSC,Hamburger SV,2,0
+2016-10-01,FC Ingolstadt 04,TSG Hoffenheim,1,2
+2016-10-01,SV Darmstadt 98,SV Werder Bremen,2,2
+2016-10-01,SC Freiburg,Eintracht Frankfurt,1,0
+2016-10-01,Bayer 04 Leverkusen,Borussia Dortmund,2,0
+2016-10-02,VfL Wolfsburg,1. FSV Mainz 05,0,0
+2016-10-02,FC Schalke 04,Borussia Mönchengladbach,4,0
+2016-10-14,Borussia Dortmund,Hertha BSC,1,1
+2016-10-15,Borussia Mönchengladbach,Hamburger SV,0,0
+2016-10-15,1. FC Köln,FC Ingolstadt 04,2,1
+2016-10-15,FC Augsburg,FC Schalke 04,1,1
+2016-10-15,TSG Hoffenheim,SC Freiburg,2,1
+2016-10-15,Eintracht Frankfurt,FC Bayern München,2,2
+2016-10-15,SV Werder Bremen,Bayer 04 Leverkusen,2,1
+2016-10-16,1. FSV Mainz 05,SV Darmstadt 98,2,1
+2016-10-16,VfL Wolfsburg,RB Leipzig,0,1
+2016-10-21,Hamburger SV,Eintracht Frankfurt,0,3
+2016-10-22,Bayer 04 Leverkusen,TSG Hoffenheim,0,3
+2016-10-22,Hertha BSC,1. FC Köln,2,1
+2016-10-22,FC Ingolstadt 04,Borussia Dortmund,3,3
+2016-10-22,SV Darmstadt 98,VfL Wolfsburg,3,1
+2016-10-22,SC Freiburg,FC Augsburg,2,1
+2016-10-22,FC Bayern München,Borussia Mönchengladbach,2,0
+2016-10-23,RB Leipzig,SV Werder Bremen,3,1
+2016-10-23,FC Schalke 04,1. FSV Mainz 05,3,0
+2016-10-28,Borussia Mönchengladbach,Eintracht Frankfurt,0,0
+2016-10-29,1. FSV Mainz 05,FC Ingolstadt 04,2,0
+2016-10-29,VfL Wolfsburg,Bayer 04 Leverkusen,1,2
+2016-10-29,FC Augsburg,FC Bayern München,1,3
+2016-10-29,SV Werder Bremen,SC Freiburg,1,3
+2016-10-29,SV Darmstadt 98,RB Leipzig,0,2
+2016-10-29,Borussia Dortmund,FC Schalke 04,0,0
+2016-10-30,TSG Hoffenheim,Hertha BSC,1,0
+2016-10-30,1. FC Köln,Hamburger SV,3,0
+2016-11-04,Hertha BSC,Borussia Mönchengladbach,3,0
+2016-11-05,FC Bayern München,TSG Hoffenheim,1,1
+2016-11-05,Bayer 04 Leverkusen,SV Darmstadt 98,3,2
+2016-11-05,Hamburger SV,Borussia Dortmund,2,5
+2016-11-05,FC Ingolstadt 04,FC Augsburg,0,2
+2016-11-05,SC Freiburg,VfL Wolfsburg,0,3
+2016-11-05,Eintracht Frankfurt,1. FC Köln,1,0
+2016-11-06,RB Leipzig,1. FSV Mainz 05,3,1
+2016-11-06,FC Schalke 04,SV Werder Bremen,3,1
+2016-11-18,Bayer 04 Leverkusen,RB Leipzig,2,3
+2016-11-19,Borussia Mönchengladbach,1. FC Köln,1,2
+2016-11-19,1. FSV Mainz 05,SC Freiburg,4,2
+2016-11-19,VfL Wolfsburg,FC Schalke 04,0,1
+2016-11-19,FC Augsburg,Hertha BSC,0,0
+2016-11-19,SV Darmstadt 98,FC Ingolstadt 04,0,1
+2016-11-19,Borussia Dortmund,FC Bayern München,1,0
+2016-11-20,TSG Hoffenheim,Hamburger SV,2,2
+2016-11-20,SV Werder Bremen,Eintracht Frankfurt,1,2
+2016-11-25,SC Freiburg,RB Leipzig,1,4
+2016-11-26,Borussia Mönchengladbach,TSG Hoffenheim,1,1
+2016-11-26,1. FC Köln,FC Augsburg,0,0
+2016-11-26,Hamburger SV,SV Werder Bremen,2,2
+2016-11-26,FC Ingolstadt 04,VfL Wolfsburg,1,1
+2016-11-26,Eintracht Frankfurt,Borussia Dortmund,2,1
+2016-11-26,FC Bayern München,Bayer 04 Leverkusen,2,1
+2016-11-27,FC Schalke 04,SV Darmstadt 98,3,1
+2016-11-27,Hertha BSC,1. FSV Mainz 05,2,1
+2016-12-02,1. FSV Mainz 05,FC Bayern München,1,3
+2016-12-03,Borussia Dortmund,Borussia Mönchengladbach,4,1
+2016-12-03,Bayer 04 Leverkusen,SC Freiburg,1,1
+2016-12-03,VfL Wolfsburg,Hertha BSC,2,3
+2016-12-03,SV Werder Bremen,FC Ingolstadt 04,2,1
+2016-12-03,TSG Hoffenheim,1. FC Köln,4,0
+2016-12-03,RB Leipzig,FC Schalke 04,2,1
+2016-12-04,SV Darmstadt 98,Hamburger SV,0,2
+2016-12-04,FC Augsburg,Eintracht Frankfurt,1,1
+2016-12-09,Eintracht Frankfurt,TSG Hoffenheim,0,0
+2016-12-10,FC Bayern München,VfL Wolfsburg,5,0
+2016-12-10,1. FC Köln,Borussia Dortmund,1,1
+2016-12-10,Hamburger SV,FC Augsburg,1,0
+2016-12-10,FC Ingolstadt 04,RB Leipzig,1,0
+2016-12-10,SC Freiburg,SV Darmstadt 98,1,0
+2016-12-10,Hertha BSC,SV Werder Bremen,0,1
+2016-12-11,Borussia Mönchengladbach,1. FSV Mainz 05,1,0
+2016-12-11,FC Schalke 04,Bayer 04 Leverkusen,0,1
+2016-12-16,TSG Hoffenheim,Borussia Dortmund,2,2
+2016-12-17,FC Schalke 04,SC Freiburg,1,1
+2016-12-17,1. FSV Mainz 05,Hamburger SV,3,1
+2016-12-17,FC Augsburg,Borussia Mönchengladbach,1,0
+2016-12-17,SV Werder Bremen,1. FC Köln,1,1
+2016-12-17,RB Leipzig,Hertha BSC,2,0
+2016-12-17,VfL Wolfsburg,Eintracht Frankfurt,1,0
+2016-12-18,SV Darmstadt 98,FC Bayern München,0,1
+2016-12-18,Bayer 04 Leverkusen,FC Ingolstadt 04,1,2
+2016-12-20,Borussia Dortmund,FC Augsburg,1,1
+2016-12-20,Borussia Mönchengladbach,VfL Wolfsburg,1,2
+2016-12-20,Hamburger SV,FC Schalke 04,2,1
+2016-12-20,Eintracht Frankfurt,1. FSV Mainz 05,3,0
+2016-12-21,FC Bayern München,RB Leipzig,3,0
+2016-12-21,Hertha BSC,SV Darmstadt 98,2,0
+2016-12-21,1. FC Köln,Bayer 04 Leverkusen,1,1
+2016-12-21,FC Ingolstadt 04,SC Freiburg,1,2
+2016-12-21,TSG Hoffenheim,SV Werder Bremen,1,1
+2017-01-20,SC Freiburg,FC Bayern München,1,2
+2017-01-21,FC Schalke 04,FC Ingolstadt 04,1,0
+2017-01-21,VfL Wolfsburg,Hamburger SV,1,0
+2017-01-21,FC Augsburg,TSG Hoffenheim,0,2
+2017-01-21,SV Werder Bremen,Borussia Dortmund,1,2
+2017-01-21,SV Darmstadt 98,Borussia Mönchengladbach,0,0
+2017-01-21,RB Leipzig,Eintracht Frankfurt,3,0
+2017-01-22,Bayer 04 Leverkusen,Hertha BSC,3,1
+2017-01-22,1. FSV Mainz 05,1. FC Köln,0,0
+2017-01-27,FC Schalke 04,Eintracht Frankfurt,0,1
+2017-01-28,SV Werder Bremen,FC Bayern München,1,2
+2017-01-28,SV Darmstadt 98,1. FC Köln,1,6
+2017-01-28,FC Ingolstadt 04,Hamburger SV,3,1
+2017-01-28,VfL Wolfsburg,FC Augsburg,1,2
+2017-01-28,RB Leipzig,TSG Hoffenheim,2,1
+2017-01-28,Bayer 04 Leverkusen,Borussia Mönchengladbach,2,3
+2017-01-29,SC Freiburg,Hertha BSC,2,1
+2017-01-29,1. FSV Mainz 05,Borussia Dortmund,1,1
+2017-02-03,Hamburger SV,Bayer 04 Leverkusen,1,0
+2017-02-04,Borussia Mönchengladbach,SC Freiburg,3,0
+2017-02-04,FC Bayern München,FC Schalke 04,1,1
+2017-02-04,TSG Hoffenheim,1. FSV Mainz 05,4,0
+2017-02-04,1. FC Köln,VfL Wolfsburg,1,0
+2017-02-04,Hertha BSC,FC Ingolstadt 04,1,0
+2017-02-04,Borussia Dortmund,RB Leipzig,1,0
+2017-02-05,FC Augsburg,SV Werder Bremen,3,2
+2017-02-05,Eintracht Frankfurt,SV Darmstadt 98,2,0
+2017-02-10,1. FSV Mainz 05,FC Augsburg,2,0
+2017-02-11,FC Ingolstadt 04,FC Bayern München,0,2
+2017-02-11,Bayer 04 Leverkusen,Eintracht Frankfurt,3,0
+2017-02-11,SV Darmstadt 98,Borussia Dortmund,2,1
+2017-02-11,SV Werder Bremen,Borussia Mönchengladbach,0,1
+2017-02-11,RB Leipzig,Hamburger SV,0,3
+2017-02-11,FC Schalke 04,Hertha BSC,2,0
+2017-02-12,VfL Wolfsburg,TSG Hoffenheim,2,1
+2017-02-12,SC Freiburg,1. FC Köln,2,1
+2017-02-17,FC Augsburg,Bayer 04 Leverkusen,1,3
+2017-02-18,1. FSV Mainz 05,SV Werder Bremen,0,2
+2017-02-18,TSG Hoffenheim,SV Darmstadt 98,2,0
+2017-02-18,Hertha BSC,FC Bayern München,1,1
+2017-02-18,Borussia Dortmund,VfL Wolfsburg,3,0
+2017-02-18,Eintracht Frankfurt,FC Ingolstadt 04,0,2
+2017-02-18,Hamburger SV,SC Freiburg,2,2
+2017-02-19,Borussia Mönchengladbach,RB Leipzig,1,2
+2017-02-19,1. FC Köln,FC Schalke 04,1,1
+2017-02-24,VfL Wolfsburg,SV Werder Bremen,1,2
+2017-02-25,FC Bayern München,Hamburger SV,8,0
+2017-02-25,SV Darmstadt 98,FC Augsburg,1,2
+2017-02-25,SC Freiburg,Borussia Dortmund,0,3
+2017-02-25,Bayer 04 Leverkusen,1. FSV Mainz 05,0,2
+2017-02-25,RB Leipzig,1. FC Köln,3,1
+2017-02-25,Hertha BSC,Eintracht Frankfurt,2,0
+2017-02-26,FC Ingolstadt 04,Borussia Mönchengladbach,0,2
+2017-02-26,FC Schalke 04,TSG Hoffenheim,1,1
+2017-03-03,FC Augsburg,RB Leipzig,2,2
+2017-03-04,Borussia Dortmund,Bayer 04 Leverkusen,6,2
+2017-03-04,1. FSV Mainz 05,VfL Wolfsburg,1,1
+2017-03-04,TSG Hoffenheim,FC Ingolstadt 04,5,2
+2017-03-04,SV Werder Bremen,SV Darmstadt 98,2,0
+2017-03-04,1. FC Köln,FC Bayern München,0,3
+2017-03-04,Borussia Mönchengladbach,FC Schalke 04,4,2
+2017-03-05,Eintracht Frankfurt,SC Freiburg,1,2
+2017-03-05,Hamburger SV,Hertha BSC,1,0
+2017-03-10,Bayer 04 Leverkusen,SV Werder Bremen,1,1
+2017-03-11,Hertha BSC,Borussia Dortmund,2,1
+2017-03-11,SV Darmstadt 98,1. FSV Mainz 05,2,1
+2017-03-11,RB Leipzig,VfL Wolfsburg,0,1
+2017-03-11,SC Freiburg,TSG Hoffenheim,1,1
+2017-03-11,FC Bayern München,Eintracht Frankfurt,3,0
+2017-03-11,FC Ingolstadt 04,1. FC Köln,2,2
+2017-03-12,FC Schalke 04,FC Augsburg,3,0
+2017-03-12,Hamburger SV,Borussia Mönchengladbach,2,1
+2017-03-17,Borussia Dortmund,FC Ingolstadt 04,1,0
+2017-03-18,TSG Hoffenheim,Bayer 04 Leverkusen,1,0
+2017-03-18,1. FC Köln,Hertha BSC,4,2
+2017-03-18,VfL Wolfsburg,SV Darmstadt 98,1,0
+2017-03-18,FC Augsburg,SC Freiburg,1,1
+2017-03-18,SV Werder Bremen,RB Leipzig,3,0
+2017-03-18,Eintracht Frankfurt,Hamburger SV,0,0
+2017-03-19,1. FSV Mainz 05,FC Schalke 04,0,1
+2017-03-19,Borussia Mönchengladbach,FC Bayern München,0,1
+2017-03-31,Hertha BSC,TSG Hoffenheim,1,3
+2017-04-01,FC Schalke 04,Borussia Dortmund,1,1
+2017-04-01,Hamburger SV,1. FC Köln,2,1
+2017-04-01,FC Bayern München,FC Augsburg,6,0
+2017-04-01,SC Freiburg,SV Werder Bremen,2,5
+2017-04-01,RB Leipzig,SV Darmstadt 98,4,0
+2017-04-01,Eintracht Frankfurt,Borussia Mönchengladbach,0,0
+2017-04-02,FC Ingolstadt 04,1. FSV Mainz 05,2,1
+2017-04-02,Bayer 04 Leverkusen,VfL Wolfsburg,3,3
+2017-04-04,TSG Hoffenheim,FC Bayern München,1,0
+2017-04-04,SV Werder Bremen,FC Schalke 04,3,0
+2017-04-04,Borussia Dortmund,Hamburger SV,3,0
+2017-04-04,1. FC Köln,Eintracht Frankfurt,1,0
+2017-04-05,VfL Wolfsburg,SC Freiburg,0,1
+2017-04-05,1. FSV Mainz 05,RB Leipzig,2,3
+2017-04-05,SV Darmstadt 98,Bayer 04 Leverkusen,0,2
+2017-04-05,Borussia Mönchengladbach,Hertha BSC,1,0
+2017-04-05,FC Augsburg,FC Ingolstadt 04,2,3
+2017-04-07,Eintracht Frankfurt,SV Werder Bremen,2,2
+2017-04-08,Hamburger SV,TSG Hoffenheim,2,1
+2017-04-08,RB Leipzig,Bayer 04 Leverkusen,1,0
+2017-04-08,1. FC Köln,Borussia Mönchengladbach,2,3
+2017-04-08,SC Freiburg,1. FSV Mainz 05,1,0
+2017-04-08,FC Schalke 04,VfL Wolfsburg,4,1
+2017-04-08,FC Bayern München,Borussia Dortmund,4,1
+2017-04-09,Hertha BSC,FC Augsburg,2,0
+2017-04-09,FC Ingolstadt 04,SV Darmstadt 98,3,2
+2017-04-15,VfL Wolfsburg,FC Ingolstadt 04,3,0
+2017-04-15,Borussia Dortmund,Eintracht Frankfurt,3,1
+2017-04-15,RB Leipzig,SC Freiburg,4,0
+2017-04-15,TSG Hoffenheim,Borussia Mönchengladbach,5,3
+2017-04-15,1. FSV Mainz 05,Hertha BSC,1,0
+2017-04-15,FC Augsburg,1. FC Köln,2,1
+2017-04-15,Bayer 04 Leverkusen,FC Bayern München,0,0
+2017-04-16,SV Werder Bremen,Hamburger SV,2,1
+2017-04-16,SV Darmstadt 98,FC Schalke 04,2,1
+2017-04-21,1. FC Köln,TSG Hoffenheim,1,1
+2017-04-22,Eintracht Frankfurt,FC Augsburg,3,1
+2017-04-22,FC Ingolstadt 04,SV Werder Bremen,2,4
+2017-04-22,Hamburger SV,SV Darmstadt 98,1,2
+2017-04-22,FC Bayern München,1. FSV Mainz 05,2,2
+2017-04-22,Hertha BSC,VfL Wolfsburg,1,0
+2017-04-22,Borussia Mönchengladbach,Borussia Dortmund,2,3
+2017-04-23,SC Freiburg,Bayer 04 Leverkusen,2,1
+2017-04-23,FC Schalke 04,RB Leipzig,1,1
+2017-04-28,Bayer 04 Leverkusen,FC Schalke 04,1,4
+2017-04-29,SV Werder Bremen,Hertha BSC,2,0
+2017-04-29,Borussia Dortmund,1. FC Köln,0,0
+2017-04-29,RB Leipzig,FC Ingolstadt 04,0,0
+2017-04-29,SV Darmstadt 98,SC Freiburg,3,0
+2017-04-29,1. FSV Mainz 05,Borussia Mönchengladbach,1,2
+2017-04-29,VfL Wolfsburg,FC Bayern München,0,6
+2017-04-30,FC Augsburg,Hamburger SV,4,0
+2017-04-30,TSG Hoffenheim,Eintracht Frankfurt,1,0
+2017-05-05,1. FC Köln,SV Werder Bremen,4,3
+2017-05-06,Eintracht Frankfurt,VfL Wolfsburg,0,2
+2017-05-06,Borussia Mönchengladbach,FC Augsburg,1,1
+2017-05-06,FC Bayern München,SV Darmstadt 98,1,0
+2017-05-06,Borussia Dortmund,TSG Hoffenheim,2,1
+2017-05-06,FC Ingolstadt 04,Bayer 04 Leverkusen,1,1
+2017-05-06,Hertha BSC,RB Leipzig,1,4
+2017-05-07,Hamburger SV,1. FSV Mainz 05,0,0
+2017-05-07,SC Freiburg,FC Schalke 04,2,0
+2017-05-13,FC Augsburg,Borussia Dortmund,1,1
+2017-05-13,VfL Wolfsburg,Borussia Mönchengladbach,1,1
+2017-05-13,SV Darmstadt 98,Hertha BSC,0,2
+2017-05-13,Bayer 04 Leverkusen,1. FC Köln,2,2
+2017-05-13,FC Schalke 04,Hamburger SV,1,1
+2017-05-13,SC Freiburg,FC Ingolstadt 04,1,1
+2017-05-13,SV Werder Bremen,TSG Hoffenheim,3,5
+2017-05-13,RB Leipzig,FC Bayern München,4,5
+2017-05-13,1. FSV Mainz 05,Eintracht Frankfurt,4,2
+2017-05-20,Hertha BSC,Bayer 04 Leverkusen,2,6
+2017-05-20,Eintracht Frankfurt,RB Leipzig,2,2
+2017-05-20,FC Ingolstadt 04,FC Schalke 04,1,1
+2017-05-20,1. FC Köln,1. FSV Mainz 05,2,0
+2017-05-20,Hamburger SV,VfL Wolfsburg,2,1
+2017-05-20,TSG Hoffenheim,FC Augsburg,0,0
+2017-05-20,Borussia Dortmund,SV Werder Bremen,4,3
+2017-05-20,Borussia Mönchengladbach,SV Darmstadt 98,2,2
+2017-05-20,FC Bayern München,SC Freiburg,4,1

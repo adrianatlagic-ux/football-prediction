@@ -1,0 +1,307 @@
+date,home_team,away_team,home_score,away_score
+2020-09-18,Hamburger SV,Fortuna Düsseldorf,2,1
+2020-09-18,Jahn Regensburg,1. FC Nürnberg,1,1
+2020-09-19,Hannover 96,Karlsruher SC,2,0
+2020-09-19,SV Sandhausen,SV Darmstadt 98,3,2
+2020-09-19,Würzburger Kickers,Erzgebirge Aue,0,3
+2020-09-20,1. FC Heidenheim 1846,Eintracht Braunschweig,2,0
+2020-09-20,SpVgg Greuther Fürth,VfL Osnabrück,1,1
+2020-09-20,Holstein Kiel,SC Paderborn 07,1,0
+2020-09-21,VfL Bochum,FC St. Pauli,2,2
+2020-09-25,Erzgebirge Aue,SpVgg Greuther Fürth,1,1
+2020-09-25,VfL Osnabrück,Hannover 96,2,1
+2020-09-26,Fortuna Düsseldorf,Würzburger Kickers,1,0
+2020-09-26,SV Darmstadt 98,Jahn Regensburg,0,0
+2020-09-26,Eintracht Braunschweig,Holstein Kiel,0,0
+2020-09-27,FC St. Pauli,1. FC Heidenheim 1846,4,2
+2020-09-27,Karlsruher SC,VfL Bochum,0,1
+2020-09-27,1. FC Nürnberg,SV Sandhausen,1,0
+2020-09-28,SC Paderborn 07,Hamburger SV,3,4
+2020-10-02,VfL Bochum,VfL Osnabrück,0,0
+2020-10-02,SV Sandhausen,FC St. Pauli,1,0
+2020-10-03,1. FC Heidenheim 1846,SC Paderborn 07,0,0
+2020-10-03,Hannover 96,Eintracht Braunschweig,4,1
+2020-10-03,Jahn Regensburg,Karlsruher SC,1,0
+2020-10-04,Hamburger SV,Erzgebirge Aue,3,0
+2020-10-04,Holstein Kiel,Fortuna Düsseldorf,2,1
+2020-10-04,Würzburger Kickers,SpVgg Greuther Fürth,2,2
+2020-10-05,1. FC Nürnberg,SV Darmstadt 98,2,3
+2020-10-17,SpVgg Greuther Fürth,Hamburger SV,0,1
+2020-10-17,Karlsruher SC,SV Sandhausen,3,0
+2020-10-17,Eintracht Braunschweig,VfL Bochum,2,1
+2020-10-18,Fortuna Düsseldorf,Jahn Regensburg,2,2
+2020-10-18,SC Paderborn 07,Hannover 96,1,0
+2020-10-18,Erzgebirge Aue,1. FC Heidenheim 1846,2,1
+2020-10-18,VfL Osnabrück,SV Darmstadt 98,1,1
+2020-10-18,Würzburger Kickers,Holstein Kiel,0,2
+2020-10-19,FC St. Pauli,1. FC Nürnberg,2,2
+2020-10-23,Jahn Regensburg,Eintracht Braunschweig,3,0
+2020-10-23,1. FC Nürnberg,Karlsruher SC,1,1
+2020-10-24,Hamburger SV,Würzburger Kickers,3,1
+2020-10-24,SV Darmstadt 98,FC St. Pauli,2,2
+2020-10-24,Hannover 96,Fortuna Düsseldorf,3,0
+2020-10-24,Holstein Kiel,SpVgg Greuther Fürth,1,3
+2020-10-25,1. FC Heidenheim 1846,VfL Osnabrück,1,1
+2020-10-25,VfL Bochum,Erzgebirge Aue,2,0
+2020-10-25,SV Sandhausen,SC Paderborn 07,1,1
+2020-10-30,Fortuna Düsseldorf,1. FC Heidenheim 1846,1,0
+2020-10-30,Hamburger SV,FC St. Pauli,2,2
+2020-10-31,SC Paderborn 07,Jahn Regensburg,3,1
+2020-10-31,Erzgebirge Aue,Holstein Kiel,1,1
+2020-10-31,VfL Osnabrück,SV Sandhausen,2,1
+2020-10-31,Eintracht Braunschweig,1. FC Nürnberg,3,2
+2020-11-01,SpVgg Greuther Fürth,Hannover 96,4,1
+2020-11-01,Karlsruher SC,SV Darmstadt 98,3,4
+2020-11-01,Würzburger Kickers,VfL Bochum,2,3
+2020-11-06,1. FC Heidenheim 1846,Würzburger Kickers,4,1
+2020-11-06,SV Sandhausen,Eintracht Braunschweig,2,2
+2020-11-07,Hannover 96,Erzgebirge Aue,0,0
+2020-11-07,VfL Bochum,SpVgg Greuther Fürth,0,2
+2020-11-07,1. FC Nürnberg,Fortuna Düsseldorf,1,1
+2020-11-08,SV Darmstadt 98,SC Paderborn 07,0,4
+2020-11-08,Jahn Regensburg,VfL Osnabrück,2,4
+2020-11-08,FC St. Pauli,Karlsruher SC,0,3
+2020-11-09,Holstein Kiel,Hamburger SV,1,1
+2020-11-21,Fortuna Düsseldorf,SV Sandhausen,1,0
+2020-11-21,SC Paderborn 07,FC St. Pauli,2,0
+2020-11-21,Holstein Kiel,1. FC Heidenheim 1846,2,2
+2020-11-21,Eintracht Braunschweig,Karlsruher SC,1,3
+2020-11-22,Hamburger SV,VfL Bochum,1,3
+2020-11-22,Erzgebirge Aue,SV Darmstadt 98,3,0
+2020-11-22,SpVgg Greuther Fürth,Jahn Regensburg,3,1
+2020-11-22,Würzburger Kickers,Hannover 96,2,1
+2020-11-23,VfL Osnabrück,1. FC Nürnberg,1,4
+2020-11-27,FC St. Pauli,VfL Osnabrück,0,1
+2020-11-27,SV Darmstadt 98,Eintracht Braunschweig,4,0
+2020-11-28,Jahn Regensburg,Würzburger Kickers,2,0
+2020-11-28,SV Sandhausen,Erzgebirge Aue,1,4
+2020-11-28,Karlsruher SC,SC Paderborn 07,1,0
+2020-11-29,1. FC Heidenheim 1846,Hamburger SV,3,2
+2020-11-29,1. FC Nürnberg,SpVgg Greuther Fürth,2,3
+2020-11-29,Hannover 96,Holstein Kiel,0,3
+2020-11-30,VfL Bochum,Fortuna Düsseldorf,5,0
+2020-12-04,Fortuna Düsseldorf,SV Darmstadt 98,3,2
+2020-12-04,Holstein Kiel,VfL Bochum,3,1
+2020-12-05,Eintracht Braunschweig,FC St. Pauli,2,1
+2020-12-05,Hamburger SV,Hannover 96,0,1
+2020-12-05,VfL Osnabrück,Karlsruher SC,1,2
+2020-12-05,SpVgg Greuther Fürth,1. FC Heidenheim 1846,0,1
+2020-12-06,Würzburger Kickers,SV Sandhausen,2,3
+2020-12-06,Erzgebirge Aue,Jahn Regensburg,0,2
+2020-12-06,SC Paderborn 07,1. FC Nürnberg,0,2
+2020-12-11,VfL Bochum,SC Paderborn 07,3,0
+2020-12-11,SV Sandhausen,SpVgg Greuther Fürth,0,3
+2020-12-12,SV Darmstadt 98,Hamburger SV,1,2
+2020-12-12,1. FC Heidenheim 1846,Hannover 96,1,0
+2020-12-12,Jahn Regensburg,Holstein Kiel,2,3
+2020-12-13,Karlsruher SC,Fortuna Düsseldorf,1,2
+2020-12-13,Eintracht Braunschweig,VfL Osnabrück,0,2
+2020-12-13,1. FC Nürnberg,Würzburger Kickers,2,1
+2020-12-13,FC St. Pauli,Erzgebirge Aue,2,2
+2020-12-15,SpVgg Greuther Fürth,SV Darmstadt 98,0,4
+2020-12-15,Hamburger SV,SV Sandhausen,4,0
+2020-12-15,1. FC Heidenheim 1846,Jahn Regensburg,0,0
+2020-12-15,Hannover 96,VfL Bochum,2,0
+2020-12-16,Holstein Kiel,1. FC Nürnberg,1,0
+2020-12-16,SC Paderborn 07,Eintracht Braunschweig,2,2
+2020-12-16,Fortuna Düsseldorf,VfL Osnabrück,3,0
+2020-12-17,Erzgebirge Aue,Karlsruher SC,4,1
+2020-12-18,VfL Bochum,1. FC Heidenheim 1846,3,0
+2020-12-18,Jahn Regensburg,Hannover 96,0,0
+2020-12-19,SV Darmstadt 98,Würzburger Kickers,2,0
+2020-12-19,Eintracht Braunschweig,SpVgg Greuther Fürth,0,3
+2020-12-19,VfL Osnabrück,SC Paderborn 07,0,1
+2020-12-20,FC St. Pauli,Fortuna Düsseldorf,0,3
+2020-12-20,1. FC Nürnberg,Erzgebirge Aue,1,0
+2020-12-20,SV Sandhausen,Holstein Kiel,0,2
+2020-12-21,Karlsruher SC,Hamburger SV,1,2
+2021-01-02,Würzburger Kickers,Karlsruher SC,2,4
+2021-01-02,VfL Bochum,SV Darmstadt 98,2,1
+2021-01-02,1. FC Heidenheim 1846,1. FC Nürnberg,2,0
+2021-01-03,SpVgg Greuther Fürth,FC St. Pauli,2,1
+2021-01-03,Holstein Kiel,VfL Osnabrück,1,2
+2021-01-03,Hamburger SV,Jahn Regensburg,3,1
+2021-01-03,Hannover 96,SV Sandhausen,4,0
+2021-01-03,Erzgebirge Aue,Eintracht Braunschweig,3,1
+2021-01-04,Fortuna Düsseldorf,SC Paderborn 07,2,1
+2021-01-06,Würzburger Kickers,FC St. Pauli,1,1
+2021-01-08,Karlsruher SC,SpVgg Greuther Fürth,3,2
+2021-01-08,SV Sandhausen,1. FC Heidenheim 1846,4,0
+2021-01-09,1. FC Nürnberg,Hamburger SV,1,1
+2021-01-09,VfL Osnabrück,Würzburger Kickers,2,3
+2021-01-09,FC St. Pauli,Holstein Kiel,1,1
+2021-01-10,SV Darmstadt 98,Hannover 96,1,2
+2021-01-10,SC Paderborn 07,Erzgebirge Aue,2,1
+2021-01-10,Jahn Regensburg,VfL Bochum,0,2
+2021-01-11,Eintracht Braunschweig,Fortuna Düsseldorf,0,0
+2021-01-15,Würzburger Kickers,Eintracht Braunschweig,0,0
+2021-01-15,SpVgg Greuther Fürth,SC Paderborn 07,1,1
+2021-01-16,VfL Bochum,1. FC Nürnberg,3,1
+2021-01-16,Erzgebirge Aue,Fortuna Düsseldorf,0,3
+2021-01-16,Hannover 96,FC St. Pauli,2,3
+2021-01-17,Jahn Regensburg,SV Sandhausen,3,1
+2021-01-17,Holstein Kiel,Karlsruher SC,2,3
+2021-01-17,1. FC Heidenheim 1846,SV Darmstadt 98,3,0
+2021-01-18,Hamburger SV,VfL Osnabrück,5,0
+2021-01-22,Fortuna Düsseldorf,SpVgg Greuther Fürth,3,3
+2021-01-22,VfL Osnabrück,Erzgebirge Aue,0,1
+2021-01-23,Eintracht Braunschweig,Hamburger SV,2,4
+2021-01-23,Karlsruher SC,1. FC Heidenheim 1846,1,1
+2021-01-23,SC Paderborn 07,Würzburger Kickers,1,0
+2021-01-24,SV Darmstadt 98,Holstein Kiel,0,2
+2021-01-24,SV Sandhausen,VfL Bochum,1,1
+2021-01-24,FC St. Pauli,Jahn Regensburg,2,0
+2021-01-24,1. FC Nürnberg,Hannover 96,2,5
+2021-01-26,Erzgebirge Aue,Würzburger Kickers,2,1
+2021-01-26,Fortuna Düsseldorf,Hamburger SV,0,0
+2021-01-26,Eintracht Braunschweig,1. FC Heidenheim 1846,1,0
+2021-01-26,VfL Osnabrück,SpVgg Greuther Fürth,0,1
+2021-01-27,SV Darmstadt 98,SV Sandhausen,2,1
+2021-01-27,SC Paderborn 07,Holstein Kiel,1,1
+2021-01-27,1. FC Nürnberg,Jahn Regensburg,0,1
+2021-01-27,Karlsruher SC,Hannover 96,1,0
+2021-01-28,FC St. Pauli,VfL Bochum,2,3
+2021-01-29,Würzburger Kickers,Fortuna Düsseldorf,2,1
+2021-01-29,SpVgg Greuther Fürth,Erzgebirge Aue,3,0
+2021-01-30,Hamburger SV,SC Paderborn 07,3,1
+2021-01-30,Jahn Regensburg,SV Darmstadt 98,1,1
+2021-01-30,Holstein Kiel,Eintracht Braunschweig,3,1
+2021-01-31,1. FC Heidenheim 1846,FC St. Pauli,3,4
+2021-01-31,VfL Bochum,Karlsruher SC,1,2
+2021-01-31,SV Sandhausen,1. FC Nürnberg,2,0
+2021-02-01,Hannover 96,VfL Osnabrück,1,0
+2021-02-05,FC St. Pauli,SV Sandhausen,2,1
+2021-02-05,Erzgebirge Aue,Hamburger SV,3,3
+2021-02-06,Eintracht Braunschweig,Hannover 96,1,2
+2021-02-06,SV Darmstadt 98,1. FC Nürnberg,1,2
+2021-02-06,VfL Osnabrück,VfL Bochum,1,2
+2021-02-07,Karlsruher SC,Jahn Regensburg,0,0
+2021-02-07,SpVgg Greuther Fürth,Würzburger Kickers,4,1
+2021-02-08,Fortuna Düsseldorf,Holstein Kiel,0,2
+2021-02-12,Hannover 96,SC Paderborn 07,0,0
+2021-02-12,Holstein Kiel,Würzburger Kickers,1,0
+2021-02-13,Hamburger SV,SpVgg Greuther Fürth,0,0
+2021-02-13,SV Sandhausen,Karlsruher SC,2,3
+2021-02-13,1. FC Heidenheim 1846,Erzgebirge Aue,2,0
+2021-02-13,Jahn Regensburg,Fortuna Düsseldorf,1,1
+2021-02-14,SV Darmstadt 98,VfL Osnabrück,1,0
+2021-02-14,VfL Bochum,Eintracht Braunschweig,2,0
+2021-02-14,1. FC Nürnberg,FC St. Pauli,1,2
+2021-02-19,Eintracht Braunschweig,Jahn Regensburg,2,0
+2021-02-19,Erzgebirge Aue,VfL Bochum,1,0
+2021-02-20,SC Paderborn 07,SV Sandhausen,2,1
+2021-02-20,FC St. Pauli,SV Darmstadt 98,3,2
+2021-02-20,VfL Osnabrück,1. FC Heidenheim 1846,1,2
+2021-02-21,Würzburger Kickers,Hamburger SV,3,2
+2021-02-21,Fortuna Düsseldorf,Hannover 96,3,2
+2021-02-21,Karlsruher SC,1. FC Nürnberg,0,1
+2021-02-22,SpVgg Greuther Fürth,Holstein Kiel,2,1
+2021-02-23,SC Paderborn 07,1. FC Heidenheim 1846,2,2
+2021-02-26,Jahn Regensburg,SC Paderborn 07,1,0
+2021-02-26,SV Darmstadt 98,Karlsruher SC,0,1
+2021-02-27,Holstein Kiel,Erzgebirge Aue,1,0
+2021-02-27,VfL Bochum,Würzburger Kickers,3,0
+2021-02-27,Hannover 96,SpVgg Greuther Fürth,2,2
+2021-02-28,SV Sandhausen,VfL Osnabrück,3,0
+2021-02-28,1. FC Nürnberg,Eintracht Braunschweig,0,0
+2021-02-28,1. FC Heidenheim 1846,Fortuna Düsseldorf,3,2
+2021-03-01,FC St. Pauli,Hamburger SV,1,0
+2021-03-05,Würzburger Kickers,1. FC Heidenheim 1846,1,2
+2021-03-05,SC Paderborn 07,SV Darmstadt 98,2,3
+2021-03-06,Karlsruher SC,FC St. Pauli,0,0
+2021-03-06,Erzgebirge Aue,Hannover 96,1,1
+2021-03-06,SpVgg Greuther Fürth,VfL Bochum,1,2
+2021-03-07,Fortuna Düsseldorf,1. FC Nürnberg,3,1
+2021-03-07,Eintracht Braunschweig,SV Sandhausen,1,0
+2021-03-08,Hamburger SV,Holstein Kiel,1,1
+2021-03-12,VfL Bochum,Hamburger SV,0,2
+2021-03-13,SV Darmstadt 98,Erzgebirge Aue,4,1
+2021-03-13,SV Sandhausen,Fortuna Düsseldorf,0,0
+2021-03-14,1. FC Nürnberg,VfL Osnabrück,1,1
+2021-03-14,Karlsruher SC,Eintracht Braunschweig,0,0
+2021-03-15,FC St. Pauli,SC Paderborn 07,0,2
+2021-03-17,Jahn Regensburg,SpVgg Greuther Fürth,1,2
+2021-03-19,SC Paderborn 07,Karlsruher SC,2,2
+2021-03-20,Hamburger SV,1. FC Heidenheim 1846,2,0
+2021-03-20,Erzgebirge Aue,SV Sandhausen,2,0
+2021-03-20,Eintracht Braunschweig,SV Darmstadt 98,1,1
+2021-03-21,VfL Osnabrück,FC St. Pauli,1,2
+2021-03-21,SpVgg Greuther Fürth,1. FC Nürnberg,2,2
+2021-03-21,Würzburger Kickers,Jahn Regensburg,1,1
+2021-03-22,Fortuna Düsseldorf,VfL Bochum,0,3
+2021-04-03,Karlsruher SC,VfL Osnabrück,0,1
+2021-04-03,VfL Bochum,Holstein Kiel,2,1
+2021-04-03,1. FC Heidenheim 1846,SpVgg Greuther Fürth,0,1
+2021-04-04,SV Darmstadt 98,Fortuna Düsseldorf,1,2
+2021-04-04,Hannover 96,Hamburger SV,3,3
+2021-04-04,1. FC Nürnberg,SC Paderborn 07,2,1
+2021-04-04,SV Sandhausen,Würzburger Kickers,1,0
+2021-04-04,Jahn Regensburg,Erzgebirge Aue,1,1
+2021-04-05,FC St. Pauli,Eintracht Braunschweig,2,0
+2021-04-06,1. FC Heidenheim 1846,Holstein Kiel,1,0
+2021-04-08,Hannover 96,Würzburger Kickers,1,2
+2021-04-09,Hamburger SV,SV Darmstadt 98,1,2
+2021-04-10,SC Paderborn 07,VfL Bochum,3,0
+2021-04-10,Erzgebirge Aue,FC St. Pauli,1,3
+2021-04-11,Hannover 96,1. FC Heidenheim 1846,1,3
+2021-04-11,VfL Osnabrück,Eintracht Braunschweig,0,4
+2021-04-11,Würzburger Kickers,1. FC Nürnberg,1,1
+2021-04-14,VfL Osnabrück,Jahn Regensburg,0,1
+2021-04-16,SV Darmstadt 98,SpVgg Greuther Fürth,2,2
+2021-04-16,Eintracht Braunschweig,SC Paderborn 07,0,0
+2021-04-17,FC St. Pauli,Würzburger Kickers,4,0
+2021-04-18,VfL Bochum,Hannover 96,4,3
+2021-04-18,Jahn Regensburg,1. FC Heidenheim 1846,0,3
+2021-04-18,VfL Osnabrück,Fortuna Düsseldorf,0,3
+2021-04-20,Erzgebirge Aue,1. FC Nürnberg,0,1
+2021-04-20,SpVgg Greuther Fürth,Eintracht Braunschweig,3,0
+2021-04-20,Würzburger Kickers,SV Darmstadt 98,1,3
+2021-04-21,Fortuna Düsseldorf,FC St. Pauli,2,0
+2021-04-21,SC Paderborn 07,VfL Osnabrück,2,2
+2021-04-21,1. FC Heidenheim 1846,VfL Bochum,0,2
+2021-04-21,Hannover 96,Jahn Regensburg,3,1
+2021-04-22,SV Sandhausen,Hamburger SV,2,1
+2021-04-23,Karlsruher SC,Würzburger Kickers,2,2
+2021-04-23,Eintracht Braunschweig,Erzgebirge Aue,0,2
+2021-04-24,SC Paderborn 07,Fortuna Düsseldorf,2,1
+2021-04-24,VfL Osnabrück,Holstein Kiel,1,3
+2021-04-24,1. FC Nürnberg,1. FC Heidenheim 1846,3,1
+2021-04-25,SV Sandhausen,Hannover 96,4,2
+2021-04-25,Jahn Regensburg,Hamburger SV,1,1
+2021-04-25,FC St. Pauli,SpVgg Greuther Fürth,2,1
+2021-04-26,Karlsruher SC,Erzgebirge Aue,0,0
+2021-04-26,SV Darmstadt 98,VfL Bochum,3,1
+2021-04-27,1. FC Nürnberg,Holstein Kiel,1,1
+2021-04-28,SpVgg Greuther Fürth,SV Sandhausen,3,2
+2021-04-29,Hamburger SV,Karlsruher SC,1,1
+2021-05-03,Fortuna Düsseldorf,Karlsruher SC,3,2
+2021-05-04,Holstein Kiel,SV Sandhausen,2,0
+2021-05-07,Hannover 96,SV Darmstadt 98,1,2
+2021-05-07,Holstein Kiel,FC St. Pauli,4,0
+2021-05-08,Fortuna Düsseldorf,Eintracht Braunschweig,2,2
+2021-05-08,SpVgg Greuther Fürth,Karlsruher SC,2,2
+2021-05-08,Würzburger Kickers,VfL Osnabrück,1,3
+2021-05-09,1. FC Heidenheim 1846,SV Sandhausen,2,1
+2021-05-09,Erzgebirge Aue,SC Paderborn 07,3,8
+2021-05-09,VfL Bochum,Jahn Regensburg,5,1
+2021-05-10,Holstein Kiel,Hannover 96,1,0
+2021-05-10,Hamburger SV,1. FC Nürnberg,5,2
+2021-05-13,Holstein Kiel,Jahn Regensburg,3,2
+2021-05-16,Fortuna Düsseldorf,Erzgebirge Aue,3,0
+2021-05-16,SC Paderborn 07,SpVgg Greuther Fürth,2,4
+2021-05-16,SV Darmstadt 98,1. FC Heidenheim 1846,5,1
+2021-05-16,SV Sandhausen,Jahn Regensburg,2,0
+2021-05-16,VfL Osnabrück,Hamburger SV,3,2
+2021-05-16,FC St. Pauli,Hannover 96,1,2
+2021-05-16,Karlsruher SC,Holstein Kiel,3,2
+2021-05-16,1. FC Nürnberg,VfL Bochum,1,1
+2021-05-16,Eintracht Braunschweig,Würzburger Kickers,1,2
+2021-05-23,1. FC Heidenheim 1846,Karlsruher SC,1,2
+2021-05-23,Hamburger SV,Eintracht Braunschweig,4,0
+2021-05-23,Hannover 96,1. FC Nürnberg,1,2
+2021-05-23,Erzgebirge Aue,VfL Osnabrück,2,1
+2021-05-23,VfL Bochum,SV Sandhausen,3,1
+2021-05-23,SpVgg Greuther Fürth,Fortuna Düsseldorf,3,2
+2021-05-23,Holstein Kiel,SV Darmstadt 98,2,3
+2021-05-23,Jahn Regensburg,FC St. Pauli,3,0
+2021-05-23,Würzburger Kickers,SC Paderborn 07,1,1

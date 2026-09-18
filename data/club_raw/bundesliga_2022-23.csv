@@ -1,0 +1,307 @@
+date,home_team,away_team,home_score,away_score
+2022-08-05,Eintracht Frankfurt,FC Bayern München,1,6
+2022-08-06,FC Augsburg,SC Freiburg,0,4
+2022-08-06,VfL Bochum,1. FSV Mainz 05,1,2
+2022-08-06,Borussia Mönchengladbach,TSG Hoffenheim,3,1
+2022-08-06,1. FC Union Berlin,Hertha BSC,3,1
+2022-08-06,VfL Wolfsburg,SV Werder Bremen,2,2
+2022-08-06,Borussia Dortmund,Bayer 04 Leverkusen,1,0
+2022-08-07,VfB Stuttgart,RB Leipzig,1,1
+2022-08-07,1. FC Köln,FC Schalke 04,3,1
+2022-08-12,SC Freiburg,Borussia Dortmund,1,3
+2022-08-13,Bayer 04 Leverkusen,FC Augsburg,1,2
+2022-08-13,Hertha BSC,Eintracht Frankfurt,1,1
+2022-08-13,TSG Hoffenheim,VfL Bochum,3,2
+2022-08-13,RB Leipzig,1. FC Köln,2,2
+2022-08-13,SV Werder Bremen,VfB Stuttgart,2,2
+2022-08-13,FC Schalke 04,Borussia Mönchengladbach,2,2
+2022-08-14,1. FSV Mainz 05,1. FC Union Berlin,0,0
+2022-08-14,FC Bayern München,VfL Wolfsburg,2,0
+2022-08-19,Borussia Mönchengladbach,Hertha BSC,1,0
+2022-08-20,FC Augsburg,1. FSV Mainz 05,1,2
+2022-08-20,Bayer 04 Leverkusen,TSG Hoffenheim,0,3
+2022-08-20,Borussia Dortmund,SV Werder Bremen,2,3
+2022-08-20,VfB Stuttgart,SC Freiburg,0,1
+2022-08-20,VfL Wolfsburg,FC Schalke 04,0,0
+2022-08-20,1. FC Union Berlin,RB Leipzig,2,1
+2022-08-21,Eintracht Frankfurt,1. FC Köln,1,1
+2022-08-21,VfL Bochum,FC Bayern München,0,7
+2022-08-26,SC Freiburg,VfL Bochum,1,0
+2022-08-27,Hertha BSC,Borussia Dortmund,0,1
+2022-08-27,TSG Hoffenheim,FC Augsburg,1,0
+2022-08-27,1. FSV Mainz 05,Bayer 04 Leverkusen,0,3
+2022-08-27,RB Leipzig,VfL Wolfsburg,2,0
+2022-08-27,FC Schalke 04,1. FC Union Berlin,1,6
+2022-08-27,FC Bayern München,Borussia Mönchengladbach,1,1
+2022-08-28,1. FC Köln,VfB Stuttgart,0,0
+2022-08-28,SV Werder Bremen,Eintracht Frankfurt,3,4
+2022-09-02,Borussia Dortmund,TSG Hoffenheim,1,0
+2022-09-03,Bayer 04 Leverkusen,SC Freiburg,2,3
+2022-09-03,VfL Bochum,SV Werder Bremen,0,2
+2022-09-03,VfB Stuttgart,FC Schalke 04,1,1
+2022-09-03,1. FC Union Berlin,FC Bayern München,1,1
+2022-09-03,VfL Wolfsburg,1. FC Köln,2,4
+2022-09-03,Eintracht Frankfurt,RB Leipzig,4,0
+2022-09-04,FC Augsburg,Hertha BSC,0,2
+2022-09-04,Borussia Mönchengladbach,1. FSV Mainz 05,0,1
+2022-09-09,SV Werder Bremen,FC Augsburg,0,1
+2022-09-10,FC Bayern München,VfB Stuttgart,2,2
+2022-09-10,Eintracht Frankfurt,VfL Wolfsburg,0,1
+2022-09-10,Hertha BSC,Bayer 04 Leverkusen,2,2
+2022-09-10,TSG Hoffenheim,1. FSV Mainz 05,4,1
+2022-09-10,RB Leipzig,Borussia Dortmund,3,0
+2022-09-10,FC Schalke 04,VfL Bochum,3,1
+2022-09-11,1. FC Köln,1. FC Union Berlin,0,1
+2022-09-11,SC Freiburg,Borussia Mönchengladbach,0,0
+2022-09-16,1. FSV Mainz 05,Hertha BSC,1,1
+2022-09-17,FC Augsburg,FC Bayern München,1,0
+2022-09-17,Bayer 04 Leverkusen,SV Werder Bremen,1,1
+2022-09-17,Borussia Dortmund,FC Schalke 04,1,0
+2022-09-17,VfB Stuttgart,Eintracht Frankfurt,1,3
+2022-09-17,Borussia Mönchengladbach,RB Leipzig,3,0
+2022-09-18,1. FC Union Berlin,VfL Wolfsburg,2,0
+2022-09-18,VfL Bochum,1. FC Köln,1,1
+2022-09-18,TSG Hoffenheim,SC Freiburg,0,0
+2022-09-30,FC Bayern München,Bayer 04 Leverkusen,4,0
+2022-10-01,Eintracht Frankfurt,1. FC Union Berlin,2,0
+2022-10-01,SC Freiburg,1. FSV Mainz 05,2,1
+2022-10-01,1. FC Köln,Borussia Dortmund,3,2
+2022-10-01,RB Leipzig,VfL Bochum,4,0
+2022-10-01,VfL Wolfsburg,VfB Stuttgart,3,2
+2022-10-01,SV Werder Bremen,Borussia Mönchengladbach,5,1
+2022-10-02,Hertha BSC,TSG Hoffenheim,1,1
+2022-10-02,FC Schalke 04,FC Augsburg,2,3
+2022-10-07,TSG Hoffenheim,SV Werder Bremen,1,2
+2022-10-08,FC Augsburg,VfL Wolfsburg,1,1
+2022-10-08,Bayer 04 Leverkusen,FC Schalke 04,4,0
+2022-10-08,VfL Bochum,Eintracht Frankfurt,3,0
+2022-10-08,1. FSV Mainz 05,RB Leipzig,1,1
+2022-10-08,Borussia Dortmund,FC Bayern München,2,2
+2022-10-09,Borussia Mönchengladbach,1. FC Köln,5,2
+2022-10-09,Hertha BSC,SC Freiburg,2,2
+2022-10-09,VfB Stuttgart,1. FC Union Berlin,0,1
+2022-10-14,FC Schalke 04,TSG Hoffenheim,0,3
+2022-10-15,Eintracht Frankfurt,Bayer 04 Leverkusen,5,1
+2022-10-15,VfB Stuttgart,VfL Bochum,4,1
+2022-10-15,SV Werder Bremen,1. FSV Mainz 05,0,2
+2022-10-15,VfL Wolfsburg,Borussia Mönchengladbach,2,2
+2022-10-15,RB Leipzig,Hertha BSC,3,2
+2022-10-16,1. FC Köln,FC Augsburg,3,2
+2022-10-16,1. FC Union Berlin,Borussia Dortmund,2,0
+2022-10-16,FC Bayern München,SC Freiburg,5,0
+2022-10-21,1. FSV Mainz 05,1. FC Köln,5,0
+2022-10-22,FC Augsburg,RB Leipzig,3,3
+2022-10-22,Bayer 04 Leverkusen,VfL Wolfsburg,2,2
+2022-10-22,Borussia Dortmund,VfB Stuttgart,5,0
+2022-10-22,SC Freiburg,SV Werder Bremen,2,0
+2022-10-22,TSG Hoffenheim,FC Bayern München,0,2
+2022-10-22,Borussia Mönchengladbach,Eintracht Frankfurt,1,3
+2022-10-23,VfL Bochum,1. FC Union Berlin,2,1
+2022-10-23,Hertha BSC,FC Schalke 04,2,1
+2022-10-28,SV Werder Bremen,Hertha BSC,1,0
+2022-10-29,FC Bayern München,1. FSV Mainz 05,6,2
+2022-10-29,RB Leipzig,Bayer 04 Leverkusen,2,0
+2022-10-29,VfB Stuttgart,FC Augsburg,2,1
+2022-10-29,VfL Wolfsburg,VfL Bochum,4,0
+2022-10-29,Eintracht Frankfurt,Borussia Dortmund,1,2
+2022-10-30,1. FC Union Berlin,Borussia Mönchengladbach,2,1
+2022-10-30,FC Schalke 04,SC Freiburg,0,2
+2022-10-30,1. FC Köln,TSG Hoffenheim,1,1
+2022-11-04,Borussia Mönchengladbach,VfB Stuttgart,3,1
+2022-11-05,FC Augsburg,Eintracht Frankfurt,1,2
+2022-11-05,Borussia Dortmund,VfL Bochum,3,0
+2022-11-05,Hertha BSC,FC Bayern München,2,3
+2022-11-05,TSG Hoffenheim,RB Leipzig,1,3
+2022-11-05,1. FSV Mainz 05,VfL Wolfsburg,0,3
+2022-11-05,SV Werder Bremen,FC Schalke 04,2,1
+2022-11-06,Bayer 04 Leverkusen,1. FC Union Berlin,5,0
+2022-11-06,SC Freiburg,1. FC Köln,2,0
+2022-11-08,VfL Wolfsburg,Borussia Dortmund,2,0
+2022-11-08,FC Bayern München,SV Werder Bremen,6,1
+2022-11-08,VfL Bochum,Borussia Mönchengladbach,2,1
+2022-11-08,VfB Stuttgart,Hertha BSC,2,1
+2022-11-09,1. FC Köln,Bayer 04 Leverkusen,1,2
+2022-11-09,Eintracht Frankfurt,TSG Hoffenheim,4,2
+2022-11-09,RB Leipzig,SC Freiburg,3,1
+2022-11-09,FC Schalke 04,1. FSV Mainz 05,1,0
+2022-11-09,1. FC Union Berlin,FC Augsburg,2,2
+2022-11-11,Borussia Mönchengladbach,Borussia Dortmund,4,2
+2022-11-12,FC Augsburg,VfL Bochum,0,1
+2022-11-12,Bayer 04 Leverkusen,VfB Stuttgart,2,0
+2022-11-12,Hertha BSC,1. FC Köln,2,0
+2022-11-12,TSG Hoffenheim,VfL Wolfsburg,1,2
+2022-11-12,SV Werder Bremen,RB Leipzig,1,2
+2022-11-12,FC Schalke 04,FC Bayern München,0,2
+2022-11-13,1. FSV Mainz 05,Eintracht Frankfurt,1,1
+2022-11-13,SC Freiburg,1. FC Union Berlin,4,1
+2023-01-20,RB Leipzig,FC Bayern München,1,1
+2023-01-21,VfL Bochum,Hertha BSC,3,1
+2023-01-21,Eintracht Frankfurt,FC Schalke 04,3,0
+2023-01-21,VfB Stuttgart,1. FSV Mainz 05,1,1
+2023-01-21,1. FC Union Berlin,TSG Hoffenheim,3,1
+2023-01-21,VfL Wolfsburg,SC Freiburg,6,0
+2023-01-21,1. FC Köln,SV Werder Bremen,7,1
+2023-01-22,Borussia Dortmund,FC Augsburg,4,3
+2023-01-22,Borussia Mönchengladbach,Bayer 04 Leverkusen,2,3
+2023-01-24,FC Schalke 04,RB Leipzig,1,6
+2023-01-24,FC Bayern München,1. FC Köln,1,1
+2023-01-24,Hertha BSC,VfL Wolfsburg,0,5
+2023-01-24,TSG Hoffenheim,VfB Stuttgart,2,2
+2023-01-25,1. FSV Mainz 05,Borussia Dortmund,1,2
+2023-01-25,FC Augsburg,Borussia Mönchengladbach,1,0
+2023-01-25,Bayer 04 Leverkusen,VfL Bochum,2,0
+2023-01-25,SC Freiburg,Eintracht Frankfurt,1,1
+2023-01-25,SV Werder Bremen,1. FC Union Berlin,1,2
+2023-01-27,RB Leipzig,VfB Stuttgart,2,1
+2023-01-28,SC Freiburg,FC Augsburg,3,1
+2023-01-28,Hertha BSC,1. FC Union Berlin,0,2
+2023-01-28,TSG Hoffenheim,Borussia Mönchengladbach,1,4
+2023-01-28,1. FSV Mainz 05,VfL Bochum,5,2
+2023-01-28,SV Werder Bremen,VfL Wolfsburg,2,1
+2023-01-28,FC Bayern München,Eintracht Frankfurt,1,1
+2023-01-29,FC Schalke 04,1. FC Köln,0,0
+2023-01-29,Bayer 04 Leverkusen,Borussia Dortmund,0,2
+2023-02-03,FC Augsburg,Bayer 04 Leverkusen,1,0
+2023-02-04,VfL Bochum,TSG Hoffenheim,5,2
+2023-02-04,Borussia Dortmund,SC Freiburg,5,1
+2023-02-04,Eintracht Frankfurt,Hertha BSC,3,0
+2023-02-04,1. FC Köln,RB Leipzig,0,0
+2023-02-04,1. FC Union Berlin,1. FSV Mainz 05,2,1
+2023-02-04,Borussia Mönchengladbach,FC Schalke 04,0,0
+2023-02-05,VfB Stuttgart,SV Werder Bremen,0,2
+2023-02-05,VfL Wolfsburg,FC Bayern München,2,4
+2023-02-10,FC Schalke 04,VfL Wolfsburg,0,0
+2023-02-11,FC Bayern München,VfL Bochum,3,0
+2023-02-11,SC Freiburg,VfB Stuttgart,2,1
+2023-02-11,TSG Hoffenheim,Bayer 04 Leverkusen,1,3
+2023-02-11,1. FSV Mainz 05,FC Augsburg,3,1
+2023-02-11,SV Werder Bremen,Borussia Dortmund,0,2
+2023-02-11,RB Leipzig,1. FC Union Berlin,1,2
+2023-02-12,Hertha BSC,Borussia Mönchengladbach,4,1
+2023-02-12,1. FC Köln,Eintracht Frankfurt,3,0
+2023-02-17,FC Augsburg,TSG Hoffenheim,1,0
+2023-02-18,VfL Bochum,SC Freiburg,0,2
+2023-02-18,Borussia Mönchengladbach,FC Bayern München,3,2
+2023-02-18,VfB Stuttgart,1. FC Köln,3,0
+2023-02-18,VfL Wolfsburg,RB Leipzig,0,3
+2023-02-18,Eintracht Frankfurt,SV Werder Bremen,2,0
+2023-02-19,1. FC Union Berlin,FC Schalke 04,0,0
+2023-02-19,Borussia Dortmund,Hertha BSC,4,1
+2023-02-19,Bayer 04 Leverkusen,1. FSV Mainz 05,2,3
+2023-02-24,1. FSV Mainz 05,Borussia Mönchengladbach,4,0
+2023-02-25,Hertha BSC,FC Augsburg,2,0
+2023-02-25,TSG Hoffenheim,Borussia Dortmund,0,1
+2023-02-25,1. FC Köln,VfL Wolfsburg,0,2
+2023-02-25,RB Leipzig,Eintracht Frankfurt,2,1
+2023-02-25,SV Werder Bremen,VfL Bochum,3,0
+2023-02-25,FC Schalke 04,VfB Stuttgart,2,1
+2023-02-26,SC Freiburg,Bayer 04 Leverkusen,1,1
+2023-02-26,FC Bayern München,1. FC Union Berlin,3,0
+2023-03-03,Borussia Dortmund,RB Leipzig,2,1
+2023-03-04,FC Augsburg,SV Werder Bremen,2,1
+2023-03-04,VfL Bochum,FC Schalke 04,0,2
+2023-03-04,Borussia Mönchengladbach,SC Freiburg,0,0
+2023-03-04,1. FSV Mainz 05,TSG Hoffenheim,1,0
+2023-03-04,1. FC Union Berlin,1. FC Köln,0,0
+2023-03-04,VfB Stuttgart,FC Bayern München,1,2
+2023-03-05,Bayer 04 Leverkusen,Hertha BSC,4,1
+2023-03-05,VfL Wolfsburg,Eintracht Frankfurt,2,2
+2023-03-10,1. FC Köln,VfL Bochum,0,2
+2023-03-11,FC Bayern München,FC Augsburg,5,3
+2023-03-11,Eintracht Frankfurt,VfB Stuttgart,1,1
+2023-03-11,Hertha BSC,1. FSV Mainz 05,1,1
+2023-03-11,RB Leipzig,Borussia Mönchengladbach,3,0
+2023-03-11,FC Schalke 04,Borussia Dortmund,2,2
+2023-03-12,SC Freiburg,TSG Hoffenheim,2,1
+2023-03-12,SV Werder Bremen,Bayer 04 Leverkusen,2,3
+2023-03-12,VfL Wolfsburg,1. FC Union Berlin,1,1
+2023-03-17,Borussia Mönchengladbach,SV Werder Bremen,2,2
+2023-03-18,FC Augsburg,FC Schalke 04,1,1
+2023-03-18,VfL Bochum,RB Leipzig,1,0
+2023-03-18,TSG Hoffenheim,Hertha BSC,3,1
+2023-03-18,VfB Stuttgart,VfL Wolfsburg,0,1
+2023-03-18,Borussia Dortmund,1. FC Köln,6,1
+2023-03-19,1. FC Union Berlin,Eintracht Frankfurt,2,0
+2023-03-19,Bayer 04 Leverkusen,FC Bayern München,2,1
+2023-03-19,1. FSV Mainz 05,SC Freiburg,1,1
+2023-03-31,Eintracht Frankfurt,VfL Bochum,1,1
+2023-04-01,SC Freiburg,Hertha BSC,1,1
+2023-04-01,RB Leipzig,1. FSV Mainz 05,0,3
+2023-04-01,FC Schalke 04,Bayer 04 Leverkusen,0,3
+2023-04-01,1. FC Union Berlin,VfB Stuttgart,3,0
+2023-04-01,VfL Wolfsburg,FC Augsburg,2,2
+2023-04-01,FC Bayern München,Borussia Dortmund,4,2
+2023-04-02,1. FC Köln,Borussia Mönchengladbach,0,0
+2023-04-02,SV Werder Bremen,TSG Hoffenheim,1,2
+2023-04-08,FC Augsburg,1. FC Köln,1,3
+2023-04-08,Bayer 04 Leverkusen,Eintracht Frankfurt,3,1
+2023-04-08,Borussia Dortmund,1. FC Union Berlin,2,1
+2023-04-08,SC Freiburg,FC Bayern München,0,1
+2023-04-08,1. FSV Mainz 05,SV Werder Bremen,2,2
+2023-04-08,Hertha BSC,RB Leipzig,0,1
+2023-04-09,Borussia Mönchengladbach,VfL Wolfsburg,2,0
+2023-04-09,VfL Bochum,VfB Stuttgart,2,3
+2023-04-09,TSG Hoffenheim,FC Schalke 04,2,0
+2023-04-14,FC Schalke 04,Hertha BSC,5,2
+2023-04-15,FC Bayern München,TSG Hoffenheim,1,1
+2023-04-15,1. FC Köln,1. FSV Mainz 05,1,1
+2023-04-15,RB Leipzig,FC Augsburg,3,2
+2023-04-15,VfB Stuttgart,Borussia Dortmund,3,3
+2023-04-15,Eintracht Frankfurt,Borussia Mönchengladbach,1,1
+2023-04-16,SV Werder Bremen,SC Freiburg,1,2
+2023-04-16,1. FC Union Berlin,VfL Bochum,1,1
+2023-04-16,VfL Wolfsburg,Bayer 04 Leverkusen,0,0
+2023-04-21,FC Augsburg,VfB Stuttgart,1,1
+2023-04-22,VfL Bochum,VfL Wolfsburg,1,5
+2023-04-22,Hertha BSC,SV Werder Bremen,2,4
+2023-04-22,TSG Hoffenheim,1. FC Köln,1,3
+2023-04-22,1. FSV Mainz 05,FC Bayern München,3,1
+2023-04-22,Borussia Dortmund,Eintracht Frankfurt,4,0
+2023-04-23,SC Freiburg,FC Schalke 04,4,0
+2023-04-23,Bayer 04 Leverkusen,RB Leipzig,2,0
+2023-04-23,Borussia Mönchengladbach,1. FC Union Berlin,0,1
+2023-04-28,VfL Bochum,Borussia Dortmund,1,1
+2023-04-29,Eintracht Frankfurt,FC Augsburg,1,1
+2023-04-29,1. FC Köln,SC Freiburg,0,1
+2023-04-29,RB Leipzig,TSG Hoffenheim,1,0
+2023-04-29,VfB Stuttgart,Borussia Mönchengladbach,2,1
+2023-04-29,1. FC Union Berlin,Bayer 04 Leverkusen,0,0
+2023-04-29,FC Schalke 04,SV Werder Bremen,2,1
+2023-04-30,FC Bayern München,Hertha BSC,2,0
+2023-04-30,VfL Wolfsburg,1. FSV Mainz 05,3,0
+2023-05-05,Bayer 04 Leverkusen,1. FC Köln,1,2
+2023-05-05,1. FSV Mainz 05,FC Schalke 04,2,3
+2023-05-06,FC Augsburg,1. FC Union Berlin,1,0
+2023-05-06,Borussia Mönchengladbach,VfL Bochum,2,0
+2023-05-06,SC Freiburg,RB Leipzig,0,1
+2023-05-06,Hertha BSC,VfB Stuttgart,2,1
+2023-05-06,TSG Hoffenheim,Eintracht Frankfurt,3,1
+2023-05-06,SV Werder Bremen,FC Bayern München,1,2
+2023-05-07,Borussia Dortmund,VfL Wolfsburg,6,0
+2023-05-12,1. FC Köln,Hertha BSC,5,2
+2023-05-13,FC Bayern München,FC Schalke 04,6,0
+2023-05-13,VfL Bochum,FC Augsburg,3,2
+2023-05-13,Eintracht Frankfurt,1. FSV Mainz 05,3,0
+2023-05-13,1. FC Union Berlin,SC Freiburg,4,2
+2023-05-13,VfL Wolfsburg,TSG Hoffenheim,2,1
+2023-05-13,Borussia Dortmund,Borussia Mönchengladbach,5,2
+2023-05-14,VfB Stuttgart,Bayer 04 Leverkusen,1,1
+2023-05-14,RB Leipzig,SV Werder Bremen,2,1
+2023-05-19,SC Freiburg,VfL Wolfsburg,2,0
+2023-05-20,Hertha BSC,VfL Bochum,1,1
+2023-05-20,TSG Hoffenheim,1. FC Union Berlin,4,2
+2023-05-20,FC Schalke 04,Eintracht Frankfurt,2,2
+2023-05-20,SV Werder Bremen,1. FC Köln,1,1
+2023-05-20,FC Bayern München,RB Leipzig,1,3
+2023-05-21,1. FSV Mainz 05,VfB Stuttgart,1,4
+2023-05-21,FC Augsburg,Borussia Dortmund,0,3
+2023-05-21,Bayer 04 Leverkusen,Borussia Mönchengladbach,2,2
+2023-05-27,VfL Bochum,Bayer 04 Leverkusen,3,0
+2023-05-27,Borussia Dortmund,1. FSV Mainz 05,2,2
+2023-05-27,Borussia Mönchengladbach,FC Augsburg,2,0
+2023-05-27,Eintracht Frankfurt,SC Freiburg,2,1
+2023-05-27,1. FC Köln,FC Bayern München,1,2
+2023-05-27,RB Leipzig,FC Schalke 04,4,2
+2023-05-27,VfB Stuttgart,TSG Hoffenheim,1,1
+2023-05-27,1. FC Union Berlin,SV Werder Bremen,1,0
+2023-05-27,VfL Wolfsburg,Hertha BSC,1,2

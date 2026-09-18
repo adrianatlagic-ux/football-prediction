@@ -99,6 +99,42 @@ MARKET_VALUES: dict[str, int] = {
     "Malmo FF": 31430000,
     "Qarabağ Ağdam FK": 25080000,
     "FK Kairat": 9200000,
+
+    # 2. Bundesliga was never in COMPETITION_CODES, and several Bundesliga-
+    # only clubs (never played CL) were missing too - both left the model
+    # silently seeing 0 for most of the German second tier and half the
+    # first tier. Backfilled from data/club_market_values_history.csv's
+    # 2026/27 snapshot (or, where that season wasn't fetched for a club,
+    # the most recent season available - noted per line) so the V1-vs-V2
+    # Bundesliga matchday comparison isn't confounded by V1 simply missing
+    # data for most of the clubs involved.
+    "1. FC Köln": 156100000,
+    "Augsburg": 172000000,
+    "Elversberg": 58050000,
+    "Schalke 04": 70930000,
+    "1. FSV Mainz 05": 165200000,
+    "Hamburger SV": 152800000,
+    "SC Freiburg": 211500000,
+    "SC Paderborn": 48380000,
+    "TSG Hoffenheim": 280950000,
+    "VfB Stuttgart": 379700000,
+    "Werder Bremen": 122080000,
+    "1. FC Heidenheim": 78750000,  # 2025/26 (most recent available)
+    "1. FC Kaiserslautern": 35630000,  # 2025/26
+    "1. FC Magdeburg": 34480000,  # 2025/26
+    "1. FC Nürnberg": 85550000,  # 2025/26
+    "Arminia Bielefeld": 20630000,  # 2025/26
+    "Dynamo Dresden": 26230000,  # 2025/26
+    "FC Energie Cottbus": 10530000,  # 2013/14 - stale, no closer season found; club spent 2014-2025 outside the top 2 tiers
+    "FC St. Pauli": 65650000,  # 2025/26
+    "Greuther Fürth": 29980000,  # 2025/26
+    "Hannover 96": 52430000,  # 2025/26
+    "Hertha Berlin": 62280000,  # 2025/26
+    "Holstein Kiel": 44350000,  # 2025/26
+    "Karlsruher SC": 38780000,  # 2025/26
+    "SV Darmstadt 98": 38330000,  # 2025/26
+    "VfL Bochum": 53580000,  # 2025/26
+    "VfL Osnabrück": 14100000,  # 2023/24
 }
 
 _MAX_VALUE = max(MARKET_VALUES.values())

@@ -1,0 +1,6138 @@
+{
+  "v1": {
+    "n": 306,
+    "accuracy": 0.5751633986928104,
+    "log_loss": 0.961100312079919,
+    "brier": 0.5683960859261166
+  },
+  "v2": {
+    "n": 306,
+    "accuracy": 0.5555555555555556,
+    "log_loss": 0.9675231303316738,
+    "brier": 0.5719211140849677
+  },
+  "v1_rows": [
+    {
+      "date": "2025-08-22",
+      "match": "Bayern Munich 6-0 RB Leipzig",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7138223038848771,
+      "p_draw": 0.15720420090184523,
+      "p_away": 0.12897349521327758
+    },
+    {
+      "date": "2025-08-23",
+      "match": "Bayer Leverkusen 1-2 TSG Hoffenheim",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5920833735095458,
+      "p_draw": 0.22806712830806064,
+      "p_away": 0.17984949818239357
+    },
+    {
+      "date": "2025-08-23",
+      "match": "Eintracht Frankfurt 4-1 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4394581428685645,
+      "p_draw": 0.3084650213239175,
+      "p_away": 0.25207683580751794
+    },
+    {
+      "date": "2025-08-23",
+      "match": "SC Freiburg 1-3 Augsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5708662719937764,
+      "p_draw": 0.20194576017168073,
+      "p_away": 0.22718796783454287
+    },
+    {
+      "date": "2025-08-23",
+      "match": "Union Berlin 2-1 VfB Stuttgart",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.26694779159679116,
+      "p_draw": 0.3027159010986834,
+      "p_away": 0.4303363073045254
+    },
+    {
+      "date": "2025-08-23",
+      "match": "1. FC Heidenheim 1-3 Wolfsburg",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2631062652755597,
+      "p_draw": 0.28409215411508804,
+      "p_away": 0.4528015806093522
+    },
+    {
+      "date": "2025-08-23",
+      "match": "FC St. Pauli 3-3 Borussia Dortmund",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.138915595359199,
+      "p_draw": 0.24073833024208444,
+      "p_away": 0.6203460743987165
+    },
+    {
+      "date": "2025-08-24",
+      "match": "1. FSV Mainz 05 0-1 1. FC Köln",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.52031746542827,
+      "p_draw": 0.21244583366453082,
+      "p_away": 0.26723670090719936
+    },
+    {
+      "date": "2025-08-24",
+      "match": "Borussia Mönchengladbach 0-0 Hamburger SV",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.30622696413204037,
+      "p_draw": 0.27769177320631633,
+      "p_away": 0.41608126266164325
+    },
+    {
+      "date": "2025-08-29",
+      "match": "Hamburger SV 0-2 FC St. Pauli",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4579536975745115,
+      "p_draw": 0.30791874736478503,
+      "p_away": 0.2341275550607035
+    },
+    {
+      "date": "2025-08-30",
+      "match": "RB Leipzig 2-0 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5814433119468203,
+      "p_draw": 0.2482619607383189,
+      "p_away": 0.1702947273148608
+    },
+    {
+      "date": "2025-08-30",
+      "match": "Werder Bremen 3-3 Bayer Leverkusen",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.20450542190133195,
+      "p_draw": 0.2746979188752203,
+      "p_away": 0.5207966592234478
+    },
+    {
+      "date": "2025-08-30",
+      "match": "VfB Stuttgart 1-0 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5631349307615016,
+      "p_draw": 0.22110743190000717,
+      "p_away": 0.21575763733849126
+    },
+    {
+      "date": "2025-08-30",
+      "match": "TSG Hoffenheim 1-3 Eintracht Frankfurt",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.34178791796383456,
+      "p_draw": 0.213173274487481,
+      "p_away": 0.4450388075486845
+    },
+    {
+      "date": "2025-08-30",
+      "match": "Augsburg 2-3 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.15778294997930123,
+      "p_draw": 0.10616126932843417,
+      "p_away": 0.7360557806922645
+    },
+    {
+      "date": "2025-08-31",
+      "match": "Wolfsburg 1-1 1. FSV Mainz 05",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4248582310436481,
+      "p_draw": 0.2550296828441827,
+      "p_away": 0.3201120861121692
+    },
+    {
+      "date": "2025-08-31",
+      "match": "Borussia Dortmund 3-0 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.657441847560738,
+      "p_draw": 0.2402715380486611,
+      "p_away": 0.1022866143906009
+    },
+    {
+      "date": "2025-08-31",
+      "match": "1. FC Köln 4-1 SC Freiburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.3480054225540689,
+      "p_draw": 0.3471182133425909,
+      "p_away": 0.3048763641033401
+    },
+    {
+      "date": "2025-09-12",
+      "match": "Bayer Leverkusen 3-1 Eintracht Frankfurt",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6149771412319182,
+      "p_draw": 0.1883406944728175,
+      "p_away": 0.19668216429526428
+    },
+    {
+      "date": "2025-09-13",
+      "match": "SC Freiburg 3-1 VfB Stuttgart",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2126232289231827,
+      "p_draw": 0.2610885743107341,
+      "p_away": 0.5262881967660832
+    },
+    {
+      "date": "2025-09-13",
+      "match": "1. FSV Mainz 05 0-1 RB Leipzig",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3011370451534661,
+      "p_draw": 0.2774455880759126,
+      "p_away": 0.42141736677062125
+    },
+    {
+      "date": "2025-09-13",
+      "match": "Wolfsburg 3-3 1. FC Köln",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4476935797693528,
+      "p_draw": 0.25663516034673417,
+      "p_away": 0.2956712598839129
+    },
+    {
+      "date": "2025-09-13",
+      "match": "Union Berlin 2-4 TSG Hoffenheim",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4544495912663791,
+      "p_draw": 0.2311132667104494,
+      "p_away": 0.3144371420231714
+    },
+    {
+      "date": "2025-09-13",
+      "match": "1. FC Heidenheim 0-2 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.14348418453631934,
+      "p_draw": 0.20165663959711666,
+      "p_away": 0.6548591758665641
+    },
+    {
+      "date": "2025-09-13",
+      "match": "Bayern Munich 5-0 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7452502240337735,
+      "p_draw": 0.18287593042836284,
+      "p_away": 0.0718738455378637
+    },
+    {
+      "date": "2025-09-14",
+      "match": "FC St. Pauli 2-1 Augsburg",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.29222492057446753,
+      "p_draw": 0.26280604781209843,
+      "p_away": 0.4449690316134341
+    },
+    {
+      "date": "2025-09-14",
+      "match": "Borussia Mönchengladbach 0-4 Werder Bremen",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.35768419280216135,
+      "p_draw": 0.2106220791252151,
+      "p_away": 0.4316937280726236
+    },
+    {
+      "date": "2025-09-19",
+      "match": "VfB Stuttgart 2-0 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5246055216462038,
+      "p_draw": 0.24734068260790626,
+      "p_away": 0.22805379574589005
+    },
+    {
+      "date": "2025-09-20",
+      "match": "Werder Bremen 0-3 SC Freiburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.43295360733600224,
+      "p_draw": 0.2922770138103417,
+      "p_away": 0.27476937885365615
+    },
+    {
+      "date": "2025-09-20",
+      "match": "Augsburg 1-4 1. FSV Mainz 05",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.33294633159299764,
+      "p_draw": 0.2700374570765396,
+      "p_away": 0.39701621133046266
+    },
+    {
+      "date": "2025-09-20",
+      "match": "TSG Hoffenheim 1-4 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.22283194458601638,
+      "p_draw": 0.14293962327560522,
+      "p_away": 0.6342284321383783
+    },
+    {
+      "date": "2025-09-20",
+      "match": "Hamburger SV 2-1 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.49237526157907185,
+      "p_draw": 0.20414106381246713,
+      "p_away": 0.30348367460846104
+    },
+    {
+      "date": "2025-09-20",
+      "match": "RB Leipzig 3-1 1. FC Köln",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6162686398978398,
+      "p_draw": 0.205428159321527,
+      "p_away": 0.1783032007806333
+    },
+    {
+      "date": "2025-09-21",
+      "match": "Eintracht Frankfurt 3-4 Union Berlin",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6065027324741066,
+      "p_draw": 0.22282665203288995,
+      "p_away": 0.17067061549300347
+    },
+    {
+      "date": "2025-09-21",
+      "match": "Bayer Leverkusen 1-1 Borussia Mönchengladbach",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5994722193604279,
+      "p_draw": 0.17516556366715624,
+      "p_away": 0.22536221697241582
+    },
+    {
+      "date": "2025-09-21",
+      "match": "Borussia Dortmund 1-0 Wolfsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7135491753547464,
+      "p_draw": 0.16897503581189818,
+      "p_away": 0.11747578883335548
+    },
+    {
+      "date": "2025-09-26",
+      "match": "Bayern Munich 4-0 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.734733825899614,
+      "p_draw": 0.17983746337886156,
+      "p_away": 0.08542871072152441
+    },
+    {
+      "date": "2025-09-27",
+      "match": "1. FSV Mainz 05 0-2 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.29110926785809565,
+      "p_draw": 0.2055202582479101,
+      "p_away": 0.5033704738939943
+    },
+    {
+      "date": "2025-09-27",
+      "match": "Wolfsburg 0-1 RB Leipzig",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2195570380442111,
+      "p_draw": 0.35920349992207606,
+      "p_away": 0.42123946203371293
+    },
+    {
+      "date": "2025-09-27",
+      "match": "FC St. Pauli 1-2 Bayer Leverkusen",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.1514796854790764,
+      "p_draw": 0.2416602588599045,
+      "p_away": 0.6068600556610192
+    },
+    {
+      "date": "2025-09-27",
+      "match": "1. FC Heidenheim 2-1 Augsburg",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.34249553384597875,
+      "p_draw": 0.22860519387952025,
+      "p_away": 0.4288992722745009
+    },
+    {
+      "date": "2025-09-27",
+      "match": "Borussia Mönchengladbach 4-6 Eintracht Frankfurt",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.29025710961044604,
+      "p_draw": 0.22293040660985602,
+      "p_away": 0.48681248377969805
+    },
+    {
+      "date": "2025-09-28",
+      "match": "SC Freiburg 1-1 TSG Hoffenheim",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4889271133563387,
+      "p_draw": 0.22818741144098498,
+      "p_away": 0.2828854752026764
+    },
+    {
+      "date": "2025-09-28",
+      "match": "1. FC Köln 1-2 VfB Stuttgart",
+      "actual": "A",
+      "predicted": "D",
+      "hit": false,
+      "p_home": 0.18536085328476204,
+      "p_draw": 0.4151714632889535,
+      "p_away": 0.39946768342628447
+    },
+    {
+      "date": "2025-09-28",
+      "match": "Union Berlin 0-0 Hamburger SV",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3369870699689586,
+      "p_draw": 0.2379948256894395,
+      "p_away": 0.425018104341602
+    },
+    {
+      "date": "2025-10-03",
+      "match": "TSG Hoffenheim 0-1 1. FC Köln",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5469104072826187,
+      "p_draw": 0.21581153864958535,
+      "p_away": 0.237278054067796
+    },
+    {
+      "date": "2025-10-04",
+      "match": "Bayer Leverkusen 2-0 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5753713263030029,
+      "p_draw": 0.22414753721659944,
+      "p_away": 0.20048113648039756
+    },
+    {
+      "date": "2025-10-04",
+      "match": "Borussia Dortmund 1-1 RB Leipzig",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6022365650194814,
+      "p_draw": 0.21743434018640068,
+      "p_away": 0.18032909479411788
+    },
+    {
+      "date": "2025-10-04",
+      "match": "Werder Bremen 1-0 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.38964732118384854,
+      "p_draw": 0.31824522223592333,
+      "p_away": 0.2921074565802281
+    },
+    {
+      "date": "2025-10-04",
+      "match": "Augsburg 3-1 Wolfsburg",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3461459433123691,
+      "p_draw": 0.24211116798642285,
+      "p_away": 0.41174288870120807
+    },
+    {
+      "date": "2025-10-04",
+      "match": "Eintracht Frankfurt 0-3 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.1892887810077514,
+      "p_draw": 0.18694635281290495,
+      "p_away": 0.6237648661793437
+    },
+    {
+      "date": "2025-10-05",
+      "match": "VfB Stuttgart 1-0 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5786587041714066,
+      "p_draw": 0.23245766616468466,
+      "p_away": 0.18888362966390868
+    },
+    {
+      "date": "2025-10-05",
+      "match": "Hamburger SV 4-0 1. FSV Mainz 05",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.41232099374216463,
+      "p_draw": 0.2703179040431176,
+      "p_away": 0.31736110221471775
+    },
+    {
+      "date": "2025-10-05",
+      "match": "Borussia Mönchengladbach 0-0 SC Freiburg",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.37313393263284794,
+      "p_draw": 0.20585417989517105,
+      "p_away": 0.42101188747198104
+    },
+    {
+      "date": "2025-10-17",
+      "match": "Union Berlin 3-1 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4249360155419545,
+      "p_draw": 0.21741478301398176,
+      "p_away": 0.3576492014440638
+    },
+    {
+      "date": "2025-10-18",
+      "match": "1. FSV Mainz 05 3-4 Bayer Leverkusen",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.21894162903598413,
+      "p_draw": 0.2268542103544508,
+      "p_away": 0.5542041606095651
+    },
+    {
+      "date": "2025-10-18",
+      "match": "RB Leipzig 2-1 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5301573498692372,
+      "p_draw": 0.2986993430229567,
+      "p_away": 0.1711433071078061
+    },
+    {
+      "date": "2025-10-18",
+      "match": "Wolfsburg 0-3 VfB Stuttgart",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.21112343942329848,
+      "p_draw": 0.27112696013570337,
+      "p_away": 0.5177496004409982
+    },
+    {
+      "date": "2025-10-18",
+      "match": "1. FC Heidenheim 2-2 Werder Bremen",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.27232340193923704,
+      "p_draw": 0.28500685348937266,
+      "p_away": 0.4426697445713902
+    },
+    {
+      "date": "2025-10-18",
+      "match": "1. FC Köln 1-1 Augsburg",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5412469356399723,
+      "p_draw": 0.20458745736604717,
+      "p_away": 0.2541656069939806
+    },
+    {
+      "date": "2025-10-18",
+      "match": "Bayern Munich 2-1 Borussia Dortmund",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.39439308825122654,
+      "p_draw": 0.38842537393795984,
+      "p_away": 0.2171815378108136
+    },
+    {
+      "date": "2025-10-19",
+      "match": "SC Freiburg 2-2 Eintracht Frankfurt",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.33980018880064344,
+      "p_draw": 0.33877921596458554,
+      "p_away": 0.321420595234771
+    },
+    {
+      "date": "2025-10-19",
+      "match": "FC St. Pauli 0-3 TSG Hoffenheim",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3130462807284406,
+      "p_draw": 0.27778725518713937,
+      "p_away": 0.4091664640844201
+    },
+    {
+      "date": "2025-10-24",
+      "match": "Werder Bremen 1-0 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4543307412688465,
+      "p_draw": 0.2725394331073389,
+      "p_away": 0.2731298256238146
+    },
+    {
+      "date": "2025-10-25",
+      "match": "Eintracht Frankfurt 2-0 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.42124123409465813,
+      "p_draw": 0.3851389745107647,
+      "p_away": 0.1936197913945772
+    },
+    {
+      "date": "2025-10-25",
+      "match": "Borussia Mönchengladbach 0-3 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.16834215012686712,
+      "p_draw": 0.09638946471420223,
+      "p_away": 0.7352683851589306
+    },
+    {
+      "date": "2025-10-25",
+      "match": "Augsburg 0-6 RB Leipzig",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.1877087763755721,
+      "p_draw": 0.23880340035756403,
+      "p_away": 0.5734878232668639
+    },
+    {
+      "date": "2025-10-25",
+      "match": "TSG Hoffenheim 3-1 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.45170479814164427,
+      "p_draw": 0.32983349296111136,
+      "p_away": 0.2184617088972443
+    },
+    {
+      "date": "2025-10-25",
+      "match": "Hamburger SV 0-1 Wolfsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4038550668841878,
+      "p_draw": 0.29158278886818295,
+      "p_away": 0.3045621442476292
+    },
+    {
+      "date": "2025-10-25",
+      "match": "Borussia Dortmund 1-0 1. FC Köln",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7122466832791511,
+      "p_draw": 0.18999905278634419,
+      "p_away": 0.09775426393450465
+    },
+    {
+      "date": "2025-10-26",
+      "match": "Bayer Leverkusen 2-0 SC Freiburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6033993876372389,
+      "p_draw": 0.2206868714123254,
+      "p_away": 0.1759137409504357
+    },
+    {
+      "date": "2025-10-26",
+      "match": "VfB Stuttgart 2-1 1. FSV Mainz 05",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6479896608274147,
+      "p_draw": 0.1787543148247877,
+      "p_away": 0.17325602434779774
+    },
+    {
+      "date": "2025-10-31",
+      "match": "Augsburg 0-1 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.1516429949258441,
+      "p_draw": 0.17824776353570498,
+      "p_away": 0.6701092415384509
+    },
+    {
+      "date": "2025-11-01",
+      "match": "1. FSV Mainz 05 1-1 Werder Bremen",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4281497703807939,
+      "p_draw": 0.24561956337870225,
+      "p_away": 0.3262306662405038
+    },
+    {
+      "date": "2025-11-01",
+      "match": "RB Leipzig 3-1 VfB Stuttgart",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5035438556075571,
+      "p_draw": 0.2652280489544332,
+      "p_away": 0.23122809543800968
+    },
+    {
+      "date": "2025-11-01",
+      "match": "Union Berlin 0-0 SC Freiburg",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4527922630046951,
+      "p_draw": 0.2244204467646903,
+      "p_away": 0.3227872902306146
+    },
+    {
+      "date": "2025-11-01",
+      "match": "FC St. Pauli 0-4 Borussia Mönchengladbach",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.32913004478672303,
+      "p_draw": 0.2677488847899818,
+      "p_away": 0.40312107042329504
+    },
+    {
+      "date": "2025-11-01",
+      "match": "1. FC Heidenheim 1-1 Eintracht Frankfurt",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2740525026541009,
+      "p_draw": 0.2040367889371379,
+      "p_away": 0.5219107084087613
+    },
+    {
+      "date": "2025-11-01",
+      "match": "Bayern Munich 3-0 Bayer Leverkusen",
+      "actual": "H",
+      "predicted": "D",
+      "hit": false,
+      "p_home": 0.3822926798921122,
+      "p_draw": 0.4358982439446779,
+      "p_away": 0.18180907616320985
+    },
+    {
+      "date": "2025-11-02",
+      "match": "1. FC Köln 4-1 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.38475890938676066,
+      "p_draw": 0.2945086847270409,
+      "p_away": 0.3207324058861985
+    },
+    {
+      "date": "2025-11-02",
+      "match": "Wolfsburg 2-3 TSG Hoffenheim",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.29413561797513244,
+      "p_draw": 0.27852643531482146,
+      "p_away": 0.4273379467100462
+    },
+    {
+      "date": "2025-11-07",
+      "match": "Werder Bremen 2-1 Wolfsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.3808534385500525,
+      "p_draw": 0.24482501358326897,
+      "p_away": 0.3743215478666786
+    },
+    {
+      "date": "2025-11-08",
+      "match": "Bayer Leverkusen 6-0 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.76101305362668,
+      "p_draw": 0.15474565430905082,
+      "p_away": 0.08424129206426917
+    },
+    {
+      "date": "2025-11-08",
+      "match": "Union Berlin 2-2 Bayern Munich",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.11545650811124045,
+      "p_draw": 0.17864688943089466,
+      "p_away": 0.705896602457865
+    },
+    {
+      "date": "2025-11-08",
+      "match": "TSG Hoffenheim 3-1 RB Leipzig",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4920640871244123,
+      "p_draw": 0.14160105204302004,
+      "p_away": 0.3663348608325676
+    },
+    {
+      "date": "2025-11-08",
+      "match": "Hamburger SV 1-1 Borussia Dortmund",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.18440396438900541,
+      "p_draw": 0.2290647554029725,
+      "p_away": 0.5865312802080221
+    },
+    {
+      "date": "2025-11-08",
+      "match": "Borussia Mönchengladbach 3-1 1. FC Köln",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.430875789325267,
+      "p_draw": 0.2688822443151575,
+      "p_away": 0.3002419663595756
+    },
+    {
+      "date": "2025-11-09",
+      "match": "SC Freiburg 2-1 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.43436941662591033,
+      "p_draw": 0.2926262740227955,
+      "p_away": 0.2730043093512942
+    },
+    {
+      "date": "2025-11-09",
+      "match": "VfB Stuttgart 3-2 Augsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7093574340435304,
+      "p_draw": 0.1713840064180781,
+      "p_away": 0.11925855953839157
+    },
+    {
+      "date": "2025-11-09",
+      "match": "Eintracht Frankfurt 1-0 1. FSV Mainz 05",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5686492357942938,
+      "p_draw": 0.20134646019347824,
+      "p_away": 0.23000430401222802
+    },
+    {
+      "date": "2025-11-21",
+      "match": "1. FSV Mainz 05 1-1 TSG Hoffenheim",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3711439257819913,
+      "p_draw": 0.23193765267447042,
+      "p_away": 0.3969184215435383
+    },
+    {
+      "date": "2025-11-22",
+      "match": "Bayern Munich 6-2 SC Freiburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7905505784376708,
+      "p_draw": 0.13413173806647896,
+      "p_away": 0.07531768349585033
+    },
+    {
+      "date": "2025-11-22",
+      "match": "Borussia Dortmund 3-3 VfB Stuttgart",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4610232746555699,
+      "p_draw": 0.19703377308586406,
+      "p_away": 0.34194295225856586
+    },
+    {
+      "date": "2025-11-22",
+      "match": "Wolfsburg 1-3 Bayer Leverkusen",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.1682707384967006,
+      "p_draw": 0.24638381866002101,
+      "p_away": 0.5853454428432784
+    },
+    {
+      "date": "2025-11-22",
+      "match": "Augsburg 1-0 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.42327962102306904,
+      "p_draw": 0.2229925714867023,
+      "p_away": 0.3537278074902287
+    },
+    {
+      "date": "2025-11-22",
+      "match": "1. FC Heidenheim 0-3 Borussia Mönchengladbach",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.28497666932198956,
+      "p_draw": 0.22877209266332033,
+      "p_away": 0.48625123801469017
+    },
+    {
+      "date": "2025-11-22",
+      "match": "1. FC Köln 3-4 Eintracht Frankfurt",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.339647643957314,
+      "p_draw": 0.23833369969068827,
+      "p_away": 0.42201865635199776
+    },
+    {
+      "date": "2025-11-23",
+      "match": "RB Leipzig 2-0 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.644337264643439,
+      "p_draw": 0.1901058536870305,
+      "p_away": 0.1655568816695305
+    },
+    {
+      "date": "2025-11-23",
+      "match": "FC St. Pauli 0-1 Union Berlin",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2831081077611654,
+      "p_draw": 0.32150966396443664,
+      "p_away": 0.39538222827439795
+    },
+    {
+      "date": "2025-11-28",
+      "match": "Borussia Mönchengladbach 0-0 RB Leipzig",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3439140883818756,
+      "p_draw": 0.15561817594416555,
+      "p_away": 0.5004677356739589
+    },
+    {
+      "date": "2025-11-29",
+      "match": "Bayern Munich 3-1 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.8562320861161852,
+      "p_draw": 0.08949116277266615,
+      "p_away": 0.05427675111114853
+    },
+    {
+      "date": "2025-11-29",
+      "match": "Werder Bremen 1-1 1. FC Köln",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.462462416651991,
+      "p_draw": 0.22468482371593654,
+      "p_away": 0.3128527596320724
+    },
+    {
+      "date": "2025-11-29",
+      "match": "Union Berlin 1-2 1. FC Heidenheim",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4221226699494267,
+      "p_draw": 0.3533470308835782,
+      "p_away": 0.22453029916699518
+    },
+    {
+      "date": "2025-11-29",
+      "match": "TSG Hoffenheim 3-0 Augsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.47521394055867194,
+      "p_draw": 0.21435130400023472,
+      "p_away": 0.31043475544109345
+    },
+    {
+      "date": "2025-11-29",
+      "match": "Bayer Leverkusen 1-2 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.38374184022042296,
+      "p_draw": 0.28475713883182757,
+      "p_away": 0.3315010209477494
+    },
+    {
+      "date": "2025-11-30",
+      "match": "Hamburger SV 2-1 VfB Stuttgart",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2676030308973606,
+      "p_draw": 0.19233719069529712,
+      "p_away": 0.5400597784073423
+    },
+    {
+      "date": "2025-11-30",
+      "match": "Eintracht Frankfurt 1-1 Wolfsburg",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.433155683832479,
+      "p_draw": 0.32965011268134203,
+      "p_away": 0.23719420348617898
+    },
+    {
+      "date": "2025-11-30",
+      "match": "SC Freiburg 4-0 1. FSV Mainz 05",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5174095750326387,
+      "p_draw": 0.21145645952138978,
+      "p_away": 0.27113396544597146
+    },
+    {
+      "date": "2025-12-05",
+      "match": "1. FSV Mainz 05 0-1 Borussia Mönchengladbach",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3522351266387328,
+      "p_draw": 0.2499836168981941,
+      "p_away": 0.3977812564630731
+    },
+    {
+      "date": "2025-12-06",
+      "match": "VfB Stuttgart 0-5 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.25510305480658146,
+      "p_draw": 0.24384353970819583,
+      "p_away": 0.5010534054852228
+    },
+    {
+      "date": "2025-12-06",
+      "match": "Wolfsburg 3-1 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.48838119899317317,
+      "p_draw": 0.19830433987248605,
+      "p_away": 0.3133144611343408
+    },
+    {
+      "date": "2025-12-06",
+      "match": "Augsburg 2-0 Bayer Leverkusen",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.14003321762631724,
+      "p_draw": 0.22265633270921276,
+      "p_away": 0.63731044966447
+    },
+    {
+      "date": "2025-12-06",
+      "match": "1. FC Heidenheim 2-1 SC Freiburg",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.251028591528973,
+      "p_draw": 0.2741776297357091,
+      "p_away": 0.4747937787353178
+    },
+    {
+      "date": "2025-12-06",
+      "match": "1. FC Köln 1-1 FC St. Pauli",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.42547127530600665,
+      "p_draw": 0.24033294894997084,
+      "p_away": 0.3341957757440225
+    },
+    {
+      "date": "2025-12-06",
+      "match": "RB Leipzig 6-0 Eintracht Frankfurt",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6285430888491148,
+      "p_draw": 0.18868832591897663,
+      "p_away": 0.18276858523190861
+    },
+    {
+      "date": "2025-12-07",
+      "match": "Hamburger SV 3-2 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4274565084612876,
+      "p_draw": 0.2431907332835225,
+      "p_away": 0.32935275825519
+    },
+    {
+      "date": "2025-12-07",
+      "match": "Borussia Dortmund 2-0 TSG Hoffenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6420668002829216,
+      "p_draw": 0.1818227869073934,
+      "p_away": 0.17611041280968512
+    },
+    {
+      "date": "2025-12-12",
+      "match": "Union Berlin 3-1 RB Leipzig",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2532569526218938,
+      "p_draw": 0.24148924242877493,
+      "p_away": 0.5052538049493314
+    },
+    {
+      "date": "2025-12-13",
+      "match": "Eintracht Frankfurt 1-0 Augsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.43764232344358756,
+      "p_draw": 0.34217990096001843,
+      "p_away": 0.22017777559639415
+    },
+    {
+      "date": "2025-12-13",
+      "match": "Borussia Mönchengladbach 1-3 Wolfsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5147645897542938,
+      "p_draw": 0.20158854015749136,
+      "p_away": 0.28364687008821476
+    },
+    {
+      "date": "2025-12-13",
+      "match": "FC St. Pauli 2-1 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.48833714058913325,
+      "p_draw": 0.23753048345553085,
+      "p_away": 0.27413237595533596
+    },
+    {
+      "date": "2025-12-13",
+      "match": "TSG Hoffenheim 4-1 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5090979736858389,
+      "p_draw": 0.23105196550830293,
+      "p_away": 0.2598500608058582
+    },
+    {
+      "date": "2025-12-13",
+      "match": "Bayer Leverkusen 2-0 1. FC Köln",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6539101157256137,
+      "p_draw": 0.20524184930299366,
+      "p_away": 0.14084803497139264
+    },
+    {
+      "date": "2025-12-14",
+      "match": "SC Freiburg 1-1 Borussia Dortmund",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.1876462043281415,
+      "p_draw": 0.21916486119310688,
+      "p_away": 0.5931889344787517
+    },
+    {
+      "date": "2025-12-14",
+      "match": "Bayern Munich 2-2 1. FSV Mainz 05",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.8212545964433584,
+      "p_draw": 0.09354386416148161,
+      "p_away": 0.08520153939516001
+    },
+    {
+      "date": "2025-12-14",
+      "match": "Werder Bremen 0-4 VfB Stuttgart",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.28041364997862767,
+      "p_draw": 0.280884948774587,
+      "p_away": 0.43870140124678525
+    },
+    {
+      "date": "2025-12-19",
+      "match": "Borussia Dortmund 2-0 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6725800466141434,
+      "p_draw": 0.19019672553907385,
+      "p_away": 0.13722322784678276
+    },
+    {
+      "date": "2025-12-20",
+      "match": "VfB Stuttgart 0-0 TSG Hoffenheim",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.46261256172209314,
+      "p_draw": 0.200787065020656,
+      "p_away": 0.336600373257251
+    },
+    {
+      "date": "2025-12-20",
+      "match": "Wolfsburg 3-4 SC Freiburg",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3242815990268645,
+      "p_draw": 0.2992860610623286,
+      "p_away": 0.376432339910807
+    },
+    {
+      "date": "2025-12-20",
+      "match": "Augsburg 0-0 Werder Bremen",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.40307070758828695,
+      "p_draw": 0.3057635733166972,
+      "p_away": 0.2911657190950159
+    },
+    {
+      "date": "2025-12-20",
+      "match": "1. FC Köln 0-1 Union Berlin",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4155714729039825,
+      "p_draw": 0.23467819279453905,
+      "p_away": 0.3497503343014784
+    },
+    {
+      "date": "2025-12-20",
+      "match": "Hamburger SV 1-1 Eintracht Frankfurt",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.30884716669501805,
+      "p_draw": 0.32058247220455627,
+      "p_away": 0.3705703611004257
+    },
+    {
+      "date": "2025-12-20",
+      "match": "RB Leipzig 1-3 Bayer Leverkusen",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5081192156261615,
+      "p_draw": 0.18653182720323383,
+      "p_away": 0.3053489571706047
+    },
+    {
+      "date": "2025-12-21",
+      "match": "1. FSV Mainz 05 0-0 FC St. Pauli",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5572333695280418,
+      "p_draw": 0.2258367821865086,
+      "p_away": 0.21692984828544962
+    },
+    {
+      "date": "2025-12-21",
+      "match": "1. FC Heidenheim 0-4 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.1145997496486345,
+      "p_draw": 0.11802279796114792,
+      "p_away": 0.7673774523902175
+    },
+    {
+      "date": "2026-01-09",
+      "match": "Eintracht Frankfurt 3-3 Borussia Dortmund",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.31714212501646777,
+      "p_draw": 0.18496569279817685,
+      "p_away": 0.4978921821853554
+    },
+    {
+      "date": "2026-01-10",
+      "match": "SC Freiburg 2-1 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4261836024571428,
+      "p_draw": 0.2954873696800863,
+      "p_away": 0.2783290278627709
+    },
+    {
+      "date": "2026-01-10",
+      "match": "Union Berlin 2-2 1. FSV Mainz 05",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.43761594490122147,
+      "p_draw": 0.21723784333358098,
+      "p_away": 0.34514621176519755
+    },
+    {
+      "date": "2026-01-10",
+      "match": "1. FC Heidenheim 2-2 1. FC Köln",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.31880338984723516,
+      "p_draw": 0.3204630058084736,
+      "p_away": 0.3607336043442912
+    },
+    {
+      "date": "2026-01-10",
+      "match": "Bayer Leverkusen 1-4 VfB Stuttgart",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4556676639078862,
+      "p_draw": 0.23145403501393855,
+      "p_away": 0.3128783010781754
+    },
+    {
+      "date": "2026-01-11",
+      "match": "Borussia Mönchengladbach 4-0 Augsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5277663409032152,
+      "p_draw": 0.24377308523518929,
+      "p_away": 0.22846057386159563
+    },
+    {
+      "date": "2026-01-11",
+      "match": "Bayern Munich 8-1 Wolfsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.8236286725534074,
+      "p_draw": 0.11391427997282731,
+      "p_away": 0.06245704747376533
+    },
+    {
+      "date": "2026-01-13",
+      "match": "VfB Stuttgart 3-2 Eintracht Frankfurt",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.3949804162114109,
+      "p_draw": 0.2622078389368161,
+      "p_away": 0.34281174485177307
+    },
+    {
+      "date": "2026-01-13",
+      "match": "Borussia Dortmund 3-0 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6569127601411858,
+      "p_draw": 0.1944058132607796,
+      "p_away": 0.1486814265980346
+    },
+    {
+      "date": "2026-01-13",
+      "match": "1. FSV Mainz 05 2-1 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.42474313361017074,
+      "p_draw": 0.2806969679342112,
+      "p_away": 0.2945598984556181
+    },
+    {
+      "date": "2026-01-14",
+      "match": "Wolfsburg 2-1 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5159730764570365,
+      "p_draw": 0.2571360610900718,
+      "p_away": 0.2268908624528917
+    },
+    {
+      "date": "2026-01-14",
+      "match": "RB Leipzig 2-0 SC Freiburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6130764403122145,
+      "p_draw": 0.19141850551702308,
+      "p_away": 0.1955050541707624
+    },
+    {
+      "date": "2026-01-14",
+      "match": "TSG Hoffenheim 5-1 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.44695538806957075,
+      "p_draw": 0.2500803237836709,
+      "p_away": 0.3029642881467583
+    },
+    {
+      "date": "2026-01-14",
+      "match": "1. FC Köln 1-3 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.09993294458138836,
+      "p_draw": 0.10865016477694733,
+      "p_away": 0.7914168906416643
+    },
+    {
+      "date": "2026-01-15",
+      "match": "Augsburg 1-1 Union Berlin",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.38868895402748843,
+      "p_draw": 0.26701348120027657,
+      "p_away": 0.34429756477223494
+    },
+    {
+      "date": "2026-01-16",
+      "match": "Werder Bremen 3-3 Eintracht Frankfurt",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.28112609802076494,
+      "p_draw": 0.24761809024795758,
+      "p_away": 0.47125581173127756
+    },
+    {
+      "date": "2026-01-17",
+      "match": "Borussia Dortmund 3-2 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7317947997175935,
+      "p_draw": 0.15978892468584885,
+      "p_away": 0.10841627559655766
+    },
+    {
+      "date": "2026-01-17",
+      "match": "Wolfsburg 1-1 1. FC Heidenheim",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5491647136635975,
+      "p_draw": 0.2608718568284864,
+      "p_away": 0.1899634295079161
+    },
+    {
+      "date": "2026-01-17",
+      "match": "TSG Hoffenheim 1-0 Bayer Leverkusen",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3278714780917758,
+      "p_draw": 0.2784793825411978,
+      "p_away": 0.39364913936702634
+    },
+    {
+      "date": "2026-01-17",
+      "match": "1. FC Köln 2-1 1. FSV Mainz 05",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.379126866728044,
+      "p_draw": 0.20996127996811503,
+      "p_away": 0.4109118533038409
+    },
+    {
+      "date": "2026-01-17",
+      "match": "Hamburger SV 0-0 Borussia Mönchengladbach",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.33918512960116687,
+      "p_draw": 0.27128349297457627,
+      "p_away": 0.389531377424257
+    },
+    {
+      "date": "2026-01-17",
+      "match": "RB Leipzig 1-5 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.16353751508228373,
+      "p_draw": 0.4047945361822133,
+      "p_away": 0.43166794873550307
+    },
+    {
+      "date": "2026-01-18",
+      "match": "VfB Stuttgart 1-1 Union Berlin",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5647058161515787,
+      "p_draw": 0.24490515846025757,
+      "p_away": 0.19038902538816377
+    },
+    {
+      "date": "2026-01-18",
+      "match": "Augsburg 2-2 SC Freiburg",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3551415221206089,
+      "p_draw": 0.26602198864725396,
+      "p_away": 0.37883648923213725
+    },
+    {
+      "date": "2026-01-23",
+      "match": "FC St. Pauli 0-0 Hamburger SV",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.35475395293141476,
+      "p_draw": 0.2804660568228323,
+      "p_away": 0.36477999024575286
+    },
+    {
+      "date": "2026-01-24",
+      "match": "Bayern Munich 1-2 Augsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.7903115364409432,
+      "p_draw": 0.11825482101565267,
+      "p_away": 0.09143364254340407
+    },
+    {
+      "date": "2026-01-24",
+      "match": "Bayer Leverkusen 1-0 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6132528553035645,
+      "p_draw": 0.22033741823982095,
+      "p_away": 0.1664097264566144
+    },
+    {
+      "date": "2026-01-24",
+      "match": "Eintracht Frankfurt 1-3 TSG Hoffenheim",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5439041005037356,
+      "p_draw": 0.17097589483593242,
+      "p_away": 0.285120004660332
+    },
+    {
+      "date": "2026-01-24",
+      "match": "1. FSV Mainz 05 3-1 Wolfsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4588619171690824,
+      "p_draw": 0.2557788905949765,
+      "p_away": 0.28535919223594103
+    },
+    {
+      "date": "2026-01-24",
+      "match": "1. FC Heidenheim 0-3 RB Leipzig",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.19921870945688355,
+      "p_draw": 0.29480076316203435,
+      "p_away": 0.5059805273810821
+    },
+    {
+      "date": "2026-01-24",
+      "match": "Union Berlin 0-3 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.22016269674669986,
+      "p_draw": 0.30534321470800235,
+      "p_away": 0.47449408854529784
+    },
+    {
+      "date": "2026-01-25",
+      "match": "Borussia Mönchengladbach 0-3 VfB Stuttgart",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.23422469004657176,
+      "p_draw": 0.3241006336025218,
+      "p_away": 0.4416746763509064
+    },
+    {
+      "date": "2026-01-25",
+      "match": "SC Freiburg 2-1 1. FC Köln",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4295219603368796,
+      "p_draw": 0.30705630109251536,
+      "p_away": 0.26342173857060497
+    },
+    {
+      "date": "2026-01-27",
+      "match": "Werder Bremen 0-2 TSG Hoffenheim",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.34940626348748394,
+      "p_draw": 0.1925233137423158,
+      "p_away": 0.4580704227702002
+    },
+    {
+      "date": "2026-01-27",
+      "match": "FC St. Pauli 1-1 RB Leipzig",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.19421280269663543,
+      "p_draw": 0.2577591091316071,
+      "p_away": 0.5480280881717574
+    },
+    {
+      "date": "2026-01-30",
+      "match": "1. FC Köln 1-0 Wolfsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.3853554143039182,
+      "p_draw": 0.29370497597365425,
+      "p_away": 0.32093960972242763
+    },
+    {
+      "date": "2026-01-31",
+      "match": "Eintracht Frankfurt 1-3 Bayer Leverkusen",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2734878297685609,
+      "p_draw": 0.22946630867557383,
+      "p_away": 0.4970458615558652
+    },
+    {
+      "date": "2026-01-31",
+      "match": "RB Leipzig 1-2 1. FSV Mainz 05",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6179697893632747,
+      "p_draw": 0.20678875204074285,
+      "p_away": 0.17524145859598247
+    },
+    {
+      "date": "2026-01-31",
+      "match": "Werder Bremen 1-1 Borussia Mönchengladbach",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.41574718773549785,
+      "p_draw": 0.19756346324412338,
+      "p_away": 0.3866893490203788
+    },
+    {
+      "date": "2026-01-31",
+      "match": "Augsburg 2-1 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.47493592654275074,
+      "p_draw": 0.2536282845499147,
+      "p_away": 0.2714357889073345
+    },
+    {
+      "date": "2026-01-31",
+      "match": "TSG Hoffenheim 3-1 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6112273974736058,
+      "p_draw": 0.20959436257449388,
+      "p_away": 0.1791782399519004
+    },
+    {
+      "date": "2026-01-31",
+      "match": "Hamburger SV 2-2 Bayern Munich",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.11662000691663113,
+      "p_draw": 0.1387478203092409,
+      "p_away": 0.7446321727741279
+    },
+    {
+      "date": "2026-02-01",
+      "match": "VfB Stuttgart 1-0 SC Freiburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5846065554292302,
+      "p_draw": 0.2508012875264423,
+      "p_away": 0.1645921570443275
+    },
+    {
+      "date": "2026-02-01",
+      "match": "Borussia Dortmund 3-2 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7294981261825394,
+      "p_draw": 0.18219408056037018,
+      "p_away": 0.08830779325709039
+    },
+    {
+      "date": "2026-02-06",
+      "match": "Union Berlin 1-1 Eintracht Frankfurt",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3794019702714498,
+      "p_draw": 0.2159915724598892,
+      "p_away": 0.40460645726866096
+    },
+    {
+      "date": "2026-02-07",
+      "match": "SC Freiburg 1-0 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5292705496146948,
+      "p_draw": 0.21846208980363976,
+      "p_away": 0.2522673605816654
+    },
+    {
+      "date": "2026-02-07",
+      "match": "1. FSV Mainz 05 2-0 Augsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4374707360108566,
+      "p_draw": 0.3140723577978034,
+      "p_away": 0.24845690619133987
+    },
+    {
+      "date": "2026-02-07",
+      "match": "Wolfsburg 1-2 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.24740516681337327,
+      "p_draw": 0.21721334087928532,
+      "p_away": 0.5353814923073413
+    },
+    {
+      "date": "2026-02-07",
+      "match": "FC St. Pauli 2-1 VfB Stuttgart",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.21815220316600814,
+      "p_draw": 0.22833845505782305,
+      "p_away": 0.5535093417761688
+    },
+    {
+      "date": "2026-02-07",
+      "match": "1. FC Heidenheim 0-2 Hamburger SV",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.35216134733119336,
+      "p_draw": 0.2549615880965766,
+      "p_away": 0.39287706457223004
+    },
+    {
+      "date": "2026-02-07",
+      "match": "Borussia Mönchengladbach 1-1 Bayer Leverkusen",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.18763894172916204,
+      "p_draw": 0.28275278565291745,
+      "p_away": 0.5296082726179205
+    },
+    {
+      "date": "2026-02-08",
+      "match": "1. FC Köln 1-2 RB Leipzig",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.22936827204532467,
+      "p_draw": 0.2323172733523232,
+      "p_away": 0.5383144546023522
+    },
+    {
+      "date": "2026-02-08",
+      "match": "Bayern Munich 5-1 TSG Hoffenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7537634118755241,
+      "p_draw": 0.17333203587144316,
+      "p_away": 0.07290455225303273
+    },
+    {
+      "date": "2026-02-13",
+      "match": "Borussia Dortmund 4-0 1. FSV Mainz 05",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6118667009446838,
+      "p_draw": 0.21042935250298292,
+      "p_away": 0.17770394655233326
+    },
+    {
+      "date": "2026-02-14",
+      "match": "Bayer Leverkusen 4-0 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6703659694380196,
+      "p_draw": 0.19709773377589485,
+      "p_away": 0.13253629678608536
+    },
+    {
+      "date": "2026-02-14",
+      "match": "Eintracht Frankfurt 3-0 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4827945987238584,
+      "p_draw": 0.2094320563370603,
+      "p_away": 0.30777334493908143
+    },
+    {
+      "date": "2026-02-14",
+      "match": "Werder Bremen 0-3 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.0942252068018305,
+      "p_draw": 0.11580312459104966,
+      "p_away": 0.7899716686071198
+    },
+    {
+      "date": "2026-02-14",
+      "match": "TSG Hoffenheim 3-0 SC Freiburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.40498236263658344,
+      "p_draw": 0.30260541653526246,
+      "p_away": 0.292412220828154
+    },
+    {
+      "date": "2026-02-14",
+      "match": "Hamburger SV 3-2 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4266392675204834,
+      "p_draw": 0.23279614540767424,
+      "p_away": 0.3405645870718423
+    },
+    {
+      "date": "2026-02-14",
+      "match": "VfB Stuttgart 3-1 1. FC Köln",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6988751283514971,
+      "p_draw": 0.15900169138382267,
+      "p_away": 0.14212318026468015
+    },
+    {
+      "date": "2026-02-15",
+      "match": "Augsburg 1-0 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6126314591187667,
+      "p_draw": 0.2017245373297436,
+      "p_away": 0.1856440035514898
+    },
+    {
+      "date": "2026-02-15",
+      "match": "RB Leipzig 2-2 Wolfsburg",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6368879153718475,
+      "p_draw": 0.23617372982136245,
+      "p_away": 0.12693835480679017
+    },
+    {
+      "date": "2026-02-20",
+      "match": "1. FSV Mainz 05 1-1 Hamburger SV",
+      "actual": "D",
+      "predicted": "D",
+      "hit": true,
+      "p_home": 0.3438126380391107,
+      "p_draw": 0.3474037862349696,
+      "p_away": 0.30878357572591963
+    },
+    {
+      "date": "2026-02-21",
+      "match": "Bayern Munich 3-2 Eintracht Frankfurt",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.828202242958815,
+      "p_draw": 0.08996120373370337,
+      "p_away": 0.08183655330748163
+    },
+    {
+      "date": "2026-02-21",
+      "match": "Wolfsburg 2-3 Augsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3877659528041244,
+      "p_draw": 0.2663901751342657,
+      "p_away": 0.34584387206161
+    },
+    {
+      "date": "2026-02-21",
+      "match": "Union Berlin 1-0 Bayer Leverkusen",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.20555816247777906,
+      "p_draw": 0.20842203477175789,
+      "p_away": 0.5860198027504631
+    },
+    {
+      "date": "2026-02-21",
+      "match": "1. FC Köln 2-2 TSG Hoffenheim",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2273163171004345,
+      "p_draw": 0.31984942525853344,
+      "p_away": 0.452834257641032
+    },
+    {
+      "date": "2026-02-21",
+      "match": "RB Leipzig 2-2 Borussia Dortmund",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5256756604337887,
+      "p_draw": 0.1878242663692984,
+      "p_away": 0.2865000731969129
+    },
+    {
+      "date": "2026-02-22",
+      "match": "SC Freiburg 2-1 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.3994656888074636,
+      "p_draw": 0.31960699628567163,
+      "p_away": 0.28092731490686484
+    },
+    {
+      "date": "2026-02-22",
+      "match": "FC St. Pauli 2-1 Werder Bremen",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.34446943815070097,
+      "p_draw": 0.25483307845167874,
+      "p_away": 0.40069748339762024
+    },
+    {
+      "date": "2026-02-22",
+      "match": "1. FC Heidenheim 3-3 VfB Stuttgart",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.20089790551529368,
+      "p_draw": 0.15211878899313677,
+      "p_away": 0.6469833054915696
+    },
+    {
+      "date": "2026-02-27",
+      "match": "Augsburg 2-0 1. FC Köln",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.39078839496870055,
+      "p_draw": 0.33819610954479973,
+      "p_away": 0.27101549548649967
+    },
+    {
+      "date": "2026-02-28",
+      "match": "Bayer Leverkusen 1-1 1. FSV Mainz 05",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5899222709361805,
+      "p_draw": 0.23851546498094733,
+      "p_away": 0.17156226408287212
+    },
+    {
+      "date": "2026-02-28",
+      "match": "Werder Bremen 2-0 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5150213449463347,
+      "p_draw": 0.21065062490059622,
+      "p_away": 0.2743280301530692
+    },
+    {
+      "date": "2026-02-28",
+      "match": "Borussia Mönchengladbach 1-0 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.39823308035119354,
+      "p_draw": 0.2644788636254573,
+      "p_away": 0.33728805602334927
+    },
+    {
+      "date": "2026-02-28",
+      "match": "TSG Hoffenheim 0-1 FC St. Pauli",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5121590642837703,
+      "p_draw": 0.305267783583087,
+      "p_away": 0.1825731521331427
+    },
+    {
+      "date": "2026-02-28",
+      "match": "Borussia Dortmund 2-3 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.19546261409365973,
+      "p_draw": 0.2905787472831611,
+      "p_away": 0.5139586386231793
+    },
+    {
+      "date": "2026-03-01",
+      "match": "VfB Stuttgart 4-0 Wolfsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4956122074688811,
+      "p_draw": 0.2778976564086514,
+      "p_away": 0.22649013612246746
+    },
+    {
+      "date": "2026-03-01",
+      "match": "Eintracht Frankfurt 2-0 SC Freiburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.44230801926421354,
+      "p_draw": 0.3212163548464996,
+      "p_away": 0.23647562588928694
+    },
+    {
+      "date": "2026-03-01",
+      "match": "Hamburger SV 1-2 RB Leipzig",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.24456993057802465,
+      "p_draw": 0.20866265956131444,
+      "p_away": 0.5467674098606607
+    },
+    {
+      "date": "2026-03-04",
+      "match": "Hamburger SV 0-1 Bayer Leverkusen",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.27359747127802836,
+      "p_draw": 0.18047672532804196,
+      "p_away": 0.5459258033939297
+    },
+    {
+      "date": "2026-03-06",
+      "match": "Bayern Munich 4-1 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.8576797582444171,
+      "p_draw": 0.08389078648786906,
+      "p_away": 0.05842945526771384
+    },
+    {
+      "date": "2026-03-07",
+      "match": "SC Freiburg 3-3 Bayer Leverkusen",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.18499565209130991,
+      "p_draw": 0.26787939063826066,
+      "p_away": 0.5471249572704293
+    },
+    {
+      "date": "2026-03-07",
+      "match": "1. FSV Mainz 05 2-2 VfB Stuttgart",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.26181954103466415,
+      "p_draw": 0.3398869805985613,
+      "p_away": 0.39829347836677453
+    },
+    {
+      "date": "2026-03-07",
+      "match": "RB Leipzig 2-1 Augsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5762358214436056,
+      "p_draw": 0.22774342298806916,
+      "p_away": 0.1960207555683252
+    },
+    {
+      "date": "2026-03-07",
+      "match": "Wolfsburg 1-2 Hamburger SV",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.41823441648323983,
+      "p_draw": 0.256098716501455,
+      "p_away": 0.3256668670153051
+    },
+    {
+      "date": "2026-03-07",
+      "match": "1. FC Heidenheim 2-4 TSG Hoffenheim",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.25679113847800633,
+      "p_draw": 0.19940911610343748,
+      "p_away": 0.5437997454185561
+    },
+    {
+      "date": "2026-03-07",
+      "match": "1. FC Köln 1-2 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.17850881781617078,
+      "p_draw": 0.2008721325433569,
+      "p_away": 0.6206190496404723
+    },
+    {
+      "date": "2026-03-08",
+      "match": "FC St. Pauli 0-0 Eintracht Frankfurt",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3311595310874334,
+      "p_draw": 0.25084460582255047,
+      "p_away": 0.4179958630900162
+    },
+    {
+      "date": "2026-03-08",
+      "match": "Union Berlin 1-4 Werder Bremen",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3764874917088061,
+      "p_draw": 0.310595324182167,
+      "p_away": 0.31291718410902686
+    },
+    {
+      "date": "2026-03-13",
+      "match": "Borussia Mönchengladbach 2-0 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4424763730074945,
+      "p_draw": 0.3115180998491877,
+      "p_away": 0.24600552714331786
+    },
+    {
+      "date": "2026-03-14",
+      "match": "Bayer Leverkusen 1-1 Bayern Munich",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.1621210711263058,
+      "p_draw": 0.30004499042407207,
+      "p_away": 0.5378339384496222
+    },
+    {
+      "date": "2026-03-14",
+      "match": "Eintracht Frankfurt 1-0 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5916004027358192,
+      "p_draw": 0.21035551982187145,
+      "p_away": 0.19804407744230942
+    },
+    {
+      "date": "2026-03-14",
+      "match": "Borussia Dortmund 2-0 Augsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6893386240627937,
+      "p_draw": 0.1562277385661175,
+      "p_away": 0.1544336373710888
+    },
+    {
+      "date": "2026-03-14",
+      "match": "TSG Hoffenheim 1-1 Wolfsburg",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4852525612186803,
+      "p_draw": 0.21531739087956786,
+      "p_away": 0.2994300479017518
+    },
+    {
+      "date": "2026-03-14",
+      "match": "Hamburger SV 1-1 1. FC Köln",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4474492090488951,
+      "p_draw": 0.3245277092879582,
+      "p_away": 0.22802308166314672
+    },
+    {
+      "date": "2026-03-15",
+      "match": "Werder Bremen 0-2 1. FSV Mainz 05",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.39557661062355637,
+      "p_draw": 0.24297125293844793,
+      "p_away": 0.3614521364379957
+    },
+    {
+      "date": "2026-03-15",
+      "match": "SC Freiburg 0-1 Union Berlin",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.39301744701590224,
+      "p_draw": 0.35524006749663123,
+      "p_away": 0.2517424854874665
+    },
+    {
+      "date": "2026-03-15",
+      "match": "VfB Stuttgart 1-0 RB Leipzig",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4694443319373619,
+      "p_draw": 0.1934581926470293,
+      "p_away": 0.33709747541560886
+    },
+    {
+      "date": "2026-03-20",
+      "match": "RB Leipzig 5-0 TSG Hoffenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5029721825966227,
+      "p_draw": 0.25921081442969096,
+      "p_away": 0.23781700297368644
+    },
+    {
+      "date": "2026-03-21",
+      "match": "Bayern Munich 4-0 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.865316207004834,
+      "p_draw": 0.09364156548306064,
+      "p_away": 0.04104222751210531
+    },
+    {
+      "date": "2026-03-21",
+      "match": "Wolfsburg 0-1 Werder Bremen",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.415021570291549,
+      "p_draw": 0.29253664210754327,
+      "p_away": 0.2924417876009078
+    },
+    {
+      "date": "2026-03-21",
+      "match": "1. FC Heidenheim 3-3 Bayer Leverkusen",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.13470788858454086,
+      "p_draw": 0.1372283582300284,
+      "p_away": 0.7280637531854307
+    },
+    {
+      "date": "2026-03-21",
+      "match": "1. FC Köln 3-3 Borussia Mönchengladbach",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4808476580613149,
+      "p_draw": 0.25477974633609995,
+      "p_away": 0.2643725956025852
+    },
+    {
+      "date": "2026-03-21",
+      "match": "Borussia Dortmund 3-2 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6241572986770645,
+      "p_draw": 0.20418147318588498,
+      "p_away": 0.17166122813705045
+    },
+    {
+      "date": "2026-03-22",
+      "match": "1. FSV Mainz 05 2-1 Eintracht Frankfurt",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.41801811333345323,
+      "p_draw": 0.2892436833756521,
+      "p_away": 0.2927382032908947
+    },
+    {
+      "date": "2026-03-22",
+      "match": "FC St. Pauli 1-2 SC Freiburg",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.28715760623958686,
+      "p_draw": 0.2771099103148064,
+      "p_away": 0.43573248344560667
+    },
+    {
+      "date": "2026-03-22",
+      "match": "Augsburg 2-5 VfB Stuttgart",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2237333098842125,
+      "p_draw": 0.28696932696528216,
+      "p_away": 0.4892973631505055
+    },
+    {
+      "date": "2026-04-04",
+      "match": "Bayer Leverkusen 6-3 Wolfsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5595017761067513,
+      "p_draw": 0.2363727522769612,
+      "p_away": 0.20412547161628752
+    },
+    {
+      "date": "2026-04-04",
+      "match": "SC Freiburg 2-3 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.21762988522387894,
+      "p_draw": 0.22704623354018813,
+      "p_away": 0.5553238812359329
+    },
+    {
+      "date": "2026-04-04",
+      "match": "Werder Bremen 1-2 RB Leipzig",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.18350461521455927,
+      "p_draw": 0.3090124061342887,
+      "p_away": 0.5074829786511519
+    },
+    {
+      "date": "2026-04-04",
+      "match": "Borussia Mönchengladbach 2-2 1. FC Heidenheim",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5478675429311031,
+      "p_draw": 0.25214212564893235,
+      "p_away": 0.19999033141996447
+    },
+    {
+      "date": "2026-04-04",
+      "match": "TSG Hoffenheim 1-2 1. FSV Mainz 05",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4048533526182558,
+      "p_draw": 0.25577609193644973,
+      "p_away": 0.33937055544529454
+    },
+    {
+      "date": "2026-04-04",
+      "match": "Hamburger SV 1-1 Augsburg",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4364835946841038,
+      "p_draw": 0.2774559404472979,
+      "p_away": 0.28606046486859843
+    },
+    {
+      "date": "2026-04-04",
+      "match": "VfB Stuttgart 0-2 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3630458726682197,
+      "p_draw": 0.2548872357126998,
+      "p_away": 0.3820668916190804
+    },
+    {
+      "date": "2026-04-05",
+      "match": "Union Berlin 1-1 FC St. Pauli",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.517328678619004,
+      "p_draw": 0.23726268388408436,
+      "p_away": 0.24540863749691177
+    },
+    {
+      "date": "2026-04-05",
+      "match": "Eintracht Frankfurt 2-2 1. FC Köln",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4895267569403199,
+      "p_draw": 0.3034120884537274,
+      "p_away": 0.20706115460595273
+    },
+    {
+      "date": "2026-04-10",
+      "match": "Augsburg 2-2 TSG Hoffenheim",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.422152843750702,
+      "p_draw": 0.23927285700963097,
+      "p_away": 0.33857429923966703
+    },
+    {
+      "date": "2026-04-11",
+      "match": "Borussia Dortmund 0-1 Bayer Leverkusen",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5175546109755765,
+      "p_draw": 0.17743211509635726,
+      "p_away": 0.3050132739280663
+    },
+    {
+      "date": "2026-04-11",
+      "match": "RB Leipzig 1-0 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5651080296374702,
+      "p_draw": 0.2489766513549389,
+      "p_away": 0.18591531900759087
+    },
+    {
+      "date": "2026-04-11",
+      "match": "Wolfsburg 1-2 Eintracht Frankfurt",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.34932163259345106,
+      "p_draw": 0.23890253605995698,
+      "p_away": 0.41177583134659196
+    },
+    {
+      "date": "2026-04-11",
+      "match": "1. FC Heidenheim 3-1 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4866646246565974,
+      "p_draw": 0.2102000013213895,
+      "p_away": 0.3031353740220131
+    },
+    {
+      "date": "2026-04-11",
+      "match": "FC St. Pauli 0-5 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.1151907248465097,
+      "p_draw": 0.1550290736142381,
+      "p_away": 0.7297802015392522
+    },
+    {
+      "date": "2026-04-12",
+      "match": "1. FC Köln 3-1 Werder Bremen",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3837449266710733,
+      "p_draw": 0.2203128631946466,
+      "p_away": 0.39594221013428005
+    },
+    {
+      "date": "2026-04-12",
+      "match": "VfB Stuttgart 4-0 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.605053912494415,
+      "p_draw": 0.23263130019861653,
+      "p_away": 0.1623147873069685
+    },
+    {
+      "date": "2026-04-12",
+      "match": "1. FSV Mainz 05 0-1 SC Freiburg",
+      "actual": "A",
+      "predicted": "D",
+      "hit": false,
+      "p_home": 0.33269685761231066,
+      "p_draw": 0.3660358655747552,
+      "p_away": 0.30126727681293414
+    },
+    {
+      "date": "2026-04-17",
+      "match": "FC St. Pauli 1-1 1. FC Köln",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3423508812125495,
+      "p_draw": 0.22339911083762146,
+      "p_away": 0.4342500079498291
+    },
+    {
+      "date": "2026-04-18",
+      "match": "Bayer Leverkusen 1-2 Augsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6596166509165763,
+      "p_draw": 0.20929628423078667,
+      "p_away": 0.13108706485263705
+    },
+    {
+      "date": "2026-04-18",
+      "match": "Werder Bremen 3-1 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.33523180184034496,
+      "p_draw": 0.3297205212375861,
+      "p_away": 0.3350476769220689
+    },
+    {
+      "date": "2026-04-18",
+      "match": "Union Berlin 1-2 Wolfsburg",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3702397506978117,
+      "p_draw": 0.21527504317273946,
+      "p_away": 0.41448520612944895
+    },
+    {
+      "date": "2026-04-18",
+      "match": "TSG Hoffenheim 2-1 Borussia Dortmund",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.23228061474245526,
+      "p_draw": 0.2542297694244266,
+      "p_away": 0.5134896158331183
+    },
+    {
+      "date": "2026-04-18",
+      "match": "Eintracht Frankfurt 1-3 RB Leipzig",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.24634082275493038,
+      "p_draw": 0.24381533219869236,
+      "p_away": 0.5098438450463773
+    },
+    {
+      "date": "2026-04-19",
+      "match": "SC Freiburg 2-1 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5789872815877334,
+      "p_draw": 0.21721526484322579,
+      "p_away": 0.20379745356904086
+    },
+    {
+      "date": "2026-04-19",
+      "match": "Bayern Munich 4-2 VfB Stuttgart",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6076546715507115,
+      "p_draw": 0.2741120169041165,
+      "p_away": 0.11823331154517186
+    },
+    {
+      "date": "2026-04-19",
+      "match": "Borussia Mönchengladbach 1-1 1. FSV Mainz 05",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.43158079679649275,
+      "p_draw": 0.2585564248023814,
+      "p_away": 0.3098627784011257
+    },
+    {
+      "date": "2026-04-24",
+      "match": "RB Leipzig 3-1 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6820014143177549,
+      "p_draw": 0.20775661773803247,
+      "p_away": 0.11024196794421263
+    },
+    {
+      "date": "2026-04-25",
+      "match": "1. FSV Mainz 05 3-4 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.12730300753330293,
+      "p_draw": 0.1715874657548961,
+      "p_away": 0.701109526711801
+    },
+    {
+      "date": "2026-04-25",
+      "match": "Wolfsburg 0-0 Borussia Mönchengladbach",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3028432527314182,
+      "p_draw": 0.29844130835039906,
+      "p_away": 0.3987154389181826
+    },
+    {
+      "date": "2026-04-25",
+      "match": "Augsburg 1-1 Eintracht Frankfurt",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3867316774484142,
+      "p_draw": 0.321186882149326,
+      "p_away": 0.2920814404022597
+    },
+    {
+      "date": "2026-04-25",
+      "match": "1. FC Heidenheim 2-0 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.40857196870352697,
+      "p_draw": 0.25602327869662955,
+      "p_away": 0.33540475259984354
+    },
+    {
+      "date": "2026-04-25",
+      "match": "1. FC Köln 1-2 Bayer Leverkusen",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.230640598586391,
+      "p_draw": 0.23930526732272397,
+      "p_away": 0.5300541340908852
+    },
+    {
+      "date": "2026-04-25",
+      "match": "Hamburger SV 1-2 TSG Hoffenheim",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3217888701657808,
+      "p_draw": 0.25168531299220015,
+      "p_away": 0.42652581684201907
+    },
+    {
+      "date": "2026-04-26",
+      "match": "VfB Stuttgart 1-1 Werder Bremen",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6287439170278913,
+      "p_draw": 0.20979515846966237,
+      "p_away": 0.16146092450244634
+    },
+    {
+      "date": "2026-04-26",
+      "match": "Borussia Dortmund 4-0 SC Freiburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6527474618596846,
+      "p_draw": 0.18388428205418747,
+      "p_away": 0.16336825608612804
+    },
+    {
+      "date": "2026-05-02",
+      "match": "Bayern Munich 3-3 1. FC Heidenheim",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.8884842575098802,
+      "p_draw": 0.06984241867990336,
+      "p_away": 0.0416733238102164
+    },
+    {
+      "date": "2026-05-02",
+      "match": "Eintracht Frankfurt 1-2 Hamburger SV",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5210786729575813,
+      "p_draw": 0.2530980737332216,
+      "p_away": 0.22582325330919717
+    },
+    {
+      "date": "2026-05-02",
+      "match": "Werder Bremen 1-3 Augsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.40942879363778195,
+      "p_draw": 0.2538495844617441,
+      "p_away": 0.33672162190047394
+    },
+    {
+      "date": "2026-05-02",
+      "match": "Union Berlin 2-2 1. FC Köln",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4596642822292727,
+      "p_draw": 0.2579097716545662,
+      "p_away": 0.2824259461161611
+    },
+    {
+      "date": "2026-05-02",
+      "match": "TSG Hoffenheim 3-3 VfB Stuttgart",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2684786523539197,
+      "p_draw": 0.3418243150150682,
+      "p_away": 0.38969703263101213
+    },
+    {
+      "date": "2026-05-02",
+      "match": "Bayer Leverkusen 4-1 RB Leipzig",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5081486301518781,
+      "p_draw": 0.22013977660239342,
+      "p_away": 0.2717115932457286
+    },
+    {
+      "date": "2026-05-03",
+      "match": "FC St. Pauli 1-2 1. FSV Mainz 05",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3253882440913149,
+      "p_draw": 0.23919040663271046,
+      "p_away": 0.4354213492759747
+    },
+    {
+      "date": "2026-05-03",
+      "match": "Borussia Mönchengladbach 1-0 Borussia Dortmund",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.26115550586578457,
+      "p_draw": 0.26840919630775284,
+      "p_away": 0.4704352978264626
+    },
+    {
+      "date": "2026-05-03",
+      "match": "SC Freiburg 1-1 Wolfsburg",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5487708642439337,
+      "p_draw": 0.2055206019532387,
+      "p_away": 0.24570853380282753
+    },
+    {
+      "date": "2026-05-08",
+      "match": "Borussia Dortmund 3-2 Eintracht Frankfurt",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6828210136878123,
+      "p_draw": 0.1571636559822091,
+      "p_away": 0.16001533032997858
+    },
+    {
+      "date": "2026-05-09",
+      "match": "RB Leipzig 2-1 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6260267591959026,
+      "p_draw": 0.25828896655819916,
+      "p_away": 0.11568427424589825
+    },
+    {
+      "date": "2026-05-09",
+      "match": "VfB Stuttgart 3-1 Bayer Leverkusen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.45812566814345573,
+      "p_draw": 0.24094970520498044,
+      "p_away": 0.3009246266515638
+    },
+    {
+      "date": "2026-05-09",
+      "match": "Augsburg 3-1 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.3720510304706675,
+      "p_draw": 0.28413972131549875,
+      "p_away": 0.34380924821383374
+    },
+    {
+      "date": "2026-05-09",
+      "match": "TSG Hoffenheim 1-0 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5249396873734894,
+      "p_draw": 0.2546145867413009,
+      "p_away": 0.2204457258852097
+    },
+    {
+      "date": "2026-05-09",
+      "match": "Wolfsburg 0-1 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.12535394365393882,
+      "p_draw": 0.12501355988031215,
+      "p_away": 0.749632496465749
+    },
+    {
+      "date": "2026-05-10",
+      "match": "Hamburger SV 3-2 SC Freiburg",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3111653510591233,
+      "p_draw": 0.2988125002408398,
+      "p_away": 0.39002214870003693
+    },
+    {
+      "date": "2026-05-10",
+      "match": "1. FC Köln 1-3 1. FC Heidenheim",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.49628298938136944,
+      "p_draw": 0.22874640835996507,
+      "p_away": 0.27497060225866554
+    },
+    {
+      "date": "2026-05-10",
+      "match": "1. FSV Mainz 05 1-3 Union Berlin",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4113614944981762,
+      "p_draw": 0.35730097929281296,
+      "p_away": 0.23133752620901085
+    },
+    {
+      "date": "2026-05-16",
+      "match": "Bayern Munich 5-1 1. FC Köln",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.8508118412821108,
+      "p_draw": 0.09451313204816171,
+      "p_away": 0.05467502666972756
+    },
+    {
+      "date": "2026-05-16",
+      "match": "Bayer Leverkusen 1-1 Hamburger SV",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5944995226693426,
+      "p_draw": 0.24369923515778028,
+      "p_away": 0.1618012421728771
+    },
+    {
+      "date": "2026-05-16",
+      "match": "Eintracht Frankfurt 2-2 VfB Stuttgart",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2884949550125398,
+      "p_draw": 0.29812166324942246,
+      "p_away": 0.41338338173803774
+    },
+    {
+      "date": "2026-05-16",
+      "match": "SC Freiburg 4-1 RB Leipzig",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.1891508014440729,
+      "p_draw": 0.3248886081762097,
+      "p_away": 0.4859605903797174
+    },
+    {
+      "date": "2026-05-16",
+      "match": "Werder Bremen 0-2 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2012573268741065,
+      "p_draw": 0.31724553695570457,
+      "p_away": 0.4814971361701889
+    },
+    {
+      "date": "2026-05-16",
+      "match": "Borussia Mönchengladbach 4-0 TSG Hoffenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.36777472667936734,
+      "p_draw": 0.3616421458161201,
+      "p_away": 0.2705831275045126
+    },
+    {
+      "date": "2026-05-16",
+      "match": "Union Berlin 4-0 Augsburg",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.33182527775781046,
+      "p_draw": 0.27466120615655665,
+      "p_away": 0.3935135160856329
+    },
+    {
+      "date": "2026-05-16",
+      "match": "FC St. Pauli 1-3 Wolfsburg",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3716719791450096,
+      "p_draw": 0.2140172210620746,
+      "p_away": 0.4143107997929158
+    },
+    {
+      "date": "2026-05-16",
+      "match": "1. FC Heidenheim 0-2 1. FSV Mainz 05",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.41126698275952134,
+      "p_draw": 0.22099098435196257,
+      "p_away": 0.3677420328885161
+    }
+  ],
+  "v2_rows": [
+    {
+      "date": "2025-08-22",
+      "match": "Bayern Munich 6-0 RB Leipzig",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6555,
+      "p_draw": 0.1977,
+      "p_away": 0.1468
+    },
+    {
+      "date": "2025-08-23",
+      "match": "Bayer Leverkusen 1-2 TSG Hoffenheim",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6605,
+      "p_draw": 0.1885,
+      "p_away": 0.151
+    },
+    {
+      "date": "2025-08-23",
+      "match": "Eintracht Frankfurt 4-1 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5271,
+      "p_draw": 0.2418,
+      "p_away": 0.2311
+    },
+    {
+      "date": "2025-08-23",
+      "match": "SC Freiburg 1-3 Augsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5424,
+      "p_draw": 0.2197,
+      "p_away": 0.2379
+    },
+    {
+      "date": "2025-08-23",
+      "match": "Union Berlin 2-1 VfB Stuttgart",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3165,
+      "p_draw": 0.2991,
+      "p_away": 0.3844
+    },
+    {
+      "date": "2025-08-23",
+      "match": "1. FC Heidenheim 1-3 Wolfsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.349,
+      "p_draw": 0.304,
+      "p_away": 0.347
+    },
+    {
+      "date": "2025-08-23",
+      "match": "FC St. Pauli 3-3 Borussia Dortmund",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.1772,
+      "p_draw": 0.1745,
+      "p_away": 0.6484
+    },
+    {
+      "date": "2025-08-24",
+      "match": "1. FSV Mainz 05 0-1 1. FC Köln",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5289,
+      "p_draw": 0.2515,
+      "p_away": 0.2196
+    },
+    {
+      "date": "2025-08-24",
+      "match": "Borussia Mönchengladbach 0-0 Hamburger SV",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3028,
+      "p_draw": 0.3272,
+      "p_away": 0.37
+    },
+    {
+      "date": "2025-08-29",
+      "match": "Hamburger SV 0-2 FC St. Pauli",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5164,
+      "p_draw": 0.2627,
+      "p_away": 0.2209
+    },
+    {
+      "date": "2025-08-30",
+      "match": "RB Leipzig 2-0 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6061,
+      "p_draw": 0.2594,
+      "p_away": 0.1346
+    },
+    {
+      "date": "2025-08-30",
+      "match": "Werder Bremen 3-3 Bayer Leverkusen",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3654,
+      "p_draw": 0.1958,
+      "p_away": 0.4388
+    },
+    {
+      "date": "2025-08-30",
+      "match": "VfB Stuttgart 1-0 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5521,
+      "p_draw": 0.2431,
+      "p_away": 0.2049
+    },
+    {
+      "date": "2025-08-30",
+      "match": "TSG Hoffenheim 1-3 Eintracht Frankfurt",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2724,
+      "p_draw": 0.2629,
+      "p_away": 0.4647
+    },
+    {
+      "date": "2025-08-30",
+      "match": "Augsburg 2-3 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.1594,
+      "p_draw": 0.1793,
+      "p_away": 0.6613
+    },
+    {
+      "date": "2025-08-31",
+      "match": "Wolfsburg 1-1 1. FSV Mainz 05",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4332,
+      "p_draw": 0.2442,
+      "p_away": 0.3226
+    },
+    {
+      "date": "2025-08-31",
+      "match": "Borussia Dortmund 3-0 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6798,
+      "p_draw": 0.1903,
+      "p_away": 0.1299
+    },
+    {
+      "date": "2025-08-31",
+      "match": "1. FC Köln 4-1 SC Freiburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.3821,
+      "p_draw": 0.278,
+      "p_away": 0.3399
+    },
+    {
+      "date": "2025-09-12",
+      "match": "Bayer Leverkusen 3-1 Eintracht Frankfurt",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.596,
+      "p_draw": 0.2206,
+      "p_away": 0.1833
+    },
+    {
+      "date": "2025-09-13",
+      "match": "SC Freiburg 3-1 VfB Stuttgart",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3301,
+      "p_draw": 0.2895,
+      "p_away": 0.3804
+    },
+    {
+      "date": "2025-09-13",
+      "match": "1. FSV Mainz 05 0-1 RB Leipzig",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4146,
+      "p_draw": 0.2388,
+      "p_away": 0.3467
+    },
+    {
+      "date": "2025-09-13",
+      "match": "Wolfsburg 3-3 1. FC Köln",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4675,
+      "p_draw": 0.2817,
+      "p_away": 0.2508
+    },
+    {
+      "date": "2025-09-13",
+      "match": "Union Berlin 2-4 TSG Hoffenheim",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4244,
+      "p_draw": 0.256,
+      "p_away": 0.3196
+    },
+    {
+      "date": "2025-09-13",
+      "match": "1. FC Heidenheim 0-2 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.1674,
+      "p_draw": 0.2349,
+      "p_away": 0.5977
+    },
+    {
+      "date": "2025-09-13",
+      "match": "Bayern Munich 5-0 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7179,
+      "p_draw": 0.1952,
+      "p_away": 0.0869
+    },
+    {
+      "date": "2025-09-14",
+      "match": "FC St. Pauli 2-1 Augsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.3975,
+      "p_draw": 0.25,
+      "p_away": 0.3526
+    },
+    {
+      "date": "2025-09-14",
+      "match": "Borussia Mönchengladbach 0-4 Werder Bremen",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3997,
+      "p_draw": 0.2608,
+      "p_away": 0.3395
+    },
+    {
+      "date": "2025-09-19",
+      "match": "VfB Stuttgart 2-0 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6192,
+      "p_draw": 0.2129,
+      "p_away": 0.168
+    },
+    {
+      "date": "2025-09-20",
+      "match": "Werder Bremen 0-3 SC Freiburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4674,
+      "p_draw": 0.2354,
+      "p_away": 0.2972
+    },
+    {
+      "date": "2025-09-20",
+      "match": "Augsburg 1-4 1. FSV Mainz 05",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4189,
+      "p_draw": 0.2564,
+      "p_away": 0.3247
+    },
+    {
+      "date": "2025-09-20",
+      "match": "TSG Hoffenheim 1-4 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.1731,
+      "p_draw": 0.1839,
+      "p_away": 0.643
+    },
+    {
+      "date": "2025-09-20",
+      "match": "Hamburger SV 2-1 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5416,
+      "p_draw": 0.2508,
+      "p_away": 0.2076
+    },
+    {
+      "date": "2025-09-20",
+      "match": "RB Leipzig 3-1 1. FC Köln",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4915,
+      "p_draw": 0.3042,
+      "p_away": 0.2043
+    },
+    {
+      "date": "2025-09-21",
+      "match": "Eintracht Frankfurt 3-4 Union Berlin",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6861,
+      "p_draw": 0.1777,
+      "p_away": 0.1362
+    },
+    {
+      "date": "2025-09-21",
+      "match": "Bayer Leverkusen 1-1 Borussia Mönchengladbach",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6871,
+      "p_draw": 0.167,
+      "p_away": 0.1458
+    },
+    {
+      "date": "2025-09-21",
+      "match": "Borussia Dortmund 1-0 Wolfsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6751,
+      "p_draw": 0.1885,
+      "p_away": 0.1364
+    },
+    {
+      "date": "2025-09-26",
+      "match": "Bayern Munich 4-0 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7479,
+      "p_draw": 0.1628,
+      "p_away": 0.0894
+    },
+    {
+      "date": "2025-09-27",
+      "match": "1. FSV Mainz 05 0-2 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2762,
+      "p_draw": 0.2567,
+      "p_away": 0.4671
+    },
+    {
+      "date": "2025-09-27",
+      "match": "Wolfsburg 0-1 RB Leipzig",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3439,
+      "p_draw": 0.2464,
+      "p_away": 0.4098
+    },
+    {
+      "date": "2025-09-27",
+      "match": "FC St. Pauli 1-2 Bayer Leverkusen",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.257,
+      "p_draw": 0.1798,
+      "p_away": 0.5632
+    },
+    {
+      "date": "2025-09-27",
+      "match": "1. FC Heidenheim 2-1 Augsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.3906,
+      "p_draw": 0.2324,
+      "p_away": 0.377
+    },
+    {
+      "date": "2025-09-27",
+      "match": "Borussia Mönchengladbach 4-6 Eintracht Frankfurt",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2634,
+      "p_draw": 0.3168,
+      "p_away": 0.4198
+    },
+    {
+      "date": "2025-09-28",
+      "match": "SC Freiburg 1-1 TSG Hoffenheim",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5146,
+      "p_draw": 0.2242,
+      "p_away": 0.2612
+    },
+    {
+      "date": "2025-09-28",
+      "match": "1. FC Köln 1-2 VfB Stuttgart",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3647,
+      "p_draw": 0.2501,
+      "p_away": 0.3852
+    },
+    {
+      "date": "2025-09-28",
+      "match": "Union Berlin 0-0 Hamburger SV",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3771,
+      "p_draw": 0.2694,
+      "p_away": 0.3534
+    },
+    {
+      "date": "2025-10-03",
+      "match": "TSG Hoffenheim 0-1 1. FC Köln",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4136,
+      "p_draw": 0.3223,
+      "p_away": 0.2641
+    },
+    {
+      "date": "2025-10-04",
+      "match": "Bayer Leverkusen 2-0 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6466,
+      "p_draw": 0.2147,
+      "p_away": 0.1387
+    },
+    {
+      "date": "2025-10-04",
+      "match": "Borussia Dortmund 1-1 RB Leipzig",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5755,
+      "p_draw": 0.2013,
+      "p_away": 0.2233
+    },
+    {
+      "date": "2025-10-04",
+      "match": "Werder Bremen 1-0 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5304,
+      "p_draw": 0.2451,
+      "p_away": 0.2245
+    },
+    {
+      "date": "2025-10-04",
+      "match": "Augsburg 3-1 Wolfsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.3689,
+      "p_draw": 0.317,
+      "p_away": 0.314
+    },
+    {
+      "date": "2025-10-04",
+      "match": "Eintracht Frankfurt 0-3 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2082,
+      "p_draw": 0.2535,
+      "p_away": 0.5383
+    },
+    {
+      "date": "2025-10-05",
+      "match": "VfB Stuttgart 1-0 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6301,
+      "p_draw": 0.2189,
+      "p_away": 0.151
+    },
+    {
+      "date": "2025-10-05",
+      "match": "Hamburger SV 4-0 1. FSV Mainz 05",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4444,
+      "p_draw": 0.2316,
+      "p_away": 0.324
+    },
+    {
+      "date": "2025-10-05",
+      "match": "Borussia Mönchengladbach 0-0 SC Freiburg",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3354,
+      "p_draw": 0.249,
+      "p_away": 0.4156
+    },
+    {
+      "date": "2025-10-17",
+      "match": "Union Berlin 3-1 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4811,
+      "p_draw": 0.2579,
+      "p_away": 0.261
+    },
+    {
+      "date": "2025-10-18",
+      "match": "1. FSV Mainz 05 3-4 Bayer Leverkusen",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2754,
+      "p_draw": 0.194,
+      "p_away": 0.5305
+    },
+    {
+      "date": "2025-10-18",
+      "match": "RB Leipzig 2-1 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5635,
+      "p_draw": 0.2595,
+      "p_away": 0.177
+    },
+    {
+      "date": "2025-10-18",
+      "match": "Wolfsburg 0-3 VfB Stuttgart",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3589,
+      "p_draw": 0.2181,
+      "p_away": 0.423
+    },
+    {
+      "date": "2025-10-18",
+      "match": "1. FC Heidenheim 2-2 Werder Bremen",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3675,
+      "p_draw": 0.2485,
+      "p_away": 0.384
+    },
+    {
+      "date": "2025-10-18",
+      "match": "1. FC Köln 1-1 Augsburg",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4983,
+      "p_draw": 0.2444,
+      "p_away": 0.2573
+    },
+    {
+      "date": "2025-10-18",
+      "match": "Bayern Munich 2-1 Borussia Dortmund",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6411,
+      "p_draw": 0.2019,
+      "p_away": 0.157
+    },
+    {
+      "date": "2025-10-19",
+      "match": "SC Freiburg 2-2 Eintracht Frankfurt",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4119,
+      "p_draw": 0.2573,
+      "p_away": 0.3308
+    },
+    {
+      "date": "2025-10-19",
+      "match": "FC St. Pauli 0-3 TSG Hoffenheim",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4381,
+      "p_draw": 0.2542,
+      "p_away": 0.3077
+    },
+    {
+      "date": "2025-10-24",
+      "match": "Werder Bremen 1-0 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4803,
+      "p_draw": 0.2916,
+      "p_away": 0.2281
+    },
+    {
+      "date": "2025-10-25",
+      "match": "Eintracht Frankfurt 2-0 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5844,
+      "p_draw": 0.2566,
+      "p_away": 0.159
+    },
+    {
+      "date": "2025-10-25",
+      "match": "Borussia Mönchengladbach 0-3 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.1794,
+      "p_draw": 0.1787,
+      "p_away": 0.6419
+    },
+    {
+      "date": "2025-10-25",
+      "match": "Augsburg 0-6 RB Leipzig",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3302,
+      "p_draw": 0.2223,
+      "p_away": 0.4475
+    },
+    {
+      "date": "2025-10-25",
+      "match": "TSG Hoffenheim 3-1 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5473,
+      "p_draw": 0.2261,
+      "p_away": 0.2267
+    },
+    {
+      "date": "2025-10-25",
+      "match": "Hamburger SV 0-1 Wolfsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4901,
+      "p_draw": 0.2411,
+      "p_away": 0.2688
+    },
+    {
+      "date": "2025-10-25",
+      "match": "Borussia Dortmund 1-0 1. FC Köln",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.725,
+      "p_draw": 0.1565,
+      "p_away": 0.1185
+    },
+    {
+      "date": "2025-10-26",
+      "match": "Bayer Leverkusen 2-0 SC Freiburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5781,
+      "p_draw": 0.2374,
+      "p_away": 0.1845
+    },
+    {
+      "date": "2025-10-26",
+      "match": "VfB Stuttgart 2-1 1. FSV Mainz 05",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5895,
+      "p_draw": 0.2148,
+      "p_away": 0.1957
+    },
+    {
+      "date": "2025-10-31",
+      "match": "Augsburg 0-1 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2123,
+      "p_draw": 0.2461,
+      "p_away": 0.5416
+    },
+    {
+      "date": "2025-11-01",
+      "match": "1. FSV Mainz 05 1-1 Werder Bremen",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4381,
+      "p_draw": 0.2872,
+      "p_away": 0.2747
+    },
+    {
+      "date": "2025-11-01",
+      "match": "RB Leipzig 3-1 VfB Stuttgart",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5326,
+      "p_draw": 0.2455,
+      "p_away": 0.2219
+    },
+    {
+      "date": "2025-11-01",
+      "match": "Union Berlin 0-0 SC Freiburg",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3961,
+      "p_draw": 0.2509,
+      "p_away": 0.3529
+    },
+    {
+      "date": "2025-11-01",
+      "match": "FC St. Pauli 0-4 Borussia Mönchengladbach",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4312,
+      "p_draw": 0.2678,
+      "p_away": 0.301
+    },
+    {
+      "date": "2025-11-01",
+      "match": "1. FC Heidenheim 1-1 Eintracht Frankfurt",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2338,
+      "p_draw": 0.1961,
+      "p_away": 0.5702
+    },
+    {
+      "date": "2025-11-01",
+      "match": "Bayern Munich 3-0 Bayer Leverkusen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6147,
+      "p_draw": 0.2149,
+      "p_away": 0.1705
+    },
+    {
+      "date": "2025-11-02",
+      "match": "1. FC Köln 4-1 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4844,
+      "p_draw": 0.2472,
+      "p_away": 0.2683
+    },
+    {
+      "date": "2025-11-02",
+      "match": "Wolfsburg 2-3 TSG Hoffenheim",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3684,
+      "p_draw": 0.3242,
+      "p_away": 0.3074
+    },
+    {
+      "date": "2025-11-07",
+      "match": "Werder Bremen 2-1 Wolfsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4913,
+      "p_draw": 0.274,
+      "p_away": 0.2346
+    },
+    {
+      "date": "2025-11-08",
+      "match": "Bayer Leverkusen 6-0 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.697,
+      "p_draw": 0.1896,
+      "p_away": 0.1133
+    },
+    {
+      "date": "2025-11-08",
+      "match": "Union Berlin 2-2 Bayern Munich",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.1832,
+      "p_draw": 0.1728,
+      "p_away": 0.644
+    },
+    {
+      "date": "2025-11-08",
+      "match": "TSG Hoffenheim 3-1 RB Leipzig",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3092,
+      "p_draw": 0.2438,
+      "p_away": 0.447
+    },
+    {
+      "date": "2025-11-08",
+      "match": "Hamburger SV 1-1 Borussia Dortmund",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2374,
+      "p_draw": 0.2214,
+      "p_away": 0.5412
+    },
+    {
+      "date": "2025-11-08",
+      "match": "Borussia Mönchengladbach 3-1 1. FC Köln",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.3882,
+      "p_draw": 0.282,
+      "p_away": 0.3299
+    },
+    {
+      "date": "2025-11-09",
+      "match": "SC Freiburg 2-1 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.65,
+      "p_draw": 0.1923,
+      "p_away": 0.1577
+    },
+    {
+      "date": "2025-11-09",
+      "match": "VfB Stuttgart 3-2 Augsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6354,
+      "p_draw": 0.2026,
+      "p_away": 0.162
+    },
+    {
+      "date": "2025-11-09",
+      "match": "Eintracht Frankfurt 1-0 1. FSV Mainz 05",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5771,
+      "p_draw": 0.2084,
+      "p_away": 0.2145
+    },
+    {
+      "date": "2025-11-21",
+      "match": "1. FSV Mainz 05 1-1 TSG Hoffenheim",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3533,
+      "p_draw": 0.3452,
+      "p_away": 0.3015
+    },
+    {
+      "date": "2025-11-22",
+      "match": "Bayern Munich 6-2 SC Freiburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7382,
+      "p_draw": 0.164,
+      "p_away": 0.0978
+    },
+    {
+      "date": "2025-11-22",
+      "match": "Borussia Dortmund 3-3 VfB Stuttgart",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4677,
+      "p_draw": 0.2623,
+      "p_away": 0.27
+    },
+    {
+      "date": "2025-11-22",
+      "match": "Wolfsburg 1-3 Bayer Leverkusen",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.214,
+      "p_draw": 0.2507,
+      "p_away": 0.5353
+    },
+    {
+      "date": "2025-11-22",
+      "match": "Augsburg 1-0 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.39,
+      "p_draw": 0.3062,
+      "p_away": 0.3039
+    },
+    {
+      "date": "2025-11-22",
+      "match": "1. FC Heidenheim 0-3 Borussia Mönchengladbach",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3026,
+      "p_draw": 0.2593,
+      "p_away": 0.4382
+    },
+    {
+      "date": "2025-11-22",
+      "match": "1. FC Köln 3-4 Eintracht Frankfurt",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3946,
+      "p_draw": 0.2554,
+      "p_away": 0.35
+    },
+    {
+      "date": "2025-11-23",
+      "match": "RB Leipzig 2-0 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.674,
+      "p_draw": 0.1754,
+      "p_away": 0.1506
+    },
+    {
+      "date": "2025-11-23",
+      "match": "FC St. Pauli 0-1 Union Berlin",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3745,
+      "p_draw": 0.269,
+      "p_away": 0.3565
+    },
+    {
+      "date": "2025-11-28",
+      "match": "Borussia Mönchengladbach 0-0 RB Leipzig",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2811,
+      "p_draw": 0.2281,
+      "p_away": 0.4908
+    },
+    {
+      "date": "2025-11-29",
+      "match": "Bayern Munich 3-1 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.8206,
+      "p_draw": 0.1174,
+      "p_away": 0.062
+    },
+    {
+      "date": "2025-11-29",
+      "match": "Werder Bremen 1-1 1. FC Köln",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4907,
+      "p_draw": 0.2484,
+      "p_away": 0.2609
+    },
+    {
+      "date": "2025-11-29",
+      "match": "Union Berlin 1-2 1. FC Heidenheim",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6389,
+      "p_draw": 0.1942,
+      "p_away": 0.1669
+    },
+    {
+      "date": "2025-11-29",
+      "match": "TSG Hoffenheim 3-0 Augsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5403,
+      "p_draw": 0.2283,
+      "p_away": 0.2315
+    },
+    {
+      "date": "2025-11-29",
+      "match": "Bayer Leverkusen 1-2 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5222,
+      "p_draw": 0.224,
+      "p_away": 0.2538
+    },
+    {
+      "date": "2025-11-30",
+      "match": "Hamburger SV 2-1 VfB Stuttgart",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2759,
+      "p_draw": 0.2686,
+      "p_away": 0.4554
+    },
+    {
+      "date": "2025-11-30",
+      "match": "Eintracht Frankfurt 1-1 Wolfsburg",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5665,
+      "p_draw": 0.2366,
+      "p_away": 0.1969
+    },
+    {
+      "date": "2025-11-30",
+      "match": "SC Freiburg 4-0 1. FSV Mainz 05",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5091,
+      "p_draw": 0.2272,
+      "p_away": 0.2637
+    },
+    {
+      "date": "2025-12-05",
+      "match": "1. FSV Mainz 05 0-1 Borussia Mönchengladbach",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3919,
+      "p_draw": 0.3008,
+      "p_away": 0.3073
+    },
+    {
+      "date": "2025-12-06",
+      "match": "VfB Stuttgart 0-5 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2526,
+      "p_draw": 0.1966,
+      "p_away": 0.5509
+    },
+    {
+      "date": "2025-12-06",
+      "match": "Wolfsburg 3-1 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4728,
+      "p_draw": 0.271,
+      "p_away": 0.2562
+    },
+    {
+      "date": "2025-12-06",
+      "match": "Augsburg 2-0 Bayer Leverkusen",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.1811,
+      "p_draw": 0.2017,
+      "p_away": 0.6172
+    },
+    {
+      "date": "2025-12-06",
+      "match": "1. FC Heidenheim 2-1 SC Freiburg",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2777,
+      "p_draw": 0.2672,
+      "p_away": 0.4551
+    },
+    {
+      "date": "2025-12-06",
+      "match": "1. FC Köln 1-1 FC St. Pauli",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6133,
+      "p_draw": 0.1796,
+      "p_away": 0.2071
+    },
+    {
+      "date": "2025-12-06",
+      "match": "RB Leipzig 6-0 Eintracht Frankfurt",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5692,
+      "p_draw": 0.2346,
+      "p_away": 0.1962
+    },
+    {
+      "date": "2025-12-07",
+      "match": "Hamburger SV 3-2 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4184,
+      "p_draw": 0.2436,
+      "p_away": 0.338
+    },
+    {
+      "date": "2025-12-07",
+      "match": "Borussia Dortmund 2-0 TSG Hoffenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6263,
+      "p_draw": 0.2281,
+      "p_away": 0.1456
+    },
+    {
+      "date": "2025-12-12",
+      "match": "Union Berlin 3-1 RB Leipzig",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2403,
+      "p_draw": 0.2172,
+      "p_away": 0.5424
+    },
+    {
+      "date": "2025-12-13",
+      "match": "Eintracht Frankfurt 1-0 Augsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4749,
+      "p_draw": 0.3172,
+      "p_away": 0.2079
+    },
+    {
+      "date": "2025-12-13",
+      "match": "Borussia Mönchengladbach 1-3 Wolfsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4728,
+      "p_draw": 0.2942,
+      "p_away": 0.2331
+    },
+    {
+      "date": "2025-12-13",
+      "match": "FC St. Pauli 2-1 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5083,
+      "p_draw": 0.2476,
+      "p_away": 0.244
+    },
+    {
+      "date": "2025-12-13",
+      "match": "TSG Hoffenheim 4-1 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4985,
+      "p_draw": 0.2642,
+      "p_away": 0.2373
+    },
+    {
+      "date": "2025-12-13",
+      "match": "Bayer Leverkusen 2-0 1. FC Köln",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6972,
+      "p_draw": 0.1889,
+      "p_away": 0.1139
+    },
+    {
+      "date": "2025-12-14",
+      "match": "SC Freiburg 1-1 Borussia Dortmund",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3434,
+      "p_draw": 0.2349,
+      "p_away": 0.4217
+    },
+    {
+      "date": "2025-12-14",
+      "match": "Bayern Munich 2-2 1. FSV Mainz 05",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.7395,
+      "p_draw": 0.1689,
+      "p_away": 0.0916
+    },
+    {
+      "date": "2025-12-14",
+      "match": "Werder Bremen 0-4 VfB Stuttgart",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3491,
+      "p_draw": 0.2848,
+      "p_away": 0.3661
+    },
+    {
+      "date": "2025-12-19",
+      "match": "Borussia Dortmund 2-0 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6866,
+      "p_draw": 0.194,
+      "p_away": 0.1194
+    },
+    {
+      "date": "2025-12-20",
+      "match": "VfB Stuttgart 0-0 TSG Hoffenheim",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4498,
+      "p_draw": 0.304,
+      "p_away": 0.2462
+    },
+    {
+      "date": "2025-12-20",
+      "match": "Wolfsburg 3-4 SC Freiburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3892,
+      "p_draw": 0.2621,
+      "p_away": 0.3487
+    },
+    {
+      "date": "2025-12-20",
+      "match": "Augsburg 0-0 Werder Bremen",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4142,
+      "p_draw": 0.2599,
+      "p_away": 0.3259
+    },
+    {
+      "date": "2025-12-20",
+      "match": "1. FC Köln 0-1 Union Berlin",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.48,
+      "p_draw": 0.2247,
+      "p_away": 0.2954
+    },
+    {
+      "date": "2025-12-20",
+      "match": "Hamburger SV 1-1 Eintracht Frankfurt",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3767,
+      "p_draw": 0.2419,
+      "p_away": 0.3814
+    },
+    {
+      "date": "2025-12-20",
+      "match": "RB Leipzig 1-3 Bayer Leverkusen",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4713,
+      "p_draw": 0.2072,
+      "p_away": 0.3216
+    },
+    {
+      "date": "2025-12-21",
+      "match": "1. FSV Mainz 05 0-0 FC St. Pauli",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5185,
+      "p_draw": 0.2295,
+      "p_away": 0.2519
+    },
+    {
+      "date": "2025-12-21",
+      "match": "1. FC Heidenheim 0-4 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.1427,
+      "p_draw": 0.1824,
+      "p_away": 0.6749
+    },
+    {
+      "date": "2026-01-09",
+      "match": "Eintracht Frankfurt 3-3 Borussia Dortmund",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3303,
+      "p_draw": 0.2378,
+      "p_away": 0.432
+    },
+    {
+      "date": "2026-01-10",
+      "match": "SC Freiburg 2-1 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5378,
+      "p_draw": 0.2292,
+      "p_away": 0.2329
+    },
+    {
+      "date": "2026-01-10",
+      "match": "Union Berlin 2-2 1. FSV Mainz 05",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5238,
+      "p_draw": 0.2237,
+      "p_away": 0.2525
+    },
+    {
+      "date": "2026-01-10",
+      "match": "1. FC Heidenheim 2-2 1. FC Köln",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3203,
+      "p_draw": 0.3227,
+      "p_away": 0.357
+    },
+    {
+      "date": "2026-01-10",
+      "match": "Bayer Leverkusen 1-4 VfB Stuttgart",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6393,
+      "p_draw": 0.1815,
+      "p_away": 0.1793
+    },
+    {
+      "date": "2026-01-11",
+      "match": "Borussia Mönchengladbach 4-0 Augsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4789,
+      "p_draw": 0.2567,
+      "p_away": 0.2644
+    },
+    {
+      "date": "2026-01-11",
+      "match": "Bayern Munich 8-1 Wolfsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7006,
+      "p_draw": 0.2198,
+      "p_away": 0.0796
+    },
+    {
+      "date": "2026-01-13",
+      "match": "VfB Stuttgart 3-2 Eintracht Frankfurt",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5349,
+      "p_draw": 0.2194,
+      "p_away": 0.2457
+    },
+    {
+      "date": "2026-01-13",
+      "match": "Borussia Dortmund 3-0 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6948,
+      "p_draw": 0.1775,
+      "p_away": 0.1277
+    },
+    {
+      "date": "2026-01-13",
+      "match": "1. FSV Mainz 05 2-1 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5184,
+      "p_draw": 0.2518,
+      "p_away": 0.2298
+    },
+    {
+      "date": "2026-01-14",
+      "match": "Wolfsburg 2-1 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4611,
+      "p_draw": 0.3064,
+      "p_away": 0.2326
+    },
+    {
+      "date": "2026-01-14",
+      "match": "RB Leipzig 2-0 SC Freiburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5451,
+      "p_draw": 0.239,
+      "p_away": 0.2159
+    },
+    {
+      "date": "2026-01-14",
+      "match": "TSG Hoffenheim 5-1 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4546,
+      "p_draw": 0.2752,
+      "p_away": 0.2702
+    },
+    {
+      "date": "2026-01-14",
+      "match": "1. FC Köln 1-3 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.1273,
+      "p_draw": 0.1747,
+      "p_away": 0.698
+    },
+    {
+      "date": "2026-01-15",
+      "match": "Augsburg 1-1 Union Berlin",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4238,
+      "p_draw": 0.2851,
+      "p_away": 0.2911
+    },
+    {
+      "date": "2026-01-16",
+      "match": "Werder Bremen 3-3 Eintracht Frankfurt",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3664,
+      "p_draw": 0.2922,
+      "p_away": 0.3414
+    },
+    {
+      "date": "2026-01-17",
+      "match": "Borussia Dortmund 3-2 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7121,
+      "p_draw": 0.1834,
+      "p_away": 0.1045
+    },
+    {
+      "date": "2026-01-17",
+      "match": "Wolfsburg 1-1 1. FC Heidenheim",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5255,
+      "p_draw": 0.2576,
+      "p_away": 0.217
+    },
+    {
+      "date": "2026-01-17",
+      "match": "TSG Hoffenheim 1-0 Bayer Leverkusen",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3825,
+      "p_draw": 0.2037,
+      "p_away": 0.4139
+    },
+    {
+      "date": "2026-01-17",
+      "match": "1. FC Köln 2-1 1. FSV Mainz 05",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4347,
+      "p_draw": 0.249,
+      "p_away": 0.3162
+    },
+    {
+      "date": "2026-01-17",
+      "match": "Hamburger SV 0-0 Borussia Mönchengladbach",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3783,
+      "p_draw": 0.2754,
+      "p_away": 0.3463
+    },
+    {
+      "date": "2026-01-17",
+      "match": "RB Leipzig 1-5 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2092,
+      "p_draw": 0.2155,
+      "p_away": 0.5753
+    },
+    {
+      "date": "2026-01-18",
+      "match": "VfB Stuttgart 1-1 Union Berlin",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6034,
+      "p_draw": 0.2158,
+      "p_away": 0.1808
+    },
+    {
+      "date": "2026-01-18",
+      "match": "Augsburg 2-2 SC Freiburg",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3099,
+      "p_draw": 0.2646,
+      "p_away": 0.4255
+    },
+    {
+      "date": "2026-01-23",
+      "match": "FC St. Pauli 0-0 Hamburger SV",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4255,
+      "p_draw": 0.2485,
+      "p_away": 0.326
+    },
+    {
+      "date": "2026-01-24",
+      "match": "Bayern Munich 1-2 Augsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6913,
+      "p_draw": 0.2174,
+      "p_away": 0.0913
+    },
+    {
+      "date": "2026-01-24",
+      "match": "Bayer Leverkusen 1-0 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6379,
+      "p_draw": 0.1987,
+      "p_away": 0.1633
+    },
+    {
+      "date": "2026-01-24",
+      "match": "Eintracht Frankfurt 1-3 TSG Hoffenheim",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4541,
+      "p_draw": 0.2847,
+      "p_away": 0.2612
+    },
+    {
+      "date": "2026-01-24",
+      "match": "1. FSV Mainz 05 3-1 Wolfsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4047,
+      "p_draw": 0.2893,
+      "p_away": 0.306
+    },
+    {
+      "date": "2026-01-24",
+      "match": "1. FC Heidenheim 0-3 RB Leipzig",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2132,
+      "p_draw": 0.2155,
+      "p_away": 0.5713
+    },
+    {
+      "date": "2026-01-24",
+      "match": "Union Berlin 0-3 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2808,
+      "p_draw": 0.2478,
+      "p_away": 0.4714
+    },
+    {
+      "date": "2026-01-25",
+      "match": "Borussia Mönchengladbach 0-3 VfB Stuttgart",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3202,
+      "p_draw": 0.2553,
+      "p_away": 0.4246
+    },
+    {
+      "date": "2026-01-25",
+      "match": "SC Freiburg 2-1 1. FC Köln",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5449,
+      "p_draw": 0.2293,
+      "p_away": 0.2258
+    },
+    {
+      "date": "2026-01-27",
+      "match": "Werder Bremen 0-2 TSG Hoffenheim",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3311,
+      "p_draw": 0.2803,
+      "p_away": 0.3886
+    },
+    {
+      "date": "2026-01-27",
+      "match": "FC St. Pauli 1-1 RB Leipzig",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2239,
+      "p_draw": 0.2116,
+      "p_away": 0.5645
+    },
+    {
+      "date": "2026-01-30",
+      "match": "1. FC Köln 1-0 Wolfsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4069,
+      "p_draw": 0.2505,
+      "p_away": 0.3426
+    },
+    {
+      "date": "2026-01-31",
+      "match": "Eintracht Frankfurt 1-3 Bayer Leverkusen",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.332,
+      "p_draw": 0.24,
+      "p_away": 0.428
+    },
+    {
+      "date": "2026-01-31",
+      "match": "RB Leipzig 1-2 1. FSV Mainz 05",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6212,
+      "p_draw": 0.238,
+      "p_away": 0.1407
+    },
+    {
+      "date": "2026-01-31",
+      "match": "Werder Bremen 1-1 Borussia Mönchengladbach",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4163,
+      "p_draw": 0.312,
+      "p_away": 0.2717
+    },
+    {
+      "date": "2026-01-31",
+      "match": "Augsburg 2-1 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4821,
+      "p_draw": 0.2525,
+      "p_away": 0.2653
+    },
+    {
+      "date": "2026-01-31",
+      "match": "TSG Hoffenheim 3-1 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5302,
+      "p_draw": 0.2406,
+      "p_away": 0.2292
+    },
+    {
+      "date": "2026-01-31",
+      "match": "Hamburger SV 2-2 Bayern Munich",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.1478,
+      "p_draw": 0.141,
+      "p_away": 0.7112
+    },
+    {
+      "date": "2026-02-01",
+      "match": "VfB Stuttgart 1-0 SC Freiburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4984,
+      "p_draw": 0.2619,
+      "p_away": 0.2397
+    },
+    {
+      "date": "2026-02-01",
+      "match": "Borussia Dortmund 3-2 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7524,
+      "p_draw": 0.1537,
+      "p_away": 0.0938
+    },
+    {
+      "date": "2026-02-06",
+      "match": "Union Berlin 1-1 Eintracht Frankfurt",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4363,
+      "p_draw": 0.2494,
+      "p_away": 0.3143
+    },
+    {
+      "date": "2026-02-07",
+      "match": "SC Freiburg 1-0 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5731,
+      "p_draw": 0.1974,
+      "p_away": 0.2296
+    },
+    {
+      "date": "2026-02-07",
+      "match": "1. FSV Mainz 05 2-0 Augsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5109,
+      "p_draw": 0.2489,
+      "p_away": 0.2403
+    },
+    {
+      "date": "2026-02-07",
+      "match": "Wolfsburg 1-2 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2209,
+      "p_draw": 0.2098,
+      "p_away": 0.5693
+    },
+    {
+      "date": "2026-02-07",
+      "match": "FC St. Pauli 2-1 VfB Stuttgart",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2312,
+      "p_draw": 0.205,
+      "p_away": 0.5638
+    },
+    {
+      "date": "2026-02-07",
+      "match": "1. FC Heidenheim 0-2 Hamburger SV",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3693,
+      "p_draw": 0.2298,
+      "p_away": 0.4009
+    },
+    {
+      "date": "2026-02-07",
+      "match": "Borussia Mönchengladbach 1-1 Bayer Leverkusen",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2758,
+      "p_draw": 0.2026,
+      "p_away": 0.5216
+    },
+    {
+      "date": "2026-02-08",
+      "match": "1. FC Köln 1-2 RB Leipzig",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3077,
+      "p_draw": 0.2373,
+      "p_away": 0.4549
+    },
+    {
+      "date": "2026-02-08",
+      "match": "Bayern Munich 5-1 TSG Hoffenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6567,
+      "p_draw": 0.2349,
+      "p_away": 0.1084
+    },
+    {
+      "date": "2026-02-13",
+      "match": "Borussia Dortmund 4-0 1. FSV Mainz 05",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6767,
+      "p_draw": 0.1945,
+      "p_away": 0.1288
+    },
+    {
+      "date": "2026-02-14",
+      "match": "Bayer Leverkusen 4-0 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.721,
+      "p_draw": 0.1702,
+      "p_away": 0.1088
+    },
+    {
+      "date": "2026-02-14",
+      "match": "Eintracht Frankfurt 3-0 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4874,
+      "p_draw": 0.281,
+      "p_away": 0.2315
+    },
+    {
+      "date": "2026-02-14",
+      "match": "Werder Bremen 0-3 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.1497,
+      "p_draw": 0.1741,
+      "p_away": 0.6762
+    },
+    {
+      "date": "2026-02-14",
+      "match": "TSG Hoffenheim 3-0 SC Freiburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5103,
+      "p_draw": 0.2402,
+      "p_away": 0.2495
+    },
+    {
+      "date": "2026-02-14",
+      "match": "Hamburger SV 3-2 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4407,
+      "p_draw": 0.2371,
+      "p_away": 0.3222
+    },
+    {
+      "date": "2026-02-14",
+      "match": "VfB Stuttgart 3-1 1. FC Köln",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6367,
+      "p_draw": 0.1973,
+      "p_away": 0.166
+    },
+    {
+      "date": "2026-02-15",
+      "match": "Augsburg 1-0 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5551,
+      "p_draw": 0.2269,
+      "p_away": 0.218
+    },
+    {
+      "date": "2026-02-15",
+      "match": "RB Leipzig 2-2 Wolfsburg",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6893,
+      "p_draw": 0.1868,
+      "p_away": 0.1239
+    },
+    {
+      "date": "2026-02-20",
+      "match": "1. FSV Mainz 05 1-1 Hamburger SV",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4398,
+      "p_draw": 0.2886,
+      "p_away": 0.2715
+    },
+    {
+      "date": "2026-02-21",
+      "match": "Bayern Munich 3-2 Eintracht Frankfurt",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6616,
+      "p_draw": 0.2278,
+      "p_away": 0.1105
+    },
+    {
+      "date": "2026-02-21",
+      "match": "Wolfsburg 2-3 Augsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.441,
+      "p_draw": 0.2813,
+      "p_away": 0.2777
+    },
+    {
+      "date": "2026-02-21",
+      "match": "Union Berlin 1-0 Bayer Leverkusen",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2476,
+      "p_draw": 0.1874,
+      "p_away": 0.565
+    },
+    {
+      "date": "2026-02-21",
+      "match": "1. FC Köln 2-2 TSG Hoffenheim",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.256,
+      "p_draw": 0.3228,
+      "p_away": 0.4212
+    },
+    {
+      "date": "2026-02-21",
+      "match": "RB Leipzig 2-2 Borussia Dortmund",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4421,
+      "p_draw": 0.2467,
+      "p_away": 0.3112
+    },
+    {
+      "date": "2026-02-22",
+      "match": "SC Freiburg 2-1 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5069,
+      "p_draw": 0.2363,
+      "p_away": 0.2568
+    },
+    {
+      "date": "2026-02-22",
+      "match": "FC St. Pauli 2-1 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4025,
+      "p_draw": 0.2458,
+      "p_away": 0.3518
+    },
+    {
+      "date": "2026-02-22",
+      "match": "1. FC Heidenheim 3-3 VfB Stuttgart",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2492,
+      "p_draw": 0.2123,
+      "p_away": 0.5384
+    },
+    {
+      "date": "2026-02-27",
+      "match": "Augsburg 2-0 1. FC Köln",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4821,
+      "p_draw": 0.268,
+      "p_away": 0.2499
+    },
+    {
+      "date": "2026-02-28",
+      "match": "Bayer Leverkusen 1-1 1. FSV Mainz 05",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6438,
+      "p_draw": 0.202,
+      "p_away": 0.1542
+    },
+    {
+      "date": "2026-02-28",
+      "match": "Werder Bremen 2-0 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5448,
+      "p_draw": 0.2577,
+      "p_away": 0.1975
+    },
+    {
+      "date": "2026-02-28",
+      "match": "Borussia Mönchengladbach 1-0 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4257,
+      "p_draw": 0.28,
+      "p_away": 0.2943
+    },
+    {
+      "date": "2026-02-28",
+      "match": "TSG Hoffenheim 0-1 FC St. Pauli",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6425,
+      "p_draw": 0.2092,
+      "p_away": 0.1482
+    },
+    {
+      "date": "2026-02-28",
+      "match": "Borussia Dortmund 2-3 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2597,
+      "p_draw": 0.2492,
+      "p_away": 0.4911
+    },
+    {
+      "date": "2026-03-01",
+      "match": "VfB Stuttgart 4-0 Wolfsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6303,
+      "p_draw": 0.2165,
+      "p_away": 0.1532
+    },
+    {
+      "date": "2026-03-01",
+      "match": "Eintracht Frankfurt 2-0 SC Freiburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4874,
+      "p_draw": 0.2719,
+      "p_away": 0.2408
+    },
+    {
+      "date": "2026-03-01",
+      "match": "Hamburger SV 1-2 RB Leipzig",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3725,
+      "p_draw": 0.207,
+      "p_away": 0.4205
+    },
+    {
+      "date": "2026-03-04",
+      "match": "Hamburger SV 0-1 Bayer Leverkusen",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3581,
+      "p_draw": 0.1812,
+      "p_away": 0.4607
+    },
+    {
+      "date": "2026-03-06",
+      "match": "Bayern Munich 4-1 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7392,
+      "p_draw": 0.1766,
+      "p_away": 0.0841
+    },
+    {
+      "date": "2026-03-07",
+      "match": "SC Freiburg 3-3 Bayer Leverkusen",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3605,
+      "p_draw": 0.2266,
+      "p_away": 0.4129
+    },
+    {
+      "date": "2026-03-07",
+      "match": "1. FSV Mainz 05 2-2 VfB Stuttgart",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.315,
+      "p_draw": 0.2763,
+      "p_away": 0.4087
+    },
+    {
+      "date": "2026-03-07",
+      "match": "RB Leipzig 2-1 Augsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6338,
+      "p_draw": 0.2224,
+      "p_away": 0.1438
+    },
+    {
+      "date": "2026-03-07",
+      "match": "Wolfsburg 1-2 Hamburger SV",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3907,
+      "p_draw": 0.3187,
+      "p_away": 0.2906
+    },
+    {
+      "date": "2026-03-07",
+      "match": "1. FC Heidenheim 2-4 TSG Hoffenheim",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.291,
+      "p_draw": 0.2133,
+      "p_away": 0.4956
+    },
+    {
+      "date": "2026-03-07",
+      "match": "1. FC Köln 1-2 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2307,
+      "p_draw": 0.1889,
+      "p_away": 0.5804
+    },
+    {
+      "date": "2026-03-08",
+      "match": "FC St. Pauli 0-0 Eintracht Frankfurt",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3252,
+      "p_draw": 0.2597,
+      "p_away": 0.4151
+    },
+    {
+      "date": "2026-03-08",
+      "match": "Union Berlin 1-4 Werder Bremen",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4471,
+      "p_draw": 0.2621,
+      "p_away": 0.2908
+    },
+    {
+      "date": "2026-03-13",
+      "match": "Borussia Mönchengladbach 2-0 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4856,
+      "p_draw": 0.2847,
+      "p_away": 0.2297
+    },
+    {
+      "date": "2026-03-14",
+      "match": "Bayer Leverkusen 1-1 Bayern Munich",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.232,
+      "p_draw": 0.2089,
+      "p_away": 0.5591
+    },
+    {
+      "date": "2026-03-14",
+      "match": "Eintracht Frankfurt 1-0 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6551,
+      "p_draw": 0.1892,
+      "p_away": 0.1558
+    },
+    {
+      "date": "2026-03-14",
+      "match": "Borussia Dortmund 2-0 Augsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6925,
+      "p_draw": 0.1953,
+      "p_away": 0.1122
+    },
+    {
+      "date": "2026-03-14",
+      "match": "TSG Hoffenheim 1-1 Wolfsburg",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6839,
+      "p_draw": 0.1605,
+      "p_away": 0.1557
+    },
+    {
+      "date": "2026-03-14",
+      "match": "Hamburger SV 1-1 1. FC Köln",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5242,
+      "p_draw": 0.2443,
+      "p_away": 0.2315
+    },
+    {
+      "date": "2026-03-15",
+      "match": "Werder Bremen 0-2 1. FSV Mainz 05",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.448,
+      "p_draw": 0.2557,
+      "p_away": 0.2964
+    },
+    {
+      "date": "2026-03-15",
+      "match": "SC Freiburg 0-1 Union Berlin",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5432,
+      "p_draw": 0.2301,
+      "p_away": 0.2266
+    },
+    {
+      "date": "2026-03-15",
+      "match": "VfB Stuttgart 1-0 RB Leipzig",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4593,
+      "p_draw": 0.2115,
+      "p_away": 0.3292
+    },
+    {
+      "date": "2026-03-20",
+      "match": "RB Leipzig 5-0 TSG Hoffenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4962,
+      "p_draw": 0.2541,
+      "p_away": 0.2497
+    },
+    {
+      "date": "2026-03-21",
+      "match": "Bayern Munich 4-0 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7761,
+      "p_draw": 0.148,
+      "p_away": 0.0759
+    },
+    {
+      "date": "2026-03-21",
+      "match": "Wolfsburg 0-1 Werder Bremen",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4209,
+      "p_draw": 0.2753,
+      "p_away": 0.3038
+    },
+    {
+      "date": "2026-03-21",
+      "match": "1. FC Heidenheim 3-3 Bayer Leverkusen",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2942,
+      "p_draw": 0.1516,
+      "p_away": 0.5542
+    },
+    {
+      "date": "2026-03-21",
+      "match": "1. FC Köln 3-3 Borussia Mönchengladbach",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4645,
+      "p_draw": 0.2401,
+      "p_away": 0.2954
+    },
+    {
+      "date": "2026-03-21",
+      "match": "Borussia Dortmund 3-2 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6626,
+      "p_draw": 0.2037,
+      "p_away": 0.1337
+    },
+    {
+      "date": "2026-03-22",
+      "match": "1. FSV Mainz 05 2-1 Eintracht Frankfurt",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4371,
+      "p_draw": 0.2548,
+      "p_away": 0.308
+    },
+    {
+      "date": "2026-03-22",
+      "match": "FC St. Pauli 1-2 SC Freiburg",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3395,
+      "p_draw": 0.2499,
+      "p_away": 0.4106
+    },
+    {
+      "date": "2026-03-22",
+      "match": "Augsburg 2-5 VfB Stuttgart",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2708,
+      "p_draw": 0.2784,
+      "p_away": 0.4509
+    },
+    {
+      "date": "2026-04-04",
+      "match": "Bayer Leverkusen 6-3 Wolfsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6112,
+      "p_draw": 0.194,
+      "p_away": 0.1947
+    },
+    {
+      "date": "2026-04-04",
+      "match": "SC Freiburg 2-3 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.1893,
+      "p_draw": 0.1873,
+      "p_away": 0.6234
+    },
+    {
+      "date": "2026-04-04",
+      "match": "Werder Bremen 1-2 RB Leipzig",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2747,
+      "p_draw": 0.2604,
+      "p_away": 0.4648
+    },
+    {
+      "date": "2026-04-04",
+      "match": "Borussia Mönchengladbach 2-2 1. FC Heidenheim",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6025,
+      "p_draw": 0.2063,
+      "p_away": 0.1912
+    },
+    {
+      "date": "2026-04-04",
+      "match": "TSG Hoffenheim 1-2 1. FSV Mainz 05",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4425,
+      "p_draw": 0.2949,
+      "p_away": 0.2626
+    },
+    {
+      "date": "2026-04-04",
+      "match": "Hamburger SV 1-1 Augsburg",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4509,
+      "p_draw": 0.2611,
+      "p_away": 0.288
+    },
+    {
+      "date": "2026-04-04",
+      "match": "VfB Stuttgart 0-2 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3987,
+      "p_draw": 0.2384,
+      "p_away": 0.3629
+    },
+    {
+      "date": "2026-04-05",
+      "match": "Union Berlin 1-1 FC St. Pauli",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4975,
+      "p_draw": 0.2843,
+      "p_away": 0.2182
+    },
+    {
+      "date": "2026-04-05",
+      "match": "Eintracht Frankfurt 2-2 1. FC Köln",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5266,
+      "p_draw": 0.251,
+      "p_away": 0.2224
+    },
+    {
+      "date": "2026-04-10",
+      "match": "Augsburg 2-2 TSG Hoffenheim",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3801,
+      "p_draw": 0.2515,
+      "p_away": 0.3684
+    },
+    {
+      "date": "2026-04-11",
+      "match": "Borussia Dortmund 0-1 Bayer Leverkusen",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4901,
+      "p_draw": 0.2272,
+      "p_away": 0.2828
+    },
+    {
+      "date": "2026-04-11",
+      "match": "RB Leipzig 1-0 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6726,
+      "p_draw": 0.1922,
+      "p_away": 0.1352
+    },
+    {
+      "date": "2026-04-11",
+      "match": "Wolfsburg 1-2 Eintracht Frankfurt",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3805,
+      "p_draw": 0.2293,
+      "p_away": 0.3902
+    },
+    {
+      "date": "2026-04-11",
+      "match": "1. FC Heidenheim 3-1 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4434,
+      "p_draw": 0.2042,
+      "p_away": 0.3524
+    },
+    {
+      "date": "2026-04-11",
+      "match": "FC St. Pauli 0-5 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.1938,
+      "p_draw": 0.1665,
+      "p_away": 0.6397
+    },
+    {
+      "date": "2026-04-12",
+      "match": "1. FC Köln 3-1 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4449,
+      "p_draw": 0.2388,
+      "p_away": 0.3163
+    },
+    {
+      "date": "2026-04-12",
+      "match": "VfB Stuttgart 4-0 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6323,
+      "p_draw": 0.1979,
+      "p_away": 0.1699
+    },
+    {
+      "date": "2026-04-12",
+      "match": "1. FSV Mainz 05 0-1 SC Freiburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.436,
+      "p_draw": 0.2781,
+      "p_away": 0.2858
+    },
+    {
+      "date": "2026-04-17",
+      "match": "FC St. Pauli 1-1 1. FC Köln",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3257,
+      "p_draw": 0.297,
+      "p_away": 0.3773
+    },
+    {
+      "date": "2026-04-18",
+      "match": "Bayer Leverkusen 1-2 Augsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6764,
+      "p_draw": 0.2001,
+      "p_away": 0.1236
+    },
+    {
+      "date": "2026-04-18",
+      "match": "Werder Bremen 3-1 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4292,
+      "p_draw": 0.2774,
+      "p_away": 0.2934
+    },
+    {
+      "date": "2026-04-18",
+      "match": "Union Berlin 1-2 Wolfsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4494,
+      "p_draw": 0.2533,
+      "p_away": 0.2973
+    },
+    {
+      "date": "2026-04-18",
+      "match": "TSG Hoffenheim 2-1 Borussia Dortmund",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3391,
+      "p_draw": 0.2263,
+      "p_away": 0.4346
+    },
+    {
+      "date": "2026-04-18",
+      "match": "Eintracht Frankfurt 1-3 RB Leipzig",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3277,
+      "p_draw": 0.2263,
+      "p_away": 0.446
+    },
+    {
+      "date": "2026-04-19",
+      "match": "SC Freiburg 2-1 1. FC Heidenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6169,
+      "p_draw": 0.2201,
+      "p_away": 0.163
+    },
+    {
+      "date": "2026-04-19",
+      "match": "Bayern Munich 4-2 VfB Stuttgart",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6666,
+      "p_draw": 0.2155,
+      "p_away": 0.1179
+    },
+    {
+      "date": "2026-04-19",
+      "match": "Borussia Mönchengladbach 1-1 1. FSV Mainz 05",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4257,
+      "p_draw": 0.2572,
+      "p_away": 0.3171
+    },
+    {
+      "date": "2026-04-24",
+      "match": "RB Leipzig 3-1 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6692,
+      "p_draw": 0.1928,
+      "p_away": 0.138
+    },
+    {
+      "date": "2026-04-25",
+      "match": "1. FSV Mainz 05 3-4 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.1816,
+      "p_draw": 0.1767,
+      "p_away": 0.6418
+    },
+    {
+      "date": "2026-04-25",
+      "match": "Wolfsburg 0-0 Borussia Mönchengladbach",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3995,
+      "p_draw": 0.2773,
+      "p_away": 0.3231
+    },
+    {
+      "date": "2026-04-25",
+      "match": "Augsburg 1-1 Eintracht Frankfurt",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3903,
+      "p_draw": 0.2645,
+      "p_away": 0.3453
+    },
+    {
+      "date": "2026-04-25",
+      "match": "1. FC Heidenheim 2-0 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4712,
+      "p_draw": 0.2293,
+      "p_away": 0.2995
+    },
+    {
+      "date": "2026-04-25",
+      "match": "1. FC Köln 1-2 Bayer Leverkusen",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2816,
+      "p_draw": 0.1825,
+      "p_away": 0.5358
+    },
+    {
+      "date": "2026-04-25",
+      "match": "Hamburger SV 1-2 TSG Hoffenheim",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3743,
+      "p_draw": 0.2416,
+      "p_away": 0.3841
+    },
+    {
+      "date": "2026-04-26",
+      "match": "VfB Stuttgart 1-1 Werder Bremen",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6243,
+      "p_draw": 0.2057,
+      "p_away": 0.17
+    },
+    {
+      "date": "2026-04-26",
+      "match": "Borussia Dortmund 4-0 SC Freiburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6071,
+      "p_draw": 0.2136,
+      "p_away": 0.1793
+    },
+    {
+      "date": "2026-05-02",
+      "match": "Bayern Munich 3-3 1. FC Heidenheim",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.7696,
+      "p_draw": 0.1661,
+      "p_away": 0.0643
+    },
+    {
+      "date": "2026-05-02",
+      "match": "Eintracht Frankfurt 1-2 Hamburger SV",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5701,
+      "p_draw": 0.2035,
+      "p_away": 0.2263
+    },
+    {
+      "date": "2026-05-02",
+      "match": "Werder Bremen 1-3 Augsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4584,
+      "p_draw": 0.2552,
+      "p_away": 0.2864
+    },
+    {
+      "date": "2026-05-02",
+      "match": "Union Berlin 2-2 1. FC Köln",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.425,
+      "p_draw": 0.2717,
+      "p_away": 0.3033
+    },
+    {
+      "date": "2026-05-02",
+      "match": "TSG Hoffenheim 3-3 VfB Stuttgart",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3757,
+      "p_draw": 0.2795,
+      "p_away": 0.3448
+    },
+    {
+      "date": "2026-05-02",
+      "match": "Bayer Leverkusen 4-1 RB Leipzig",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4222,
+      "p_draw": 0.2548,
+      "p_away": 0.323
+    },
+    {
+      "date": "2026-05-03",
+      "match": "FC St. Pauli 1-2 1. FSV Mainz 05",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3025,
+      "p_draw": 0.2394,
+      "p_away": 0.458
+    },
+    {
+      "date": "2026-05-03",
+      "match": "Borussia Mönchengladbach 1-0 Borussia Dortmund",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2389,
+      "p_draw": 0.1957,
+      "p_away": 0.5654
+    },
+    {
+      "date": "2026-05-03",
+      "match": "SC Freiburg 1-1 Wolfsburg",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5373,
+      "p_draw": 0.2588,
+      "p_away": 0.2039
+    },
+    {
+      "date": "2026-05-08",
+      "match": "Borussia Dortmund 3-2 Eintracht Frankfurt",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6567,
+      "p_draw": 0.185,
+      "p_away": 0.1584
+    },
+    {
+      "date": "2026-05-09",
+      "match": "RB Leipzig 2-1 FC St. Pauli",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7268,
+      "p_draw": 0.1697,
+      "p_away": 0.1035
+    },
+    {
+      "date": "2026-05-09",
+      "match": "VfB Stuttgart 3-1 Bayer Leverkusen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.3882,
+      "p_draw": 0.2692,
+      "p_away": 0.3425
+    },
+    {
+      "date": "2026-05-09",
+      "match": "Augsburg 3-1 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4948,
+      "p_draw": 0.2485,
+      "p_away": 0.2567
+    },
+    {
+      "date": "2026-05-09",
+      "match": "TSG Hoffenheim 1-0 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5325,
+      "p_draw": 0.2424,
+      "p_away": 0.2251
+    },
+    {
+      "date": "2026-05-09",
+      "match": "Wolfsburg 0-1 Bayern Munich",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.1481,
+      "p_draw": 0.1867,
+      "p_away": 0.6652
+    },
+    {
+      "date": "2026-05-10",
+      "match": "Hamburger SV 3-2 SC Freiburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.4035,
+      "p_draw": 0.2503,
+      "p_away": 0.3463
+    },
+    {
+      "date": "2026-05-10",
+      "match": "1. FC Köln 1-3 1. FC Heidenheim",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4567,
+      "p_draw": 0.2784,
+      "p_away": 0.2648
+    },
+    {
+      "date": "2026-05-10",
+      "match": "1. FSV Mainz 05 1-3 Union Berlin",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5442,
+      "p_draw": 0.2298,
+      "p_away": 0.226
+    },
+    {
+      "date": "2026-05-16",
+      "match": "Bayern Munich 5-1 1. FC Köln",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.732,
+      "p_draw": 0.1854,
+      "p_away": 0.0826
+    },
+    {
+      "date": "2026-05-16",
+      "match": "Bayer Leverkusen 1-1 Hamburger SV",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.6847,
+      "p_draw": 0.1795,
+      "p_away": 0.1358
+    },
+    {
+      "date": "2026-05-16",
+      "match": "Eintracht Frankfurt 2-2 VfB Stuttgart",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3115,
+      "p_draw": 0.2862,
+      "p_away": 0.4022
+    },
+    {
+      "date": "2026-05-16",
+      "match": "SC Freiburg 4-1 RB Leipzig",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3079,
+      "p_draw": 0.2487,
+      "p_away": 0.4434
+    },
+    {
+      "date": "2026-05-16",
+      "match": "Werder Bremen 0-2 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.2416,
+      "p_draw": 0.197,
+      "p_away": 0.5614
+    },
+    {
+      "date": "2026-05-16",
+      "match": "Borussia Mönchengladbach 4-0 TSG Hoffenheim",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.3752,
+      "p_draw": 0.2865,
+      "p_away": 0.3383
+    },
+    {
+      "date": "2026-05-16",
+      "match": "Union Berlin 4-0 Augsburg",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.3452,
+      "p_draw": 0.3107,
+      "p_away": 0.3441
+    },
+    {
+      "date": "2026-05-16",
+      "match": "FC St. Pauli 1-3 Wolfsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3676,
+      "p_draw": 0.2767,
+      "p_away": 0.3558
+    },
+    {
+      "date": "2026-05-16",
+      "match": "1. FC Heidenheim 0-2 1. FSV Mainz 05",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.3901,
+      "p_draw": 0.2474,
+      "p_away": 0.3625
+    }
+  ]
+}

@@ -10,6 +10,7 @@ from .club_feature_engineering import build_features, build_prediction_row, get_
 from .poisson_model import predict_scorelines
 from .game_flow import predict_game_flow
 from .models.ensemble_model import EnsemblePredictor
+from .models.catboost_model import CatBoostPredictor
 from .evaluation import evaluate
 
 RESULT_LABELS = {"H": "Home Win", "D": "Draw", "A": "Away Win"}
@@ -25,22 +26,37 @@ RESULT_LABELS = {"H": "Home Win", "D": "Draw", "A": "Away Win"}
 POISSON_BLEND = 0.30
 
 
+def _build_ensemble() -> EnsemblePredictor:
+    # RF + XGBoost + CatBoost, equal weight. Added after a walk-forward
+    # Bundesliga ablation (2025/26 season, 306 matches) showed CatBoost adds
+    # a real edge on top of dated market value alone (accuracy/log-loss/
+    # Brier all improved vs. RF+XGBoost-only), and that combination was the
+    # best of everything tested - better than adding Elo too, and clearly
+    # better than the full V2 stacking/calibration pipeline. See
+    # scripts/eval_v1_ablation_season.py and data/season_2025_26_*.json for
+    # the comparison data behind this choice.
+    model = EnsemblePredictor()
+    model.predictors.append(CatBoostPredictor())
+    model.weights = [1 / 3, 1 / 3, 1 / 3]
+    return model
+
+
 class ClubFootballPredictor:
     """Same architecture as FootballPredictor (src/predictor.py) - ensemble
     classifier blended with a Poisson scoreline model - but for club football
-    instead of national teams. Two real differences from the WC model:
+    instead of national teams. Real differences from the WC model:
 
-    1. No FIFA ranking / squad market value features - those datasets only
-       cover national squads, not the ~125 different clubs in
-       data/club_football_results.csv. Form, goal stats, and head-to-head
-       carry the whole signal here.
+    1. No FIFA ranking feature (that dataset only covers national squads).
+       Squad market value DOES have a club equivalent (src/club_market_values
+       _dated.py, dated Transfermarkt snapshots, Germany-only so far).
     2. No neutral-venue / host-nation logic - club matches are always played
        at a real home ground (Champions League included), so home advantage
        is just an ordinary model feature, not a special case to switch off.
+    3. Ensemble includes CatBoost alongside RF/XGBoost (see _build_ensemble).
     """
 
     def __init__(self, model_path: str | Path | None = None):
-        self.model = EnsemblePredictor()
+        self.model = _build_ensemble()
         self._feature_cols: list[str] = []
         self._trained = False
         self._history: pd.DataFrame | None = None

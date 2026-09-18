@@ -1,0 +1,378 @@
+{
+  "v1": {
+    "n": 18,
+    "accuracy": 0.5555555555555556,
+    "log_loss": 0.9800322276492912,
+    "brier": 0.5797573479290136
+  },
+  "v2": {
+    "n": 18,
+    "accuracy": 0.4444444444444444,
+    "log_loss": 0.9271457417639515,
+    "brier": 0.551360105
+  },
+  "v1_rows": [
+    {
+      "date": "2026-08-28",
+      "match": "Bayern Munich 5-1 VfB Stuttgart",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7457508475408948,
+      "p_draw": 0.1375344139162287,
+      "p_away": 0.11671473854287645
+    },
+    {
+      "date": "2026-08-29",
+      "match": "RB Leipzig 3-0 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6364173014905716,
+      "p_draw": 0.19629208071944765,
+      "p_away": 0.16729061778998072
+    },
+    {
+      "date": "2026-08-29",
+      "match": "1. FSV Mainz 05 0-0 SC Paderborn",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5358723571660562,
+      "p_draw": 0.23449603310677797,
+      "p_away": 0.22963160972716593
+    },
+    {
+      "date": "2026-08-29",
+      "match": "Union Berlin 3-3 Eintracht Frankfurt",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.31854679683595366,
+      "p_draw": 0.28733236110309973,
+      "p_away": 0.39412084206094655
+    },
+    {
+      "date": "2026-08-29",
+      "match": "1. FC Köln 3-2 TSG Hoffenheim",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.34786649330504077,
+      "p_draw": 0.26603445293587613,
+      "p_away": 0.38609905375908327
+    },
+    {
+      "date": "2026-08-29",
+      "match": "Elversberg 3-2 Bayer Leverkusen",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.25489906997013617,
+      "p_draw": 0.2544725515608222,
+      "p_away": 0.49062837846904167
+    },
+    {
+      "date": "2026-08-29",
+      "match": "Borussia Dortmund 2-0 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.732275917939071,
+      "p_draw": 0.1419374464729095,
+      "p_away": 0.12578663558801936
+    },
+    {
+      "date": "2026-08-30",
+      "match": "SC Freiburg 4-1 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5429028068790794,
+      "p_draw": 0.2436087079595672,
+      "p_away": 0.2134884851613534
+    },
+    {
+      "date": "2026-08-30",
+      "match": "Augsburg 3-0 Schalke 04",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.49356067137477727,
+      "p_draw": 0.2815240454840785,
+      "p_away": 0.22491528314114417
+    },
+    {
+      "date": "2026-09-04",
+      "match": "VfB Stuttgart 4-1 1. FC Köln",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6027835792472752,
+      "p_draw": 0.2574463971290045,
+      "p_away": 0.13977002362372026
+    },
+    {
+      "date": "2026-09-05",
+      "match": "TSG Hoffenheim 2-3 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.21794855842341646,
+      "p_draw": 0.25646963475740786,
+      "p_away": 0.5255818068191757
+    },
+    {
+      "date": "2026-09-05",
+      "match": "Bayer Leverkusen 4-0 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.588857091206927,
+      "p_draw": 0.2379316156680166,
+      "p_away": 0.17321129312505637
+    },
+    {
+      "date": "2026-09-05",
+      "match": "Borussia Mönchengladbach 3-4 Elversberg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4990564694569613,
+      "p_draw": 0.27212595363161335,
+      "p_away": 0.22881757691142537
+    },
+    {
+      "date": "2026-09-05",
+      "match": "Werder Bremen 3-1 RB Leipzig",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.14665552603403123,
+      "p_draw": 0.2339004458663824,
+      "p_away": 0.6194440280995864
+    },
+    {
+      "date": "2026-09-05",
+      "match": "SC Paderborn 0-1 SC Freiburg",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3003756126845303,
+      "p_draw": 0.26495685631416627,
+      "p_away": 0.43466753100130356
+    },
+    {
+      "date": "2026-09-05",
+      "match": "Schalke 04 0-0 Bayern Munich",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.11227174539570263,
+      "p_draw": 0.1422926762766151,
+      "p_away": 0.7454355783276823
+    },
+    {
+      "date": "2026-09-06",
+      "match": "Hamburger SV 0-5 1. FSV Mainz 05",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3204304758049993,
+      "p_draw": 0.26872995458313903,
+      "p_away": 0.41083956961186163
+    },
+    {
+      "date": "2026-09-06",
+      "match": "Eintracht Frankfurt 1-4 Augsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5439098529685951,
+      "p_draw": 0.2095952564365811,
+      "p_away": 0.24649489059482388
+    }
+  ],
+  "v2_rows": [
+    {
+      "date": "2026-08-28",
+      "match": "Bayern Munich 5-1 VfB Stuttgart",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6851,
+      "p_draw": 0.191,
+      "p_away": 0.1239
+    },
+    {
+      "date": "2026-08-29",
+      "match": "RB Leipzig 3-0 Borussia Mönchengladbach",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6264,
+      "p_draw": 0.2244,
+      "p_away": 0.1492
+    },
+    {
+      "date": "2026-08-29",
+      "match": "1. FSV Mainz 05 0-0 SC Paderborn",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5902,
+      "p_draw": 0.2232,
+      "p_away": 0.1866
+    },
+    {
+      "date": "2026-08-29",
+      "match": "Union Berlin 3-3 Eintracht Frankfurt",
+      "actual": "D",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4193,
+      "p_draw": 0.2557,
+      "p_away": 0.325
+    },
+    {
+      "date": "2026-08-29",
+      "match": "1. FC Köln 3-2 TSG Hoffenheim",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3483,
+      "p_draw": 0.2349,
+      "p_away": 0.4168
+    },
+    {
+      "date": "2026-08-29",
+      "match": "Elversberg 3-2 Bayer Leverkusen",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.3379,
+      "p_draw": 0.1887,
+      "p_away": 0.4734
+    },
+    {
+      "date": "2026-08-29",
+      "match": "Borussia Dortmund 2-0 Hamburger SV",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.7344,
+      "p_draw": 0.1684,
+      "p_away": 0.0972
+    },
+    {
+      "date": "2026-08-30",
+      "match": "SC Freiburg 4-1 Werder Bremen",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5766,
+      "p_draw": 0.2327,
+      "p_away": 0.1907
+    },
+    {
+      "date": "2026-08-30",
+      "match": "Augsburg 3-0 Schalke 04",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.5403,
+      "p_draw": 0.2575,
+      "p_away": 0.2022
+    },
+    {
+      "date": "2026-09-04",
+      "match": "VfB Stuttgart 4-1 1. FC Köln",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6741,
+      "p_draw": 0.1903,
+      "p_away": 0.1355
+    },
+    {
+      "date": "2026-09-05",
+      "match": "TSG Hoffenheim 2-3 Borussia Dortmund",
+      "actual": "A",
+      "predicted": "A",
+      "hit": true,
+      "p_home": 0.3059,
+      "p_draw": 0.2393,
+      "p_away": 0.4548
+    },
+    {
+      "date": "2026-09-05",
+      "match": "Bayer Leverkusen 4-0 Union Berlin",
+      "actual": "H",
+      "predicted": "H",
+      "hit": true,
+      "p_home": 0.6737,
+      "p_draw": 0.203,
+      "p_away": 0.1232
+    },
+    {
+      "date": "2026-09-05",
+      "match": "Borussia Mönchengladbach 3-4 Elversberg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4517,
+      "p_draw": 0.276,
+      "p_away": 0.2723
+    },
+    {
+      "date": "2026-09-05",
+      "match": "Werder Bremen 3-1 RB Leipzig",
+      "actual": "H",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.2704,
+      "p_draw": 0.2589,
+      "p_away": 0.4707
+    },
+    {
+      "date": "2026-09-05",
+      "match": "SC Paderborn 0-1 SC Freiburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.377,
+      "p_draw": 0.2496,
+      "p_away": 0.3735
+    },
+    {
+      "date": "2026-09-05",
+      "match": "Schalke 04 0-0 Bayern Munich",
+      "actual": "D",
+      "predicted": "A",
+      "hit": false,
+      "p_home": 0.1538,
+      "p_draw": 0.1961,
+      "p_away": 0.6501
+    },
+    {
+      "date": "2026-09-06",
+      "match": "Hamburger SV 0-5 1. FSV Mainz 05",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.4007,
+      "p_draw": 0.2716,
+      "p_away": 0.3277
+    },
+    {
+      "date": "2026-09-06",
+      "match": "Eintracht Frankfurt 1-4 Augsburg",
+      "actual": "A",
+      "predicted": "H",
+      "hit": false,
+      "p_home": 0.5139,
+      "p_draw": 0.2513,
+      "p_away": 0.2348
+    }
+  ]
+}
