@@ -1,0 +1,291 @@
+{
+  "home_team": "Bayern Munich",
+  "away_team": "Union Berlin",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.8035,
+  "probability_draw": 0.1488,
+  "probability_away_win": 0.0477,
+  "score_prediction": {
+    "home_xg": 3.21,
+    "away_xg": 0.87,
+    "rho": -0.13,
+    "most_likely_score": "3:0",
+    "result": "H",
+    "probability_home_win": 0.8035,
+    "probability_draw": 0.1488,
+    "probability_away_win": 0.0477,
+    "top_scorelines": [
+      {
+        "score": "3:0",
+        "probability": 0.0921
+      },
+      {
+        "score": "2:0",
+        "probability": 0.086
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0802
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0749
+      },
+      {
+        "score": "4:0",
+        "probability": 0.074
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.9523,
+        "home_or_away": 0.8512,
+        "draw_or_away": 0.1965
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.9171,
+          "under": 0.0829
+        },
+        {
+          "line": 2.5,
+          "over": 0.7608,
+          "under": 0.2392
+        },
+        {
+          "line": 3.5,
+          "over": 0.5761,
+          "under": 0.4239
+        }
+      ],
+      "btts": {
+        "yes": 0.5688,
+        "no": 0.4312
+      },
+      "win_margin": {
+        "home_1plus": 0.8035,
+        "home_2plus": 0.6366,
+        "home_3plus": 0.4365,
+        "away_1plus": 0.0477,
+        "away_2plus": 0.015,
+        "away_3plus": 0.0034
+      },
+      "scenario": "Bayern are overwhelming favourites with an 80% chance to win, having never beaten Union in their last 10 meetings, with 3-0 most likely."
+    }
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.57,
+    "total_xg": 4.08,
+    "first_goal": {
+      "Bayern Munich_scores_first": 0.773,
+      "Union Berlin_scores_first": 0.21,
+      "no_goals": 0.017,
+      "expected_minute": 22
+    },
+    "halftime_xg": {
+      "Bayern Munich": 1.51,
+      "Union Berlin": 0.41
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.226
+      },
+      {
+        "score": "2:0",
+        "probability": 0.171
+      },
+      {
+        "score": "0:0",
+        "probability": 0.15
+      },
+      {
+        "score": "1:1",
+        "probability": 0.092
+      },
+      {
+        "score": "3:0",
+        "probability": 0.086
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Bayern Munich": 0.433,
+        "Union Berlin": 0.117
+      },
+      "16-30'": {
+        "Bayern Munich": 0.498,
+        "Union Berlin": 0.135
+      },
+      "31-45'": {
+        "Bayern Munich": 0.578,
+        "Union Berlin": 0.157
+      },
+      "46-60'": {
+        "Bayern Munich": 0.465,
+        "Union Berlin": 0.126
+      },
+      "61-75'": {
+        "Bayern Munich": 0.594,
+        "Union Berlin": 0.161
+      },
+      "76-90'": {
+        "Bayern Munich": 0.642,
+        "Union Berlin": 0.174
+      }
+    },
+    "comeback_probability": {
+      "Bayern Munich": 0.038,
+      "Union Berlin": 0.012
+    },
+    "late_drama_probability": 0.558,
+    "match_stories": [
+      {
+        "szenario": "Bayern Munich dominiert früh",
+        "beschreibung": "Bayern Munich geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.179
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.139
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 60,
+        "away": 40
+      },
+      "shots": {
+        "home": 25,
+        "away": 10
+      },
+      "shots_on_target": {
+        "home": 10,
+        "away": 3
+      },
+      "corners": {
+        "home": 10,
+        "away": 4
+      },
+      "passes": {
+        "home": 312,
+        "away": 208
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Bayern Munich and Union Berlin is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 9,
+        "type": "chance",
+        "team": "Bayern Munich",
+        "headline": "Big chance for Bayern Munich!",
+        "description": "Bayern Munich create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 13,
+        "type": "goal",
+        "team": "Bayern Munich",
+        "headline": "GOAL! Bayern Munich!",
+        "description": "Bayern Munich score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 28,
+        "type": "chance",
+        "team": "Bayern Munich",
+        "headline": "Big chance for Bayern Munich!",
+        "description": "Bayern Munich create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 47,
+        "type": "chance",
+        "team": "Bayern Munich",
+        "headline": "Big chance for Bayern Munich!",
+        "description": "Bayern Munich create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 50,
+        "type": "chance",
+        "team": "Bayern Munich",
+        "headline": "Big chance for Bayern Munich!",
+        "description": "Bayern Munich create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 84,
+        "type": "goal",
+        "team": "Bayern Munich",
+        "headline": "GOAL! Bayern Munich!",
+        "description": "Bayern Munich score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 90,
+        "type": "goal",
+        "team": "Bayern Munich",
+        "headline": "GOAL! Bayern Munich!",
+        "description": "Bayern Munich score to make it 3:0.",
+        "score_after": "3:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 3:0.",
+        "score_after": "3:0"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Bayern Munich": 2.18,
+      "Union Berlin": 0.91
+    },
+    "win_rate_last_10": {
+      "Bayern Munich": "62%",
+      "Union Berlin": "21%"
+    },
+    "avg_goals_scored": {
+      "Bayern Munich": 2.46,
+      "Union Berlin": 1.02
+    },
+    "avg_goals_conceded": {
+      "Bayern Munich": 1.35,
+      "Union Berlin": 2.46
+    },
+    "clean_sheet_rate": {
+      "Bayern Munich": "37%",
+      "Union Berlin": "9%"
+    },
+    "h2h_last_10": {
+      "Bayern Munich wins": "70%",
+      "draws": "30%",
+      "Union Berlin wins": "0%",
+      "total_h2h_games": 10
+    }
+  }
+}

@@ -1,0 +1,301 @@
+{
+  "home_team": "Werder Bremen",
+  "away_team": "Augsburg",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.3536,
+  "probability_draw": 0.2511,
+  "probability_away_win": 0.3953,
+  "score_prediction": {
+    "home_xg": 1.5,
+    "away_xg": 1.48,
+    "rho": -0.13,
+    "most_likely_score": "1:2",
+    "result": "A",
+    "probability_home_win": 0.3536,
+    "probability_draw": 0.2511,
+    "probability_away_win": 0.3953,
+    "top_scorelines": [
+      {
+        "score": "1:2",
+        "probability": 0.0919
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0663
+      },
+      {
+        "score": "0:2",
+        "probability": 0.0611
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0454
+      },
+      {
+        "score": "2:3",
+        "probability": 0.0341
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.6047,
+        "home_or_away": 0.7489,
+        "draw_or_away": 0.6464
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8146,
+          "under": 0.1854
+        },
+        {
+          "line": 2.5,
+          "over": 0.5817,
+          "under": 0.4183
+        },
+        {
+          "line": 3.5,
+          "over": 0.3508,
+          "under": 0.6492
+        }
+      ],
+      "btts": {
+        "yes": 0.6111,
+        "no": 0.3889
+      },
+      "win_margin": {
+        "home_1plus": 0.3536,
+        "home_2plus": 0.1769,
+        "home_3plus": 0.0682,
+        "away_1plus": 0.3953,
+        "away_2plus": 0.1957,
+        "away_3plus": 0.0745
+      },
+      "scenario": "Augsburg is slightly favored to win 2-1, largely due to their much stronger recent form compared to Werder Bremen."
+    }
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.01,
+    "total_xg": 2.98,
+    "first_goal": {
+      "Werder Bremen_scores_first": 0.478,
+      "Augsburg_scores_first": 0.471,
+      "no_goals": 0.051,
+      "expected_minute": 30
+    },
+    "halftime_xg": {
+      "Werder Bremen": 0.7,
+      "Augsburg": 0.7
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.247
+      },
+      {
+        "score": "1:0",
+        "probability": 0.174
+      },
+      {
+        "score": "0:1",
+        "probability": 0.172
+      },
+      {
+        "score": "1:1",
+        "probability": 0.121
+      },
+      {
+        "score": "2:0",
+        "probability": 0.061
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Werder Bremen": 0.203,
+        "Augsburg": 0.2
+      },
+      "16-30'": {
+        "Werder Bremen": 0.232,
+        "Augsburg": 0.229
+      },
+      "31-45'": {
+        "Werder Bremen": 0.27,
+        "Augsburg": 0.266
+      },
+      "46-60'": {
+        "Werder Bremen": 0.217,
+        "Augsburg": 0.215
+      },
+      "61-75'": {
+        "Werder Bremen": 0.277,
+        "Augsburg": 0.274
+      },
+      "76-90'": {
+        "Werder Bremen": 0.3,
+        "Augsburg": 0.296
+      }
+    },
+    "comeback_probability": {
+      "Werder Bremen": 0.032,
+      "Augsburg": 0.031
+    },
+    "late_drama_probability": 0.449,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.244
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.198
+      },
+      {
+        "szenario": "Werder Bremen dominiert früh",
+        "beschreibung": "Werder Bremen geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.062
+      },
+      {
+        "szenario": "Augsburg dominiert früh",
+        "beschreibung": "Augsburg geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.06
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 51,
+        "away": 49
+      },
+      "shots": {
+        "home": 15,
+        "away": 14
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 5
+      },
+      "corners": {
+        "home": 7,
+        "away": 6
+      },
+      "passes": {
+        "home": 265,
+        "away": 255
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Werder Bremen and Augsburg is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 17,
+        "type": "goal",
+        "team": "Augsburg",
+        "headline": "GOAL! Augsburg!",
+        "description": "Augsburg score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 18,
+        "type": "chance",
+        "team": "Werder Bremen",
+        "headline": "Big chance for Werder Bremen!",
+        "description": "Werder Bremen create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 29,
+        "type": "chance",
+        "team": "Werder Bremen",
+        "headline": "Big chance for Werder Bremen!",
+        "description": "Werder Bremen create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 47,
+        "type": "goal",
+        "team": "Augsburg",
+        "headline": "GOAL! Augsburg!",
+        "description": "Augsburg score to make it 0:2.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 51,
+        "type": "chance",
+        "team": "Werder Bremen",
+        "headline": "Big chance for Werder Bremen!",
+        "description": "Werder Bremen create a great opportunity but fail to convert.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 66,
+        "type": "goal",
+        "team": "Werder Bremen",
+        "headline": "GOAL! Werder Bremen!",
+        "description": "Werder Bremen score to make it 1:2.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 74,
+        "type": "chance",
+        "team": "Werder Bremen",
+        "headline": "Big chance for Werder Bremen!",
+        "description": "Werder Bremen create a great opportunity but fail to convert.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:2.",
+        "score_after": "1:2"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Werder Bremen": 0.89,
+      "Augsburg": 1.95
+    },
+    "win_rate_last_10": {
+      "Werder Bremen": "22%",
+      "Augsburg": "53%"
+    },
+    "avg_goals_scored": {
+      "Werder Bremen": 0.99,
+      "Augsburg": 1.78
+    },
+    "avg_goals_conceded": {
+      "Werder Bremen": 1.63,
+      "Augsburg": 1.73
+    },
+    "clean_sheet_rate": {
+      "Werder Bremen": "9%",
+      "Augsburg": "0%"
+    },
+    "h2h_last_10": {
+      "Werder Bremen wins": "30%",
+      "draws": "20%",
+      "Augsburg wins": "50%",
+      "total_h2h_games": 10
+    }
+  }
+}

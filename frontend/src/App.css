@@ -7,6 +7,23 @@
   --border-strong: rgba(255,255,255,0.14);
   --text-muted: #8b8d93;
   --text-faint: #5a5c63;
+  /* Gold stays the "premium / result" color; cyan is reserved for
+     live/AI-generated signals (badges, the AI box, ticker) so the two never
+     compete for the same meaning on screen. */
+  --cyan: #22d3ee;
+  --cyan-light: #67e8f9;
+  --glass-bg: rgba(255,255,255,0.035);
+  --glass-border: rgba(255,255,255,0.09);
+}
+
+/* Reusable "premium panel" look: soft blur + translucency over the page's
+   radial gradient, instead of a flat solid card. Applied to the cards that
+   most benefit from feeling elevated (hero preview, smart-bet, flow steps). */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid var(--glass-border);
 }
 
 * {
@@ -73,6 +90,73 @@ body {
 
 .nav-links a:hover {
   color: var(--gold-light);
+}
+
+/* Match ticker - a slim marquee of upcoming fixtures, always visible right
+   under the nav so "something changed" reads immediately without scrolling. */
+.match-ticker {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: rgba(34,211,238,0.03);
+  padding: 0.55rem 0;
+  overflow: hidden;
+}
+
+.match-ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  width: max-content;
+  margin-left: 1.5rem;
+  animation: matchTickerScroll 42s linear infinite;
+}
+
+.match-ticker:hover .match-ticker-track {
+  animation-play-state: paused;
+}
+
+@keyframes matchTickerScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.match-ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.match-ticker-item .team-crest {
+  width: 1em;
+  height: 1em;
+}
+
+.match-ticker-team {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #e5e5e6;
+}
+
+.match-ticker-vs {
+  color: var(--text-faint);
+  font-weight: 400;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.match-ticker-date {
+  color: var(--gold-light);
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-left: 0.2rem;
 }
 
 /* Hero */
@@ -150,7 +234,91 @@ body {
   color: var(--text-muted);
   font-size: 1rem;
   line-height: 1.6;
-  margin-bottom: 2.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.competition-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  padding: 0.45rem 1rem 0.45rem 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.competition-badge strong {
+  color: var(--gold-light);
+  font-weight: 700;
+}
+
+.competition-badge-logo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* Competition selector - only Champions League is live; the "Soon" pills
+   exist to signal the roadmap (more leagues) rather than pretend the whole
+   multi-league feature already works. */
+.competition-select {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.competition-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  padding: 0.55rem 1.1rem;
+  cursor: default;
+  font-family: inherit;
+}
+
+.competition-pill img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.competition-pill-emoji {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.competition-pill.active {
+  color: var(--gold-light);
+  border-color: rgba(212,175,55,0.35);
+  background: rgba(212,175,55,0.08);
+}
+
+.competition-pill.soon {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.competition-pill-soon {
+  font-size: 0.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cyan-light);
+  background: rgba(34,211,238,0.12);
+  border-radius: 50px;
+  padding: 0.15rem 0.5rem;
 }
 
 .hero-stats {
@@ -190,14 +358,70 @@ body {
 
 .hero-preview-badge {
   align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   font-size: 0.65rem;
   font-weight: 800;
-  color: #1a1406;
-  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: #06282d;
+  background: linear-gradient(135deg, var(--cyan-light), var(--cyan));
   border-radius: 50px;
   padding: 0.3rem 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+.hero-preview-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #06282d;
+  animation: pulseDot 1.6s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.hero-preview-body {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.result-donut {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  min-width: 100px;
+}
+
+.result-donut svg {
+  width: 100%;
+  height: 100%;
+}
+
+.result-donut-seg {
+  transition: stroke-dasharray 0.6s ease;
+}
+
+.result-donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.result-donut-score {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #f1f1f2;
+}
+
+.hero-preview-body .hero-preview-bars {
+  flex: 1;
 }
 
 .hero-preview-teams {
@@ -250,10 +474,18 @@ body {
 }
 
 .card {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid var(--glass-border);
   border-radius: 16px;
   padding: 2rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 12px 40px -12px rgba(0,0,0,0.5);
 }
 
 /* How It Works */
@@ -292,80 +524,6 @@ body {
   margin: 0 auto;
 }
 
-.flow-diagram {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-}
-
-.flow-step-wrap {
-  display: flex;
-  flex-direction: column;
-}
-
-.flow-step {
-  display: flex;
-  gap: 1.25rem;
-  align-items: flex-start;
-}
-
-.flow-step-marker {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  min-width: 56px;
-  border-radius: 14px;
-  color: var(--gold-light);
-  background: rgba(212,175,55,0.1);
-  border: 1px solid rgba(212,175,55,0.2);
-}
-
-.flow-step-icon svg {
-  width: 28px;
-  height: 28px;
-}
-
-.flow-step-number {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--gold);
-  color: #1a1408;
-  font-size: 0.7rem;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.flow-step-content {
-  background: #141416;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.25rem 1.5rem;
-  flex: 1;
-}
-
-.flow-step-content h3 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #f1f1f2;
-  margin-bottom: 0.5rem;
-}
-
-.flow-step-content p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 0.9rem;
-}
-
 .flow-step-tags {
   display: flex;
   flex-wrap: wrap;
@@ -380,20 +538,6 @@ body {
   border: 1px solid rgba(212,175,55,0.2);
   border-radius: 999px;
   padding: 0.25rem 0.7rem;
-}
-
-.flow-connector {
-  display: flex;
-  justify-content: center;
-  width: 56px;
-  min-width: 56px;
-  color: var(--gold-light);
-  margin: 0.1rem 0;
-}
-
-.flow-connector svg {
-  width: 24px;
-  height: 32px;
 }
 
 .flow-back-btn {
@@ -415,22 +559,310 @@ body {
   color: var(--gold-light);
 }
 
-@media (max-width: 600px) {
-  .flow-step {
-    gap: 0.85rem;
+/* Scroll-driven "How It Works" */
+.flow-section-scroll {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.flow-scroll-header {
+  max-width: 760px;
+  margin: 0 auto 1rem;
+  text-align: center;
+}
+
+.flow-scroll-header .how-intro {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flow-scroll-body {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.flow-scroll-rail {
+  position: sticky;
+  top: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+  padding-top: 0.5rem;
+  flex-shrink: 0;
+}
+
+.flow-scroll-rail::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  background: var(--border);
+  transform: translateX(-50%);
+}
+
+.flow-scroll-rail-fill {
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold), var(--cyan));
+  transform: translateX(-50%);
+  transition: height 0.3s ease;
+}
+
+.flow-rail-dot {
+  position: relative;
+  z-index: 1;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #141416;
+  border: 1px solid var(--border-strong);
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.flow-rail-dot.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #1a1408;
+  box-shadow: 0 0 0 4px rgba(212,175,55,0.18);
+  transform: scale(1.15);
+}
+
+.flow-rail-dot.done {
+  background: rgba(34,211,238,0.12);
+  border-color: var(--cyan);
+  color: var(--cyan-light);
+}
+
+.flow-scroll-steps {
+  flex: 1;
+  min-width: 0;
+}
+
+.flow-scroll-step {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  min-height: 44vh;
+  padding: 2rem 0;
+}
+
+.flow-scroll-step.reverse {
+  flex-direction: row-reverse;
+}
+
+.flow-scroll-text {
+  flex: 1;
+  min-width: 0;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.flow-scroll-step.in-view .flow-scroll-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.flow-scroll-step-num {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold-light);
+  margin-bottom: 0.5rem;
+}
+
+.flow-scroll-step.reverse .flow-scroll-step-num {
+  color: var(--cyan-light);
+}
+
+.flow-scroll-text h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #f1f1f2;
+  margin-bottom: 0.6rem;
+}
+
+.flow-scroll-text p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+  max-width: 460px;
+}
+
+/* Graphic */
+.flow-graphic {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.flow-scroll-step.in-view .flow-graphic {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.flow-graphic-rings {
+  position: absolute;
+  inset: 0;
+}
+
+.flow-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(212,175,55,0.3);
+  opacity: 0;
+}
+
+.flow-graphic.cyan .flow-ring {
+  border-color: rgba(34,211,238,0.3);
+}
+
+.flow-scroll-step.in-view .flow-ring.r1 { animation: flowRingPulse 2.6s ease-out infinite; }
+.flow-scroll-step.in-view .flow-ring.r2 { animation: flowRingPulse 2.6s ease-out infinite 0.85s; }
+.flow-scroll-step.in-view .flow-ring.r3 { animation: flowRingPulse 2.6s ease-out infinite 1.7s; }
+
+@keyframes flowRingPulse {
+  0% { transform: scale(0.55); opacity: 0.7; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.flow-graphic-core {
+  position: relative;
+  z-index: 2;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(212,175,55,0.1);
+  border: 1px solid rgba(212,175,55,0.25);
+  color: var(--gold-light);
+}
+
+.flow-graphic.cyan .flow-graphic-core {
+  background: rgba(34,211,238,0.1);
+  border-color: rgba(34,211,238,0.3);
+  color: var(--cyan-light);
+}
+
+.flow-graphic-core svg {
+  width: 38px;
+  height: 38px;
+}
+
+.flow-graphic-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.flow-particle {
+  fill: var(--gold-light);
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.flow-graphic.cyan .flow-particle {
+  fill: var(--cyan-light);
+}
+
+.flow-scroll-step.in-view .flow-particle {
+  animation: flowParticleTwinkle 2.2s ease-in-out infinite;
+}
+
+@keyframes flowParticleTwinkle {
+  0%, 100% { opacity: 0; transform: scale(0.4); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.flow-nav-btn {
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  color: #f1f1f2;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+}
+
+.flow-nav-btn:hover {
+  border-color: var(--gold-light);
+  color: var(--gold-light);
+}
+
+.flow-nav-btn.primary {
+  background: linear-gradient(90deg, var(--gold), #e8c766);
+  border-color: transparent;
+  color: #1a1408;
+}
+
+.flow-nav-btn.primary:hover {
+  filter: brightness(1.08);
+  color: #1a1408;
+}
+
+.flow-scroll-end-btn {
+  display: flex;
+  margin: 1rem auto 0;
+}
+
+@media (max-width: 720px) {
+  .flow-scroll-rail {
+    display: none;
   }
-  .flow-step-marker {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    border-radius: 10px;
+  .flow-scroll-step,
+  .flow-scroll-step.reverse {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+    min-height: 0;
   }
-  .flow-step-icon svg {
-    width: 22px;
-    height: 22px;
+  .flow-scroll-text {
+    max-width: 100%;
   }
-  .flow-step-content {
-    padding: 1rem 1.1rem;
+  .flow-scroll-text p {
+    max-width: 100%;
+  }
+  .flow-graphic {
+    width: 130px;
+    height: 130px;
+  }
+  .flow-graphic-core {
+    width: 64px;
+    height: 64px;
+  }
+  .flow-graphic-core svg {
+    width: 30px;
+    height: 30px;
   }
 }
 
@@ -460,6 +892,14 @@ body {
   flex: 1;
   text-align: center;
   animation: wmResultReveal 1.1s ease both;
+}
+
+.team-crest {
+  width: 1.1em;
+  height: 1.1em;
+  object-fit: contain;
+  vertical-align: -0.2em;
+  margin-right: 0.4em;
 }
 
 .prediction-badge {
@@ -500,6 +940,96 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
+}
+
+/* Donut probability display (replaces the 3-bar layout inside WmPredictionCard) */
+.probabilities-donut {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.probabilities-donut .result-donut {
+  animation: wmResultReveal 0.7s ease both;
+}
+
+.probabilities-legend {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.legend-title {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.1rem;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 1.05rem;
+  color: #e5e5e6;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-dot.gold { background: var(--gold); }
+.legend-dot.gray { background: #9ca3af; }
+.legend-dot.cyan { background: var(--cyan); }
+.legend-dot.orange { background: #f97316; }
+.legend-dot.hit { background: #22c55e; }
+
+.legend-name {
+  flex: 1;
+  min-width: 0;
+  font-weight: 700;
+}
+
+.legend-value {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #f1f1f2;
+}
+
+/* Cluster grouping - breaks the long stack of similar boxes into labeled
+   sections (Overview / Stats & Odds / Smart Bet) so the card scans instead
+   of scrolling as one undifferentiated wall. */
+.wm-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  margin-top: 0.25rem;
+}
+
+.wm-cluster:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.wm-cluster-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold-light);
+}
+
+.wm-cluster-bet .wm-cluster-label {
+  color: var(--cyan-light);
 }
 
 .prob-row {
@@ -583,6 +1113,75 @@ body {
 .stat-val {
   font-weight: 600;
   text-align: right;
+}
+
+/* Score rows (Most Likely Score / Halftime) - plain ranked rows. A
+   probability bar doesn't mean much here since each row is just one of many
+   possible scorelines, not a share of a meaningful 100 - so rank + color is
+   the signal, not a fill. */
+.score-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.score-row:last-child {
+  border-bottom: none;
+}
+
+.score-row-rank {
+  font-size: 0.75rem;
+  color: var(--text-faint);
+  width: 16px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.score-row-label {
+  flex: 1;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.score-row-label-wide {
+  flex: 1;
+}
+
+.score-row-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.score-row.is-leader .score-row-rank,
+.score-row.is-leader .score-row-label,
+.score-row.is-leader .score-row-value {
+  color: var(--gold-light);
+  font-weight: 800;
+}
+
+.score-row.is-drama .score-row-value {
+  color: var(--cyan-light);
+  font-weight: 700;
+}
+
+.wm-scoreboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.wm-scoreboard-crest {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.wm-scoreboard-xg {
+  text-align: center;
 }
 
 /* Head-to-Head Predicted Stats */
@@ -715,52 +1314,95 @@ body {
   margin: 0 0 0.9rem;
 }
 
-.form-rating-row {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.3rem;
-}
-
-.form-rating-label {
-  font-size: 0.9rem;
-  width: 130px;
-  flex-shrink: 0;
-}
-
 .form-rating-flame {
   margin-left: 0.3rem;
 }
 
-.form-rating-track {
-  flex: 1;
-  height: 10px;
-  border-radius: 6px;
+/* Form Rating "tug of war" - both teams pull from opposite ends of one
+   shared track toward a knot marker, instead of two separate flat bars. */
+.form-tug {
+  margin-bottom: 1rem;
+}
+
+.form-tug-header,
+.form-tug-values {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-tug-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f1f1f2;
+  min-width: 0;
+}
+
+.form-tug-name.away {
+  text-align: right;
+}
+
+.form-tug-track {
+  position: relative;
+  height: 14px;
+  border-radius: 7px;
   background: #141416;
+  margin: 0.6rem 0;
   overflow: hidden;
 }
 
-.form-rating-fill {
-  height: 100%;
-  border-radius: 6px;
+/* Each fill is the team's own 0-100 rating pulled in from its own edge -
+   independent bars, not two slices of a shared 100. Semi-transparent so an
+   overlap (when ratings add to more than 100) blends honestly instead of
+   one side just covering the other. */
+.form-tug-fill-home {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  opacity: 0.85;
+  transition: width 0.8s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-.form-rating-value {
-  font-size: 0.9rem;
-  font-weight: 700;
-  width: 32px;
-  text-align: right;
+.form-tug-fill-away {
+  position: absolute;
+  inset: 0 0 0 auto;
+  background: linear-gradient(270deg, #f97316, #ef4444);
+  opacity: 0.85;
+  transition: width 0.8s cubic-bezier(0.65, 0, 0.35, 1);
 }
+
+.form-tug-scale-mark {
+  position: absolute;
+  left: 50%;
+  top: -3px;
+  bottom: -3px;
+  width: 1px;
+  background: rgba(255,255,255,0.18);
+  z-index: 1;
+}
+
+.form-tug-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.form-tug-value.home { color: var(--gold-light); }
+.form-tug-value.away { color: #f97316; }
 
 .form-rating-detail {
   font-size: 0.75rem;
   color: var(--text-muted);
-  margin: 0 0 1rem 142px;
+  margin: 0 0 0.35rem;
 }
 
-.form-rating-row:last-of-type + .form-rating-detail,
 .form-rating-detail:last-child {
   margin-bottom: 0;
+}
+
+.form-rating-detail strong {
+  color: #d5d5d6;
+  font-weight: 700;
 }
 
 .scenario-highlight {
@@ -793,6 +1435,38 @@ body {
   border-radius: 12px;
   padding: 1.1rem;
   text-align: center;
+}
+
+.market-card-fillable {
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.market-card-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: linear-gradient(90deg, rgba(212,175,55,0.16), rgba(212,175,55,0.03));
+  transition: width 1s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.market-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.market-card-fillable.is-leader {
+  border-color: rgba(212,175,55,0.55);
+  box-shadow: 0 0 20px -4px rgba(212,175,55,0.4);
+}
+
+.market-card-fillable.is-leader .market-card-fill {
+  background: linear-gradient(90deg, rgba(212,175,55,0.3), rgba(212,175,55,0.05));
+}
+
+.market-card-fillable.is-leader .market-card-value {
+  color: var(--gold-light);
+  text-shadow: 0 0 12px rgba(212,175,55,0.5);
 }
 
 .market-card-label {
@@ -996,15 +1670,15 @@ body {
   margin-top: 1.5rem;
   padding: 0.9rem 1rem;
   border-radius: 10px;
-  background: rgba(139, 92, 246, 0.08);
-  border: 1px solid rgba(167, 139, 250, 0.2);
+  background: rgba(34, 211, 238, 0.07);
+  border: 1px solid rgba(34, 211, 238, 0.25);
 }
 
 .agent-factors h4 {
   font-size: 0.75rem;
   font-weight: 700;
   margin: 0 0 0.6rem;
-  color: #c4b5fd;
+  color: var(--cyan-light);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -1187,16 +1861,34 @@ body {
 
 /* Fixtures List */
 .fixtures-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.fixtures-list .wm-card,
+.fixtures-list .fixture-final {
+  grid-column: 1 / -1;
 }
 
 .fixture-row {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid var(--glass-border);
   border-radius: 12px;
   padding: 1.1rem 1.25rem;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.fixture-row:hover {
+  border-color: rgba(34,211,238,0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -16px rgba(34,211,238,0.25);
 }
 
 .fixture-meta {
@@ -1227,33 +1919,59 @@ body {
 
 .fixture-teams {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.4rem;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #f1f1f2;
+  flex: 1;
+}
+
+.fixture-teams > span:not(.fixture-vs) {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.fixture-teams .team-crest {
+  width: 1.7em;
+  height: 1.7em;
+  margin-right: 0;
 }
 
 .fixture-vs {
+  align-self: flex-start;
   color: var(--text-faint);
   font-weight: 400;
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
+  padding-left: 0.15em;
+}
+
+.fixture-final .fixture-teams {
+  flex-direction: row;
+  align-items: center;
+}
+
+.fixture-final .fixture-teams .team-crest {
+  width: 1.1em;
+  height: 1.1em;
 }
 
 /* Analysis Ready / Generate */
 .fixture-ready {
-  border-color: rgba(212,175,55,0.35);
-  background: linear-gradient(135deg, rgba(212,175,55,0.06), var(--bg-elevated) 60%);
+  border-color: rgba(34,211,238,0.3);
+  background: linear-gradient(135deg, rgba(34,211,238,0.05), var(--bg-elevated) 60%);
 }
 
 .fixture-ready-badge {
   font-size: 0.65rem;
   font-weight: 700;
-  color: var(--gold-light);
-  background: rgba(212,175,55,0.12);
-  border: 1px solid rgba(212,175,55,0.25);
+  color: var(--cyan-light);
+  background: rgba(34,211,238,0.12);
+  border: 1px solid rgba(34,211,238,0.25);
   border-radius: 50px;
   padding: 0.2rem 0.7rem;
   text-transform: uppercase;
@@ -1261,14 +1979,14 @@ body {
 }
 
 .fixture-generate-btn {
-  width: 100%;
-  margin-top: 0.9rem;
-  padding: 0.75rem;
+  align-self: flex-start;
+  margin-top: 1rem;
+  padding: 0.55rem 1.1rem;
   background: linear-gradient(135deg, var(--gold-light), var(--gold));
   border: none;
-  border-radius: 10px;
+  border-radius: 999px;
   color: #1a1406;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 700;
   cursor: pointer;
   transition: opacity 0.2s, transform 0.1s;
@@ -1285,9 +2003,56 @@ body {
   margin-top: 1rem;
 }
 
+.smart-bet-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.3rem;
+  padding: 1.75rem 1.25rem;
+  background: rgba(34,211,238,0.04);
+  border: 1px dashed rgba(34,211,238,0.3);
+  border-radius: 14px;
+}
+
+.smart-bet-cta-icon {
+  font-size: 1.7rem;
+  margin-bottom: 0.2rem;
+}
+
+.smart-bet-cta-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #f1f1f2;
+  margin: 0;
+}
+
+.smart-bet-cta-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  max-width: 380px;
+  margin: 0 0 0.6rem;
+  line-height: 1.5;
+}
+
 .smart-bet-btn {
-  background: linear-gradient(135deg, #4ade80, #16a34a);
-  color: #07260f;
+  align-self: center;
+  background: linear-gradient(135deg, var(--cyan), var(--cyan-light));
+  color: #06282d;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.smart-bet-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
 }
 
 .smart-bet-card {
@@ -1308,6 +2073,13 @@ body {
   letter-spacing: 0.08em;
   color: #4ade80;
   margin-bottom: 0.3rem;
+}
+
+.smart-bet-disclaimer {
+  margin-top: 0.6rem;
+  font-size: 0.66rem;
+  line-height: 1.5;
+  color: #6b7280;
 }
 
 .smart-bet-pick {
@@ -1353,6 +2125,62 @@ body {
   color: #f87171;
 }
 
+.smart-bet-winprob {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 50px;
+  background: rgba(74,222,128,0.15);
+  color: #4ade80;
+}
+
+.smart-bet-agree-row {
+  margin-top: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.smart-bet-agree-chip {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+}
+
+.smart-bet-agree-chip.yes {
+  background: rgba(74,222,128,0.15);
+  color: #4ade80;
+}
+
+.smart-bet-agree-chip.no {
+  background: rgba(148,163,184,0.12);
+  color: #94a3b8;
+}
+
+
+.smart-bet-highlight,
+.smart-bet-highlight-gold {
+  color: var(--gold-light);
+  font-weight: 800;
+}
+
+.smart-bet-highlight-green {
+  color: #4ade80;
+  font-weight: 800;
+}
+
+.smart-bet-highlight-red {
+  color: #f87171;
+  font-weight: 800;
+}
+
+.smart-bet-highlight-purple {
+  color: var(--cyan-light);
+  font-weight: 800;
+}
+
 .smart-bet-best-meta {
   margin-top: 0.4rem;
   font-size: 0.72rem;
@@ -1378,32 +2206,25 @@ body {
   margin-top: 0.8rem;
   padding: 0.7rem 0.8rem;
   border-radius: 10px;
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(167, 139, 250, 0.25);
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.28);
 }
 
 .smart-bet-agent-headtitle {
   display: flex;
   align-items: baseline;
   gap: 0.45rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.7rem;
 }
 
 .smart-bet-agent-headline {
   font-size: 1rem;
   font-weight: 700;
-  color: #fff;
-}
-
-.smart-bet-agent-agree {
-  display: inline-block;
-  font-size: 0.68rem;
-  color: #c4b5fd;
-  margin-bottom: 0.4rem;
+  color: var(--cyan-light);
 }
 
 .smart-bet-agent-text {
-  margin: 0 0 0.4rem;
+  margin: 0.3rem 0 0.4rem;
   font-size: 0.78rem;
   line-height: 1.5;
   color: #d1d5db;
@@ -1432,6 +2253,37 @@ body {
   left: 0;
   color: #a78bfa;
 }
+
+.smart-bet-signal-box {
+  margin-top: 0.6rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+}
+
+.smart-bet-signal-box.is-green {
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.smart-bet-signal-box.is-gold {
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+.smart-bet-signal-box.is-red {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.smart-bet-signal-headline {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.smart-bet-signal-box.is-green .smart-bet-signal-headline { color: #4ade80; }
+.smart-bet-signal-box.is-gold .smart-bet-signal-headline { color: #d4af37; }
+.smart-bet-signal-box.is-red .smart-bet-signal-headline { color: #f87171; }
 
 .smart-bet-finePrint {
   margin-top: 0.8rem;
@@ -1676,7 +2528,7 @@ body {
   margin-top: 0.5rem;
   font-size: 0.74rem;
   line-height: 1.4;
-  color: #c4b5fd;
+  color: var(--cyan-light);
   text-align: left;
 }
 
@@ -1784,6 +2636,10 @@ body {
 
 .analyzing-status {
   margin-bottom: 1.25rem;
+}
+
+.loading-inline {
+  margin: 0.25rem 0 1.25rem;
 }
 
 .wm-reveal {

@@ -1,0 +1,307 @@
+date,home_team,away_team,home_score,away_score
+2013-07-19,SV Sandhausen,VfR Aalen,0,0
+2013-07-19,FC Ingolstadt 04,FC Erzgebirge Aue,1,2
+2013-07-19,FC St. Pauli,TSV 1860 München,1,0
+2013-07-20,SC Paderborn 07,1. FC Kaiserslautern,0,1
+2013-07-20,Dynamo Dresden,1. FC Köln,1,1
+2013-07-21,SpVgg Greuther Fürth,DSC Arminia Bielefeld,2,0
+2013-07-21,FSV Frankfurt,Karlsruher SC,0,1
+2013-07-21,1. FC Union Berlin,VfL Bochum,1,2
+2013-07-22,Fortuna Düsseldorf,Energie Cottbus,1,0
+2013-07-26,VfR Aalen,SpVgg Greuther Fürth,0,2
+2013-07-26,DSC Arminia Bielefeld,1. FC Union Berlin,1,1
+2013-07-26,1. FC Kaiserslautern,FC Ingolstadt 04,3,1
+2013-07-27,FC Erzgebirge Aue,SV Sandhausen,1,0
+2013-07-27,Karlsruher SC,FC St. Pauli,0,0
+2013-07-28,TSV 1860 München,FSV Frankfurt,2,1
+2013-07-28,Energie Cottbus,SC Paderborn 07,4,0
+2013-07-28,1. FC Köln,Fortuna Düsseldorf,1,1
+2013-07-29,VfL Bochum,Dynamo Dresden,1,1
+2013-08-09,Fortuna Düsseldorf,TSV 1860 München,1,2
+2013-08-09,FSV Frankfurt,VfL Bochum,1,0
+2013-08-09,Dynamo Dresden,1. FC Union Berlin,1,3
+2013-08-10,SC Paderborn 07,1. FC Köln,1,1
+2013-08-10,FC Ingolstadt 04,Karlsruher SC,0,2
+2013-08-11,FC St. Pauli,DSC Arminia Bielefeld,0,1
+2013-08-11,SV Sandhausen,Energie Cottbus,2,2
+2013-08-11,FC Erzgebirge Aue,VfR Aalen,0,1
+2013-08-12,SpVgg Greuther Fürth,1. FC Kaiserslautern,2,1
+2013-08-16,Karlsruher SC,SpVgg Greuther Fürth,1,2
+2013-08-16,DSC Arminia Bielefeld,SC Paderborn 07,3,3
+2013-08-16,VfL Bochum,FC St. Pauli,2,2
+2013-08-17,1. FC Kaiserslautern,FC Erzgebirge Aue,2,1
+2013-08-17,1. FC Köln,SV Sandhausen,2,0
+2013-08-18,TSV 1860 München,FC Ingolstadt 04,1,0
+2013-08-18,Energie Cottbus,VfR Aalen,5,1
+2013-08-18,Dynamo Dresden,FSV Frankfurt,0,3
+2013-08-19,1. FC Union Berlin,Fortuna Düsseldorf,2,1
+2013-08-23,SV Sandhausen,Karlsruher SC,1,1
+2013-08-23,FC Ingolstadt 04,DSC Arminia Bielefeld,3,2
+2013-08-23,FC Erzgebirge Aue,Energie Cottbus,2,1
+2013-08-24,SpVgg Greuther Fürth,1. FC Köln,0,0
+2013-08-24,VfR Aalen,1. FC Kaiserslautern,4,0
+2013-08-25,Fortuna Düsseldorf,VfL Bochum,1,0
+2013-08-25,FSV Frankfurt,1. FC Union Berlin,1,1
+2013-08-25,SC Paderborn 07,TSV 1860 München,1,0
+2013-08-26,FC St. Pauli,Dynamo Dresden,2,1
+2013-08-30,FSV Frankfurt,SpVgg Greuther Fürth,1,1
+2013-08-30,TSV 1860 München,SV Sandhausen,0,2
+2013-08-30,DSC Arminia Bielefeld,Fortuna Düsseldorf,4,2
+2013-08-31,1. FC Union Berlin,FC St. Pauli,3,2
+2013-08-31,VfL Bochum,SC Paderborn 07,4,2
+2013-09-01,1. FC Köln,FC Erzgebirge Aue,4,1
+2013-09-01,Dynamo Dresden,FC Ingolstadt 04,1,1
+2013-09-01,Karlsruher SC,VfR Aalen,1,1
+2013-09-02,1. FC Kaiserslautern,Energie Cottbus,2,2
+2013-09-13,VfR Aalen,TSV 1860 München,0,0
+2013-09-13,SC Paderborn 07,Karlsruher SC,1,0
+2013-09-13,FC Erzgebirge Aue,DSC Arminia Bielefeld,0,2
+2013-09-14,FC St. Pauli,FSV Frankfurt,2,1
+2013-09-14,SV Sandhausen,1. FC Kaiserslautern,1,0
+2013-09-15,Fortuna Düsseldorf,Dynamo Dresden,1,1
+2013-09-15,SpVgg Greuther Fürth,VfL Bochum,0,2
+2013-09-15,FC Ingolstadt 04,1. FC Union Berlin,0,1
+2013-09-16,Energie Cottbus,1. FC Köln,0,4
+2013-09-20,1. FC Köln,1. FC Kaiserslautern,0,0
+2013-09-20,1. FC Union Berlin,SpVgg Greuther Fürth,2,4
+2013-09-20,Karlsruher SC,Energie Cottbus,2,0
+2013-09-21,TSV 1860 München,FC Erzgebirge Aue,3,1
+2013-09-21,VfL Bochum,VfR Aalen,1,2
+2013-09-22,FSV Frankfurt,FC Ingolstadt 04,4,1
+2013-09-22,Dynamo Dresden,SC Paderborn 07,2,2
+2013-09-22,DSC Arminia Bielefeld,SV Sandhausen,2,1
+2013-09-23,FC St. Pauli,Fortuna Düsseldorf,1,1
+2013-09-27,Energie Cottbus,DSC Arminia Bielefeld,4,2
+2013-09-27,VfR Aalen,1. FC Köln,0,1
+2013-09-27,FC Erzgebirge Aue,Karlsruher SC,3,0
+2013-09-28,Fortuna Düsseldorf,FSV Frankfurt,0,0
+2013-09-28,SC Paderborn 07,1. FC Union Berlin,0,3
+2013-09-29,1. FC Kaiserslautern,TSV 1860 München,3,0
+2013-09-29,SV Sandhausen,VfL Bochum,1,0
+2013-09-29,FC Ingolstadt 04,FC St. Pauli,1,2
+2013-09-30,SpVgg Greuther Fürth,Dynamo Dresden,4,0
+2013-10-04,1. FC Union Berlin,SV Sandhausen,3,0
+2013-10-04,FC St. Pauli,SC Paderborn 07,1,2
+2013-10-04,DSC Arminia Bielefeld,1. FC Kaiserslautern,0,3
+2013-10-05,Dynamo Dresden,VfR Aalen,2,0
+2013-10-05,Karlsruher SC,1. FC Köln,1,2
+2013-10-06,FSV Frankfurt,FC Erzgebirge Aue,3,1
+2013-10-06,TSV 1860 München,Energie Cottbus,0,0
+2013-10-06,VfL Bochum,FC Ingolstadt 04,0,1
+2013-10-07,Fortuna Düsseldorf,SpVgg Greuther Fürth,2,1
+2013-10-18,Energie Cottbus,1. FC Union Berlin,0,0
+2013-10-18,VfR Aalen,DSC Arminia Bielefeld,3,0
+2013-10-18,SC Paderborn 07,FSV Frankfurt,4,2
+2013-10-19,SV Sandhausen,Dynamo Dresden,0,0
+2013-10-19,FC Erzgebirge Aue,VfL Bochum,2,1
+2013-10-20,SpVgg Greuther Fürth,FC St. Pauli,2,4
+2013-10-20,1. FC Kaiserslautern,Karlsruher SC,2,2
+2013-10-20,FC Ingolstadt 04,Fortuna Düsseldorf,1,2
+2013-10-21,1. FC Köln,TSV 1860 München,0,0
+2013-10-25,SpVgg Greuther Fürth,FC Ingolstadt 04,0,1
+2013-10-25,FC St. Pauli,SV Sandhausen,0,0
+2013-10-25,DSC Arminia Bielefeld,1. FC Köln,0,1
+2013-10-26,Fortuna Düsseldorf,SC Paderborn 07,1,6
+2013-10-26,FSV Frankfurt,VfR Aalen,0,0
+2013-10-27,1. FC Union Berlin,FC Erzgebirge Aue,1,0
+2013-10-27,Dynamo Dresden,Energie Cottbus,1,0
+2013-10-27,Karlsruher SC,TSV 1860 München,2,1
+2013-10-28,VfL Bochum,1. FC Kaiserslautern,0,0
+2013-11-01,Energie Cottbus,VfL Bochum,0,1
+2013-11-01,VfR Aalen,Fortuna Düsseldorf,1,0
+2013-11-01,SC Paderborn 07,FC Ingolstadt 04,1,1
+2013-11-02,1. FC Kaiserslautern,FC St. Pauli,4,1
+2013-11-02,FC Erzgebirge Aue,SpVgg Greuther Fürth,2,6
+2013-11-03,TSV 1860 München,Dynamo Dresden,1,3
+2013-11-03,SV Sandhausen,FSV Frankfurt,2,0
+2013-11-03,Karlsruher SC,DSC Arminia Bielefeld,3,1
+2013-11-04,1. FC Köln,1. FC Union Berlin,4,0
+2013-11-08,SpVgg Greuther Fürth,SC Paderborn 07,3,0
+2013-11-08,FSV Frankfurt,1. FC Kaiserslautern,0,4
+2013-11-08,FC Ingolstadt 04,VfR Aalen,2,0
+2013-11-09,1. FC Union Berlin,Karlsruher SC,0,0
+2013-11-09,DSC Arminia Bielefeld,TSV 1860 München,0,1
+2013-11-10,Fortuna Düsseldorf,SV Sandhausen,1,0
+2013-11-10,VfL Bochum,1. FC Köln,1,0
+2013-11-10,Dynamo Dresden,FC Erzgebirge Aue,1,1
+2013-11-11,FC St. Pauli,Energie Cottbus,3,0
+2013-11-22,Energie Cottbus,FSV Frankfurt,1,4
+2013-11-22,SV Sandhausen,SC Paderborn 07,3,2
+2013-11-22,DSC Arminia Bielefeld,VfL Bochum,0,2
+2013-11-23,1. FC Kaiserslautern,1. FC Union Berlin,3,0
+2013-11-23,1. FC Köln,FC Ingolstadt 04,0,1
+2013-11-24,VfR Aalen,FC St. Pauli,0,1
+2013-11-24,FC Erzgebirge Aue,Fortuna Düsseldorf,3,0
+2013-11-24,Karlsruher SC,Dynamo Dresden,3,0
+2013-11-25,TSV 1860 München,SpVgg Greuther Fürth,1,0
+2013-11-29,Fortuna Düsseldorf,Karlsruher SC,0,2
+2013-11-29,1. FC Union Berlin,VfR Aalen,1,3
+2013-11-29,FC St. Pauli,1. FC Köln,0,3
+2013-11-30,FC Ingolstadt 04,SV Sandhausen,0,2
+2013-11-30,Dynamo Dresden,1. FC Kaiserslautern,3,2
+2013-12-01,SpVgg Greuther Fürth,Energie Cottbus,1,0
+2013-12-01,SC Paderborn 07,FC Erzgebirge Aue,1,1
+2013-12-01,VfL Bochum,TSV 1860 München,1,2
+2013-12-02,FSV Frankfurt,DSC Arminia Bielefeld,1,2
+2013-12-06,FC Erzgebirge Aue,FC St. Pauli,0,2
+2013-12-06,Karlsruher SC,VfL Bochum,0,0
+2013-12-06,DSC Arminia Bielefeld,Dynamo Dresden,1,1
+2013-12-07,1. FC Köln,FSV Frankfurt,2,0
+2013-12-07,TSV 1860 München,1. FC Union Berlin,2,1
+2013-12-08,Energie Cottbus,FC Ingolstadt 04,1,2
+2013-12-08,VfR Aalen,SC Paderborn 07,2,4
+2013-12-08,SV Sandhausen,SpVgg Greuther Fürth,1,3
+2013-12-09,1. FC Kaiserslautern,Fortuna Düsseldorf,0,1
+2013-12-13,1. FC Kaiserslautern,SC Paderborn 07,0,1
+2013-12-13,1. FC Köln,Dynamo Dresden,3,1
+2013-12-13,VfR Aalen,SV Sandhausen,0,0
+2013-12-14,Energie Cottbus,Fortuna Düsseldorf,1,3
+2013-12-14,VfL Bochum,1. FC Union Berlin,0,4
+2013-12-15,FC Erzgebirge Aue,FC Ingolstadt 04,0,0
+2013-12-15,Karlsruher SC,FSV Frankfurt,3,3
+2013-12-15,DSC Arminia Bielefeld,SpVgg Greuther Fürth,4,1
+2013-12-16,TSV 1860 München,FC St. Pauli,0,2
+2013-12-20,FC St. Pauli,Karlsruher SC,0,2
+2013-12-20,SV Sandhausen,FC Erzgebirge Aue,1,0
+2013-12-20,Dynamo Dresden,VfL Bochum,0,0
+2013-12-21,FSV Frankfurt,TSV 1860 München,2,2
+2013-12-21,1. FC Union Berlin,DSC Arminia Bielefeld,4,2
+2013-12-22,SpVgg Greuther Fürth,VfR Aalen,1,0
+2013-12-22,SC Paderborn 07,Energie Cottbus,1,0
+2013-12-22,Fortuna Düsseldorf,1. FC Köln,2,3
+2013-12-23,FC Ingolstadt 04,1. FC Kaiserslautern,1,2
+2014-02-07,Energie Cottbus,SV Sandhausen,0,1
+2014-02-07,VfR Aalen,FC Erzgebirge Aue,2,2
+2014-02-07,VfL Bochum,FSV Frankfurt,1,2
+2014-02-08,1. FC Kaiserslautern,SpVgg Greuther Fürth,2,1
+2014-02-08,1. FC Union Berlin,Dynamo Dresden,0,0
+2014-02-09,1. FC Köln,SC Paderborn 07,0,1
+2014-02-09,Karlsruher SC,FC Ingolstadt 04,1,1
+2014-02-09,DSC Arminia Bielefeld,FC St. Pauli,2,2
+2014-02-10,TSV 1860 München,Fortuna Düsseldorf,1,1
+2014-02-14,Fortuna Düsseldorf,1. FC Union Berlin,1,1
+2014-02-14,SpVgg Greuther Fürth,Karlsruher SC,1,1
+2014-02-14,FC Ingolstadt 04,TSV 1860 München,2,0
+2014-02-15,FSV Frankfurt,Dynamo Dresden,3,2
+2014-02-15,FC St. Pauli,VfL Bochum,0,1
+2014-02-16,VfR Aalen,Energie Cottbus,2,2
+2014-02-16,SV Sandhausen,1. FC Köln,0,1
+2014-02-16,SC Paderborn 07,DSC Arminia Bielefeld,4,0
+2014-02-17,FC Erzgebirge Aue,1. FC Kaiserslautern,1,0
+2014-02-21,1. FC Union Berlin,FSV Frankfurt,2,0
+2014-02-21,Energie Cottbus,FC Erzgebirge Aue,2,3
+2014-02-21,DSC Arminia Bielefeld,FC Ingolstadt 04,0,2
+2014-02-22,TSV 1860 München,SC Paderborn 07,2,2
+2014-02-22,Karlsruher SC,SV Sandhausen,2,1
+2014-02-23,1. FC Kaiserslautern,VfR Aalen,1,2
+2014-02-23,VfL Bochum,Fortuna Düsseldorf,0,0
+2014-02-23,Dynamo Dresden,FC St. Pauli,1,2
+2014-02-24,1. FC Köln,SpVgg Greuther Fürth,1,1
+2014-02-28,Fortuna Düsseldorf,DSC Arminia Bielefeld,2,0
+2014-02-28,Energie Cottbus,1. FC Kaiserslautern,1,0
+2014-02-28,SC Paderborn 07,VfL Bochum,4,1
+2014-03-01,SV Sandhausen,TSV 1860 München,0,0
+2014-03-01,FC Erzgebirge Aue,1. FC Köln,2,2
+2014-03-02,SpVgg Greuther Fürth,FSV Frankfurt,3,2
+2014-03-02,VfR Aalen,Karlsruher SC,1,0
+2014-03-02,FC Ingolstadt 04,Dynamo Dresden,1,1
+2014-03-03,FC St. Pauli,1. FC Union Berlin,2,1
+2014-03-07,1. FC Kaiserslautern,SV Sandhausen,2,1
+2014-03-07,1. FC Köln,Energie Cottbus,2,1
+2014-03-07,TSV 1860 München,VfR Aalen,4,0
+2014-03-08,1. FC Union Berlin,FC Ingolstadt 04,1,1
+2014-03-08,DSC Arminia Bielefeld,FC Erzgebirge Aue,1,0
+2014-03-09,FSV Frankfurt,FC St. Pauli,1,0
+2014-03-09,Dynamo Dresden,Fortuna Düsseldorf,1,1
+2014-03-09,Karlsruher SC,SC Paderborn 07,4,0
+2014-03-10,VfL Bochum,SpVgg Greuther Fürth,0,2
+2014-03-14,VfR Aalen,VfL Bochum,0,2
+2014-03-14,SC Paderborn 07,Dynamo Dresden,2,1
+2014-03-14,FC Ingolstadt 04,FSV Frankfurt,0,1
+2014-03-15,Energie Cottbus,Karlsruher SC,1,0
+2014-03-15,FC Erzgebirge Aue,TSV 1860 München,2,2
+2014-03-16,Fortuna Düsseldorf,FC St. Pauli,0,2
+2014-03-16,SpVgg Greuther Fürth,1. FC Union Berlin,1,1
+2014-03-16,SV Sandhausen,DSC Arminia Bielefeld,1,0
+2014-03-17,1. FC Kaiserslautern,1. FC Köln,0,0
+2014-03-21,1. FC Union Berlin,SC Paderborn 07,1,1
+2014-03-21,VfL Bochum,SV Sandhausen,0,1
+2014-03-21,Dynamo Dresden,SpVgg Greuther Fürth,1,1
+2014-03-22,FSV Frankfurt,Fortuna Düsseldorf,0,0
+2014-03-22,1. FC Köln,VfR Aalen,0,0
+2014-03-22,FC St. Pauli,FC Ingolstadt 04,0,0
+2014-03-23,TSV 1860 München,1. FC Kaiserslautern,0,1
+2014-03-23,Karlsruher SC,FC Erzgebirge Aue,1,1
+2014-03-23,DSC Arminia Bielefeld,Energie Cottbus,1,3
+2014-03-25,SpVgg Greuther Fürth,Fortuna Düsseldorf,4,1
+2014-03-25,VfR Aalen,Dynamo Dresden,1,1
+2014-03-25,SV Sandhausen,1. FC Union Berlin,2,1
+2014-03-25,SC Paderborn 07,FC St. Pauli,3,0
+2014-03-25,FC Ingolstadt 04,VfL Bochum,3,0
+2014-03-26,1. FC Kaiserslautern,DSC Arminia Bielefeld,1,1
+2014-03-26,1. FC Köln,Karlsruher SC,2,0
+2014-03-26,Energie Cottbus,TSV 1860 München,1,2
+2014-03-26,FC Erzgebirge Aue,FSV Frankfurt,2,1
+2014-03-28,Fortuna Düsseldorf,FC Ingolstadt 04,0,0
+2014-03-28,FC St. Pauli,SpVgg Greuther Fürth,2,2
+2014-03-28,Dynamo Dresden,SV Sandhausen,0,0
+2014-03-29,VfL Bochum,FC Erzgebirge Aue,1,0
+2014-03-29,Karlsruher SC,1. FC Kaiserslautern,2,2
+2014-03-30,FSV Frankfurt,SC Paderborn 07,1,3
+2014-03-30,TSV 1860 München,1. FC Köln,0,1
+2014-03-30,DSC Arminia Bielefeld,VfR Aalen,0,0
+2014-03-31,1. FC Union Berlin,Energie Cottbus,2,0
+2014-04-04,Energie Cottbus,Dynamo Dresden,0,0
+2014-04-04,VfR Aalen,FSV Frankfurt,2,1
+2014-04-04,SC Paderborn 07,Fortuna Düsseldorf,1,2
+2014-04-05,1. FC Köln,DSC Arminia Bielefeld,2,0
+2014-04-05,SV Sandhausen,FC St. Pauli,2,3
+2014-04-06,1. FC Kaiserslautern,VfL Bochum,1,1
+2014-04-06,TSV 1860 München,Karlsruher SC,0,3
+2014-04-06,FC Erzgebirge Aue,1. FC Union Berlin,3,2
+2014-04-07,FC Ingolstadt 04,SpVgg Greuther Fürth,0,0
+2014-04-11,1. FC Union Berlin,1. FC Köln,1,2
+2014-04-11,FC St. Pauli,1. FC Kaiserslautern,2,3
+2014-04-11,FC Ingolstadt 04,SC Paderborn 07,1,2
+2014-04-12,SpVgg Greuther Fürth,FC Erzgebirge Aue,2,1
+2014-04-12,DSC Arminia Bielefeld,Karlsruher SC,0,0
+2014-04-13,Fortuna Düsseldorf,VfR Aalen,3,1
+2014-04-13,FSV Frankfurt,SV Sandhausen,0,3
+2014-04-13,VfL Bochum,Energie Cottbus,2,1
+2014-04-14,Dynamo Dresden,TSV 1860 München,4,2
+2014-04-17,Energie Cottbus,FC St. Pauli,1,1
+2014-04-17,SV Sandhausen,Fortuna Düsseldorf,0,3
+2014-04-17,FC Erzgebirge Aue,Dynamo Dresden,2,0
+2014-04-19,TSV 1860 München,DSC Arminia Bielefeld,2,1
+2014-04-19,Karlsruher SC,1. FC Union Berlin,3,2
+2014-04-20,1. FC Kaiserslautern,FSV Frankfurt,3,2
+2014-04-20,VfR Aalen,FC Ingolstadt 04,0,0
+2014-04-20,SC Paderborn 07,SpVgg Greuther Fürth,2,2
+2014-04-21,1. FC Köln,VfL Bochum,3,1
+2014-04-25,SpVgg Greuther Fürth,TSV 1860 München,1,2
+2014-04-25,FC Ingolstadt 04,1. FC Köln,1,1
+2014-04-25,VfL Bochum,DSC Arminia Bielefeld,1,4
+2014-04-26,Fortuna Düsseldorf,FC Erzgebirge Aue,4,0
+2014-04-26,FSV Frankfurt,Energie Cottbus,3,1
+2014-04-27,FC St. Pauli,VfR Aalen,0,3
+2014-04-27,SC Paderborn 07,SV Sandhausen,2,0
+2014-04-27,Dynamo Dresden,Karlsruher SC,2,2
+2014-04-28,1. FC Union Berlin,1. FC Kaiserslautern,1,1
+2014-05-04,1. FC Kaiserslautern,Dynamo Dresden,4,0
+2014-05-04,1. FC Köln,FC St. Pauli,4,0
+2014-05-04,TSV 1860 München,VfL Bochum,2,0
+2014-05-04,Energie Cottbus,SpVgg Greuther Fürth,0,6
+2014-05-04,VfR Aalen,1. FC Union Berlin,3,0
+2014-05-04,SV Sandhausen,FC Ingolstadt 04,0,2
+2014-05-04,FC Erzgebirge Aue,SC Paderborn 07,0,2
+2014-05-04,Karlsruher SC,Fortuna Düsseldorf,2,2
+2014-05-04,DSC Arminia Bielefeld,FSV Frankfurt,0,0
+2014-05-11,Fortuna Düsseldorf,1. FC Kaiserslautern,4,2
+2014-05-11,SpVgg Greuther Fürth,SV Sandhausen,2,0
+2014-05-11,FSV Frankfurt,1. FC Köln,2,0
+2014-05-11,1. FC Union Berlin,TSV 1860 München,1,1
+2014-05-11,FC St. Pauli,FC Erzgebirge Aue,2,2
+2014-05-11,SC Paderborn 07,VfR Aalen,2,1
+2014-05-11,FC Ingolstadt 04,Energie Cottbus,2,0
+2014-05-11,VfL Bochum,Karlsruher SC,1,0
+2014-05-11,Dynamo Dresden,DSC Arminia Bielefeld,2,3

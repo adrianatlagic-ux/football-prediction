@@ -1,0 +1,307 @@
+date,home_team,away_team,home_score,away_score
+2011-07-15,Energie Cottbus,Dynamo Dresden,2,1
+2011-07-15,FSV Frankfurt,1. FC Union Berlin,1,1
+2011-07-15,SpVgg Greuther Fürth,Eintracht Frankfurt,2,3
+2011-07-16,FC St. Pauli,FC Ingolstadt 04,2,0
+2011-07-16,Erzgebirge Aue,Alemannia Aachen,1,0
+2011-07-17,Hansa Rostock,SC Paderborn 07,1,2
+2011-07-17,Eintracht Braunschweig,TSV 1860 München,3,1
+2011-07-17,Karlsruher SC,MSV Duisburg,3,2
+2011-07-18,Fortuna Düsseldorf,VfL Bochum,2,0
+2011-07-22,VfL Bochum,FSV Frankfurt,1,0
+2011-07-22,FC Ingolstadt 04,Erzgebirge Aue,0,0
+2011-07-22,MSV Duisburg,Energie Cottbus,1,2
+2011-07-23,TSV 1860 München,Karlsruher SC,2,1
+2011-07-23,1. FC Union Berlin,SpVgg Greuther Fürth,0,4
+2011-07-24,Alemannia Aachen,Eintracht Braunschweig,0,2
+2011-07-24,SC Paderborn 07,Fortuna Düsseldorf,1,1
+2011-07-24,Dynamo Dresden,Hansa Rostock,1,1
+2011-07-25,Eintracht Frankfurt,FC St. Pauli,1,1
+2011-08-05,FC St. Pauli,Alemannia Aachen,3,1
+2011-08-05,Fortuna Düsseldorf,FC Ingolstadt 04,4,1
+2011-08-05,1. FC Union Berlin,SC Paderborn 07,3,0
+2011-08-06,SpVgg Greuther Fürth,Dynamo Dresden,1,0
+2011-08-06,Energie Cottbus,TSV 1860 München,0,5
+2011-08-07,Erzgebirge Aue,Karlsruher SC,0,2
+2011-08-07,FSV Frankfurt,MSV Duisburg,0,0
+2011-08-07,Eintracht Braunschweig,Eintracht Frankfurt,0,3
+2011-08-08,Hansa Rostock,VfL Bochum,0,0
+2011-08-12,Karlsruher SC,Eintracht Braunschweig,1,3
+2011-08-12,Dynamo Dresden,1. FC Union Berlin,4,0
+2011-08-12,VfL Bochum,FC St. Pauli,1,2
+2011-08-13,Alemannia Aachen,Energie Cottbus,0,2
+2011-08-13,SC Paderborn 07,SpVgg Greuther Fürth,0,1
+2011-08-14,MSV Duisburg,Hansa Rostock,0,0
+2011-08-14,TSV 1860 München,Erzgebirge Aue,4,0
+2011-08-14,FC Ingolstadt 04,FSV Frankfurt,1,1
+2011-08-15,Eintracht Frankfurt,Fortuna Düsseldorf,1,1
+2011-08-19,SpVgg Greuther Fürth,FC Ingolstadt 04,3,0
+2011-08-19,Fortuna Düsseldorf,TSV 1860 München,3,1
+2011-08-19,Hansa Rostock,Alemannia Aachen,0,0
+2011-08-20,1. FC Union Berlin,VfL Bochum,2,1
+2011-08-20,Eintracht Braunschweig,Erzgebirge Aue,1,1
+2011-08-21,Energie Cottbus,Karlsruher SC,2,0
+2011-08-21,FSV Frankfurt,Eintracht Frankfurt,0,4
+2011-08-21,Dynamo Dresden,SC Paderborn 07,1,2
+2011-08-22,FC St. Pauli,MSV Duisburg,2,1
+2011-08-26,VfL Bochum,SpVgg Greuther Fürth,1,4
+2011-08-26,MSV Duisburg,Dynamo Dresden,3,0
+2011-08-26,FC Ingolstadt 04,Hansa Rostock,3,1
+2011-08-27,Alemannia Aachen,Fortuna Düsseldorf,0,0
+2011-08-27,Karlsruher SC,FSV Frankfurt,0,4
+2011-08-28,Eintracht Frankfurt,SC Paderborn 07,0,0
+2011-08-28,TSV 1860 München,1. FC Union Berlin,3,1
+2011-08-28,Eintracht Braunschweig,FC St. Pauli,1,0
+2011-08-29,Erzgebirge Aue,Energie Cottbus,0,0
+2011-09-09,SpVgg Greuther Fürth,MSV Duisburg,2,1
+2011-09-09,SC Paderborn 07,Alemannia Aachen,0,0
+2011-09-09,Hansa Rostock,Eintracht Braunschweig,0,0
+2011-09-10,Energie Cottbus,Eintracht Frankfurt,3,3
+2011-09-10,Fortuna Düsseldorf,Karlsruher SC,4,2
+2011-09-11,FC St. Pauli,TSV 1860 München,4,2
+2011-09-11,1. FC Union Berlin,FC Ingolstadt 04,4,1
+2011-09-11,FSV Frankfurt,Erzgebirge Aue,1,1
+2011-09-12,Dynamo Dresden,VfL Bochum,2,1
+2011-09-16,Eintracht Frankfurt,Hansa Rostock,4,1
+2011-09-16,Erzgebirge Aue,Fortuna Düsseldorf,2,4
+2011-09-16,FC Ingolstadt 04,Dynamo Dresden,4,2
+2011-09-17,MSV Duisburg,1. FC Union Berlin,1,1
+2011-09-17,Eintracht Braunschweig,Energie Cottbus,3,1
+2011-09-18,VfL Bochum,SC Paderborn 07,0,4
+2011-09-18,TSV 1860 München,FSV Frankfurt,4,0
+2011-09-18,Alemannia Aachen,SpVgg Greuther Fürth,0,0
+2011-09-19,Karlsruher SC,FC St. Pauli,0,2
+2011-09-23,SC Paderborn 07,FC Ingolstadt 04,4,1
+2011-09-23,FSV Frankfurt,Eintracht Braunschweig,1,1
+2011-09-23,FC St. Pauli,Erzgebirge Aue,2,3
+2011-09-24,1. FC Union Berlin,Alemannia Aachen,2,0
+2011-09-24,Fortuna Düsseldorf,Energie Cottbus,4,2
+2011-09-25,Hansa Rostock,Karlsruher SC,1,1
+2011-09-25,SpVgg Greuther Fürth,TSV 1860 München,2,0
+2011-09-25,VfL Bochum,MSV Duisburg,2,1
+2011-09-26,Dynamo Dresden,Eintracht Frankfurt,1,4
+2011-09-30,Alemannia Aachen,FSV Frankfurt,1,3
+2011-09-30,Eintracht Frankfurt,1. FC Union Berlin,3,1
+2011-09-30,Erzgebirge Aue,Hansa Rostock,1,0
+2011-10-01,FC Ingolstadt 04,VfL Bochum,3,5
+2011-10-01,Energie Cottbus,FC St. Pauli,1,4
+2011-10-02,Karlsruher SC,SpVgg Greuther Fürth,2,2
+2011-10-02,TSV 1860 München,Dynamo Dresden,2,4
+2011-10-02,MSV Duisburg,SC Paderborn 07,0,1
+2011-10-03,Eintracht Braunschweig,Fortuna Düsseldorf,1,1
+2011-10-14,VfL Bochum,Eintracht Frankfurt,0,2
+2011-10-14,SC Paderborn 07,Eintracht Braunschweig,1,0
+2011-10-14,Hansa Rostock,TSV 1860 München,2,0
+2011-10-15,MSV Duisburg,FC Ingolstadt 04,3,1
+2011-10-15,1. FC Union Berlin,Karlsruher SC,2,0
+2011-10-16,SpVgg Greuther Fürth,Erzgebirge Aue,2,0
+2011-10-16,FSV Frankfurt,Energie Cottbus,0,1
+2011-10-16,Dynamo Dresden,Alemannia Aachen,1,1
+2011-10-17,FC St. Pauli,Fortuna Düsseldorf,1,3
+2011-10-21,Fortuna Düsseldorf,Hansa Rostock,2,0
+2011-10-21,TSV 1860 München,SC Paderborn 07,1,1
+2011-10-21,Karlsruher SC,VfL Bochum,0,0
+2011-10-22,Energie Cottbus,SpVgg Greuther Fürth,0,2
+2011-10-22,Eintracht Braunschweig,Dynamo Dresden,0,2
+2011-10-23,Eintracht Frankfurt,MSV Duisburg,3,0
+2011-10-23,FC St. Pauli,FSV Frankfurt,2,1
+2011-10-23,Erzgebirge Aue,1. FC Union Berlin,1,1
+2011-10-23,Alemannia Aachen,FC Ingolstadt 04,3,1
+2011-10-28,VfL Bochum,Alemannia Aachen,1,0
+2011-10-28,1. FC Union Berlin,FC St. Pauli,0,2
+2011-10-28,Hansa Rostock,Energie Cottbus,1,1
+2011-10-29,SC Paderborn 07,Erzgebirge Aue,1,0
+2011-10-29,Dynamo Dresden,Karlsruher SC,5,1
+2011-10-30,MSV Duisburg,TSV 1860 München,0,3
+2011-10-30,FSV Frankfurt,Fortuna Düsseldorf,2,5
+2011-10-30,FC Ingolstadt 04,Eintracht Frankfurt,1,1
+2011-10-31,SpVgg Greuther Fürth,Eintracht Braunschweig,1,3
+2011-11-04,Fortuna Düsseldorf,Dynamo Dresden,2,1
+2011-11-04,Karlsruher SC,FC Ingolstadt 04,3,2
+2011-11-04,Eintracht Braunschweig,1. FC Union Berlin,1,2
+2011-11-05,FC St. Pauli,SpVgg Greuther Fürth,2,2
+2011-11-05,TSV 1860 München,VfL Bochum,1,3
+2011-11-06,Energie Cottbus,SC Paderborn 07,0,2
+2011-11-06,Alemannia Aachen,MSV Duisburg,2,2
+2011-11-06,FSV Frankfurt,Hansa Rostock,0,0
+2011-11-07,Erzgebirge Aue,Eintracht Frankfurt,1,2
+2011-11-18,MSV Duisburg,Eintracht Braunschweig,3,0
+2011-11-18,SC Paderborn 07,Karlsruher SC,2,1
+2011-11-18,FC Ingolstadt 04,TSV 1860 München,0,1
+2011-11-19,1. FC Union Berlin,Fortuna Düsseldorf,0,0
+2011-11-19,Hansa Rostock,FC St. Pauli,1,3
+2011-11-20,Eintracht Frankfurt,Alemannia Aachen,4,3
+2011-11-20,SpVgg Greuther Fürth,FSV Frankfurt,4,0
+2011-11-20,Dynamo Dresden,Erzgebirge Aue,1,2
+2011-11-21,VfL Bochum,Energie Cottbus,0,1
+2011-11-25,Erzgebirge Aue,MSV Duisburg,1,2
+2011-11-25,FSV Frankfurt,SC Paderborn 07,2,2
+2011-11-25,Hansa Rostock,1. FC Union Berlin,2,5
+2011-11-26,TSV 1860 München,Eintracht Frankfurt,2,1
+2011-11-26,Karlsruher SC,Alemannia Aachen,0,2
+2011-11-27,FC St. Pauli,Dynamo Dresden,3,1
+2011-11-27,Energie Cottbus,FC Ingolstadt 04,0,0
+2011-11-27,Eintracht Braunschweig,VfL Bochum,4,0
+2011-11-28,Fortuna Düsseldorf,SpVgg Greuther Fürth,2,1
+2011-12-02,1. FC Union Berlin,Energie Cottbus,1,0
+2011-12-02,SC Paderborn 07,FC St. Pauli,1,1
+2011-12-02,FC Ingolstadt 04,Eintracht Braunschweig,0,1
+2011-12-03,Eintracht Frankfurt,Karlsruher SC,2,0
+2011-12-03,SpVgg Greuther Fürth,Hansa Rostock,3,0
+2011-12-04,VfL Bochum,Erzgebirge Aue,6,0
+2011-12-04,Alemannia Aachen,TSV 1860 München,2,2
+2011-12-04,Dynamo Dresden,FSV Frankfurt,2,2
+2011-12-05,MSV Duisburg,Fortuna Düsseldorf,0,2
+2011-12-09,MSV Duisburg,Karlsruher SC,3,1
+2011-12-09,TSV 1860 München,Eintracht Braunschweig,3,0
+2011-12-09,SC Paderborn 07,Hansa Rostock,2,0
+2011-12-10,VfL Bochum,Fortuna Düsseldorf,1,1
+2011-12-10,1. FC Union Berlin,FSV Frankfurt,4,0
+2011-12-11,Alemannia Aachen,Erzgebirge Aue,1,1
+2011-12-11,FC Ingolstadt 04,FC St. Pauli,1,0
+2011-12-11,Dynamo Dresden,Energie Cottbus,2,1
+2011-12-12,Eintracht Frankfurt,SpVgg Greuther Fürth,0,0
+2011-12-16,SpVgg Greuther Fürth,1. FC Union Berlin,5,0
+2011-12-16,Erzgebirge Aue,FC Ingolstadt 04,1,1
+2011-12-16,Fortuna Düsseldorf,SC Paderborn 07,2,3
+2011-12-17,FSV Frankfurt,VfL Bochum,0,2
+2011-12-17,Karlsruher SC,TSV 1860 München,1,3
+2011-12-18,Energie Cottbus,MSV Duisburg,1,1
+2011-12-18,Eintracht Braunschweig,Alemannia Aachen,1,1
+2011-12-18,Hansa Rostock,Dynamo Dresden,2,2
+2011-12-19,FC St. Pauli,Eintracht Frankfurt,2,0
+2012-02-03,MSV Duisburg,FSV Frankfurt,1,2
+2012-02-03,SC Paderborn 07,1. FC Union Berlin,3,2
+2012-02-03,Dynamo Dresden,SpVgg Greuther Fürth,3,1
+2012-02-04,Alemannia Aachen,FC St. Pauli,2,1
+2012-02-04,FC Ingolstadt 04,Fortuna Düsseldorf,1,1
+2012-02-05,Eintracht Frankfurt,Eintracht Braunschweig,2,1
+2012-02-05,VfL Bochum,Hansa Rostock,2,1
+2012-02-05,Karlsruher SC,Erzgebirge Aue,2,1
+2012-02-06,TSV 1860 München,Energie Cottbus,2,0
+2012-02-10,Energie Cottbus,Alemannia Aachen,1,1
+2012-02-10,FSV Frankfurt,FC Ingolstadt 04,1,1
+2012-02-11,1. FC Union Berlin,Dynamo Dresden,4,0
+2012-02-11,Eintracht Braunschweig,Karlsruher SC,0,0
+2012-02-12,FC St. Pauli,VfL Bochum,2,1
+2012-02-12,SpVgg Greuther Fürth,SC Paderborn 07,5,1
+2012-02-12,Hansa Rostock,MSV Duisburg,4,2
+2012-02-13,Fortuna Düsseldorf,Eintracht Frankfurt,1,1
+2012-02-17,MSV Duisburg,FC St. Pauli,0,1
+2012-02-17,SC Paderborn 07,Dynamo Dresden,2,2
+2012-02-17,Karlsruher SC,Energie Cottbus,2,0
+2012-02-18,Eintracht Frankfurt,FSV Frankfurt,6,1
+2012-02-18,VfL Bochum,1. FC Union Berlin,4,2
+2012-02-19,TSV 1860 München,Fortuna Düsseldorf,2,1
+2012-02-19,FC Ingolstadt 04,SpVgg Greuther Fürth,0,0
+2012-02-19,Alemannia Aachen,Hansa Rostock,0,0
+2012-02-20,Erzgebirge Aue,Eintracht Braunschweig,1,1
+2012-02-24,1. FC Union Berlin,TSV 1860 München,0,1
+2012-02-24,Hansa Rostock,FC Ingolstadt 04,1,2
+2012-02-24,Dynamo Dresden,MSV Duisburg,2,0
+2012-02-25,SpVgg Greuther Fürth,VfL Bochum,6,2
+2012-02-25,Energie Cottbus,Erzgebirge Aue,2,0
+2012-02-26,FC St. Pauli,Eintracht Braunschweig,0,0
+2012-02-26,SC Paderborn 07,Eintracht Frankfurt,4,2
+2012-02-26,FSV Frankfurt,Karlsruher SC,2,1
+2012-02-27,Fortuna Düsseldorf,Alemannia Aachen,0,0
+2012-03-02,MSV Duisburg,SpVgg Greuther Fürth,0,2
+2012-03-02,FC Ingolstadt 04,1. FC Union Berlin,3,3
+2012-03-02,VfL Bochum,Dynamo Dresden,0,2
+2012-03-03,Alemannia Aachen,SC Paderborn 07,0,3
+2012-03-03,Karlsruher SC,Fortuna Düsseldorf,0,5
+2012-03-04,Eintracht Frankfurt,Energie Cottbus,1,0
+2012-03-04,Erzgebirge Aue,FSV Frankfurt,4,3
+2012-03-04,Eintracht Braunschweig,Hansa Rostock,3,2
+2012-03-05,TSV 1860 München,FC St. Pauli,1,1
+2012-03-09,SpVgg Greuther Fürth,Alemannia Aachen,1,0
+2012-03-09,1. FC Union Berlin,MSV Duisburg,1,1
+2012-03-09,SC Paderborn 07,VfL Bochum,0,0
+2012-03-10,Fortuna Düsseldorf,Erzgebirge Aue,3,1
+2012-03-10,FSV Frankfurt,TSV 1860 München,3,1
+2012-03-11,Energie Cottbus,Eintracht Braunschweig,1,1
+2012-03-11,Hansa Rostock,Eintracht Frankfurt,1,5
+2012-03-11,Dynamo Dresden,FC Ingolstadt 04,0,0
+2012-03-12,FC St. Pauli,Karlsruher SC,1,0
+2012-03-14,Erzgebirge Aue,TSV 1860 München,0,0
+2012-03-16,Eintracht Frankfurt,Dynamo Dresden,3,0
+2012-03-16,Alemannia Aachen,1. FC Union Berlin,1,3
+2012-03-16,Eintracht Braunschweig,FSV Frankfurt,0,0
+2012-03-17,TSV 1860 München,SpVgg Greuther Fürth,1,4
+2012-03-17,FC Ingolstadt 04,SC Paderborn 07,4,0
+2012-03-18,Erzgebirge Aue,FC St. Pauli,2,1
+2012-03-18,MSV Duisburg,VfL Bochum,2,1
+2012-03-18,Karlsruher SC,Hansa Rostock,2,2
+2012-03-19,Energie Cottbus,Fortuna Düsseldorf,1,1
+2012-03-23,VfL Bochum,FC Ingolstadt 04,0,1
+2012-03-23,FSV Frankfurt,Alemannia Aachen,2,1
+2012-03-23,Dynamo Dresden,TSV 1860 München,0,1
+2012-03-24,SpVgg Greuther Fürth,Karlsruher SC,3,0
+2012-03-24,Fortuna Düsseldorf,Eintracht Braunschweig,1,1
+2012-03-25,FC St. Pauli,Energie Cottbus,0,0
+2012-03-25,SC Paderborn 07,MSV Duisburg,1,2
+2012-03-25,Hansa Rostock,Erzgebirge Aue,0,1
+2012-03-26,1. FC Union Berlin,Eintracht Frankfurt,0,4
+2012-03-30,Eintracht Frankfurt,VfL Bochum,3,0
+2012-03-30,Alemannia Aachen,Dynamo Dresden,0,1
+2012-03-30,Eintracht Braunschweig,SC Paderborn 07,0,0
+2012-03-31,Erzgebirge Aue,SpVgg Greuther Fürth,1,1
+2012-03-31,TSV 1860 München,Hansa Rostock,0,1
+2012-04-01,Energie Cottbus,FSV Frankfurt,1,1
+2012-04-01,FC Ingolstadt 04,MSV Duisburg,1,1
+2012-04-01,Karlsruher SC,1. FC Union Berlin,2,0
+2012-04-02,Fortuna Düsseldorf,FC St. Pauli,0,0
+2012-04-05,SpVgg Greuther Fürth,Energie Cottbus,3,0
+2012-04-05,1. FC Union Berlin,Erzgebirge Aue,1,0
+2012-04-05,Hansa Rostock,Fortuna Düsseldorf,2,1
+2012-04-07,MSV Duisburg,Eintracht Frankfurt,2,0
+2012-04-07,FSV Frankfurt,FC St. Pauli,3,3
+2012-04-07,Dynamo Dresden,Eintracht Braunschweig,2,2
+2012-04-08,VfL Bochum,Karlsruher SC,0,0
+2012-04-08,SC Paderborn 07,TSV 1860 München,2,2
+2012-04-08,FC Ingolstadt 04,Alemannia Aachen,3,3
+2012-04-10,FC St. Pauli,1. FC Union Berlin,2,1
+2012-04-10,Energie Cottbus,Hansa Rostock,0,1
+2012-04-10,Fortuna Düsseldorf,FSV Frankfurt,1,0
+2012-04-10,Eintracht Braunschweig,SpVgg Greuther Fürth,0,0
+2012-04-11,Eintracht Frankfurt,FC Ingolstadt 04,1,1
+2012-04-11,Erzgebirge Aue,SC Paderborn 07,0,2
+2012-04-11,TSV 1860 München,MSV Duisburg,2,1
+2012-04-11,Alemannia Aachen,VfL Bochum,2,0
+2012-04-11,Karlsruher SC,Dynamo Dresden,2,0
+2012-04-13,SpVgg Greuther Fürth,FC St. Pauli,2,1
+2012-04-13,1. FC Union Berlin,Eintracht Braunschweig,1,0
+2012-04-13,Hansa Rostock,FSV Frankfurt,0,5
+2012-04-14,Eintracht Frankfurt,Erzgebirge Aue,4,0
+2012-04-14,MSV Duisburg,Alemannia Aachen,2,0
+2012-04-15,VfL Bochum,TSV 1860 München,2,2
+2012-04-15,SC Paderborn 07,Energie Cottbus,3,1
+2012-04-15,FC Ingolstadt 04,Karlsruher SC,2,1
+2012-04-16,Dynamo Dresden,Fortuna Düsseldorf,2,1
+2012-04-20,Energie Cottbus,VfL Bochum,1,1
+2012-04-20,FSV Frankfurt,SpVgg Greuther Fürth,1,1
+2012-04-20,Eintracht Braunschweig,MSV Duisburg,0,0
+2012-04-21,Erzgebirge Aue,Dynamo Dresden,1,1
+2012-04-21,TSV 1860 München,FC Ingolstadt 04,4,1
+2012-04-22,FC St. Pauli,Hansa Rostock,3,0
+2012-04-22,Fortuna Düsseldorf,1. FC Union Berlin,2,1
+2012-04-22,Karlsruher SC,SC Paderborn 07,2,0
+2012-04-23,Alemannia Aachen,Eintracht Frankfurt,0,3
+2012-04-29,Eintracht Frankfurt,TSV 1860 München,0,2
+2012-04-29,VfL Bochum,Eintracht Braunschweig,2,0
+2012-04-29,SpVgg Greuther Fürth,Fortuna Düsseldorf,1,1
+2012-04-29,MSV Duisburg,Erzgebirge Aue,2,1
+2012-04-29,Alemannia Aachen,Karlsruher SC,1,0
+2012-04-29,1. FC Union Berlin,Hansa Rostock,5,4
+2012-04-29,SC Paderborn 07,FSV Frankfurt,1,0
+2012-04-29,FC Ingolstadt 04,Energie Cottbus,1,0
+2012-04-29,Dynamo Dresden,FC St. Pauli,1,0
+2012-05-06,FC St. Pauli,SC Paderborn 07,5,0
+2012-05-06,Erzgebirge Aue,VfL Bochum,2,1
+2012-05-06,Energie Cottbus,1. FC Union Berlin,2,1
+2012-05-06,Fortuna Düsseldorf,MSV Duisburg,2,2
+2012-05-06,TSV 1860 München,Alemannia Aachen,1,2
+2012-05-06,FSV Frankfurt,Dynamo Dresden,1,1
+2012-05-06,Karlsruher SC,Eintracht Frankfurt,1,0
+2012-05-06,Eintracht Braunschweig,FC Ingolstadt 04,3,1
+2012-05-06,Hansa Rostock,SpVgg Greuther Fürth,2,2

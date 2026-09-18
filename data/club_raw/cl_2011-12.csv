@@ -1,0 +1,126 @@
+date,home_team,away_team,home_score,away_score
+2011-09-14,Manchester City,SSC Napoli,1,1
+2011-09-14,Villarreal CF,Bayern München,0,2
+2011-09-27,Bayern München,Manchester City,2,0
+2011-09-27,SSC Napoli,Villarreal CF,2,0
+2011-10-18,Manchester City,Villarreal CF,2,1
+2011-10-18,SSC Napoli,Bayern München,1,1
+2011-11-02,Bayern München,SSC Napoli,3,2
+2011-11-02,Villarreal CF,Manchester City,0,3
+2011-11-22,Bayern München,Villarreal CF,3,1
+2011-11-22,SSC Napoli,Manchester City,2,1
+2011-12-07,Manchester City,Bayern München,2,0
+2011-12-07,Villarreal CF,SSC Napoli,0,2
+2011-09-14,Lille OSC,CSKA Moskva,2,2
+2011-09-14,Inter,Trabzonspor,0,1
+2011-09-27,CSKA Moskva,Inter,2,3
+2011-09-27,Trabzonspor,Lille OSC,1,1
+2011-10-18,CSKA Moskva,Trabzonspor,3,0
+2011-10-18,Lille OSC,Inter,0,1
+2011-11-02,Trabzonspor,CSKA Moskva,0,0
+2011-11-02,Inter,Lille OSC,2,1
+2011-11-22,CSKA Moskva,Lille OSC,0,2
+2011-11-22,Trabzonspor,Inter,1,1
+2011-12-07,Inter,CSKA Moskva,1,2
+2011-12-07,Lille OSC,Trabzonspor,0,0
+2011-09-14,FC Basel 1893,Oţelul Galaţi,2,1
+2011-09-14,SL Benfica,Manchester United,1,1
+2011-09-27,Manchester United,FC Basel 1893,3,3
+2011-09-27,Oţelul Galaţi,SL Benfica,0,1
+2011-10-18,FC Basel 1893,SL Benfica,0,2
+2011-10-18,Oţelul Galaţi,Manchester United,0,2
+2011-11-02,Manchester United,Oţelul Galaţi,2,0
+2011-11-02,SL Benfica,FC Basel 1893,1,1
+2011-11-22,Manchester United,SL Benfica,2,2
+2011-11-22,Oţelul Galaţi,FC Basel 1893,2,3
+2011-12-07,FC Basel 1893,Manchester United,2,1
+2011-12-07,SL Benfica,Oţelul Galaţi,1,0
+2011-09-14,AFC Ajax,Olympique Lyonnais,0,0
+2011-09-14,Dinamo Zagreb,Real Madrid,0,1
+2011-09-27,Olympique Lyonnais,Dinamo Zagreb,2,0
+2011-09-27,Real Madrid,AFC Ajax,3,0
+2011-10-18,Dinamo Zagreb,AFC Ajax,0,2
+2011-10-18,Real Madrid,Olympique Lyonnais,4,0
+2011-11-02,AFC Ajax,Dinamo Zagreb,4,0
+2011-11-02,Olympique Lyonnais,Real Madrid,0,2
+2011-11-22,Olympique Lyonnais,AFC Ajax,0,0
+2011-11-22,Real Madrid,Dinamo Zagreb,6,2
+2011-12-07,AFC Ajax,Real Madrid,0,3
+2011-12-07,Dinamo Zagreb,Olympique Lyonnais,1,7
+2011-09-13,Chelsea FC,Bayer Leverkusen,2,0
+2011-09-13,KRC Genk,Valencia CF,0,0
+2011-09-28,Bayer Leverkusen,KRC Genk,2,0
+2011-09-28,Valencia CF,Chelsea FC,1,1
+2011-10-19,Bayer Leverkusen,Valencia CF,2,1
+2011-10-19,Chelsea FC,KRC Genk,5,0
+2011-11-01,KRC Genk,Chelsea FC,1,1
+2011-11-01,Valencia CF,Bayer Leverkusen,3,1
+2011-11-23,Bayer Leverkusen,Chelsea FC,2,1
+2011-11-23,Valencia CF,KRC Genk,7,0
+2011-12-06,Chelsea FC,Valencia CF,3,0
+2011-12-06,KRC Genk,Bayer Leverkusen,1,1
+2011-09-13,Borussia Dortmund,Arsenal FC,1,1
+2011-09-13,Olympiakos Piraeus,Olympique Marseille,0,1
+2011-09-28,Arsenal FC,Olympiakos Piraeus,2,1
+2011-09-28,Olympique Marseille,Borussia Dortmund,3,0
+2011-10-19,Olympiakos Piraeus,Borussia Dortmund,3,1
+2011-10-19,Olympique Marseille,Arsenal FC,0,1
+2011-11-01,Arsenal FC,Olympique Marseille,0,0
+2011-11-01,Borussia Dortmund,Olympiakos Piraeus,1,0
+2011-11-23,Arsenal FC,Borussia Dortmund,2,1
+2011-11-23,Olympique Marseille,Olympiakos Piraeus,0,1
+2011-12-06,Borussia Dortmund,Olympique Marseille,2,3
+2011-12-06,Olympiakos Piraeus,Arsenal FC,3,1
+2011-09-13,APOEL Nikosia,Zenit St. Petersburg,2,1
+2011-09-13,FC Porto,Shakhtar Donetsk,2,1
+2011-09-28,Zenit St. Petersburg,FC Porto,3,1
+2011-09-28,Shakhtar Donetsk,APOEL Nikosia,1,1
+2011-10-19,FC Porto,APOEL Nikosia,1,1
+2011-10-19,Shakhtar Donetsk,Zenit St. Petersburg,2,2
+2011-11-01,Zenit St. Petersburg,Shakhtar Donetsk,1,0
+2011-11-01,APOEL Nikosia,FC Porto,2,1
+2011-11-23,Zenit St. Petersburg,APOEL Nikosia,0,0
+2011-11-23,Shakhtar Donetsk,FC Porto,0,2
+2011-12-06,APOEL Nikosia,Shakhtar Donetsk,0,2
+2011-12-06,FC Porto,Zenit St. Petersburg,0,0
+2011-09-13,FC Barcelona,AC Milan,2,2
+2011-09-13,Viktoria Plzeň,BATE Borisov,1,1
+2011-09-28,AC Milan,Viktoria Plzeň,2,0
+2011-09-28,BATE Borisov,FC Barcelona,0,5
+2011-10-19,AC Milan,BATE Borisov,2,0
+2011-10-19,FC Barcelona,Viktoria Plzeň,2,0
+2011-11-01,BATE Borisov,AC Milan,1,1
+2011-11-01,Viktoria Plzeň,FC Barcelona,0,4
+2011-11-23,BATE Borisov,Viktoria Plzeň,0,1
+2011-11-23,AC Milan,FC Barcelona,2,3
+2011-12-06,FC Barcelona,BATE Borisov,4,0
+2011-12-06,Viktoria Plzeň,AC Milan,2,2
+2012-02-14,Olympique Lyonnais,APOEL Nikosia,1,0
+2012-02-14,Bayer Leverkusen,FC Barcelona,1,3
+2012-02-15,Zenit St. Petersburg,SL Benfica,3,2
+2012-02-15,AC Milan,Arsenal FC,4,0
+2012-02-21,CSKA Moskva,Real Madrid,1,1
+2012-02-21,SSC Napoli,Chelsea FC,3,1
+2012-02-22,FC Basel 1893,Bayern München,1,0
+2012-02-22,Olympique Marseille,Inter,1,0
+2012-03-06,Arsenal FC,AC Milan,3,0
+2012-03-06,SL Benfica,Zenit St. Petersburg,2,0
+2012-03-07,APOEL Nikosia,Olympique Lyonnais,1,0
+2012-03-07,FC Barcelona,Bayer Leverkusen,7,1
+2012-03-13,Bayern München,FC Basel 1893,7,0
+2012-03-13,Inter,Olympique Marseille,2,1
+2012-03-14,Chelsea FC,SSC Napoli,4,1
+2012-03-14,Real Madrid,CSKA Moskva,4,1
+2012-03-27,APOEL Nikosia,Real Madrid,0,3
+2012-03-27,SL Benfica,Chelsea FC,0,1
+2012-03-28,Olympique Marseille,Bayern München,0,2
+2012-03-28,AC Milan,FC Barcelona,0,0
+2012-04-03,Bayern München,Olympique Marseille,2,0
+2012-04-03,FC Barcelona,AC Milan,3,1
+2012-04-04,Real Madrid,APOEL Nikosia,5,2
+2012-04-04,Chelsea FC,SL Benfica,2,1
+2012-04-17,Bayern München,Real Madrid,2,1
+2012-04-18,Chelsea FC,FC Barcelona,1,0
+2012-04-24,FC Barcelona,Chelsea FC,2,2
+2012-04-25,Real Madrid,Bayern München,2,1
+2012-05-19,Bayern München,Chelsea FC,1,1

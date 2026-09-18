@@ -1,0 +1,307 @@
+date,home_team,away_team,home_score,away_score
+2018-08-03,Hamburger SV,Holstein Kiel,0,3
+2018-08-04,VfL Bochum,1. FC Köln,0,2
+2018-08-04,Jahn Regensburg,FC Ingolstadt 04,2,1
+2018-08-04,SpVgg Greuther Fürth,SV Sandhausen,3,1
+2018-08-05,1. FC Magdeburg,FC St. Pauli,1,2
+2018-08-05,1. FC Union Berlin,Erzgebirge Aue,1,0
+2018-08-05,SV Darmstadt 98,SC Paderborn 07,1,0
+2018-08-05,1. FC Heidenheim 1846,DSC Arminia Bielefeld,1,1
+2018-08-06,Dynamo Dresden,MSV Duisburg,1,0
+2018-08-10,FC Ingolstadt 04,SpVgg Greuther Fürth,1,1
+2018-08-10,SC Paderborn 07,Jahn Regensburg,2,0
+2018-08-10,FC St. Pauli,SV Darmstadt 98,2,0
+2018-08-11,MSV Duisburg,VfL Bochum,0,2
+2018-08-11,DSC Arminia Bielefeld,Dynamo Dresden,2,1
+2018-08-12,SV Sandhausen,Hamburger SV,0,3
+2018-08-12,Holstein Kiel,1. FC Heidenheim 1846,1,1
+2018-08-12,Erzgebirge Aue,1. FC Magdeburg,0,0
+2018-08-13,1. FC Köln,1. FC Union Berlin,1,1
+2018-08-24,VfL Bochum,SV Sandhausen,1,0
+2018-08-24,SV Darmstadt 98,MSV Duisburg,3,0
+2018-08-25,1. FC Köln,Erzgebirge Aue,3,1
+2018-08-25,SpVgg Greuther Fürth,SC Paderborn 07,2,2
+2018-08-25,1. FC Magdeburg,FC Ingolstadt 04,1,1
+2018-08-26,Jahn Regensburg,Holstein Kiel,0,0
+2018-08-26,1. FC Union Berlin,FC St. Pauli,4,1
+2018-08-26,Dynamo Dresden,1. FC Heidenheim 1846,1,3
+2018-08-27,Hamburger SV,DSC Arminia Bielefeld,3,0
+2018-08-31,FC Ingolstadt 04,Erzgebirge Aue,3,2
+2018-08-31,SC Paderborn 07,VfL Bochum,2,2
+2018-09-01,DSC Arminia Bielefeld,Jahn Regensburg,5,3
+2018-09-01,MSV Duisburg,SpVgg Greuther Fürth,0,1
+2018-09-02,SV Sandhausen,1. FC Union Berlin,0,0
+2018-09-02,FC St. Pauli,1. FC Köln,3,5
+2018-09-02,1. FC Heidenheim 1846,SV Darmstadt 98,0,1
+2018-09-03,Holstein Kiel,1. FC Magdeburg,2,1
+2018-09-14,Jahn Regensburg,Dynamo Dresden,0,2
+2018-09-14,1. FC Union Berlin,MSV Duisburg,2,2
+2018-09-15,Hamburger SV,1. FC Heidenheim 1846,3,2
+2018-09-15,SV Darmstadt 98,SV Sandhausen,1,1
+2018-09-15,SpVgg Greuther Fürth,Holstein Kiel,4,1
+2018-09-16,1. FC Köln,SC Paderborn 07,3,5
+2018-09-16,VfL Bochum,FC Ingolstadt 04,6,0
+2018-09-16,Erzgebirge Aue,FC St. Pauli,3,1
+2018-09-17,1. FC Magdeburg,DSC Arminia Bielefeld,0,0
+2018-09-18,Dynamo Dresden,Hamburger SV,0,1
+2018-09-21,FC Ingolstadt 04,FC St. Pauli,0,1
+2018-09-21,SV Sandhausen,1. FC Köln,0,2
+2018-09-22,Holstein Kiel,VfL Bochum,2,2
+2018-09-22,DSC Arminia Bielefeld,1. FC Union Berlin,1,1
+2018-09-22,Dynamo Dresden,SV Darmstadt 98,4,1
+2018-09-23,Hamburger SV,Jahn Regensburg,0,5
+2018-09-23,MSV Duisburg,Erzgebirge Aue,1,2
+2018-09-23,1. FC Heidenheim 1846,SpVgg Greuther Fürth,2,0
+2018-09-23,SC Paderborn 07,1. FC Magdeburg,4,4
+2018-09-25,1. FC Köln,FC Ingolstadt 04,2,1
+2018-09-25,VfL Bochum,Dynamo Dresden,0,1
+2018-09-25,1. FC Union Berlin,Holstein Kiel,2,0
+2018-09-25,SV Darmstadt 98,DSC Arminia Bielefeld,1,2
+2018-09-26,Jahn Regensburg,1. FC Heidenheim 1846,2,1
+2018-09-26,FC St. Pauli,SC Paderborn 07,2,1
+2018-09-26,Erzgebirge Aue,SV Sandhausen,0,2
+2018-09-26,1. FC Magdeburg,MSV Duisburg,3,3
+2018-09-27,SpVgg Greuther Fürth,Hamburger SV,0,0
+2018-09-28,Holstein Kiel,SV Darmstadt 98,4,2
+2018-09-28,DSC Arminia Bielefeld,1. FC Köln,1,3
+2018-09-29,MSV Duisburg,Jahn Regensburg,1,3
+2018-09-29,1. FC Heidenheim 1846,VfL Bochum,3,2
+2018-09-29,SC Paderborn 07,Erzgebirge Aue,1,0
+2018-09-30,Hamburger SV,FC St. Pauli,0,0
+2018-09-30,SV Sandhausen,1. FC Magdeburg,0,1
+2018-09-30,Dynamo Dresden,SpVgg Greuther Fürth,0,1
+2018-10-01,FC Ingolstadt 04,1. FC Union Berlin,1,2
+2018-10-05,VfL Bochum,DSC Arminia Bielefeld,1,0
+2018-10-05,SV Darmstadt 98,Hamburger SV,1,2
+2018-10-06,SpVgg Greuther Fürth,Jahn Regensburg,1,1
+2018-10-06,Erzgebirge Aue,Holstein Kiel,2,1
+2018-10-06,1. FC Magdeburg,Dynamo Dresden,2,2
+2018-10-07,1. FC Union Berlin,1. FC Heidenheim 1846,1,1
+2018-10-07,FC Ingolstadt 04,SC Paderborn 07,1,2
+2018-10-07,FC St. Pauli,SV Sandhausen,3,1
+2018-10-08,1. FC Köln,MSV Duisburg,1,2
+2018-10-19,SV Sandhausen,FC Ingolstadt 04,4,0
+2018-10-19,Dynamo Dresden,Erzgebirge Aue,1,1
+2018-10-20,Holstein Kiel,1. FC Köln,1,1
+2018-10-20,DSC Arminia Bielefeld,SpVgg Greuther Fürth,2,3
+2018-10-20,1. FC Heidenheim 1846,1. FC Magdeburg,3,0
+2018-10-21,Hamburger SV,VfL Bochum,0,0
+2018-10-21,Jahn Regensburg,SV Darmstadt 98,1,1
+2018-10-21,SC Paderborn 07,1. FC Union Berlin,0,0
+2018-10-22,MSV Duisburg,FC St. Pauli,0,1
+2018-10-26,SV Darmstadt 98,SpVgg Greuther Fürth,2,0
+2018-10-26,1. FC Magdeburg,Hamburger SV,0,1
+2018-10-27,1. FC Köln,1. FC Heidenheim 1846,1,1
+2018-10-27,Erzgebirge Aue,DSC Arminia Bielefeld,1,0
+2018-10-27,SC Paderborn 07,SV Sandhausen,3,3
+2018-10-28,1. FC Union Berlin,Dynamo Dresden,0,0
+2018-10-28,FC Ingolstadt 04,MSV Duisburg,1,1
+2018-10-28,FC St. Pauli,Holstein Kiel,0,1
+2018-10-29,VfL Bochum,Jahn Regensburg,3,3
+2018-11-02,Dynamo Dresden,SV Sandhausen,3,1
+2018-11-02,SpVgg Greuther Fürth,VfL Bochum,2,2
+2018-11-03,Holstein Kiel,FC Ingolstadt 04,2,2
+2018-11-03,MSV Duisburg,SC Paderborn 07,2,0
+2018-11-03,SV Darmstadt 98,1. FC Magdeburg,3,1
+2018-11-04,DSC Arminia Bielefeld,FC St. Pauli,1,2
+2018-11-04,Jahn Regensburg,1. FC Union Berlin,1,1
+2018-11-04,1. FC Heidenheim 1846,Erzgebirge Aue,1,0
+2018-11-05,Hamburger SV,1. FC Köln,1,0
+2018-11-09,SV Sandhausen,MSV Duisburg,0,0
+2018-11-09,SC Paderborn 07,Holstein Kiel,4,4
+2018-11-10,1. FC Köln,Dynamo Dresden,8,1
+2018-11-10,FC St. Pauli,1. FC Heidenheim 1846,1,1
+2018-11-10,Erzgebirge Aue,Hamburger SV,1,3
+2018-11-11,1. FC Union Berlin,SpVgg Greuther Fürth,4,0
+2018-11-11,FC Ingolstadt 04,DSC Arminia Bielefeld,1,1
+2018-11-11,1. FC Magdeburg,Jahn Regensburg,2,3
+2018-11-12,VfL Bochum,SV Darmstadt 98,1,0
+2018-11-23,DSC Arminia Bielefeld,MSV Duisburg,0,1
+2018-11-23,SpVgg Greuther Fürth,1. FC Magdeburg,3,2
+2018-11-24,Holstein Kiel,SV Sandhausen,2,1
+2018-11-24,VfL Bochum,Erzgebirge Aue,2,1
+2018-11-24,SV Darmstadt 98,1. FC Köln,0,3
+2018-11-25,Jahn Regensburg,FC St. Pauli,1,1
+2018-11-25,1. FC Heidenheim 1846,SC Paderborn 07,1,5
+2018-11-25,Dynamo Dresden,FC Ingolstadt 04,2,0
+2018-11-26,Hamburger SV,1. FC Union Berlin,2,2
+2018-11-30,Erzgebirge Aue,Jahn Regensburg,1,1
+2018-11-30,SC Paderborn 07,DSC Arminia Bielefeld,2,2
+2018-12-01,1. FC Köln,SpVgg Greuther Fürth,4,0
+2018-12-01,1. FC Union Berlin,SV Darmstadt 98,3,1
+2018-12-01,FC Ingolstadt 04,Hamburger SV,1,2
+2018-12-01,FC St. Pauli,Dynamo Dresden,1,1
+2018-12-02,MSV Duisburg,Holstein Kiel,0,4
+2018-12-02,SV Sandhausen,1. FC Heidenheim 1846,1,2
+2018-12-02,1. FC Magdeburg,VfL Bochum,0,0
+2018-12-07,Hamburger SV,SC Paderborn 07,1,0
+2018-12-07,Jahn Regensburg,1. FC Köln,1,3
+2018-12-08,SV Darmstadt 98,FC Ingolstadt 04,1,1
+2018-12-08,1. FC Heidenheim 1846,MSV Duisburg,4,1
+2018-12-08,SpVgg Greuther Fürth,Erzgebirge Aue,0,5
+2018-12-09,DSC Arminia Bielefeld,SV Sandhausen,1,1
+2018-12-09,Dynamo Dresden,Holstein Kiel,0,2
+2018-12-09,1. FC Magdeburg,1. FC Union Berlin,1,1
+2018-12-10,VfL Bochum,FC St. Pauli,1,3
+2018-12-14,Holstein Kiel,DSC Arminia Bielefeld,1,2
+2018-12-14,MSV Duisburg,Hamburger SV,1,2
+2018-12-15,1. FC Union Berlin,VfL Bochum,2,0
+2018-12-15,FC St. Pauli,SpVgg Greuther Fürth,2,0
+2018-12-15,SC Paderborn 07,Dynamo Dresden,3,0
+2018-12-16,FC Ingolstadt 04,1. FC Heidenheim 1846,1,1
+2018-12-16,SV Sandhausen,Jahn Regensburg,2,2
+2018-12-16,Erzgebirge Aue,SV Darmstadt 98,2,2
+2018-12-17,1. FC Köln,1. FC Magdeburg,3,0
+2018-12-21,1. FC Köln,VfL Bochum,2,3
+2018-12-21,SV Sandhausen,SpVgg Greuther Fürth,0,0
+2018-12-22,DSC Arminia Bielefeld,1. FC Heidenheim 1846,1,2
+2018-12-22,FC Ingolstadt 04,Jahn Regensburg,1,2
+2018-12-22,FC St. Pauli,1. FC Magdeburg,4,1
+2018-12-23,Holstein Kiel,Hamburger SV,3,1
+2018-12-23,MSV Duisburg,Dynamo Dresden,1,3
+2018-12-23,Erzgebirge Aue,1. FC Union Berlin,3,0
+2018-12-23,SC Paderborn 07,SV Darmstadt 98,6,2
+2019-01-29,VfL Bochum,MSV Duisburg,2,1
+2019-01-29,SV Darmstadt 98,FC St. Pauli,2,1
+2019-01-29,SpVgg Greuther Fürth,FC Ingolstadt 04,0,1
+2019-01-29,1. FC Magdeburg,Erzgebirge Aue,1,0
+2019-01-30,Jahn Regensburg,SC Paderborn 07,2,0
+2019-01-30,Hamburger SV,SV Sandhausen,2,1
+2019-01-30,1. FC Heidenheim 1846,Holstein Kiel,2,2
+2019-01-30,Dynamo Dresden,DSC Arminia Bielefeld,3,4
+2019-01-31,1. FC Union Berlin,1. FC Köln,2,0
+2019-02-01,MSV Duisburg,SV Darmstadt 98,3,2
+2019-02-01,FC Ingolstadt 04,1. FC Magdeburg,0,1
+2019-02-02,DSC Arminia Bielefeld,Hamburger SV,2,0
+2019-02-02,1. FC Heidenheim 1846,Dynamo Dresden,1,0
+2019-02-02,SC Paderborn 07,SpVgg Greuther Fürth,6,0
+2019-02-03,Holstein Kiel,Jahn Regensburg,2,0
+2019-02-03,SV Sandhausen,VfL Bochum,3,0
+2019-02-04,FC St. Pauli,1. FC Union Berlin,3,2
+2019-02-08,1. FC Köln,FC St. Pauli,4,1
+2019-02-08,Jahn Regensburg,DSC Arminia Bielefeld,0,3
+2019-02-09,VfL Bochum,SC Paderborn 07,1,2
+2019-02-09,1. FC Union Berlin,SV Sandhausen,2,0
+2019-02-09,SpVgg Greuther Fürth,MSV Duisburg,1,0
+2019-02-10,SV Darmstadt 98,1. FC Heidenheim 1846,1,2
+2019-02-10,Erzgebirge Aue,FC Ingolstadt 04,0,3
+2019-02-10,1. FC Magdeburg,Holstein Kiel,1,1
+2019-02-11,Hamburger SV,Dynamo Dresden,1,0
+2019-02-15,SV Sandhausen,SV Darmstadt 98,1,1
+2019-02-15,SC Paderborn 07,1. FC Köln,3,2
+2019-02-16,MSV Duisburg,1. FC Union Berlin,2,3
+2019-02-16,FC Ingolstadt 04,VfL Bochum,2,1
+2019-02-16,FC St. Pauli,Erzgebirge Aue,1,2
+2019-02-16,1. FC Heidenheim 1846,Hamburger SV,2,2
+2019-02-17,Holstein Kiel,SpVgg Greuther Fürth,2,2
+2019-02-17,DSC Arminia Bielefeld,1. FC Magdeburg,1,3
+2019-02-17,Dynamo Dresden,Jahn Regensburg,0,0
+2019-02-22,1. FC Union Berlin,DSC Arminia Bielefeld,1,1
+2019-02-22,SpVgg Greuther Fürth,1. FC Heidenheim 1846,0,0
+2019-02-23,1. FC Köln,SV Sandhausen,3,1
+2019-02-23,VfL Bochum,Holstein Kiel,1,3
+2019-02-23,SV Darmstadt 98,Dynamo Dresden,2,0
+2019-02-23,FC St. Pauli,FC Ingolstadt 04,1,0
+2019-02-24,Jahn Regensburg,Hamburger SV,2,1
+2019-02-24,Erzgebirge Aue,MSV Duisburg,0,0
+2019-02-24,1. FC Magdeburg,SC Paderborn 07,1,1
+2019-02-27,Erzgebirge Aue,1. FC Köln,0,1
+2019-03-01,Holstein Kiel,1. FC Union Berlin,0,2
+2019-03-01,MSV Duisburg,1. FC Magdeburg,1,0
+2019-03-02,SV Sandhausen,Erzgebirge Aue,0,3
+2019-03-02,1. FC Heidenheim 1846,Jahn Regensburg,1,2
+2019-03-02,SC Paderborn 07,FC St. Pauli,0,1
+2019-03-03,DSC Arminia Bielefeld,SV Darmstadt 98,1,0
+2019-03-03,FC Ingolstadt 04,1. FC Köln,1,2
+2019-03-03,Dynamo Dresden,VfL Bochum,2,2
+2019-03-04,Hamburger SV,SpVgg Greuther Fürth,1,0
+2019-03-08,VfL Bochum,1. FC Heidenheim 1846,1,0
+2019-03-08,1. FC Union Berlin,FC Ingolstadt 04,2,0
+2019-03-09,1. FC Köln,DSC Arminia Bielefeld,5,1
+2019-03-09,Jahn Regensburg,MSV Duisburg,1,1
+2019-03-09,SV Darmstadt 98,Holstein Kiel,3,2
+2019-03-09,Erzgebirge Aue,SC Paderborn 07,2,1
+2019-03-10,FC St. Pauli,Hamburger SV,0,4
+2019-03-10,1. FC Magdeburg,SV Sandhausen,0,1
+2019-03-15,Holstein Kiel,Erzgebirge Aue,5,1
+2019-03-15,1. FC Heidenheim 1846,1. FC Union Berlin,2,1
+2019-03-16,Hamburger SV,SV Darmstadt 98,2,3
+2019-03-16,SV Sandhausen,FC St. Pauli,4,0
+2019-03-16,Dynamo Dresden,1. FC Magdeburg,1,1
+2019-03-17,DSC Arminia Bielefeld,VfL Bochum,3,1
+2019-03-17,SC Paderborn 07,FC Ingolstadt 04,3,1
+2019-03-18,Jahn Regensburg,SpVgg Greuther Fürth,0,2
+2019-03-27,SpVgg Greuther Fürth,Dynamo Dresden,0,0
+2019-03-29,FC St. Pauli,MSV Duisburg,0,0
+2019-03-29,1. FC Magdeburg,1. FC Heidenheim 1846,0,0
+2019-03-30,VfL Bochum,Hamburger SV,0,0
+2019-03-30,1. FC Union Berlin,SC Paderborn 07,1,3
+2019-03-30,SV Darmstadt 98,Jahn Regensburg,1,1
+2019-03-31,1. FC Köln,Holstein Kiel,4,0
+2019-03-31,FC Ingolstadt 04,SV Sandhausen,1,2
+2019-03-31,SpVgg Greuther Fürth,DSC Arminia Bielefeld,2,2
+2019-04-01,Erzgebirge Aue,Dynamo Dresden,1,3
+2019-04-05,DSC Arminia Bielefeld,Erzgebirge Aue,2,1
+2019-04-05,Jahn Regensburg,VfL Bochum,2,1
+2019-04-06,Holstein Kiel,FC St. Pauli,2,1
+2019-04-06,MSV Duisburg,FC Ingolstadt 04,2,4
+2019-04-06,SV Sandhausen,SC Paderborn 07,1,1
+2019-04-07,1. FC Heidenheim 1846,1. FC Köln,0,2
+2019-04-07,Dynamo Dresden,1. FC Union Berlin,0,0
+2019-04-07,SpVgg Greuther Fürth,SV Darmstadt 98,2,1
+2019-04-08,Hamburger SV,1. FC Magdeburg,1,2
+2019-04-10,MSV Duisburg,1. FC Köln,4,4
+2019-04-12,1. FC Union Berlin,Jahn Regensburg,2,2
+2019-04-12,Erzgebirge Aue,1. FC Heidenheim 1846,0,1
+2019-04-13,SV Sandhausen,Dynamo Dresden,3,1
+2019-04-13,1. FC Magdeburg,SV Darmstadt 98,0,1
+2019-04-13,SC Paderborn 07,MSV Duisburg,4,0
+2019-04-14,VfL Bochum,SpVgg Greuther Fürth,3,2
+2019-04-14,FC Ingolstadt 04,Holstein Kiel,1,1
+2019-04-14,FC St. Pauli,DSC Arminia Bielefeld,1,1
+2019-04-15,1. FC Köln,Hamburger SV,1,1
+2019-04-20,Hamburger SV,Erzgebirge Aue,1,1
+2019-04-20,Holstein Kiel,SC Paderborn 07,1,2
+2019-04-20,MSV Duisburg,SV Sandhausen,2,2
+2019-04-20,SpVgg Greuther Fürth,1. FC Union Berlin,1,1
+2019-04-21,DSC Arminia Bielefeld,FC Ingolstadt 04,1,3
+2019-04-21,Jahn Regensburg,1. FC Magdeburg,1,0
+2019-04-21,SV Darmstadt 98,VfL Bochum,0,0
+2019-04-21,1. FC Heidenheim 1846,FC St. Pauli,3,0
+2019-04-21,Dynamo Dresden,1. FC Köln,3,0
+2019-04-26,1. FC Köln,SV Darmstadt 98,1,2
+2019-04-26,FC Ingolstadt 04,Dynamo Dresden,1,0
+2019-04-27,SV Sandhausen,Holstein Kiel,3,2
+2019-04-27,FC St. Pauli,Jahn Regensburg,4,3
+2019-04-27,1. FC Magdeburg,SpVgg Greuther Fürth,2,1
+2019-04-28,1. FC Union Berlin,Hamburger SV,2,0
+2019-04-28,Erzgebirge Aue,VfL Bochum,3,2
+2019-04-28,SC Paderborn 07,1. FC Heidenheim 1846,3,1
+2019-04-29,MSV Duisburg,DSC Arminia Bielefeld,2,2
+2019-05-03,DSC Arminia Bielefeld,SC Paderborn 07,2,0
+2019-05-03,Dynamo Dresden,FC St. Pauli,2,1
+2019-05-04,Hamburger SV,FC Ingolstadt 04,0,3
+2019-05-04,VfL Bochum,1. FC Magdeburg,4,2
+2019-05-04,1. FC Heidenheim 1846,SV Sandhausen,2,3
+2019-05-05,Holstein Kiel,MSV Duisburg,0,2
+2019-05-05,Jahn Regensburg,Erzgebirge Aue,1,3
+2019-05-05,SV Darmstadt 98,1. FC Union Berlin,2,1
+2019-05-06,SpVgg Greuther Fürth,1. FC Köln,0,4
+2019-05-12,1. FC Köln,Jahn Regensburg,3,5
+2019-05-12,Holstein Kiel,Dynamo Dresden,3,0
+2019-05-12,MSV Duisburg,1. FC Heidenheim 1846,3,4
+2019-05-12,1. FC Union Berlin,1. FC Magdeburg,3,0
+2019-05-12,FC Ingolstadt 04,SV Darmstadt 98,3,0
+2019-05-12,SV Sandhausen,DSC Arminia Bielefeld,0,3
+2019-05-12,FC St. Pauli,VfL Bochum,0,0
+2019-05-12,Erzgebirge Aue,SpVgg Greuther Fürth,1,1
+2019-05-12,SC Paderborn 07,Hamburger SV,4,1
+2019-05-19,Hamburger SV,MSV Duisburg,3,0
+2019-05-19,DSC Arminia Bielefeld,Holstein Kiel,1,0
+2019-05-19,Jahn Regensburg,SV Sandhausen,2,2
+2019-05-19,VfL Bochum,1. FC Union Berlin,2,2
+2019-05-19,SV Darmstadt 98,Erzgebirge Aue,1,0
+2019-05-19,1. FC Heidenheim 1846,FC Ingolstadt 04,4,2
+2019-05-19,Dynamo Dresden,SC Paderborn 07,3,1
+2019-05-19,SpVgg Greuther Fürth,FC St. Pauli,2,1
+2019-05-19,1. FC Magdeburg,1. FC Köln,1,1

@@ -1,0 +1,200 @@
+[
+  {
+    "matchday": 1,
+    "date": "2026-08-28",
+    "home": "Bayern Munich",
+    "away": "VfB Stuttgart",
+    "home_goals": 5,
+    "away_goals": 1,
+    "probability_home_win": 0.7457508475408948,
+    "probability_draw": 0.1375344139162287,
+    "probability_away_win": 0.11671473854287645
+  },
+  {
+    "matchday": 1,
+    "date": "2026-08-29",
+    "home": "RB Leipzig",
+    "away": "Borussia Mönchengladbach",
+    "home_goals": 3,
+    "away_goals": 0,
+    "probability_home_win": 0.6364173014905716,
+    "probability_draw": 0.19629208071944765,
+    "probability_away_win": 0.16729061778998072
+  },
+  {
+    "matchday": 1,
+    "date": "2026-08-29",
+    "home": "1. FSV Mainz 05",
+    "away": "SC Paderborn",
+    "home_goals": 0,
+    "away_goals": 0,
+    "probability_home_win": 0.5358723571660562,
+    "probability_draw": 0.23449603310677797,
+    "probability_away_win": 0.22963160972716593
+  },
+  {
+    "matchday": 1,
+    "date": "2026-08-29",
+    "home": "Union Berlin",
+    "away": "Eintracht Frankfurt",
+    "home_goals": 3,
+    "away_goals": 3,
+    "probability_home_win": 0.31854679683595366,
+    "probability_draw": 0.28733236110309973,
+    "probability_away_win": 0.39412084206094655
+  },
+  {
+    "matchday": 1,
+    "date": "2026-08-29",
+    "home": "1. FC Köln",
+    "away": "TSG Hoffenheim",
+    "home_goals": 3,
+    "away_goals": 2,
+    "probability_home_win": 0.34786649330504077,
+    "probability_draw": 0.26603445293587613,
+    "probability_away_win": 0.38609905375908327
+  },
+  {
+    "matchday": 1,
+    "date": "2026-08-29",
+    "home": "Elversberg",
+    "away": "Bayer Leverkusen",
+    "home_goals": 3,
+    "away_goals": 2,
+    "probability_home_win": 0.25489906997013617,
+    "probability_draw": 0.2544725515608222,
+    "probability_away_win": 0.49062837846904167
+  },
+  {
+    "matchday": 1,
+    "date": "2026-08-29",
+    "home": "Borussia Dortmund",
+    "away": "Hamburger SV",
+    "home_goals": 2,
+    "away_goals": 0,
+    "probability_home_win": 0.732275917939071,
+    "probability_draw": 0.1419374464729095,
+    "probability_away_win": 0.12578663558801936
+  },
+  {
+    "matchday": 1,
+    "date": "2026-08-30",
+    "home": "SC Freiburg",
+    "away": "Werder Bremen",
+    "home_goals": 4,
+    "away_goals": 1,
+    "probability_home_win": 0.5429028068790794,
+    "probability_draw": 0.2436087079595672,
+    "probability_away_win": 0.2134884851613534
+  },
+  {
+    "matchday": 1,
+    "date": "2026-08-30",
+    "home": "Augsburg",
+    "away": "Schalke 04",
+    "home_goals": 3,
+    "away_goals": 0,
+    "probability_home_win": 0.49356067137477727,
+    "probability_draw": 0.2815240454840785,
+    "probability_away_win": 0.22491528314114417
+  },
+  {
+    "matchday": 2,
+    "date": "2026-09-04",
+    "home": "VfB Stuttgart",
+    "away": "1. FC Köln",
+    "home_goals": 4,
+    "away_goals": 1,
+    "probability_home_win": 0.6027835792472752,
+    "probability_draw": 0.2574463971290045,
+    "probability_away_win": 0.13977002362372026
+  },
+  {
+    "matchday": 2,
+    "date": "2026-09-05",
+    "home": "TSG Hoffenheim",
+    "away": "Borussia Dortmund",
+    "home_goals": 2,
+    "away_goals": 3,
+    "probability_home_win": 0.21794855842341646,
+    "probability_draw": 0.25646963475740786,
+    "probability_away_win": 0.5255818068191757
+  },
+  {
+    "matchday": 2,
+    "date": "2026-09-05",
+    "home": "Bayer Leverkusen",
+    "away": "Union Berlin",
+    "home_goals": 4,
+    "away_goals": 0,
+    "probability_home_win": 0.588857091206927,
+    "probability_draw": 0.2379316156680166,
+    "probability_away_win": 0.17321129312505637
+  },
+  {
+    "matchday": 2,
+    "date": "2026-09-05",
+    "home": "Borussia Mönchengladbach",
+    "away": "Elversberg",
+    "home_goals": 3,
+    "away_goals": 4,
+    "probability_home_win": 0.4990564694569613,
+    "probability_draw": 0.27212595363161335,
+    "probability_away_win": 0.22881757691142537
+  },
+  {
+    "matchday": 2,
+    "date": "2026-09-05",
+    "home": "Werder Bremen",
+    "away": "RB Leipzig",
+    "home_goals": 3,
+    "away_goals": 1,
+    "probability_home_win": 0.14665552603403123,
+    "probability_draw": 0.2339004458663824,
+    "probability_away_win": 0.6194440280995864
+  },
+  {
+    "matchday": 2,
+    "date": "2026-09-05",
+    "home": "SC Paderborn",
+    "away": "SC Freiburg",
+    "home_goals": 0,
+    "away_goals": 1,
+    "probability_home_win": 0.3003756126845303,
+    "probability_draw": 0.26495685631416627,
+    "probability_away_win": 0.43466753100130356
+  },
+  {
+    "matchday": 2,
+    "date": "2026-09-05",
+    "home": "Schalke 04",
+    "away": "Bayern Munich",
+    "home_goals": 0,
+    "away_goals": 0,
+    "probability_home_win": 0.11227174539570263,
+    "probability_draw": 0.1422926762766151,
+    "probability_away_win": 0.7454355783276823
+  },
+  {
+    "matchday": 2,
+    "date": "2026-09-06",
+    "home": "Hamburger SV",
+    "away": "1. FSV Mainz 05",
+    "home_goals": 0,
+    "away_goals": 5,
+    "probability_home_win": 0.3204304758049993,
+    "probability_draw": 0.26872995458313903,
+    "probability_away_win": 0.41083956961186163
+  },
+  {
+    "matchday": 2,
+    "date": "2026-09-06",
+    "home": "Eintracht Frankfurt",
+    "away": "Augsburg",
+    "home_goals": 1,
+    "away_goals": 4,
+    "probability_home_win": 0.5439098529685951,
+    "probability_draw": 0.2095952564365811,
+    "probability_away_win": 0.24649489059482388
+  }
+]

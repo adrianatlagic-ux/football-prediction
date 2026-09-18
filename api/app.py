@@ -368,16 +368,33 @@ _agent_picks_cache_date: str | None = None
 REALISTIC_EV_CEILING = 0.25
 
 
+# The site covers club competitions only (Champions League, Bundesliga) - no
+# World Cup fixtures exist anymore, so odds are pulled from each covered
+# league's own sport key and merged into one pool. _find_odds_match() below
+# matches by team name regardless of which league an event came from, so a
+# single merged list is all the rest of the odds/value-bet code needs.
+ODDS_SPORT_KEYS = ["soccer_uefa_champs_league", "soccer_germany_bundesliga"]
+
+
 def _fetch_odds() -> list[dict]:
     if not ODDS_API_KEY:
         raise HTTPException(status_code=503, detail="ODDS_API_KEY ist nicht konfiguriert.")
-    url = (
-        "https://api.the-odds-api.com/v4/sports/soccer_fifa_world_cup/odds/"
-        f"?apiKey={ODDS_API_KEY}&regions=eu&markets=h2h,totals,spreads&oddsFormat=decimal"
-    )
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=8) as resp:
-        return json.loads(resp.read())
+    events: list[dict] = []
+    last_error: Exception | None = None
+    for sport_key in ODDS_SPORT_KEYS:
+        url = (
+            f"https://api.the-odds-api.com/v4/sports/{sport_key}/odds/"
+            f"?apiKey={ODDS_API_KEY}&regions=eu&markets=h2h,totals,spreads&oddsFormat=decimal"
+        )
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        try:
+            with urllib.request.urlopen(req, timeout=8) as resp:
+                events.extend(json.loads(resp.read()))
+        except Exception as exc:
+            last_error = exc
+    if not events and last_error is not None:
+        raise last_error
+    return events
 
 
 def _get_odds() -> list[dict]:

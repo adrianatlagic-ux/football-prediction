@@ -1,13 +1,31 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import './App.css'
-import WC2026_FIXTURES from './wc2026_fixtures.json'
-import FIFA_RANKINGS from './fifa_rankings.json'
-import wc2026Logo from './assets/wc2026-logo.png'
+import CL_FIXTURES from './cl_fixtures.json'
+import BL_FIXTURES from './bl_fixtures.json'
+import CLUB_CRESTS from './club_crests.json'
 
 const API_BASE = import.meta.env.DEV ? 'http://127.0.0.1:8000' : ''
 
-const GROUPS = [...new Set(WC2026_FIXTURES.map(f => f.group))].sort()
+// Champions League stages in tournament order (2024/25+ format: a single
+// 36-team league phase, then a knockout bracket) - a plain alphabetical sort
+// would misorder these, so sort explicitly.
+const STAGE_ORDER = ['League Phase', 'Knockout Playoffs', 'Round of 16', 'Quarter-finals', 'Semi-finals', 'Final']
+const GROUPS = [...new Set(CL_FIXTURES.map(f => f.group))].sort((a, b) => {
+  const ai = STAGE_ORDER.indexOf(a)
+  const bi = STAGE_ORDER.indexOf(b)
+  if (ai !== -1 && bi !== -1) return ai - bi
+  if (ai !== -1) return -1
+  if (bi !== -1) return 1
+  return a.localeCompare(b)
+})
+
+// Bundesliga: one "Spieltag N" group per matchday, sorted numerically.
+const BL_GROUPS = [...new Set(BL_FIXTURES.map(f => f.group))].sort((a, b) => {
+  const na = parseInt(a.replace(/\D/g, ''), 10) || 0
+  const nb = parseInt(b.replace(/\D/g, ''), 10) || 0
+  return na - nb
+})
 
 function fixtureDateTime(f) {
   return new Date(`${f.date}T${f.time}:00`)
@@ -31,22 +49,9 @@ function nextGamesWindow(now = new Date()) {
 }
 
 const [_NG_START, _NG_END] = nextGamesWindow()
-const NEXT_GAMES = WC2026_FIXTURES
+const NEXT_GAMES = CL_FIXTURES
   .filter(f => { const d = fixtureDateTime(f); return d >= _NG_START && d < _NG_END })
   .sort((a, b) => fixtureDateTime(a) - fixtureDateTime(b))
-
-const WORST_RANK = Math.max(...Object.values(FIFA_RANKINGS))
-
-// Higher value = stronger team (rank 1 -> highest score)
-function teamStrength(team) {
-  const rank = FIFA_RANKINGS[team] || WORST_RANK
-  return WORST_RANK + 1 - rank
-}
-
-// How much "star power" a matchup has, based on both teams' FIFA rankings
-function matchQuality(fixture) {
-  return teamStrength(fixture.home_team) + teamStrength(fixture.away_team)
-}
 
 function excitementScore(data) {
   const probs = [data.probability_home_win, data.probability_draw, data.probability_away_win]
@@ -64,7 +69,7 @@ function getHotFixture(predictionsById) {
   let bestScore = -Infinity
   for (const fixture of NEXT_GAMES) {
     const data = predictionsById[fixture.match_id]
-    const score = matchQuality(fixture) * 3 + (data ? excitementScore(data) : 0)
+    const score = data ? excitementScore(data) : -1
     if (score > bestScore) {
       bestScore = score
       best = fixture
@@ -125,8 +130,80 @@ const TEAM_FLAGS = {
 }
 
 function TeamLabel({ name }) {
+  const crest = CLUB_CRESTS[name]
+  if (crest) {
+    return (
+      <>
+        <img
+          src={crest.logo}
+          alt=""
+          className="team-crest"
+          onError={(e) => { e.currentTarget.style.display = 'none' }}
+        />
+        {name}
+      </>
+    )
+  }
   const flag = TEAM_FLAGS[name]
   return <>{flag && <span style={{ marginRight: '0.4em' }}>{flag}</span>}{name}</>
+}
+
+// club_crests.json's colors come straight from ESPN's team API, which for
+// several Bundesliga clubs just returns a generic placeholder (#ffffff, or
+// the same #DA0308 red for four unrelated teams) instead of a real brand
+// color. Override the ones that are wrong or collide with another club in
+// this season's fixture list; everything else still falls through to the
+// scraped ESPN color.
+const TEAM_COLOR_OVERRIDES = {
+  '1. FC Köln': '#ED1C24',
+  'Augsburg': '#BA3733',
+  'Bayer Leverkusen': '#E32219',
+  'Borussia Mönchengladbach': '#00983A',
+  'Eintracht Frankfurt': '#E1000F',
+  'SC Freiburg': '#FFFFFF',
+  'RB Leipzig': '#FFFFFF',
+  'Elversberg': '#FFFFFF',
+  'Union Berlin': '#F97316',
+}
+
+function getTeamColor(name, fallback) {
+  return TEAM_COLOR_OVERRIDES[name] || CLUB_CRESTS[name]?.color || fallback
+}
+
+function hexColorDistance(a, b) {
+  if (!/^#[0-9a-f]{6}$/i.test(a) || !/^#[0-9a-f]{6}$/i.test(b)) return Infinity
+  const pa = parseInt(a.slice(1), 16), pb = parseInt(b.slice(1), 16)
+  const dr = ((pa >> 16) & 255) - ((pb >> 16) & 255)
+  const dg = ((pa >> 8) & 255) - ((pb >> 8) & 255)
+  const db = (pa & 255) - (pb & 255)
+  return Math.sqrt(dr * dr + dg * dg + db * db)
+}
+
+// Two clubs can legitimately share (near-)identical brand colors (e.g. two
+// clubs both wearing blue). When that happens for the two teams actually
+// facing each other, the donut/legend would show one indistinguishable
+// color twice - swap the away team to a neutral accent so the two sides
+// always read as visually distinct.
+function getMatchColors(homeTeam, awayTeam) {
+  const home = getTeamColor(homeTeam, 'var(--gold)')
+  let away = getTeamColor(awayTeam, 'var(--cyan)')
+  if (home.toLowerCase() === away.toLowerCase() || hexColorDistance(home, away) < 60) {
+    away = home.toLowerCase() === 'var(--cyan)'.toLowerCase() ? '#f97316' : 'var(--cyan)'
+  }
+  return { home, draw: '#6b7280', away }
+}
+
+function TeamCrest({ name, className = 'team-crest' }) {
+  const crest = CLUB_CRESTS[name]
+  if (!crest) return null
+  return (
+    <img
+      src={crest.logo}
+      alt=""
+      className={className}
+      onError={(e) => { e.currentTarget.style.display = 'none' }}
+    />
+  )
 }
 
 function AnimatedNumber({ value, decimals = 0, suffix = '', duration = 1500 }) {
@@ -181,14 +258,30 @@ function ProbabilityBar({ label, value, color, animate, valueColor }) {
   )
 }
 
-function renderScenario(text, home, away) {
+function renderBoldMarkdown(text, highlightClass) {
+  if (!text) return text
+  const parts = text.split(/(\*\*[^*]+\*\*)/g)
+  return parts.map((part, i) =>
+    part.startsWith('**') && part.endsWith('**')
+      ? <strong className={highlightClass} key={i}>{part.slice(2, -2)}</strong>
+      : <span key={i}>{part}</span>
+  )
+}
+
+function renderScenario(text, home, away, highlightClass = 'smart-bet-highlight-gold') {
   const terms = [home, away, '2+ goals', '3+ goals', 'high-scoring game', 'low-scoring game']
   const escaped = terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
-  const parts = text.split(new RegExp(`(${escaped.join('|')})`, 'g'))
+  // Also highlight standalone numbers - win rates, probabilities, scorelines
+  // (e.g. "94%", "55%", "0:1") - these are the figures a reader actually
+  // scans for, same treatment as the highlighted numbers in the other boxes.
+  const numberPattern = String.raw`\d+(?:\.\d+)?%|\d+:\d+`
+  const parts = text.split(new RegExp(`(${escaped.join('|')}|${numberPattern})`, 'g'))
   return parts.map((part, i) =>
     terms.includes(part)
       ? <span className="scenario-highlight" key={i}>{part}</span>
-      : <span key={i}>{part}</span>
+      : /^(\d+(?:\.\d+)?%|\d+:\d+)$/.test(part)
+        ? <strong className={highlightClass} key={i}>{part}</strong>
+        : <span key={i}>{part}</span>
   )
 }
 
@@ -211,35 +304,61 @@ function FormRating({ data }) {
   const homeRating = computeFormRating(explanation, home)
   const awayRating = computeFormRating(explanation, away)
   const homeBetter = homeRating >= awayRating
+  // Split the full track between the two teams in proportion to their own
+  // ratings, so the bar always reads as one continuous tug-of-war (no gap or
+  // overlap in the middle) while still reflecting the size of the gap
+  // between the two ratings, not just who's ahead.
+  const ratingTotal = homeRating + awayRating
+  const homePct = ratingTotal > 0 ? (homeRating / ratingTotal) * 100 : 50
+  const awayPct = 100 - homePct
 
   return (
     <div className="form-rating-box">
       <h4>Form Rating</h4>
-      <div className="form-rating-row">
-        <span className="form-rating-label">
-          <TeamLabel name={home} />{homeBetter && <span className="form-rating-flame">🔥</span>}
-        </span>
-        <div className="form-rating-track">
-          <div className="form-rating-fill" style={{ width: `${homeRating}%`, background: "linear-gradient(90deg,var(--gold),var(--gold-light))" }} />
-        </div>
-        <span className="form-rating-value">{homeRating}</span>
-      </div>
-      <p className="form-rating-detail">
-        {explanation.form_last_10_avg_pts[home]} pts/game &middot; {explanation.avg_goals_scored[home]} scored &middot; {explanation.avg_goals_conceded[home]} conceded &middot; {explanation.clean_sheet_rate[home]} clean sheets
-      </p>
 
-      <div className="form-rating-row">
-        <span className="form-rating-label">
-          <TeamLabel name={away} />{!homeBetter && <span className="form-rating-flame">🔥</span>}
-        </span>
-        <div className="form-rating-track">
-          <div className="form-rating-fill" style={{ width: `${awayRating}%`, background: "linear-gradient(90deg,#ef4444,#f97316)" }} />
+      <div className="form-tug">
+        <div className="form-tug-header">
+          <span className="form-tug-name">
+            <TeamLabel name={home} />{homeBetter && <span className="form-rating-flame">🔥</span>}
+          </span>
+          <span className="form-tug-name away">
+            {!homeBetter && <span className="form-rating-flame">🔥</span>}<TeamLabel name={away} />
+          </span>
         </div>
-        <span className="form-rating-value">{awayRating}</span>
+        <div className="form-tug-track">
+          <div className="form-tug-scale-mark" />
+          <div className="form-tug-fill-home" style={{ width: `${homePct}%` }} />
+          <div className="form-tug-fill-away" style={{ width: `${awayPct}%` }} />
+        </div>
+        <div className="form-tug-values">
+          <span className="form-tug-value home">{homeRating}</span>
+          <span className="form-tug-value away">{awayRating}</span>
+        </div>
       </div>
+
       <p className="form-rating-detail">
-        {explanation.form_last_10_avg_pts[away]} pts/game &middot; {explanation.avg_goals_scored[away]} scored &middot; {explanation.avg_goals_conceded[away]} conceded &middot; {explanation.clean_sheet_rate[away]} clean sheets
+        <strong><TeamLabel name={home} /></strong> — {explanation.form_last_10_avg_pts[home]} pts/game &middot; {explanation.avg_goals_scored[home]} scored &middot; {explanation.avg_goals_conceded[home]} conceded &middot; {explanation.clean_sheet_rate[home]} clean sheets
       </p>
+      <p className="form-rating-detail">
+        <strong><TeamLabel name={away} /></strong> — {explanation.form_last_10_avg_pts[away]} pts/game &middot; {explanation.avg_goals_scored[away]} scored &middot; {explanation.avg_goals_conceded[away]} conceded &middot; {explanation.clean_sheet_rate[away]} clean sheets
+      </p>
+    </div>
+  )
+}
+
+function MatchScenario({ data }) {
+  const bm = (data.score_prediction || {}).betting_markets
+  if (!bm) return null
+  const home = data.home_team
+  const away = data.away_team
+  return (
+    <div className="betting-markets">
+      <div className="scenario-box">
+        <h4>Most Likely Scenario</h4>
+        <p>{renderScenario(bm.scenario, home, away)}</p>
+      </div>
+
+      <FormRating data={data} />
     </div>
   )
 }
@@ -260,32 +379,37 @@ function BettingMarkets({ data }) {
 
   return (
     <div className="betting-markets">
-      <div className="scenario-box">
-        <h4>Most Likely Scenario</h4>
-        <p>{renderScenario(bm.scenario, home, away)}</p>
-      </div>
-
-      <FormRating data={data} />
-
-      {dc && (
-        <div>
-          <h4>Double Chance</h4>
-          <div className="market-grid">
-            <div className="market-card">
-              <div className="market-card-label"><TeamLabel name={home} /> or Draw</div>
-              <div className="market-card-value"><AnimatedNumber value={dc.home_or_draw * 100} decimals={1} suffix="%" /></div>
-            </div>
-            <div className="market-card">
-              <div className="market-card-label"><TeamLabel name={home} /> or <TeamLabel name={away} /></div>
-              <div className="market-card-value"><AnimatedNumber value={dc.home_or_away * 100} decimals={1} suffix="%" /></div>
-            </div>
-            <div className="market-card">
-              <div className="market-card-label">Draw or <TeamLabel name={away} /></div>
-              <div className="market-card-value"><AnimatedNumber value={dc.draw_or_away * 100} decimals={1} suffix="%" /></div>
+      {dc && (() => {
+        const dcMax = Math.max(dc.home_or_draw, dc.home_or_away, dc.draw_or_away)
+        return (
+          <div>
+            <h4>Double Chance</h4>
+            <div className="market-grid">
+              <div className={`market-card market-card-fillable${dc.home_or_draw === dcMax ? ' is-leader' : ''}`}>
+                <AnimatedBarFill className="market-card-fill" targetPct={dc.home_or_draw * 100} />
+                <div className="market-card-content">
+                  <div className="market-card-label"><TeamLabel name={home} /> or Draw</div>
+                  <div className="market-card-value"><AnimatedNumber value={dc.home_or_draw * 100} decimals={1} suffix="%" /></div>
+                </div>
+              </div>
+              <div className={`market-card market-card-fillable${dc.home_or_away === dcMax ? ' is-leader' : ''}`}>
+                <AnimatedBarFill className="market-card-fill" targetPct={dc.home_or_away * 100} />
+                <div className="market-card-content">
+                  <div className="market-card-label"><TeamLabel name={home} /> or <TeamLabel name={away} /></div>
+                  <div className="market-card-value"><AnimatedNumber value={dc.home_or_away * 100} decimals={1} suffix="%" /></div>
+                </div>
+              </div>
+              <div className={`market-card market-card-fillable${dc.draw_or_away === dcMax ? ' is-leader' : ''}`}>
+                <AnimatedBarFill className="market-card-fill" targetPct={dc.draw_or_away * 100} />
+                <div className="market-card-content">
+                  <div className="market-card-label">Draw or <TeamLabel name={away} /></div>
+                  <div className="market-card-value"><AnimatedNumber value={dc.draw_or_away * 100} decimals={1} suffix="%" /></div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )
+      })()}
 
       <div>
         <h4>Total Goals (Over / Under)</h4>
@@ -418,7 +542,7 @@ function plainBetPhrase(b) {
   return b.market
 }
 
-function SmartBetCard({ betStep, betInfo }) {
+function SmartBetCard({ betStep, betInfo, data }) {
   const analyzing = betStep < BET_STEPS.length
   if (analyzing) {
     return (
@@ -448,32 +572,48 @@ function SmartBetCard({ betStep, betInfo }) {
     )
   }
 
-  const best = betInfo.recommendation
+  // A recommendation with a warning means nothing cleared the clean/above-
+  // threshold bar (see MIN_KELLY_FOR_RECOMMENDATION in the backend) - it's a
+  // thin fallback, not a real tip, so it must not be promoted to ★/Value Bet
+  // status just because it was the least-bad green available.
   const recWarning = betInfo.recommendation_warning
+  const best = recWarning ? null : betInfo.recommendation
   const agentEval = betInfo.agent_eval
   const agentPick = agentEval && agentEval.pick
   const combined = betInfo.combined
   const consensusPick = combined && combined.consensus_pick
   const modelFavorite = betInfo.model_favorite
+  const safestPick = betInfo.safest_pick
+  const scenarioText = data?.score_prediction?.betting_markets?.scenario
   const sameBet = (a, b) => a.market === b.market && a.outcome === b.outcome && a.team === b.team
   const greens = betInfo.green_bets || []
   const reds = betInfo.red_bets || []
 
   const renderRow = (b, i, kind) => {
     const isRec = best && sameBet(b, best)
+    const isGamePick = consensusPick && sameBet(b, consensusPick)
     const isAgentPick = agentPick && sameBet(b, agentPick)
     const isModelFavorite = modelFavorite && sameBet(b, modelFavorite)
+    const isSafestPick = safestPick && sameBet(b, safestPick)
+    // Any marked signal (Game Pick, value bet, AI pick ✨, model favorite ◆,
+    // safest pick 🛡) is a headline in its own right - dimming its row to 40%
+    // opacity just because its edge happens to be negative buries it visually
+    // even though we deliberately show these regardless of edge. The Game
+    // Pick especially is *expected* to have flat/negative edge at short odds
+    // (that's the whole "swim with the market" point), so graying it out
+    // here would visually contradict the headline box above.
+    const keepFullOpacity = isRec || isGamePick || isAgentPick || isModelFavorite || isSafestPick
     return (
-      <div className={`smart-bet-table-row ${kind === 'red' ? 'is-red' : ''} ${isRec ? 'is-rec' : ''}`} key={`${kind}-${i}`}>
+      <div className={`smart-bet-table-row ${kind === 'red' && !keepFullOpacity ? 'is-red' : ''} ${isRec ? 'is-rec' : ''}`} key={`${kind}-${i}`}>
         <span className="smart-bet-col-market">{marketGroupLabel(b.market)}{b.suspicious ? ' ⚠' : ''}</span>
         <span className="smart-bet-col-pick">
-          {isRec ? '★ ' : ''}{isAgentPick ? '✨ ' : ''}{isModelFavorite ? '◆ ' : ''}{betOutcomeLabel(b)}
+          {isRec ? '★ ' : ''}{isAgentPick ? '✨ ' : ''}{isModelFavorite ? '◆ ' : ''}{isSafestPick ? '🛡 ' : ''}{betOutcomeLabel(b)}
         </span>
         <span className="smart-bet-col-odds">{b.best_odds.toFixed(2)}</span>
         <span className={`smart-bet-col-edge ${b.expected_value >= 0 ? 'positive' : 'negative'}`}>
           {b.expected_value >= 0 ? '+' : ''}{(b.expected_value * 100).toFixed(0)}%
         </span>
-        <span className="smart-bet-col-stake">{b.expected_value > 0 ? `${b.kelly_stake_pct}%` : '–'}</span>
+        <span className="smart-bet-col-stake">{b.kelly_stake_pct}%</span>
       </div>
     )
   }
@@ -482,29 +622,30 @@ function SmartBetCard({ betStep, betInfo }) {
     <div className="wm-reveal smart-bet-card">
       {consensusPick ? (
         <div className={`smart-bet-best ${combined.agreement_count === 0 ? 'is-warning' : ''}`}>
-          <span className="smart-bet-label">Top Recommendation</span>
+          <span className="smart-bet-label">Game Pick</span>
           <div className="smart-bet-pick">{betOutcomeLabel(consensusPick)}</div>
           <div className="smart-bet-odds-row">
             <span className="smart-bet-odds">{consensusPick.best_odds.toFixed(2)}</span>
-            <span className={`smart-bet-edge ${consensusPick.expected_value >= 0 ? 'positive' : 'negative'}`}>
-              {consensusPick.expected_value >= 0 ? '+' : ''}{(consensusPick.expected_value * 100).toFixed(0)}% edge
+            {consensusPick.market_probability != null && (
+              <span className="smart-bet-winprob">
+                {(consensusPick.market_probability * 100).toFixed(0)}% win chance
+              </span>
+            )}
+          </div>
+          <div className="smart-bet-best-meta">at {consensusPick.bookmaker}</div>
+          <div className="smart-bet-agree-row">
+            <span className={`smart-bet-agree-chip ${combined.model_agrees ? 'yes' : 'no'}`}>
+              {combined.model_agrees ? '◆ Model agrees ✓' : '◆ Model differs ✕'}
+            </span>
+            <span className={`smart-bet-agree-chip ${combined.agent_agrees ? 'yes' : 'no'}`}>
+              {combined.agent_agrees ? '✨ AI agrees ✓' : '✨ AI differs ✕'}
             </span>
           </div>
-          <div className="smart-bet-best-meta">
-            at {consensusPick.bookmaker} · model estimates {(consensusPick.probability * 100).toFixed(0)}%
-            {consensusPick.market_probability != null && `, market estimates ${(consensusPick.market_probability * 100).toFixed(0)}%`}
-          </div>
-          <div className="smart-bet-consensus">{combined.consensus_label}</div>
-          {consensusPick.kelly_stake_pct > 0 && consensusPick.expected_value > 0 && (
-            <div className="smart-bet-kelly">
-              Recommended stake: <strong>{consensusPick.kelly_stake_pct}%</strong> of your bankroll (Quarter-Kelly)
-            </div>
-          )}
         </div>
       ) : (
         <p className="smart-bet-notip">
           <strong>No clear tip for this match.</strong><br />
-          Model favorite, value edge, and AI pick don't agree — better to sit this one out. Odds below for comparison.
+          The market doesn't have a clear favorite here — better to sit this one out. Odds below for comparison.
         </p>
       )}
 
@@ -527,26 +668,87 @@ function SmartBetCard({ betStep, betInfo }) {
           <div className="smart-bet-agent-headtitle">
             <span className="smart-bet-agent-headline">✨ AI predicts: {agentEval.bet_headline}</span>
           </div>
-          {agentPick && (
-            <span className="smart-bet-agent-agree">
-              {agentEval.agrees_with_model ? '✓ agrees with the model' : '↔ differs from the model'}
-              {agentEval.revised_from_previous === true && ' · revised after a closer look'}
-              {agentEval.revised_from_previous === false && ' · confirmed on a closer look'}
-            </span>
-          )}
-          <p className="smart-bet-agent-text">{agentEval.bet_reasoning}</p>
-          {agentEval.bet_points.length > 0 && (
-            <ul className="smart-bet-agent-points">
-              {agentEval.bet_points.map((p, i) => <li key={i}>{p}</li>)}
-            </ul>
-          )}
+          <p className="smart-bet-agent-text">
+            {renderBoldMarkdown(agentEval.bet_reasoning, 'smart-bet-highlight-purple')}
+            {agentPick && (
+              <> Our model rates this at <strong className="smart-bet-highlight-purple">{(agentPick.probability * 100).toFixed(0)}%</strong>.</>
+            )}
+          </p>
+        </div>
+      )}
+
+      {best ? (
+        <div className="smart-bet-signal-box is-green">
+          <div className="smart-bet-agent-headtitle">
+            <span className="smart-bet-signal-headline">★ Value Bet: {betOutcomeLabel(best)}</span>
+          </div>
+          <p className="smart-bet-agent-text">
+            {best.market_probability != null ? (
+              <>We rate this at <strong className="smart-bet-highlight-green">{(best.probability * 100).toFixed(0)}%</strong> (our model pulled partway toward the market to correct for its
+              overconfidence), while {best.bookmaker}'s odds of <strong className="smart-bet-highlight-green">{best.best_odds.toFixed(2)}</strong> imply {(best.market_probability * 100).toFixed(0)}% —
+              that remaining {Math.round((best.probability - best.market_probability) * 100)} percentage-point gap is the edge.</>
+            ) : (
+              <>We rate this at <strong className="smart-bet-highlight-green">{(best.probability * 100).toFixed(0)}%</strong> at odds of <strong className="smart-bet-highlight-green">{best.best_odds.toFixed(2)}</strong> from {best.bookmaker}, with no
+              reliable market comparison available for this one.</>
+            )}
+          </p>
+        </div>
+      ) : (
+        <div className="smart-bet-signal-box is-green">
+          <div className="smart-bet-agent-headtitle">
+            <span className="smart-bet-signal-headline">★ Value Bet: No Bet Available</span>
+          </div>
+          <p className="smart-bet-agent-text">
+            {recWarning
+              ? 'The best positive-edge candidate today has a Kelly stake under 1% - too thin to count as a real value bet, so we are not recommending it.'
+              : 'No bet in this match has a positive edge over the market today.'}
+          </p>
+        </div>
+      )}
+
+      {modelFavorite && (
+        <div className="smart-bet-signal-box is-gold">
+          <div className="smart-bet-agent-headtitle">
+            <span className="smart-bet-signal-headline">◆ Model's Choice: {betOutcomeLabel(modelFavorite)}</span>
+          </div>
+          <p className="smart-bet-agent-text">
+            {scenarioText
+              ? <>{renderScenario(scenarioText, data.home_team, data.away_team)} Our model rates this at <strong className="smart-bet-highlight-gold">{(modelFavorite.probability * 100).toFixed(0)}%</strong>.</>
+              : <>at {modelFavorite.bookmaker} · model estimates <strong className="smart-bet-highlight-gold">{(modelFavorite.probability * 100).toFixed(0)}%</strong>
+                {modelFavorite.market_probability != null && <>, market estimates {(modelFavorite.market_probability * 100).toFixed(0)}%</>}</>}
+          </p>
+        </div>
+      )}
+
+      {safestPick ? (
+        <div className="smart-bet-signal-box is-red">
+          <div className="smart-bet-agent-headtitle">
+            <span className="smart-bet-signal-headline">🛡 Safest Bet: {betOutcomeLabel(safestPick)}</span>
+          </div>
+          <p className="smart-bet-agent-text">
+            At odds of <strong className="smart-bet-highlight-red">{safestPick.best_odds.toFixed(2)}</strong> from {safestPick.bookmaker}, this is the <strong className="smart-bet-highlight-red">lowest-risk pick</strong> across every market
+            we checked for this match — the model gives it a <strong className="smart-bet-highlight-red">{(safestPick.probability * 100).toFixed(0)}%</strong> chance, and the bookmaker's own
+            short odds mean they rate it as <strong className="smart-bet-highlight-red">close to a sure thing</strong> too.
+          </p>
+        </div>
+      ) : (
+        <div className="smart-bet-signal-box is-red">
+          <div className="smart-bet-agent-headtitle">
+            <span className="smart-bet-signal-headline">🛡 Safest Bet: No Bet Available</span>
+          </div>
+          <p className="smart-bet-agent-text">
+            No outcome in this match is priced at 1.50 odds or below
+            {modelFavorite && <> — even the model's favorite, {betOutcomeLabel(modelFavorite)}, sits at {modelFavorite.best_odds.toFixed(2)}</>} —
+            so nothing here is safe enough to clear our bar today.
+          </p>
         </div>
       )}
 
       <div className="smart-bet-finePrint">
         <p><strong>★</strong> top pick by edge. <strong>✨</strong> AI agent's own pick after live research. <strong>◆</strong> model's
-        most likely outcome (no proven market edge required). The Top Recommendation above only appears when at least
-        two of these three agree.</p>
+        most likely outcome (no proven market edge required). <strong>🛡</strong> safest pick across all markets (highest
+        model probability among bets priced at odds 1.50 or below, confirming the market also sees it
+        as near-certain).</p>
 
       {[...greens, ...reds].some(b => b.market.startsWith('Handicap')) && (
         <p>
@@ -560,6 +762,12 @@ function SmartBetCard({ betStep, betInfo }) {
           <strong>⚠</strong> = large edge or model/market gap — likely a model weakness, not a real tip.
         </p>
       )}
+
+      <p className="smart-bet-disclaimer">
+        For entertainment and informational purposes only. This is a statistical model, not betting advice — it
+        does not guarantee profit and has no proven edge over bookmaker odds. Betting involves risk of financial
+        loss; if you choose to bet, do so responsibly and only with money you can afford to lose. 18+.
+      </p>
       </div>
     </div>
   )
@@ -592,6 +800,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
   const sp = data.score_prediction || {}
   const gf = data.game_flow || {}
   const ps = gf.predicted_stats || {}
+  const matchColors = getMatchColors(data.home_team, data.away_team)
 
   const analyzing = revealStep < ANALYZING_STEPS.length
   const show = (n) => revealStep >= n
@@ -628,103 +837,151 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
         </div>
       )}
 
-      <RevealSection visible={show(1)} className="probabilities">
-        {(() => {
-          const probs = [data.probability_home_win, data.probability_draw, data.probability_away_win]
-          const maxProb = Math.max(...probs)
-          const grayColor = "linear-gradient(90deg,#6b7280,#9ca3af)"
-          const winColor = "linear-gradient(90deg,var(--gold),var(--gold-light))"
-          const goldText = "var(--gold-light)"
-          return (
-            <>
-              <ProbabilityBar label={<TeamLabel name={data.home_team} />} value={data.probability_home_win} color={data.probability_home_win === maxProb ? winColor : grayColor} valueColor={data.probability_home_win === maxProb ? goldText : undefined} animate />
-              <ProbabilityBar label="Draw" value={data.probability_draw} color={data.probability_draw === maxProb ? winColor : grayColor} valueColor={data.probability_draw === maxProb ? goldText : undefined} animate />
-              <ProbabilityBar label={<TeamLabel name={data.away_team} />} value={data.probability_away_win} color={data.probability_away_win === maxProb ? winColor : grayColor} valueColor={data.probability_away_win === maxProb ? goldText : undefined} animate />
-            </>
-          )
-        })()}
-      </RevealSection>
+      <div className="wm-cluster">
+        <span className="wm-cluster-label">Overview</span>
 
-      <RevealSection visible={show(2)}>
-        <BettingMarkets data={data} />
-      </RevealSection>
-
-      <RevealSection visible={show(3)} className="explanation-grid wm-grid">
-        <div className="stat-card">
-          <h4>Most Likely Score</h4>
-          <div className="wm-score-highlight">{sp.most_likely_score}</div>
-          <p className="wm-subtle">
-            xG: <AnimatedNumber value={sp.home_xg} decimals={2} /> : <AnimatedNumber value={sp.away_xg} decimals={2} />
-          </p>
-          {(sp.top_scorelines || []).slice(0, 3).map((s, i) => (
-            <div className="stat-row" key={i}>
-              <span className="stat-label">{s.score}</span>
-              <span className="stat-val"><AnimatedNumber value={s.probability * 100} decimals={1} suffix="%" /></span>
+        <RevealSection visible={show(1)} className="probabilities-donut">
+          <ResultDonut
+            home={data.probability_home_win}
+            draw={data.probability_draw}
+            away={data.probability_away_win}
+            score={sp.most_likely_score}
+            colors={matchColors}
+          />
+          <div className="probabilities-legend">
+            <span className="legend-title">Win Probability</span>
+            <div className="legend-row">
+              <span className="legend-dot" style={{ background: matchColors.home }} />
+              <span className="legend-name"><TeamLabel name={data.home_team} /></span>
+              <span className="legend-value"><AnimatedNumber value={data.probability_home_win * 100} decimals={1} suffix="%" /></span>
             </div>
-          ))}
-        </div>
-
-        <div className="stat-card">
-          <h4>Halftime</h4>
-          {(gf.top_halftime_scores || []).slice(0, 3).map((h, i) => (
-            <div className="stat-row" key={i}>
-              <span className="stat-label">{h.score}</span>
-              <span className="stat-val"><AnimatedNumber value={h.probability * 100} decimals={1} suffix="%" /></span>
+            <div className="legend-row">
+              <span className="legend-dot gray" />
+              <span className="legend-name">Draw</span>
+              <span className="legend-value"><AnimatedNumber value={data.probability_draw * 100} decimals={1} suffix="%" /></span>
             </div>
-          ))}
-          <div className="stat-row">
-            <span className="stat-label">Late drama (75'+)</span>
-            <span className="stat-val"><AnimatedNumber value={(gf.late_drama_probability || 0) * 100} decimals={0} suffix="%" /></span>
+            <div className="legend-row">
+              <span className="legend-dot" style={{ background: matchColors.away }} />
+              <span className="legend-name"><TeamLabel name={data.away_team} /></span>
+              <span className="legend-value"><AnimatedNumber value={data.probability_away_win * 100} decimals={1} suffix="%" /></span>
+            </div>
           </div>
-        </div>
-      </RevealSection>
-
-      {ps.possession && (
-        <RevealSection visible={show(4)} className="h2h-stats">
-          <h4>Predicted Match Stats</h4>
-          <div className="h2h-teams">
-            <span><TeamLabel name={data.home_team} /></span>
-            <span><TeamLabel name={data.away_team} /></span>
-          </div>
-          <HeadToHeadStat label="Possession" home={ps.possession.home} away={ps.possession.away} suffix="%" />
-          <HeadToHeadStat label="Shots" home={ps.shots.home} away={ps.shots.away} />
-          <HeadToHeadStat label="Shots on Target" home={ps.shots_on_target.home} away={ps.shots_on_target.away} />
-          <HeadToHeadStat label="Corners" home={ps.corners.home} away={ps.corners.away} />
-          <HeadToHeadStat label="Passes" home={ps.passes.home} away={ps.passes.away} />
         </RevealSection>
-      )}
 
-      {gf.match_description && (
-        <RevealSection visible={show(5)}>
-          <p className="wm-description">{gf.match_description}</p>
+        <RevealSection visible={show(2)}>
+          <MatchScenario data={data} />
         </RevealSection>
-      )}
+      </div>
 
-      {!analyzing && betInfo && betInfo.agent_eval && betInfo.agent_eval.research && (
-        <div className="wm-reveal agent-factors">
-          <h4>✨ External Factors (AI Agent)</h4>
-          {[
-            ['⚕', 'Lineups & injuries', betInfo.agent_eval.research.lineups_injuries],
-            ['📈', 'Form', betInfo.agent_eval.research.form],
-            ['🏆', 'Table situation', betInfo.agent_eval.research.table_situation],
-            ['💬', 'Other', betInfo.agent_eval.research.other],
-          ].filter(([, , text]) => text).map(([icon, label, text]) => (
-            <div className="agent-factors-row" key={label}>
-              <span className="agent-factors-cat">{icon} {label}</span>
-              <p className="agent-factors-text">{text}</p>
+      <div className="wm-cluster">
+        <span className="wm-cluster-label">Stats &amp; Odds</span>
+
+        <RevealSection visible={show(2)}>
+          <BettingMarkets data={data} />
+        </RevealSection>
+
+        <RevealSection visible={show(3)} className="explanation-grid wm-grid">
+          <div className="stat-card">
+            <h4>Most Likely Score</h4>
+            <div className="wm-scoreboard">
+              <TeamCrest name={data.home_team} className="wm-scoreboard-crest" />
+              <div className="wm-score-highlight">{sp.most_likely_score}</div>
+              <TeamCrest name={data.away_team} className="wm-scoreboard-crest" />
             </div>
-          ))}
-        </div>
-      )}
+            <p className="wm-subtle wm-scoreboard-xg">
+              xG: <AnimatedNumber value={sp.home_xg} decimals={2} /> : <AnimatedNumber value={sp.away_xg} decimals={2} />
+            </p>
+            {(() => {
+              const scorelines = (sp.top_scorelines || []).slice(0, 3)
+              const maxP = Math.max(...scorelines.map(s => s.probability), 0)
+              return scorelines.map((s, i) => (
+                <div className={`score-row${s.probability === maxP ? ' is-leader' : ''}`} key={i}>
+                  <span className="score-row-rank">{i === 0 ? '★' : i + 1}</span>
+                  <span className="score-row-label">{s.score}</span>
+                  <span className="score-row-value"><AnimatedNumber value={s.probability * 100} decimals={1} suffix="%" /></span>
+                </div>
+              ))
+            })()}
+          </div>
 
-      {!analyzing && onStartBetCheck && (
-        <div className="smart-bet-section">
-          {betStep === undefined ? (
-            <button className="fixture-generate-btn smart-bet-btn" onClick={onStartBetCheck}>
-              Smart Bet Tip
-            </button>
-          ) : (
-            <SmartBetCard betStep={betStep} betInfo={betInfo} />
+          <div className="stat-card">
+            <h4>Halftime</h4>
+            {(() => {
+              const htScores = (gf.top_halftime_scores || []).slice(0, 3)
+              const maxP = Math.max(...htScores.map(h => h.probability), 0)
+              return htScores.map((h, i) => (
+                <div className={`score-row${h.probability === maxP ? ' is-leader' : ''}`} key={i}>
+                  <span className="score-row-rank">{i === 0 ? '★' : i + 1}</span>
+                  <span className="score-row-label">{h.score}</span>
+                  <span className="score-row-value"><AnimatedNumber value={h.probability * 100} decimals={1} suffix="%" /></span>
+                </div>
+              ))
+            })()}
+            <div className="score-row is-drama">
+              <span className="score-row-rank">⚡</span>
+              <span className="score-row-label score-row-label-wide">Late drama (75'+)</span>
+              <span className="score-row-value"><AnimatedNumber value={(gf.late_drama_probability || 0) * 100} decimals={0} suffix="%" /></span>
+            </div>
+          </div>
+        </RevealSection>
+
+        {ps.possession && (
+          <RevealSection visible={show(4)} className="h2h-stats">
+            <h4>Predicted Match Stats</h4>
+            <div className="h2h-teams">
+              <span><TeamLabel name={data.home_team} /></span>
+              <span><TeamLabel name={data.away_team} /></span>
+            </div>
+            <HeadToHeadStat label="Possession" home={ps.possession.home} away={ps.possession.away} suffix="%" />
+            <HeadToHeadStat label="Shots" home={ps.shots.home} away={ps.shots.away} />
+            <HeadToHeadStat label="Shots on Target" home={ps.shots_on_target.home} away={ps.shots_on_target.away} />
+            <HeadToHeadStat label="Corners" home={ps.corners.home} away={ps.corners.away} />
+            <HeadToHeadStat label="Passes" home={ps.passes.home} away={ps.passes.away} />
+          </RevealSection>
+        )}
+
+      </div>
+
+      {!analyzing && (
+        (betInfo && betInfo.agent_eval && betInfo.agent_eval.research) || onStartBetCheck
+      ) && (
+        <div className="wm-cluster wm-cluster-bet">
+          <span className="wm-cluster-label">Smart Bet</span>
+
+          {betInfo && betInfo.agent_eval && betInfo.agent_eval.research && (
+            <div className="wm-reveal agent-factors">
+              <h4>✨ External Factors (AI Agent)</h4>
+              {[
+                ['⚕', 'Lineups & injuries', betInfo.agent_eval.research.lineups_injuries],
+                ['📈', 'Form', betInfo.agent_eval.research.form],
+                ['🏆', 'Table situation', betInfo.agent_eval.research.table_situation],
+                ['💬', 'Other', betInfo.agent_eval.research.other],
+              ].filter(([, , text]) => text).map(([icon, label, text]) => (
+                <div className="agent-factors-row" key={label}>
+                  <span className="agent-factors-cat">{icon} {label}</span>
+                  <p className="agent-factors-text">{text}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {onStartBetCheck && (
+            <div className="smart-bet-section">
+              {betStep === undefined ? (
+                <div className="smart-bet-cta">
+                  <span className="smart-bet-cta-icon">🎯</span>
+                  <h4 className="smart-bet-cta-title">Want the full betting breakdown?</h4>
+                  <p className="smart-bet-cta-sub">
+                    Value bets, model favorite, and the safest pick — all in one tap.
+                  </p>
+                  <button className="smart-bet-btn" onClick={onStartBetCheck}>
+                    Get Your Bet Tips
+                  </button>
+                </div>
+              ) : (
+                <SmartBetCard betStep={betStep} betInfo={betInfo} data={data} />
+              )}
+            </div>
           )}
         </div>
       )}
@@ -883,23 +1140,87 @@ function HeroVisual() {
   )
 }
 
+function ResultDonut({ home, draw, away, homeLabel, awayLabel, score, colors }) {
+  const r = 40
+  const C = 2 * Math.PI * r
+  const segs = [
+    { v: home, color: colors?.home || 'var(--gold)' },
+    { v: draw, color: colors?.draw || '#6b7280' },
+    { v: away, color: colors?.away || 'var(--cyan)' },
+  ]
+  let offset = 0
+  return (
+    <div className="result-donut">
+      <svg viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r={r} fill="none" stroke="rgba(255,255,255,0.07)" strokeWidth="11" />
+        {segs.map((s, i) => {
+          const len = Math.max(s.v * C - 2, 0)
+          const el = (
+            <circle
+              key={i}
+              cx="50" cy="50" r={r} fill="none"
+              stroke={s.color} strokeWidth="11" strokeLinecap="round"
+              strokeDasharray={`${len} ${C - len}`}
+              strokeDashoffset={-offset}
+              transform="rotate(-90 50 50)"
+              className="result-donut-seg"
+            />
+          )
+          offset += s.v * C
+          return el
+        })}
+      </svg>
+      <div className="result-donut-center">
+        <span className="result-donut-score">{score}</span>
+      </div>
+    </div>
+  )
+}
+
+function MatchTicker() {
+  const items = [...CL_FIXTURES]
+    .sort((a, b) => fixtureDateTime(a) - fixtureDateTime(b))
+    .slice(0, 14)
+  if (items.length === 0) return null
+  const loop = [...items, ...items]
+  return (
+    <div className="match-ticker">
+      <div className="match-ticker-track">
+        {loop.map((f, i) => (
+          <span className="match-ticker-item" key={`${f.match_id}-${i}`}>
+            <span className="match-ticker-team"><TeamLabel name={f.home_team} /></span>
+            <span className="match-ticker-vs">vs</span>
+            <span className="match-ticker-team"><TeamLabel name={f.away_team} /></span>
+            <span className="match-ticker-date">{f.date.slice(5)}</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function HeroPreviewCard() {
   return (
     <div className="hero-preview card">
-      <div className="hero-preview-badge">AI Prediction</div>
-      <div className="hero-preview-teams">
-        <span className="hero-preview-team">Brazil</span>
-        <span className="hero-preview-vs">vs</span>
-        <span className="hero-preview-team">Argentina</span>
+      <div className="hero-preview-badge">
+        <span className="hero-preview-badge-dot" />
+        AI Prediction
       </div>
-      <div className="hero-preview-score">2 – 1</div>
-      <div className="hero-preview-bars">
-        <ProbabilityBar label="Brazil" value={0.48} color="linear-gradient(90deg,var(--gold),var(--gold-light))" />
-        <ProbabilityBar label="Draw" value={0.24} color="linear-gradient(90deg,#6b7280,#9ca3af)" />
-        <ProbabilityBar label="Argentina" value={0.28} color="linear-gradient(90deg,#ef4444,#f97316)" />
+      <div className="hero-preview-teams">
+        <span className="hero-preview-team"><TeamLabel name="Real Madrid" /></span>
+        <span className="hero-preview-vs">vs</span>
+        <span className="hero-preview-team"><TeamLabel name="Barcelona" /></span>
+      </div>
+      <div className="hero-preview-body">
+        <ResultDonut home={0.48} draw={0.24} away={0.28} score="2–1" />
+        <div className="hero-preview-bars">
+          <ProbabilityBar label="Real Madrid" value={0.48} color="linear-gradient(90deg,var(--gold),var(--gold-light))" />
+          <ProbabilityBar label="Draw" value={0.24} color="linear-gradient(90deg,#6b7280,#9ca3af)" />
+          <ProbabilityBar label="Barcelona" value={0.28} color="linear-gradient(90deg,var(--cyan),var(--cyan-light))" />
+        </div>
       </div>
       <p className="hero-preview-note">
-        "Expect a tight first half — Brazil's pace on the counter breaks the deadlock after 60'."
+        "Expect a tight first half — Real Madrid's pace on the counter breaks the deadlock after 60'."
       </p>
     </div>
   )
@@ -910,10 +1231,10 @@ const FLOW_STEPS = [
     icon: <IconDataPoints />,
     title: 'Data Ingestion',
     description:
-      'Every analysis starts with decades of raw football history — international match ' +
-      'results since the 1990s, full datasets from the 2018 and 2022 World Cups, official FIFA ' +
-      'rankings, current squad market values and recent form for all 48 World Cup 2026 nations.',
-    tags: ['Historical Results', 'FIFA Rankings', 'Market Values', 'Recent Form'],
+      'Every analysis starts with real club football history — multiple seasons of match ' +
+      'results, full league and cup data, and rolling form/goal stats for every club ' +
+      'we cover.',
+    tags: ['Historical Results', 'Head-to-Head', 'Goal Stats', 'Recent Form'],
   },
   {
     icon: <IconFeatures />,
@@ -971,26 +1292,100 @@ const FLOW_STEPS = [
   },
 ]
 
-function AnalysisFlowPage({ onBack }) {
+function FlowStepGraphic({ icon, cyan }) {
+  const particles = [0, 1, 2, 3, 4, 5].map(i => {
+    const angle = (i * 60 * Math.PI) / 180
+    return { cx: 85 + 62 * Math.cos(angle), cy: 85 + 62 * Math.sin(angle), delay: i * 0.28 }
+  })
   return (
-    <section className="card flow-section">
-      <span className="how-eyebrow">Behind the Predictions</span>
-      <h2 className="section-title">How Our AI Analysis Works</h2>
-      <p className="how-intro">
-        From the first raw data point to the final social media post — every World Cup 2026
-        prediction passes through the same seven-stage pipeline. Here's what happens behind the
-        scenes every time a match gets analyzed.
-      </p>
+    <div className={`flow-graphic${cyan ? ' cyan' : ''}`}>
+      <div className="flow-graphic-rings">
+        <span className="flow-ring r1" />
+        <span className="flow-ring r2" />
+        <span className="flow-ring r3" />
+      </div>
+      <svg className="flow-graphic-particles" viewBox="0 0 170 170">
+        {particles.map((p, i) => (
+          <circle key={i} className="flow-particle" cx={p.cx} cy={p.cy} r="3" style={{ animationDelay: `${p.delay}s` }} />
+        ))}
+      </svg>
+      <div className="flow-graphic-core">{icon}</div>
+    </div>
+  )
+}
 
-      <div className="flow-diagram">
-        {FLOW_STEPS.map((step, i) => (
-          <div className="flow-step-wrap" key={step.title}>
-            <div className="flow-step">
-              <div className="flow-step-marker">
-                <span className="flow-step-icon">{step.icon}</span>
-                <span className="flow-step-number">{i + 1}</span>
-              </div>
-              <div className="flow-step-content">
+function AnalysisFlowPage({ onBack }) {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const sectionRefs = useRef([])
+
+  useEffect(() => {
+    const observers = sectionRefs.current.map((el, i) => {
+      if (!el) return null
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              el.classList.add('in-view')
+              setActiveIndex(i)
+            } else {
+              el.classList.remove('in-view')
+            }
+          })
+        },
+        { threshold: 0.4, rootMargin: '-15% 0px -15% 0px' }
+      )
+      obs.observe(el)
+      return obs
+    })
+    return () => observers.forEach(o => o && o.disconnect())
+  }, [])
+
+  const goTo = (i) => {
+    sectionRefs.current[i]?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
+
+  return (
+    <section className="flow-section-scroll">
+      <div className="card flow-scroll-header">
+        <span className="how-eyebrow">Behind the Predictions</span>
+        <h2 className="section-title">How Our AI Analysis Works</h2>
+        <p className="how-intro">
+          From the first raw data point to the final social media post — every prediction passes
+          through the same seven-stage pipeline. Scroll down to follow the data as it moves through
+          each stage.
+        </p>
+        <button className="flow-back-btn" onClick={onBack}>← Back to Predictions</button>
+      </div>
+
+      <div className="flow-scroll-body">
+        <div className="flow-scroll-rail">
+          <div
+            className="flow-scroll-rail-fill"
+            style={{ height: `${(activeIndex / (FLOW_STEPS.length - 1)) * 100}%` }}
+          />
+          {FLOW_STEPS.map((s, i) => (
+            <button
+              key={s.title}
+              className={'flow-rail-dot' + (i === activeIndex ? ' active' : '') + (i < activeIndex ? ' done' : '')}
+              onClick={() => goTo(i)}
+              aria-label={s.title}
+              title={s.title}
+            >
+              {i < activeIndex ? '✓' : i + 1}
+            </button>
+          ))}
+        </div>
+
+        <div className="flow-scroll-steps">
+          {FLOW_STEPS.map((step, i) => (
+            <div
+              className={`flow-scroll-step${i % 2 === 1 ? ' reverse' : ''}`}
+              key={step.title}
+              ref={(el) => { sectionRefs.current[i] = el }}
+            >
+              <FlowStepGraphic icon={step.icon} cyan={i % 2 === 1} />
+              <div className="flow-scroll-text">
+                <span className="flow-scroll-step-num">Stage {i + 1} / {FLOW_STEPS.length}</span>
                 <h3>{step.title}</h3>
                 <p>{step.description}</p>
                 <div className="flow-step-tags">
@@ -1000,14 +1395,13 @@ function AnalysisFlowPage({ onBack }) {
                 </div>
               </div>
             </div>
-            {i < FLOW_STEPS.length - 1 && (
-              <div className="flow-connector"><IconArrowDown /></div>
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
-      <button className="flow-back-btn" onClick={onBack}>← Back to Predictions</button>
+      <button className="flow-nav-btn primary flow-scroll-end-btn" onClick={onBack}>
+        Back to Predictions
+      </button>
     </section>
   )
 }
@@ -1092,20 +1486,41 @@ function AiComparisonPanel({ fixture, result, aiData }) {
   const drawCorrect = actualWinner === 'D'
   const awayCorrect = actualWinner === 'A'
 
-  const HIT = 'linear-gradient(90deg,#16a34a,#4ade80)'
-  const MISS_HOME = 'linear-gradient(90deg,var(--gold),var(--gold-light))'
-  const MISS_DRAW = 'linear-gradient(90deg,#6b7280,#9ca3af)'
-  const MISS_AWAY = 'linear-gradient(90deg,#ef4444,#f97316)'
-
   return (
     <div className="ai-prediction-inner">
       <p className="wm-subtle" style={{ marginBottom: '0.9rem', fontSize: '0.75rem' }}>Pre-match AI prediction</p>
 
       {/* Winner probabilities */}
-      <div className="probabilities">
-        <ProbabilityBar label={<TeamLabel name={aiData.home_team} />} value={aiData.probability_home_win} color={homeCorrect ? HIT : MISS_HOME} />
-        <ProbabilityBar label="Draw" value={aiData.probability_draw} color={drawCorrect ? HIT : MISS_DRAW} />
-        <ProbabilityBar label={<TeamLabel name={aiData.away_team} />} value={aiData.probability_away_win} color={awayCorrect ? HIT : MISS_AWAY} />
+      <div className="probabilities-donut">
+        <ResultDonut
+          home={aiData.probability_home_win}
+          draw={aiData.probability_draw}
+          away={aiData.probability_away_win}
+          score={`${actualHome}-${actualAway}`}
+          colors={{
+            home: homeCorrect ? '#22c55e' : 'var(--gold)',
+            draw: drawCorrect ? '#22c55e' : '#9ca3af',
+            away: awayCorrect ? '#22c55e' : '#f97316',
+          }}
+        />
+        <div className="probabilities-legend">
+          <span className="legend-title">Win Probability</span>
+          <div className="legend-row">
+            <span className={`legend-dot ${homeCorrect ? 'hit' : 'gold'}`} />
+            <span className="legend-name"><TeamLabel name={aiData.home_team} />{homeCorrect ? ' ✓' : ''}</span>
+            <span className="legend-value"><AnimatedNumber value={aiData.probability_home_win * 100} decimals={1} suffix="%" /></span>
+          </div>
+          <div className="legend-row">
+            <span className={`legend-dot ${drawCorrect ? 'hit' : 'gray'}`} />
+            <span className="legend-name">Draw{drawCorrect ? ' ✓' : ''}</span>
+            <span className="legend-value"><AnimatedNumber value={aiData.probability_draw * 100} decimals={1} suffix="%" /></span>
+          </div>
+          <div className="legend-row">
+            <span className={`legend-dot ${awayCorrect ? 'hit' : 'orange'}`} />
+            <span className="legend-name"><TeamLabel name={aiData.away_team} />{awayCorrect ? ' ✓' : ''}</span>
+            <span className="legend-value"><AnimatedNumber value={aiData.probability_away_win * 100} decimals={1} suffix="%" /></span>
+          </div>
+        </div>
       </div>
 
       {/* Top scorelines */}
@@ -1224,7 +1639,14 @@ export default function App() {
   const [predictionsById, setPredictionsById] = useState({})
   const [realResultsMap, setRealResultsMap] = useState({})
   const [wmLoading, setWmLoading] = useState(true)
+  const [activeCompetition, setActiveCompetition] = useState('cl')
   const [activeGroup, setActiveGroup] = useState(GROUPS[0])
+  const currentFixtures = activeCompetition === 'bl' ? BL_FIXTURES : CL_FIXTURES
+  const currentGroups = activeCompetition === 'bl' ? BL_GROUPS : GROUPS
+  const switchCompetition = (comp) => {
+    setActiveCompetition(comp)
+    setActiveGroup(comp === 'bl' ? BL_GROUPS[0] : GROUPS[0])
+  }
   const [analysisStep, setAnalysisStep] = useState({})
   const [bestBets, setBestBets] = useState(null)  // null = not loaded, [] = loaded empty
   const [bestBetsLoading, setBestBetsLoading] = useState(false)
@@ -1335,7 +1757,7 @@ export default function App() {
         ])
         if (listResp.status === 'fulfilled') {
           const ids = (listResp.value.data.match_ids || []).filter(id =>
-            WC2026_FIXTURES.some(f => f.match_id === id)
+            CL_FIXTURES.some(f => f.match_id === id) || BL_FIXTURES.some(f => f.match_id === id)
           )
           const all = await Promise.all(
             ids.map(id => axios.get(`${API_BASE}/predictions/${id}`).then(r => ({ matchId: id, data: r.data })))
@@ -1366,6 +1788,8 @@ export default function App() {
         </div>
       </nav>
 
+      {page === 'home' && <MatchTicker />}
+
       {page === 'home' && (
         <>
           <header className="hero">
@@ -1373,31 +1797,34 @@ export default function App() {
             <div className="hero-grid">
               <div className="hero-content">
                 <div className="hero-top">
-                  <img src={wc2026Logo} alt="FIFA World Cup 2026" className="hero-logo" />
                   <span className="hero-eyebrow">A New Era of Football Intelligence</span>
                 </div>
-                <h1>AI-Powered World Cup 2026 Predictions</h1>
+                <h1>AI-Powered Football Predictions</h1>
                 <p>
-                  A breakthrough AI model — trained on millions of football data points — delivers
-                  instant, in-depth analysis for every World Cup 2026 fixture: match outcomes,
-                  scorelines and full match storylines, generated like never before.
+                  A breakthrough AI model — trained on thousands of club football data points — delivers
+                  instant, in-depth analysis for every fixture: match outcomes, scorelines and full
+                  match storylines, generated like never before.
                 </p>
+                <div className="competition-badge">
+                  <img src="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png" alt="" className="competition-badge-logo" />
+                  <span>Now covering <strong>UEFA Champions League</strong></span>
+                </div>
                 <div className="hero-stats">
                   <div className="hero-stat">
-                    <span className="hero-stat-value">Millions</span>
+                    <span className="hero-stat-value">Thousands</span>
                     <span className="hero-stat-label">Data Points Analyzed</span>
                   </div>
                   <div className="hero-stat">
-                    <span className="hero-stat-value">72</span>
-                    <span className="hero-stat-label">Group Stage Matches</span>
+                    <span className="hero-stat-value">36</span>
+                    <span className="hero-stat-label">League Phase Clubs</span>
                   </div>
                   <div className="hero-stat">
-                    <span className="hero-stat-value">48</span>
-                    <span className="hero-stat-label">Teams</span>
+                    <span className="hero-stat-value">189</span>
+                    <span className="hero-stat-label">League Phase Matches</span>
                   </div>
                   <div className="hero-stat">
-                    <span className="hero-stat-value">12</span>
-                    <span className="hero-stat-label">Groups</span>
+                    <span className="hero-stat-value">1</span>
+                    <span className="hero-stat-label">Trophy</span>
                   </div>
                 </div>
               </div>
@@ -1407,28 +1834,61 @@ export default function App() {
 
           <main className="main">
             <section id="predictions" className="wm-section">
-              <h2 className="section-title">World Cup 2026 — Group Stage</h2>
+              <h2 className="section-title">Predictions</h2>
+
+              <div className="competition-select">
+                <button
+                  className={`competition-pill ${activeCompetition === 'cl' ? 'active' : ''}`}
+                  onClick={() => switchCompetition('cl')}
+                >
+                  <img src="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png" alt="" />
+                  Champions League
+                </button>
+                <button className="competition-pill soon" disabled title="Coming soon">
+                  <span className="competition-pill-emoji">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
+                  Premier League
+                  <span className="competition-pill-soon">Soon</span>
+                </button>
+                <button className="competition-pill soon" disabled title="Coming soon">
+                  <span className="competition-pill-emoji">🇪🇸</span>
+                  La Liga
+                  <span className="competition-pill-soon">Soon</span>
+                </button>
+                <button
+                  className={`competition-pill ${activeCompetition === 'bl' ? 'active' : ''}`}
+                  onClick={() => switchCompetition('bl')}
+                >
+                  <span className="competition-pill-emoji">🇩🇪</span>
+                  Bundesliga
+                </button>
+              </div>
 
               <div className="group-tabs">
-                <button
-                  className={`group-tab special-tab ${activeGroup === 'next' ? 'active' : ''}`}
-                  onClick={() => setActiveGroup('next')}
-                >
-                  📅 Next Games
-                </button>
-                <button
-                  className={`group-tab special-tab ${activeGroup === 'hot' ? 'active' : ''}`}
-                  onClick={() => setActiveGroup('hot')}
-                >
-                  🔥 Hot Game
-                </button>
-                <button
-                  className={`group-tab special-tab ${activeGroup === 'best' ? 'active' : ''}`}
-                  onClick={() => { setActiveGroup('best'); if (bestBets === null && !bestBetsLoading) loadBestBets() }}
-                >
-                  ⭐ Best Bets
-                </button>
-                {GROUPS.map(g => (
+                {activeCompetition === 'cl' && (
+                  <button
+                    className={`group-tab special-tab ${activeGroup === 'next' ? 'active' : ''}`}
+                    onClick={() => setActiveGroup('next')}
+                  >
+                    📅 Next Games
+                  </button>
+                )}
+                {activeCompetition === 'cl' && (
+                  <button
+                    className={`group-tab special-tab ${activeGroup === 'hot' ? 'active' : ''}`}
+                    onClick={() => setActiveGroup('hot')}
+                  >
+                    🔥 Hot Game
+                  </button>
+                )}
+                {activeCompetition === 'cl' && (
+                  <button
+                    className={`group-tab special-tab ${activeGroup === 'best' ? 'active' : ''}`}
+                    onClick={() => { setActiveGroup('best'); if (bestBets === null && !bestBetsLoading) loadBestBets() }}
+                  >
+                    ⭐ Best Bets
+                  </button>
+                )}
+                {currentGroups.map(g => (
                   <button
                     key={g}
                     className={`group-tab ${activeGroup === g ? 'active' : ''}`}
@@ -1439,7 +1899,12 @@ export default function App() {
                 ))}
               </div>
 
-              {wmLoading && <p className="wm-subtle">Loading analyses…</p>}
+              {wmLoading && (
+                <div className="analyzing-status loading-inline">
+                  <span className="analyzing-spinner" />
+                  <span>Loading analyses…</span>
+                </div>
+              )}
 
               {activeGroup === 'next' && NEXT_GAMES.length === 0 && (
                 <p className="wm-subtle">No matches scheduled for today.</p>
@@ -1458,7 +1923,12 @@ export default function App() {
                     <strong> more</strong> than the outcome's real chance — that's your edge. Place them as
                     <strong> single bets</strong> (not one combo slip). Tap any card for the full breakdown.
                   </p>
-                  {bestBetsLoading && <p className="wm-subtle">Scanning the next games…</p>}
+                  {bestBetsLoading && (
+                    <div className="analyzing-status loading-inline">
+                      <span className="analyzing-spinner" />
+                      <span>Scanning the next games…</span>
+                    </div>
+                  )}
                   {!bestBetsLoading && bestBets && bestBets.length === 0 && (
                     <div className="best-bets-empty">
                       <strong>No clear bets right now.</strong> None of the next games offers a reliable edge —
@@ -1505,13 +1975,13 @@ export default function App() {
                 {(() => {
                   if (activeGroup === 'best') return null
                   let fixtures
-                  if (activeGroup === 'next') {
+                  if (activeCompetition === 'cl' && activeGroup === 'next') {
                     fixtures = NEXT_GAMES
-                  } else if (activeGroup === 'hot') {
+                  } else if (activeCompetition === 'cl' && activeGroup === 'hot') {
                     const hotFixture = getHotFixture(predictionsById)
                     fixtures = hotFixture ? [hotFixture] : []
                   } else {
-                    fixtures = WC2026_FIXTURES.filter(f => f.group === activeGroup)
+                    fixtures = currentFixtures.filter(f => f.group === activeGroup)
                   }
                   return fixtures.map(fixture => {
                     const realKey = `${fixture.home_team}__${fixture.away_team}`
@@ -1572,7 +2042,7 @@ export default function App() {
       )}
 
       <footer className="footer">
-        <p>WC 2026 Predictor — AI-generated predictions for entertainment purposes only.</p>
+        <p>Football Insights — AI-generated predictions for entertainment purposes only.</p>
       </footer>
     </div>
   )

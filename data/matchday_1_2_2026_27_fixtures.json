@@ -1,0 +1,146 @@
+[
+  {
+    "matchday": 1,
+    "date": "2026-08-28",
+    "home": "Bayern Munich",
+    "away": "VfB Stuttgart",
+    "home_goals": 5,
+    "away_goals": 1
+  },
+  {
+    "matchday": 1,
+    "date": "2026-08-29",
+    "home": "RB Leipzig",
+    "away": "Borussia Mönchengladbach",
+    "home_goals": 3,
+    "away_goals": 0
+  },
+  {
+    "matchday": 1,
+    "date": "2026-08-29",
+    "home": "1. FSV Mainz 05",
+    "away": "SC Paderborn",
+    "home_goals": 0,
+    "away_goals": 0
+  },
+  {
+    "matchday": 1,
+    "date": "2026-08-29",
+    "home": "Union Berlin",
+    "away": "Eintracht Frankfurt",
+    "home_goals": 3,
+    "away_goals": 3
+  },
+  {
+    "matchday": 1,
+    "date": "2026-08-29",
+    "home": "1. FC Köln",
+    "away": "TSG Hoffenheim",
+    "home_goals": 3,
+    "away_goals": 2
+  },
+  {
+    "matchday": 1,
+    "date": "2026-08-29",
+    "home": "Elversberg",
+    "away": "Bayer Leverkusen",
+    "home_goals": 3,
+    "away_goals": 2
+  },
+  {
+    "matchday": 1,
+    "date": "2026-08-29",
+    "home": "Borussia Dortmund",
+    "away": "Hamburger SV",
+    "home_goals": 2,
+    "away_goals": 0
+  },
+  {
+    "matchday": 1,
+    "date": "2026-08-30",
+    "home": "SC Freiburg",
+    "away": "Werder Bremen",
+    "home_goals": 4,
+    "away_goals": 1
+  },
+  {
+    "matchday": 1,
+    "date": "2026-08-30",
+    "home": "Augsburg",
+    "away": "Schalke 04",
+    "home_goals": 3,
+    "away_goals": 0
+  },
+  {
+    "matchday": 2,
+    "date": "2026-09-04",
+    "home": "VfB Stuttgart",
+    "away": "1. FC Köln",
+    "home_goals": 4,
+    "away_goals": 1
+  },
+  {
+    "matchday": 2,
+    "date": "2026-09-05",
+    "home": "TSG Hoffenheim",
+    "away": "Borussia Dortmund",
+    "home_goals": 2,
+    "away_goals": 3
+  },
+  {
+    "matchday": 2,
+    "date": "2026-09-05",
+    "home": "Bayer Leverkusen",
+    "away": "Union Berlin",
+    "home_goals": 4,
+    "away_goals": 0
+  },
+  {
+    "matchday": 2,
+    "date": "2026-09-05",
+    "home": "Borussia Mönchengladbach",
+    "away": "Elversberg",
+    "home_goals": 3,
+    "away_goals": 4
+  },
+  {
+    "matchday": 2,
+    "date": "2026-09-05",
+    "home": "Werder Bremen",
+    "away": "RB Leipzig",
+    "home_goals": 3,
+    "away_goals": 1
+  },
+  {
+    "matchday": 2,
+    "date": "2026-09-05",
+    "home": "SC Paderborn",
+    "away": "SC Freiburg",
+    "home_goals": 0,
+    "away_goals": 1
+  },
+  {
+    "matchday": 2,
+    "date": "2026-09-05",
+    "home": "Schalke 04",
+    "away": "Bayern Munich",
+    "home_goals": 0,
+    "away_goals": 0
+  },
+  {
+    "matchday": 2,
+    "date": "2026-09-06",
+    "home": "Hamburger SV",
+    "away": "1. FSV Mainz 05",
+    "home_goals": 0,
+    "away_goals": 5
+  },
+  {
+    "matchday": 2,
+    "date": "2026-09-06",
+    "home": "Eintracht Frankfurt",
+    "away": "Augsburg",
+    "home_goals": 1,
+    "away_goals": 4
+  }
+]
