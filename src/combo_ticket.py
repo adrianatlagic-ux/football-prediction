@@ -193,7 +193,7 @@ def match_day(commence_time, tz="Europe/Berlin"):
     return moment.date().isoformat()
 
 
-def day_reports(legs, max_legs=MAX_LEGS, all_days=()):
+def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None):
     """One ticket per calendar day, plus the all-in ticket for comparison.
 
     The "everything eligible" ticket is deliberately computed and returned
@@ -210,14 +210,21 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=()):
     for date in all_days:
         by_day.setdefault(date, [])
 
+    started_by_day = started_by_day or {}
     days = []
     for date in sorted(d for d in by_day if d):
         day_legs = by_day[date]
+        started = started_by_day.get(date, 0)
         tickets = build_tickets(day_legs, max_legs=max_legs)
         all_in = score_ticket(sorted(day_legs, key=lambda l: -l["probability"])) if len(day_legs) >= MIN_LEGS else None
         days.append({
             "date": date,
             "eligible_legs": len(day_legs),
+            # Kicked-off fixtures are excluded on purpose: live prices move
+            # with the score, so a pre-match model cannot be compared to
+            # them. Reported separately so an empty day reads as "too late"
+            # rather than "the model found nothing".
+            "already_started": started,
             "recommended": tickets[0] if tickets else None,
             "alternatives": tickets[1:3],
             # What the user asked for: every qualifying leg of the day in one
@@ -228,6 +235,11 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=()):
             ),
             "legs": sorted(day_legs, key=lambda l: -l["probability"]),
             "reason": None if tickets else (
+                (f"{started} of that day's matches have already kicked off"
+                 + (" and the rest offer nothing worth backing."
+                    if day_legs or started else ".")
+                 + " Live odds move with the score, so started matches are excluded.")
+                if started and len(day_legs) < MIN_LEGS else
                 "No match that day offers a bet worth backing."
                 if not day_legs else
                 f"Only {len(day_legs)} match(es) that day offer a leg worth backing - "
@@ -242,10 +254,16 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=()):
 def combo_report(value_bet_results, max_legs=MAX_LEGS):
     value_bet_results = list(value_bet_results)
     legs = leg_pool(value_bet_results)
-    scheduled_days = {
-        match_day(vb.get("commence_time")) for _, vb in value_bet_results
-        if vb.get("odds_found") and not vb.get("in_play")
-    }
+    scheduled_days, started_by_day = set(), {}
+    for _, vb in value_bet_results:
+        if not vb.get("odds_found"):
+            continue
+        date = match_day(vb.get("commence_time"))
+        if not date:
+            continue
+        scheduled_days.add(date)
+        if vb.get("in_play"):
+            started_by_day[date] = started_by_day.get(date, 0) + 1
     tickets = build_tickets(legs, max_legs=max_legs)
     return {
         "version": "combo_ticket_v2",
@@ -253,7 +271,8 @@ def combo_report(value_bet_results, max_legs=MAX_LEGS):
         "eligible_legs": len(legs),
         "recommended": tickets[0] if tickets else None,
         "alternatives": tickets[1:4],
-        "days": day_reports(legs, max_legs=max_legs, all_days={d for d in scheduled_days if d}),
+        "days": day_reports(legs, max_legs=max_legs, all_days=scheduled_days,
+                            started_by_day=started_by_day),
         "legs_considered": sorted(legs, key=lambda l: -l["probability"]),
         "parameters": {
             "min_leg_probability": MIN_LEG_PROBABILITY,
