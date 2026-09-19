@@ -1,9 +1,10 @@
 from __future__ import annotations
 
 import json
+import math
+import unicodedata
 import os
 import re
-import statistics
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -17,14 +18,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
-from scipy.stats import poisson
 
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.predictor import FootballPredictor
+from src.club_predictor import ClubFootballPredictor as FootballPredictor
 
-MODEL_PATH = Path(os.getenv("MODEL_PATH", "model.joblib"))
+MODEL_PATH = Path(os.getenv("MODEL_PATH", "club_model_verified.joblib"))
 PREDICTIONS_CACHE_DIR = Path(__file__).parent.parent / "data" / "predictions_cache"
 
 app = FastAPI(
@@ -76,6 +76,7 @@ class ScorePrediction(BaseModel):
     probability_away_win: float
     top_scorelines: list[dict]
     betting_markets: dict[str, Any] = {}
+    score_matrix: Optional[list[list[float]]] = None
 
 
 class GameFlow(BaseModel):
@@ -95,6 +96,11 @@ class GameFlow(BaseModel):
 
 
 class PredictResponse(BaseModel):
+    model_config = {"protected_namespaces": ()}
+    model_version: Optional[str] = None
+    generated_at: Optional[str] = None
+    training_end: Optional[str] = None
+    market_value_policy: Optional[str] = None
     home_team: str
     away_team: str
     prediction: str                  # H / D / A
@@ -152,12 +158,15 @@ def predict(req: PredictRequest):
         result = predictor.predict_match(
             req.home_team,
             req.away_team,
-            neutral=req.neutral,
         )
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
     return PredictResponse(
+        model_version=result.get("model_version"),
+        generated_at=result.get("generated_at"),
+        training_end=result.get("training_end"),
+        market_value_policy=result.get("market_value_policy"),
         home_team=result["home_team"],
         away_team=result["away_team"],
         prediction=result["prediction"],
@@ -238,10 +247,22 @@ def _espn_team(name: str) -> str:
 
 
 def _fetch_espn_results() -> list[dict]:
-    url = (
-        "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/"
-        "scoreboard?dates=20260611-20260719&limit=100"
-    )
+    results = []
+    errors = []
+    for league, sport in (("uefa.champions", "soccer_uefa_champs_league"),
+                          ("ger.1", "soccer_germany_bundesliga"),
+                          ("ger.2", "soccer_germany_bundesliga2")):
+        try:
+            results.extend(_fetch_espn_league(league, sport))
+        except Exception as exc:
+            errors.append(exc)
+    if not results and errors:
+        raise errors[0]
+    return results
+
+
+def _fetch_espn_league(league, sport) -> list[dict]:
+    url = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{league}/scoreboard?limit=100"
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
     with urllib.request.urlopen(req, timeout=8) as resp:
         data = json.loads(resp.read())
@@ -290,6 +311,11 @@ def _fetch_espn_results() -> list[dict]:
             })
 
         results.append({
+            "result_event_id": event.get("id"),
+            "sport_key": sport,
+            "commence_time": event.get("date"),
+            # Extra time/penalty outcomes must never settle a 90-minute bet.
+            "score_scope": "regulation" if status.get("name") in ("STATUS_FULL_TIME", "STATUS_FINAL") and comp["status"].get("period") == 2 else "unverified",
             "home_team": home_team,
             "away_team": away_team,
             "home_score": int(home_c.get("score", 0)) if completed else None,
@@ -341,20 +367,18 @@ def real_results():
 # ── Value Betting (The Odds API) ────────────────────────────────────────────
 
 ODDS_API_KEY = os.getenv("ODDS_API_KEY", "")
-# The Odds API charges (regions x markets) credits per call. We request 1
-# region x 3 markets = 3 credits/call. Refreshing once per day keeps usage
-# at ~3 credits/day = ~90/month, far inside the 500/month free quota no
-# matter how much traffic the site gets.
-#
-# Refresh is anchored to a fixed clock time (15:00 UTC = 17:00 CEST) rather
-# than a rolling 24h window, so it's predictable for everyone regardless of
-# when they happen to load the site. 15:00 UTC sits a few hours before the
-# evening kickoff slot (~18:00 UTC / 20:00 German time) - close enough that
-# lineups/team news are mostly priced in, but safely before any match of the
-# day has started.
+# Daily at 15:00 UTC, plus one event-only refresh during its final hour.
+# Requests trigger due work; the GitHub logger is the periodic caller.
+# This is not an exact-time scheduler and its calls consume provider credits.
 ODDS_REFRESH_HOUR_UTC = 15
 _odds_cache: list[dict] = []
-_odds_cache_date: str | None = None  # UTC date (YYYY-MM-DD) of the last successful fetch
+_odds_cache_date: str | None = None
+_odds_cache_fetched_at = 0.0
+_odds_daily_refresh_date = None
+_final_odds_cache = {}
+_final_odds_attempts = {}
+_odds_refresh_lock = threading.Lock()
+ODDS_CACHE_TTL_SECONDS = int(os.getenv("ODDS_CACHE_TTL_SECONDS", "0"))  # 0 retains daily quota policy
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 # Agent picks are computed once per match per day, anchored to the same clock
@@ -397,19 +421,69 @@ def _fetch_odds() -> list[dict]:
     return events
 
 
+def _fetch_event_odds(event):
+    """Refresh only the event's own competition, including Bundesliga."""
+    sport, event_id = event.get("sport_key"), event.get("id")
+    if sport not in ODDS_SPORT_KEYS or not event_id:
+        raise ValueError("Unknown event identity")
+    url = (f"https://api.the-odds-api.com/v4/sports/{sport}/events/{event_id}/odds"
+           f"?apiKey={ODDS_API_KEY}&regions=eu&markets=h2h,totals,spreads&oddsFormat=decimal")
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=8) as resp:
+        fresh = json.loads(resp.read())
+    if any(fresh.get(k) != event.get(k) for k in ("id", "sport_key", "home_team", "away_team", "commence_time")):
+        raise ValueError("Refreshed event identity changed")
+    return fresh
+
+
 def _get_odds() -> list[dict]:
-    global _odds_cache, _odds_cache_date
-    now = datetime.now(timezone.utc)
-    today = now.date().isoformat()
-    due_for_refresh = now.hour >= ODDS_REFRESH_HOUR_UTC and _odds_cache_date != today
-    if not _odds_cache or due_for_refresh:
-        try:
-            _odds_cache = _fetch_odds()
-            _odds_cache_date = today
-        except Exception:
-            if not _odds_cache:
-                raise
-    return _odds_cache
+    from src.bet_audit import timestamp
+    from src.odds_schedule import stamp_event
+    global _odds_cache, _odds_cache_date, _odds_cache_fetched_at, _odds_daily_refresh_date
+    # Serialize provider requests so concurrent page/logger calls cannot issue
+    # duplicate paid refreshes. The final snapshot survives later daily loads.
+    with _odds_refresh_lock:
+        now = datetime.now(timezone.utc)
+        today = now.date().isoformat()
+        due = now.hour >= ODDS_REFRESH_HOUR_UTC and _odds_daily_refresh_date != today
+        ttl_expired = ODDS_CACHE_TTL_SECONDS > 0 and time.time() - _odds_cache_fetched_at >= ODDS_CACHE_TTL_SECONDS
+        if not _odds_cache or due or ttl_expired:
+            try:
+                events = _fetch_odds()
+                fetched = datetime.now(timezone.utc)
+                stage = "daily" if fetched.hour >= ODDS_REFRESH_HOUR_UTC else "initial"
+                _odds_cache = [stamp_event(e, fetched, stage) for e in events]
+                _odds_cache_date = fetched.date().isoformat()
+                _odds_cache_fetched_at = time.time()
+                if stage == "daily":
+                    _odds_daily_refresh_date = fetched.date().isoformat()
+            except Exception:
+                if not _odds_cache:
+                    raise
+        output = []
+        for event in _odds_cache:
+            try:
+                seconds = (timestamp(event["commence_time"]) - datetime.now(timezone.utc)).total_seconds()
+            except (KeyError, ValueError, TypeError):
+                output.append(event)
+                continue
+            key = (event.get("sport_key"), event.get("id"), event["commence_time"])
+            if 0 < seconds <= 3600 and key not in _final_odds_cache:
+                # Failed refreshes retry at most every 15 minutes. They do not
+                # turn an old daily snapshot into a purported final snapshot.
+                previous = _final_odds_attempts.get(key)
+                if previous is None or time.time() - previous >= 900:
+                    _final_odds_attempts[key] = time.time()
+                    try:
+                        fresh = _fetch_event_odds(event)
+                        _final_odds_cache[key] = stamp_event(fresh, datetime.now(timezone.utc), "final")
+                    except Exception:
+                        pass
+            selected = _final_odds_cache.get(key, event)
+            if 0 < seconds <= 3600 and key not in _final_odds_cache:
+                selected = {**selected, "final_refresh_status": "pending_or_failed"}
+            output.append(selected)
+        return output
 
 
 # The Odds API uses different team names than our fixtures for a few
@@ -423,6 +497,8 @@ def _norm_team(name: str) -> str:
     # The Odds API writes "Bosnia & Herzegovina", we write "...and...".
     # Strip "and"/"&" as a standalone joiner so both normalize the same way,
     # without cutting "and" out of names like "Iceland".
+    from scripts.build_club_training_data import _canon
+    name = unicodedata.normalize("NFKD", _canon(name)).encode("ascii", "ignore").decode()
     name = re.sub(r"\band\b", " ", name.lower())
     name = name.replace("&", " ")
     norm = re.sub(r"[^a-z]", "", name)
@@ -431,97 +507,38 @@ def _norm_team(name: str) -> str:
 
 def _find_odds_match(odds: list[dict], home_team: str, away_team: str) -> Optional[dict]:
     h, a = _norm_team(home_team), _norm_team(away_team)
-    for event in odds:
-        eh, ea = _norm_team(event.get("home_team", "")), _norm_team(event.get("away_team", ""))
-        if (h in eh or eh in h) and (a in ea or ea in a):
-            return event
-        if (h in ea or ea in h) and (a in eh or eh in a):
-            return event
-    return None
+    matches = [event for event in odds if h and a
+               and _norm_team(event.get("home_team", "")) == h
+               and _norm_team(event.get("away_team", "")) == a]
+    # Never reuse a home prediction for the reverse leg or choose arbitrarily
+    # between two events with the same teams. An exact event API can be added.
+    return matches[0] if len(matches) == 1 else None
 
 
 def _best_price(event: dict, market_key: str, outcome_name: str, point: Optional[float] = None) -> Optional[dict]:
+    from src.bet_selection import quote_is_fresh
+    from src.bet_audit import timestamp
+    as_of = timestamp(event["odds_fetched_at"]) if event.get("odds_fetched_at") else None
     best = None
     for bm in event.get("bookmakers", []):
         for market in bm.get("markets", []):
             if market.get("key") != market_key:
                 continue
+            if not quote_is_fresh(market.get("last_update") or bm.get("last_update"), as_of):
+                continue
             for outcome in market.get("outcomes", []):
                 if outcome.get("name") != outcome_name:
                     continue
                 if point is not None and outcome.get("point") != point:
                     continue
-                if best is None or outcome["price"] > best["price"]:
-                    best = {"price": outcome["price"], "bookmaker": bm.get("title")}
+                price = outcome.get("price")
+                if not isinstance(price, (int, float)) or not math.isfinite(price) or price <= 1:
+                    continue
+                if best is None or price > best["price"]:
+                    best = {"price": outcome["price"], "bookmaker": bm.get("title"),
+                            "bookmaker_key": bm.get("key") or bm.get("title"),
+                            "last_update": market.get("last_update") or bm.get("last_update")}
     return best
-
-
-def _market_prices(event: dict, market_key: str, outcome_name: str, point: Optional[float] = None) -> list[float]:
-    prices = []
-    for bm in event.get("bookmakers", []):
-        for market in bm.get("markets", []):
-            if market.get("key") != market_key:
-                continue
-            for outcome in market.get("outcomes", []):
-                if outcome.get("name") != outcome_name:
-                    continue
-                if point is not None and outcome.get("point") != point:
-                    continue
-                prices.append(outcome["price"])
-    return prices
-
-
-def _devig(raw_implied_probs: list[float]) -> list[float]:
-    """Remove bookmaker overround so probabilities sum to 1 (true market view)."""
-    total = sum(raw_implied_probs)
-    if total <= 0:
-        return raw_implied_probs
-    return [p / total for p in raw_implied_probs]
-
-
-def _kelly_quarter_stake(prob: float, odds: float) -> float:
-    """Quarter-Kelly recommended stake as a fraction of bankroll (0..1)."""
-    b = odds - 1
-    if b <= 0:
-        return 0.0
-    full_kelly = (prob * odds - 1) / b
-    return max(0.0, min(full_kelly, 1.0)) / 4
-
-
-def _common_spread_points(event: dict) -> dict[str, float]:
-    """Most frequently quoted handicap line per team name across bookmakers."""
-    counts: dict[tuple[str, float], int] = {}
-    for bm in event.get("bookmakers", []):
-        for market in bm.get("markets", []):
-            if market.get("key") != "spreads":
-                continue
-            for outcome in market.get("outcomes", []):
-                key = (outcome.get("name"), outcome.get("point"))
-                counts[key] = counts.get(key, 0) + 1
-    best_per_team: dict[str, tuple[float, int]] = {}
-    for (name, point), count in counts.items():
-        if name not in best_per_team or count > best_per_team[name][1]:
-            best_per_team[name] = (point, count)
-    return {name: point for name, (point, _) in best_per_team.items()}
-
-
-def _handicap_cover_prob(home_xg: float, away_xg: float, team_is_home: bool, point: float, max_goals: int = 8) -> float:
-    """P(team's goal margin + handicap point > 0) from independent Poisson goals.
-
-    Only used for genuine Asian handicap lines (e.g. -1.5, +2.0) where there's
-    no simpler equivalent already computed. Double Chance (+0.5) and Draw No
-    Bet (0.0) are handled separately using the model's own H/D/A probabilities
-    directly - see the call site - since those need no extra computation and
-    must stay numerically consistent with the rest of the prediction.
-    """
-    total = 0.0
-    for h in range(max_goals + 1):
-        ph = poisson.pmf(h, home_xg)
-        for a in range(max_goals + 1):
-            margin = (h - a) if team_is_home else (a - h)
-            if margin + point > 0:
-                total += ph * poisson.pmf(a, away_xg)
-    return total
 
 
 @app.get("/odds")
@@ -542,34 +559,27 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
     # fixed pre-match estimates that don't know any of that. Comparing the two
     # would produce meaningless "edges", so we don't recommend in-play matches.
     commence = event.get("commence_time")
-    if commence:
-        try:
-            kickoff = datetime.fromisoformat(commence.replace("Z", "+00:00"))
-            if datetime.now(timezone.utc) >= kickoff:
-                return {
-                    "home_team": event["home_team"],
-                    "away_team": event["away_team"],
-                    "commence_time": commence,
-                    "odds_found": True,
-                    "in_play": True,
-                    "recommendation": None,
-                    "recommendation_warning": False,
-                    "green_bets": [],
-                    "red_bets": [],
-                    "bets": [],
-                }
-        except ValueError:
-            pass
+    from src.bet_audit import timestamp
+    try:
+        kickoff = timestamp(commence)
+    except (ValueError, TypeError):
+        return {"home_team": home_team, "away_team": away_team, "odds_found": False,
+                "bets": [], "exclusion": "invalid_kickoff"}
+    if datetime.now(timezone.utc) >= kickoff:
+        return {"home_team": home_team, "away_team": away_team, "commence_time": commence,
+                "odds_found": True, "in_play": True, "recommendation": None,
+                "recommendation_warning": False, "green_bets": [], "red_bets": [], "bets": []}
 
-    swapped = _norm_team(event.get("home_team", "")) != _norm_team(home_team) and (
-        _norm_team(event.get("home_team", "")) in _norm_team(away_team)
-        or _norm_team(away_team) in _norm_team(event.get("home_team", ""))
-    )
-
+    from src.odds_schedule import snapshot_context
+    context = snapshot_context(event)
+    if not context["snapshot_valid"]:
+        return {**context, "home_team": home_team, "away_team": away_team,
+                "event_id": event.get("id"), "sport_key": event.get("sport_key"),
+                "commence_time": commence, "odds_found": True, "bets": [],
+                "exclusion": "scheduled_snapshot_expired"}
+    quote_as_of = timestamp(context["odds_fetched_at"])
     candidates = []
-
-    home_outcome_name = event["away_team"] if swapped else event["home_team"]
-    away_outcome_name = event["home_team"] if swapped else event["away_team"]
+    home_outcome_name, away_outcome_name = event["home_team"], event["away_team"]
 
     # If our own model is reasonably confident about who wins (>50%), a 1X2 bet
     # on a *different* outcome (e.g. recommending Draw while we ourselves
@@ -589,21 +599,28 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
         else None
     )
 
+    pricing_prediction = dict(prediction, home_team=home_outcome_name, away_team=away_outcome_name)
+    pricing_exclusions = []
+
     def _add_candidate(market, outcome, team, prob, best, market_prob):
-        prob = float(prob)
-        market_prob = float(market_prob) if market_prob is not None else None
-        ev = prob * best["price"] - 1
+        from src.bet_selection import price_bet, quote_is_fresh, market_evidence
+        bet = {"market": market, "outcome": outcome, "team": team, "best_odds": best["price"]}
+        try:
+            priced = price_bet(bet, pricing_prediction, prob)
+        except (ValueError, KeyError, TypeError) as exc:
+            pricing_exclusions.append({"market": market, "outcome": outcome, "reason": str(exc)})
+            return
+        prob = priced["probability"]
+        binary_market = market == "1X2" or (market.startswith(("Handicap ", "Over/Under ")) and float(market.split()[-1]) % 1 == 0.5)
+        market_prob = float(market_prob) if market_prob is not None and binary_market else None
+        ev = priced["expected_value"]
+        feed_key = "h2h" if market == "1X2" else "totals" if market.startswith("Over/Under") else "spreads"
+        feed_name = (team or "Draw") if feed_key == "h2h" else outcome if feed_key == "totals" else team
+        point = None if feed_key == "h2h" else float(market.split()[-1])
+        reference = market_evidence(event, feed_key, feed_name, point, now=quote_as_of, exclude_book=best.get("bookmaker_key"))
         deviation = abs(prob - market_prob) if market_prob is not None else None
-        # "Double Chance" (Handicap +0.5) is just "this team or draw" - if we
-        # confidently favor the OTHER team to win outright, backing the
-        # opponent's double chance contradicts our own headline just like a
-        # contrary 1X2 bet would (see Ecuador/Germany: we favored Germany at
-        # 57%, but "Ecuador or Draw" was recommended - same inconsistency).
-        #
-        # Over/Under candidates below 60% probability are already filtered out
-        # before they ever reach here (see the over/under loop below), so
-        # there's no separate "contradicts the model's own lean" check needed
-        # for that market anymore.
+        # Retain the legacy contradiction guard as an explicit experimental
+        # filter. It is not statistical proof that an underdog lacks value.
         contradicts_favorite = bool(
             confident_favorite and (
                 (market == "1X2" and outcome != predicted_winner)
@@ -618,8 +635,20 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
             "market_probability": round(market_prob, 4) if market_prob is not None else None,
             "best_odds": best["price"],
             "bookmaker": best["bookmaker"],
+            "bookmaker_key": best.get("bookmaker_key"),
+            "selection_market_reference": reference,
+            "quote_last_update": best.get("last_update"),
+            "model_probability_raw": round(prob, 4),
             "expected_value": round(ev, 4),
-            "kelly_stake_pct": round(_kelly_quarter_stake(prob, best["price"]) * 100, 1),
+            "kelly_stake_pct": round(priced["kelly_stake_pct"], 1),
+            "kelly_stake_pct_raw": priced["kelly_stake_pct"],
+            "push_probability": priced["push_probability"],
+            "loss_probability": priced["loss_probability"],
+            "payout_distribution": priced["payout_distribution"],
+            "pricing_version": priced["pricing_version"],
+            "quote_fresh": quote_is_fresh(best.get("last_update"), quote_as_of),
+            "quote_freshness_basis": "at_snapshot_fetch",
+            "odds_fetched_at": context["odds_fetched_at"],
             "high_deviation": bool(deviation is not None and deviation > 0.15),
             "contradicts_favorite": contradicts_favorite,
         })
@@ -629,46 +658,29 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
         ("draw", "Draw", prediction["probability_draw"]),
         ("away_win", away_outcome_name, prediction["probability_away_win"]),
     ]
-    h2h_median_implied = []
-    for _, outcome_name, _ in h2h_outcomes:
-        prices = _market_prices(event, "h2h", outcome_name)
-        h2h_median_implied.append(1 / statistics.median(prices) if prices else 0.0)
-    h2h_market_probs = _devig(h2h_median_implied) if sum(h2h_median_implied) > 0 else [None] * 3
-
-    for (label, outcome_name, prob), market_prob in zip(h2h_outcomes, h2h_market_probs):
+    from src.bet_selection import market_consensus
+    for label, outcome_name, prob in h2h_outcomes:
+        market_prob = market_consensus(event, "h2h", outcome_name, now=quote_as_of)
         best = _best_price(event, "h2h", outcome_name)
         if best:
             _add_candidate("1X2", label, outcome_name if label != "draw" else None, prob, best, market_prob)
 
     sp = prediction.get("score_prediction", {})
     ou = sp.get("betting_markets", {}).get("over_under", [])
+    if sp.get("score_matrix") is not None:
+        offered_lines = {o["point"] for book in event.get("bookmakers", [])
+                         for m in book.get("markets", []) if m.get("key") == "totals"
+                         for o in m.get("outcomes", []) if isinstance(o.get("point"), (int, float))}
+        ou = [{"line": line, "over": 0.5, "under": 0.5} for line in sorted(offered_lines)]
     for o in ou:
         line = float(o.get("line", 0))
         over_prob = o.get("over")
         under_prob = o.get("under", (1 - over_prob) if over_prob is not None else None)
 
-        over_prices = _market_prices(event, "totals", "Over", point=line)
-        under_prices = _market_prices(event, "totals", "Under", point=line)
-        over_implied = 1 / statistics.median(over_prices) if over_prices else 0.0
-        under_implied = 1 / statistics.median(under_prices) if under_prices else 0.0
-        if over_implied + under_implied > 0:
-            market_over, market_under = _devig([over_implied, under_implied])
-        else:
-            market_over = market_under = None
-
-        for side, prob, market_prob in (("Over", over_prob, market_over), ("Under", under_prob, market_under)):
+        for side, prob in (("Over", over_prob), ("Under", under_prob)):
             if prob is None:
                 continue
-            # A calibration check across all completed WC2026 matches found that
-            # when the model only weakly favors one side of an Over/Under line
-            # (50-60% probability), it's actually right LESS than half the time
-            # (~42%) - worse than a coin flip. That's not a real edge, just
-            # noise dressed up as a lean. Anything below 60% - including the
-            # outright minority side (under 50%, which is even less
-            # justified to back) - isn't reliable enough to offer as a
-            # candidate bet at all.
-            if prob < 0.60:
-                continue
+            market_prob = market_consensus(event, "totals", side, line, now=quote_as_of)
             best = _best_price(event, "totals", side, point=line)
             if best:
                 _add_candidate(f"Over/Under {line}", side, None, prob, best, market_prob)
@@ -676,35 +688,13 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
     home_xg = sp.get("home_xg")
     away_xg = sp.get("away_xg")
     if home_xg is not None and away_xg is not None:
-        spread_points = _common_spread_points(event)
-        for team_name, point in spread_points.items():
-            # Handicap -0.5 = "win by 1+" = a plain win, identical to the 1X2
-            # win bet. Skip it to avoid listing the same outcome twice.
-            if point == -0.5:
-                continue
-            team_is_home = _norm_team(team_name) == _norm_team(home_outcome_name)
-            opponent_name = away_outcome_name if team_is_home else home_outcome_name
-            opponent_point = spread_points.get(opponent_name)
-
-            team_prices = _market_prices(event, "spreads", team_name, point=point)
-            opp_prices = _market_prices(event, "spreads", opponent_name, point=opponent_point) if opponent_point is not None else []
-            team_implied = 1 / statistics.median(team_prices) if team_prices else 0.0
-            opp_implied = 1 / statistics.median(opp_prices) if opp_prices else 0.0
-            market_prob = _devig([team_implied, opp_implied])[0] if (team_implied + opp_implied) > 0 else None
-
-            team_win_prob = prediction["probability_home_win"] if team_is_home else prediction["probability_away_win"]
-            if point == 0.5:
-                # Double Chance ("team or draw") = P(win) + P(draw) - plain
-                # addition of mutually exclusive outcomes, using the model's
-                # own headline probabilities directly rather than a separate
-                # Poisson recomputation that could (and did) disagree with them.
-                prob = team_win_prob + prediction["probability_draw"]
-            elif point == 0.0:
-                # Draw No Bet = P(team wins outright); a draw pushes (handled
-                # in grading), so the draw probability isn't part of this.
-                prob = team_win_prob
-            else:
-                prob = _handicap_cover_prob(home_xg, away_xg, team_is_home, point)
+        spread_points = {(o["name"], o["point"]) for book in event.get("bookmakers", [])
+                         for m in book.get("markets", []) if m.get("key") == "spreads"
+                         for o in m.get("outcomes", []) if isinstance(o.get("point"), (int, float))}
+        for team_name, point in sorted(spread_points):
+            market_prob = market_consensus(event, "spreads", team_name, point, now=quote_as_of)
+            # price_bet derives probabilities from H/D/A or the complete matrix.
+            prob = 0.0
             best = _best_price(event, "spreads", team_name, point=point)
             if best:
                 sign = "+" if point > 0 else ""
@@ -743,7 +733,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
     # as the headline pick while +30%+ edges sat filtered out as suspicious).
     MIN_KELLY_FOR_RECOMMENDATION = 1.0
 
-    clean = [c for c in greens if not c["suspicious"] and c["kelly_stake_pct"] >= MIN_KELLY_FOR_RECOMMENDATION]
+    clean = [c for c in greens if not c["suspicious"] and c["kelly_stake_pct_raw"] >= MIN_KELLY_FOR_RECOMMENDATION and c["quote_fresh"]]
     if clean:
         recommendation, rec_warning = clean[0], False
     elif greens:
@@ -759,11 +749,26 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
         (c for c in candidates if c["market"] == "1X2" and c["outcome"] == predicted_winner), None
     )
 
+    market_favorite = max((c for c in candidates if c["market"] == "1X2" and c.get("quote_fresh") and c.get("market_probability") is not None),
+                          key=lambda c: c["market_probability"], default=None)
+    safest_pick = max((c for c in candidates if c.get("quote_fresh") and c["best_odds"] <= 1.5),
+                      key=lambda c: c["probability"], default=None)
+    for extra in (market_favorite, model_favorite, safest_pick):
+        if extra and extra["expected_value"] <= 0 and extra not in reds:
+            reds.append(extra)
+
     return {
+        **context,
+        "final_refresh_status": event.get("final_refresh_status", "complete" if context["odds_stage"] == "final" else "not_due"),
+        "market_favorite": market_favorite,
+        "safest_pick": safest_pick,
+        "pricing_exclusions": pricing_exclusions,
         "home_team": event["home_team"],
         "away_team": event["away_team"],
         "commence_time": event.get("commence_time"),
         "odds_found": True,
+        "event_id": event.get("id"),
+        "sport_key": event.get("sport_key"),
         "recommendation": recommendation,
         "recommendation_warning": rec_warning,
         "model_favorite": model_favorite,
@@ -777,28 +782,10 @@ def _call_gemini_agent_pick(
     prediction: dict, value_bets: dict, home_team: str, away_team: str,
     previous_eval: Optional[dict] = None,
 ) -> Optional[dict]:
-    """Ask Gemini (with Google Search grounding) to research current context our
-    stats model can't see, and separately evaluate the candidate bets against it.
+    """Research without model numbers or a preferred tip; retain sourced claims.
 
-    Returns two distinct, structured pieces - kept deliberately apart and kept
-    short, since a wall of prose isn't scannable in a UI card:
-    - "research": short factual bullets by category (lineups/injuries, form,
-      table situation, other) - shown in the main analysis section,
-      independent of any betting angle. Empty string for categories with
-      nothing worth reporting.
-    - "bet_headline" / "bet_reasoning" / "bet_points": the betting verdict -
-      a plain-language pick label, one sentence of reasoning, and a couple of
-      short supporting bullets - shown only in the Smart Bet section.
-
-    If `previous_eval` is given (an earlier agent_eval for this same match),
-    the agent is told what it concluded before and asked to explicitly confirm
-    or revise it with a reason - rather than re-researching from a blank slate
-    and potentially flip-flopping for no real reason. This is what lets us
-    safely re-check a match later (e.g. closer to kickoff) without the earlier,
-    possibly-better take silently vanishing without explanation.
-
-    Returns None if the call fails (caller treats that as "no agent opinion",
-    not block the rest of the response).
+    Previous output is used only to label revisions after the independent
+    request, not to anchor the next prompt. Claims are not auto-verified.
     """
     if not GEMINI_API_KEY:
         return None
@@ -808,80 +795,12 @@ def _call_gemini_agent_pick(
     except ImportError:
         return None
 
-    candidates = (value_bets.get("green_bets") or []) + (value_bets.get("red_bets") or [])
+    from src.bet_research import research_prompt, capture_evidence
+    candidates = value_bets.get("bets") or []
     if not candidates:
         return None
-
-    cand_lines = "\n".join(
-        f"- market={c['market']}, outcome={c.get('team') or c['outcome']}, "
-        f"odds={c['best_odds']}, our_probability={c['probability']:.0%}, "
-        f"expected_value={c['expected_value']:+.0%}"
-        for c in candidates
-    )
-    model_rec = value_bets.get("recommendation")
-    model_rec_desc = (
-        f"market={model_rec['market']}, outcome={model_rec.get('team') or model_rec['outcome']}"
-        if model_rec else "none (no clean positive-edge bet found)"
-    )
-
-    previous_block = ""
-    if previous_eval and previous_eval.get("bet_headline"):
-        prev_pick = previous_eval.get("pick")
-        prev_pick_desc = (
-            f"market={prev_pick['market']}, outcome={prev_pick.get('team') or prev_pick['outcome']}"
-            if prev_pick else "none"
-        )
-        previous_block = f"""
-
-YOUR EARLIER ASSESSMENT of this same match (from an earlier check today): \
-pick="{previous_eval['bet_headline']}" ({prev_pick_desc}), reasoning="{previous_eval.get('bet_reasoning', '')}"
-
-You are being asked again now, closer to kickoff, with a chance to search for newer information. \
-Do NOT change your pick just to seem thorough or different - only revise it if you find a CONCRETE, \
-NEW fact (e.g. a confirmed lineup change, injury, or news) that genuinely changes the picture. If \
-nothing material has changed, keep the same pick and say so explicitly in bet_reasoning."""
-
-    prompt = f"""You are researching an upcoming World Cup 2026 match: {home_team} vs {away_team}.
-
-Our statistical model's probabilities: Home win {prediction['probability_home_win']:.0%}, \
-Draw {prediction['probability_draw']:.0%}, Away win {prediction['probability_away_win']:.0%}.
-
-Our system's current top betting recommendation: {model_rec_desc}
-
-All candidate bets currently under consideration:
-{cand_lines}{previous_block}
-
-STEP 1 - RESEARCH (use Google Search). Our stats model only sees historical results, so dig up CURRENT \
-context across as many of these angles as you can actually find information on - don't limit yourself \
-to just one or two:
-- Confirmed/expected lineups, key injuries or suspensions (incl. accumulated yellow cards)
-- Recent form (last 2-3 matches, goals for/against, performance trend)
-- Group table situation: what does each team need from this result, is it a dead rubber, must-win, or \
-already decided?
-- Squad fatigue / travel / rest days since the last match, weather/pitch conditions if notable
-- Coach or player quotes/interviews about tactics, motivation, or team news
-- Head-to-head history or tactical matchup notes if genuinely relevant
-- Any other concrete, current fact you find that could matter
-
-STEP 2 - BETTING VERDICT. Given everything above AND the model's numbers, decide which ONE candidate \
-bet from the list is the safest bet to actually make money on - or none, if nothing looks good. Then \
-write bet_reasoning covering exactly one of these three cases:
-- Your pick matches our system's top recommendation: explain briefly why the research supports it too.
-- Your pick is a DIFFERENT candidate from the list: explain what you found that makes this one better \
-than the top recommendation.
-- None of the candidates look good: say so plainly and explain why (e.g. too unpredictable, conflicting \
-signals, no real edge).
-
-Keep everything SHORT - this renders in a small card, not an article. Respond with ONLY raw JSON, no \
-markdown formatting, no code fences, exactly this shape - everything in English:
-{{"research": {{"lineups_injuries": "<one short sentence, or empty string if nothing found>", \
-"form": "<one short sentence, or empty string>", "table_situation": "<one short sentence, or empty \
-string>", "other": "<one short sentence on anything else notable, or empty string>"}}, \
-"pick_market": "<one of the market strings above, or null>", "pick_outcome": "<matching outcome \
-string, or null>", "bet_headline": "<2-5 words naming the pick in plain language, e.g. 'Over 2.5 \
-goals' or 'Croatia to win' - or 'No good bet' if pick is null>", "bet_reasoning": "<exactly ONE \
-sentence with your verdict>", "bet_points": ["<short supporting fact, max 8 words>", "<short \
-supporting fact, max 8 words>"]}}"""
+    model_rec = value_bets.get("model_favorite")
+    prompt = research_prompt(value_bets, home_team, away_team)
 
     try:
         client = genai.Client(api_key=GEMINI_API_KEY)
@@ -895,6 +814,16 @@ supporting fact, max 8 words>"]}}"""
         text = response.text.strip()
         text = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.MULTILINE).strip()
         parsed = json.loads(text)
+        if not isinstance(parsed, dict):
+            return None
+        source_urls = []
+        for candidate in getattr(response, "candidates", []) or []:
+            grounding = getattr(candidate, "grounding_metadata", None)
+            for chunk in getattr(grounding, "grounding_chunks", []) or []:
+                uri = getattr(getattr(chunk, "web", None), "uri", None)
+                if uri:
+                    source_urls.append(uri)
+        evidence = capture_evidence(parsed, source_urls)
     except Exception:
         return None
 
@@ -936,6 +865,8 @@ supporting fact, max 8 words>"]}}"""
     research = parsed.get("research") or {}
     return {
         "pick": pick,
+        "research_version": "unanchored_club_v1",
+        "evidence": evidence,
         "agrees_with_model": agrees_with_model,
         "revised_from_previous": revised_from_previous,
         "bet_headline": parsed.get("bet_headline") or "",
@@ -990,10 +921,12 @@ def _refresh_agent_picks(odds: list[dict]) -> None:
                     return None
             except ValueError:
                 pass
+        if vb.get("odds_stage") == "final":
+            return None
         agent = _call_gemini_agent_pick(data, vb, home, away)
         if agent is None:
             return None
-        return (_norm_team(home), _norm_team(away)), agent
+        return _agent_key(vb), agent
 
     def _run():
         global _agent_picks_cache, _agent_picks_cache_date, _agent_picks_refresh_in_progress
@@ -1016,8 +949,18 @@ def _refresh_agent_picks(odds: list[dict]) -> None:
     threading.Thread(target=_run, daemon=True).start()
 
 
-def _get_agent_pick(home_team: str, away_team: str) -> Optional[dict]:
-    return _agent_picks_cache.get((_norm_team(home_team), _norm_team(away_team)))
+def _agent_key(vb):
+    return (vb.get("sport_key"), vb.get("event_id"), vb.get("commence_time"),
+            _norm_team(vb.get("home_team", "")), _norm_team(vb.get("away_team", "")))
+
+
+def _get_agent_pick(vb) -> Optional[dict]:
+    from src.bet_selection import same_bet
+    cached = _agent_picks_cache.get(_agent_key(vb))
+    if not cached:
+        return None
+    pick = next((b for b in vb.get("bets", []) if same_bet(b, cached.get("pick"))), None)
+    return {**cached, "pick": pick, "pick_unavailable": bool(cached.get("pick") and pick is None)}
 
 
 def _same_bet(a: Optional[dict], b: Optional[dict]) -> bool:
@@ -1027,67 +970,12 @@ def _same_bet(a: Optional[dict], b: Optional[dict]) -> bool:
 
 
 def _combine_recommendation(vb: dict, agent_eval: Optional[dict]) -> dict:
-    """Combine three independent signals into one verdict, instead of quietly
-    picking whichever one happens to pass a filter:
-    - model_favorite: the model's own most-likely outcome (no edge required)
-    - value_pick: the best clean, above-threshold positive-edge bet (may be None)
-    - agent_pick: the Gemini agent's research-informed pick (may be None)
-
-    When they agree, that's a real (if still unproven) consensus worth
-    surfacing confidently. When they don't, that disagreement is itself
-    useful information - showing one of them as "the" top pick would hide it.
-    """
-    model_fav = vb.get("model_favorite")
-    # A recommendation with a warning means nothing cleared the clean/above-
-    # threshold bar - it's a fallback display, not a real value pick, so it
-    # shouldn't count as a signal here.
-    value_pick = vb.get("recommendation") if not vb.get("recommendation_warning") else None
-    agent_pick = agent_eval.get("pick") if agent_eval else None
-
-    value_agrees_model = _same_bet(value_pick, model_fav)
-    value_agrees_agent = _same_bet(value_pick, agent_pick)
-    model_agrees_agent = _same_bet(model_fav, agent_pick)
-    agreement_count = sum([value_agrees_model, value_agrees_agent, model_agrees_agent])
-
-    if value_pick is not None and (value_agrees_model or value_agrees_agent):
-        consensus_pick = value_pick
-        if value_agrees_model and value_agrees_agent:
-            label = "Value-Edge, von Modell-Favorit UND KI bestätigt"
-        elif value_agrees_model:
-            label = "Value-Edge, vom Modell-Favoriten bestätigt"
-        else:
-            label = "Value-Edge, von der KI bestätigt"
-    elif model_agrees_agent:
-        consensus_pick = model_fav
-        label = "Modell und KI stimmen überein - kein nachgewiesener Markt-Vorteil"
-    else:
-        # Deliberately no fallback to a lone, unconfirmed signal here (e.g. a
-        # thin value edge that neither the model favorite nor the agent
-        # backs) - that's exactly the "Draw at +2.8%/0.2% stake shown as a
-        # confident Top Recommendation" problem this was built to fix.
-        consensus_pick = None
-        label = "keine Übereinstimmung zwischen Modell, Value-Edge und KI"
-
-    return {
-        "model_favorite": model_fav,
-        "value_pick": value_pick,
-        "agent_pick": agent_pick,
-        "consensus_pick": consensus_pick,
-        "consensus_label": label,
-        "agreement_count": agreement_count,
-    }
+    from src.bet_selection import combine
+    return combine(vb, agent_eval)
 
 
-# A second per-match check, exactly in the hour before its own kickoff, so the
-# agent can catch lineup/news that wasn't out yet at the 17:00 pass. A first
-# version of this silently overwrote the earlier pick with a fresh one and, in
-# practice, sometimes made things worse with no way to tell which take to
-# trust. Fixed by feeding the agent its own earlier pick as context (see
-# `previous_eval` in _call_gemini_agent_pick) and explicitly telling it to
-# keep that pick unless it finds a genuinely new, concrete fact - so this is a
-# considered update, not a blind re-roll. Still strictly per-match: each match
-# crosses its own "1h before kickoff" point at a different time, so only the
-# one match currently in that window gets re-evaluated, never all of them.
+# One independent research refresh during the final hour for each event.
+# The earlier opinion is retained only for revision comparison, not the prompt.
 _agent_prekickoff_done: set[tuple[str, str]] = set()
 _agent_prekickoff_in_progress: set[tuple[str, str]] = set()
 PREKICKOFF_WINDOW_HOURS = 1
@@ -1096,14 +984,16 @@ PREKICKOFF_WINDOW_HOURS = 1
 def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
     for data in _get_prediction_index().values():
         home, away = data["home_team"], data["away_team"]
-        key = (_norm_team(home), _norm_team(away))
-        if key in _agent_prekickoff_done or key in _agent_prekickoff_in_progress:
-            continue
         try:
             vb = _compute_value_bets(data, odds, home, away)
         except Exception:
             continue
         if not vb.get("odds_found") or vb.get("in_play"):
+            continue
+        if vb.get("odds_stage") != "final":
+            continue
+        key = _agent_key(vb)
+        if key in _agent_prekickoff_done or key in _agent_prekickoff_in_progress:
             continue
         commence = vb.get("commence_time")
         if not commence:
@@ -1174,7 +1064,7 @@ def value_bets(home_team: str, away_team: str):
         result = _compute_value_bets(prediction, odds, home_team, away_team)
         _refresh_agent_picks(odds)
         _maybe_prekickoff_refresh(odds)
-        agent_eval = _get_agent_pick(home_team, away_team)
+        agent_eval = _get_agent_pick(result)
         result["agent_eval"] = agent_eval
         result["combined"] = _combine_recommendation(result, agent_eval)
         return result
@@ -1212,7 +1102,7 @@ def best_bets():
             continue
         if not vb.get("odds_found") or vb.get("in_play"):
             continue
-        agent_eval = _get_agent_pick(home, away)
+        agent_eval = _get_agent_pick(vb)
         combined = _combine_recommendation(vb, agent_eval)
         if combined["consensus_pick"] is None:
             continue
@@ -1227,6 +1117,66 @@ def best_bets():
 
     out.sort(key=lambda x: x.get("commence_time") or "")
     return {"best_bets": out}
+
+
+@app.get("/combo-ticket")
+def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
+    """Accumulator suggestion built from one leg per upcoming fixture.
+
+    Kept separate from /best-bets because the selection goal is different:
+    /best-bets ranks single bets by edge, while a combination has to survive
+    every leg at once, so it prefers high-probability legs and is scored on
+    Kelly growth rather than raw expected value. See src/combo_ticket.py for
+    why the margin and model error compound.
+    """
+    from src.combo_ticket import combo_report, MAX_LEGS
+
+    try:
+        odds = _get_odds()
+    except Exception as exc:
+        raise HTTPException(status_code=503, detail=f"Odds API unavailable: {exc}")
+
+    max_legs = max(2, min(int(max_legs), MAX_LEGS))
+    pairs = []
+    for data in _get_prediction_index().values():
+        try:
+            vb = _compute_value_bets(data, odds, data["home_team"], data["away_team"])
+        except Exception:
+            continue
+        if competition and vb.get("sport_key") != competition:
+            continue
+        pairs.append((data, vb))
+
+    report = combo_report(pairs, max_legs=max_legs)
+    report["competition"] = competition
+
+    # The combination applies a lighter stress test than the single-bet
+    # selector, so a leg can appear here while that match shows no Game Pick
+    # at all. Say so per leg instead of letting the two views disagree
+    # silently - a ticket built only from legs that failed the strict single
+    # test is exactly the case a user deserves to be warned about.
+    from src.game_pick import assess
+    lookup = {}
+    for _, vb in pairs:
+        for bet in vb.get("bets", []):
+            lookup[(vb.get("event_id"), bet["market"], bet["outcome"], bet.get("team"))] = bet
+
+    def annotate(ticket):
+        if not ticket:
+            return ticket
+        strict = 0
+        for leg in ticket["legs"]:
+            bet = lookup.get((leg.get("event_id"), leg["market"], leg["outcome"], leg.get("team")))
+            passed = bool(bet and assess(bet).get("eligible"))
+            leg["passes_single_bet_test"] = passed
+            strict += passed
+        ticket["legs_passing_single_bet_test"] = strict
+        return ticket
+
+    annotate(report.get("recommended"))
+    for alternative in report.get("alternatives", []):
+        annotate(alternative)
+    return report
 
 
 @app.get("/all-bets")
@@ -1258,8 +1208,17 @@ def all_bets():
             continue
         if not vb.get("odds_found") or vb.get("in_play"):
             continue
-        agent_eval = _get_agent_pick(home, away)
+        agent_eval = _get_agent_pick(vb)
         out.append({
+            "event_id": vb.get("event_id"),
+            "sport_key": vb.get("sport_key"),
+            "selection_policy": "robust_game_pick_v1",
+            **{k: vb.get(k) for k in ("odds_fetched_at", "odds_stage", "snapshot_valid_until", "snapshot_valid", "calculated_at", "quote_basis", "final_refresh_status")},
+            "market_favorite": vb.get("market_favorite"),
+            "pricing_exclusions": vb.get("pricing_exclusions", []),
+            "prediction": data,
+            "bets": vb.get("bets", []),
+            "safest_pick": vb.get("safest_pick"),
             "home_team": vb["home_team"],
             "away_team": vb["away_team"],
             "commence_time": vb.get("commence_time"),

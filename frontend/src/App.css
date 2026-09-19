@@ -2732,3 +2732,151 @@ body {
   max-width: 860px;
   margin: 0 auto;
 }
+
+/* ── Kombi-Ticket ──────────────────────────────────────────────────────── */
+
+.combo-view { margin-bottom: 1.5rem; }
+
+.combo-section-label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+  color: #9ca3af;
+  margin: 1.4rem 0 0.6rem;
+}
+
+.combo-ticket {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.02);
+  padding: 1rem 1.1rem;
+  margin-bottom: 0.9rem;
+}
+
+.combo-ticket.is-primary {
+  border-color: rgba(74,222,128,0.35);
+  background: rgba(74,222,128,0.05);
+}
+
+.combo-ticket-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.combo-ticket-legs {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+  color: #9ca3af;
+}
+
+.combo-ticket-odds {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--gold-light);
+}
+
+.combo-ticket.is-primary .combo-ticket-odds { color: #4ade80; }
+
+.combo-legs { padding: 0.3rem 0; }
+
+.combo-leg {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.7rem;
+  align-items: center;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.combo-leg:last-child { border-bottom: none; }
+
+.combo-leg-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  color: #9ca3af;
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.combo-leg-match { font-size: 0.82rem; color: #e2e8f0; }
+.combo-leg-vs { color: #6b7280; margin: 0 0.15rem; }
+
+.combo-leg-pick {
+  font-size: 0.93rem;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 0.1rem;
+}
+
+.combo-leg-meta {
+  font-size: 0.7rem;
+  color: #6b7280;
+  margin-top: 0.15rem;
+}
+
+.combo-leg-numbers {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.combo-leg-odds { font-size: 1rem; font-weight: 800; color: var(--gold-light); }
+.combo-leg-prob { font-size: 0.7rem; color: #9ca3af; }
+
+.combo-ticket-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.combo-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+
+.combo-stat-label {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+}
+
+.combo-stat-value { font-size: 0.95rem; font-weight: 800; color: #e2e8f0; }
+.combo-stat-value.positive { color: #4ade80; }
+.combo-stat-value.negative { color: #f87171; }
+
+.combo-ticket-note {
+  margin-top: 0.8rem;
+  font-size: 0.74rem;
+  line-height: 1.5;
+  color: #9ca3af;
+}
+
+.combo-alternatives .combo-ticket { opacity: 0.85; }
+
+@media (max-width: 560px) {
+  .combo-ticket-stats { grid-template-columns: repeat(2, 1fr); row-gap: 0.8rem; }
+}
+
+.combo-leg-flag { color: #fbbf24; }
+
+.combo-warning {
+  border: 1px solid rgba(251,191,36,0.3);
+  background: rgba(251,191,36,0.07);
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #fcd34d;
+  margin-bottom: 0.4rem;
+}

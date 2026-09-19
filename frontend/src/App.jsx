@@ -542,6 +542,139 @@ function plainBetPhrase(b) {
   return b.market
 }
 
+function ComboLegRow({ leg, index }) {
+  return (
+    <div className="combo-leg">
+      <span className="combo-leg-num">{index + 1}</span>
+      <div className="combo-leg-body">
+        <div className="combo-leg-match">
+          <TeamLabel name={leg.home_team} /> <span className="combo-leg-vs">vs</span> <TeamLabel name={leg.away_team} />
+        </div>
+        <div className="combo-leg-pick">{plainBetPhrase(leg)}</div>
+        <div className="combo-leg-meta">
+          {marketGroupLabel(leg.market)} · {leg.bookmaker}
+          {leg.passes_single_bet_test === false && (
+            <span className="combo-leg-flag"> · not recommended as a single</span>
+          )}
+        </div>
+      </div>
+      <div className="combo-leg-numbers">
+        <span className="combo-leg-odds">{leg.best_odds.toFixed(2)}</span>
+        <span className="combo-leg-prob">{(leg.probability * 100).toFixed(0)}%</span>
+      </div>
+    </div>
+  )
+}
+
+function ComboTicketCard({ ticket, primary }) {
+  const hit = ticket.probability * 100
+  return (
+    <div className={`combo-ticket ${primary ? 'is-primary' : ''}`}>
+      <div className="combo-ticket-head">
+        <span className="combo-ticket-legs">{ticket.leg_count}-fold</span>
+        <span className="combo-ticket-odds">{ticket.combined_odds.toFixed(2)}</span>
+      </div>
+      <div className="combo-legs">
+        {ticket.legs.map((leg, i) => <ComboLegRow key={i} leg={leg} index={i} />)}
+      </div>
+      <div className="combo-ticket-stats">
+        <div className="combo-stat">
+          <span className="combo-stat-label">Hit chance</span>
+          <span className="combo-stat-value">{hit.toFixed(1)}%</span>
+        </div>
+        <div className="combo-stat">
+          <span className="combo-stat-label">Payout</span>
+          <span className="combo-stat-value">{ticket.combined_odds.toFixed(2)}×</span>
+        </div>
+        <div className="combo-stat">
+          <span className="combo-stat-label">Model EV</span>
+          <span className={`combo-stat-value ${ticket.expected_value >= 0 ? 'positive' : 'negative'}`}>
+            {ticket.expected_value >= 0 ? '+' : ''}{(ticket.expected_value * 100).toFixed(0)}%
+          </span>
+        </div>
+        <div className="combo-stat">
+          <span className="combo-stat-label">Stake</span>
+          <span className="combo-stat-value">{ticket.stake_pct.toFixed(1)}%</span>
+        </div>
+      </div>
+      {primary && (
+        <p className="combo-ticket-note">
+          After a fixed 3-point safety haircut on every leg, the expected value is still
+          <strong> {(ticket.stressed_expected_value * 100).toFixed(0)}%</strong>
+          {' '}(hit chance {(ticket.stressed_probability * 100).toFixed(1)}%).
+          {ticket.margin_cost != null && (
+            <> The bookmaker prices this combo at {(ticket.market_probability * 100).toFixed(1)}% —
+            the {(ticket.margin_cost * 100).toFixed(1)} point gap is the margin compounded across
+            every leg.</>
+          )}
+        </p>
+      )}
+    </div>
+  )
+}
+
+function ComboTicketView({ combo, loading }) {
+  if (loading) {
+    return (
+      <div className="analyzing-status loading-inline">
+        <span className="analyzing-spinner" />
+        <span>Building combinations…</span>
+      </div>
+    )
+  }
+  if (!combo) return null
+  if (combo.error) {
+    return <p className="wm-subtle">Combo suggestion unavailable right now (no current odds).</p>
+  }
+
+  return (
+    <div className="combo-view">
+      <p className="best-bets-intro">
+        A combo only pays if <strong>every</strong> leg wins. That's why at most one bet per match is
+        used — only independent legs may have their probabilities multiplied — and why safer picks are
+        preferred over the biggest odds. The bookmaker's margin compounds with every added leg, which
+        makes combos structurally worse value than singles.
+      </p>
+
+      {!combo.recommended && (
+        <p className="smart-bet-notip">
+          <strong>No combo ticket today.</strong><br />
+          {combo.reason}
+        </p>
+      )}
+
+      {combo.recommended?.legs_passing_single_bet_test === 0 && (
+        <p className="combo-warning">
+          ⚠ None of these matches has a Game Pick in its own analysis — that view applies a stricter
+          test. This ticket therefore rests on bets that would <strong>not</strong> be recommended on their own.
+        </p>
+      )}
+
+      {combo.recommended && (
+        <>
+          <span className="combo-section-label">Suggested</span>
+          <ComboTicketCard ticket={combo.recommended} primary />
+          {combo.alternatives?.length > 0 && (
+            <>
+              <span className="combo-section-label">Alternatives</span>
+              <div className="combo-alternatives">
+                {combo.alternatives.map((t, i) => <ComboTicketCard key={i} ticket={t} />)}
+              </div>
+            </>
+          )}
+        </>
+      )}
+
+      <p className="smart-bet-finePrint">
+        Ranked by Kelly growth rather than raw expected value — otherwise the longest ticket with the
+        slimmest chance of landing would always win. Only combinations that stay positive after the
+        safety haircut are offered. This is an experimental model, not evidence that combo betting pays.
+        Only stake money you can afford to lose. 18+.
+      </p>
+    </div>
+  )
+}
+
 function SmartBetCard({ betStep, betInfo, data }) {
   const analyzing = betStep < BET_STEPS.length
   if (analyzing) {
@@ -582,6 +715,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
   const agentPick = agentEval && agentEval.pick
   const combined = betInfo.combined
   const consensusPick = combined && combined.consensus_pick
+  const selectionCheck = consensusPick?.selection_assessment
   const modelFavorite = betInfo.model_favorite
   const safestPick = betInfo.safest_pick
   const scenarioText = data?.score_prediction?.betting_markets?.scenario
@@ -613,26 +747,45 @@ function SmartBetCard({ betStep, betInfo, data }) {
         <span className={`smart-bet-col-edge ${b.expected_value >= 0 ? 'positive' : 'negative'}`}>
           {b.expected_value >= 0 ? '+' : ''}{(b.expected_value * 100).toFixed(0)}%
         </span>
-        <span className="smart-bet-col-stake">{b.kelly_stake_pct}%</span>
+        <span className="smart-bet-col-stake">{isGamePick && selectionCheck ? `${selectionCheck.paper_stake_pct.toFixed(2)}% paper` : `${b.kelly_stake_pct}% Kelly`}</span>
       </div>
     )
   }
 
   return (
     <div className="wm-reveal smart-bet-card">
+      {betInfo.odds_fetched_at && (
+        <p className="smart-bet-finePrint">
+          {betInfo.odds_stage === 'final' ? 'Final pre-match snapshot' : 'Daily odds snapshot'}:{' '}
+          <time dateTime={betInfo.odds_fetched_at}>
+            {new Date(betInfo.odds_fetched_at).toLocaleString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' })}
+          </time>. Prices are from this snapshot, not live.
+          {betInfo.final_refresh_status === 'pending_or_failed' && ' Final odds refresh is pending or unavailable; this is the earlier snapshot.'}
+          {betInfo.calculated_at && <> Calculated at {new Date(betInfo.calculated_at).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' })}.</>}
+        </p>
+      )}
       {consensusPick ? (
-        <div className={`smart-bet-best ${combined.agreement_count === 0 ? 'is-warning' : ''}`}>
+        <div className="smart-bet-best">
           <span className="smart-bet-label">Game Pick</span>
           <div className="smart-bet-pick">{betOutcomeLabel(consensusPick)}</div>
           <div className="smart-bet-odds-row">
             <span className="smart-bet-odds">{consensusPick.best_odds.toFixed(2)}</span>
             {consensusPick.market_probability != null && (
               <span className="smart-bet-winprob">
-                {(consensusPick.market_probability * 100).toFixed(0)}% win chance
+                {(consensusPick.market_probability * 100).toFixed(0)}% market estimate
               </span>
             )}
           </div>
-          <div className="smart-bet-best-meta">at {consensusPick.bookmaker}</div>
+          <div className="smart-bet-best-meta">at {consensusPick.bookmaker} · Experimental selection</div>
+          {selectionCheck && (
+            <p className="smart-bet-agent-text">
+              Estimated return after the fixed stress tests: <strong>{(selectionCheck.stressed_expected_value * 100).toFixed(1)}%</strong> per unit staked.
+              {' '}Minimum qualifying odds: <strong>{selectionCheck.min_acceptable_odds.toFixed(2)}</strong>.
+              {' '}Compared with {selectionCheck.reference_book_count} other bookmakers.
+              {' '}Paper stake: {selectionCheck.paper_stake_pct.toFixed(2)}% of the test budget.
+              {' '}These checks are assumptions, not a statistical confidence interval or proof of profit.
+            </p>
+          )}
           <div className="smart-bet-agree-row">
             <span className={`smart-bet-agree-chip ${combined.model_agrees ? 'yes' : 'no'}`}>
               {combined.model_agrees ? '◆ Model agrees ✓' : '◆ Model differs ✕'}
@@ -645,7 +798,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
       ) : (
         <p className="smart-bet-notip">
           <strong>No clear tip for this match.</strong><br />
-          The market doesn't have a clear favorite here — better to sit this one out. Odds below for comparison.
+          {combined?.selection?.reason || 'No eligible bet is available for this snapshot.'}
         </p>
       )}
 
@@ -655,8 +808,8 @@ function SmartBetCard({ betStep, betInfo, data }) {
             <span>Market</span>
             <span>Tip</span>
             <span>Odds</span>
-            <span>Edge</span>
-            <span>Stake</span>
+            <span>Model EV</span>
+            <span>Sizing</span>
           </div>
           {greens.map((b, i) => renderRow(b, i, 'green'))}
           {reds.map((b, i) => renderRow(b, i, 'red'))}
@@ -684,9 +837,8 @@ function SmartBetCard({ betStep, betInfo, data }) {
           </div>
           <p className="smart-bet-agent-text">
             {best.market_probability != null ? (
-              <>We rate this at <strong className="smart-bet-highlight-green">{(best.probability * 100).toFixed(0)}%</strong> (our model pulled partway toward the market to correct for its
-              overconfidence), while {best.bookmaker}'s odds of <strong className="smart-bet-highlight-green">{best.best_odds.toFixed(2)}</strong> imply {(best.market_probability * 100).toFixed(0)}% —
-              that remaining {Math.round((best.probability - best.market_probability) * 100)} percentage-point gap is the edge.</>
+              <>We rate this at <strong className="smart-bet-highlight-green">{(best.probability * 100).toFixed(0)}%</strong> model probability of a positive payout. The available odds are <strong className="smart-bet-highlight-green">{best.best_odds.toFixed(2)}</strong>; the margin-adjusted market estimate is {(best.market_probability * 100).toFixed(0)}%.
+              The model estimates a <strong className="smart-bet-highlight-green">{(best.expected_value * 100).toFixed(1)}%</strong> return per unit staked. This is an estimate, not proven profit.</>
             ) : (
               <>We rate this at <strong className="smart-bet-highlight-green">{(best.probability * 100).toFixed(0)}%</strong> at odds of <strong className="smart-bet-highlight-green">{best.best_odds.toFixed(2)}</strong> from {best.bookmaker}, with no
               reliable market comparison available for this one.</>
@@ -700,8 +852,8 @@ function SmartBetCard({ betStep, betInfo, data }) {
           </div>
           <p className="smart-bet-agent-text">
             {recWarning
-              ? 'The best positive-edge candidate today has a Kelly stake under 1% - too thin to count as a real value bet, so we are not recommending it.'
-              : 'No bet in this match has a positive edge over the market today.'}
+              ? 'No candidate passed all value filters: minimum stake, model–market disagreement and the edge ceiling.'
+              : 'No eligible positive-edge bet with a recent quote is available.'}
           </p>
         </div>
       )}
@@ -726,9 +878,8 @@ function SmartBetCard({ betStep, betInfo, data }) {
             <span className="smart-bet-signal-headline">🛡 Safest Bet: {betOutcomeLabel(safestPick)}</span>
           </div>
           <p className="smart-bet-agent-text">
-            At odds of <strong className="smart-bet-highlight-red">{safestPick.best_odds.toFixed(2)}</strong> from {safestPick.bookmaker}, this is the <strong className="smart-bet-highlight-red">lowest-risk pick</strong> across every market
-            we checked for this match — the model gives it a <strong className="smart-bet-highlight-red">{(safestPick.probability * 100).toFixed(0)}%</strong> chance, and the bookmaker's own
-            short odds mean they rate it as <strong className="smart-bet-highlight-red">close to a sure thing</strong> too.
+            At odds of <strong className="smart-bet-highlight-red">{safestPick.best_odds.toFixed(2)}</strong> from {safestPick.bookmaker}, this is the <strong className="smart-bet-highlight-red">highest model probability of a positive payout</strong> among available bets at odds of 1.50 or below.
+            The model estimates a <strong className="smart-bet-highlight-red">{(safestPick.probability * 100).toFixed(0)}%</strong> chance. Short odds do not guarantee safety or a positive return.
           </p>
         </div>
       ) : (
@@ -739,16 +890,15 @@ function SmartBetCard({ betStep, betInfo, data }) {
           <p className="smart-bet-agent-text">
             No outcome in this match is priced at 1.50 odds or below
             {modelFavorite && <> — even the model's favorite, {betOutcomeLabel(modelFavorite)}, sits at {modelFavorite.best_odds.toFixed(2)}</>} —
-            so nothing here is safe enough to clear our bar today.
+            so none meets this display filter.
           </p>
         </div>
       )}
 
       <div className="smart-bet-finePrint">
-        <p><strong>★</strong> top pick by edge. <strong>✨</strong> AI agent's own pick after live research. <strong>◆</strong> model's
+        <p>Game Pick uses the experimental stress checks. Its paper sizing is capped at 1%; other rows show raw model Kelly for comparison. <strong>★</strong> value-filter pick. <strong>✨</strong> AI agent's own pick after live research. <strong>◆</strong> model's
         most likely outcome (no proven market edge required). <strong>🛡</strong> safest pick across all markets (highest
-        model probability among bets priced at odds 1.50 or below, confirming the market also sees it
-        as near-certain).</p>
+        model probability among bets priced at odds 1.50 or below; this does not establish safety or profit).</p>
 
       {[...greens, ...reds].some(b => b.market.startsWith('Handicap')) && (
         <p>
@@ -1650,6 +1800,25 @@ export default function App() {
   const [analysisStep, setAnalysisStep] = useState({})
   const [bestBets, setBestBets] = useState(null)  // null = not loaded, [] = loaded empty
   const [bestBetsLoading, setBestBetsLoading] = useState(false)
+  const [combo, setCombo] = useState(null)
+  const [comboLoading, setComboLoading] = useState(false)
+
+  const COMPETITION_SPORT_KEYS = { bl: 'soccer_germany_bundesliga', cl: 'soccer_uefa_champs_league' }
+
+  async function loadCombo(comp) {
+    setComboLoading(true)
+    setCombo(null)
+    try {
+      const r = await axios.get(`${API_BASE}/combo-ticket`, {
+        params: { competition: COMPETITION_SPORT_KEYS[comp] },
+      })
+      setCombo(r.data)
+    } catch {
+      setCombo({ error: true })
+    } finally {
+      setComboLoading(false)
+    }
+  }
 
   async function loadBestBets() {
     setBestBetsLoading(true)
@@ -1888,6 +2057,12 @@ export default function App() {
                     ⭐ Best Bets
                   </button>
                 )}
+                <button
+                  className={`group-tab special-tab ${activeGroup === 'combo' ? 'active' : ''}`}
+                  onClick={() => { setActiveGroup('combo'); loadCombo(activeCompetition) }}
+                >
+                  🎟️ Combo Ticket
+                </button>
                 {currentGroups.map(g => (
                   <button
                     key={g}
@@ -1954,7 +2129,7 @@ export default function App() {
                             <div className="best-bet-card-stats">
                               <span><span className="bb-stat-label">Odds</span> {r.best_odds.toFixed(2)}</span>
                               <span><span className="bb-stat-label">Edge</span> <span className={r.expected_value >= 0 ? 'positive' : 'negative'}>{r.expected_value >= 0 ? '+' : ''}{(r.expected_value * 100).toFixed(0)}%</span></span>
-                              {r.expected_value > 0 && <span><span className="bb-stat-label">Stake</span> {r.kelly_stake_pct}% of budget</span>}
+                              {r.selection_assessment && <span><span className="bb-stat-label">Paper stake</span> {r.selection_assessment.paper_stake_pct.toFixed(2)}% of test budget</span>}
                             </div>
                             <div className="best-bet-card-consensus">{b.consensusLabel}</div>
                             {b.agentEval && (
@@ -1971,9 +2146,13 @@ export default function App() {
                 </div>
               )}
 
+              {activeGroup === 'combo' && (
+                <ComboTicketView combo={combo} loading={comboLoading} />
+              )}
+
               <div className="fixtures-list">
                 {(() => {
-                  if (activeGroup === 'best') return null
+                  if (activeGroup === 'best' || activeGroup === 'combo') return null
                   let fixtures
                   if (activeCompetition === 'cl' && activeGroup === 'next') {
                     fixtures = NEXT_GAMES
