@@ -268,10 +268,14 @@ def predict_scorelines(
     rho: float | None = None,
     target_result_probs: tuple[float, float, float] | None = None,
     is_knockout: bool = False,
+    club_mode: bool = False,
+    rating_context: tuple | None = None,
 ) -> dict:
-    league_avg = float(df_history[["home_goals", "away_goals"]].mean().mean())
-
-    ratings = _compute_team_ratings(df_history)
+    if rating_context is None:
+        league_avg = float(df_history[["home_goals", "away_goals"]].mean().mean())
+        ratings = _compute_team_ratings(df_history)
+    else:
+        league_avg, ratings = rating_context
     home_attack, home_defense = ratings.get(home_team, (1.0, 1.0))
     away_attack, away_defense = ratings.get(away_team, (1.0, 1.0))
 
@@ -279,7 +283,7 @@ def predict_scorelines(
     away_xg = away_attack * home_defense * league_avg
 
     # Rebalance xG towards the stronger team based on FIFA ranking points
-    home_factor, away_factor = _rank_adjustment_factors(home_team, away_team)
+    home_factor, away_factor = (1.0, 1.0) if club_mode else _rank_adjustment_factors(home_team, away_team)
     home_xg *= home_factor
     away_xg *= away_factor
 
@@ -292,7 +296,7 @@ def predict_scorelines(
     # We don't have a calibrated knockout-specific factor, so default to no
     # adjustment (1.0) rather than guess one - safer than carrying over a
     # number known to be wrong for this stage.
-    if not is_knockout:
+    if not club_mode and not is_knockout:
         home_xg *= 1.15
         away_xg *= 1.15
 
@@ -302,11 +306,9 @@ def predict_scorelines(
 
     # Dixon-Coles corrected probability matrix
     rows = MAX_GOALS + 1
-    matrix = np.zeros((rows, rows))
-    for h in range(rows):
-        for a in range(rows):
-            tau = _tau(h, a, home_xg, away_xg, rho)
-            matrix[h, a] = poisson.pmf(h, home_xg) * poisson.pmf(a, away_xg) * tau
+    matrix = np.outer(poisson.pmf(np.arange(rows), home_xg), poisson.pmf(np.arange(rows), away_xg))
+    for h, a in ((0, 0), (1, 0), (0, 1), (1, 1)):
+        matrix[h, a] *= _tau(h, a, home_xg, away_xg, rho)
 
     matrix = np.clip(matrix, 0, None)
     matrix /= matrix.sum()
@@ -358,4 +360,5 @@ def predict_scorelines(
         "top_scorelines": scorelines,
         "betting_markets": betting_markets,
         "_all_scorelines": all_scorelines,
+        "score_matrix": matrix.tolist(),
     }

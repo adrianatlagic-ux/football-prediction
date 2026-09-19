@@ -1,10 +1,7 @@
-name: Log Champions League bets
+name: Log club tips and results
 
-# Runs independently of any chat session, so the bet log stays complete even
-# when nobody is actively working on the repo. log_bets.py only logs a match
-# once it's within 30 minutes of kickoff (see FIRST_LOG_WINDOW_HOURS in the
-# script), so a 15-minute interval is frequent enough to catch every match
-# without ever missing its window.
+# Append snapshots within 24h before kickoff. Scheduled runs can be delayed;
+# missing games are not backfilled with hindsight predictions or live odds.
 on:
   schedule:
     - cron: "7,22,37,52 * * * *"
@@ -12,6 +9,10 @@ on:
 
 permissions:
   contents: write
+
+concurrency:
+  group: club-tip-logging
+  cancel-in-progress: false
 
 jobs:
   log:
@@ -24,12 +25,17 @@ jobs:
           python-version: "3.11"
 
       - name: Log current bets
-        run: python3 scripts/log_bets.py --api https://football-prediction.fly.dev
+        run: python3 scripts/log_club_bets.py --api https://football-prediction.fly.dev
+
+      - name: Evaluate recorded pre-match tips
+        if: always()
+        run: python3 scripts/audit_club_bets.py
 
       - name: Commit if the log changed
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/bet_log.jsonl
-          git diff --cached --quiet || git commit -m "Log Champions League bets [skip ci]"
+          git add data/club_bet_snapshots.jsonl data/club_results.jsonl data/club_bet_performance.json
+          git diff --cached --quiet || git commit -m "Log club tips and results [skip ci]"
           git push

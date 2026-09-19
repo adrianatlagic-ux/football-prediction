@@ -1,0 +1,437 @@
+{
+  "selected": "verified_only/monthly/raw",
+  "results": [
+    {
+      "season": "2021-22",
+      "competition": "bundesliga",
+      "strategy": "lagged_season/frozen/calibrated",
+      "n": 306,
+      "accuracy": 0.5098039215686274,
+      "log_loss": 1.0059365959354998,
+      "brier": 0.5992481066349786
+    },
+    {
+      "season": "2021-22",
+      "competition": "bundesliga",
+      "strategy": "lagged_season/frozen/raw",
+      "n": 306,
+      "accuracy": 0.5098039215686274,
+      "log_loss": 1.006380857285677,
+      "brier": 0.5990071092490112
+    },
+    {
+      "season": "2021-22",
+      "competition": "bundesliga",
+      "strategy": "verified_only/frozen/calibrated",
+      "n": 306,
+      "accuracy": 0.5032679738562091,
+      "log_loss": 1.017750950954722,
+      "brier": 0.6081747435734343
+    },
+    {
+      "season": "2021-22",
+      "competition": "bundesliga",
+      "strategy": "verified_only/frozen/raw",
+      "n": 306,
+      "accuracy": 0.5032679738562091,
+      "log_loss": 1.0168997946728884,
+      "brier": 0.6072789274006881
+    },
+    {
+      "season": "2021-22",
+      "competition": "bundesliga",
+      "strategy": "verified_only/monthly/calibrated",
+      "n": 306,
+      "accuracy": 0.4869281045751634,
+      "log_loss": 1.0271273361918896,
+      "brier": 0.6130480844415903
+    },
+    {
+      "season": "2021-22",
+      "competition": "bundesliga",
+      "strategy": "verified_only/monthly/raw",
+      "n": 306,
+      "accuracy": 0.4869281045751634,
+      "log_loss": 1.0256585137045466,
+      "brier": 0.6120535501994112
+    },
+    {
+      "season": "2021-22",
+      "competition": "champions_league",
+      "strategy": "lagged_season/frozen/calibrated",
+      "n": 125,
+      "accuracy": 0.536,
+      "log_loss": 0.9743958244404325,
+      "brier": 0.5813995045975784
+    },
+    {
+      "season": "2021-22",
+      "competition": "champions_league",
+      "strategy": "lagged_season/frozen/raw",
+      "n": 125,
+      "accuracy": 0.536,
+      "log_loss": 0.9673735605498291,
+      "brier": 0.5772543627776195
+    },
+    {
+      "season": "2021-22",
+      "competition": "champions_league",
+      "strategy": "verified_only/frozen/calibrated",
+      "n": 125,
+      "accuracy": 0.552,
+      "log_loss": 0.96338443216752,
+      "brier": 0.5737422180778752
+    },
+    {
+      "season": "2021-22",
+      "competition": "champions_league",
+      "strategy": "verified_only/frozen/raw",
+      "n": 125,
+      "accuracy": 0.552,
+      "log_loss": 0.9590460671951221,
+      "brier": 0.5711052577096617
+    },
+    {
+      "season": "2021-22",
+      "competition": "champions_league",
+      "strategy": "verified_only/monthly/calibrated",
+      "n": 125,
+      "accuracy": 0.56,
+      "log_loss": 0.9671701079833472,
+      "brier": 0.5757701512032614
+    },
+    {
+      "season": "2021-22",
+      "competition": "champions_league",
+      "strategy": "verified_only/monthly/raw",
+      "n": 125,
+      "accuracy": 0.56,
+      "log_loss": 0.9607408660144,
+      "brier": 0.5720921477958771
+    },
+    {
+      "season": "2022-23",
+      "competition": "bundesliga",
+      "strategy": "lagged_season/frozen/calibrated",
+      "n": 306,
+      "accuracy": 0.5392156862745098,
+      "log_loss": 1.0141525152054758,
+      "brier": 0.6066116431541082
+    },
+    {
+      "season": "2022-23",
+      "competition": "bundesliga",
+      "strategy": "lagged_season/frozen/raw",
+      "n": 306,
+      "accuracy": 0.5392156862745098,
+      "log_loss": 1.0140292610880055,
+      "brier": 0.6065982368729173
+    },
+    {
+      "season": "2022-23",
+      "competition": "bundesliga",
+      "strategy": "verified_only/frozen/calibrated",
+      "n": 306,
+      "accuracy": 0.5261437908496732,
+      "log_loss": 1.017095497466756,
+      "brier": 0.606604070047183
+    },
+    {
+      "season": "2022-23",
+      "competition": "bundesliga",
+      "strategy": "verified_only/frozen/raw",
+      "n": 306,
+      "accuracy": 0.5261437908496732,
+      "log_loss": 1.0173380014349576,
+      "brier": 0.6071997376738688
+    },
+    {
+      "season": "2022-23",
+      "competition": "bundesliga",
+      "strategy": "verified_only/monthly/calibrated",
+      "n": 306,
+      "accuracy": 0.5228758169934641,
+      "log_loss": 1.0151115943359095,
+      "brier": 0.6060873095106025
+    },
+    {
+      "season": "2022-23",
+      "competition": "bundesliga",
+      "strategy": "verified_only/monthly/raw",
+      "n": 306,
+      "accuracy": 0.5228758169934641,
+      "log_loss": 1.0115307025234888,
+      "brier": 0.6041440029561762
+    },
+    {
+      "season": "2022-23",
+      "competition": "champions_league",
+      "strategy": "lagged_season/frozen/calibrated",
+      "n": 125,
+      "accuracy": 0.584,
+      "log_loss": 0.9386676226849755,
+      "brier": 0.551438664701283
+    },
+    {
+      "season": "2022-23",
+      "competition": "champions_league",
+      "strategy": "lagged_season/frozen/raw",
+      "n": 125,
+      "accuracy": 0.584,
+      "log_loss": 0.9401612823766279,
+      "brier": 0.5526142613153049
+    },
+    {
+      "season": "2022-23",
+      "competition": "champions_league",
+      "strategy": "verified_only/frozen/calibrated",
+      "n": 125,
+      "accuracy": 0.6,
+      "log_loss": 0.9269230065602049,
+      "brier": 0.5444106266420599
+    },
+    {
+      "season": "2022-23",
+      "competition": "champions_league",
+      "strategy": "verified_only/frozen/raw",
+      "n": 125,
+      "accuracy": 0.6,
+      "log_loss": 0.9308119809664621,
+      "brier": 0.5472505043578019
+    },
+    {
+      "season": "2022-23",
+      "competition": "champions_league",
+      "strategy": "verified_only/monthly/calibrated",
+      "n": 125,
+      "accuracy": 0.576,
+      "log_loss": 0.9218990689951894,
+      "brier": 0.5410587612703879
+    },
+    {
+      "season": "2022-23",
+      "competition": "champions_league",
+      "strategy": "verified_only/monthly/raw",
+      "n": 125,
+      "accuracy": 0.576,
+      "log_loss": 0.9252415360270436,
+      "brier": 0.5436263986620676
+    },
+    {
+      "season": "2023-24",
+      "competition": "bundesliga",
+      "strategy": "lagged_season/frozen/calibrated",
+      "n": 306,
+      "accuracy": 0.5098039215686274,
+      "log_loss": 0.9882764327353337,
+      "brier": 0.5874939461749253
+    },
+    {
+      "season": "2023-24",
+      "competition": "bundesliga",
+      "strategy": "lagged_season/frozen/raw",
+      "n": 306,
+      "accuracy": 0.5098039215686274,
+      "log_loss": 0.9888628221587844,
+      "brier": 0.5879332458414526
+    },
+    {
+      "season": "2023-24",
+      "competition": "bundesliga",
+      "strategy": "verified_only/frozen/calibrated",
+      "n": 306,
+      "accuracy": 0.5392156862745098,
+      "log_loss": 0.9882200318262545,
+      "brier": 0.5865117167038417
+    },
+    {
+      "season": "2023-24",
+      "competition": "bundesliga",
+      "strategy": "verified_only/frozen/raw",
+      "n": 306,
+      "accuracy": 0.5392156862745098,
+      "log_loss": 0.9896956953276302,
+      "brier": 0.5876967480897722
+    },
+    {
+      "season": "2023-24",
+      "competition": "bundesliga",
+      "strategy": "verified_only/monthly/calibrated",
+      "n": 306,
+      "accuracy": 0.5392156862745098,
+      "log_loss": 0.9871291302917103,
+      "brier": 0.5838506153563325
+    },
+    {
+      "season": "2023-24",
+      "competition": "bundesliga",
+      "strategy": "verified_only/monthly/raw",
+      "n": 306,
+      "accuracy": 0.5392156862745098,
+      "log_loss": 0.9873669985487936,
+      "brier": 0.5855397754045205
+    },
+    {
+      "season": "2023-24",
+      "competition": "champions_league",
+      "strategy": "lagged_season/frozen/calibrated",
+      "n": 125,
+      "accuracy": 0.504,
+      "log_loss": 0.9986319097149858,
+      "brier": 0.5953305309708049
+    },
+    {
+      "season": "2023-24",
+      "competition": "champions_league",
+      "strategy": "lagged_season/frozen/raw",
+      "n": 125,
+      "accuracy": 0.504,
+      "log_loss": 0.9983986799944107,
+      "brier": 0.5951921628066867
+    },
+    {
+      "season": "2023-24",
+      "competition": "champions_league",
+      "strategy": "verified_only/frozen/calibrated",
+      "n": 125,
+      "accuracy": 0.488,
+      "log_loss": 0.9979572293139308,
+      "brier": 0.5945728563956473
+    },
+    {
+      "season": "2023-24",
+      "competition": "champions_league",
+      "strategy": "verified_only/frozen/raw",
+      "n": 125,
+      "accuracy": 0.488,
+      "log_loss": 0.9977364127919937,
+      "brier": 0.5944964345550705
+    },
+    {
+      "season": "2023-24",
+      "competition": "champions_league",
+      "strategy": "verified_only/monthly/calibrated",
+      "n": 125,
+      "accuracy": 0.528,
+      "log_loss": 0.9990277226714104,
+      "brier": 0.5940601023316423
+    },
+    {
+      "season": "2023-24",
+      "competition": "champions_league",
+      "strategy": "verified_only/monthly/raw",
+      "n": 125,
+      "accuracy": 0.528,
+      "log_loss": 0.992559858441461,
+      "brier": 0.5907888141782578
+    },
+    {
+      "season": "2025-26",
+      "competition": "bundesliga",
+      "strategy": "lagged_season/frozen/calibrated",
+      "n": 306,
+      "accuracy": 0.545751633986928,
+      "log_loss": 0.9734548630321244,
+      "brier": 0.5764900124429283
+    },
+    {
+      "season": "2025-26",
+      "competition": "bundesliga",
+      "strategy": "lagged_season/frozen/raw",
+      "n": 306,
+      "accuracy": 0.545751633986928,
+      "log_loss": 0.9741328033919542,
+      "brier": 0.5770644210055055
+    },
+    {
+      "season": "2025-26",
+      "competition": "bundesliga",
+      "strategy": "verified_only/frozen/calibrated",
+      "n": 306,
+      "accuracy": 0.5392156862745098,
+      "log_loss": 0.9869963455433876,
+      "brier": 0.5869995144133461
+    },
+    {
+      "season": "2025-26",
+      "competition": "bundesliga",
+      "strategy": "verified_only/frozen/raw",
+      "n": 306,
+      "accuracy": 0.5392156862745098,
+      "log_loss": 0.9876169896175745,
+      "brier": 0.587476404683264
+    },
+    {
+      "season": "2025-26",
+      "competition": "bundesliga",
+      "strategy": "verified_only/monthly/calibrated",
+      "n": 306,
+      "accuracy": 0.5359477124183006,
+      "log_loss": 0.9893709424051704,
+      "brier": 0.5876091946444364
+    },
+    {
+      "season": "2025-26",
+      "competition": "bundesliga",
+      "strategy": "verified_only/monthly/raw",
+      "n": 306,
+      "accuracy": 0.5359477124183006,
+      "log_loss": 0.9866326013316395,
+      "brier": 0.5862284220941003
+    },
+    {
+      "season": "2025-26",
+      "competition": "champions_league",
+      "strategy": "lagged_season/frozen/calibrated",
+      "n": 189,
+      "accuracy": 0.5343915343915344,
+      "log_loss": 0.976756368752992,
+      "brier": 0.5824424837861092
+    },
+    {
+      "season": "2025-26",
+      "competition": "champions_league",
+      "strategy": "lagged_season/frozen/raw",
+      "n": 189,
+      "accuracy": 0.5343915343915344,
+      "log_loss": 0.9775032457484347,
+      "brier": 0.5828451871635397
+    },
+    {
+      "season": "2025-26",
+      "competition": "champions_league",
+      "strategy": "verified_only/frozen/calibrated",
+      "n": 189,
+      "accuracy": 0.5238095238095238,
+      "log_loss": 0.9815262777480086,
+      "brier": 0.584684848753765
+    },
+    {
+      "season": "2025-26",
+      "competition": "champions_league",
+      "strategy": "verified_only/frozen/raw",
+      "n": 189,
+      "accuracy": 0.5238095238095238,
+      "log_loss": 0.9822532722532011,
+      "brier": 0.5851396370743508
+    },
+    {
+      "season": "2025-26",
+      "competition": "champions_league",
+      "strategy": "verified_only/monthly/calibrated",
+      "n": 189,
+      "accuracy": 0.5132275132275133,
+      "log_loss": 0.9826256851078446,
+      "brier": 0.5845729474024612
+    },
+    {
+      "season": "2025-26",
+      "competition": "champions_league",
+      "strategy": "verified_only/monthly/raw",
+      "n": 189,
+      "accuracy": 0.5132275132275133,
+      "log_loss": 0.9777559837546231,
+      "brier": 0.5819697438287561
+    }
+  ]
+}

@@ -6,7 +6,6 @@ import numpy as np
 from pathlib import Path
 
 from .club_data_loader import load_completed_matches
-from .club_feature_engineering import build_features, build_prediction_row, get_feature_columns, encode_result
 from .poisson_model import predict_scorelines
 from .game_flow import predict_game_flow
 from .models.ensemble_model import EnsemblePredictor
@@ -15,26 +14,12 @@ from .evaluation import evaluate
 
 RESULT_LABELS = {"H": "Home Win", "D": "Draw", "A": "Away Win"}
 
-# Empirically tuned via scripts/tune_club_blend.py. Re-tuned to 30% after
-# adding squad market value as a feature (src/club_market_values.py) - that
-# feature alone pushed classifier accuracy up (49.1% -> 52.3%) but made it
-# more overconfident (log-loss got worse), so the optimal Poisson share
-# dropped from 40% to 30% to pull the probabilities back down to calibrated
-# levels. Re-tune again any time the feature set changes - the optimal split
-# isn't a fixed property of the model, it depends on what else is already
-# informing the classifier.
+# Fixed starting weight. Historical same-test tuning is not proof of optimality.
 POISSON_BLEND = 0.30
 
 
 def _build_ensemble() -> EnsemblePredictor:
-    # RF + XGBoost + CatBoost, equal weight. Added after a walk-forward
-    # Bundesliga ablation (2025/26 season, 306 matches) showed CatBoost adds
-    # a real edge on top of dated market value alone (accuracy/log-loss/
-    # Brier all improved vs. RF+XGBoost-only), and that combination was the
-    # best of everything tested - better than adding Elo too, and clearly
-    # better than the full V2 stacking/calibration pipeline. See
-    # scripts/eval_v1_ablation_season.py and data/season_2025_26_*.json for
-    # the comparison data behind this choice.
+    # Retain the existing equal-weight recipe; no profitable edge established.
     model = EnsemblePredictor()
     model.predictors.append(CatBoostPredictor())
     model.weights = [1 / 3, 1 / 3, 1 / 3]
@@ -60,31 +45,45 @@ class ClubFootballPredictor:
         self._feature_cols: list[str] = []
         self._trained = False
         self._history: pd.DataFrame | None = None
+        self.schema_version = 3
+        self.bundle = None
+        self.calibrated = True
 
         if model_path and Path(model_path).exists():
             self.load(model_path)
 
-    def train(self, test_size: float = 0.2) -> dict:
-        history = load_completed_matches()
-        history["result"] = history.apply(
-            lambda r: encode_result(r["home_goals"], r["away_goals"]), axis=1
-        )
-        self._history = history
+    def train(self, test_size: float = 0.2, data_path=None) -> dict:
+        from .club_features_v3 import prepare_history, build_features as dated_features
+        from .club_backtest import CalibratedClubModel, poisson_for_dates, ORDER
+        if not 0 < test_size < 1:
+            raise ValueError("test_size must be between 0 and 1")
+        raw = load_completed_matches() if data_path is None else pd.read_csv(data_path).rename(columns={"home_score": "home_goals", "away_score": "away_goals"})
+        history = prepare_history(raw)
+        X = dated_features(history)
+        dates = sorted(history.date.unique())
+        cutoff = pd.Timestamp(dates[int(len(dates) * (1 - test_size))])
+        test = history[history.date >= cutoff]
+        start = cutoff - pd.Timedelta(days=730)
+        scores = poisson_for_dates(history, history[history.date >= start])
+        pp = np.full((len(history), 3), np.nan)
+        for idx, s in scores.items():
+            pp[idx] = [s[k] for k in ("probability_home_win", "probability_draw", "probability_away_win")]
+        tested = CalibratedClubModel().fit(history, X, cutoff, pp)
+        _, p = tested.predict(X.loc[test.index], pp[test.index])
+        metrics = evaluate(test.result, ORDER[p.argmax(axis=1)], p)
+        final = CalibratedClubModel().fit(history, X, history.date.max() + pd.Timedelta(days=1), pp)
+        self.use_verified_bundle(history, final)
+        return metrics
 
-        print(f"Training auf {len(history):,} Klub-Spielen...")
-        features = build_features(history)
-        self._feature_cols = get_feature_columns(features)
-
-        split = int(len(features) * (1 - test_size))
-        train, test = features.iloc[:split], features.iloc[split:]
-
-        sample_weight = self._compute_sample_weights(history.iloc[:split])
-        self.model.fit(train[self._feature_cols], train["result"], sample_weight=sample_weight)
+    def use_verified_bundle(self, history, bundle, calibrated=True):
+        self.bundle = bundle
+        self.model = bundle.model
+        self._history = history.copy()
+        self._feature_cols = bundle.feature_columns
+        self.calibrated = calibrated
+        self.schema_version = 3
         self._trained = True
-
-        y_pred = self.model.predict(test[self._feature_cols])
-        y_proba = self.model.predict_proba(test[self._feature_cols])
-        return evaluate(test["result"], y_pred, y_proba)
+        return self
 
     def _compute_sample_weights(self, df: pd.DataFrame) -> np.ndarray:
         # Simple recency decay only - no tournament-tier weighting like the WC
@@ -102,25 +101,35 @@ class ClubFootballPredictor:
         weights = np.exp(-np.log(2) / half_life_days * days_ago)
         return weights / weights.mean()
 
-    def predict_match(self, home_team: str, away_team: str, is_knockout: bool = False) -> dict:
+    def predict_match(self, home_team: str, away_team: str, is_knockout: bool = False, as_of=None) -> dict:
         if not self._trained:
             raise RuntimeError("Model not trained. Call .train() first.")
 
-        X = build_prediction_row(self._history, home_team, away_team)
+        if self.schema_version != 3 or self.bundle is None:
+            raise RuntimeError("Legacy club artifact: retrain with verified features before making new predictions")
+        from .club_features_v3 import prediction_row
+        from .club_backtest import rating_context
+        as_of = pd.Timestamp(as_of or pd.Timestamp.now()).normalize()
+        if as_of <= pd.Timestamp(self.bundle.metadata["training_end"]):
+            raise ValueError("Historical prediction requires a model trained strictly before this date")
+        past = self._history[self._history.date < as_of]
+        X = prediction_row(past, home_team, away_team, as_of)
         for col in self._feature_cols:
             if col not in X.columns:
                 X[col] = 0.0
         X = X[self._feature_cols]
 
-        clf_proba = self.model.predict_proba(X)[0]
-        poisson_pre = predict_scorelines(self._history, home_team, away_team, is_knockout=is_knockout)
+        context = rating_context(past)
+        poisson_pre = predict_scorelines(past, home_team, away_team, is_knockout=is_knockout,
+                                         club_mode=True, rating_context=context)
         poi_proba = [
             poisson_pre["probability_home_win"],
             poisson_pre["probability_draw"],
             poisson_pre["probability_away_win"],
         ]
 
-        blended = [(1 - POISSON_BLEND) * c + POISSON_BLEND * p for c, p in zip(clf_proba, poi_proba)]
+        raw, calibrated = self.bundle.predict(X, np.array([poi_proba]))
+        blended = (calibrated if self.calibrated else raw)[0]
         total = sum(blended) or 1.0
         blended = [b / total for b in blended]
 
@@ -130,11 +139,14 @@ class ClubFootballPredictor:
         explanation = self._explain(home_team, away_team, X)
         target_result_probs = (prob_home, prob_draw, prob_away)
         score_pred = predict_scorelines(
-            self._history, home_team, away_team,
+            past, home_team, away_team,
             target_result_probs=target_result_probs,
             is_knockout=is_knockout,
+            club_mode=True, rating_context=context,
         )
-        self._align_score_prediction(score_pred, prediction)
+        # Most likely exact score need not have the same outcome as the
+        # largest H/D/A aggregate. Keep the actual distribution's maximum.
+        score_pred.pop("_all_scorelines", None)
         flow = predict_game_flow(
             score_pred["home_xg"], score_pred["away_xg"],
             home_team, away_team,
@@ -152,6 +164,10 @@ class ClubFootballPredictor:
             "score_prediction": score_pred,
             "game_flow": flow,
             "explanation": explanation,
+            "model_version": "club_verified_v3",
+            "generated_at": pd.Timestamp.now(tz="UTC").isoformat(),
+            "training_end": self.bundle.metadata["training_end"],
+            "market_value_policy": "verified_only",
         }
 
     def _align_score_prediction(self, score_pred: dict, ensemble_result: str, top_n: int = 5) -> None:
@@ -202,6 +218,9 @@ class ClubFootballPredictor:
             "model": self.model,
             "feature_cols": self._feature_cols,
             "history": self._history,
+            "schema_version": self.schema_version,
+            "bundle": self.bundle,
+            "calibrated": self.calibrated,
         }, path)
 
     def load(self, path: str | Path) -> None:
@@ -209,4 +228,7 @@ class ClubFootballPredictor:
         self.model = payload["model"]
         self._feature_cols = payload["feature_cols"]
         self._history = payload.get("history")
+        self.schema_version = payload.get("schema_version", 1)
+        self.bundle = payload.get("bundle")
+        self.calibrated = payload.get("calibrated", True)
         self._trained = True

@@ -158,12 +158,12 @@ def _goal_stats(past: pd.DataFrame, team: str, prefix: str) -> dict:
     scored = pd.concat([
         past.loc[home_mask, "home_goals"],
         past.loc[away_mask, "away_goals"],
-    ]).tail(FORM_WINDOW)
+    ]).sort_index().tail(FORM_WINDOW)
 
     conceded = pd.concat([
         past.loc[home_mask, "away_goals"],
         past.loc[away_mask, "home_goals"],
-    ]).tail(FORM_WINDOW)
+    ]).sort_index().tail(FORM_WINDOW)
 
     if scored.empty:
         return {

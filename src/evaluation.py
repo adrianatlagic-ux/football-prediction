@@ -13,7 +13,9 @@ def evaluate(y_true: pd.Series, y_pred: np.ndarray, y_proba: np.ndarray | None =
         "confusion_matrix": confusion_matrix(y_true, y_pred, labels=["H", "D", "A"]).tolist(),
     }
     if y_proba is not None:
-        metrics["log_loss"] = round(log_loss(y_true, y_proba, labels=["H", "D", "A"]), 4)
+        encoded = np.array([{"H": 0, "D": 1, "A": 2}[v] for v in y_true])
+        metrics["log_loss"] = round(log_loss(encoded, y_proba, labels=[0, 1, 2]), 4)
+        metrics["brier_score"] = round(float(np.mean(np.sum((np.asarray(y_proba) - np.eye(3)[encoded]) ** 2, axis=1))), 4)
     return metrics
 
 
