@@ -650,20 +650,44 @@ function ComboTicketView({ combo, loading }) {
         </p>
       )}
 
-      {combo.recommended && (
-        <>
-          <span className="combo-section-label">Suggested</span>
-          <ComboTicketCard ticket={combo.recommended} primary />
-          {combo.alternatives?.length > 0 && (
+      {combo.days?.map(day => (
+        <div className="combo-day" key={day.date}>
+          <span className="combo-section-label">
+            {new Date(day.date + 'T12:00:00').toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'short' })}
+            {' · '}{day.eligible_legs} eligible {day.eligible_legs === 1 ? 'match' : 'matches'}
+          </span>
+
+          {!day.recommended && <p className="smart-bet-notip">{day.reason}</p>}
+
+          {day.recommended && (
             <>
-              <span className="combo-section-label">Alternatives</span>
-              <div className="combo-alternatives">
-                {combo.alternatives.map((t, i) => <ComboTicketCard key={i} ticket={t} />)}
-              </div>
+              <ComboTicketCard ticket={day.recommended} primary />
+
+              {day.all_in && day.all_in.leg_count > day.recommended.leg_count && (
+                <div className="combo-allin">
+                  <span className="combo-allin-label">
+                    All {day.all_in.leg_count} eligible matches on one slip
+                  </span>
+                  <div className="combo-allin-row">
+                    <span>Odds <strong>{day.all_in.combined_odds.toFixed(2)}</strong></span>
+                    <span>Hit chance <strong>{(day.all_in.probability * 100).toFixed(1)}%</strong></span>
+                    <span>Model EV <strong className={day.all_in.expected_value >= 0 ? 'positive' : 'negative'}>
+                      {day.all_in.expected_value >= 0 ? '+' : ''}{(day.all_in.expected_value * 100).toFixed(0)}%
+                    </strong></span>
+                  </div>
+                  <p className="combo-allin-note">
+                    {day.all_in_is_worse
+                      ? <>Higher expected value, but it only lands {(day.all_in.probability * 100).toFixed(1)}% of
+                        the time versus {(day.recommended.probability * 100).toFixed(1)}% above — worse for growing a
+                        bankroll, which is why it is not the suggestion.</>
+                      : <>Shown for comparison. More legs always means a lower chance of the slip landing.</>}
+                  </p>
+                </div>
+              )}
             </>
           )}
-        </>
-      )}
+        </div>
+      ))}
 
       <p className="smart-bet-finePrint">
         Ranked by Kelly growth rather than raw expected value — otherwise the longest ticket with the

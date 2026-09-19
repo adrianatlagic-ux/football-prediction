@@ -95,3 +95,38 @@ def test_market_probability_only_when_every_leg_has_one():
                             leg("C", "D", 0.8, 1.5, market_prob=None)])
     assert partial["market_probability"] is None
     assert partial["margin_cost"] is None
+
+
+def test_days_are_split_by_local_kickoff_date():
+    from src.combo_ticket import match_day
+    # 20:30 CEST Saturday is Sunday in UTC terms only if naively converted.
+    assert match_day("2026-09-19T18:30:00Z") == "2026-09-19"
+    assert match_day("2026-09-20T13:30:00Z") == "2026-09-20"
+    assert match_day(None) is None
+    assert match_day("not-a-time") is None
+
+
+def test_day_report_keeps_all_in_ticket_separate_from_the_suggestion():
+    from src.combo_ticket import day_reports
+    same_day = [leg("A", "B", 0.80, 1.45), leg("C", "D", 0.78, 1.50), leg("E", "F", 0.76, 1.55)]
+    days = day_reports(same_day)
+    assert len(days) == 1
+    day = days[0]
+    assert day["eligible_legs"] == 3
+    # Every eligible leg is on the all-in slip, whatever the suggestion is.
+    assert day["all_in"]["leg_count"] == 3
+    # The all-in slip must never land more often than a shorter one.
+    assert day["all_in"]["probability"] <= day["recommended"]["probability"]
+
+
+def test_days_are_reported_separately():
+    from src.combo_ticket import day_reports
+    mixed = [
+        {**leg("A", "B", 0.80, 1.45), "commence_time": "2026-09-19T13:30:00Z"},
+        {**leg("C", "D", 0.78, 1.50), "commence_time": "2026-09-19T16:30:00Z"},
+        {**leg("E", "F", 0.76, 1.55), "commence_time": "2026-09-20T13:30:00Z"},
+    ]
+    days = day_reports(mixed)
+    assert [d["date"] for d in days] == ["2026-09-19", "2026-09-20"]
+    # A single-match day cannot form a combination and must say why.
+    assert days[1]["recommended"] is None and days[1]["reason"]

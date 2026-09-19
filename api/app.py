@@ -1176,6 +1176,11 @@ def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
     annotate(report.get("recommended"))
     for alternative in report.get("alternatives", []):
         annotate(alternative)
+    for day in report.get("days", []):
+        annotate(day.get("recommended"))
+        annotate(day.get("all_in"))
+        for alternative in day.get("alternatives", []):
+            annotate(alternative)
     return report
 
 

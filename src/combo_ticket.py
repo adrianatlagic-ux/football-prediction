@@ -28,6 +28,7 @@ None of this establishes that accumulators are profitable. They are offered
 because they were requested; the scoring is designed to be honest about the
 cost rather than to make the product look good.
 """
+from datetime import datetime
 from itertools import combinations
 
 # A leg below this model probability drags the whole ticket's hit rate down
@@ -172,15 +173,87 @@ def build_tickets(legs, min_legs=MIN_LEGS, max_legs=MAX_LEGS, pool_size=7):
     return tickets
 
 
+def match_day(commence_time, tz="Europe/Berlin"):
+    """Local calendar day of the kickoff, so a slip covers one day's games.
+
+    Grouping by UTC date would split a 20:30 CEST Saturday kickoff onto the
+    wrong day for a German user placing one slip before Saturday's games.
+    """
+    if not commence_time:
+        return None
+    try:
+        moment = datetime.fromisoformat(str(commence_time).replace("Z", "+00:00"))
+    except (ValueError, TypeError):
+        return None
+    try:
+        from zoneinfo import ZoneInfo
+        moment = moment.astimezone(ZoneInfo(tz))
+    except Exception:
+        pass
+    return moment.date().isoformat()
+
+
+def day_reports(legs, max_legs=MAX_LEGS, all_days=()):
+    """One ticket per calendar day, plus the all-in ticket for comparison.
+
+    The "everything eligible" ticket is deliberately computed and returned
+    even when it is the worse bet. Adding every positive-edge leg raises the
+    combined expected value while collapsing the hit rate, and showing both
+    side by side is the only way that trade-off is visible instead of being
+    an invisible consequence of how many matches happen to qualify.
+    """
+    by_day = {}
+    for leg in legs:
+        by_day.setdefault(match_day(leg.get("commence_time")), []).append(leg)
+    # A matchday with nothing worth backing still gets a row. Dropping it
+    # entirely looks like the day is missing rather than deliberately empty.
+    for date in all_days:
+        by_day.setdefault(date, [])
+
+    days = []
+    for date in sorted(d for d in by_day if d):
+        day_legs = by_day[date]
+        tickets = build_tickets(day_legs, max_legs=max_legs)
+        all_in = score_ticket(sorted(day_legs, key=lambda l: -l["probability"])) if len(day_legs) >= MIN_LEGS else None
+        days.append({
+            "date": date,
+            "eligible_legs": len(day_legs),
+            "recommended": tickets[0] if tickets else None,
+            "alternatives": tickets[1:3],
+            # What the user asked for: every qualifying leg of the day in one
+            # slip. Kept as a comparison, not as the default suggestion.
+            "all_in": all_in,
+            "all_in_is_worse": bool(
+                all_in and tickets and all_in["kelly_fraction"] < tickets[0]["kelly_fraction"]
+            ),
+            "legs": sorted(day_legs, key=lambda l: -l["probability"]),
+            "reason": None if tickets else (
+                "No match that day offers a bet worth backing."
+                if not day_legs else
+                f"Only {len(day_legs)} match(es) that day offer a leg worth backing - "
+                f"a combination needs at least {MIN_LEGS}."
+                if len(day_legs) < MIN_LEGS else
+                "No combination for that day keeps a positive edge once each leg is stressed."
+            ),
+        })
+    return days
+
+
 def combo_report(value_bet_results, max_legs=MAX_LEGS):
+    value_bet_results = list(value_bet_results)
     legs = leg_pool(value_bet_results)
+    scheduled_days = {
+        match_day(vb.get("commence_time")) for _, vb in value_bet_results
+        if vb.get("odds_found") and not vb.get("in_play")
+    }
     tickets = build_tickets(legs, max_legs=max_legs)
     return {
-        "version": "combo_ticket_v1",
+        "version": "combo_ticket_v2",
         "experimental": True,
         "eligible_legs": len(legs),
         "recommended": tickets[0] if tickets else None,
         "alternatives": tickets[1:4],
+        "days": day_reports(legs, max_legs=max_legs, all_days={d for d in scheduled_days if d}),
         "legs_considered": sorted(legs, key=lambda l: -l["probability"]),
         "parameters": {
             "min_leg_probability": MIN_LEG_PROBABILITY,
@@ -198,6 +271,9 @@ def combo_report(value_bet_results, max_legs=MAX_LEGS):
         "interpretation": (
             "Legs come from different matches so their probabilities can be multiplied. "
             "The bookmaker margin and any model overconfidence both compound with every "
-            "added leg. Experimental, not proven profitable."
+            "added leg. Putting every qualifying leg on one slip raises expected value "
+            "but lowers the chance of the slip landing at all; for independent bets, "
+            "staking them singly grows a bankroll faster than any parlay of them. "
+            "Experimental, not proven profitable."
         ),
     }

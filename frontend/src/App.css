@@ -2880,3 +2880,40 @@ body {
   color: #fcd34d;
   margin-bottom: 0.4rem;
 }
+
+.combo-day { margin-bottom: 1.8rem; }
+
+.combo-allin {
+  border: 1px dashed rgba(255,255,255,0.14);
+  border-radius: 12px;
+  padding: 0.8rem 0.95rem;
+  margin-top: -0.3rem;
+}
+
+.combo-allin-label {
+  display: block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.combo-allin-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.combo-allin-row strong { color: #e2e8f0; font-weight: 800; }
+.combo-allin-row strong.positive { color: #4ade80; }
+.combo-allin-row strong.negative { color: #f87171; }
+
+.combo-allin-note {
+  margin-top: 0.55rem;
+  font-size: 0.73rem;
+  line-height: 1.5;
+  color: #6b7280;
+}
