@@ -1,0 +1,126 @@
+{
+  "overall": [
+    {
+      "policy": "current_season",
+      "n": 1788,
+      "accuracy": 0.5335570469798657,
+      "log_loss": 0.9836607360597418,
+      "brier": 0.5846934030129427
+    },
+    {
+      "policy": "lagged_season",
+      "n": 1788,
+      "accuracy": 0.5302013422818792,
+      "log_loss": 0.9882057949957692,
+      "brier": 0.5879165887610961
+    },
+    {
+      "policy": "verified_only",
+      "n": 1788,
+      "accuracy": 0.5307606263982103,
+      "log_loss": 0.9922425186114573,
+      "brier": 0.590565644433016
+    }
+  ],
+  "by_competition": [
+    {
+      "policy": "current_season",
+      "competition": "bundesliga",
+      "n": 1224,
+      "accuracy": 0.5294117647058824,
+      "log_loss": 0.9884095998439218,
+      "brier": 0.5875597724999609
+    },
+    {
+      "policy": "current_season",
+      "competition": "champions_league",
+      "n": 564,
+      "accuracy": 0.5425531914893617,
+      "log_loss": 0.9733546912515212,
+      "brier": 0.578472771360265
+    },
+    {
+      "policy": "lagged_season",
+      "competition": "bundesliga",
+      "n": 1224,
+      "accuracy": 0.5261437908496732,
+      "log_loss": 0.9958514359811054,
+      "brier": 0.5926507532422216
+    },
+    {
+      "policy": "lagged_season",
+      "competition": "champions_league",
+      "n": 564,
+      "accuracy": 0.5390070921985816,
+      "log_loss": 0.9716131273254657,
+      "brier": 0.5776424445680151
+    },
+    {
+      "policy": "verified_only",
+      "competition": "bundesliga",
+      "n": 1224,
+      "accuracy": 0.5269607843137255,
+      "log_loss": 1.0028876202632626,
+      "brier": 0.5974129544618982
+    },
+    {
+      "policy": "verified_only",
+      "competition": "champions_league",
+      "n": 564,
+      "accuracy": 0.5390070921985816,
+      "log_loss": 0.9691403831117947,
+      "brier": 0.5757055247958671
+    }
+  ],
+  "paired_tests": {
+    "lagged_season_vs_verified_only": {
+      "n": 1788,
+      "mean_difference": -0.0040367236156880395,
+      "std_error": 0.0024876427561747,
+      "z": -1.6227103371930274,
+      "note": "negative mean favours the first policy"
+    },
+    "current_season_vs_verified_only": {
+      "n": 1788,
+      "mean_difference": -0.00858178255171552,
+      "std_error": 0.0030183777525910832,
+      "z": -2.8431771153721934,
+      "note": "negative mean favours the first policy"
+    },
+    "current_season_vs_lagged_season": {
+      "n": 1788,
+      "mean_difference": -0.00454505893602748,
+      "std_error": 0.0018700712379683857,
+      "z": -2.430420212742888,
+      "note": "negative mean favours the first policy"
+    }
+  },
+  "market_value_audit": {
+    "rows": 552,
+    "teams": 50,
+    "verified_rows": 0,
+    "season_only_rows": 552,
+    "default_policy": "verified_only",
+    "coverage": "German clubs only",
+    "lagged_season": "Sensitivity analysis only: historical availability not demonstrated"
+  },
+  "protocol": {
+    "seasons": [
+      "2021-22",
+      "2022-23",
+      "2023-24",
+      "2025-26"
+    ],
+    "competitions": [
+      "bundesliga",
+      "champions_league"
+    ],
+    "schedule": "season-frozen fit, identical across policies",
+    "treatment": "raw (uncalibrated) probabilities"
+  },
+  "limitations": [
+    "2025/26 and earlier seasons were used in previous experiments; not an untouched sample",
+    "A better score for current_season would not prove its availability assumption - leakage improves scores too",
+    "No historical bookmaker odds, so no profitability conclusion follows from any of this"
+  ]
+}

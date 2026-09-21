@@ -1,168 +1,269 @@
 {
   "home_team": "Eintracht Frankfurt",
   "away_team": "SC Freiburg",
-  "prediction": "H",
-  "prediction_label": "Home Win",
-  "probability_home_win": 0.4722,
-  "probability_draw": 0.2361,
-  "probability_away_win": 0.2917,
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.3271,
+  "probability_draw": 0.2452,
+  "probability_away_win": 0.4276,
   "score_prediction": {
-    "home_xg": 1.89,
-    "away_xg": 1.7,
+    "home_xg": 1.64,
+    "away_xg": 1.48,
     "rho": -0.13,
-    "most_likely_score": "2:1",
-    "result": "H",
-    "probability_home_win": 0.4722,
-    "probability_draw": 0.2361,
-    "probability_away_win": 0.2917,
+    "most_likely_score": "1:1",
+    "result": "D",
+    "probability_home_win": 0.3271,
+    "probability_draw": 0.2452,
+    "probability_away_win": 0.4276,
     "top_scorelines": [
       {
+        "score": "1:1",
+        "probability": 0.1121
+      },
+      {
+        "score": "1:2",
+        "probability": 0.1018
+      },
+      {
         "score": "2:1",
-        "probability": 0.0948
+        "probability": 0.0714
       },
       {
-        "score": "3:1",
-        "probability": 0.0597
+        "score": "0:1",
+        "probability": 0.0658
       },
       {
-        "score": "2:0",
-        "probability": 0.0557
-      },
-      {
-        "score": "3:2",
-        "probability": 0.0509
-      },
-      {
-        "score": "1:0",
-        "probability": 0.0459
+        "score": "0:2",
+        "probability": 0.062
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.7083,
-        "home_or_away": 0.7639,
-        "draw_or_away": 0.5278
+        "home_or_draw": 0.5724,
+        "home_or_away": 0.7548,
+        "draw_or_away": 0.6729
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8857,
-          "under": 0.1143
+          "over": 0.8329,
+          "under": 0.1671
         },
         {
           "line": 2.5,
-          "over": 0.6981,
-          "under": 0.3019
+          "over": 0.6106,
+          "under": 0.3894
         },
         {
           "line": 3.5,
-          "over": 0.4844,
-          "under": 0.5156
+          "over": 0.3804,
+          "under": 0.6196
         }
       ],
       "btts": {
-        "yes": 0.7039,
-        "no": 0.2961
+        "yes": 0.6344,
+        "no": 0.3656
       },
       "win_margin": {
-        "home_1plus": 0.4722,
-        "home_2plus": 0.2647,
-        "home_3plus": 0.1193,
-        "away_1plus": 0.2917,
-        "away_2plus": 0.1513,
-        "away_3plus": 0.0623
+        "home_1plus": 0.3271,
+        "home_2plus": 0.1725,
+        "home_3plus": 0.0712,
+        "away_1plus": 0.4276,
+        "away_2plus": 0.2092,
+        "away_3plus": 0.0788
       },
-      "scenario": "Eintracht Frankfurt is slightly favored with a 2-1 most likely score, though Freiburg's recent form and 69% win rate are significantly stronger."
-    }
+      "scenario": "Freiburg are favoured to win with a 43% chance based on recent form, but the most likely score is 1-1, and Frankfurt historically dominates this fixture."
+    },
+    "score_matrix": [
+      [
+        0.05367128176743486,
+        0.0658083341571038,
+        0.06197847186372258,
+        0.03060341332462264,
+        0.011333397859223666,
+        0.0033576883904544537,
+        0.0008289711131818849,
+        0.0001754250526583272,
+        3.248268248974153e-05
+      ],
+      [
+        0.04740179265378393,
+        0.1121218132962671,
+        0.10182090084242626,
+        0.05027660443803381,
+        0.018618993739779956,
+        0.005516154987105138,
+        0.0013618694197901566,
+        0.00028819582598415015,
+        5.336394869748144e-05
+      ],
+      [
+        0.04822332456769017,
+        0.07143440081311218,
+        0.06036677950596229,
+        0.04129828472082189,
+        0.015294042095232318,
+        0.0045310884012149995,
+        0.0011186688456734197,
+        0.0002367302527662771,
+        4.3834295727989454e-05
+      ],
+      [
+        0.026407784302347616,
+        0.039118502619871716,
+        0.028973601679351656,
+        0.016323069409717346,
+        0.008375236846124087,
+        0.002481289007484251,
+        0.0006125991073227006,
+        0.00012963688233723773,
+        2.4004289148609162e-05
+      ],
+      [
+        0.010845961129978144,
+        0.016066389895511193,
+        0.011899769931920469,
+        0.005875807627126055,
+        0.00248272246570774,
+        0.001019092091153736,
+        0.0002516010442303809,
+        5.324326231777936e-05,
+        9.858819811529075e-06
+      ],
+      [
+        0.003563642340793863,
+        0.0052789113485843505,
+        0.003909890830964368,
+        0.0019306059274461114,
+        0.0007149635517132981,
+        0.0002416765400972137,
+        8.266820463970643e-05,
+        1.7494064535524967e-05,
+        3.2392986928114846e-06
+      ],
+      [
+        0.0009757508333368844,
+        0.0014454037905345077,
+        0.0010705561534325723,
+        0.000528613750315646,
+        0.00019576214857587,
+        5.799746040228081e-05,
+        1.6337226248410038e-05,
+        4.790000347000344e-06,
+        8.86943216146033e-07
+      ],
+      [
+        0.0002290007801108817,
+        0.0003392245072194044,
+        0.00025125081722981356,
+        0.00012406134544168764,
+        4.594378319590818e-05,
+        1.3611531984197405e-05,
+        3.360516375828358e-06,
+        8.113879858470861e-07,
+        2.0815835505555818e-07
+      ],
+      [
+        4.7026542086616745e-05,
+        6.966157738781917e-05,
+        5.159570690123265e-05,
+        2.547666466424667e-05,
+        9.434803030079742e-06,
+        2.795201315070859e-06,
+        6.901001153975877e-07,
+        1.4603747604481056e-07,
+        3.0852824464323545e-08
+      ]
+    ]
   },
   "game_flow": {
-    "match_type": "Goal Fest",
-    "match_description": "A very open game with plenty of chances expected",
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
     "dominance_index": 0.05,
-    "total_xg": 3.59,
+    "total_xg": 3.12,
     "first_goal": {
-      "Eintracht Frankfurt_scores_first": 0.512,
-      "SC Freiburg_scores_first": 0.46,
-      "no_goals": 0.028,
-      "expected_minute": 25
+      "Eintracht Frankfurt_scores_first": 0.502,
+      "SC Freiburg_scores_first": 0.453,
+      "no_goals": 0.044,
+      "expected_minute": 28
     },
     "halftime_xg": {
-      "Eintracht Frankfurt": 0.89,
-      "SC Freiburg": 0.8
+      "Eintracht Frankfurt": 0.77,
+      "SC Freiburg": 0.7
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.186
+        "probability": 0.231
       },
       {
         "score": "1:0",
-        "probability": 0.165
+        "probability": 0.178
       },
       {
         "score": "0:1",
-        "probability": 0.148
+        "probability": 0.161
       },
       {
         "score": "1:1",
-        "probability": 0.132
+        "probability": 0.124
       },
       {
         "score": "2:0",
-        "probability": 0.073
+        "probability": 0.069
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Eintracht Frankfurt": 0.255,
-        "SC Freiburg": 0.23
+        "Eintracht Frankfurt": 0.221,
+        "SC Freiburg": 0.2
       },
       "16-30'": {
-        "Eintracht Frankfurt": 0.293,
-        "SC Freiburg": 0.264
+        "Eintracht Frankfurt": 0.254,
+        "SC Freiburg": 0.229
       },
       "31-45'": {
-        "Eintracht Frankfurt": 0.34,
-        "SC Freiburg": 0.306
+        "Eintracht Frankfurt": 0.295,
+        "SC Freiburg": 0.266
       },
       "46-60'": {
-        "Eintracht Frankfurt": 0.274,
-        "SC Freiburg": 0.246
+        "Eintracht Frankfurt": 0.238,
+        "SC Freiburg": 0.215
       },
       "61-75'": {
-        "Eintracht Frankfurt": 0.35,
-        "SC Freiburg": 0.315
+        "Eintracht Frankfurt": 0.303,
+        "SC Freiburg": 0.274
       },
       "76-90'": {
-        "Eintracht Frankfurt": 0.378,
-        "SC Freiburg": 0.34
+        "Eintracht Frankfurt": 0.328,
+        "SC Freiburg": 0.296
       }
     },
     "comeback_probability": {
-      "Eintracht Frankfurt": 0.042,
-      "SC Freiburg": 0.038
+      "Eintracht Frankfurt": 0.035,
+      "SC Freiburg": 0.032
     },
-    "late_drama_probability": 0.512,
+    "late_drama_probability": 0.464,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.217
+        "wahrscheinlichkeit": 0.236
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.161
+        "wahrscheinlichkeit": 0.189
       },
       {
         "szenario": "Eintracht Frankfurt dominiert früh",
         "beschreibung": "Eintracht Frankfurt geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.075
+        "wahrscheinlichkeit": 0.069
       },
       {
         "szenario": "SC Freiburg dominiert früh",
         "beschreibung": "SC Freiburg geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.06
+        "wahrscheinlichkeit": 0.057
       }
     ],
     "predicted_stats": {
@@ -171,12 +272,12 @@
         "away": 49
       },
       "shots": {
-        "home": 16,
-        "away": 15
+        "home": 15,
+        "away": 14
       },
       "shots_on_target": {
-        "home": 7,
-        "away": 6
+        "home": 6,
+        "away": 5
       },
       "corners": {
         "home": 7,
@@ -197,7 +298,31 @@
         "score_after": "0:0"
       },
       {
-        "minute": 14,
+        "minute": 32,
+        "type": "chance",
+        "team": "Eintracht Frankfurt",
+        "headline": "Big chance for Eintracht Frankfurt!",
+        "description": "Eintracht Frankfurt create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 35,
+        "type": "chance",
+        "team": "SC Freiburg",
+        "headline": "Big chance for SC Freiburg!",
+        "description": "SC Freiburg create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 49,
         "type": "goal",
         "team": "Eintracht Frankfurt",
         "headline": "GOAL! Eintracht Frankfurt!",
@@ -205,15 +330,7 @@
         "score_after": "1:0"
       },
       {
-        "minute": 25,
-        "type": "chance",
-        "team": "Eintracht Frankfurt",
-        "headline": "Big chance for Eintracht Frankfurt!",
-        "description": "Eintracht Frankfurt create a great opportunity but fail to convert.",
-        "score_after": "1:0"
-      },
-      {
-        "minute": 29,
+        "minute": 55,
         "type": "chance",
         "team": "SC Freiburg",
         "headline": "Big chance for SC Freiburg!",
@@ -221,15 +338,7 @@
         "score_after": "1:0"
       },
       {
-        "minute": 45,
-        "type": "halftime",
-        "team": null,
-        "headline": "Half-time",
-        "description": "The teams go into the break at 1:0.",
-        "score_after": "1:0"
-      },
-      {
-        "minute": 73,
+        "minute": 75,
         "type": "goal",
         "team": "SC Freiburg",
         "headline": "GOAL! SC Freiburg!",
@@ -237,7 +346,7 @@
         "score_after": "1:1"
       },
       {
-        "minute": 85,
+        "minute": 87,
         "type": "chance",
         "team": "SC Freiburg",
         "headline": "Big chance for SC Freiburg!",
@@ -245,28 +354,12 @@
         "score_after": "1:1"
       },
       {
-        "minute": 88,
-        "type": "goal",
-        "team": "Eintracht Frankfurt",
-        "headline": "GOAL! Eintracht Frankfurt!",
-        "description": "Eintracht Frankfurt score to make it 2:1.",
-        "score_after": "2:1"
-      },
-      {
-        "minute": 90,
-        "type": "chance",
-        "team": "Eintracht Frankfurt",
-        "headline": "Big chance for Eintracht Frankfurt!",
-        "description": "Eintracht Frankfurt create a great opportunity but fail to convert.",
-        "score_after": "2:1"
-      },
-      {
         "minute": 90,
         "type": "fulltime",
         "team": null,
         "headline": "Full-time",
-        "description": "The final score finishes 2:1.",
-        "score_after": "2:1"
+        "description": "The final score finishes 1:1.",
+        "score_after": "1:1"
       }
     ]
   },
@@ -280,16 +373,16 @@
       "SC Freiburg": "69%"
     },
     "avg_goals_scored": {
-      "Eintracht Frankfurt": 1.92,
-      "SC Freiburg": 0.9
+      "Eintracht Frankfurt": 1.93,
+      "SC Freiburg": 2.56
     },
     "avg_goals_conceded": {
-      "Eintracht Frankfurt": 1.8,
-      "SC Freiburg": 1.75
+      "Eintracht Frankfurt": 2.29,
+      "SC Freiburg": 1.14
     },
     "clean_sheet_rate": {
-      "Eintracht Frankfurt": "8%",
-      "SC Freiburg": "29%"
+      "Eintracht Frankfurt": "0%",
+      "SC Freiburg": "38%"
     },
     "h2h_last_10": {
       "Eintracht Frankfurt wins": "50%",
@@ -297,5 +390,9 @@
       "SC Freiburg wins": "10%",
       "total_h2h_games": 10
     }
-  }
+  },
+  "model_version": "club_verified_v3",
+  "generated_at": "2026-09-19T14:36:07.391332+00:00",
+  "training_end": "2026-09-13",
+  "market_value_policy": "current_season"
 }

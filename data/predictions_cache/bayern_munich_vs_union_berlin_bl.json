@@ -3,156 +3,262 @@
   "away_team": "Union Berlin",
   "prediction": "H",
   "prediction_label": "Home Win",
-  "probability_home_win": 0.8035,
-  "probability_draw": 0.1488,
-  "probability_away_win": 0.0477,
+  "probability_home_win": 0.8678,
+  "probability_draw": 0.0892,
+  "probability_away_win": 0.0431,
   "score_prediction": {
-    "home_xg": 3.21,
-    "away_xg": 0.87,
+    "home_xg": 2.79,
+    "away_xg": 0.76,
     "rho": -0.13,
-    "most_likely_score": "3:0",
+    "most_likely_score": "2:0",
     "result": "H",
-    "probability_home_win": 0.8035,
-    "probability_draw": 0.1488,
-    "probability_away_win": 0.0477,
+    "probability_home_win": 0.8677,
+    "probability_draw": 0.0892,
+    "probability_away_win": 0.0431,
     "top_scorelines": [
       {
-        "score": "3:0",
-        "probability": 0.0921
-      },
-      {
         "score": "2:0",
-        "probability": 0.086
+        "probability": 0.1238
       },
       {
-        "score": "3:1",
-        "probability": 0.0802
+        "score": "3:0",
+        "probability": 0.1152
       },
       {
         "score": "2:1",
-        "probability": 0.0749
+        "probability": 0.0937
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0873
       },
       {
         "score": "4:0",
-        "probability": 0.074
+        "probability": 0.0805
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.9523,
-        "home_or_away": 0.8512,
-        "draw_or_away": 0.1965
+        "home_or_draw": 0.9569,
+        "home_or_away": 0.9108,
+        "draw_or_away": 0.1323
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.9171,
-          "under": 0.0829
+          "over": 0.8884,
+          "under": 0.1116
         },
         {
           "line": 2.5,
-          "over": 0.7608,
-          "under": 0.2392
+          "over": 0.7174,
+          "under": 0.2826
         },
         {
           "line": 3.5,
-          "over": 0.5761,
-          "under": 0.4239
+          "over": 0.4923,
+          "under": 0.5077
         }
       ],
       "btts": {
-        "yes": 0.5688,
-        "no": 0.4312
+        "yes": 0.4848,
+        "no": 0.5152
       },
       "win_margin": {
-        "home_1plus": 0.8035,
-        "home_2plus": 0.6366,
-        "home_3plus": 0.4365,
-        "away_1plus": 0.0477,
-        "away_2plus": 0.015,
-        "away_3plus": 0.0034
+        "home_1plus": 0.8677,
+        "home_2plus": 0.6544,
+        "home_3plus": 0.4166,
+        "away_1plus": 0.0431,
+        "away_2plus": 0.0128,
+        "away_3plus": 0.0026
       },
-      "scenario": "Bayern are overwhelming favourites with an 80% chance to win, having never beaten Union in their last 10 meetings, with 3-0 most likely."
-    }
+      "scenario": "Bayern Munich are overwhelming favorites to win, with an 87% chance and a 65% likelihood of a dominant victory, possibly 2-0."
+    },
+    "score_matrix": [
+      [
+        0.02236316201952369,
+        0.00897602758748324,
+        0.005336985863445869,
+        0.0013473414071696473,
+        0.0002551059128581526,
+        3.8641446884291926e-05,
+        4.877586595904712e-06,
+        5.277275993710378e-07,
+        4.996002878765483e-08
+      ],
+      [
+        0.07989780259215526,
+        0.04192780351174687,
+        0.01490722970502435,
+        0.0037633841201146724,
+        0.0007125599616317922,
+        0.00010793300555357184,
+        1.3624039045955553e-05,
+        1.4740448535544292e-06,
+        1.3954798537284037e-07
+      ],
+      [
+        0.12377109771731183,
+        0.09373938543151972,
+        0.01962309141074207,
+        0.005255928438094821,
+        0.000995158624964962,
+        0.0001507388390852802,
+        1.9027282886332136e-05,
+        2.0586456278579322e-06,
+        1.9489220376941034e-07
+      ],
+      [
+        0.11523884028201194,
+        0.0872773875735444,
+        0.03305023880412869,
+        0.0046124181009206035,
+        0.0009265565867366749,
+        0.00014034753930452406,
+        1.7715622257359994e-05,
+        1.9167312812222103e-06,
+        1.8145715725724755e-07
+      ],
+      [
+        0.0804710705152306,
+        0.06094563944437833,
+        0.023078921055120993,
+        0.005826357192238663,
+        0.000609835125591138,
+        9.800442892669724e-05,
+        1.2370786484873464e-05,
+        1.3384499333082657e-06,
+        1.2671119963900354e-07
+      ],
+      [
+        0.044954240594717386,
+        0.034046582470441115,
+        0.012892774547867277,
+        0.0032548276210776386,
+        0.0006162697643318192,
+        5.1603145736406653e-05,
+        6.9107979852414685e-06,
+        7.477097041294505e-07,
+        7.078575838678476e-08
+      ],
+      [
+        0.020927642427983326,
+        0.0158497773382466,
+        0.006002000524819831,
+        0.0015152267665409253,
+        0.0002868933630396909,
+        4.3456361027265834e-05,
+        3.0323367312139102e-06,
+        3.480828754071565e-07,
+        3.2953043381770105e-08
+      ],
+      [
+        0.00835070529751715,
+        0.006324497374151552,
+        0.002394963395938696,
+        0.0006046171817888999,
+        0.00011447834770698168,
+        1.7340284052061586e-05,
+        2.188808750220422e-06,
+        1.3091369983914437e-07,
+        1.314917124011554e-08
+      ],
+      [
+        0.0029156410859564404,
+        0.0022081924502332147,
+        0.0008361992703343012,
+        0.0002111015337857802,
+        3.997000997342376e-05,
+        6.054344252739708e-06,
+        7.642205650989834e-07,
+        8.268439243052719e-08,
+        4.327218979079024e-09
+      ]
+    ]
   },
   "game_flow": {
     "match_type": "Goal Fest",
     "match_description": "A very open game with plenty of chances expected",
     "dominance_index": 0.57,
-    "total_xg": 4.08,
+    "total_xg": 3.55,
     "first_goal": {
-      "Bayern Munich_scores_first": 0.773,
-      "Union Berlin_scores_first": 0.21,
-      "no_goals": 0.017,
-      "expected_minute": 22
+      "Bayern Munich_scores_first": 0.763,
+      "Union Berlin_scores_first": 0.208,
+      "no_goals": 0.029,
+      "expected_minute": 25
     },
     "halftime_xg": {
-      "Bayern Munich": 1.51,
-      "Union Berlin": 0.41
+      "Bayern Munich": 1.31,
+      "Union Berlin": 0.36
     },
     "top_halftime_scores": [
       {
         "score": "1:0",
-        "probability": 0.226
-      },
-      {
-        "score": "2:0",
-        "probability": 0.171
+        "probability": 0.25
       },
       {
         "score": "0:0",
-        "probability": 0.15
+        "probability": 0.191
+      },
+      {
+        "score": "2:0",
+        "probability": 0.164
       },
       {
         "score": "1:1",
-        "probability": 0.092
+        "probability": 0.089
       },
       {
         "score": "3:0",
-        "probability": 0.086
+        "probability": 0.072
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Bayern Munich": 0.433,
-        "Union Berlin": 0.117
+        "Bayern Munich": 0.377,
+        "Union Berlin": 0.103
       },
       "16-30'": {
-        "Bayern Munich": 0.498,
-        "Union Berlin": 0.135
+        "Bayern Munich": 0.432,
+        "Union Berlin": 0.118
       },
       "31-45'": {
-        "Bayern Munich": 0.578,
-        "Union Berlin": 0.157
+        "Bayern Munich": 0.502,
+        "Union Berlin": 0.137
       },
       "46-60'": {
-        "Bayern Munich": 0.465,
-        "Union Berlin": 0.126
+        "Bayern Munich": 0.405,
+        "Union Berlin": 0.11
       },
       "61-75'": {
-        "Bayern Munich": 0.594,
-        "Union Berlin": 0.161
+        "Bayern Munich": 0.516,
+        "Union Berlin": 0.141
       },
       "76-90'": {
-        "Bayern Munich": 0.642,
-        "Union Berlin": 0.174
+        "Bayern Munich": 0.558,
+        "Union Berlin": 0.152
       }
     },
     "comeback_probability": {
-      "Bayern Munich": 0.038,
-      "Union Berlin": 0.012
+      "Bayern Munich": 0.034,
+      "Union Berlin": 0.01
     },
-    "late_drama_probability": 0.558,
+    "late_drama_probability": 0.508,
     "match_stories": [
       {
         "szenario": "Bayern Munich dominiert früh",
         "beschreibung": "Bayern Munich geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.179
+        "wahrscheinlichkeit": 0.17
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.139
+        "wahrscheinlichkeit": 0.167
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Bayern Munich trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.086
       }
     ],
     "predicted_stats": {
@@ -161,15 +267,15 @@
         "away": 40
       },
       "shots": {
-        "home": 25,
-        "away": 10
+        "home": 22,
+        "away": 9
       },
       "shots_on_target": {
-        "home": 10,
+        "home": 9,
         "away": 3
       },
       "corners": {
-        "home": 10,
+        "home": 9,
         "away": 4
       },
       "passes": {
@@ -187,7 +293,7 @@
         "score_after": "0:0"
       },
       {
-        "minute": 9,
+        "minute": 17,
         "type": "chance",
         "team": "Bayern Munich",
         "headline": "Big chance for Bayern Munich!",
@@ -195,7 +301,7 @@
         "score_after": "0:0"
       },
       {
-        "minute": 13,
+        "minute": 28,
         "type": "goal",
         "team": "Bayern Munich",
         "headline": "GOAL! Bayern Munich!",
@@ -203,7 +309,7 @@
         "score_after": "1:0"
       },
       {
-        "minute": 28,
+        "minute": 34,
         "type": "chance",
         "team": "Bayern Munich",
         "headline": "Big chance for Bayern Munich!",
@@ -219,7 +325,7 @@
         "score_after": "1:0"
       },
       {
-        "minute": 47,
+        "minute": 69,
         "type": "chance",
         "team": "Bayern Munich",
         "headline": "Big chance for Bayern Munich!",
@@ -227,15 +333,7 @@
         "score_after": "1:0"
       },
       {
-        "minute": 50,
-        "type": "chance",
-        "team": "Bayern Munich",
-        "headline": "Big chance for Bayern Munich!",
-        "description": "Bayern Munich create a great opportunity but fail to convert.",
-        "score_after": "1:0"
-      },
-      {
-        "minute": 84,
+        "minute": 81,
         "type": "goal",
         "team": "Bayern Munich",
         "headline": "GOAL! Bayern Munich!",
@@ -243,20 +341,20 @@
         "score_after": "2:0"
       },
       {
-        "minute": 90,
-        "type": "goal",
+        "minute": 84,
+        "type": "chance",
         "team": "Bayern Munich",
-        "headline": "GOAL! Bayern Munich!",
-        "description": "Bayern Munich score to make it 3:0.",
-        "score_after": "3:0"
+        "headline": "Big chance for Bayern Munich!",
+        "description": "Bayern Munich create a great opportunity but fail to convert.",
+        "score_after": "2:0"
       },
       {
         "minute": 90,
         "type": "fulltime",
         "team": null,
         "headline": "Full-time",
-        "description": "The final score finishes 3:0.",
-        "score_after": "3:0"
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
       }
     ]
   },
@@ -270,16 +368,16 @@
       "Union Berlin": "21%"
     },
     "avg_goals_scored": {
-      "Bayern Munich": 2.46,
-      "Union Berlin": 1.02
+      "Bayern Munich": 2.67,
+      "Union Berlin": 1.74
     },
     "avg_goals_conceded": {
-      "Bayern Munich": 1.35,
-      "Union Berlin": 2.46
+      "Bayern Munich": 1.33,
+      "Union Berlin": 2.36
     },
     "clean_sheet_rate": {
-      "Bayern Munich": "37%",
-      "Union Berlin": "9%"
+      "Bayern Munich": "25%",
+      "Union Berlin": "11%"
     },
     "h2h_last_10": {
       "Bayern Munich wins": "70%",
@@ -287,5 +385,9 @@
       "Union Berlin wins": "0%",
       "total_h2h_games": 10
     }
-  }
+  },
+  "model_version": "club_verified_v3",
+  "generated_at": "2026-09-19T14:35:59.431187+00:00",
+  "training_end": "2026-09-13",
+  "market_value_policy": "current_season"
 }

@@ -1,168 +1,269 @@
 {
   "home_team": "Borussia Mönchengladbach",
   "away_team": "1. FSV Mainz 05",
-  "prediction": "H",
-  "prediction_label": "Home Win",
-  "probability_home_win": 0.4221,
-  "probability_draw": 0.208,
-  "probability_away_win": 0.3698,
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.2739,
+  "probability_draw": 0.273,
+  "probability_away_win": 0.4531,
   "score_prediction": {
-    "home_xg": 1.39,
-    "away_xg": 1.65,
+    "home_xg": 1.21,
+    "away_xg": 1.43,
     "rho": -0.13,
-    "most_likely_score": "2:1",
-    "result": "H",
-    "probability_home_win": 0.4221,
-    "probability_draw": 0.208,
-    "probability_away_win": 0.3698,
+    "most_likely_score": "1:1",
+    "result": "D",
+    "probability_home_win": 0.2739,
+    "probability_draw": 0.273,
+    "probability_away_win": 0.4531,
     "top_scorelines": [
       {
-        "score": "2:1",
-        "probability": 0.104
+        "score": "1:1",
+        "probability": 0.1305
       },
       {
-        "score": "1:0",
-        "probability": 0.0714
+        "score": "1:2",
+        "probability": 0.0986
       },
       {
-        "score": "2:0",
-        "probability": 0.0631
+        "score": "0:1",
+        "probability": 0.0961
       },
       {
-        "score": "3:1",
-        "probability": 0.0481
+        "score": "0:0",
+        "probability": 0.0818
       },
       {
-        "score": "3:2",
-        "probability": 0.0396
+        "score": "0:2",
+        "probability": 0.0816
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.6302,
-        "home_or_away": 0.792,
-        "draw_or_away": 0.5779
+        "home_or_draw": 0.5469,
+        "home_or_away": 0.727,
+        "draw_or_away": 0.7261
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8232,
-          "under": 0.1768
+          "over": 0.7582,
+          "under": 0.2418
         },
         {
           "line": 2.5,
-          "over": 0.6067,
-          "under": 0.3933
+          "over": 0.4989,
+          "under": 0.5011
         },
         {
           "line": 3.5,
-          "over": 0.363,
-          "under": 0.637
+          "over": 0.2747,
+          "under": 0.7253
         }
       ],
       "btts": {
-        "yes": 0.6102,
-        "no": 0.3898
+        "yes": 0.5448,
+        "no": 0.4552
       },
       "win_margin": {
-        "home_1plus": 0.4221,
-        "home_2plus": 0.1983,
-        "home_3plus": 0.071,
-        "away_1plus": 0.3698,
-        "away_2plus": 0.1971,
-        "away_3plus": 0.0821
+        "home_1plus": 0.2739,
+        "home_2plus": 0.1199,
+        "home_3plus": 0.0389,
+        "away_1plus": 0.4531,
+        "away_2plus": 0.2256,
+        "away_3plus": 0.0854
       },
-      "scenario": "While Gladbach is slightly favored to win 2-1, Mainz's much better recent form and historical draws suggest a tight match is probable."
-    }
+      "scenario": "Mainz, in better form, are slightly favored, but a 1-1 draw is the most likely score given the strong history of draws."
+    },
+    "score_matrix": [
+      [
+        0.08180470293275369,
+        0.09611074591325537,
+        0.08163669905954314,
+        0.038970013368572094,
+        0.013952015081223065,
+        0.00399607201538527,
+        0.0009537804789715879,
+        0.00019512672842549508,
+        3.492956278965191e-05
+      ],
+      [
+        0.06361946172951052,
+        0.13053349029858607,
+        0.09859772398164593,
+        0.04706651133545998,
+        0.01685071723640918,
+        0.0048263049599342935,
+        0.0011519400648001767,
+        0.00023566669809501004,
+        4.21866076214295e-05
+      ],
+      [
+        0.04720714758717562,
+        0.06760427088885351,
+        0.0499495227856519,
+        0.02842257800041592,
+        0.010175830148132482,
+        0.002914514487802669,
+        0.0006956348668000806,
+        0.00014231467169863123,
+        2.547569623647999e-05
+      ],
+      [
+        0.01900500371924769,
+        0.027216628950246628,
+        0.019488154339722622,
+        0.009599235831738684,
+        0.00409666119848825,
+        0.00117334686613301,
+        0.00028005384579443264,
+        5.72940964065103e-05,
+        1.0256194802506049e-05
+      ],
+      [
+        0.005738381550722097,
+        0.008217804308176506,
+        0.00588426432179177,
+        0.002808906557052068,
+        0.0010376825326975923,
+        0.0003542810150779484,
+        8.455961628084117e-05,
+        1.7299411809714003e-05,
+        3.0967612479710846e-06
+      ],
+      [
+        0.0013861201316500975,
+        0.00198503077720424,
+        0.0014213584726445422,
+        0.0006784982651012274,
+        0.00024291544213095735,
+        7.179138390031817e-05,
+        2.042558261688472e-05,
+        4.178715333443204e-06,
+        7.48030271390101e-07
+      ],
+      [
+        0.00027901726331470435,
+        0.00039957420890471534,
+        0.0002861105196952432,
+        0.0001365774327705299,
+        4.8897350476813115e-05,
+        1.4004954318738415e-05,
+        3.4491942380678715e-06,
+        8.411491110229652e-07,
+        1.5057378825553897e-07
+      ],
+      [
+        4.814093141816771e-05,
+        6.894152124793196e-05,
+        4.936478389557462e-05,
+        2.3564724082536676e-05,
+        8.4366249165713e-06,
+        2.4163793213487033e-06,
+        5.767402132943808e-07,
+        1.2175012041858256e-07,
+        2.597961978290823e-08
+      ],
+      [
+        7.267850003228688e-06,
+        1.0408120920470627e-05,
+        7.452615357156105e-06,
+        3.557573045516821e-06,
+        1.2736796447607186e-06,
+        3.6480146812943263e-07,
+        8.70706327769929e-08,
+        1.7813121667190688e-08,
+        3.2903133001085027e-09
+      ]
+    ]
   },
   "game_flow": {
     "match_type": "Balanced & Open",
     "match_description": "Both teams play attacking football at an even level",
-    "dominance_index": -0.09,
-    "total_xg": 3.04,
+    "dominance_index": -0.08,
+    "total_xg": 2.64,
     "first_goal": {
-      "Borussia Mönchengladbach_scores_first": 0.435,
-      "1. FSV Mainz 05_scores_first": 0.517,
-      "no_goals": 0.048,
-      "expected_minute": 29
+      "Borussia Mönchengladbach_scores_first": 0.426,
+      "1. FSV Mainz 05_scores_first": 0.503,
+      "no_goals": 0.071,
+      "expected_minute": 34
     },
     "halftime_xg": {
-      "Borussia Mönchengladbach": 0.65,
-      "1. FSV Mainz 05": 0.78
+      "Borussia Mönchengladbach": 0.57,
+      "1. FSV Mainz 05": 0.67
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.24
+        "probability": 0.289
       },
       {
         "score": "0:1",
-        "probability": 0.186
+        "probability": 0.195
       },
       {
         "score": "1:0",
-        "probability": 0.157
+        "probability": 0.165
       },
       {
         "score": "1:1",
-        "probability": 0.122
+        "probability": 0.111
       },
       {
         "score": "0:2",
-        "probability": 0.072
+        "probability": 0.065
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Borussia Mönchengladbach": 0.188,
-        "1. FSV Mainz 05": 0.223
+        "Borussia Mönchengladbach": 0.163,
+        "1. FSV Mainz 05": 0.193
       },
       "16-30'": {
-        "Borussia Mönchengladbach": 0.215,
-        "1. FSV Mainz 05": 0.256
+        "Borussia Mönchengladbach": 0.188,
+        "1. FSV Mainz 05": 0.222
       },
       "31-45'": {
-        "Borussia Mönchengladbach": 0.25,
-        "1. FSV Mainz 05": 0.297
+        "Borussia Mönchengladbach": 0.218,
+        "1. FSV Mainz 05": 0.257
       },
       "46-60'": {
-        "Borussia Mönchengladbach": 0.202,
-        "1. FSV Mainz 05": 0.239
+        "Borussia Mönchengladbach": 0.175,
+        "1. FSV Mainz 05": 0.207
       },
       "61-75'": {
-        "Borussia Mönchengladbach": 0.257,
-        "1. FSV Mainz 05": 0.305
+        "Borussia Mönchengladbach": 0.224,
+        "1. FSV Mainz 05": 0.265
       },
       "76-90'": {
-        "Borussia Mönchengladbach": 0.278,
-        "1. FSV Mainz 05": 0.33
+        "Borussia Mönchengladbach": 0.242,
+        "1. FSV Mainz 05": 0.286
       }
     },
     "comeback_probability": {
-      "Borussia Mönchengladbach": 0.03,
-      "1. FSV Mainz 05": 0.035
+      "Borussia Mönchengladbach": 0.024,
+      "1. FSV Mainz 05": 0.028
     },
-    "late_drama_probability": 0.456,
+    "late_drama_probability": 0.41,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.239
+        "wahrscheinlichkeit": 0.26
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.194
+        "wahrscheinlichkeit": 0.22
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "1. FSV Mainz 05 trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.103
       },
       {
         "szenario": "1. FSV Mainz 05 dominiert früh",
         "beschreibung": "1. FSV Mainz 05 geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.073
-      },
-      {
-        "szenario": "Borussia Mönchengladbach dominiert früh",
-        "beschreibung": "Borussia Mönchengladbach geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.052
+        "wahrscheinlichkeit": 0.066
       }
     ],
     "predicted_stats": {
@@ -171,12 +272,12 @@
         "away": 52
       },
       "shots": {
-        "home": 13,
-        "away": 15
+        "home": 12,
+        "away": 13
       },
       "shots_on_target": {
-        "home": 5,
-        "away": 6
+        "home": 4,
+        "away": 5
       },
       "corners": {
         "home": 5,
@@ -197,7 +298,23 @@
         "score_after": "0:0"
       },
       {
-        "minute": 20,
+        "minute": 14,
+        "type": "chance",
+        "team": "1. FSV Mainz 05",
+        "headline": "Big chance for 1. FSV Mainz 05!",
+        "description": "1. FSV Mainz 05 create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 47,
         "type": "goal",
         "team": "Borussia Mönchengladbach",
         "headline": "GOAL! Borussia Mönchengladbach!",
@@ -205,31 +322,15 @@
         "score_after": "1:0"
       },
       {
-        "minute": 23,
+        "minute": 53,
         "type": "chance",
-        "team": "1. FSV Mainz 05",
-        "headline": "Big chance for 1. FSV Mainz 05!",
-        "description": "1. FSV Mainz 05 create a great opportunity but fail to convert.",
+        "team": "Borussia Mönchengladbach",
+        "headline": "Big chance for Borussia Mönchengladbach!",
+        "description": "Borussia Mönchengladbach create a great opportunity but fail to convert.",
         "score_after": "1:0"
       },
       {
-        "minute": 26,
-        "type": "chance",
-        "team": "1. FSV Mainz 05",
-        "headline": "Big chance for 1. FSV Mainz 05!",
-        "description": "1. FSV Mainz 05 create a great opportunity but fail to convert.",
-        "score_after": "1:0"
-      },
-      {
-        "minute": 45,
-        "type": "halftime",
-        "team": null,
-        "headline": "Half-time",
-        "description": "The teams go into the break at 1:0.",
-        "score_after": "1:0"
-      },
-      {
-        "minute": 51,
+        "minute": 71,
         "type": "goal",
         "team": "1. FSV Mainz 05",
         "headline": "GOAL! 1. FSV Mainz 05!",
@@ -237,15 +338,7 @@
         "score_after": "1:1"
       },
       {
-        "minute": 72,
-        "type": "chance",
-        "team": "1. FSV Mainz 05",
-        "headline": "Big chance for 1. FSV Mainz 05!",
-        "description": "1. FSV Mainz 05 create a great opportunity but fail to convert.",
-        "score_after": "1:1"
-      },
-      {
-        "minute": 82,
+        "minute": 77,
         "type": "chance",
         "team": "Borussia Mönchengladbach",
         "headline": "Big chance for Borussia Mönchengladbach!",
@@ -253,20 +346,12 @@
         "score_after": "1:1"
       },
       {
-        "minute": 85,
-        "type": "goal",
-        "team": "Borussia Mönchengladbach",
-        "headline": "GOAL! Borussia Mönchengladbach!",
-        "description": "Borussia Mönchengladbach score to make it 2:1.",
-        "score_after": "2:1"
-      },
-      {
         "minute": 90,
         "type": "fulltime",
         "team": null,
         "headline": "Full-time",
-        "description": "The final score finishes 2:1.",
-        "score_after": "2:1"
+        "description": "The final score finishes 1:1.",
+        "score_after": "1:1"
       }
     ]
   },
@@ -280,16 +365,16 @@
       "1. FSV Mainz 05": "40%"
     },
     "avg_goals_scored": {
-      "Borussia Mönchengladbach": 0.58,
-      "1. FSV Mainz 05": 2.15
+      "Borussia Mönchengladbach": 1.26,
+      "1. FSV Mainz 05": 1.81
     },
     "avg_goals_conceded": {
-      "Borussia Mönchengladbach": 2.72,
-      "1. FSV Mainz 05": 0.84
+      "Borussia Mönchengladbach": 2.38,
+      "1. FSV Mainz 05": 1.37
     },
     "clean_sheet_rate": {
-      "Borussia Mönchengladbach": "11%",
-      "1. FSV Mainz 05": "41%"
+      "Borussia Mönchengladbach": "28%",
+      "1. FSV Mainz 05": "39%"
     },
     "h2h_last_10": {
       "Borussia Mönchengladbach wins": "10%",
@@ -297,5 +382,9 @@
       "1. FSV Mainz 05 wins": "30%",
       "total_h2h_games": 10
     }
-  }
+  },
+  "model_version": "club_verified_v3",
+  "generated_at": "2026-09-19T14:36:17.326459+00:00",
+  "training_end": "2026-09-13",
+  "market_value_policy": "current_season"
 }

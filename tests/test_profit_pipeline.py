@@ -8,7 +8,7 @@ import pytest
 
 from src.bet_audit import snapshot, settlement, evaluate_snapshots, fixture_key
 from src.club_features_v3 import build_features, prediction_row, prepare_history
-from src.club_market_value_policy import MarketValueHistory
+from src.club_market_value_policy import DEFAULT_POLICY, MarketValueHistory
 from src.club_backtest import rating_context
 from src.poisson_model import predict_scorelines, _compute_team_ratings
 from src.evaluation import evaluate
@@ -96,9 +96,16 @@ def test_season_only_values_not_mislabeled_verified(tmp_path):
     p = tmp_path / "market.csv"
     p.write_text("season_start_year,team,market_value\n2021,A,100000000\n2022,A,200000000\n")
     m = MarketValueHistory(p)
-    assert m.value("A", "2022-09-01") is None
+    # The invariant: undated season rows are never passed off as verified,
+    # whatever the production default happens to be. Asserted against the
+    # policy by name so a change of default cannot quietly weaken it.
+    assert m.value("A", "2022-09-01", "verified_only") is None
+    assert m.audit()["verified_rows"] == 0
     assert m.value("A", "2022-09-01", "lagged_season") == 100000000
     assert m.value("A", "2021-09-01", "lagged_season") is None
+    # current_season is the shipped default and uses the season's own value.
+    assert m.value("A", "2022-09-01", "current_season") == 200000000
+    assert m.value("A", "2022-09-01") == m.value("A", "2022-09-01", DEFAULT_POLICY)
 
 
 def test_future_market_snapshot_never_visible(tmp_path):

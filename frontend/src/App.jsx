@@ -571,7 +571,7 @@ function ComboTicketCard({ ticket, primary }) {
   return (
     <div className={`combo-ticket ${primary ? 'is-primary' : ''}`}>
       <div className="combo-ticket-head">
-        <span className="combo-ticket-legs">{ticket.leg_count}-fold</span>
+        <span className="combo-ticket-legs">{ticket.leg_count}-fold · {ticket.bookmaker}</span>
         <span className="combo-ticket-odds">{ticket.combined_odds.toFixed(2)}</span>
       </div>
       <div className="combo-legs">
@@ -579,11 +579,11 @@ function ComboTicketCard({ ticket, primary }) {
       </div>
       <div className="combo-ticket-stats">
         <div className="combo-stat">
-          <span className="combo-stat-label">Hit chance</span>
+          <span className="combo-stat-label">Model win probability</span>
           <span className="combo-stat-value">{hit.toFixed(1)}%</span>
         </div>
         <div className="combo-stat">
-          <span className="combo-stat-label">Payout</span>
+          <span className="combo-stat-label">Estimated return</span>
           <span className="combo-stat-value">{ticket.combined_odds.toFixed(2)}×</span>
         </div>
         <div className="combo-stat">
@@ -593,20 +593,17 @@ function ComboTicketCard({ ticket, primary }) {
           </span>
         </div>
         <div className="combo-stat">
-          <span className="combo-stat-label">Stake</span>
+          <span className="combo-stat-label">Paper stake</span>
           <span className="combo-stat-value">{ticket.stake_pct.toFixed(1)}%</span>
         </div>
       </div>
       {primary && (
         <p className="combo-ticket-note">
-          After a fixed 3-point safety haircut on every leg, the expected value is still
-          <strong> {(ticket.stressed_expected_value * 100).toFixed(0)}%</strong>
-          {' '}(hit chance {(ticket.stressed_probability * 100).toFixed(1)}%).
-          {ticket.margin_cost != null && (
-            <> The bookmaker prices this combo at {(ticket.market_probability * 100).toFixed(1)}% —
-            the {(ticket.margin_cost * 100).toFixed(1)} point gap is the margin compounded across
-            every leg.</>
-          )}
+          Under the model–market stress scenarios, estimated return is
+          <strong> {(ticket.stressed_expected_value * 100).toFixed(1)}%</strong>
+          {' '}(estimated win probability {(ticket.stressed_probability * 100).toFixed(1)}%).
+          Probabilities assume independent results. Prices come from {ticket.bookmaker}'s
+          individual markets; the actual combined offer has not been verified.
         </p>
       )}
     </div>
@@ -630,23 +627,16 @@ function ComboTicketView({ combo, loading }) {
   return (
     <div className="combo-view">
       <p className="best-bets-intro">
-        A combo only pays if <strong>every</strong> leg wins. That's why at most one bet per match is
-        used — only independent legs may have their probabilities multiplied — and why safer picks are
-        preferred over the biggest odds. The bookmaker's margin compounds with every added leg, which
-        makes combos structurally worse value than singles.
+        Every selection must win. Each ticket uses <strong>one bookmaker, one matchday</strong>
+        {' '}and at most one selection per match. Every leg must pass the same stress checks as
+        a Game Pick. Draw-no-bet, whole-goal and quarter-goal markets are excluded until
+        partial returns can be calculated correctly.
       </p>
 
       {!combo.recommended && (
         <p className="smart-bet-notip">
           <strong>No combo ticket today.</strong><br />
           {combo.reason}
-        </p>
-      )}
-
-      {combo.recommended?.legs_passing_single_bet_test === 0 && (
-        <p className="combo-warning">
-          ⚠ None of these matches has a Game Pick in its own analysis — that view applies a stricter
-          test. This ticket therefore rests on bets that would <strong>not</strong> be recommended on their own.
         </p>
       )}
 
@@ -666,7 +656,7 @@ function ComboTicketView({ combo, loading }) {
               {day.all_in && day.all_in.leg_count > day.recommended.leg_count && (
                 <div className="combo-allin">
                   <span className="combo-allin-label">
-                    All {day.all_in.leg_count} eligible matches on one slip
+                    All {day.all_in.leg_count} eligible matches at {day.all_in.bookmaker}
                   </span>
                   <div className="combo-allin-row">
                     <span>Odds <strong>{day.all_in.combined_odds.toFixed(2)}</strong></span>
@@ -677,10 +667,10 @@ function ComboTicketView({ combo, loading }) {
                   </div>
                   <p className="combo-allin-note">
                     {day.all_in_is_worse
-                      ? <>Higher expected value, but it only lands {(day.all_in.probability * 100).toFixed(1)}% of
-                        the time versus {(day.recommended.probability * 100).toFixed(1)}% above — worse for growing a
-                        bankroll, which is why it is not the suggestion.</>
-                      : <>Shown for comparison. More legs always means a lower chance of the slip landing.</>}
+                      ? <>Lower modelled growth under the stress scenarios than the suggested ticket.
+                        Estimated win probability is {(day.all_in.probability * 100).toFixed(1)}%,
+                        versus {(day.recommended.probability * 100).toFixed(1)}% above.</>
+                      : <>For comparison only. Adding legs reduces the estimated chance of every selection winning.</>}
                   </p>
                 </div>
               )}
@@ -690,10 +680,9 @@ function ComboTicketView({ combo, loading }) {
       ))}
 
       <p className="smart-bet-finePrint">
-        Ranked by Kelly growth rather than raw expected value — otherwise the longest ticket with the
-        slimmest chance of landing would always win. Only combinations that stay positive after the
-        safety haircut are offered. This is an experimental model, not evidence that combo betting pays.
-        Only stake money you can afford to lose. 18+.
+        Ranked by modelled growth under fixed stress assumptions, with a paper stake capped at
+        1% per ticket. This is an experimental calculation, not evidence of profitability.
+        Multiple tickets can overlap; their suggested stakes are not a portfolio allocation.
       </p>
     </div>
   )

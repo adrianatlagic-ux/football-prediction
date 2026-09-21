@@ -24,7 +24,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from src.club_predictor import ClubFootballPredictor as FootballPredictor
 
-MODEL_PATH = Path(os.getenv("MODEL_PATH", "club_model_verified.joblib"))
+from src.club_predictor import DEFAULT_MODEL_PATH as MODEL_PATH
 PREDICTIONS_CACHE_DIR = Path(__file__).parent.parent / "data" / "predictions_cache"
 
 app = FastAPI(
@@ -515,11 +515,11 @@ def _find_odds_match(odds: list[dict], home_team: str, away_team: str) -> Option
     return matches[0] if len(matches) == 1 else None
 
 
-def _best_price(event: dict, market_key: str, outcome_name: str, point: Optional[float] = None) -> Optional[dict]:
+def _available_prices(event: dict, market_key: str, outcome_name: str, point: Optional[float] = None) -> list[dict]:
     from src.bet_selection import quote_is_fresh
     from src.bet_audit import timestamp
     as_of = timestamp(event["odds_fetched_at"]) if event.get("odds_fetched_at") else None
-    best = None
+    offers = {}
     for bm in event.get("bookmakers", []):
         for market in bm.get("markets", []):
             if market.get("key") != market_key:
@@ -534,11 +534,15 @@ def _best_price(event: dict, market_key: str, outcome_name: str, point: Optional
                 price = outcome.get("price")
                 if not isinstance(price, (int, float)) or not math.isfinite(price) or price <= 1:
                     continue
-                if best is None or price > best["price"]:
-                    best = {"price": outcome["price"], "bookmaker": bm.get("title"),
-                            "bookmaker_key": bm.get("key") or bm.get("title"),
-                            "last_update": market.get("last_update") or bm.get("last_update")}
-    return best
+                key = bm.get("key") or bm.get("title")
+                if key and (key not in offers or price > offers[key]["price"]):
+                    offers[key] = {"price": price, "bookmaker": bm.get("title"), "bookmaker_key": key,
+                                   "last_update": market.get("last_update") or bm.get("last_update")}
+    return list(offers.values())
+
+
+def _best_price(event, market_key, outcome_name, point=None):
+    return max(_available_prices(event, market_key, outcome_name, point), key=lambda o: o["price"], default=None)
 
 
 @app.get("/odds")
@@ -549,7 +553,7 @@ def get_odds():
         raise HTTPException(status_code=503, detail=f"Odds API unavailable: {exc}")
 
 
-def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away_team: str) -> dict:
+def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away_team: str, include_offers=False) -> dict:
     event = _find_odds_match(odds, home_team, away_team)
     if event is None:
         return {"home_team": home_team, "away_team": away_team, "odds_found": False, "bets": []}
@@ -567,6 +571,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
                 "bets": [], "exclusion": "invalid_kickoff"}
     if datetime.now(timezone.utc) >= kickoff:
         return {"home_team": home_team, "away_team": away_team, "commence_time": commence,
+                "sport_key": event.get("sport_key"), "event_id": event.get("id"),
                 "odds_found": True, "in_play": True, "recommendation": None,
                 "recommendation_warning": False, "green_bets": [], "red_bets": [], "bets": []}
 
@@ -652,6 +657,18 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
             "high_deviation": bool(deviation is not None and deviation > 0.15),
             "contradicts_favorite": contradicts_favorite,
         })
+
+        if include_offers and binary_market:
+            offers = []
+            for offer in _available_prices(event, feed_key, feed_name, point):
+                offered_bet = {**bet, "best_odds": offer["price"]}
+                offered_price = price_bet(offered_bet, pricing_prediction, prob)
+                offers.append({**candidates[-1], **offered_price, "best_odds": offer["price"],
+                               "bookmaker": offer["bookmaker"], "bookmaker_key": offer["bookmaker_key"],
+                               "quote_last_update": offer["last_update"],
+                               "selection_market_reference": market_evidence(event, feed_key, feed_name, point,
+                                   now=quote_as_of, exclude_book=offer["bookmaker_key"])})
+            candidates[-1]["bookmaker_offers"] = offers
 
     h2h_outcomes = [
         ("home_win", home_outcome_name, prediction["probability_home_win"]),
@@ -1121,13 +1138,11 @@ def best_bets():
 
 @app.get("/combo-ticket")
 def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
-    """Accumulator suggestion built from one leg per upcoming fixture.
+    """Experimental same-book, same-day combos of individually qualified legs.
 
-    Kept separate from /best-bets because the selection goal is different:
-    /best-bets ranks single bets by edge, while a combination has to survive
-    every leg at once, so it prefers high-probability legs and is scored on
-    Kelly growth rather than raw expected value. See src/combo_ticket.py for
-    why the margin and model error compound.
+    Quotes are repriced per bookmaker, including that offer's independent
+    reference set. Ticket ranking uses stressed expected log growth and
+    explicitly assumes independence between distinct fixtures.
     """
     from src.combo_ticket import combo_report, MAX_LEGS
 
@@ -1140,7 +1155,7 @@ def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
     pairs = []
     for data in _get_prediction_index().values():
         try:
-            vb = _compute_value_bets(data, odds, data["home_team"], data["away_team"])
+            vb = _compute_value_bets(data, odds, data["home_team"], data["away_team"], include_offers=True)
         except Exception:
             continue
         if competition and vb.get("sport_key") != competition:
@@ -1150,37 +1165,6 @@ def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
     report = combo_report(pairs, max_legs=max_legs)
     report["competition"] = competition
 
-    # The combination applies a lighter stress test than the single-bet
-    # selector, so a leg can appear here while that match shows no Game Pick
-    # at all. Say so per leg instead of letting the two views disagree
-    # silently - a ticket built only from legs that failed the strict single
-    # test is exactly the case a user deserves to be warned about.
-    from src.game_pick import assess
-    lookup = {}
-    for _, vb in pairs:
-        for bet in vb.get("bets", []):
-            lookup[(vb.get("event_id"), bet["market"], bet["outcome"], bet.get("team"))] = bet
-
-    def annotate(ticket):
-        if not ticket:
-            return ticket
-        strict = 0
-        for leg in ticket["legs"]:
-            bet = lookup.get((leg.get("event_id"), leg["market"], leg["outcome"], leg.get("team")))
-            passed = bool(bet and assess(bet).get("eligible"))
-            leg["passes_single_bet_test"] = passed
-            strict += passed
-        ticket["legs_passing_single_bet_test"] = strict
-        return ticket
-
-    annotate(report.get("recommended"))
-    for alternative in report.get("alternatives", []):
-        annotate(alternative)
-    for day in report.get("days", []):
-        annotate(day.get("recommended"))
-        annotate(day.get("all_in"))
-        for alternative in day.get("alternatives", []):
-            annotate(alternative)
     return report
 
 

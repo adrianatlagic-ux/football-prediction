@@ -1,168 +1,269 @@
 {
   "home_team": "Schalke 04",
   "away_team": "Elversberg",
-  "prediction": "H",
-  "prediction_label": "Home Win",
-  "probability_home_win": 0.4047,
-  "probability_draw": 0.2909,
-  "probability_away_win": 0.3044,
+  "prediction": "D",
+  "prediction_label": "Draw",
+  "probability_home_win": 0.2917,
+  "probability_draw": 0.3665,
+  "probability_away_win": 0.3418,
   "score_prediction": {
-    "home_xg": 1.47,
-    "away_xg": 1.89,
+    "home_xg": 1.28,
+    "away_xg": 1.64,
     "rho": -0.13,
-    "most_likely_score": "2:1",
-    "result": "H",
-    "probability_home_win": 0.4047,
-    "probability_draw": 0.2909,
-    "probability_away_win": 0.3044,
+    "most_likely_score": "1:1",
+    "result": "D",
+    "probability_home_win": 0.2917,
+    "probability_draw": 0.3665,
+    "probability_away_win": 0.3418,
     "top_scorelines": [
       {
+        "score": "1:1",
+        "probability": 0.1725
+      },
+      {
+        "score": "0:0",
+        "probability": 0.0927
+      },
+      {
+        "score": "2:2",
+        "probability": 0.08
+      },
+      {
         "score": "2:1",
-        "probability": 0.0995
+        "probability": 0.0745
       },
       {
-        "score": "1:0",
-        "probability": 0.0542
-      },
-      {
-        "score": "2:0",
-        "probability": 0.0527
-      },
-      {
-        "score": "3:1",
-        "probability": 0.0487
-      },
-      {
-        "score": "3:2",
-        "probability": 0.046
+        "score": "1:2",
+        "probability": 0.0714
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.6956,
-        "home_or_away": 0.7091,
-        "draw_or_away": 0.5953
+        "home_or_draw": 0.6582,
+        "home_or_away": 0.6335,
+        "draw_or_away": 0.7083
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8553,
-          "under": 0.1447
+          "over": 0.7943,
+          "under": 0.2057
         },
         {
           "line": 2.5,
-          "over": 0.6337,
-          "under": 0.3663
+          "over": 0.5206,
+          "under": 0.4794
         },
         {
           "line": 3.5,
-          "over": 0.4227,
-          "under": 0.5773
+          "over": 0.3248,
+          "under": 0.6752
         }
       ],
       "btts": {
-        "yes": 0.6785,
-        "no": 0.3215
+        "yes": 0.6168,
+        "no": 0.3832
       },
       "win_margin": {
-        "home_1plus": 0.4047,
-        "home_2plus": 0.1929,
-        "home_3plus": 0.0711,
-        "away_1plus": 0.3044,
-        "away_2plus": 0.1742,
-        "away_3plus": 0.0797
+        "home_1plus": 0.2917,
+        "home_2plus": 0.1303,
+        "home_3plus": 0.0437,
+        "away_1plus": 0.3418,
+        "away_2plus": 0.1836,
+        "away_3plus": 0.0769
       },
-      "scenario": "Schalke 04 are favorites to win, with a 2-1 score being most likely and goals expected from both sides."
-    }
+      "scenario": "A 1-1 draw is the most likely score, with a draw or Elversberg win slightly more probable outcomes than a Schalke victory."
+    },
+    "score_matrix": [
+      [
+        0.09270552546529441,
+        0.05682246750037372,
+        0.055937938350716296,
+        0.030621609062716656,
+        0.012572186729212606,
+        0.004129368351100412,
+        0.001130251731218232,
+        0.0002651672882709015,
+        5.4434315580752896e-05
+      ],
+      [
+        0.0558872775819796,
+        0.17252648789619449,
+        0.07137853727095199,
+        0.039074119072385394,
+        0.01604249862413778,
+        0.005269201573116897,
+        0.001442236122763461,
+        0.0003383616509105658,
+        6.945986816923473e-05
+      ],
+      [
+        0.045335899638916544,
+        0.07445348735658307,
+        0.07998735595401114,
+        0.024929891472324547,
+        0.010235361900386802,
+        0.0033618319870566626,
+        0.0009201689218214346,
+        0.0002158799593145123,
+        4.431646870741032e-05
+      ],
+      [
+        0.019283336125115437,
+        0.0316683165839639,
+        0.02600385816943694,
+        0.018624422964587654,
+        0.004353545985837989,
+        0.0014299338210756556,
+        0.0003913879894893786,
+        9.182316555519605e-05,
+        1.8849727672098232e-05
+      ],
+      [
+        0.006151533140554248,
+        0.01010243755063163,
+        0.008295431572300413,
+        0.004541094471892481,
+        0.0024393091098904715,
+        0.000456159931667094,
+        0.00012485579116276477,
+        2.9292298921642447e-05,
+        6.013208695476213e-06
+      ],
+      [
+        0.0015699092619166043,
+        0.0025782044762326876,
+        0.002117045386798723,
+        0.0011589153643119232,
+        0.0004758110631496104,
+        0.00020447057741017558,
+        3.1863969269405436e-05,
+        7.4755756539373696e-06,
+        1.5346080089580747e-06
+      ],
+      [
+        0.0003338754521756883,
+        0.0005483114254977235,
+        0.000450235884926849,
+        0.00024646863400284237,
+        0.00010119160241485989,
+        3.323665241450233e-05,
+        1.1902339038716534e-05,
+        1.5898442427715881e-06,
+        3.2636787063590663e-07
+      ],
+      [
+        6.086219863766251e-05,
+        9.995175948539632e-05,
+        8.20735567219907e-05,
+        4.4928798636986554e-05,
+        1.844623007323038e-05,
+        6.058713595505492e-06,
+        1.6583339019515343e-06,
+        5.090263112696923e-07,
+        5.9493640644000256e-08
+      ],
+      [
+        9.707755688574742e-06,
+        1.5942691579448935e-05,
+        1.309104920597504e-05,
+        7.1663168651803155e-06,
+        2.9422449227022882e-06,
+        9.66388212860535e-07,
+        2.645106606494532e-07,
+        6.205659559358588e-08,
+        1.666726159268142e-08
+      ]
+    ]
   },
   "game_flow": {
     "match_type": "Balanced & Open",
     "match_description": "Both teams play attacking football at an even level",
     "dominance_index": -0.12,
-    "total_xg": 3.36,
+    "total_xg": 2.92,
     "first_goal": {
-      "Schalke 04_scores_first": 0.422,
-      "Elversberg_scores_first": 0.543,
-      "no_goals": 0.035,
-      "expected_minute": 26
+      "Schalke 04_scores_first": 0.415,
+      "Elversberg_scores_first": 0.531,
+      "no_goals": 0.054,
+      "expected_minute": 30
     },
     "halftime_xg": {
-      "Schalke 04": 0.69,
-      "Elversberg": 0.89
+      "Schalke 04": 0.6,
+      "Elversberg": 0.77
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.207
+        "probability": 0.254
       },
       {
         "score": "0:1",
-        "probability": 0.184
+        "probability": 0.196
       },
       {
         "score": "1:0",
-        "probability": 0.143
+        "probability": 0.153
       },
       {
         "score": "1:1",
-        "probability": 0.127
+        "probability": 0.118
       },
       {
         "score": "0:2",
-        "probability": 0.082
+        "probability": 0.075
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Schalke 04": 0.198,
-        "Elversberg": 0.255
+        "Schalke 04": 0.173,
+        "Elversberg": 0.221
       },
       "16-30'": {
-        "Schalke 04": 0.228,
-        "Elversberg": 0.293
+        "Schalke 04": 0.198,
+        "Elversberg": 0.254
       },
       "31-45'": {
-        "Schalke 04": 0.265,
-        "Elversberg": 0.34
+        "Schalke 04": 0.23,
+        "Elversberg": 0.295
       },
       "46-60'": {
-        "Schalke 04": 0.213,
-        "Elversberg": 0.274
+        "Schalke 04": 0.186,
+        "Elversberg": 0.238
       },
       "61-75'": {
-        "Schalke 04": 0.272,
-        "Elversberg": 0.35
+        "Schalke 04": 0.237,
+        "Elversberg": 0.303
       },
       "76-90'": {
-        "Schalke 04": 0.294,
-        "Elversberg": 0.378
+        "Schalke 04": 0.256,
+        "Elversberg": 0.328
       }
     },
     "comeback_probability": {
-      "Schalke 04": 0.032,
-      "Elversberg": 0.041
+      "Schalke 04": 0.027,
+      "Elversberg": 0.033
     },
-    "late_drama_probability": 0.489,
+    "late_drama_probability": 0.442,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.223
+        "wahrscheinlichkeit": 0.243
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.175
+        "wahrscheinlichkeit": 0.202
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Elversberg trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.089
       },
       {
         "szenario": "Elversberg dominiert früh",
         "beschreibung": "Elversberg geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.083
-      },
-      {
-        "szenario": "Schalke 04 dominiert früh",
-        "beschreibung": "Schalke 04 geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.05
+        "wahrscheinlichkeit": 0.076
       }
     ],
     "predicted_stats": {
@@ -171,16 +272,16 @@
         "away": 52
       },
       "shots": {
-        "home": 14,
-        "away": 16
+        "home": 12,
+        "away": 15
       },
       "shots_on_target": {
         "home": 5,
         "away": 6
       },
       "corners": {
-        "home": 6,
-        "away": 7
+        "home": 5,
+        "away": 6
       },
       "passes": {
         "home": 250,
@@ -197,7 +298,47 @@
         "score_after": "0:0"
       },
       {
-        "minute": 8,
+        "minute": 6,
+        "type": "chance",
+        "team": "Schalke 04",
+        "headline": "Big chance for Schalke 04!",
+        "description": "Schalke 04 create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 27,
+        "type": "chance",
+        "team": "Schalke 04",
+        "headline": "Big chance for Schalke 04!",
+        "description": "Schalke 04 create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 49,
+        "type": "chance",
+        "team": "Elversberg",
+        "headline": "Big chance for Elversberg!",
+        "description": "Elversberg create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 62,
+        "type": "chance",
+        "team": "Elversberg",
+        "headline": "Big chance for Elversberg!",
+        "description": "Elversberg create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 85,
         "type": "goal",
         "team": "Schalke 04",
         "headline": "GOAL! Schalke 04!",
@@ -205,68 +346,20 @@
         "score_after": "1:0"
       },
       {
-        "minute": 28,
-        "type": "chance",
-        "team": "Elversberg",
-        "headline": "Big chance for Elversberg!",
-        "description": "Elversberg create a great opportunity but fail to convert.",
-        "score_after": "1:0"
-      },
-      {
-        "minute": 43,
-        "type": "chance",
-        "team": "Elversberg",
-        "headline": "Big chance for Elversberg!",
-        "description": "Elversberg create a great opportunity but fail to convert.",
-        "score_after": "1:0"
-      },
-      {
-        "minute": 45,
-        "type": "halftime",
-        "team": null,
-        "headline": "Half-time",
-        "description": "The teams go into the break at 1:0.",
-        "score_after": "1:0"
-      },
-      {
-        "minute": 56,
-        "type": "goal",
-        "team": "Schalke 04",
-        "headline": "GOAL! Schalke 04!",
-        "description": "Schalke 04 score to make it 2:0.",
-        "score_after": "2:0"
-      },
-      {
-        "minute": 73,
-        "type": "chance",
-        "team": "Schalke 04",
-        "headline": "Big chance for Schalke 04!",
-        "description": "Schalke 04 create a great opportunity but fail to convert.",
-        "score_after": "2:0"
-      },
-      {
-        "minute": 79,
-        "type": "chance",
-        "team": "Elversberg",
-        "headline": "Big chance for Elversberg!",
-        "description": "Elversberg create a great opportunity but fail to convert.",
-        "score_after": "2:0"
-      },
-      {
         "minute": 88,
         "type": "goal",
         "team": "Elversberg",
         "headline": "GOAL! Elversberg!",
-        "description": "Elversberg score to make it 2:1.",
-        "score_after": "2:1"
+        "description": "Elversberg score to make it 1:1.",
+        "score_after": "1:1"
       },
       {
         "minute": 90,
         "type": "fulltime",
         "team": null,
         "headline": "Full-time",
-        "description": "The final score finishes 2:1.",
-        "score_after": "2:1"
+        "description": "The final score finishes 1:1.",
+        "score_after": "1:1"
       }
     ]
   },
@@ -280,16 +373,16 @@
       "Elversberg": "55%"
     },
     "avg_goals_scored": {
-      "Schalke 04": 1.35,
-      "Elversberg": 1.94
+      "Schalke 04": 1.37,
+      "Elversberg": 2.57
     },
     "avg_goals_conceded": {
-      "Schalke 04": 1.68,
-      "Elversberg": 2.12
+      "Schalke 04": 1.14,
+      "Elversberg": 1.83
     },
     "clean_sheet_rate": {
-      "Schalke 04": "5%",
-      "Elversberg": "0%"
+      "Schalke 04": "40%",
+      "Elversberg": "18%"
     },
     "h2h_last_10": {
       "Schalke 04 wins": "50%",
@@ -297,5 +390,9 @@
       "Elversberg wins": "33%",
       "total_h2h_games": 6
     }
-  }
+  },
+  "model_version": "club_verified_v3",
+  "generated_at": "2026-09-19T14:37:00.502798+00:00",
+  "training_end": "2026-09-13",
+  "market_value_policy": "current_season"
 }

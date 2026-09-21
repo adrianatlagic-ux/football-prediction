@@ -13,7 +13,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.club_predictor import ClubFootballPredictor
+from src.club_predictor import ClubFootballPredictor, DEFAULT_MODEL_PATH
 from src.scenario_agent import generate_ai_scenario
 
 FIXTURES_PATH = Path(__file__).parent.parent / "frontend" / "src" / "bl_fixtures.json"
@@ -38,7 +38,7 @@ def main():
 
     fixtures = json.loads(FIXTURES_PATH.read_text(encoding="utf-8"))
     print(f"{len(fixtures)} Bundesliga-Spiele. Lade Modell...")
-    predictor = ClubFootballPredictor(model_path="club_model.joblib")
+    predictor = ClubFootballPredictor(model_path=DEFAULT_MODEL_PATH)
 
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     ok, failed = 0, []

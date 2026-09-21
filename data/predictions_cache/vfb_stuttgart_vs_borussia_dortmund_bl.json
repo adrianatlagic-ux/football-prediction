@@ -3,166 +3,267 @@
   "away_team": "Borussia Dortmund",
   "prediction": "A",
   "prediction_label": "Away Win",
-  "probability_home_win": 0.3335,
-  "probability_draw": 0.1909,
-  "probability_away_win": 0.4756,
+  "probability_home_win": 0.3185,
+  "probability_draw": 0.2331,
+  "probability_away_win": 0.4483,
   "score_prediction": {
-    "home_xg": 1.7,
-    "away_xg": 1.93,
+    "home_xg": 1.48,
+    "away_xg": 1.68,
     "rho": -0.13,
-    "most_likely_score": "1:2",
-    "result": "A",
-    "probability_home_win": 0.3335,
-    "probability_draw": 0.1909,
-    "probability_away_win": 0.4756,
+    "most_likely_score": "1:1",
+    "result": "D",
+    "probability_home_win": 0.3185,
+    "probability_draw": 0.2331,
+    "probability_away_win": 0.4483,
     "top_scorelines": [
       {
-        "score": "1:2",
-        "probability": 0.0936
+        "score": "1:1",
+        "probability": 0.106
       },
       {
-        "score": "1:3",
-        "probability": 0.0603
+        "score": "1:2",
+        "probability": 0.0965
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0762
       },
       {
         "score": "0:2",
-        "probability": 0.0549
-      },
-      {
-        "score": "2:3",
-        "probability": 0.0514
+        "probability": 0.0651
       },
       {
         "score": "0:1",
-        "probability": 0.0442
+        "probability": 0.0626
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.5244,
-        "home_or_away": 0.8091,
-        "draw_or_away": 0.6665
+        "home_or_draw": 0.5517,
+        "home_or_away": 0.7669,
+        "draw_or_away": 0.6815
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.8922,
-          "under": 0.1078
+          "over": 0.8397,
+          "under": 0.1603
         },
         {
           "line": 2.5,
-          "over": 0.7209,
-          "under": 0.2791
+          "over": 0.6232,
+          "under": 0.3768
         },
         {
           "line": 3.5,
-          "over": 0.4965,
-          "under": 0.5035
+          "over": 0.3916,
+          "under": 0.6084
         }
       ],
       "btts": {
-        "yes": 0.7021,
-        "no": 0.2979
+        "yes": 0.6366,
+        "no": 0.3634
       },
       "win_margin": {
-        "home_1plus": 0.3335,
-        "home_2plus": 0.1725,
-        "home_3plus": 0.0709,
-        "away_1plus": 0.4756,
-        "away_2plus": 0.2697,
-        "away_3plus": 0.1235
+        "home_1plus": 0.3185,
+        "home_2plus": 0.1553,
+        "home_3plus": 0.0584,
+        "away_1plus": 0.4483,
+        "away_2plus": 0.2397,
+        "away_3plus": 0.1006
       },
-      "scenario": "Borussia Dortmund are favorites with a 48% win chance, supported by their strong recent form, and a 1-2 score is most likely."
-    }
+      "scenario": "Despite Borussia Dortmund being more likely to win and in better recent form, a 1-1 draw is predicted as the most probable final score."
+    },
+    "score_matrix": [
+      [
+        0.04984246734512127,
+        0.06256953367494242,
+        0.06511039101478588,
+        0.036465886015091424,
+        0.015317380476531757,
+        0.0051472139098057345,
+        0.0014413806521884097,
+        0.0003459699426150048,
+        7.26617919318449e-05
+      ],
+      [
+        0.04783369740822643,
+        0.10596044680231045,
+        0.09650861711753894,
+        0.05405085388725567,
+        0.022703890801662862,
+        0.007629358213049365,
+        0.002136458579262569,
+        0.0005128072525079155,
+        0.00010770153499818851
+      ],
+      [
+        0.04535746049245801,
+        0.07620903323448236,
+        0.05838198494674292,
+        0.04005791611278001,
+        0.016826201396628954,
+        0.005654234287032052,
+        0.001583362193038509,
+        0.00038004931329735673,
+        7.981925804861926e-05
+      ],
+      [
+        0.02241007269790199,
+        0.0376531215918836,
+        0.031632150076556884,
+        0.016155107701563632,
+        0.008313437137661063,
+        0.002793626451913635,
+        0.0007823026568915301,
+        0.00018777358007505027,
+        3.943685021474226e-05
+      ],
+      [
+        0.00830422414867273,
+        0.01395265271163102,
+        0.01172153558273711,
+        0.0065647920987736575,
+        0.002514568006064694,
+        0.0010351996870819602,
+        0.0002898882436707879,
+        6.958093885558644e-05,
+        1.4613627020117233e-05
+      ],
+      [
+        0.002461755109535377,
+        0.004136209896251435,
+        0.0034748038583491056,
+        0.001946107210361914,
+        0.0008174561993886199,
+        0.00025049374596046724,
+        8.593624789919225e-05,
+        2.0627000028821015e-05,
+        4.33215317187311e-06
+      ],
+      [
+        0.0006081481455326711,
+        0.0010218028463497106,
+        0.0008584101295695557,
+        0.000480763292175204,
+        0.00020194310546437823,
+        6.786045192441223e-05,
+        1.732877636933288e-05,
+        5.095661939256588e-06,
+        1.0702083677751985e-06
+      ],
+      [
+        0.00012877368861715312,
+        0.00021636392798453342,
+        0.00018176597189847315,
+        0.00010180029806865733,
+        4.276089431905323e-05,
+        1.4369263097693834e-05,
+        4.023842447224519e-06,
+        8.807351465207843e-07,
+        2.2661366333139856e-07
+      ],
+      [
+        2.3859038503439118e-05,
+        4.008765566920851e-05,
+        3.367738680712941e-05,
+        1.886144023180634e-05,
+        7.92268851623066e-06,
+        2.6623202705110437e-06,
+        7.455328251528725e-07,
+        1.789478361209654e-07,
+        3.427195383295886e-08
+      ]
+    ]
   },
   "game_flow": {
-    "match_type": "Goal Fest",
-    "match_description": "A very open game with plenty of chances expected",
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
     "dominance_index": -0.06,
-    "total_xg": 3.63,
+    "total_xg": 3.16,
     "first_goal": {
-      "VfB Stuttgart_scores_first": 0.456,
-      "Borussia Dortmund_scores_first": 0.518,
-      "no_goals": 0.027,
-      "expected_minute": 24
+      "VfB Stuttgart_scores_first": 0.448,
+      "Borussia Dortmund_scores_first": 0.509,
+      "no_goals": 0.042,
+      "expected_minute": 28
     },
     "halftime_xg": {
-      "VfB Stuttgart": 0.8,
-      "Borussia Dortmund": 0.91
+      "VfB Stuttgart": 0.7,
+      "Borussia Dortmund": 0.79
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.182
+        "probability": 0.227
       },
       {
         "score": "0:1",
-        "probability": 0.165
+        "probability": 0.179
       },
       {
         "score": "1:0",
-        "probability": 0.146
+        "probability": 0.158
       },
       {
         "score": "1:1",
-        "probability": 0.132
+        "probability": 0.125
       },
       {
         "score": "0:2",
-        "probability": 0.075
+        "probability": 0.071
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "VfB Stuttgart": 0.23,
-        "Borussia Dortmund": 0.261
+        "VfB Stuttgart": 0.2,
+        "Borussia Dortmund": 0.227
       },
       "16-30'": {
-        "VfB Stuttgart": 0.264,
-        "Borussia Dortmund": 0.299
+        "VfB Stuttgart": 0.229,
+        "Borussia Dortmund": 0.26
       },
       "31-45'": {
-        "VfB Stuttgart": 0.306,
-        "Borussia Dortmund": 0.347
+        "VfB Stuttgart": 0.266,
+        "Borussia Dortmund": 0.302
       },
       "46-60'": {
-        "VfB Stuttgart": 0.246,
-        "Borussia Dortmund": 0.28
+        "VfB Stuttgart": 0.215,
+        "Borussia Dortmund": 0.244
       },
       "61-75'": {
-        "VfB Stuttgart": 0.315,
-        "Borussia Dortmund": 0.357
+        "VfB Stuttgart": 0.274,
+        "Borussia Dortmund": 0.311
       },
       "76-90'": {
-        "VfB Stuttgart": 0.34,
-        "Borussia Dortmund": 0.386
+        "VfB Stuttgart": 0.296,
+        "Borussia Dortmund": 0.336
       }
     },
     "comeback_probability": {
-      "VfB Stuttgart": 0.038,
-      "Borussia Dortmund": 0.043
+      "VfB Stuttgart": 0.032,
+      "Borussia Dortmund": 0.036
     },
-    "late_drama_probability": 0.516,
+    "late_drama_probability": 0.468,
     "match_stories": [
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
-        "wahrscheinlichkeit": 0.216
+        "wahrscheinlichkeit": 0.234
       },
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.159
+        "wahrscheinlichkeit": 0.187
       },
       {
         "szenario": "Borussia Dortmund dominiert früh",
         "beschreibung": "Borussia Dortmund geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.076
+        "wahrscheinlichkeit": 0.072
       },
       {
         "szenario": "VfB Stuttgart dominiert früh",
         "beschreibung": "VfB Stuttgart geht 2:0 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.059
+        "wahrscheinlichkeit": 0.056
       }
     ],
     "predicted_stats": {
@@ -171,12 +272,12 @@
         "away": 51
       },
       "shots": {
-        "home": 15,
-        "away": 17
+        "home": 14,
+        "away": 15
       },
       "shots_on_target": {
-        "home": 6,
-        "away": 7
+        "home": 5,
+        "away": 6
       },
       "corners": {
         "home": 6,
@@ -197,15 +298,31 @@
         "score_after": "0:0"
       },
       {
-        "minute": 14,
+        "minute": 33,
         "type": "chance",
-        "team": "VfB Stuttgart",
-        "headline": "Big chance for VfB Stuttgart!",
-        "description": "VfB Stuttgart create a great opportunity but fail to convert.",
+        "team": "Borussia Dortmund",
+        "headline": "Big chance for Borussia Dortmund!",
+        "description": "Borussia Dortmund create a great opportunity but fail to convert.",
         "score_after": "0:0"
       },
       {
-        "minute": 20,
+        "minute": 34,
+        "type": "chance",
+        "team": "Borussia Dortmund",
+        "headline": "Big chance for Borussia Dortmund!",
+        "description": "Borussia Dortmund create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 65,
         "type": "goal",
         "team": "Borussia Dortmund",
         "headline": "GOAL! Borussia Dortmund!",
@@ -213,39 +330,15 @@
         "score_after": "0:1"
       },
       {
-        "minute": 40,
+        "minute": 68,
         "type": "chance",
-        "team": "Borussia Dortmund",
-        "headline": "Big chance for Borussia Dortmund!",
-        "description": "Borussia Dortmund create a great opportunity but fail to convert.",
+        "team": "VfB Stuttgart",
+        "headline": "Big chance for VfB Stuttgart!",
+        "description": "VfB Stuttgart create a great opportunity but fail to convert.",
         "score_after": "0:1"
       },
       {
-        "minute": 45,
-        "type": "halftime",
-        "team": null,
-        "headline": "Half-time",
-        "description": "The teams go into the break at 0:1.",
-        "score_after": "0:1"
-      },
-      {
-        "minute": 59,
-        "type": "chance",
-        "team": "Borussia Dortmund",
-        "headline": "Big chance for Borussia Dortmund!",
-        "description": "Borussia Dortmund create a great opportunity but fail to convert.",
-        "score_after": "0:1"
-      },
-      {
-        "minute": 67,
-        "type": "chance",
-        "team": "Borussia Dortmund",
-        "headline": "Big chance for Borussia Dortmund!",
-        "description": "Borussia Dortmund create a great opportunity but fail to convert.",
-        "score_after": "0:1"
-      },
-      {
-        "minute": 74,
+        "minute": 77,
         "type": "goal",
         "team": "VfB Stuttgart",
         "headline": "GOAL! VfB Stuttgart!",
@@ -253,20 +346,20 @@
         "score_after": "1:1"
       },
       {
-        "minute": 85,
-        "type": "goal",
-        "team": "Borussia Dortmund",
-        "headline": "GOAL! Borussia Dortmund!",
-        "description": "Borussia Dortmund score to make it 1:2.",
-        "score_after": "1:2"
+        "minute": 79,
+        "type": "chance",
+        "team": "VfB Stuttgart",
+        "headline": "Big chance for VfB Stuttgart!",
+        "description": "VfB Stuttgart create a great opportunity but fail to convert.",
+        "score_after": "1:1"
       },
       {
         "minute": 90,
         "type": "fulltime",
         "team": null,
         "headline": "Full-time",
-        "description": "The final score finishes 1:2.",
-        "score_after": "1:2"
+        "description": "The final score finishes 1:1.",
+        "score_after": "1:1"
       }
     ]
   },
@@ -280,16 +373,16 @@
       "Borussia Dortmund": "79%"
     },
     "avg_goals_scored": {
-      "VfB Stuttgart": 2.11,
-      "Borussia Dortmund": 1.77
+      "VfB Stuttgart": 2.12,
+      "Borussia Dortmund": 2.22
     },
     "avg_goals_conceded": {
-      "VfB Stuttgart": 2.73,
-      "Borussia Dortmund": 1.28
+      "VfB Stuttgart": 2.17,
+      "Borussia Dortmund": 0.77
     },
     "clean_sheet_rate": {
-      "VfB Stuttgart": "5%",
-      "Borussia Dortmund": "30%"
+      "VfB Stuttgart": "6%",
+      "Borussia Dortmund": "54%"
     },
     "h2h_last_10": {
       "VfB Stuttgart wins": "40%",
@@ -297,5 +390,9 @@
       "Borussia Dortmund wins": "40%",
       "total_h2h_games": 10
     }
-  }
+  },
+  "model_version": "club_verified_v3",
+  "generated_at": "2026-09-19T14:36:44.642669+00:00",
+  "training_end": "2026-09-13",
+  "market_value_policy": "current_season"
 }

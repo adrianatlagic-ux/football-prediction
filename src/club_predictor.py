@@ -1,11 +1,14 @@
 from __future__ import annotations
 
+import os
+
 import joblib
 import pandas as pd
 import numpy as np
 from pathlib import Path
 
 from .club_data_loader import load_completed_matches
+from .club_market_value_policy import DEFAULT_POLICY as MARKET_VALUE_POLICY
 from .poisson_model import predict_scorelines
 from .game_flow import predict_game_flow
 from .models.ensemble_model import EnsemblePredictor
@@ -13,6 +16,12 @@ from .models.catboost_model import CatBoostPredictor
 from .evaluation import evaluate
 
 RESULT_LABELS = {"H": "Home Win", "D": "Draw", "A": "Away Win"}
+
+# One source of truth for the artifact, shared by the API and the prediction
+# scripts. They drifted apart before: the scripts still loaded a pre-V3 model
+# that this class now rejects outright, so they failed at run time instead of
+# silently serving stale predictions - but only because the rejection exists.
+DEFAULT_MODEL_PATH = Path(os.getenv("MODEL_PATH", "club_model_v3.joblib"))
 
 # Fixed starting weight. Historical same-test tuning is not proof of optimality.
 POISSON_BLEND = 0.30
@@ -167,7 +176,7 @@ class ClubFootballPredictor:
             "model_version": "club_verified_v3",
             "generated_at": pd.Timestamp.now(tz="UTC").isoformat(),
             "training_end": self.bundle.metadata["training_end"],
-            "market_value_policy": "verified_only",
+            "market_value_policy": MARKET_VALUE_POLICY,
         }
 
     def _align_score_prediction(self, score_pred: dict, ensemble_result: str, top_n: int = 5) -> None:

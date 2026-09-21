@@ -3,13 +3,13 @@ from collections import defaultdict, deque
 import numpy as np
 import pandas as pd
 from .feature_engineering import _decay_weights, encode_result
-from .club_market_value_policy import MarketValueHistory
+from .club_market_value_policy import DEFAULT_POLICY, MarketValueHistory
 
 FEATURE_VERSION = 3
 
 
 class ClubFeatureState:
-    def __init__(self, market_values=None, policy="verified_only"):
+    def __init__(self, market_values=None, policy=DEFAULT_POLICY):
         self.teams = defaultdict(lambda: deque(maxlen=10))
         self.h2h = defaultdict(lambda: deque(maxlen=10))
         self.market_values = market_values or MarketValueHistory()
@@ -54,7 +54,7 @@ def prepare_history(history):
     return history
 
 
-def build_features(history, policy="verified_only", market_values=None):
+def build_features(history, policy=DEFAULT_POLICY, market_values=None):
     history = prepare_history(history)
     state = ClubFeatureState(market_values, policy)
     records = []
@@ -65,7 +65,7 @@ def build_features(history, policy="verified_only", market_values=None):
     return pd.DataFrame(records)
 
 
-def prediction_row(history, home, away, as_of, policy="verified_only"):
+def prediction_row(history, home, away, as_of, policy=DEFAULT_POLICY):
     history = prepare_history(history)
     state = ClubFeatureState(policy=policy)
     history = history[history.date < pd.Timestamp(as_of).normalize()]
