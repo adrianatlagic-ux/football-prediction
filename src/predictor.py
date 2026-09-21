@@ -21,6 +21,15 @@ RESULT_LABELS = {"H": "Home Win", "D": "Draw", "A": "Away Win"}
 POISSON_BLEND = 0.20
 
 
+def wc2026_neutral(home_team: str) -> bool:
+    """Venue rule for WC2026 only: everyone but the three hosts plays neutral.
+
+    Pass the result into predict_match(neutral=...) for World Cup fixtures.
+    It is deliberately not the default - see predict_match.
+    """
+    return home_team not in WC2026_HOST_NATIONS
+
+
 class FootballPredictor:
     def __init__(self, model_path: str | Path | None = None):
         self.model = EnsemblePredictor()
@@ -60,7 +69,11 @@ class FootballPredictor:
         return evaluate(test["result"], y_pred, y_proba)
 
     def _compute_sample_weights(self, df: pd.DataFrame) -> np.ndarray:
-        ref_date = pd.Timestamp("2026-06-01")
+        # Anchor recency on the newest match in the data, not a fixed date.
+        # The hardcoded 2026-06-01 meant every match after that point was
+        # treated as equally recent, so each new Nations League round would
+        # quietly stop counting as "current" the further past it we get.
+        ref_date = max(df["date"].max(), pd.Timestamp.now().normalize())
         days_ago = (ref_date - df["date"]).dt.days.clip(lower=0).values
         half_life_days = 3 * 365
         time_w = np.exp(-np.log(2) / half_life_days * days_ago)
@@ -103,9 +116,15 @@ class FootballPredictor:
     def predict_match(
         self, home_team: str, away_team: str, neutral: bool | None = None, is_knockout: bool = False,
     ) -> dict:
-        # WM 2026: Heimvorteil nur für Gastgeber-Nationen
+        # An ordinary international is played at the home team's ground, so
+        # the default has to be a real home venue. This used to default to
+        # `home_team not in WC2026_HOST_NATIONS`, which is right ONLY for a
+        # World Cup staged entirely in three countries - every other fixture
+        # (Nations League, qualifiers, friendlies) came out as neutral and
+        # silently lost its home advantage. WC2026 callers now opt in via
+        # wc2026_neutral() instead of the rule being the global default.
         if neutral is None:
-            neutral = home_team not in WC2026_HOST_NATIONS
+            neutral = False
         if not self._trained:
             raise RuntimeError("Model not trained. Call .train() first.")
 

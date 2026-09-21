@@ -17,7 +17,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.predictor import FootballPredictor
+from src.predictor import FootballPredictor, wc2026_neutral
 from src.scenario_agent import generate_ai_scenario
 
 FIXTURES_PATH = Path(__file__).parent.parent / "frontend" / "src" / "wc2026_fixtures.json"
@@ -60,7 +60,8 @@ def main():
             "Round of 16", "Quarter-final", "Semi-final", "Final",
         )
         try:
-            result = predictor.predict_match(f["home_team"], f["away_team"], is_knockout=is_knockout)
+            result = predictor.predict_match(f["home_team"], f["away_team"],
+                                             neutral=wc2026_neutral(f["home_team"]), is_knockout=is_knockout)
         except Exception as exc:
             print(f"  FEHLER bei Vorhersage {f['home_team']} vs {f['away_team']}: {exc}")
             failed.append(f["match_id"])
