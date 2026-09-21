@@ -263,8 +263,11 @@ def _fetch_espn_results() -> list[dict]:
 
 def _fetch_espn_league(league, sport) -> list[dict]:
     url = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{league}/scoreboard?limit=100"
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=8) as resp:
+    # Deliberately no User-Agent header. ESPN answers 403 to a spoofed browser
+    # UA ("Mozilla/5.0") and 200 to Python's default one, so the header that
+    # was meant to look harmless is what broke /real-results. The Odds API
+    # calls below are unaffected and keep theirs.
+    with urllib.request.urlopen(url, timeout=8) as resp:
         data = json.loads(resp.read())
 
     results = []
