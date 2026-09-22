@@ -544,6 +544,28 @@ function plainBetPhrase(b) {
   return b.market
 }
 
+function BetMetric({ label, value, detail, emphasis = false }) {
+  return (
+    <div className={`bet-metric${emphasis ? ' is-emphasized' : ''}`}>
+      <dt>{label}</dt>
+      <dd>{value}<small>{detail}</small></dd>
+    </div>
+  )
+}
+
+function betPercent(value, signed = false) {
+  return Number.isFinite(value) ? `${signed && value > 0 ? '+' : ''}${(value * 100).toFixed(1)}%` : '—'
+}
+
+function SignalAgreement({ icon, name, available, agrees }) {
+  const status = !available ? 'unknown' : agrees ? 'yes' : 'no'
+  return (
+    <span className={`smart-bet-agree-chip ${status}`}>
+      {icon} {name} {!available ? 'unavailable' : agrees ? 'agrees ✓' : 'differs ✕'}
+    </span>
+  )
+}
+
 function ComboLegRow({ leg, index }) {
   return (
     <div className="combo-leg">
@@ -562,48 +584,36 @@ function ComboLegRow({ leg, index }) {
       </div>
       <div className="combo-leg-numbers">
         <span className="combo-leg-odds">{leg.best_odds.toFixed(2)}</span>
-        <span className="combo-leg-prob">{(leg.probability * 100).toFixed(0)}%</span>
+        <span className="combo-leg-prob">{betPercent(leg.probability)} model</span>
       </div>
     </div>
   )
 }
 
 function ComboTicketCard({ ticket, primary }) {
-  const hit = ticket.probability * 100
   return (
     <div className={`combo-ticket ${primary ? 'is-primary' : ''}`}>
       <div className="combo-ticket-head">
         <span className="combo-ticket-legs">{ticket.leg_count}-fold · {ticket.bookmaker}</span>
-        <span className="combo-ticket-odds">{ticket.combined_odds.toFixed(2)}</span>
+        <div className="combo-quote">
+          <span className="combo-quote-label">Estimated combined odds</span>
+          <span className="combo-ticket-odds">{ticket.combined_odds.toFixed(2)}</span>
+        </div>
       </div>
       <div className="combo-legs">
         {ticket.legs.map((leg, i) => <ComboLegRow key={i} leg={leg} index={i} />)}
       </div>
-      <div className="combo-ticket-stats">
-        <div className="combo-stat">
-          <span className="combo-stat-label">Model win probability</span>
-          <span className="combo-stat-value">{hit.toFixed(1)}%</span>
-        </div>
-        <div className="combo-stat">
-          <span className="combo-stat-label">Estimated return</span>
-          <span className="combo-stat-value">{ticket.combined_odds.toFixed(2)}×</span>
-        </div>
-        <div className="combo-stat">
-          <span className="combo-stat-label">Model EV</span>
-          <span className={`combo-stat-value ${ticket.expected_value >= 0 ? 'positive' : 'negative'}`}>
-            {ticket.expected_value >= 0 ? '+' : ''}{(ticket.expected_value * 100).toFixed(0)}%
-          </span>
-        </div>
-        <div className="combo-stat">
-          <span className="combo-stat-label">Paper stake</span>
-          <span className="combo-stat-value">{ticket.stake_pct.toFixed(1)}%</span>
-        </div>
-      </div>
+      <dl className="bet-metrics probability-metrics">
+        <BetMetric label="Model win probability" value={betPercent(ticket.probability)} detail="All selections win" />
+        <BetMetric label="Stressed win probability" value={betPercent(ticket.stressed_probability)} detail="Under the fixed stress assumptions" />
+      </dl>
+      <dl className="bet-metrics decision-metrics">
+        <BetMetric label="Stressed EV" value={betPercent(ticket.stressed_expected_value, true)} detail="Estimated net return per stake" emphasis />
+        <BetMetric label="Model EV" value={betPercent(ticket.expected_value, true)} detail="Before the stress checks" />
+        <BetMetric label="Paper stake" value={`${ticket.stake_pct.toFixed(2)}%`} detail="Of the test budget · max 1%" />
+      </dl>
       {primary && (
         <p className="combo-ticket-note">
-          Under the model–market stress scenarios, estimated return is
-          <strong> {(ticket.stressed_expected_value * 100).toFixed(1)}%</strong>
-          {' '}(estimated win probability {(ticket.stressed_probability * 100).toFixed(1)}%).
           Probabilities assume independent results. Prices come from {ticket.bookmaker}'s
           individual markets; the actual combined offer has not been verified.
         </p>
@@ -744,13 +754,8 @@ function SmartBetCard({ betStep, betInfo, data }) {
     const isAgentPick = agentPick && sameBet(b, agentPick)
     const isModelFavorite = modelFavorite && sameBet(b, modelFavorite)
     const isSafestPick = safestPick && sameBet(b, safestPick)
-    // Any marked signal (Game Pick, value bet, AI pick ✨, model favorite ◆,
-    // safest pick 🛡) is a headline in its own right - dimming its row to 40%
-    // opacity just because its edge happens to be negative buries it visually
-    // even though we deliberately show these regardless of edge. The Game
-    // Pick especially is *expected* to have flat/negative edge at short odds
-    // (that's the whole "swim with the market" point), so graying it out
-    // here would visually contradict the headline box above.
+    // Keep comparison signals legible even when their raw model EV is negative.
+    // Only Game Pick represents the active selection after stress checks.
     const keepFullOpacity = isRec || isGamePick || isAgentPick || isModelFavorite || isSafestPick
     return (
       <div className={`smart-bet-table-row ${kind === 'red' && !keepFullOpacity ? 'is-red' : ''} ${isRec ? 'is-rec' : ''}`} key={`${kind}-${i}`}>
@@ -785,30 +790,32 @@ function SmartBetCard({ betStep, betInfo, data }) {
           <div className="smart-bet-pick">{betOutcomeLabel(consensusPick)}</div>
           <div className="smart-bet-odds-row">
             <span className="smart-bet-odds">{consensusPick.best_odds.toFixed(2)}</span>
-            {consensusPick.market_probability != null && (
-              <span className="smart-bet-winprob">
-                {(consensusPick.market_probability * 100).toFixed(0)}% market estimate
-              </span>
-            )}
+            <span className="smart-bet-odds-caption">Decimal odds</span>
           </div>
           <div className="smart-bet-best-meta">at {consensusPick.bookmaker} · Experimental selection</div>
+          <dl className="bet-metrics probability-metrics">
+            <BetMetric label="Model probability" value={betPercent(consensusPick.probability)} detail="Chance of a positive payout" />
+            <BetMetric label="Market estimate" value={betPercent(consensusPick.market_probability)}
+              detail={consensusPick.market_probability != null ? 'Margin-adjusted · same outcome' : 'Unavailable for this market'} />
+          </dl>
           {selectionCheck && (
-            <p className="smart-bet-agent-text">
-              Estimated return after the fixed stress tests: <strong>{(selectionCheck.stressed_expected_value * 100).toFixed(1)}%</strong> per unit staked.
-              {' '}Minimum qualifying odds: <strong>{selectionCheck.min_acceptable_odds.toFixed(2)}</strong>.
-              {' '}Compared with {selectionCheck.reference_book_count} other bookmakers.
-              {' '}Paper stake: {selectionCheck.paper_stake_pct.toFixed(2)}% of the test budget.
-              {' '}These checks are assumptions, not a statistical confidence interval or proof of profit.
-            </p>
+            <>
+              <dl className="bet-metrics decision-metrics">
+                <BetMetric label="Stressed EV" value={betPercent(selectionCheck.stressed_expected_value, true)} detail="Estimated net return per stake" emphasis />
+                <BetMetric label="Minimum odds" value={selectionCheck.min_acceptable_odds.toFixed(2)} detail="To qualify at this snapshot" />
+                <BetMetric label="Paper stake" value={`${selectionCheck.paper_stake_pct.toFixed(2)}%`} detail="Of the test budget · max 1%" />
+              </dl>
+              <p className="bet-metrics-context">
+                Compared with {selectionCheck.reference_book_count} other bookmakers.
+                Fixed stress assumptions, not a confidence interval or proof of profit.
+              </p>
+            </>
           )}
           <div className="smart-bet-agree-row">
-            <span className={`smart-bet-agree-chip ${combined.model_agrees ? 'yes' : 'no'}`}>
-              {combined.model_agrees ? '◆ Model agrees ✓' : '◆ Model differs ✕'}
-            </span>
-            <span className={`smart-bet-agree-chip ${combined.agent_agrees ? 'yes' : 'no'}`}>
-              {combined.agent_agrees ? '✨ AI agrees ✓' : '✨ AI differs ✕'}
-            </span>
+            <SignalAgreement icon="◆" name="Model" available={Boolean(modelFavorite)} agrees={combined.model_agrees} />
+            <SignalAgreement icon="✨" name="AI" available={Boolean(combined.agent_pick)} agrees={combined.agent_agrees} />
           </div>
+          <p className="bet-agreement-caption">Agreement is shown for comparison; it does not increase the selection score.</p>
         </div>
       ) : (
         <p className="smart-bet-notip">
@@ -831,7 +838,12 @@ function SmartBetCard({ betStep, betInfo, data }) {
         </div>
       )}
 
-      {agentEval && (
+      <div className="signal-comparison-intro">
+        <h3>Signal comparison</h3>
+        <p>Alternative views of this match. These picks may not pass the Game Pick checks.</p>
+      </div>
+
+      {agentEval ? (
         <div className="smart-bet-agent">
           <div className="smart-bet-agent-headtitle">
             <span className="smart-bet-agent-headline">✨ AI predicts: {agentEval.bet_headline}</span>
@@ -842,6 +854,13 @@ function SmartBetCard({ betStep, betInfo, data }) {
               <> Our model rates this at <strong className="smart-bet-highlight-purple">{(agentPick.probability * 100).toFixed(0)}%</strong>.</>
             )}
           </p>
+        </div>
+      ) : (
+        <div className="smart-bet-agent">
+          <div className="smart-bet-agent-headtitle">
+            <span className="smart-bet-agent-headline">✨ AI analysis unavailable</span>
+          </div>
+          <p className="smart-bet-agent-text">No AI analysis is available for this match. This does not indicate disagreement.</p>
         </div>
       )}
 

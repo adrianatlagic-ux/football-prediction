@@ -9,7 +9,7 @@ import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional, Any
 
@@ -280,7 +280,21 @@ _ESPN_TTL = 180  # seconds
 
 
 def _espn_team(name: str) -> str:
-    return _ESPN_NAME_MAP.get(name, name)
+    """ESPN's spelling -> the name our fixtures use.
+
+    The country map above covers national teams. Club names go through the
+    same canonicalisation the training data uses, so ESPN's "SC Paderborn 07"
+    and our "SC Paderborn" describe one team instead of two - otherwise the
+    finished-result card never finds its fixture and the match keeps showing
+    a prediction after it has been played.
+    """
+    if name in _ESPN_NAME_MAP:
+        return _ESPN_NAME_MAP[name]
+    try:
+        from scripts.build_club_training_data import _canon
+        return _canon(name)
+    except Exception:
+        return name
 
 
 def _fetch_espn_results() -> list[dict]:
@@ -298,15 +312,38 @@ def _fetch_espn_results() -> list[dict]:
     return results
 
 
+# The bare scoreboard only returns ESPN's current window, so a match played
+# a few days ago silently disappears and its card loses the real result.
+# Date ranges are rejected (HTTP 400), single days are not, so the recent
+# days are requested individually and merged.
+ESPN_RESULT_DAYS = 6
+
+
 def _fetch_espn_league(league, sport) -> list[dict]:
-    url = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{league}/scoreboard?limit=100"
     # Deliberately no User-Agent header. ESPN answers 403 to a spoofed browser
     # UA ("Mozilla/5.0") and 200 to Python's default one, so the header that
     # was meant to look harmless is what broke /real-results. The Odds API
     # calls below are unaffected and keep theirs.
-    with urllib.request.urlopen(url, timeout=8) as resp:
-        data = json.loads(resp.read())
+    base = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{league}/scoreboard"
+    today = datetime.now(timezone.utc).date()
+    events, seen = [], set()
+    urls = [f"{base}?limit=100"] + [
+        f"{base}?limit=100&dates={(today - timedelta(days=d)).strftime('%Y%m%d')}"
+        for d in range(ESPN_RESULT_DAYS + 1)
+    ]
+    for url in urls:
+        try:
+            with urllib.request.urlopen(url, timeout=8) as resp:
+                payload = json.loads(resp.read())
+        except Exception:
+            # One missing day must not drop the whole competition.
+            continue
+        for event in payload.get("events", []):
+            if event.get("id") not in seen:
+                seen.add(event.get("id"))
+                events.append(event)
 
+    data = {"events": events}
     results = []
     for event in data.get("events", []):
         comp = event["competitions"][0]

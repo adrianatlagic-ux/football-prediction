@@ -1,4 +1,12 @@
 {
+  "1. FC Köln": {
+    "color": "#ffffff",
+    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/122.png"
+  },
+  "1. FSV Mainz 05": {
+    "color": "#DA0308",
+    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/2950.png"
+  },
   "AS Monaco FC": {
     "color": "#E91514",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/174.png"
@@ -11,9 +19,21 @@
     "color": "#DF1B27",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/139.png"
   },
+  "Albania": {
+    "color": "#E70000",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/alb.png"
+  },
   "Anderlecht": {
     "color": "#695196",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/441.png"
+  },
+  "Andorra": {
+    "color": "#E70000",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/and.png"
+  },
+  "Armenia": {
+    "color": "#DE2400",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/fifa.armenia.png"
   },
   "Arsenal": {
     "color": "#e20520",
@@ -35,6 +55,18 @@
     "color": "#ca3624",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png"
   },
+  "Augsburg": {
+    "color": "#ffffff",
+    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/3841.png"
+  },
+  "Austria": {
+    "color": "#d72b2c",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/aut.png"
+  },
+  "Azerbaijan": {
+    "color": "#2D4AB0",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/aze.png"
+  },
   "BSC Young Boys": {
     "color": "#ffdd00",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/2722.png"
@@ -55,6 +87,14 @@
     "color": "#dc052d",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/132.png"
   },
+  "Belarus": {
+    "color": "#E70000",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/blr.png"
+  },
+  "Belgium": {
+    "color": "#E30613",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/bel.png"
+  },
   "Benfica": {
     "color": "#ca281d",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/1929.png"
@@ -71,6 +111,10 @@
     "color": "#ffffff",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/268.png"
   },
+  "Bosnia and Herzegovina": {
+    "color": "#112855",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/bih.png"
+  },
   "Bournemouth": {
     "color": "#f42727",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/349.png"
@@ -86,6 +130,10 @@
   "Brighton & Hove Albion": {
     "color": "#0606fa",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/331.png"
+  },
+  "Bulgaria": {
+    "color": "#d62612",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/bul.png"
   },
   "Burnley": {
     "color": "#6C1D45",
@@ -107,13 +155,41 @@
     "color": "#0081ff",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/570.png"
   },
+  "Croatia": {
+    "color": "#ff0000",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/cro.png"
+  },
   "Crystal Palace": {
     "color": "#0202fb",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/384.png"
   },
+  "Cyprus": {
+    "color": "#195ccd",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/cyp.png"
+  },
+  "Czech Republic": {
+    "color": "#d7141a",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/cze.png"
+  },
+  "Denmark": {
+    "color": "#d02a3e",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/den.png"
+  },
   "Eintracht Frankfurt": {
     "color": "#ffffff",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/125.png"
+  },
+  "Elversberg": {
+    "color": "#000000",
+    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/10388.png"
+  },
+  "England": {
+    "color": "#EA1F29",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/eng.png"
+  },
+  "Estonia": {
+    "color": "#195ccd",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/est.png"
   },
   "Everton": {
     "color": "#0606fa",
@@ -127,9 +203,21 @@
     "color": "#ff5900",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/493.png"
   },
+  "Faroe Islands": {
+    "color": "#195ccd",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/fro.png"
+  },
   "Feyenoord": {
     "color": "#ef2f24",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/142.png"
+  },
+  "Finland": {
+    "color": "#003580",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/fin.png"
+  },
+  "France": {
+    "color": "#C8E6D8",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/fra.png"
   },
   "Fulham": {
     "color": "#ffffff",
@@ -143,6 +231,34 @@
     "color": "#aa0031",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/432.png"
   },
+  "Georgia": {
+    "color": "#4a2942",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/geo.png"
+  },
+  "Germany": {
+    "color": "#00CED1",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/ger.png"
+  },
+  "Gibraltar": {
+    "color": "#DE2918",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/gib.png"
+  },
+  "Greece": {
+    "color": "#295da8",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/gre.png"
+  },
+  "Hamburger SV": {
+    "color": "#1a26af",
+    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/127.png"
+  },
+  "Hungary": {
+    "color": "#ce2029",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/hun.png"
+  },
+  "Iceland": {
+    "color": "#0c2fff",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/isl.png"
+  },
   "Inter Milan": {
     "color": "#00239c",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/110.png"
@@ -150,6 +266,14 @@
   "Ipswich Town": {
     "color": "#0000fa",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/373.png"
+  },
+  "Israel": {
+    "color": "#2f4fa2",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/isr.png"
+  },
+  "Italy": {
+    "color": "#103cd6",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/ita.png"
   },
   "Juventus": {
     "color": "#000000",
@@ -159,21 +283,49 @@
     "color": "#000000",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/111.png"
   },
+  "Kazakhstan": {
+    "color": "#00abc2",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/kaz.png"
+  },
+  "Kosovo": {
+    "color": "#ffec00",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/kosovo.png"
+  },
+  "Latvia": {
+    "color": "#992242",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/lva.png"
+  },
   "Leeds United": {
     "color": "#ffffff",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/357.png"
+  },
+  "Liechtenstein": {
+    "color": "#E70000",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/lie.png"
   },
   "Lille": {
     "color": "#c2051b",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/166.png"
   },
+  "Lithuania": {
+    "color": "#ffe400",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/ltu.png"
+  },
   "Liverpool": {
     "color": "#d11317",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png"
   },
+  "Luxembourg": {
+    "color": "#E70000",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/lux.png"
+  },
   "Lyon": {
     "color": "#ffffff",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/167.png"
+  },
+  "Malta": {
+    "color": "#DE2400",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/mlt.png"
   },
   "Manchester City": {
     "color": "#99c5ea",
@@ -199,13 +351,25 @@
     "color": "#e4002b",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/103.png"
   },
+  "Moldova": {
+    "color": "#0046ae",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/mda.png"
+  },
   "Monaco": {
     "color": "#E91514",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/174.png"
   },
+  "Montenegro": {
+    "color": "#E70000",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/mtg.png"
+  },
   "Napoli": {
     "color": "#0677d2",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/114.png"
+  },
+  "Netherlands": {
+    "color": "#fb5d00",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/ned.png"
   },
   "Newcastle United": {
     "color": "#000000",
@@ -214,6 +378,18 @@
   "Newcastle United FC": {
     "color": "#000000",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/361.png"
+  },
+  "North Macedonia": {
+    "color": "#E70000",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/mkd.png"
+  },
+  "Northern Ireland": {
+    "color": "#cc0000",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/nir.png"
+  },
+  "Norway": {
+    "color": "#C8102E",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/nor.png"
   },
   "Norwich City": {
     "color": "#ffff00",
@@ -235,9 +411,17 @@
     "color": "#011F68",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png"
   },
+  "Poland": {
+    "color": "#dc143c",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/pol.png"
+  },
   "Porto": {
     "color": "#0000dd",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/437.png"
+  },
+  "Portugal": {
+    "color": "#da291c",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/por.png"
   },
   "RB Leipzig": {
     "color": "#ffffff",
@@ -263,17 +447,45 @@
     "color": "#3366CC",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/89.png"
   },
+  "Republic of Ireland": {
+    "color": "#049a64",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/irl.png"
+  },
+  "Romania": {
+    "color": "#fcd116",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/rom.png"
+  },
   "Royal Antwerp FC": {
     "color": "#C60000",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/17544.png"
+  },
+  "SC Freiburg": {
+    "color": "#DA0308",
+    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/126.png"
+  },
+  "SC Paderborn": {
+    "color": "#0000dd",
+    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/3307.png"
   },
   "SS Lazio": {
     "color": "#74bde7",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/112.png"
   },
+  "San Marino": {
+    "color": "#00bfff",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/smr.png"
+  },
   "Schalke 04": {
     "color": "#0000dd",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/133.png"
+  },
+  "Scotland": {
+    "color": "#1a2d69",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/sco.png"
+  },
+  "Serbia": {
+    "color": "#E70000",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/sba.png"
   },
   "Sevilla": {
     "color": "#ffffff",
@@ -287,9 +499,21 @@
     "color": "#f42727",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/398.png"
   },
+  "Slovakia": {
+    "color": "#0c2fff",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/svk.png"
+  },
+  "Slovenia": {
+    "color": "#0c2fff",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/svn.png"
+  },
   "Southampton": {
     "color": "#ED1A3B",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/376.png"
+  },
+  "Spain": {
+    "color": "#c60b1e",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/esp.png"
   },
   "Sport Lisboa e Benfica": {
     "color": "#ca281d",
@@ -298,6 +522,18 @@
   "Sporting Lisbon": {
     "color": "#008127",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png"
+  },
+  "Sweden": {
+    "color": "#fecb00",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/swe.png"
+  },
+  "Switzerland": {
+    "color": "#FF0000",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/sui.png"
+  },
+  "TSG Hoffenheim": {
+    "color": "#003399",
+    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/7911.png"
   },
   "Tottenham": {
     "color": "#ffffff",
@@ -311,6 +547,14 @@
     "color": "#5699eb",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/997.png"
   },
+  "Turkey": {
+    "color": "#ef3340",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/tur.png"
+  },
+  "Ukraine": {
+    "color": "#fede00",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/ukr.png"
+  },
   "Union Berlin": {
     "color": "#DA0308",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/598.png"
@@ -319,13 +563,25 @@
     "color": "#ffffff",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/94.png"
   },
+  "VfB Stuttgart": {
+    "color": "#ffffff",
+    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/134.png"
+  },
   "Villarreal": {
     "color": "#ffff00",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/102.png"
   },
+  "Wales": {
+    "color": "#E70000",
+    "logo": "https://a.espncdn.com/i/teamlogos/countries/500/wal.png"
+  },
   "Watford": {
     "color": "#ffff00",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/395.png"
+  },
+  "Werder Bremen": {
+    "color": "#03915c",
+    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/137.png"
   },
   "West Bromwich Albion": {
     "color": "#091453",
@@ -338,45 +594,5 @@
   "Wolverhampton Wanderers": {
     "color": "#fdb913",
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/380.png"
-  },
-  "1. FC Köln": {
-    "color": "#ffffff",
-    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/122.png"
-  },
-  "1. FSV Mainz 05": {
-    "color": "#DA0308",
-    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/2950.png"
-  },
-  "Augsburg": {
-    "color": "#ffffff",
-    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/3841.png"
-  },
-  "Elversberg": {
-    "color": "#000000",
-    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/10388.png"
-  },
-  "Hamburger SV": {
-    "color": "#1a26af",
-    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/127.png"
-  },
-  "SC Freiburg": {
-    "color": "#DA0308",
-    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/126.png"
-  },
-  "SC Paderborn": {
-    "color": "#0000dd",
-    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/3307.png"
-  },
-  "TSG Hoffenheim": {
-    "color": "#003399",
-    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/7911.png"
-  },
-  "VfB Stuttgart": {
-    "color": "#ffffff",
-    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/134.png"
-  },
-  "Werder Bremen": {
-    "color": "#03915c",
-    "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/137.png"
   }
 }

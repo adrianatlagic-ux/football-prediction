@@ -2125,16 +2125,55 @@ body {
   color: #f87171;
 }
 
-.smart-bet-winprob {
-  font-size: 0.85rem;
-  font-weight: 700;
-  padding: 0.15rem 0.55rem;
-  border-radius: 50px;
-  background: rgba(74,222,128,0.15);
-  color: #4ade80;
+.smart-bet-odds-caption { font-size: 0.72rem; color: #9ca3af; }
+
+.bet-metrics {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0.9rem 0 0;
+  text-align: left;
+}
+.probability-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.decision-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.bet-metric {
+  min-width: 0;
+  padding: 0.8rem;
+  border: 1px solid rgba(148,163,184,0.14);
+  border-radius: 10px;
+  background: rgba(8,15,24,0.38);
+}
+.bet-metric dt { font-size: 0.72rem; color: #b4bdca; line-height: 1.4; }
+.bet-metric dd {
+  margin: 0.35rem 0 0;
+  font-size: clamp(1.2rem, 2.6vw, 1.55rem);
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.3;
+  color: #f1f5f9;
+}
+.bet-metric small {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.68rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #9ca3af;
+}
+.bet-metric.is-emphasized { border-color: rgba(74,222,128,0.32); background: rgba(74,222,128,0.07); }
+.bet-metric.is-emphasized dd { color: #4ade80; }
+.bet-metrics-context, .bet-agreement-caption { font-size: 0.72rem; line-height: 1.5; color: #9ca3af; margin: 0.8rem 0; }
+.bet-agreement-caption { font-size: 0.68rem; }
+.signal-comparison-intro { margin: 1.3rem 0 0.8rem; padding-top: 1.1rem; border-top: 1px solid rgba(148,163,184,0.18); }
+.signal-comparison-intro h3 { margin: 0; font-size: 0.9rem; color: #e2e8f0; }
+.signal-comparison-intro p { margin: 0.4rem 0 0; font-size: 0.75rem; line-height: 1.5; color: #9ca3af; }
+@media (max-width: 480px) {
+  .decision-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .decision-metrics .bet-metric:first-child { grid-column: 1 / -1; }
+  .bet-metric { padding: 0.7rem; }
 }
 
 .smart-bet-agree-row {
+  flex-wrap: wrap;
   margin-top: 0.6rem;
   display: flex;
   align-items: center;
@@ -2152,6 +2191,11 @@ body {
 .smart-bet-agree-chip.yes {
   background: rgba(74,222,128,0.15);
   color: #4ade80;
+}
+
+.smart-bet-agree-chip.unknown {
+  border: 1px dashed rgba(148,163,184,0.35);
+  color: #b4bdca;
 }
 
 .smart-bet-agree-chip.no {
@@ -2834,26 +2878,8 @@ body {
 .combo-leg-odds { font-size: 1rem; font-weight: 800; color: var(--gold-light); }
 .combo-leg-prob { font-size: 0.7rem; color: #9ca3af; }
 
-.combo-ticket-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
-  padding-top: 0.8rem;
-  border-top: 1px solid rgba(255,255,255,0.07);
-}
-
-.combo-stat { display: flex; flex-direction: column; gap: 0.2rem; }
-
-.combo-stat-label {
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #6b7280;
-}
-
-.combo-stat-value { font-size: 0.95rem; font-weight: 800; color: #e2e8f0; }
-.combo-stat-value.positive { color: #4ade80; }
-.combo-stat-value.negative { color: #f87171; }
+.combo-quote { text-align: right; margin-left: 0.8rem; }
+.combo-quote-label { display: block; color: #9ca3af; font-size: 0.65rem; line-height: 1.4; }
 
 .combo-ticket-note {
   margin-top: 0.8rem;
@@ -2864,9 +2890,6 @@ body {
 
 .combo-alternatives .combo-ticket { opacity: 0.85; }
 
-@media (max-width: 560px) {
-  .combo-ticket-stats { grid-template-columns: repeat(2, 1fr); row-gap: 0.8rem; }
-}
 
 .combo-leg-flag { color: #fbbf24; }
 

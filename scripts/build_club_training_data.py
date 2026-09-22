@@ -120,6 +120,14 @@ TEAM_ALIASES = {
     "Hertha BSC": "Hertha Berlin",
     "SC Paderborn 07": "SC Paderborn",
     "SV 07 Elversberg": "Elversberg",
+    "SV Elversberg": "Elversberg",   # ESPN-Schreibweise
+    # ESPN uses anglicised club names on its scoreboard; without these the
+    # finished-result card cannot find its fixture and the match keeps
+    # showing a prediction after it has been played.
+    "Mainz": "1. FSV Mainz 05",
+    "Hamburg SV": "Hamburger SV",
+    "FC Cologne": "1. FC Köln",
+    "Slavia Prague": "Slavia Praha",
     "SV Werder Bremen": "Werder Bremen",
     "SpVgg Greuther Fürth": "Greuther Fürth",
     "TSG 1899 Hoffenheim": "TSG Hoffenheim",
