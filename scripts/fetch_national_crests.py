@@ -27,29 +27,41 @@ ROOT = Path(__file__).resolve().parents[1]
 CRESTS_PATH = ROOT / "frontend" / "src" / "club_crests.json"
 TEAMS_API = "https://site.api.espn.com/apis/site/v2/sports/soccer/{}/teams?limit=200"
 
-# Near-white and near-black read as "no colour" against the dark card, and
-# the donut needs two distinguishable sides. Teams whose ESPN colour lands
-# in those bands get their alternate colour instead.
-_TOO_PALE = 0xE0
-_TOO_DARK = 0x20
+# ESPN's national-team colours are unreliable in a way club colours are not:
+# Germany is listed as white with a turquoise alternate, neither of which
+# appears on the flag. Curated flag colours win where ESPN is plainly wrong.
+COLOUR_OVERRIDES = {
+    # Black is the first flag colour but barely separates from the dark
+    # card, so the donut uses the flag's gold instead.
+    "Germany": "#FFCE00",
+}
+
+# Only genuinely near-white or near-black are unusable on the dark card.
+# Judging that by perceived brightness rejected saturated blue - Kosovo and
+# Liechtenstein both lost their flag blue (#0000cd) that way, because blue
+# contributes little to perceived brightness while being perfectly legible.
+# Testing the channels directly keeps such colours.
+_NEAR_WHITE = 0xDC
+_NEAR_BLACK = 0x28
 
 
-def _brightness(hex_colour: str) -> int:
+def _unusable(hex_colour: str) -> bool:
     try:
         value = int(hex_colour.lstrip("#"), 16)
     except (ValueError, AttributeError):
-        return 0
-    r, g, b = (value >> 16) & 255, (value >> 8) & 255, value & 255
-    return (r * 299 + g * 587 + b * 114) // 1000
+        return True
+    channels = ((value >> 16) & 255, (value >> 8) & 255, value & 255)
+    return max(channels) < _NEAR_BLACK or min(channels) > _NEAR_WHITE
 
 
 def pick_colour(team: dict) -> Optional[str]:
+    override = COLOUR_OVERRIDES.get(team_name(team["displayName"]))
+    if override:
+        return override
     primary = team.get("color")
     alternate = team.get("alternateColor")
     for candidate in (primary, alternate):
-        if not candidate:
-            continue
-        if _TOO_DARK < _brightness(candidate) < _TOO_PALE:
+        if candidate and not _unusable(candidate):
             return f"#{candidate.lstrip('#')}"
     return f"#{primary.lstrip('#')}" if primary else None
 
@@ -57,6 +69,8 @@ def pick_colour(team: dict) -> Optional[str]:
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--league", default="uefa.nations")
+    parser.add_argument("--refresh", action="store_true",
+                        help="re-evaluate national entries written earlier")
     parser.add_argument("--write", action="store_true")
     args = parser.parse_args()
 
@@ -69,7 +83,11 @@ def main():
     for wrapper in teams:
         team = wrapper["team"]
         name = team_name(team["displayName"])
-        if name in crests:
+        # --refresh re-evaluates entries this script wrote before, which is
+        # what you want after changing the colour rules. Without it existing
+        # entries are left alone, so a club never gets repainted by a
+        # national side that happens to share its name.
+        if name in crests and name not in COLOUR_OVERRIDES and not args.refresh:
             skipped.append(name)
             continue
         colour = pick_colour(team)
@@ -77,10 +95,15 @@ def main():
         if not colour:
             colourless.append(name)
             continue
-        added[name] = {"color": colour, "logo": logos[0]["href"] if logos else ""}
+        added[name] = {"color": colour,
+                       "logo": logos[0]["href"] if logos else crests.get(name, {}).get("logo", "")}
 
     for name, entry in sorted(added.items()):
-        print(f"  {name:26} {entry['color']}  {'badge' if entry['logo'] else 'NO BADGE'}")
+        before = crests.get(name, {}).get("color")
+        change = f"  (was {before})" if before and before != entry["color"] else ""
+        if before == entry["color"]:
+            continue
+        print(f"  {name:26} {entry['color']}{change}")
     print(f"\nnew: {len(added)} | already present: {len(skipped)}")
     if colourless:
         print(f"no usable colour, left out: {', '.join(colourless)}")

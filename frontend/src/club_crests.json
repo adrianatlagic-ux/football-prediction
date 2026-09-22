@@ -216,7 +216,7 @@
     "logo": "https://a.espncdn.com/i/teamlogos/countries/500/fin.png"
   },
   "France": {
-    "color": "#C8E6D8",
+    "color": "#000080",
     "logo": "https://a.espncdn.com/i/teamlogos/countries/500/fra.png"
   },
   "Fulham": {
@@ -236,7 +236,7 @@
     "logo": "https://a.espncdn.com/i/teamlogos/countries/500/geo.png"
   },
   "Germany": {
-    "color": "#00CED1",
+    "color": "#FFCE00",
     "logo": "https://a.espncdn.com/i/teamlogos/countries/500/ger.png"
   },
   "Gibraltar": {
@@ -288,7 +288,7 @@
     "logo": "https://a.espncdn.com/i/teamlogos/countries/500/kaz.png"
   },
   "Kosovo": {
-    "color": "#ffec00",
+    "color": "#0000cd",
     "logo": "https://a.espncdn.com/i/teamlogos/countries/500/kosovo.png"
   },
   "Latvia": {
@@ -300,7 +300,7 @@
     "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/357.png"
   },
   "Liechtenstein": {
-    "color": "#E70000",
+    "color": "#0000cd",
     "logo": "https://a.espncdn.com/i/teamlogos/countries/500/lie.png"
   },
   "Lille": {
