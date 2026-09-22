@@ -17,6 +17,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
+from src.poisson_model import WC2026_GROUP_GOAL_UPLIFT
 from src.predictor import FootballPredictor, wc2026_neutral
 from src.scenario_agent import generate_ai_scenario
 
@@ -61,7 +62,8 @@ def main():
         )
         try:
             result = predictor.predict_match(f["home_team"], f["away_team"],
-                                             neutral=wc2026_neutral(f["home_team"]), is_knockout=is_knockout)
+                                             neutral=wc2026_neutral(f["home_team"]), is_knockout=is_knockout,
+                                             goal_uplift=WC2026_GROUP_GOAL_UPLIFT)
         except Exception as exc:
             print(f"  FEHLER bei Vorhersage {f['home_team']} vs {f['away_team']}: {exc}")
             failed.append(f["match_id"])

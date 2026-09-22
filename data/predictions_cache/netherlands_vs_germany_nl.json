@@ -1,0 +1,410 @@
+{
+  "home_team": "Netherlands",
+  "away_team": "Germany",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.3959,
+  "probability_draw": 0.2836,
+  "probability_away_win": 0.3205,
+  "score_prediction": {
+    "home_xg": 1.83,
+    "away_xg": 1.77,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.3959,
+    "probability_draw": 0.2836,
+    "probability_away_win": 0.3205,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.0821
+      },
+      {
+        "score": "3:1",
+        "probability": 0.05
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0464
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0442
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0391
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.6795,
+        "home_or_away": 0.7164,
+        "draw_or_away": 0.6041
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8832,
+          "under": 0.1168
+        },
+        {
+          "line": 2.5,
+          "over": 0.6821,
+          "under": 0.3179
+        },
+        {
+          "line": 3.5,
+          "over": 0.481,
+          "under": 0.519
+        }
+      ],
+      "btts": {
+        "yes": 0.7147,
+        "no": 0.2853
+      },
+      "win_margin": {
+        "home_1plus": 0.3959,
+        "home_2plus": 0.2165,
+        "home_3plus": 0.0948,
+        "away_1plus": 0.3205,
+        "away_2plus": 0.1711,
+        "away_3plus": 0.0729
+      },
+      "scenario": "Netherlands are marginally favored for a 2:1 win in what promises to be a high-scoring match where both teams find the net."
+    },
+    "score_matrix": [
+      [
+        0.04557594647212942,
+        0.032339985466589345,
+        0.037491792050916434,
+        0.022088553123197796,
+        0.009760219885202943,
+        0.00345018133786102,
+        0.001016349307369878,
+        0.0002566240057146751,
+        5.669693957831745e-05
+      ],
+      [
+        0.03912092193509481,
+        0.11719923367965879,
+        0.06855228477785592,
+        0.04038806099147884,
+        0.01784618276331685,
+        0.006308522497059761,
+        0.0018583552116680814,
+        0.0004692270216557044,
+        0.00010366815069088446
+      ],
+      [
+        0.04643496165898422,
+        0.08207245329739216,
+        0.08379621373261206,
+        0.03692399999116065,
+        0.01631552582665432,
+        0.00576744411361607,
+        0.0016989651430328076,
+        0.000428981687115977,
+        9.477659241926634e-05
+      ],
+      [
+        0.028301507620409932,
+        0.05002209713190261,
+        0.044206305809465156,
+        0.03008984461178001,
+        0.00994410164274815,
+        0.0035151824767408295,
+        0.0010354972465676782,
+        0.00026145878134003223,
+        5.776510535938773e-05
+      ],
+      [
+        0.012937051711226328,
+        0.022865865167999728,
+        0.02020737806232288,
+        0.011905318988326415,
+        0.006077682671954587,
+        0.0016068436383649461,
+        0.0004733416185934088,
+        0.00011951680525001023,
+        2.640531257776195e-05
+      ],
+      [
+        0.0047309792601506655,
+        0.008361869171577566,
+        0.00738968109959042,
+        0.004353682622322233,
+        0.00192375206593433,
+        0.0007856625837732051,
+        0.00017309735096662836,
+        4.3706366759483736e-05,
+        9.656217579681113e-06
+      ],
+      [
+        0.0014417352873731682,
+        0.0025482254709096497,
+        0.0022519574527525557,
+        0.0013267565807137814,
+        0.0005862509821119422,
+        0.00020723633499812903,
+        7.05296337685985e-05,
+        1.3319232187463575e-05,
+        2.942669764892613e-06
+      ],
+      [
+        0.00037659384928102825,
+        0.0006656187493851903,
+        0.0005882309554164886,
+        0.0003465604068693458,
+        0.00015313387688566362,
+        5.413194071848904e-05,
+        1.59461069051901e-05,
+        4.651720448546125e-06,
+        7.686510440782266e-07
+      ],
+      [
+        8.607340230110096e-05,
+        0.0001521322520385449,
+        0.00013444468030528466,
+        7.920902951295536e-05,
+        3.499991785917625e-05,
+        1.2372268744423645e-05,
+        3.6446045983150253e-06,
+        9.202476200688223e-07,
+        2.348938747413584e-07
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Goal Fest",
+    "match_description": "A very open game with plenty of chances expected",
+    "dominance_index": 0.02,
+    "total_xg": 3.6,
+    "first_goal": {
+      "Netherlands_scores_first": 0.494,
+      "Germany_scores_first": 0.478,
+      "no_goals": 0.027,
+      "expected_minute": 25
+    },
+    "halftime_xg": {
+      "Netherlands": 0.86,
+      "Germany": 0.83
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.185
+      },
+      {
+        "score": "1:0",
+        "probability": 0.159
+      },
+      {
+        "score": "0:1",
+        "probability": 0.154
+      },
+      {
+        "score": "1:1",
+        "probability": 0.132
+      },
+      {
+        "score": "2:0",
+        "probability": 0.068
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Netherlands": 0.247,
+        "Germany": 0.239
+      },
+      "16-30'": {
+        "Netherlands": 0.284,
+        "Germany": 0.274
+      },
+      "31-45'": {
+        "Netherlands": 0.329,
+        "Germany": 0.319
+      },
+      "46-60'": {
+        "Netherlands": 0.265,
+        "Germany": 0.257
+      },
+      "61-75'": {
+        "Netherlands": 0.339,
+        "Germany": 0.327
+      },
+      "76-90'": {
+        "Netherlands": 0.366,
+        "Germany": 0.354
+      }
+    },
+    "comeback_probability": {
+      "Netherlands": 0.041,
+      "Germany": 0.04
+    },
+    "late_drama_probability": 0.513,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.218
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.16
+      },
+      {
+        "szenario": "Netherlands dominiert früh",
+        "beschreibung": "Netherlands geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.07
+      },
+      {
+        "szenario": "Germany dominiert früh",
+        "beschreibung": "Germany geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.065
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 51,
+        "away": 49
+      },
+      "shots": {
+        "home": 17,
+        "away": 16
+      },
+      "shots_on_target": {
+        "home": 7,
+        "away": 6
+      },
+      "corners": {
+        "home": 7,
+        "away": 6
+      },
+      "passes": {
+        "home": 265,
+        "away": 255
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Netherlands and Germany is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 4,
+        "type": "goal",
+        "team": "Netherlands",
+        "headline": "GOAL! Netherlands!",
+        "description": "Netherlands score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 8,
+        "type": "chance",
+        "team": "Netherlands",
+        "headline": "Big chance for Netherlands!",
+        "description": "Netherlands create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 12,
+        "type": "chance",
+        "team": "Germany",
+        "headline": "Big chance for Germany!",
+        "description": "Germany create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 75,
+        "type": "chance",
+        "team": "Germany",
+        "headline": "Big chance for Germany!",
+        "description": "Germany create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 77,
+        "type": "goal",
+        "team": "Netherlands",
+        "headline": "GOAL! Netherlands!",
+        "description": "Netherlands score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 84,
+        "type": "goal",
+        "team": "Germany",
+        "headline": "GOAL! Germany!",
+        "description": "Germany score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 87,
+        "type": "chance",
+        "team": "Germany",
+        "headline": "Big chance for Germany!",
+        "description": "Germany create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Netherlands": 7,
+      "Germany": 12
+    },
+    "fifa_points": {
+      "Netherlands": 1754.17,
+      "Germany": 1704.27
+    },
+    "form_last_10_avg_pts": {
+      "Netherlands": 2.36,
+      "Germany": 2.48
+    },
+    "win_rate_last_10": {
+      "Netherlands": "68%",
+      "Germany": "83%"
+    },
+    "avg_goals_scored": {
+      "Netherlands": 2.9,
+      "Germany": 3.22
+    },
+    "avg_goals_conceded": {
+      "Netherlands": 0.97,
+      "Germany": 0.98
+    },
+    "clean_sheet_rate": {
+      "Netherlands": "21%",
+      "Germany": "36%"
+    },
+    "h2h_last_10": {
+      "Netherlands wins": "20%",
+      "draws": "40%",
+      "Germany wins": "40%",
+      "total_h2h_games": 10
+    }
+  }
+}

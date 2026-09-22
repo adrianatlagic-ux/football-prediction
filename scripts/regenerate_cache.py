@@ -11,6 +11,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
+from src.poisson_model import WC2026_GROUP_GOAL_UPLIFT
 from src.predictor import FootballPredictor, wc2026_neutral
 from src.scenario_agent import generate_ai_scenario
 
@@ -26,7 +27,8 @@ for f in files:
     home, away = old["home_team"], old["away_team"]
     old_draw = old.get("probability_draw", 0)
     is_knockout = bool(KNOCKOUT_SUFFIX.search(f.stem))
-    fresh = predictor.predict_match(home, away, neutral=wc2026_neutral(home), is_knockout=is_knockout)
+    fresh = predictor.predict_match(home, away, neutral=wc2026_neutral(home), is_knockout=is_knockout,
+                                     goal_uplift=WC2026_GROUP_GOAL_UPLIFT)
     ai_scenario = generate_ai_scenario(fresh, home, away, is_knockout=is_knockout)
     if ai_scenario:
         fresh["score_prediction"]["betting_markets"]["scenario"] = ai_scenario

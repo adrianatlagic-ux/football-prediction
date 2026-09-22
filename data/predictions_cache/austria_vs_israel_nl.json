@@ -1,0 +1,397 @@
+{
+  "home_team": "Austria",
+  "away_team": "Israel",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.7876,
+  "probability_draw": 0.1235,
+  "probability_away_win": 0.0889,
+  "score_prediction": {
+    "home_xg": 2.32,
+    "away_xg": 0.95,
+    "rho": -0.13,
+    "most_likely_score": "2:0",
+    "result": "H",
+    "probability_home_win": 0.7876,
+    "probability_draw": 0.1235,
+    "probability_away_win": 0.0889,
+    "top_scorelines": [
+      {
+        "score": "2:0",
+        "probability": 0.1207
+      },
+      {
+        "score": "2:1",
+        "probability": 0.1141
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0935
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0912
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0883
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.9111,
+        "home_or_away": 0.8765,
+        "draw_or_away": 0.2124
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8611,
+          "under": 0.1389
+        },
+        {
+          "line": 2.5,
+          "over": 0.6708,
+          "under": 0.3292
+        },
+        {
+          "line": 3.5,
+          "over": 0.4317,
+          "under": 0.5683
+        }
+      ],
+      "btts": {
+        "yes": 0.5367,
+        "no": 0.4633
+      },
+      "win_margin": {
+        "home_1plus": 0.7876,
+        "home_2plus": 0.5318,
+        "home_3plus": 0.2948,
+        "away_1plus": 0.0889,
+        "away_2plus": 0.0316,
+        "away_3plus": 0.0082
+      },
+      "scenario": "Austria is a heavy favorite with nearly an 80% win chance, most likely winning 2-0, and has over a 50% probability of a comfortable win by two or more goals."
+    },
+    "score_matrix": [
+      [
+        0.029897991634143552,
+        0.017608031362432133,
+        0.011921112099116993,
+        0.003755682036342538,
+        0.0008874055189333476,
+        0.0001677433919939097,
+        2.6423325222877282e-05,
+        3.5676540094184496e-06,
+        4.2148880376009893e-07
+      ],
+      [
+        0.09115722107765366,
+        0.05770658052942745,
+        0.027693378512659548,
+        0.008724649457271173,
+        0.0020614902976933314,
+        0.000389676836260004,
+        6.138279221570664e-05,
+        8.287850333388843e-06,
+        9.791409462747262e-07
+      ],
+      [
+        0.12071326497817832,
+        0.11409018816131641,
+        0.028031050590686713,
+        0.01013391275082368,
+        0.002394475894510937,
+        0.0004526200254824917,
+        7.129774826626319e-05,
+        9.626558933029809e-06,
+        1.1372982913413807e-06
+      ],
+      [
+        0.09347444854543055,
+        0.0883458617804043,
+        0.04174933051318784,
+        0.006838318670534397,
+        0.0018541650234976028,
+        0.0003504868109585376,
+        5.5209489221624826e-05,
+        7.454336421251763e-06,
+        8.806681737422446e-07
+      ],
+      [
+        0.05428653097353365,
+        0.0513080359023941,
+        0.024246479752452716,
+        0.007638722603537531,
+        0.0009383866535710693,
+        0.00020354988357773835,
+        3.206364619745299e-05,
+        4.329205160517697e-06,
+        5.114597714692886e-07
+      ],
+      [
+        0.025222100721637206,
+        0.023838260175262874,
+        0.011265172842958924,
+        0.0035490319133672467,
+        0.0008385775143679997,
+        8.241272666226268e-05,
+        1.4897111666416319e-05,
+        2.0113948459230747e-06,
+        2.3762965950712776e-07
+      ],
+      [
+        0.009765380617194548,
+        0.009229591398128477,
+        0.004361599445822711,
+        0.0013740983686925704,
+        0.0003246767069564253,
+        6.137258667463168e-05,
+        5.026251920178139e-06,
+        7.787628976143114e-07,
+        9.200439315630546e-08
+      ],
+      [
+        0.0032407856331288405,
+        0.0030629760759184137,
+        0.0014474611257441947,
+        0.0004560148166599559,
+        0.00010774875538013077,
+        2.03673983595573e-05,
+        3.2083194717918876e-06,
+        2.2521672640676823e-07,
+        3.053301527240943e-08
+      ],
+      [
+        0.0009410647101380089,
+        0.0008894320758454262,
+        0.0004203161637134864,
+        0.00013241833920512133,
+        3.1288262393226554e-05,
+        5.914318934756937e-06,
+        9.316371323323285e-07,
+        1.2578882190084207e-07,
+        7.726327932468326e-09
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": 0.42,
+    "total_xg": 3.27,
+    "first_goal": {
+      "Austria_scores_first": 0.683,
+      "Israel_scores_first": 0.279,
+      "no_goals": 0.038,
+      "expected_minute": 27
+    },
+    "halftime_xg": {
+      "Austria": 1.09,
+      "Israel": 0.45
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.236
+      },
+      {
+        "score": "0:0",
+        "probability": 0.216
+      },
+      {
+        "score": "2:0",
+        "probability": 0.129
+      },
+      {
+        "score": "1:1",
+        "probability": 0.105
+      },
+      {
+        "score": "0:1",
+        "probability": 0.097
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Austria": 0.313,
+        "Israel": 0.128
+      },
+      "16-30'": {
+        "Austria": 0.36,
+        "Israel": 0.147
+      },
+      "31-45'": {
+        "Austria": 0.418,
+        "Israel": 0.171
+      },
+      "46-60'": {
+        "Austria": 0.336,
+        "Israel": 0.138
+      },
+      "61-75'": {
+        "Austria": 0.429,
+        "Israel": 0.176
+      },
+      "76-90'": {
+        "Austria": 0.464,
+        "Israel": 0.19
+      }
+    },
+    "comeback_probability": {
+      "Austria": 0.038,
+      "Israel": 0.017
+    },
+    "late_drama_probability": 0.48,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.182
+      },
+      {
+        "szenario": "Austria dominiert früh",
+        "beschreibung": "Austria geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.131
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Austria trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.091
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 58,
+        "away": 42
+      },
+      "shots": {
+        "home": 19,
+        "away": 10
+      },
+      "shots_on_target": {
+        "home": 7,
+        "away": 4
+      },
+      "corners": {
+        "home": 8,
+        "away": 4
+      },
+      "passes": {
+        "home": 302,
+        "away": 218
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Austria and Israel is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 32,
+        "type": "chance",
+        "team": "Austria",
+        "headline": "Big chance for Austria!",
+        "description": "Austria create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 34,
+        "type": "goal",
+        "team": "Austria",
+        "headline": "GOAL! Austria!",
+        "description": "Austria score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 44,
+        "type": "chance",
+        "team": "Austria",
+        "headline": "Big chance for Austria!",
+        "description": "Austria create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 62,
+        "type": "chance",
+        "team": "Austria",
+        "headline": "Big chance for Austria!",
+        "description": "Austria create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 80,
+        "type": "chance",
+        "team": "Austria",
+        "headline": "Big chance for Austria!",
+        "description": "Austria create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 89,
+        "type": "goal",
+        "team": "Austria",
+        "headline": "GOAL! Austria!",
+        "description": "Austria score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Austria": 22,
+      "Israel": 76
+    },
+    "fifa_points": {
+      "Austria": 1601.86,
+      "Israel": 1337.4
+    },
+    "form_last_10_avg_pts": {
+      "Austria": 1.84,
+      "Israel": 1.35
+    },
+    "win_rate_last_10": {
+      "Austria": "53%",
+      "Israel": "35%"
+    },
+    "avg_goals_scored": {
+      "Austria": 2.42,
+      "Israel": 1.93
+    },
+    "avg_goals_conceded": {
+      "Austria": 1.25,
+      "Israel": 2.02
+    },
+    "clean_sheet_rate": {
+      "Austria": "25%",
+      "Israel": "27%"
+    },
+    "h2h_last_10": {
+      "Austria wins": "50%",
+      "draws": "0%",
+      "Israel wins": "50%",
+      "total_h2h_games": 4
+    }
+  }
+}

@@ -1,0 +1,386 @@
+{
+  "home_team": "Kosovo",
+  "away_team": "Republic of Ireland",
+  "prediction": "D",
+  "prediction_label": "Draw",
+  "probability_home_win": 0.3114,
+  "probability_draw": 0.3453,
+  "probability_away_win": 0.3433,
+  "score_prediction": {
+    "home_xg": 1.09,
+    "away_xg": 1.04,
+    "rho": -0.13,
+    "most_likely_score": "1:1",
+    "result": "D",
+    "probability_home_win": 0.3114,
+    "probability_draw": 0.3453,
+    "probability_away_win": 0.3433,
+    "top_scorelines": [
+      {
+        "score": "1:1",
+        "probability": 0.1583
+      },
+      {
+        "score": "0:0",
+        "probability": 0.1421
+      },
+      {
+        "score": "2:2",
+        "probability": 0.0396
+      },
+      {
+        "score": "3:3",
+        "probability": 0.005
+      },
+      {
+        "score": "4:4",
+        "probability": 0.0004
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.6567,
+        "home_or_away": 0.6547,
+        "draw_or_away": 0.6886
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.6433,
+          "under": 0.3567
+        },
+        {
+          "line": 2.5,
+          "over": 0.3529,
+          "under": 0.6471
+        },
+        {
+          "line": 3.5,
+          "over": 0.1654,
+          "under": 0.8346
+        }
+      ],
+      "btts": {
+        "yes": 0.4489,
+        "no": 0.5511
+      },
+      "win_margin": {
+        "home_1plus": 0.3114,
+        "home_2plus": 0.1311,
+        "home_3plus": 0.04,
+        "away_1plus": 0.3433,
+        "away_2plus": 0.139,
+        "away_3plus": 0.0405
+      },
+      "scenario": "This looks like a tight game, with a 1:1 draw the most likely outcome; however, Republic of Ireland's better recent form gives them a nearly equal chance of winning."
+    },
+    "score_matrix": [
+      [
+        0.14205610341735908,
+        0.113653492622213,
+        0.06864473794852907,
+        0.023719562841079907,
+        0.006147058880832917,
+        0.0012744360640233958,
+        0.0002201848765903055,
+        3.260694642977943e-05,
+        4.225137304825917e-06
+      ],
+      [
+        0.10066001496465625,
+        0.15828825036405741,
+        0.07489882270949257,
+        0.02588060476409438,
+        0.0067071051191940935,
+        0.0013905473844979144,
+        0.00024024548024954872,
+        3.557770009367925e-05,
+        4.610081112913633e-06
+      ],
+      [
+        0.06346855616432405,
+        0.06579294136869318,
+        0.039609436828414744,
+        0.014119267446936848,
+        0.0036590880250218297,
+        0.0007586186875587721,
+        0.00013106688268997487,
+        1.940955659067441e-05,
+        2.515048190666866e-06
+      ],
+      [
+        0.023083683119035255,
+        0.02392906821595339,
+        0.012402706767612254,
+        0.004977881821294709,
+        0.0013308200718411603,
+        0.0002759116395596929,
+        4.76693747307237e-05,
+        7.059307488579011e-06,
+        9.147297334469811e-07
+      ],
+      [
+        0.00629669782813912,
+        0.006527299438647109,
+        0.0033831731428625826,
+        0.0011690246093524841,
+        0.00035189494079256094,
+        7.526234928000655e-05,
+        1.3003109026747136e-05,
+        1.925616718193774e-06,
+        2.4951723242034364e-07
+      ],
+      [
+        0.0013740754743318088,
+        0.0014243977267232796,
+        0.0007382814560754288,
+        0.0002551064206103558,
+        6.611227191988965e-05,
+        1.5920673578153242e-05,
+        2.837559255880023e-06,
+        4.2021116109605873e-07,
+        5.4450049668854584e-08
+      ],
+      [
+        0.00024987745702763245,
+        0.00025902862571841937,
+        0.0001342574671194794,
+        4.639144271499034e-05,
+        1.2022604794467184e-05,
+        2.4925808310288145e-06,
+        5.002042311960067e-07,
+        7.64159599023281e-08,
+        9.901814129167808e-09
+      ],
+      [
+        3.894904175642237e-05,
+        4.037545795137392e-05,
+        2.0927056626680173e-05,
+        7.231153465944794e-06,
+        1.873994323981307e-06,
+        3.885249835012662e-07,
+        6.712563145333771e-08,
+        1.154621671872451e-08,
+        1.543421229625534e-09
+      ],
+      [
+        5.31220137988998e-06,
+        5.506748145032656e-06,
+        2.8542098618114366e-06,
+        9.86246174173312e-07,
+        2.5559127477425004e-07,
+        5.299033969524641e-08,
+        9.15516418253368e-09,
+        1.3557786196695342e-09,
+        2.0405542932098266e-10
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Tactically Balanced",
+    "match_description": "A tight game where goals will make the difference",
+    "dominance_index": 0.02,
+    "total_xg": 2.13,
+    "first_goal": {
+      "Kosovo_scores_first": 0.451,
+      "Republic of Ireland_scores_first": 0.43,
+      "no_goals": 0.119,
+      "expected_minute": 42
+    },
+    "halftime_xg": {
+      "Kosovo": 0.51,
+      "Republic of Ireland": 0.49
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.368
+      },
+      {
+        "score": "1:0",
+        "probability": 0.188
+      },
+      {
+        "score": "0:1",
+        "probability": 0.18
+      },
+      {
+        "score": "1:1",
+        "probability": 0.092
+      },
+      {
+        "score": "2:0",
+        "probability": 0.048
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Kosovo": 0.147,
+        "Republic of Ireland": 0.14
+      },
+      "16-30'": {
+        "Kosovo": 0.169,
+        "Republic of Ireland": 0.161
+      },
+      "31-45'": {
+        "Kosovo": 0.196,
+        "Republic of Ireland": 0.187
+      },
+      "46-60'": {
+        "Kosovo": 0.158,
+        "Republic of Ireland": 0.151
+      },
+      "61-75'": {
+        "Kosovo": 0.202,
+        "Republic of Ireland": 0.192
+      },
+      "76-90'": {
+        "Kosovo": 0.218,
+        "Republic of Ireland": 0.208
+      }
+    },
+    "comeback_probability": {
+      "Kosovo": 0.019,
+      "Republic of Ireland": 0.018
+    },
+    "late_drama_probability": 0.347,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.297
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.25
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Kosovo trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.13
+      },
+      {
+        "szenario": "Kosovo dominiert früh",
+        "beschreibung": "Kosovo geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.048
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 51,
+        "away": 49
+      },
+      "shots": {
+        "home": 12,
+        "away": 11
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 4
+      },
+      "corners": {
+        "home": 6,
+        "away": 5
+      },
+      "passes": {
+        "home": 265,
+        "away": 255
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Kosovo and Republic of Ireland is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 16,
+        "type": "chance",
+        "team": "Republic of Ireland",
+        "headline": "Big chance for Republic of Ireland!",
+        "description": "Republic of Ireland create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 58,
+        "type": "goal",
+        "team": "Republic of Ireland",
+        "headline": "GOAL! Republic of Ireland!",
+        "description": "Republic of Ireland score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 67,
+        "type": "chance",
+        "team": "Republic of Ireland",
+        "headline": "Big chance for Republic of Ireland!",
+        "description": "Republic of Ireland create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 72,
+        "type": "goal",
+        "team": "Kosovo",
+        "headline": "GOAL! Kosovo!",
+        "description": "Kosovo score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:1.",
+        "score_after": "1:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Kosovo": 91,
+      "Republic of Ireland": 61
+    },
+    "fifa_points": {
+      "Kosovo": 1262.1,
+      "Republic of Ireland": 1397.52
+    },
+    "form_last_10_avg_pts": {
+      "Kosovo": 1.48,
+      "Republic of Ireland": 2.04
+    },
+    "win_rate_last_10": {
+      "Kosovo": "43%",
+      "Republic of Ireland": "58%"
+    },
+    "avg_goals_scored": {
+      "Kosovo": 1.42,
+      "Republic of Ireland": 1.85
+    },
+    "avg_goals_conceded": {
+      "Kosovo": 1.33,
+      "Republic of Ireland": 0.7
+    },
+    "clean_sheet_rate": {
+      "Kosovo": "33%",
+      "Republic of Ireland": "62%"
+    },
+    "h2h_last_10": {
+      "Kosovo wins": "0%",
+      "draws": "0%",
+      "Republic of Ireland wins": "0%",
+      "total_h2h_games": 0
+    }
+  }
+}

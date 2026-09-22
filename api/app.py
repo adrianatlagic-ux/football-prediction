@@ -41,6 +41,14 @@ app.add_middleware(
 )
 
 _predictor: FootballPredictor | None = None
+_national_predictor = None
+
+# Club and national football need separate models: the national one carries
+# FIFA-ranking features and a neutral-venue flag that have no club
+# equivalent, and the club one carries squad market values that have no
+# national equivalent. Which one answers is decided by the teams involved,
+# not by a flag the caller has to remember to set.
+NATIONAL_MODEL_PATH = Path(os.getenv("NATIONAL_MODEL_PATH", "model.joblib"))
 
 
 def _get_predictor() -> FootballPredictor:
@@ -50,6 +58,35 @@ def _get_predictor() -> FootballPredictor:
         if not _predictor._trained:
             raise HTTPException(status_code=503, detail="Modell nicht trainiert. POST /train aufrufen.")
     return _predictor
+
+
+def _get_national_predictor():
+    global _national_predictor
+    if _national_predictor is None:
+        from src.predictor import FootballPredictor as NationalPredictor
+        _national_predictor = NationalPredictor(
+            model_path=NATIONAL_MODEL_PATH if NATIONAL_MODEL_PATH.exists() else None)
+        if not _national_predictor._trained:
+            raise HTTPException(status_code=503,
+                                detail="Nationalmannschafts-Modell nicht trainiert.")
+    return _national_predictor
+
+
+def _is_national_fixture(home_team: str, away_team: str) -> bool:
+    """True when both sides are national teams we have a ranking for.
+
+    Requiring BOTH keeps a club whose name happens to collide with a country
+    from being routed to the national model. Falls back to the club model on
+    any doubt, which is the status quo rather than a new failure mode.
+    """
+    from src.fifa_rankings import has_ranking
+    return has_ranking(home_team) and has_ranking(away_team)
+
+
+def _predictor_for(home_team: str, away_team: str):
+    if _is_national_fixture(home_team, away_team) and NATIONAL_MODEL_PATH.exists():
+        return _get_national_predictor()
+    return _get_predictor()
 
 
 # ── Request / Response Models ──────────────────────────────────────────────
@@ -153,7 +190,7 @@ async def train(file: Optional[UploadFile] = File(None)):
 
 @app.post("/predict", response_model=PredictResponse)
 def predict(req: PredictRequest):
-    predictor = _get_predictor()
+    predictor = _predictor_for(req.home_team, req.away_team)
     try:
         result = predictor.predict_match(
             req.home_team,
@@ -1080,7 +1117,7 @@ def value_bets(home_team: str, away_team: str):
         # to a live prediction for matches nobody has generated yet.
         prediction = _find_cached_prediction(home_team, away_team)
         if prediction is None:
-            prediction = _get_predictor().predict_match(home_team, away_team)
+            prediction = _predictor_for(home_team, away_team).predict_match(home_team, away_team)
         result = _compute_value_bets(prediction, odds, home_team, away_team)
         _refresh_agent_picks(odds)
         _maybe_prekickoff_refresh(odds)

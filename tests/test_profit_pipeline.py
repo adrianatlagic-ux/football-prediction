@@ -10,7 +10,7 @@ from src.bet_audit import snapshot, settlement, evaluate_snapshots, fixture_key
 from src.club_features_v3 import build_features, prediction_row, prepare_history
 from src.club_market_value_policy import DEFAULT_POLICY, MarketValueHistory
 from src.club_backtest import rating_context
-from src.poisson_model import predict_scorelines, _compute_team_ratings
+from src.poisson_model import predict_scorelines, _compute_team_ratings, WC2026_GROUP_GOAL_UPLIFT
 from src.evaluation import evaluate
 from src.feature_engineering import _goal_stats
 
@@ -147,13 +147,30 @@ def test_vectorized_ratings_equal_reference():
         np.testing.assert_allclose(fast[team], slow[team])
 
 
-def test_club_poisson_has_no_world_cup_uplift():
+def test_goal_uplift_is_opt_in_and_never_applies_to_clubs():
+    """The WC group-stage uplift must be requested, not inherited.
+
+    It was fitted on WC2026 group fixtures and used to apply to every
+    non-knockout national match, which overstated Nations League scoring by
+    about half a goal per game.
+    """
     df = history()
-    normal = predict_scorelines(df, "A", "B", club_mode=True)
-    knockout = predict_scorelines(df, "A", "B", club_mode=True, is_knockout=True)
-    world_cup = predict_scorelines(df, "A", "B")
-    assert normal == knockout
-    assert world_cup["home_xg"] == pytest.approx(normal["home_xg"] * 1.15, abs=0.02)
+    club = predict_scorelines(df, "A", "B", club_mode=True)
+    club_knockout = predict_scorelines(df, "A", "B", club_mode=True, is_knockout=True)
+    assert club == club_knockout
+
+    national = predict_scorelines(df, "A", "B")
+    uplifted = predict_scorelines(df, "A", "B", goal_uplift=WC2026_GROUP_GOAL_UPLIFT)
+    assert uplifted["home_xg"] == pytest.approx(national["home_xg"] * WC2026_GROUP_GOAL_UPLIFT, abs=0.02)
+
+    # Knockout ties never take the group-stage number, even when asked.
+    knockout = predict_scorelines(df, "A", "B", is_knockout=True, goal_uplift=WC2026_GROUP_GOAL_UPLIFT)
+    assert knockout["home_xg"] == pytest.approx(national["home_xg"], abs=1e-9)
+
+    # Clubs are unaffected by the parameter entirely.
+    assert predict_scorelines(df, "A", "B", club_mode=True,
+                              goal_uplift=WC2026_GROUP_GOAL_UPLIFT)["home_xg"] == pytest.approx(
+        club["home_xg"] * WC2026_GROUP_GOAL_UPLIFT, abs=0.02)
 
 
 def test_log_loss_class_order():

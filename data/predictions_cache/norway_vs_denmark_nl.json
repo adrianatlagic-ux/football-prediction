@@ -1,0 +1,410 @@
+{
+  "home_team": "Norway",
+  "away_team": "Denmark",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.3526,
+  "probability_draw": 0.25,
+  "probability_away_win": 0.3974,
+  "score_prediction": {
+    "home_xg": 1.74,
+    "away_xg": 1.43,
+    "rho": -0.13,
+    "most_likely_score": "1:2",
+    "result": "A",
+    "probability_home_win": 0.3526,
+    "probability_draw": 0.25,
+    "probability_away_win": 0.3974,
+    "top_scorelines": [
+      {
+        "score": "1:2",
+        "probability": 0.0978
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0612
+      },
+      {
+        "score": "0:2",
+        "probability": 0.0564
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0465
+      },
+      {
+        "score": "2:3",
+        "probability": 0.0404
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.6026,
+        "home_or_away": 0.75,
+        "draw_or_away": 0.6474
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8365,
+          "under": 0.1635
+        },
+        {
+          "line": 2.5,
+          "over": 0.6147,
+          "under": 0.3853
+        },
+        {
+          "line": 3.5,
+          "over": 0.3867,
+          "under": 0.6133
+        }
+      ],
+      "btts": {
+        "yes": 0.6398,
+        "no": 0.3602
+      },
+      "win_margin": {
+        "home_1plus": 0.3526,
+        "home_2plus": 0.1933,
+        "home_3plus": 0.0835,
+        "away_1plus": 0.3974,
+        "away_2plus": 0.1883,
+        "away_3plus": 0.0684
+      },
+      "scenario": "Denmark are slightly favored to win 2-1, backed by their dominant head-to-head record, with goals expected from both sides."
+    },
+    "score_matrix": [
+      [
+        0.05379488752673262,
+        0.061227675813141196,
+        0.05637185080410581,
+        0.026794043839962266,
+        0.009551586142602715,
+        0.002723972488348029,
+        0.0006473642184046601,
+        0.00013187056762451184,
+        2.3504721681108025e-05
+      ],
+      [
+        0.0484285216732528,
+        0.11381930407666521,
+        0.0978366122478457,
+        0.04650261505217843,
+        0.016577330998641875,
+        0.004727612031799651,
+        0.0011235380977516777,
+        0.0002288690083356814,
+        4.079380592096165e-05
+      ],
+      [
+        0.05158817749963853,
+        0.07356096366353791,
+        0.062318046060056316,
+        0.040353990976640455,
+        0.014385459071180526,
+        0.004102522257258797,
+        0.0009749827231804043,
+        0.0001986077102728029,
+        3.540000651985252e-05
+      ],
+      [
+        0.029844756715808496,
+        0.04255643774843763,
+        0.03034118205556271,
+        0.017135929046131024,
+        0.008322265818124928,
+        0.002373388334758215,
+        0.000564046329716523,
+        0.00011489839498627596,
+        2.0479587252921186e-05
+      ],
+      [
+        0.012949325987994588,
+        0.018464790667917112,
+        0.013164719720782946,
+        0.006257308786352331,
+        0.0026504768136498976,
+        0.0010297882316664473,
+        0.00024473376899608845,
+        4.985320491443464e-05,
+        8.885877474658144e-06
+      ],
+      [
+        0.004494861060925477,
+        0.006409342744812166,
+        0.004569626720788806,
+        0.0021719843670657078,
+        0.0007742726669526772,
+        0.0002623737227962191,
+        8.49499263184746e-05,
+        1.730462494650147e-05,
+        3.084391009232842e-06
+      ],
+      [
+        0.0013001819538558195,
+        0.0018539642627275561,
+        0.0013218086427355883,
+        0.0006282674458316494,
+        0.00022396584350227122,
+        6.387177866812463e-05,
+        1.8036579216044476e-05,
+        5.005529819213573e-06,
+        8.921898751669043e-07
+      ],
+      [
+        0.00032236301288812063,
+        0.0004596660519301694,
+        0.0003277250659187762,
+        0.0001557706489750847,
+        5.5529384853643125e-05,
+        1.583616735251435e-05,
+        3.7635358449978697e-06,
+        9.109497695388722e-07,
+        2.2120674369779257e-07
+      ],
+      [
+        6.993496010220854e-05,
+        9.972213224484587e-05,
+        7.109822930423379e-05,
+        3.379362298288386e-05,
+        1.2046807974175077e-05,
+        3.435573213091783e-06,
+        8.164793063728589e-07,
+        1.663199579525626e-07,
+        3.5224983075948757e-08
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.1,
+    "total_xg": 3.17,
+    "first_goal": {
+      "Norway_scores_first": 0.526,
+      "Denmark_scores_first": 0.432,
+      "no_goals": 0.042,
+      "expected_minute": 28
+    },
+    "halftime_xg": {
+      "Norway": 0.82,
+      "Denmark": 0.67
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.226
+      },
+      {
+        "score": "1:0",
+        "probability": 0.185
+      },
+      {
+        "score": "0:1",
+        "probability": 0.152
+      },
+      {
+        "score": "1:1",
+        "probability": 0.124
+      },
+      {
+        "score": "2:0",
+        "probability": 0.076
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Norway": 0.235,
+        "Denmark": 0.193
+      },
+      "16-30'": {
+        "Norway": 0.27,
+        "Denmark": 0.222
+      },
+      "31-45'": {
+        "Norway": 0.313,
+        "Denmark": 0.257
+      },
+      "46-60'": {
+        "Norway": 0.252,
+        "Denmark": 0.207
+      },
+      "61-75'": {
+        "Norway": 0.322,
+        "Denmark": 0.265
+      },
+      "76-90'": {
+        "Norway": 0.348,
+        "Denmark": 0.286
+      }
+    },
+    "comeback_probability": {
+      "Norway": 0.037,
+      "Denmark": 0.031
+    },
+    "late_drama_probability": 0.47,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.232
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.186
+      },
+      {
+        "szenario": "Norway dominiert früh",
+        "beschreibung": "Norway geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.076
+      },
+      {
+        "szenario": "Denmark dominiert früh",
+        "beschreibung": "Denmark geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.052
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 52,
+        "away": 48
+      },
+      "shots": {
+        "home": 15,
+        "away": 13
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 5
+      },
+      "corners": {
+        "home": 7,
+        "away": 6
+      },
+      "passes": {
+        "home": 270,
+        "away": 250
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Norway and Denmark is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 11,
+        "type": "chance",
+        "team": "Norway",
+        "headline": "Big chance for Norway!",
+        "description": "Norway create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 13,
+        "type": "goal",
+        "team": "Denmark",
+        "headline": "GOAL! Denmark!",
+        "description": "Denmark score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 34,
+        "type": "chance",
+        "team": "Norway",
+        "headline": "Big chance for Norway!",
+        "description": "Norway create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 54,
+        "type": "chance",
+        "team": "Denmark",
+        "headline": "Big chance for Denmark!",
+        "description": "Denmark create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 65,
+        "type": "goal",
+        "team": "Norway",
+        "headline": "GOAL! Norway!",
+        "description": "Norway score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 73,
+        "type": "goal",
+        "team": "Denmark",
+        "headline": "GOAL! Denmark!",
+        "description": "Denmark score to make it 1:2.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 75,
+        "type": "chance",
+        "team": "Norway",
+        "headline": "Big chance for Norway!",
+        "description": "Norway create a great opportunity but fail to convert.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:2.",
+        "score_after": "1:2"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Norway": 31,
+      "Denmark": 20
+    },
+    "fifa_points": {
+      "Norway": 1526.23,
+      "Denmark": 1627.64
+    },
+    "form_last_10_avg_pts": {
+      "Norway": 1.83,
+      "Denmark": 1.9
+    },
+    "win_rate_last_10": {
+      "Norway": "55%",
+      "Denmark": "52%"
+    },
+    "avg_goals_scored": {
+      "Norway": 2.79,
+      "Denmark": 2.86
+    },
+    "avg_goals_conceded": {
+      "Norway": 1.6,
+      "Denmark": 1.24
+    },
+    "clean_sheet_rate": {
+      "Norway": "17%",
+      "Denmark": "43%"
+    },
+    "h2h_last_10": {
+      "Norway wins": "0%",
+      "draws": "25%",
+      "Denmark wins": "75%",
+      "total_h2h_games": 4
+    }
+  }
+}

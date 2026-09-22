@@ -1,6 +1,19 @@
+"""FIFA World Rankings.
+
+Prefers data/fifa_rankings.csv (all 210 ranked nations, fetched by
+scripts/fetch_fifa_rankings.py) and falls back to the tables below, which
+cover only the 62 WC2026 participants and whose points are reliable only
+near the top - past rank 50 they deviate from FIFA's by ~550 points and
+look derived from the rank rather than measured. Everyone outside the table
+shares one placeholder, which erases real gaps: on the old data Andorra and
+Malta were identical, on the real ranking they sit 8 places and 28 points
+apart.
 """
-FIFA World Rankings (official, June 2026) for WM 2026 qualified teams.
-"""
+from pathlib import Path
+
+import pandas as pd
+
+_CSV_PATH = Path(__file__).resolve().parents[1] / "data" / "fifa_rankings.csv"
 
 FIFA_RANKINGS = {
     "France": 1,
@@ -133,12 +146,39 @@ FIFA_POINTS = {
 }
 
 
+def _load_csv():
+    if not _CSV_PATH.exists():
+        return {}, {}, None
+    frame = pd.read_csv(_CSV_PATH)
+    return (dict(zip(frame.team, frame["rank"].astype(int))),
+            dict(zip(frame.team, frame.points.astype(float))),
+            str(frame.as_of.iloc[0]) if "as_of" in frame else None)
+
+
+_CSV_RANKINGS, _CSV_POINTS, RANKING_AS_OF = _load_csv()
+# The fetched file wins where it has a team; the hardcoded table stays as a
+# fallback so the module still works if the file is missing.
+RANKINGS = {**FIFA_RANKINGS, **_CSV_RANKINGS}
+POINTS = {**FIFA_POINTS, **_CSV_POINTS}
+
+
 def get_ranking(team: str) -> int:
-    return FIFA_RANKINGS.get(team, 100)
+    return RANKINGS.get(team, 100)
+
+
+def has_ranking(team: str) -> bool:
+    """Whether FIFA data actually covers this team.
+
+    Teams outside the ranking (non-FIFA sides like Basque Country, or
+    provisional members FIFA lists without a rank) still fall back to the
+    900-point placeholder, so callers that can act on the difference should
+    ask here rather than trust that number.
+    """
+    return team in POINTS
 
 
 def get_points(team: str) -> float:
-    return float(FIFA_POINTS.get(team, 900))
+    return float(POINTS.get(team, 900))
 
 
 def get_ranking_diff(home_team: str, away_team: str) -> float:

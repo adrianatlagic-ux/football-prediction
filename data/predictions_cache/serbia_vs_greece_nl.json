@@ -1,0 +1,378 @@
+{
+  "home_team": "Serbia",
+  "away_team": "Greece",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4066,
+  "probability_draw": 0.3008,
+  "probability_away_win": 0.2926,
+  "score_prediction": {
+    "home_xg": 0.9,
+    "away_xg": 1.46,
+    "rho": -0.13,
+    "most_likely_score": "1:0",
+    "result": "H",
+    "probability_home_win": 0.4066,
+    "probability_draw": 0.3008,
+    "probability_away_win": 0.2926,
+    "top_scorelines": [
+      {
+        "score": "1:0",
+        "probability": 0.1299
+      },
+      {
+        "score": "2:1",
+        "probability": 0.1052
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0718
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0314
+      },
+      {
+        "score": "3:2",
+        "probability": 0.023
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7074,
+        "home_or_away": 0.6992,
+        "draw_or_away": 0.5934
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.6849,
+          "under": 0.3151
+        },
+        {
+          "line": 2.5,
+          "over": 0.4109,
+          "under": 0.5891
+        },
+        {
+          "line": 3.5,
+          "over": 0.2003,
+          "under": 0.7997
+        }
+      ],
+      "btts": {
+        "yes": 0.4805,
+        "no": 0.5195
+      },
+      "win_margin": {
+        "home_1plus": 0.4066,
+        "home_2plus": 0.1457,
+        "home_3plus": 0.0369,
+        "away_1plus": 0.2926,
+        "away_2plus": 0.1516,
+        "away_3plus": 0.0597
+      },
+      "scenario": "Serbia are favourites with a 41% win chance; a 1-0 score is most likely, pointing to a low-scoring match."
+    },
+    "score_matrix": [
+      [
+        0.11174736659763648,
+        0.07322617920934775,
+        0.06067648663582652,
+        0.029615332663105485,
+        0.010841117919497368,
+        0.0031748375500333884,
+        0.0007747965926230882,
+        0.0001620716697144399,
+        2.966433135787422e-05
+      ],
+      [
+        0.12988852920789737,
+        0.1414941480467001,
+        0.054349978288723934,
+        0.02652745365620318,
+        0.009710755454358745,
+        0.0028438092164132715,
+        0.0006940114749883706,
+        0.00014517306816172836,
+        2.6571343441925947e-05
+      ],
+      [
+        0.07184958984742769,
+        0.10520629767888695,
+        0.04105787206817913,
+        0.011880768071848775,
+        0.004349125809468648,
+        0.0012736479791339266,
+        0.00031082475839555015,
+        6.501821001974941e-05,
+        1.1900424853523083e-05
+      ],
+      [
+        0.021452701393753673,
+        0.03141227797737141,
+        0.02299783112664209,
+        0.005983431467986174,
+        0.0012985529564263534,
+        0.0003802831698154243,
+        9.280541116247014e-05,
+        1.9413002185147247e-05,
+        3.5532041502749843e-06
+      ],
+      [
+        0.004803977288529054,
+        0.007034259565473275,
+        0.005149983509768315,
+        0.002513633918303395,
+        0.0004904861311579446,
+        8.515811959863766e-05,
+        2.078223526697295e-05,
+        4.347220421702529e-06,
+        7.956812396782015e-07
+      ],
+      [
+        0.000860616940127553,
+        0.0012601647717519113,
+        0.0009226028317134826,
+        0.0004503093585676547,
+        0.0001648422090009794,
+        2.5732567262298007e-05,
+        3.7230700001809576e-06,
+        7.7879042982137e-07,
+        1.4254371173732714e-07
+      ],
+      [
+        0.00012848060977221679,
+        0.00018812869087163862,
+        0.00013773441919299627,
+        6.722621677227638e-05,
+        2.4609122294880773e-05,
+        7.206818163525123e-06,
+        9.375123755417072e-07,
+        1.1626481497492542e-07,
+        2.128020278161447e-08
+      ],
+      [
+        1.644063161579423e-05,
+        2.4073317432612898e-05,
+        1.76247672764167e-05,
+        8.602398967719766e-06,
+        3.149031708017732e-06,
+        9.221986318292901e-07,
+        2.2505603716810438e-07,
+        2.5094429261050297e-08,
+        2.7230566173540876e-09
+      ],
+      [
+        1.8408036228562032e-06,
+        2.6954104306764765e-06,
+        1.9733874106915205e-06,
+        9.631824102074207e-07,
+        3.525867565233481e-07,
+        1.0325555745884784e-07,
+        2.5198786655295622e-08,
+        5.271073036311657e-09,
+        5.142730215815399e-10
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Tactically Balanced",
+    "match_description": "A tight game where goals will make the difference",
+    "dominance_index": -0.24,
+    "total_xg": 2.36,
+    "first_goal": {
+      "Serbia_scores_first": 0.345,
+      "Greece_scores_first": 0.56,
+      "no_goals": 0.094,
+      "expected_minute": 38
+    },
+    "halftime_xg": {
+      "Serbia": 0.42,
+      "Greece": 0.69
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.33
+      },
+      {
+        "score": "0:1",
+        "probability": 0.227
+      },
+      {
+        "score": "1:0",
+        "probability": 0.14
+      },
+      {
+        "score": "1:1",
+        "probability": 0.096
+      },
+      {
+        "score": "0:2",
+        "probability": 0.078
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Serbia": 0.122,
+        "Greece": 0.197
+      },
+      "16-30'": {
+        "Serbia": 0.14,
+        "Greece": 0.226
+      },
+      "31-45'": {
+        "Serbia": 0.162,
+        "Greece": 0.263
+      },
+      "46-60'": {
+        "Serbia": 0.131,
+        "Greece": 0.212
+      },
+      "61-75'": {
+        "Serbia": 0.167,
+        "Greece": 0.27
+      },
+      "76-90'": {
+        "Serbia": 0.18,
+        "Greece": 0.292
+      }
+    },
+    "comeback_probability": {
+      "Serbia": 0.016,
+      "Greece": 0.025
+    },
+    "late_drama_probability": 0.376,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.266
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.237
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Greece trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.138
+      },
+      {
+        "szenario": "Greece dominiert früh",
+        "beschreibung": "Greece geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.078
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 46,
+        "away": 54
+      },
+      "shots": {
+        "home": 10,
+        "away": 13
+      },
+      "shots_on_target": {
+        "home": 4,
+        "away": 5
+      },
+      "corners": {
+        "home": 4,
+        "away": 6
+      },
+      "passes": {
+        "home": 239,
+        "away": 281
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Serbia and Greece is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 39,
+        "type": "chance",
+        "team": "Greece",
+        "headline": "Big chance for Greece!",
+        "description": "Greece create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 54,
+        "type": "chance",
+        "team": "Greece",
+        "headline": "Big chance for Greece!",
+        "description": "Greece create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 60,
+        "type": "goal",
+        "team": "Serbia",
+        "headline": "GOAL! Serbia!",
+        "description": "Serbia score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:0.",
+        "score_after": "1:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Serbia": 34,
+      "Greece": 40
+    },
+    "fifa_points": {
+      "Serbia": 1520.9,
+      "Greece": 1494.72
+    },
+    "form_last_10_avg_pts": {
+      "Serbia": 1.37,
+      "Greece": 1.16
+    },
+    "win_rate_last_10": {
+      "Serbia": "46%",
+      "Greece": "29%"
+    },
+    "avg_goals_scored": {
+      "Serbia": 0.99,
+      "Greece": 1.28
+    },
+    "avg_goals_conceded": {
+      "Serbia": 1.86,
+      "Greece": 1.27
+    },
+    "clean_sheet_rate": {
+      "Serbia": "11%",
+      "Greece": "36%"
+    },
+    "h2h_last_10": {
+      "Serbia wins": "50%",
+      "draws": "0%",
+      "Greece wins": "50%",
+      "total_h2h_games": 2
+    }
+  }
+}

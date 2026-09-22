@@ -3,6 +3,7 @@ import axios from 'axios'
 import './App.css'
 import CL_FIXTURES from './cl_fixtures.json'
 import BL_FIXTURES from './bl_fixtures.json'
+import NL_FIXTURES from './nl_fixtures.json'
 import CLUB_CRESTS from './club_crests.json'
 
 const API_BASE = import.meta.env.DEV ? 'http://127.0.0.1:8000' : ''
@@ -21,6 +22,7 @@ const GROUPS = [...new Set(CL_FIXTURES.map(f => f.group))].sort((a, b) => {
 })
 
 // Bundesliga: one "Spieltag N" group per matchday, sorted numerically.
+const NL_GROUPS = [...new Set(NL_FIXTURES.map(f => f.group))]
 const BL_GROUPS = [...new Set(BL_FIXTURES.map(f => f.group))].sort((a, b) => {
   const na = parseInt(a.replace(/\D/g, ''), 10) || 0
   const nb = parseInt(b.replace(/\D/g, ''), 10) || 0
@@ -1804,11 +1806,13 @@ export default function App() {
   const [wmLoading, setWmLoading] = useState(true)
   const [activeCompetition, setActiveCompetition] = useState('cl')
   const [activeGroup, setActiveGroup] = useState(GROUPS[0])
-  const currentFixtures = activeCompetition === 'bl' ? BL_FIXTURES : CL_FIXTURES
-  const currentGroups = activeCompetition === 'bl' ? BL_GROUPS : GROUPS
+  const FIXTURES_BY_COMPETITION = { bl: BL_FIXTURES, nl: NL_FIXTURES, cl: CL_FIXTURES }
+  const GROUPS_BY_COMPETITION = { bl: BL_GROUPS, nl: NL_GROUPS, cl: GROUPS }
+  const currentFixtures = FIXTURES_BY_COMPETITION[activeCompetition] || CL_FIXTURES
+  const currentGroups = GROUPS_BY_COMPETITION[activeCompetition] || GROUPS
   const switchCompetition = (comp) => {
     setActiveCompetition(comp)
-    setActiveGroup(comp === 'bl' ? BL_GROUPS[0] : GROUPS[0])
+    setActiveGroup((GROUPS_BY_COMPETITION[comp] || GROUPS)[0])
   }
   const [analysisStep, setAnalysisStep] = useState({})
   const [bestBets, setBestBets] = useState(null)  // null = not loaded, [] = loaded empty
@@ -1816,7 +1820,8 @@ export default function App() {
   const [combo, setCombo] = useState(null)
   const [comboLoading, setComboLoading] = useState(false)
 
-  const COMPETITION_SPORT_KEYS = { bl: 'soccer_germany_bundesliga', cl: 'soccer_uefa_champs_league' }
+  const COMPETITION_SPORT_KEYS = { bl: 'soccer_germany_bundesliga', cl: 'soccer_uefa_champs_league',
+                                   nl: 'soccer_uefa_nations_league' }
 
   async function loadCombo(comp) {
     setComboLoading(true)
@@ -1939,7 +1944,7 @@ export default function App() {
         ])
         if (listResp.status === 'fulfilled') {
           const ids = (listResp.value.data.match_ids || []).filter(id =>
-            CL_FIXTURES.some(f => f.match_id === id) || BL_FIXTURES.some(f => f.match_id === id)
+            [CL_FIXTURES, BL_FIXTURES, NL_FIXTURES].some(list => list.some(f => f.match_id === id))
           )
           const all = await Promise.all(
             ids.map(id => axios.get(`${API_BASE}/predictions/${id}`).then(r => ({ matchId: id, data: r.data })))
@@ -2042,6 +2047,13 @@ export default function App() {
                 >
                   <span className="competition-pill-emoji">🇩🇪</span>
                   Bundesliga
+                </button>
+                <button
+                  className={`competition-pill ${activeCompetition === 'nl' ? 'active' : ''}`}
+                  onClick={() => switchCompetition('nl')}
+                >
+                  <span className="competition-pill-emoji">🌍</span>
+                  Nations League
                 </button>
               </div>
 
