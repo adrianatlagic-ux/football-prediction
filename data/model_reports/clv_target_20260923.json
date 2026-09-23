@@ -1,0 +1,57 @@
+{
+  "target": "closing_line_value",
+  "protocol": {
+    "dev": [
+      "2021-22",
+      "2022-23"
+    ],
+    "holdout": [
+      "2023-24",
+      "2025-26"
+    ],
+    "alpha": 5000
+  },
+  "features_beat_mean_predictor": true,
+  "mse_mean_predictor": 0.006047347756376486,
+  "mse_best_model": 0.00604300901933312,
+  "results": [
+    {
+      "split": "Entwicklung",
+      "bets": 612,
+      "mean_clv": -0.015465538732071281,
+      "share_beating_close": 0.369281045751634,
+      "ci95": [
+        -0.020488242907954986,
+        -0.010632926183399394
+      ],
+      "mean_clv_all_candidates": -0.013609729422835368
+    },
+    {
+      "split": "HOLDOUT",
+      "bets": 612,
+      "mean_clv": -0.005535671719694729,
+      "share_beating_close": 0.4117647058823529,
+      "ci95": [
+        -0.010221728370540818,
+        -0.0007248651051950919
+      ],
+      "mean_clv_all_candidates": -0.005007996638381719
+    }
+  ],
+  "weights": {
+    "model_p": -0.00041491605754433544,
+    "market_q": 9.03478677692549e-05,
+    "gap": -0.0008766414426645577,
+    "log_odds": -0.0003533739791918926,
+    "ev": -0.0011273987299190746,
+    "suspicious": -0.00024880258152468296,
+    "member_std": 0.0002290313615344816,
+    "member_range": 0.0002219531583470981,
+    "members_agree": -0.000140638320612316
+  },
+  "limits": [
+    "1X2 only; no closing handicap or totals published",
+    "Best available price across books, both sides",
+    "Bundesliga only, retrospective"
+  ]
+}
