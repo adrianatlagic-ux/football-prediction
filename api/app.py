@@ -469,12 +469,13 @@ _agent_picks_cache_date: str | None = None
 REALISTIC_EV_CEILING = 0.25
 
 
-# The site covers club competitions only (Champions League, Bundesliga) - no
-# World Cup fixtures exist anymore, so odds are pulled from each covered
-# league's own sport key and merged into one pool. _find_odds_match() below
-# matches by team name regardless of which league an event came from, so a
-# single merged list is all the rest of the odds/value-bet code needs.
-ODDS_SPORT_KEYS = ["soccer_uefa_champs_league", "soccer_germany_bundesliga"]
+# Fetch every competition available in the frontend, including national teams.
+# This list also allows the event-specific refresh in the final pre-match hour.
+ODDS_SPORT_KEYS = [
+    "soccer_uefa_champs_league",
+    "soccer_germany_bundesliga",
+    "soccer_uefa_nations_league",
+]
 
 
 def _fetch_odds() -> list[dict]:
@@ -499,7 +500,7 @@ def _fetch_odds() -> list[dict]:
 
 
 def _fetch_event_odds(event):
-    """Refresh only the event's own competition, including Bundesliga."""
+    """Refresh only the event's own supported competition."""
     sport, event_id = event.get("sport_key"), event.get("id")
     if sport not in ODDS_SPORT_KEYS or not event_id:
         raise ValueError("Unknown event identity")

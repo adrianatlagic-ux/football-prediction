@@ -1,0 +1,56 @@
+{
+  "created_at": "2026-09-23T18:31:10.335139+00:00",
+  "model": "verified_only/monthly/raw",
+  "selection_rules": {
+    "kelly_baseline": "Bisherige Kelly-Auswahl (innerhalb des Testangebots)",
+    "max_ev": "Höchster EV",
+    "probability_near_ev": "Höchste Trefferchance bei mindestens 80% des besten EV",
+    "kelly_model_agrees": "Kelly-Tipp nur bei exakter Zustimmung von Model's Choice",
+    "kelly_market_agrees": "Kelly-Tipp nur bei exakter Zustimmung des 1X2-Marktfavoriten"
+  },
+  "near_ev_fraction": 0.8,
+  "filters": {
+    "max_ev": 0.25,
+    "max_probability_gap": 0.15,
+    "min_quarter_kelly_pct": 1,
+    "exclude_confident_model_contradiction": true
+  },
+  "odds": "One bookmaker: Bet365; pre-closing primary, closing sensitivity; devig same-book complete markets",
+  "stakes": "One unit per selected bet, maximum one bet per fixture per strategy",
+  "selection_policy": "No strategy optimized on results, no automatic winner promotion",
+  "reused_model_development_seasons": [
+    "2021-22",
+    "2022-23",
+    "2023-24"
+  ],
+  "later_previously_examined_season": "2025-26",
+  "matched_fixtures": 1224,
+  "exclusions": [],
+  "limitations": [
+    "Retrospective, not original live bet records or an untouched holdout",
+    "1X2 uses saved chronological model probabilities; totals/handicaps reconstructed today from earlier scores",
+    "Only Bundesliga; no conclusion for Nations League or Champions League",
+    "No historical AI picks, research or three-book stress references; those variants cannot be graded here",
+    "Only total 2.5 and the offered main handicap line; not the full live menu",
+    "Single-book market reference differs from the live multi-book average",
+    "Pre-closing quotes have no per-quote timestamps; freshness/final-hour policy cannot be replayed",
+    "Archived quotes do not guarantee execution, limits or availability",
+    "Training-source hashes verified, but the complete training corpus was not independently reaudited",
+    "Bootstrap intervals are descriptive; no correction for previous model experiments"
+  ],
+  "source_hashes": {
+    "data/model_reports/retraining_v3/predictions.jsonl": "cb83d37f685e64431640018e6c82b7c5d1ccf88c91f4f72b758bca633854d553",
+    "data/odds_archive/football_data_20260923/D1_2122.csv": "034d0e1296e944dddf25e3c91b85ef5bd1ad25661b89d73878f5c73bfea4b9fc",
+    "data/odds_archive/football_data_20260923/D1_2223.csv": "b716517b25033ce8e0243e967aa961876425a4c41e97c8aa8fa59f2aca061341",
+    "data/odds_archive/football_data_20260923/D1_2324.csv": "1de8bc12a133dbbf71bc6ffda62082642f087f61b1b7c15ae9f2d320876fb07e",
+    "data/odds_archive/football_data_20260923/D1_2526.csv": "618301a4b39918225a8ccc57f0f839d675e1abd92fa3a3ccd9a67acd7c79dd7f"
+  },
+  "code_hashes": {
+    "scripts/compare_bet_selection.py": "3785040b60420229fcf17cfcf391bb4ccc1d0ed28725fcf9b133798953f11e11",
+    "src/poisson_model.py": "b52cca42335ee7d6a070d6e436e21b8d30cbe48a4f11bd21413d97ff06859124",
+    "src/club_backtest.py": "80da6ce7e936eee4e035d4e088ff03a5d5b1eaae8e678162b44146e8ce36c99f",
+    "src/bet_selection.py": "9aa87a004a4ed91072b9d8a87ceb7fe71f3d8af6e871aeffadfe7155c86bddd1",
+    "src/bet_audit.py": "b5f829b40b0112c8f09f61d1307bce73adc96e8fbb63b9e9185458fde8994a09"
+  },
+  "data_source": "https://www.football-data.co.uk/germanym.php"
+}

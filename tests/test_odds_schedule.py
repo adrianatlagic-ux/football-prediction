@@ -92,10 +92,12 @@ def test_failed_final_never_relabels_old_quote_or_retries_every_view(monkeypatch
     assert len(calls) == 1
 
 
-def test_event_refresh_uses_bundesliga_path_not_champions_league(monkeypatch):
+@pytest.mark.parametrize("sport", ["soccer_germany_bundesliga", "soccer_uefa_nations_league"])
+def test_event_refresh_uses_its_own_competition_path(monkeypatch, sport):
     import json
     from io import BytesIO
     e = fixture(datetime.now(timezone.utc))
+    e["sport_key"] = sport
     seen = []
     def open_(request, timeout):
         seen.append(request.full_url)
@@ -103,7 +105,29 @@ def test_event_refresh_uses_bundesliga_path_not_champions_league(monkeypatch):
     monkeypatch.setattr(api.urllib.request, "urlopen", open_)
     monkeypatch.setattr(api, "ODDS_API_KEY", "test-placeholder")
     assert api._fetch_event_odds(e) == e
-    assert "/soccer_germany_bundesliga/events/bl-one/odds" in seen[0]
+    assert f"/{sport}/events/bl-one/odds" in seen[0]
+
+
+def test_daily_fetch_includes_nations_league_quotes(monkeypatch):
+    import json
+    from io import BytesIO
+    from urllib.parse import urlparse
+    now = datetime.now(timezone.utc)
+    event = {**fixture(now), "sport_key": "soccer_uefa_nations_league",
+             "home_team": "Austria", "away_team": "Israel"}
+    requested = []
+
+    def open_(request, timeout):
+        path = urlparse(request.full_url).path
+        requested.append(path)
+        data = [event] if path == "/v4/sports/soccer_uefa_nations_league/odds/" else []
+        return BytesIO(json.dumps(data).encode())
+
+    monkeypatch.setattr(api.urllib.request, "urlopen", open_)
+    monkeypatch.setattr(api, "ODDS_API_KEY", "test-placeholder")
+    events = api._fetch_odds()
+    assert api._find_odds_match(events, "Austria", "Israel") == event
+    assert len(requested) == 3
 
 
 def test_audit_reports_daily_and_final_separately(tmp_path, monkeypatch):

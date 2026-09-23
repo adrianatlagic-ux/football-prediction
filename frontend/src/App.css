@@ -2940,3 +2940,11 @@ body {
   line-height: 1.5;
   color: #6b7280;
 }
+
+.selection-diagnostic {
+  padding: 0.9rem;
+  border: 1px solid rgba(251,191,36,0.25);
+  border-radius: 10px;
+  background: rgba(251,191,36,0.025);
+}
+.selection-diagnostic h3 { font-size: 0.85rem; color: #e2e8f0; margin: 1rem 0 0; }

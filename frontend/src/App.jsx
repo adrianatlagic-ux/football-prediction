@@ -743,6 +743,13 @@ function SmartBetCard({ betStep, betInfo, data }) {
   const selectionCheck = consensusPick?.selection_assessment
   const modelFavorite = betInfo.model_favorite
   const safestPick = betInfo.safest_pick
+  const rejectedCheck = !consensusPick && combined?.selection?.assessments
+    ?.filter(a => Number.isFinite(a.stressed_expected_value))
+    .sort((a, b) => b.stressed_expected_value - a.stressed_expected_value)[0]
+  const rejectedBet = rejectedCheck && betInfo.bets?.find(b =>
+    b.market === rejectedCheck.market && b.outcome === rejectedCheck.outcome &&
+    b.team === rejectedCheck.team && b.bookmaker === rejectedCheck.bookmaker)
+  const excluded = combined?.selection?.exclusion_counts || {}
   const scenarioText = data?.score_prediction?.betting_markets?.scenario
   const sameBet = (a, b) => a.market === b.market && a.outcome === b.outcome && a.team === b.team
   const greens = betInfo.green_bets || []
@@ -818,11 +825,37 @@ function SmartBetCard({ betStep, betInfo, data }) {
           <p className="bet-agreement-caption">Agreement is shown for comparison; it does not increase the selection score.</p>
         </div>
       ) : (
-        <p className="smart-bet-notip">
-          <strong>No clear tip for this match.</strong><br />
-          {combined?.selection?.reason || 'No eligible bet is available for this snapshot.'}
-        </p>
+        <div className="selection-diagnostic">
+          <p className="smart-bet-notip">
+            <strong>No qualifying Game Pick.</strong><br />
+            {combined?.selection?.reason || 'No eligible bet is available for this snapshot.'}
+          </p>
+          {rejectedBet && (
+            <>
+              <h3>Why this candidate did not qualify</h3>
+              <p className="bet-metrics-context">
+                {betOutcomeLabel(rejectedBet)} · {rejectedBet.best_odds.toFixed(2)} at {rejectedBet.bookmaker}.
+                Highest stressed EV among evaluated candidates; not a recommendation.
+              </p>
+              <dl className="bet-metrics probability-metrics">
+                <BetMetric label="Model probability" value={betPercent(rejectedBet.probability)} detail="Chance of a positive payout" />
+                <BetMetric label="Market estimate" value={betPercent(rejectedBet.market_probability)} detail="Margin-adjusted; — if unavailable" />
+                <BetMetric label="Stressed EV" value={betPercent(rejectedCheck.stressed_expected_value, true)} detail="At least +1% required to qualify" />
+                <BetMetric label="Minimum odds" value={rejectedCheck.min_acceptable_odds.toFixed(2)} detail={`Current odds: ${rejectedBet.best_odds.toFixed(2)}`} />
+              </dl>
+            </>
+          )}
+          <p className="bet-metrics-context">
+            {excluded.no_edge_after_stress > 0 && <>{excluded.no_edge_after_stress} candidates failed the stress threshold. </>}
+            {excluded.insufficient_reference_books > 0 && <>{excluded.insufficient_reference_books} candidates have fewer than three other bookmakers quoting the same market. </>}
+          </p>
+        </div>
       )}
+
+      <div className="signal-comparison-intro">
+        <h3>Signal comparison</h3>
+        <p>Alternative views of this match. These picks may not pass the Game Pick checks.</p>
+      </div>
 
       {(greens.length > 0 || reds.length > 0) && (
         <div className="smart-bet-table">
@@ -838,10 +871,6 @@ function SmartBetCard({ betStep, betInfo, data }) {
         </div>
       )}
 
-      <div className="signal-comparison-intro">
-        <h3>Signal comparison</h3>
-        <p>Alternative views of this match. These picks may not pass the Game Pick checks.</p>
-      </div>
 
       {agentEval ? (
         <div className="smart-bet-agent">
@@ -943,7 +972,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
 
       {[...greens, ...reds].some(b => b.suspicious) && (
         <p>
-          <strong>⚠</strong> = large edge or model/market gap — likely a model weakness, not a real tip.
+          <strong>⚠</strong> = outside the legacy Value Bet filters. The Game Pick uses its own price and stress checks.
         </p>
       )}
 
@@ -1830,12 +1859,18 @@ export default function App() {
   const currentFixtures = FIXTURES_BY_COMPETITION[activeCompetition] || CL_FIXTURES
   const currentGroups = GROUPS_BY_COMPETITION[activeCompetition] || GROUPS
   const switchCompetition = (comp) => {
+    bestBetsRequest.current += 1
+    setBestBets(null)
+    setBestBetsSummary(null)
+    setBestBetsLoading(false)
     setActiveCompetition(comp)
     setActiveGroup((GROUPS_BY_COMPETITION[comp] || GROUPS)[0])
   }
   const [analysisStep, setAnalysisStep] = useState({})
   const [bestBets, setBestBets] = useState(null)  // null = not loaded, [] = loaded empty
   const [bestBetsLoading, setBestBetsLoading] = useState(false)
+  const [bestBetsSummary, setBestBetsSummary] = useState(null)
+  const bestBetsRequest = useRef(0)
   const [combo, setCombo] = useState(null)
   const [comboLoading, setComboLoading] = useState(false)
 
@@ -1858,13 +1893,21 @@ export default function App() {
   }
 
   async function loadBestBets() {
+    const request = ++bestBetsRequest.current
     setBestBetsLoading(true)
-    const games = NEXT_GAMES.filter(f => predictionsById[f.match_id])
+    setBestBets(null)
+    setBestBetsSummary(null)
+    const fixtures = FIXTURES_BY_COMPETITION[activeCompetition] || []
+    const games = fixtures.filter(f => predictionsById[f.match_id])
     try {
       const results = await Promise.all(games.map(f =>
         axios.get(`${API_BASE}/value-bets`, { params: { home_team: f.home_team, away_team: f.away_team } })
           .then(r => ({ fixture: f, data: r.data })).catch(() => null)
       ))
+      if (request !== bestBetsRequest.current) return
+      setBetInfoById(prev => ({ ...prev, ...Object.fromEntries(results.filter(Boolean).map(x => [x.fixture.match_id, x.data])) }))
+      setBestBetsSummary({ checked: results.filter(Boolean).length, failed: results.filter(x => !x).length,
+        missing: fixtures.length - games.length })
       const clean = results
         .filter(x => x && x.data.odds_found && x.data.combined && x.data.combined.consensus_pick)
         .map(x => ({
@@ -1872,12 +1915,13 @@ export default function App() {
           rec: x.data.combined.consensus_pick,
           consensusLabel: x.data.combined.consensus_label,
           commence: x.data.commence_time,
-          agentEval: x.data.agent_eval,
+          agentEval: x.data.combined.agent_pick ? x.data.agent_eval : null,
+          agentAgrees: x.data.combined.agent_agrees,
         }))
         .sort((a, b) => (a.commence || '').localeCompare(b.commence || ''))
       setBestBets(clean)
     } finally {
-      setBestBetsLoading(false)
+      if (request === bestBetsRequest.current) setBestBetsLoading(false)
     }
   }
 
@@ -2093,14 +2137,12 @@ export default function App() {
                     🔥 Hot Game
                   </button>
                 )}
-                {activeCompetition === 'cl' && (
-                  <button
-                    className={`group-tab special-tab ${activeGroup === 'best' ? 'active' : ''}`}
-                    onClick={() => { setActiveGroup('best'); if (bestBets === null && !bestBetsLoading) loadBestBets() }}
-                  >
-                    ⭐ Best Bets
-                  </button>
-                )}
+                <button
+                  className={`group-tab special-tab ${activeGroup === 'best' ? 'active' : ''}`}
+                  onClick={() => { setActiveGroup('best'); loadBestBets() }}
+                >
+                  ⭐ Best Bets
+                </button>
                 <button
                   className={`group-tab special-tab ${activeGroup === 'combo' ? 'active' : ''}`}
                   onClick={() => { setActiveGroup('combo'); loadCombo(activeCompetition) }}
@@ -2138,20 +2180,26 @@ export default function App() {
               {activeGroup === 'best' && (
                 <div className="best-bets-view">
                   <p className="best-bets-intro">
-                    Our strongest value bets from the next matchday. Each one is a bet where the odds pay
-                    <strong> more</strong> than the outcome's real chance — that's your edge. Place them as
-                    <strong> single bets</strong> (not one combo slip). Tap any card for the full breakdown.
+                    Game Picks that pass the price and stress checks for this competition.
+                    These are experimental single-bet selections. Tap a card to see the model/market
+                    comparison and selection details.
                   </p>
+                  {!bestBetsLoading && bestBetsSummary && (
+                    <p className="bet-metrics-context">
+                      {bestBets?.length || 0} Game Picks · {bestBetsSummary.checked} listed matches checked.
+                      {bestBetsSummary.failed > 0 && <> {bestBetsSummary.failed} checks failed to load.</>}
+                      {bestBetsSummary.missing > 0 && <> {bestBetsSummary.missing} matches have no cached analysis yet.</>}
+                    </p>
+                  )}
                   {bestBetsLoading && (
                     <div className="analyzing-status loading-inline">
                       <span className="analyzing-spinner" />
-                      <span>Scanning the next games…</span>
+                      <span>Checking this competition…</span>
                     </div>
                   )}
                   {!bestBetsLoading && bestBets && bestBets.length === 0 && (
                     <div className="best-bets-empty">
-                      <strong>No clear bets right now.</strong> None of the next games offers a reliable edge —
-                      the disciplined move is to sit this round out.
+                      <strong>No qualifying Game Picks in the loaded results.</strong> Open a match to see its quoted markets and exclusion reasons.
                       <button className="best-bets-refresh" onClick={loadBestBets}>↻ Refresh</button>
                     </div>
                   )}
@@ -2172,13 +2220,13 @@ export default function App() {
                             <div className="best-bet-card-pick">{plainBetPhrase(r)}</div>
                             <div className="best-bet-card-stats">
                               <span><span className="bb-stat-label">Odds</span> {r.best_odds.toFixed(2)}</span>
-                              <span><span className="bb-stat-label">Edge</span> <span className={r.expected_value >= 0 ? 'positive' : 'negative'}>{r.expected_value >= 0 ? '+' : ''}{(r.expected_value * 100).toFixed(0)}%</span></span>
+                              <span><span className="bb-stat-label">Stressed EV</span> {betPercent(r.selection_assessment?.stressed_expected_value, true)}</span>
                               {r.selection_assessment && <span><span className="bb-stat-label">Paper stake</span> {r.selection_assessment.paper_stake_pct.toFixed(2)}% of test budget</span>}
                             </div>
                             <div className="best-bet-card-consensus">{b.consensusLabel}</div>
                             {b.agentEval && (
                               <div className="best-bet-card-agent">
-                                ✨ {b.agentEval.agrees_with_model ? 'AI agrees' : 'AI sees it differently'} — {b.agentEval.bet_reasoning}
+                                ✨ {b.agentAgrees ? 'AI agrees with this pick' : 'AI differs from this pick'} — {b.agentEval.bet_reasoning}
                               </div>
                             )}
                             <span className="best-bet-card-cta">View full analysis →</span>
