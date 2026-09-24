@@ -8,11 +8,18 @@ side is worth - can be replaced with what is actually available.
     python3 scripts/refresh_squad_predictions.py                # due fixtures
     python3 scripts/refresh_squad_predictions.py --dry-run      # show, fetch nothing
     python3 scripts/refresh_squad_predictions.py --window 180   # widen the window
+    python3 scripts/refresh_squad_predictions.py --api https://football-prediction.fly.dev
 
 This runs on a schedule, not on request. A page view should read a finished
 answer rather than wait on a scraper and a model fit, so the result is written
 back into data/predictions_cache/ and served from there like any other
 prediction. One Apify run covers every team in the window.
+
+With --api it also posts each prediction to a running deployment. That matters
+because the container copies data/ in at build time: a commit to the cache
+changes the repository and nothing the site serves, so without the upload the
+refresh would reach no visitor until the next deploy. PREDICTION_WRITE_TOKEN
+is sent as a header when set, and the deployment rejects the write without it.
 
 What it does not do is decide anything. The squad value goes in as a feature;
 how much it should move a probability was learned from matches where that
@@ -70,11 +77,33 @@ def upcoming(window_minutes: int, now: datetime) -> list:
     return sorted(due, key=lambda f: f["kickoff"])
 
 
+def upload(api_base: str, match_id: str, payload: dict) -> bool:
+    """Push one prediction to a deployment; False if it did not take."""
+    import os
+    import urllib.error
+    import urllib.request
+
+    headers = {"Content-Type": "application/json"}
+    token = os.getenv("PREDICTION_WRITE_TOKEN", "")
+    if token:
+        headers["X-Prediction-Token"] = token
+    request = urllib.request.Request(
+        f"{api_base.rstrip('/')}/predictions/{match_id}",
+        data=json.dumps(payload).encode(), headers=headers, method="POST")
+    try:
+        with urllib.request.urlopen(request, timeout=20) as response:
+            return response.status == 200
+    except (urllib.error.URLError, OSError):
+        return False
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--window", type=int, default=DEFAULT_WINDOW_MINUTES,
                     help=f"minutes before kickoff to act (default {DEFAULT_WINDOW_MINUTES})")
+    ap.add_argument("--api", default=None,
+                    help="also upload each refreshed prediction to this deployment")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
@@ -157,6 +186,10 @@ def main():
                 fresh.setdefault(key, before[key])
         path.write_text(json.dumps(fresh, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         written += 1
+        if args.api:
+            uploaded = upload(args.api, fixture["match_id"], fresh)
+            if not uploaded:
+                print(f"    Upload fehlgeschlagen: {fixture['match_id']}")
 
         from_squads = max(abs(fresh[k] - baseline[k]) for k in keys)
         from_model = max(abs(baseline[k] - (before.get(k) or 0)) for k in keys)

@@ -5,6 +5,7 @@ import math
 import unicodedata
 import os
 import re
+import secrets
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -13,7 +14,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional, Any
 
-from fastapi import FastAPI, HTTPException, UploadFile, File
+from fastapi import FastAPI, HTTPException, UploadFile, File, Header
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -239,8 +240,19 @@ def _cache_path(match_id: str) -> Path:
     return PREDICTIONS_CACHE_DIR / f"{match_id}.json"
 
 
+# Writing a prediction replaces what every visitor then sees, so the endpoint
+# needs to know who is calling. Setting PREDICTIONS_WRITE_TOKEN in the
+# deployment turns the check on; leaving it unset keeps the old open
+# behaviour, which is only safe on a local machine.
+PREDICTIONS_WRITE_TOKEN = os.getenv("PREDICTIONS_WRITE_TOKEN", "")
+
+
 @app.post("/predictions/{match_id}")
-def save_prediction(match_id: str, payload: dict[str, Any]):
+def save_prediction(match_id: str, payload: dict[str, Any],
+                    x_prediction_token: str = Header(default="")):
+    if PREDICTIONS_WRITE_TOKEN and not secrets.compare_digest(
+            x_prediction_token, PREDICTIONS_WRITE_TOKEN):
+        raise HTTPException(status_code=401, detail="Invalid prediction write token")
     PREDICTIONS_CACHE_DIR.mkdir(parents=True, exist_ok=True)
     path = _cache_path(match_id)
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
