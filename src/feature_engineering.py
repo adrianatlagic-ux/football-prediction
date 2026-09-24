@@ -3,7 +3,8 @@ from __future__ import annotations
 import pandas as pd
 import numpy as np
 from .fifa_rankings import get_ranking, get_points, get_ranking_diff, get_points_diff, has_ranking
-from .market_values import get_market_value_normalized, get_market_value_ratio
+from .market_values import (get_market_value_normalized, get_market_value_ratio,
+                            has_market_value)
 
 FORM_WINDOW = 10
 H2H_WINDOW = 10
@@ -59,6 +60,11 @@ def build_features(df: pd.DataFrame) -> pd.DataFrame:
         features["home_market_value"] = get_market_value_normalized(row["home_team"])
         features["away_market_value"] = get_market_value_normalized(row["away_team"])
         features["market_value_ratio"] = get_market_value_ratio(row["home_team"], row["away_team"])
+        # Same role as fifa_ranking_missing above: a 0 market value is a
+        # placeholder, not a measurement, and the model should be able to
+        # tell the two apart.
+        features["market_value_missing"] = int(
+            not has_market_value(row["home_team"]) or not has_market_value(row["away_team"]))
         records.append(features)
 
     result = pd.DataFrame(records).fillna(0)
@@ -90,6 +96,8 @@ def build_prediction_row(df_history: pd.DataFrame, home_team: str, away_team: st
     features["home_market_value"] = get_market_value_normalized(home_team)
     features["away_market_value"] = get_market_value_normalized(away_team)
     features["market_value_ratio"] = get_market_value_ratio(home_team, away_team)
+    features["market_value_missing"] = int(
+        not has_market_value(home_team) or not has_market_value(away_team))
     return pd.DataFrame([features])
 
 

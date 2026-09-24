@@ -1,0 +1,55 @@
+team,transfermarkt_name,transfermarkt_id,tier,squad_size,avg_age,market_value_total_eur,basis,determined_date
+England,England,3299,A,29,25.8,1780000000,nations_league_squad,2026-09-24
+France,France,3377,A,23,26.0,1440000000,nations_league_squad,2026-09-24
+Spain,Spain,3375,A,26,26.3,1350000000,nations_league_squad,2026-09-24
+Germany,Germany,3262,A,43,25.8,1300000000,nations_league_squad,2026-09-24
+Portugal,Portugal,3300,A,25,27.7,1000000000,nations_league_squad,2026-09-24
+Italy,Italy,3376,A,34,25.0,869500000,nations_league_squad,2026-09-24
+Netherlands,Netherlands,3379,A,26,26.4,828000000,nations_league_squad,2026-09-24
+Norway,Norway,3440,A,25,26.8,618100000,nations_league_squad,2026-09-24
+Belgium,Belgium,3382,A,28,26.1,588800000,nations_league_squad,2026-09-24
+Croatia,Croatia,3556,A,27,28.4,434000000,nations_league_squad,2026-09-24
+Denmark,Denmark,3436,A,25,25.3,426000000,nations_league_squad,2026-09-24
+Sweden,Sweden,3557,B,26,27.9,414080000,nations_league_squad,2026-09-24
+Turkey,Turkiye,3381,A,30,27.1,411000000,nations_league_squad,2026-09-24
+Greece,Greece,3378,A,26,26.4,320600000,nations_league_squad,2026-09-24
+Switzerland,Switzerland,3384,B,25,27.2,309400000,nations_league_squad,2026-09-24
+Serbia,Serbia,3438,A,29,26.1,289600000,nations_league_squad,2026-09-24
+Ukraine,Ukraine,3699,B,30,26.3,259400000,nations_league_squad,2026-09-24
+Georgia,Georgia,3669,B,27,26.2,258450000,nations_league_squad,2026-09-24
+Austria,Austria,3383,B,28,26.6,250500000,nations_league_squad,2026-09-24
+Poland,Poland,3442,B,25,26.6,226000000,nations_league_squad,2026-09-24
+Republic of Ireland,Republic of Ireland,3509,B,25,26.2,188900000,nations_league_squad,2026-09-24
+Hungary,Hungary,3468,B,25,25.6,186600000,nations_league_squad,2026-09-24
+Wales,Wales,3864,A,28,27.4,180100000,nations_league_squad,2026-09-24
+Slovenia,Slovenia,3588,B,26,27.6,178600000,nations_league_squad,2026-09-24
+Czech Republic,Czechia,3445,A,26,26.2,176650000,nations_league_squad,2026-09-24
+Scotland,Scotland,3380,B,28,26.7,160500000,nations_league_squad,2026-09-24
+Bosnia and Herzegovina,Bosnia-Herzegovina,3446,B,26,26.2,154500000,nations_league_squad,2026-09-24
+Kosovo,Kosovo,53982,B,26,25.9,143650000,nations_league_squad,2026-09-24
+Romania,Romania,3447,B,33,27.1,126500000,nations_league_squad,2026-09-24
+Northern Ireland,Northern Ireland,5674,B,28,24.8,106650000,nations_league_squad,2026-09-24
+Israel,Israel,5547,B,27,25.7,104830000,nations_league_squad,2026-09-24
+Albania,Albania,3561,C,29,27.6,100180000,nations_league_squad,2026-09-24
+Iceland,Iceland,3574,C,24,28.0,88900000,nations_league_squad,2026-09-24
+Montenegro,Montenegro,11953,C,28,27.0,82180000,nations_league_squad,2026-09-24
+Slovakia,Slovakia,3503,C,26,27.2,61930000,nations_league_squad,2026-09-24
+Finland,Finland,3443,C,26,26.4,50300000,nations_league_squad,2026-09-24
+Armenia,Armenia,6219,C,28,25.9,45330000,nations_league_squad,2026-09-24
+Bulgaria,Bulgaria,3394,C,27,26.6,41900000,nations_league_squad,2026-09-24
+North Macedonia,North Macedonia,5148,B,27,27.8,36780000,nations_league_squad,2026-09-24
+Luxembourg,Luxembourg,3580,C,26,26.4,31180000,nations_league_squad,2026-09-24
+Cyprus,Cyprus,3668,C,27,27.7,24650000,nations_league_squad,2026-09-24
+Lithuania,Lithuania,3851,D,26,26.6,21330000,nations_league_squad,2026-09-24
+Belarus,Belarus,3450,C,27,25.7,19500000,nations_league_squad,2026-09-24
+Kazakhstan,Kazakhstan,9110,C,28,27.0,18880000,nations_league_squad,2026-09-24
+Azerbaijan,Azerbaijan,8605,D,30,27.5,16380000,nations_league_squad,2026-09-24
+Malta,Malta,3587,D,29,27.2,15750000,nations_league_squad,2026-09-24
+Estonia,Estonia,6133,C,26,26.6,14950000,nations_league_squad,2026-09-24
+Latvia,Latvia,3555,C,25,26.4,14630000,nations_league_squad,2026-09-24
+Moldova,Moldova,6090,C,26,25.4,10180000,nations_league_squad,2026-09-24
+Faroe Islands,Faroe Islands,9173,C,25,27.6,5780000,nations_league_squad,2026-09-24
+Andorra,Andorra,10533,D,27,27.2,3410000,nations_league_squad,2026-09-24
+Gibraltar,Gibraltar,37574,D,26,24.2,2030000,nations_league_squad,2026-09-24
+San Marino,San Marino,10521,C,26,24.1,1220000,nations_league_squad,2026-09-24
+Liechtenstein,Liechtenstein,5673,D,27,26.2,625000,nations_league_squad,2026-09-24
