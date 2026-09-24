@@ -3,176 +3,176 @@
   "away_team": "Lithuania",
   "prediction": "A",
   "prediction_label": "Away Win",
-  "probability_home_win": 0.0906,
-  "probability_draw": 0.1238,
-  "probability_away_win": 0.7856,
+  "probability_home_win": 0.1487,
+  "probability_draw": 0.1697,
+  "probability_away_win": 0.6816,
   "score_prediction": {
-    "home_xg": 0.51,
-    "away_xg": 1.78,
+    "home_xg": 0.52,
+    "away_xg": 1.8,
     "rho": -0.13,
     "most_likely_score": "0:1",
     "result": "A",
-    "probability_home_win": 0.0906,
-    "probability_draw": 0.1238,
-    "probability_away_win": 0.7856,
+    "probability_home_win": 0.1487,
+    "probability_draw": 0.1697,
+    "probability_away_win": 0.6816,
     "top_scorelines": [
       {
         "score": "0:1",
-        "probability": 0.197
+        "probability": 0.1675
       },
       {
         "score": "0:2",
-        "probability": 0.1876
+        "probability": 0.1615
       },
       {
         "score": "0:3",
-        "probability": 0.1112
+        "probability": 0.0969
       },
       {
         "score": "1:2",
-        "probability": 0.0957
+        "probability": 0.0834
       },
       {
         "score": "1:3",
-        "probability": 0.0567
+        "probability": 0.05
       }
     ],
     "betting_markets": {
       "double_chance": {
-        "home_or_draw": 0.2144,
-        "home_or_away": 0.8762,
-        "draw_or_away": 0.9094
+        "home_or_draw": 0.3184,
+        "home_or_away": 0.8303,
+        "draw_or_away": 0.8513
       },
       "over_under": [
         {
           "line": 1.5,
-          "over": 0.7036,
-          "under": 0.2964
+          "over": 0.6873,
+          "under": 0.3127
         },
         {
           "line": 2.5,
-          "over": 0.4489,
-          "under": 0.5511
+          "over": 0.4296,
+          "under": 0.5704
         },
         {
           "line": 3.5,
-          "over": 0.2155,
-          "under": 0.7845
+          "over": 0.2053,
+          "under": 0.7947
         }
       ],
       "btts": {
-        "yes": 0.3147,
-        "no": 0.6853
+        "yes": 0.3367,
+        "no": 0.6633
       },
       "win_margin": {
-        "home_1plus": 0.0906,
-        "home_2plus": 0.0214,
-        "home_3plus": 0.0032,
-        "away_1plus": 0.7856,
-        "away_2plus": 0.4773,
-        "away_3plus": 0.2262
+        "home_1plus": 0.1487,
+        "home_2plus": 0.0355,
+        "home_3plus": 0.0055,
+        "away_1plus": 0.6816,
+        "away_2plus": 0.4168,
+        "away_3plus": 0.1991
       },
-      "scenario": "Lithuania is strongly favored to win with a 79% chance, 0-1 is the most likely score, and they have nearly a 50% chance to win by two or more goals."
+      "scenario": "Lithuania are favored to win, likely by 2+ goals, in a low-scoring game."
     },
     "score_matrix": [
       [
-        0.058379973300228566,
-        0.19699557877492677,
-        0.18761604976219687,
-        0.11122329542149423,
-        0.04945187842443406,
-        0.017589755962094333,
-        0.005213814666292491,
-        0.0013246604655099492,
-        0.00029448393902466977
+        0.07893773457696344,
+        0.16746077580027313,
+        0.16150586325434318,
+        0.0968749433778923,
+        0.043580869753117736,
+        0.015684486759631164,
+        0.0047039585317027455,
+        0.0012092326571973165,
+        0.00027199711864068636
       ],
       [
-        0.040990161889371726,
-        0.053530338178374326,
-        0.09569609148830335,
-        0.05673093889236394,
-        0.02522359621136543,
-        0.008971891786118793,
-        0.002659376348350752,
-        0.0006756609003283721,
-        0.0001502054968456061
+        0.06625885520332359,
+        0.07391435030975325,
+        0.0833508251062252,
+        0.04999574814166401,
+        0.02249145250565144,
+        0.008094535309372219,
+        0.002427644526226497,
+        0.0006240673724895188,
+        0.00014037375367304114
       ],
       [
-        0.013597568086345246,
-        0.02418289374813693,
-        0.01074317846903728,
-        0.014468189489497746,
-        0.006432817378274235,
-        0.0022881170834686687,
-        0.0006782253508059992,
-        0.0001723149682952161,
-        3.830716771406899e-05
+        0.02231863620672518,
+        0.040161698935845945,
+        0.015186453404761354,
+        0.012901038932710876,
+        0.005803755623507095,
+        0.002088735923553242,
+        0.0006264360012952911,
+        0.00016103604343131042,
+        3.622242547776775e-05
       ],
       [
-        0.0023118742084497234,
-        0.004111603485783666,
-        0.0036561857826262496,
-        0.0010828330909663944,
-        0.001093715029780493,
-        0.000389028305472984,
-        0.00011531265635799398,
-        2.9297189644638573e-05,
-        6.513028835343567e-06
+        0.0038394410902317304,
+        0.006908956072384875,
+        0.006216226904950747,
+        0.0015670392894526419,
+        0.0009984112654626324,
+        0.0003593220686628215,
+        0.00010776483390364418,
+        2.77027859781239e-05,
+        6.231288842160153e-06
       ],
       [
-        0.0002948006394464542,
-        0.0005242946749996818,
-        0.00046622169264824557,
-        0.0002763874045906557,
-        6.13921403500394e-05,
-        4.960728087931359e-05,
-        1.4704193120179069e-05,
-        3.7358564794124753e-06,
-        8.305145056659488e-07
+        0.0004953699147033193,
+        0.0008914029151205729,
+        0.0008020260551767122,
+        0.0004810737339020347,
+        9.095486542822875e-05,
+        4.6360222313966806e-05,
+        1.3903965531515321e-05,
+        3.5742511486741633e-06,
+        8.039693668138337e-07
       ],
       [
-        3.00734068317033e-05,
-        5.348471119522445e-05,
-        4.7560529933391445e-05,
-        2.8195023175731926e-05,
-        1.2536014626940682e-05,
-        2.2276348534684547e-06,
-        1.5000143237999907e-06,
-        3.811047763708557e-07,
-        8.472302046366354e-08
+        5.113064045024588e-05,
+        9.200801380242897e-05,
+        8.278279451736505e-05,
+        4.9655030287686914e-05,
+        2.2338174682728594e-05,
+        3.378718111587598e-06,
+        1.4351268442499105e-06,
+        3.68923798029175e-07,
+        8.298337748708365e-08
       ],
       [
-        2.5565576569625305e-06,
-        4.5467661413216795e-06,
-        4.043148076001366e-06,
-        2.3968751791753974e-06,
-        1.0656938324830386e-06,
-        3.7906132266198556e-07,
-        5.613228759248839e-08,
-        3.2397936808036744e-08,
-        7.202352826186416e-09
+        4.3979632110178975e-06,
+        7.913999438666598e-06,
+        7.120499207259095e-06,
+        4.271039723426276e-06,
+        1.9214011322922774e-06,
+        6.915004402183285e-07,
+        8.715965287825215e-08,
+        3.1732700336115313e-08,
+        7.1377521990818274e-09
       ],
       [
-        1.8628666344750768e-07,
-        3.313056099619696e-07,
-        2.946088709758928e-07,
-        1.74651206716468e-07,
-        7.765306906698959e-08,
-        2.762076139702543e-08,
-        8.187125004821845e-09,
-        1.0391731089064307e-09,
-        5.248081432108532e-10
+        3.2424639933781566e-07,
+        5.834714160228785e-07,
+        5.249694275880874e-07,
+        3.1488877584977007e-07,
+        1.4165816514076285e-07,
+        5.098190164928941e-08,
+        1.5290060484659728e-08,
+        1.6519064343737454e-09,
+        5.262414301510717e-10
       ],
       [
-        1.187725251312392e-08,
-        2.1123360715737287e-08,
-        1.878365250861354e-08,
-        1.113539984829788e-08,
-        4.950999135735645e-09,
-        1.7610426406593388e-09,
-        5.219941633995749e-10,
-        1.3262171284159848e-10,
-        1.4729200160717652e-11
+        2.0917355860920078e-08,
+        3.7640138081872937e-08,
+        3.3866134999152385e-08,
+        2.031368920213314e-08,
+        9.138464627226911e-09,
+        3.2888771670015695e-09,
+        9.863722062782496e-10,
+        2.5356377526391e-10,
+        2.397019150218152e-11
       ]
     ]
   },
@@ -180,29 +180,29 @@
     "match_type": "Controlled",
     "match_description": "The favorite controls the game against little resistance",
     "dominance_index": -0.55,
-    "total_xg": 2.29,
+    "total_xg": 2.32,
     "first_goal": {
-      "Liechtenstein_scores_first": 0.2,
-      "Lithuania_scores_first": 0.699,
-      "no_goals": 0.101,
-      "expected_minute": 39
+      "Liechtenstein_scores_first": 0.202,
+      "Lithuania_scores_first": 0.7,
+      "no_goals": 0.098,
+      "expected_minute": 38
     },
     "halftime_xg": {
       "Liechtenstein": 0.24,
-      "Lithuania": 0.84
+      "Lithuania": 0.85
     },
     "top_halftime_scores": [
       {
         "score": "0:0",
-        "probability": 0.341
+        "probability": 0.337
       },
       {
         "score": "0:1",
-        "probability": 0.286
+        "probability": 0.285
       },
       {
         "score": "0:2",
-        "probability": 0.119
+        "probability": 0.12
       },
       {
         "score": "1:0",
@@ -210,60 +210,60 @@
       },
       {
         "score": "1:1",
-        "probability": 0.068
+        "probability": 0.07
       }
     ],
     "goal_timing": {
       "1-15'": {
-        "Liechtenstein": 0.069,
-        "Lithuania": 0.24
+        "Liechtenstein": 0.07,
+        "Lithuania": 0.243
       },
       "16-30'": {
-        "Liechtenstein": 0.079,
-        "Lithuania": 0.276
+        "Liechtenstein": 0.081,
+        "Lithuania": 0.279
       },
       "31-45'": {
-        "Liechtenstein": 0.092,
-        "Lithuania": 0.32
+        "Liechtenstein": 0.094,
+        "Lithuania": 0.324
       },
       "46-60'": {
-        "Liechtenstein": 0.074,
-        "Lithuania": 0.258
+        "Liechtenstein": 0.075,
+        "Lithuania": 0.261
       },
       "61-75'": {
-        "Liechtenstein": 0.094,
-        "Lithuania": 0.329
+        "Liechtenstein": 0.096,
+        "Lithuania": 0.333
       },
       "76-90'": {
-        "Liechtenstein": 0.102,
-        "Lithuania": 0.356
+        "Liechtenstein": 0.104,
+        "Lithuania": 0.36
       }
     },
     "comeback_probability": {
       "Liechtenstein": 0.006,
-      "Lithuania": 0.02
+      "Lithuania": 0.021
     },
-    "late_drama_probability": 0.367,
+    "late_drama_probability": 0.371,
     "match_stories": [
       {
         "szenario": "Torloser Krimi",
         "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
-        "wahrscheinlichkeit": 0.242
+        "wahrscheinlichkeit": 0.241
       },
       {
         "szenario": "Ausgeglichenes Unentschieden",
         "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 0:0",
-        "wahrscheinlichkeit": 0.218
+        "wahrscheinlichkeit": 0.216
       },
       {
         "szenario": "Knappes 1:0",
         "beschreibung": "Lithuania trifft einmal und verteidigt das Ergebnis",
-        "wahrscheinlichkeit": 0.182
+        "wahrscheinlichkeit": 0.179
       },
       {
         "szenario": "Lithuania dominiert früh",
         "beschreibung": "Lithuania geht 0:2 in Halbzeit 1, kontrolliert dann",
-        "wahrscheinlichkeit": 0.121
+        "wahrscheinlichkeit": 0.122
       }
     ],
     "predicted_stats": {
@@ -369,10 +369,26 @@
       "Lithuania": "31%"
     },
     "h2h_last_10": {
-      "Liechtenstein wins": "25%",
-      "draws": "25%",
-      "Lithuania wins": "50%",
-      "total_h2h_games": 4
+      "Liechtenstein wins": "17%",
+      "draws": "17%",
+      "Lithuania wins": "67%",
+      "total_h2h_games": 6
     }
+  },
+  "squad_adjusted": true,
+  "squad_values_used": {
+    "Liechtenstein": 625000,
+    "Lithuania": 20825000
+  },
+  "squad_refreshed_at": "2026-09-24T13:06:25.013645+00:00",
+  "probabilities_cached_before": {
+    "probability_home_win": 0.1487,
+    "probability_draw": 0.1697,
+    "probability_away_win": 0.6816
+  },
+  "probabilities_without_squad_data": {
+    "probability_home_win": 0.1496,
+    "probability_draw": 0.1698,
+    "probability_away_win": 0.6806
   }
 }

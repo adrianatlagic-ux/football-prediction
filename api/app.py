@@ -1437,18 +1437,14 @@ def value_bets(home_team: str, away_team: str):
         if prediction is None:
             prediction = _predictor_for(home_team, away_team).predict_match(home_team, away_team)
         result = _compute_value_bets(prediction, odds, home_team, away_team)
-        # A cached prediction was computed days ago against the nation or club
-        # at full strength. Close to kickoff the named squad is known, so the
-        # model runs again with what is actually available - and the result is
-        # repriced, because the probabilities it feeds have changed.
-        from src.competitions import by_odds_key
-        competition = by_odds_key(result.get("sport_key"))
-        adjusted = _prediction_for_kickoff(prediction, result, competition.key if competition else None)
-        if adjusted is not prediction:
-            prediction = adjusted
-            result = _compute_value_bets(prediction, odds, home_team, away_team)
-            result["squad_adjusted"] = True
-            result["squad_values_used"] = adjusted.get("squad_values_used")
+        # Squad-adjusted predictions are written into the cache ahead of
+        # kickoff by scripts/refresh_squad_predictions.py, not computed here:
+        # a request should read a finished answer, not wait on a scraper and
+        # a model fit. The flags below simply pass through whatever that job
+        # recorded, so the page can say which numbers it is showing.
+        for field in ("squad_adjusted", "squad_values_used", "squad_refreshed_at"):
+            if prediction.get(field) is not None:
+                result[field] = prediction[field]
         _refresh_agent_picks(odds)
         _maybe_prekickoff_refresh(odds)
         agent_eval = _get_agent_pick(result)
