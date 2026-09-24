@@ -40,7 +40,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from src.research_schema import (
-    derive_features, evidence_quality, is_usable, normalise, research_prompt, snapshot)
+    evidence_quality, is_usable, normalise, research_prompt, snapshot)
 from src.competitions import get as get_competition
 from src.squad_data import fetch_squads, summarise
 
@@ -198,13 +198,21 @@ def main():
             **normalise(parsed, home, away), "grounding": grounding[:20],
         }
         # The agent names withdrawals; the squad supplies what they are worth.
+        # Only players reported as definitely out are priced in: a doubtful
+        # one is still in the squad and may well start, so counting him would
+        # overstate what is missing.
         record["squads"] = {
             side: summarise(squads.get(team, []), competition,
-                            [a["player"] for a in record["absences"] if a["team"] == team],
+                            [a["player"] for a in record["absences"]
+                             if a["team"] == team and a["status"] == "out"],
                             ko.date())
             for side, team in (("home", home), ("away", away))
         }
-        record["derived"] = derive_features(record)
+        record["doubtful"] = {
+            side: [a["player"] for a in record["absences"]
+                   if a["team"] == team and a["status"] == "doubtful"]
+            for side, team in (("home", home), ("away", away))
+        }
         record["evidence"] = evidence_quality(record, grounding)
         unknown = sorted({n for side in record["squads"].values()
                           for n in side["names_not_in_squad"]})
@@ -224,6 +232,9 @@ def main():
         flag = "OK       " if record["usable"] else "VERWORFEN"
         print(f"\n  {flag} {home} - {away}  ({line['minutes_before_kickoff']} Min vorher)")
         print(f"    Kaderwert fehlt: {h['absent_value_share']:.1%} / {a['absent_value_share']:.1%}")
+        if any(record["doubtful"].values()):
+            print(f"    fraglich (nicht eingerechnet): "
+                  f"{', '.join(record['doubtful']['home'] + record['doubtful']['away'])}")
         print(f"    Aufstellung offiziell: {record['lineup_confirmed']['home']} / "
               f"{record['lineup_confirmed']['away']}  |  "
               f"{record['evidence']['grounding_chunks']} Suchtreffer")
