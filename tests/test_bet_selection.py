@@ -178,3 +178,60 @@ def test_all_bets_exports_exact_strategy_decisions_without_network(monkeypatch):
     assert row["prediction"] == p
     assert all(b["pricing_version"] == "settlement_distribution_v1" for b in row["bets"])
     json.dumps(row, allow_nan=False)
+
+
+def _candidate(vb, market, outcome, team=None):
+    return next(b for b in vb["bets"]
+                if b["market"] == market and b["outcome"] == outcome
+                and (team is None or b.get("team") == team))
+
+
+def test_model_probability_is_shrunk_toward_the_market_before_pricing():
+    """The model is overconfident, so its disagreement is not taken at face value.
+
+    This vanished once already: claude applied the blend in the EV line, codex
+    kept it inside the stress-tested selector, and merging the two dropped it
+    from both paths. Nothing failed - the site simply started showing EVs
+    roughly twice the size and staking to match. Hence this test.
+    """
+    e, p = event(), prediction()
+    vb = api._compute_value_bets(p, [e], "A", "B")
+    home = _candidate(vb, "1X2", "home_win", "A")
+
+    raw, shown, market = home["model_probability_raw"], home["probability"], home["market_probability"]
+    assert market is not None, "1X2 must carry a market probability to blend against"
+    assert raw != market, "test is meaningless unless model and market disagree"
+    # Halfway between the two, and strictly inside the interval they span.
+    assert shown == pytest.approx(api.MODEL_MARKET_BLEND * raw
+                                  + (1 - api.MODEL_MARKET_BLEND) * market, abs=1e-4)
+    assert min(raw, market) < shown < max(raw, market)
+    # Everything priced off it uses the blended number, not the raw one.
+    assert home["expected_value"] == pytest.approx(shown * home["best_odds"] - 1, abs=1e-3)
+
+
+def test_totals_are_shrunk_harder_than_result_markets():
+    """Goal markets earned a stronger pull; the constants must stay distinct."""
+    assert api.MODEL_MARKET_BLEND_TOTALS < api.MODEL_MARKET_BLEND
+    # A half line settles win/lose with no refund, which is what makes a
+    # market probability meaningful here; the shared fixture only carries a
+    # quarter line, so this builds its own.
+    e = deepcopy(event())
+    e["bookmakers"][0]["markets"].append(
+        {"key": "totals", "outcomes": [{"name": "Over", "point": 2.5, "price": 1.95},
+                                       {"name": "Under", "point": 2.5, "price": 1.95}]})
+    vb = api._compute_value_bets(prediction(), [e], "A", "B")
+    over = next(b for b in vb["bets"]
+                if b["market"].startswith("Over/Under") and b["market_probability"] is not None)
+    expected = (api.MODEL_MARKET_BLEND_TOTALS * over["model_probability_raw"]
+                + (1 - api.MODEL_MARKET_BLEND_TOTALS) * over["market_probability"])
+    assert over["probability"] == pytest.approx(expected, abs=1e-4)
+
+
+def test_markets_that_can_push_are_left_unblended():
+    """A quarter line has refund mass, so a blended win probability would not
+    describe any settlement we could actually pay out."""
+    vb = api._compute_value_bets(prediction(), [event()], "A", "B")
+    for bet in vb["bets"]:
+        if bet.get("push_probability"):
+            assert bet["market_probability"] is None
+            assert bet["probability"] == bet["model_probability_raw"]

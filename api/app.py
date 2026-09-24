@@ -704,16 +704,32 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
     pricing_exclusions = []
 
     def _add_candidate(market, outcome, team, prob, best, market_prob):
-        from src.bet_selection import price_bet, quote_is_fresh, market_evidence
+        from src.bet_selection import price_bet, quote_is_fresh, market_evidence, payout_metrics
         bet = {"market": market, "outcome": outcome, "team": team, "best_odds": best["price"]}
         try:
             priced = price_bet(bet, pricing_prediction, prob)
         except (ValueError, KeyError, TypeError) as exc:
             pricing_exclusions.append({"market": market, "outcome": outcome, "reason": str(exc)})
             return
-        prob = priced["probability"]
+        raw_prob = priced["probability"]
+        prob = raw_prob
         binary_market = market == "1X2" or (market.startswith(("Handicap ", "Over/Under ")) and float(market.split()[-1]) % 1 == 0.5)
         market_prob = float(market_prob) if market_prob is not None and binary_market else None
+        # Shrink the model toward the market before anything is priced off it.
+        # The model is measurably overconfident - it rated bets 60% that won
+        # 50%, and the market's Brier score beat ours - so its disagreement
+        # with the price is not taken at face value. This survived the merge
+        # only by being re-applied here: it used to sit in the EV line, and
+        # the stress-tested selector that also carried it no longer chooses
+        # the displayed pick.
+        #
+        # Only binary markets are blended, which is where market_prob exists
+        # at all: with no push mass the payouts are just win/lose, so the
+        # blended probability can be re-priced without inventing a settlement.
+        if market_prob is not None:
+            blend = MODEL_MARKET_BLEND_TOTALS if market.startswith("Over/Under") else MODEL_MARKET_BLEND
+            prob = blend * raw_prob + (1 - blend) * market_prob
+            priced = payout_metrics([(best["price"] - 1, prob), (-1, 1 - prob)])
         ev = priced["expected_value"]
         feed_key = "h2h" if market == "1X2" else "totals" if market.startswith("Over/Under") else "spreads"
         feed_name = (team or "Draw") if feed_key == "h2h" else outcome if feed_key == "totals" else team
@@ -733,14 +749,14 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
             "outcome": outcome,
             "team": team,
             "probability": round(prob, 4),
-            "model_probability_raw": round(prob, 4),
+            "model_probability_raw": round(raw_prob, 4),
             "market_probability": round(market_prob, 4) if market_prob is not None else None,
             "best_odds": best["price"],
             "bookmaker": best["bookmaker"],
             "bookmaker_key": best.get("bookmaker_key"),
             "selection_market_reference": reference,
             "quote_last_update": best.get("last_update"),
-            "model_probability_raw": round(prob, 4),
+            "model_probability_raw": round(raw_prob, 4),
             "expected_value": round(ev, 4),
             "kelly_stake_pct": round(priced["kelly_stake_pct"], 1),
             "kelly_stake_pct_raw": priced["kelly_stake_pct"],
