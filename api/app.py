@@ -1325,27 +1325,39 @@ _adjusted_predictions: dict[tuple, dict] = {}
 
 
 def _squad_values_for(competition_key: str, teams, matchday: str) -> dict:
-    """Named-squad values for a matchday, fetched once and kept."""
-    key = (competition_key, matchday)
-    if key in _squad_values_cache:
-        return _squad_values_cache[key]
-    try:
-        import csv as _csv
-        from src.competitions import get as _competition
-        from src.squad_data import available_squad_values
-        competition = _competition(competition_key)
-        registry_path = Path(__file__).resolve().parents[1] / "data" / "team_registry.csv"
-        with registry_path.open(encoding="utf-8") as fh:
-            registry = {r["team"]: r["transfermarkt_id"] for r in _csv.DictReader(fh)
-                        if r["competition"] == competition_key}
-        values = available_squad_values(teams, registry, competition,
-                                        as_of=datetime.fromisoformat(matchday).date())
-    except Exception:
-        # A failed fetch must leave the stored values in charge, never blank
-        # them - an empty override would read as "both squads worth nothing".
-        values = {}
-    _squad_values_cache[key] = values
-    return values
+    """Named-squad values for these teams on this matchday, fetched once each.
+
+    Cached per team rather than per matchday. Keying the whole day on one
+    entry looked cheaper and was wrong: the first fixture cached a dict of
+    its own two sides, and every later fixture that day scored a cache hit
+    whose contents did not mention it - so the correction silently applied
+    to one match out of nine.
+
+    A team whose fetch fails is remembered as unavailable, so a broken id or
+    a missing page does not re-run the scraper on every page view.
+    """
+    missing = [t for t in teams if (competition_key, matchday, t) not in _squad_values_cache]
+    if missing:
+        fetched = {}
+        try:
+            import csv as _csv
+            from src.competitions import get as _competition
+            from src.squad_data import available_squad_values
+            competition = _competition(competition_key)
+            registry_path = Path(__file__).resolve().parents[1] / "data" / "team_registry.csv"
+            with registry_path.open(encoding="utf-8") as fh:
+                registry = {r["team"]: r["transfermarkt_id"] for r in _csv.DictReader(fh)
+                            if r["competition"] == competition_key}
+            fetched = available_squad_values(missing, registry, competition,
+                                             as_of=datetime.fromisoformat(matchday).date())
+        except Exception:
+            # A failed fetch must leave the stored values in charge, never
+            # blank them - an empty override reads as "worth nothing".
+            fetched = {}
+        for team in missing:
+            _squad_values_cache[(competition_key, matchday, team)] = fetched.get(team)
+    return {t: v for t in teams
+            for v in [_squad_values_cache.get((competition_key, matchday, t))] if v}
 
 
 def _prediction_for_kickoff(prediction: dict, vb: dict, competition_key: Optional[str]) -> dict:
