@@ -1,0 +1,44 @@
+{
+  "competition": "bundesliga2",
+  "bets": 919,
+  "unmatched": 0,
+  "roi": -0.0015451577801958514,
+  "roi_ci95": [
+    -0.10078373231773669,
+    0.09666730141458096
+  ],
+  "hit_rate": 0.32752992383025026,
+  "clv": -0.012157126729557027,
+  "clv_ci95": [
+    -0.01639022631176414,
+    -0.008004864319914717
+  ],
+  "share_beating_close": 0.4232861806311208,
+  "by_season": {
+    "2021-22": {
+      "bets": 217,
+      "roi": 0.11663594470046083,
+      "clv": -0.015324247372899663
+    },
+    "2022-23": {
+      "bets": 243,
+      "roi": 0.07810699588477367,
+      "clv": -0.011459284341696132
+    },
+    "2023-24": {
+      "bets": 220,
+      "roi": -0.1256818181818182,
+      "clv": -0.017416539946930296
+    },
+    "2025-26": {
+      "bets": 239,
+      "roi": -0.07556485355648533,
+      "clv": -0.00514976109283203
+    }
+  },
+  "limits": [
+    "Retrospective; season-frozen fits, not archived live tips",
+    "1X2 only; best available price across books",
+    "Same positive-edge Kelly selection as the live system"
+  ]
+}

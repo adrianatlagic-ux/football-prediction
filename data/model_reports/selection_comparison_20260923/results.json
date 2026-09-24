@@ -1,0 +1,2676 @@
+{
+  "protocol": {
+    "created_at": "2026-09-23T18:31:10.335139+00:00",
+    "model": "verified_only/monthly/raw",
+    "selection_rules": {
+      "kelly_baseline": "Bisherige Kelly-Auswahl (innerhalb des Testangebots)",
+      "max_ev": "Höchster EV",
+      "probability_near_ev": "Höchste Trefferchance bei mindestens 80% des besten EV",
+      "kelly_model_agrees": "Kelly-Tipp nur bei exakter Zustimmung von Model's Choice",
+      "kelly_market_agrees": "Kelly-Tipp nur bei exakter Zustimmung des 1X2-Marktfavoriten"
+    },
+    "near_ev_fraction": 0.8,
+    "filters": {
+      "max_ev": 0.25,
+      "max_probability_gap": 0.15,
+      "min_quarter_kelly_pct": 1,
+      "exclude_confident_model_contradiction": true
+    },
+    "odds": "One bookmaker: Bet365; pre-closing primary, closing sensitivity; devig same-book complete markets",
+    "stakes": "One unit per selected bet, maximum one bet per fixture per strategy",
+    "selection_policy": "No strategy optimized on results, no automatic winner promotion",
+    "reused_model_development_seasons": [
+      "2021-22",
+      "2022-23",
+      "2023-24"
+    ],
+    "later_previously_examined_season": "2025-26",
+    "matched_fixtures": 1224,
+    "exclusions": [],
+    "limitations": [
+      "Retrospective, not original live bet records or an untouched holdout",
+      "1X2 uses saved chronological model probabilities; totals/handicaps reconstructed today from earlier scores",
+      "Only Bundesliga; no conclusion for Nations League or Champions League",
+      "No historical AI picks, research or three-book stress references; those variants cannot be graded here",
+      "Only total 2.5 and the offered main handicap line; not the full live menu",
+      "Single-book market reference differs from the live multi-book average",
+      "Pre-closing quotes have no per-quote timestamps; freshness/final-hour policy cannot be replayed",
+      "Archived quotes do not guarantee execution, limits or availability",
+      "Training-source hashes verified, but the complete training corpus was not independently reaudited",
+      "Bootstrap intervals are descriptive; no correction for previous model experiments"
+    ],
+    "source_hashes": {
+      "data/model_reports/retraining_v3/predictions.jsonl": "cb83d37f685e64431640018e6c82b7c5d1ccf88c91f4f72b758bca633854d553",
+      "data/odds_archive/football_data_20260923/D1_2122.csv": "034d0e1296e944dddf25e3c91b85ef5bd1ad25661b89d73878f5c73bfea4b9fc",
+      "data/odds_archive/football_data_20260923/D1_2223.csv": "b716517b25033ce8e0243e967aa961876425a4c41e97c8aa8fa59f2aca061341",
+      "data/odds_archive/football_data_20260923/D1_2324.csv": "1de8bc12a133dbbf71bc6ffda62082642f087f61b1b7c15ae9f2d320876fb07e",
+      "data/odds_archive/football_data_20260923/D1_2526.csv": "618301a4b39918225a8ccc57f0f839d675e1abd92fa3a3ccd9a67acd7c79dd7f"
+    },
+    "code_hashes": {
+      "scripts/compare_bet_selection.py": "3785040b60420229fcf17cfcf391bb4ccc1d0ed28725fcf9b133798953f11e11",
+      "src/poisson_model.py": "b52cca42335ee7d6a070d6e436e21b8d30cbe48a4f11bd21413d97ff06859124",
+      "src/club_backtest.py": "80da6ce7e936eee4e035d4e088ff03a5d5b1eaae8e678162b44146e8ce36c99f",
+      "src/bet_selection.py": "9aa87a004a4ed91072b9d8a87ceb7fe71f3d8af6e871aeffadfe7155c86bddd1",
+      "src/bet_audit.py": "b5f829b40b0112c8f09f61d1307bce73adc96e8fbb63b9e9185458fde8994a09"
+    },
+    "data_source": "https://www.football-data.co.uk/germanym.php"
+  },
+  "missing_markets": {},
+  "scopes": {
+    "1x2_preclosing": {
+      "all": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 1224,
+            "bets": 360,
+            "no_bets": 864,
+            "outcomes": {
+              "loss": 236,
+              "win": 124
+            },
+            "profit_units": -16.560000000000002,
+            "roi": -0.046000000000000006,
+            "positive_return_rate": 0.34444444444444444,
+            "max_drawdown_end_of_day_units": 52.24,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 1224,
+            "bets": 360,
+            "no_bets": 864,
+            "outcomes": {
+              "loss": 236,
+              "win": 124
+            },
+            "profit_units": -15.010000000000003,
+            "roi": -0.04169444444444445,
+            "positive_return_rate": 0.34444444444444444,
+            "max_drawdown_end_of_day_units": 50.690000000000005,
+            "different_decisions_vs_kelly": 5
+          },
+          "probability_near_ev": {
+            "fixtures": 1224,
+            "bets": 360,
+            "no_bets": 864,
+            "outcomes": {
+              "loss": 235,
+              "win": 125
+            },
+            "profit_units": -12.010000000000002,
+            "roi": -0.03336111111111111,
+            "positive_return_rate": 0.3472222222222222,
+            "max_drawdown_end_of_day_units": 50.69,
+            "different_decisions_vs_kelly": 5
+          },
+          "kelly_model_agrees": {
+            "fixtures": 1224,
+            "bets": 195,
+            "no_bets": 1029,
+            "outcomes": {
+              "loss": 115,
+              "win": 80
+            },
+            "profit_units": -15.88,
+            "roi": -0.08143589743589744,
+            "positive_return_rate": 0.41025641025641024,
+            "max_drawdown_end_of_day_units": 20.09,
+            "different_decisions_vs_kelly": 165
+          },
+          "kelly_market_agrees": {
+            "fixtures": 1224,
+            "bets": 126,
+            "no_bets": 1098,
+            "outcomes": {
+              "loss": 65,
+              "win": 61
+            },
+            "profit_units": -2.229999999999999,
+            "roi": -0.017698412698412692,
+            "positive_return_rate": 0.48412698412698413,
+            "max_drawdown_end_of_day_units": 8.69,
+            "different_decisions_vs_kelly": 234
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.184580321460923,
+              0.11195188961935888
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.17870617408514097,
+              0.11384326908279428
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.0052684177443163135,
+              0.009124272739122192
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.17464173690972334,
+              0.12491772815633304
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.003589053620360601,
+              0.012774421217829242
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.23721719282584003,
+              0.08070257184255004
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.03273787271001945,
+              0.03177458448167998
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.19728934151785713,
+              0.16233338864918676
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.025051891153241367,
+              0.0458240905096047
+            ]
+          }
+        }
+      },
+      "2021-22": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 306,
+            "bets": 97,
+            "no_bets": 209,
+            "outcomes": {
+              "loss": 67,
+              "win": 30
+            },
+            "profit_units": -9.2,
+            "roi": -0.09484536082474226,
+            "positive_return_rate": 0.30927835051546393,
+            "max_drawdown_end_of_day_units": 19.43,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 306,
+            "bets": 97,
+            "no_bets": 209,
+            "outcomes": {
+              "loss": 67,
+              "win": 30
+            },
+            "profit_units": -9.2,
+            "roi": -0.09484536082474226,
+            "positive_return_rate": 0.30927835051546393,
+            "max_drawdown_end_of_day_units": 19.43,
+            "different_decisions_vs_kelly": 0
+          },
+          "probability_near_ev": {
+            "fixtures": 306,
+            "bets": 97,
+            "no_bets": 209,
+            "outcomes": {
+              "loss": 67,
+              "win": 30
+            },
+            "profit_units": -9.2,
+            "roi": -0.09484536082474226,
+            "positive_return_rate": 0.30927835051546393,
+            "max_drawdown_end_of_day_units": 19.43,
+            "different_decisions_vs_kelly": 0
+          },
+          "kelly_model_agrees": {
+            "fixtures": 306,
+            "bets": 46,
+            "no_bets": 260,
+            "outcomes": {
+              "loss": 29,
+              "win": 17
+            },
+            "profit_units": -6.16,
+            "roi": -0.13391304347826088,
+            "positive_return_rate": 0.3695652173913043,
+            "max_drawdown_end_of_day_units": 8.21,
+            "different_decisions_vs_kelly": 51
+          },
+          "kelly_market_agrees": {
+            "fixtures": 306,
+            "bets": 29,
+            "no_bets": 277,
+            "outcomes": {
+              "loss": 17,
+              "win": 12
+            },
+            "profit_units": -4.5600000000000005,
+            "roi": -0.15724137931034485,
+            "positive_return_rate": 0.41379310344827586,
+            "max_drawdown_end_of_day_units": 7.23,
+            "different_decisions_vs_kelly": 68
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.3706440913604767,
+              0.17990429292929278
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.3706440913604767,
+              0.17990429292929278
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.3706440913604767,
+              0.17990429292929278
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.4068717320261438,
+              0.1349051398337112
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.05656408391859875,
+              0.07935537811014814
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.48779022988505744,
+              0.18572360248447198
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.057772167359667365,
+              0.08898852459016393
+            ]
+          }
+        }
+      },
+      "2022-23": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 306,
+            "bets": 81,
+            "no_bets": 225,
+            "outcomes": {
+              "win": 38,
+              "loss": 43
+            },
+            "profit_units": 29.68,
+            "roi": 0.3664197530864198,
+            "positive_return_rate": 0.4691358024691358,
+            "max_drawdown_end_of_day_units": 10.0,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 306,
+            "bets": 81,
+            "no_bets": 225,
+            "outcomes": {
+              "win": 38,
+              "loss": 43
+            },
+            "profit_units": 29.68,
+            "roi": 0.3664197530864198,
+            "positive_return_rate": 0.4691358024691358,
+            "max_drawdown_end_of_day_units": 10.0,
+            "different_decisions_vs_kelly": 1
+          },
+          "probability_near_ev": {
+            "fixtures": 306,
+            "bets": 81,
+            "no_bets": 225,
+            "outcomes": {
+              "win": 39,
+              "loss": 42
+            },
+            "profit_units": 32.68000000000001,
+            "roi": 0.40345679012345687,
+            "positive_return_rate": 0.48148148148148145,
+            "max_drawdown_end_of_day_units": 10.0,
+            "different_decisions_vs_kelly": 2
+          },
+          "kelly_model_agrees": {
+            "fixtures": 306,
+            "bets": 44,
+            "no_bets": 262,
+            "outcomes": {
+              "win": 22,
+              "loss": 22
+            },
+            "profit_units": 6.77,
+            "roi": 0.15386363636363634,
+            "positive_return_rate": 0.5,
+            "max_drawdown_end_of_day_units": 8.0,
+            "different_decisions_vs_kelly": 37
+          },
+          "kelly_market_agrees": {
+            "fixtures": 306,
+            "bets": 27,
+            "no_bets": 279,
+            "outcomes": {
+              "win": 16,
+              "loss": 11
+            },
+            "profit_units": 6.470000000000001,
+            "roi": 0.23962962962962966,
+            "positive_return_rate": 0.5925925925925926,
+            "max_drawdown_end_of_day_units": 5.0,
+            "different_decisions_vs_kelly": 54
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              0.025050408496731992,
+              0.7232641759648801
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              0.025050408496731992,
+              0.7232641759648801
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              0.07492877691928324,
+              0.7486209258384507
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.030303030303030328
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.24308210784313725,
+              0.5833722222222221
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.14143347537878787,
+              -0.011903645833333365
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.16232499999999997,
+              0.5982445141065827
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.1651968954248366,
+              0.004792568542568483
+            ]
+          }
+        }
+      },
+      "2023-24": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 306,
+            "bets": 73,
+            "no_bets": 233,
+            "outcomes": {
+              "win": 23,
+              "loss": 50
+            },
+            "profit_units": -12.570000000000004,
+            "roi": -0.17219178082191786,
+            "positive_return_rate": 0.3150684931506849,
+            "max_drawdown_end_of_day_units": 16.770000000000003,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 306,
+            "bets": 73,
+            "no_bets": 233,
+            "outcomes": {
+              "win": 24,
+              "loss": 49
+            },
+            "profit_units": -8.820000000000004,
+            "roi": -0.12082191780821923,
+            "positive_return_rate": 0.3287671232876712,
+            "max_drawdown_end_of_day_units": 16.770000000000003,
+            "different_decisions_vs_kelly": 1
+          },
+          "probability_near_ev": {
+            "fixtures": 306,
+            "bets": 73,
+            "no_bets": 233,
+            "outcomes": {
+              "win": 24,
+              "loss": 49
+            },
+            "profit_units": -8.820000000000004,
+            "roi": -0.12082191780821923,
+            "positive_return_rate": 0.3287671232876712,
+            "max_drawdown_end_of_day_units": 16.770000000000003,
+            "different_decisions_vs_kelly": 1
+          },
+          "kelly_model_agrees": {
+            "fixtures": 306,
+            "bets": 42,
+            "no_bets": 264,
+            "outcomes": {
+              "win": 16,
+              "loss": 26
+            },
+            "profit_units": -8.32,
+            "roi": -0.1980952380952381,
+            "positive_return_rate": 0.38095238095238093,
+            "max_drawdown_end_of_day_units": 10.3,
+            "different_decisions_vs_kelly": 31
+          },
+          "kelly_market_agrees": {
+            "fixtures": 306,
+            "bets": 24,
+            "no_bets": 282,
+            "outcomes": {
+              "win": 12,
+              "loss": 12
+            },
+            "profit_units": -2.0200000000000005,
+            "roi": -0.08416666666666668,
+            "positive_return_rate": 0.5,
+            "max_drawdown_end_of_day_units": 5.57,
+            "different_decisions_vs_kelly": 49
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.4756349231754161,
+              0.16495157657657608
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.4381272306943544,
+              0.22956204044117645
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.03700657894736842
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.4381272306943544,
+              0.22956204044117645
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.03700657894736842
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.5486885162601627,
+              0.15431318681318668
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.051623775814349585,
+              0.0712977136529442
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.5207,
+              0.31522157190635447
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.03519736842105263,
+              0.09770547690014901
+            ]
+          }
+        }
+      },
+      "2025-26": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 306,
+            "bets": 109,
+            "no_bets": 197,
+            "outcomes": {
+              "loss": 76,
+              "win": 33
+            },
+            "profit_units": -24.47,
+            "roi": -0.22449541284403668,
+            "positive_return_rate": 0.30275229357798167,
+            "max_drawdown_end_of_day_units": 31.07,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 306,
+            "bets": 109,
+            "no_bets": 197,
+            "outcomes": {
+              "loss": 77,
+              "win": 32
+            },
+            "profit_units": -26.669999999999995,
+            "roi": -0.24467889908256876,
+            "positive_return_rate": 0.29357798165137616,
+            "max_drawdown_end_of_day_units": 33.269999999999996,
+            "different_decisions_vs_kelly": 3
+          },
+          "probability_near_ev": {
+            "fixtures": 306,
+            "bets": 109,
+            "no_bets": 197,
+            "outcomes": {
+              "loss": 77,
+              "win": 32
+            },
+            "profit_units": -26.669999999999995,
+            "roi": -0.24467889908256876,
+            "positive_return_rate": 0.29357798165137616,
+            "max_drawdown_end_of_day_units": 33.269999999999996,
+            "different_decisions_vs_kelly": 2
+          },
+          "kelly_model_agrees": {
+            "fixtures": 306,
+            "bets": 63,
+            "no_bets": 243,
+            "outcomes": {
+              "loss": 38,
+              "win": 25
+            },
+            "profit_units": -8.17,
+            "roi": -0.12968253968253968,
+            "positive_return_rate": 0.3968253968253968,
+            "max_drawdown_end_of_day_units": 10.9,
+            "different_decisions_vs_kelly": 46
+          },
+          "kelly_market_agrees": {
+            "fixtures": 306,
+            "bets": 46,
+            "no_bets": 260,
+            "outcomes": {
+              "loss": 25,
+              "win": 21
+            },
+            "profit_units": -2.1199999999999997,
+            "roi": -0.04608695652173912,
+            "positive_return_rate": 0.45652173913043476,
+            "max_drawdown_end_of_day_units": 7.050000000000001,
+            "different_decisions_vs_kelly": 63
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.46858649923508433,
+              0.014471358496840503
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.47661009174311936,
+              -0.013633316782522562
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.021926910299003316,
+              0.0
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.47661009174311936,
+              -0.013633316782522562
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.021926910299003316,
+              0.0
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.41303415492957746,
+              0.13258290043290039
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.014840757808499742,
+              0.11488044863044856
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.34340000000000004,
+              0.22812456445993018
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.00797445582395271,
+              0.13477910866333284
+            ]
+          }
+        }
+      }
+    },
+    "all_markets_preclosing": {
+      "all": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 1224,
+            "bets": 965,
+            "no_bets": 259,
+            "outcomes": {
+              "win": 390,
+              "push": 36,
+              "loss": 448,
+              "half_win": 53,
+              "half_loss": 38
+            },
+            "profit_units": -29.15500000000002,
+            "roi": -0.030212435233160643,
+            "positive_return_rate": 0.45906735751295336,
+            "max_drawdown_end_of_day_units": 58.125000000000014,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 1224,
+            "bets": 965,
+            "no_bets": 259,
+            "outcomes": {
+              "win": 364,
+              "push": 25,
+              "loss": 515,
+              "half_win": 39,
+              "half_loss": 22
+            },
+            "profit_units": -43.87999999999999,
+            "roi": -0.04547150259067356,
+            "positive_return_rate": 0.41761658031088084,
+            "max_drawdown_end_of_day_units": 65.96499999999999,
+            "different_decisions_vs_kelly": 227
+          },
+          "probability_near_ev": {
+            "fixtures": 1224,
+            "bets": 965,
+            "no_bets": 259,
+            "outcomes": {
+              "win": 372,
+              "push": 25,
+              "loss": 501,
+              "half_win": 41,
+              "half_loss": 26
+            },
+            "profit_units": -52.530000000000015,
+            "roi": -0.05443523316062178,
+            "positive_return_rate": 0.42797927461139895,
+            "max_drawdown_end_of_day_units": 65.035,
+            "different_decisions_vs_kelly": 173
+          },
+          "kelly_model_agrees": {
+            "fixtures": 1224,
+            "bets": 30,
+            "no_bets": 1194,
+            "outcomes": {
+              "win": 15,
+              "loss": 15
+            },
+            "profit_units": -3.0900000000000003,
+            "roi": -0.10300000000000001,
+            "positive_return_rate": 0.5,
+            "max_drawdown_end_of_day_units": 8.87,
+            "different_decisions_vs_kelly": 935
+          },
+          "kelly_market_agrees": {
+            "fixtures": 1224,
+            "bets": 24,
+            "no_bets": 1200,
+            "outcomes": {
+              "win": 14,
+              "loss": 10
+            },
+            "profit_units": 0.10999999999999921,
+            "roi": 0.0045833333333333,
+            "positive_return_rate": 0.5833333333333334,
+            "max_drawdown_end_of_day_units": 6.0,
+            "different_decisions_vs_kelly": 941
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.09316091697492593,
+              0.034280954378441524
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.11509368712273645,
+              0.02795282914414327
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.03636483871435841,
+              0.014437469411906293
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.1223552558415354,
+              0.014005124042571855
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.03812083727514761,
+              0.00018175179222058746
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.4539552173913043,
+              0.23334848484848472
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.028067904256248763,
+              0.07023065397284343
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.3804640151515151,
+              0.3530222222222221
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.025678448591149906,
+              0.0727204850973236
+            ]
+          }
+        }
+      },
+      "2021-22": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 306,
+            "bets": 241,
+            "no_bets": 65,
+            "outcomes": {
+              "win": 96,
+              "push": 6,
+              "loss": 117,
+              "half_win": 17,
+              "half_loss": 5
+            },
+            "profit_units": -7.835000000000002,
+            "roi": -0.03251037344398341,
+            "positive_return_rate": 0.46887966804979253,
+            "max_drawdown_end_of_day_units": 18.5,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 306,
+            "bets": 241,
+            "no_bets": 65,
+            "outcomes": {
+              "win": 82,
+              "push": 5,
+              "loss": 136,
+              "half_win": 15,
+              "half_loss": 3
+            },
+            "profit_units": -19.505,
+            "roi": -0.08093360995850622,
+            "positive_return_rate": 0.4024896265560166,
+            "max_drawdown_end_of_day_units": 24.624999999999996,
+            "different_decisions_vs_kelly": 52
+          },
+          "probability_near_ev": {
+            "fixtures": 306,
+            "bets": 241,
+            "no_bets": 65,
+            "outcomes": {
+              "win": 84,
+              "push": 5,
+              "loss": 134,
+              "half_win": 15,
+              "half_loss": 3
+            },
+            "profit_units": -23.545000000000005,
+            "roi": -0.09769709543568467,
+            "positive_return_rate": 0.4107883817427386,
+            "max_drawdown_end_of_day_units": 28.665000000000003,
+            "different_decisions_vs_kelly": 42
+          },
+          "kelly_model_agrees": {
+            "fixtures": 306,
+            "bets": 8,
+            "no_bets": 298,
+            "outcomes": {
+              "win": 3,
+              "loss": 5
+            },
+            "profit_units": -3.0700000000000003,
+            "roi": -0.38375000000000004,
+            "positive_return_rate": 0.375,
+            "max_drawdown_end_of_day_units": 4.6000000000000005,
+            "different_decisions_vs_kelly": 233
+          },
+          "kelly_market_agrees": {
+            "fixtures": 306,
+            "bets": 7,
+            "no_bets": 299,
+            "outcomes": {
+              "win": 3,
+              "loss": 4
+            },
+            "profit_units": -2.0700000000000003,
+            "roi": -0.29571428571428576,
+            "positive_return_rate": 0.42857142857142855,
+            "max_drawdown_end_of_day_units": 4.0,
+            "different_decisions_vs_kelly": 234
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.1311296439628483,
+              0.06785677977007541
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.19994826163419913,
+              0.042011612021857894
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.08803486394557825,
+              0.01274602296181627
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.20979129554474116,
+              0.017876543209876465
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.09291320020665689,
+              -0.007398800309597525
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -1.0,
+              0.20954365079365053
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.05922251611729227,
+              0.08886176498872693
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -1.0,
+              0.386
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.055266867656153344,
+              0.09122703094777555
+            ]
+          }
+        }
+      },
+      "2022-23": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 306,
+            "bets": 240,
+            "no_bets": 66,
+            "outcomes": {
+              "loss": 105,
+              "win": 108,
+              "half_win": 10,
+              "push": 8,
+              "half_loss": 9
+            },
+            "profit_units": 9.690000000000003,
+            "roi": 0.040375000000000015,
+            "positive_return_rate": 0.49166666666666664,
+            "max_drawdown_end_of_day_units": 18.154999999999998,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 306,
+            "bets": 240,
+            "no_bets": 66,
+            "outcomes": {
+              "loss": 113,
+              "win": 104,
+              "half_win": 7,
+              "push": 7,
+              "half_loss": 9
+            },
+            "profit_units": 21.574999999999996,
+            "roi": 0.08989583333333331,
+            "positive_return_rate": 0.4625,
+            "max_drawdown_end_of_day_units": 13.774999999999999,
+            "different_decisions_vs_kelly": 51
+          },
+          "probability_near_ev": {
+            "fixtures": 306,
+            "bets": 240,
+            "no_bets": 66,
+            "outcomes": {
+              "loss": 111,
+              "win": 106,
+              "half_win": 7,
+              "push": 7,
+              "half_loss": 9
+            },
+            "profit_units": 18.424999999999997,
+            "roi": 0.07677083333333332,
+            "positive_return_rate": 0.4708333333333333,
+            "max_drawdown_end_of_day_units": 16.735000000000007,
+            "different_decisions_vs_kelly": 39
+          },
+          "kelly_model_agrees": {
+            "fixtures": 306,
+            "bets": 3,
+            "no_bets": 303,
+            "outcomes": {
+              "loss": 3
+            },
+            "profit_units": -3.0,
+            "roi": -1.0,
+            "positive_return_rate": 0.0,
+            "max_drawdown_end_of_day_units": 3.0,
+            "different_decisions_vs_kelly": 237
+          },
+          "kelly_market_agrees": {
+            "fixtures": 306,
+            "bets": 1,
+            "no_bets": 305,
+            "outcomes": {
+              "loss": 1
+            },
+            "profit_units": -1.0,
+            "roi": -1.0,
+            "positive_return_rate": 0.0,
+            "max_drawdown_end_of_day_units": 1.0,
+            "different_decisions_vs_kelly": 239
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.1051680790960452,
+              0.1773592213114753
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.06303815405572513,
+              0.23547339940760983
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.00817034313725491,
+              0.08955555555555557
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.07711471513081776,
+              0.22333810108810095
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.01408101851851852,
+              0.07187956154684097
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -1.0,
+              -1.0
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.14740817901234562,
+              0.07275042087542084
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -1.0,
+              -1.0
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.14193458017676763,
+              0.08019804432189538
+            ]
+          }
+        }
+      },
+      "2023-24": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 306,
+            "bets": 235,
+            "no_bets": 71,
+            "outcomes": {
+              "loss": 96,
+              "half_win": 14,
+              "win": 105,
+              "half_loss": 10,
+              "push": 10
+            },
+            "profit_units": 20.105,
+            "roi": 0.0855531914893617,
+            "positive_return_rate": 0.5063829787234042,
+            "max_drawdown_end_of_day_units": 8.23,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 306,
+            "bets": 235,
+            "no_bets": 71,
+            "outcomes": {
+              "loss": 115,
+              "half_win": 8,
+              "win": 100,
+              "half_loss": 5,
+              "push": 7
+            },
+            "profit_units": 7.839999999999999,
+            "roi": 0.03336170212765957,
+            "positive_return_rate": 0.4595744680851064,
+            "max_drawdown_end_of_day_units": 16.715,
+            "different_decisions_vs_kelly": 49
+          },
+          "probability_near_ev": {
+            "fixtures": 306,
+            "bets": 235,
+            "no_bets": 71,
+            "outcomes": {
+              "loss": 109,
+              "half_win": 9,
+              "win": 103,
+              "half_loss": 7,
+              "push": 7
+            },
+            "profit_units": 8.965000000000003,
+            "roi": 0.03814893617021278,
+            "positive_return_rate": 0.4765957446808511,
+            "max_drawdown_end_of_day_units": 12.065000000000001,
+            "different_decisions_vs_kelly": 33
+          },
+          "kelly_model_agrees": {
+            "fixtures": 306,
+            "bets": 7,
+            "no_bets": 299,
+            "outcomes": {
+              "loss": 3,
+              "win": 4
+            },
+            "profit_units": -0.020000000000000018,
+            "roi": -0.0028571428571428597,
+            "positive_return_rate": 0.5714285714285714,
+            "max_drawdown_end_of_day_units": 2.0,
+            "different_decisions_vs_kelly": 228
+          },
+          "kelly_market_agrees": {
+            "fixtures": 306,
+            "bets": 6,
+            "no_bets": 300,
+            "outcomes": {
+              "loss": 2,
+              "win": 4
+            },
+            "profit_units": 0.98,
+            "roi": 0.16333333333333333,
+            "positive_return_rate": 0.6666666666666666,
+            "max_drawdown_end_of_day_units": 1.0,
+            "different_decisions_vs_kelly": 229
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.05549725160149474,
+              0.22261790955681066
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.11483930805433099,
+              0.18185582969224925
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.07867127157382091,
+              0.001991031884244981
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.10178821571001284,
+              0.17994079389222495
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.06619439612915468,
+              -0.009227800097066445
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -1.0,
+              0.73
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.169846559981999,
+              0.04225549145479925
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -1.0,
+              0.8306666666666669
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.1661621811603429,
+              0.047103688524590126
+            ]
+          }
+        }
+      },
+      "2025-26": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 306,
+            "bets": 249,
+            "no_bets": 57,
+            "outcomes": {
+              "loss": 130,
+              "win": 81,
+              "push": 12,
+              "half_loss": 14,
+              "half_win": 12
+            },
+            "profit_units": -51.114999999999995,
+            "roi": -0.20528112449799193,
+            "positive_return_rate": 0.37349397590361444,
+            "max_drawdown_end_of_day_units": 52.934999999999995,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 306,
+            "bets": 249,
+            "no_bets": 57,
+            "outcomes": {
+              "loss": 151,
+              "win": 78,
+              "push": 6,
+              "half_win": 9,
+              "half_loss": 5
+            },
+            "profit_units": -53.78999999999999,
+            "roi": -0.21602409638554212,
+            "positive_return_rate": 0.3493975903614458,
+            "max_drawdown_end_of_day_units": 57.504999999999995,
+            "different_decisions_vs_kelly": 75
+          },
+          "probability_near_ev": {
+            "fixtures": 306,
+            "bets": 249,
+            "no_bets": 57,
+            "outcomes": {
+              "loss": 147,
+              "win": 79,
+              "push": 6,
+              "half_win": 10,
+              "half_loss": 7
+            },
+            "profit_units": -56.375,
+            "roi": -0.22640562248995985,
+            "positive_return_rate": 0.357429718875502,
+            "max_drawdown_end_of_day_units": 57.595,
+            "different_decisions_vs_kelly": 59
+          },
+          "kelly_model_agrees": {
+            "fixtures": 306,
+            "bets": 12,
+            "no_bets": 294,
+            "outcomes": {
+              "loss": 4,
+              "win": 8
+            },
+            "profit_units": 2.9999999999999996,
+            "roi": 0.24999999999999997,
+            "positive_return_rate": 0.6666666666666666,
+            "max_drawdown_end_of_day_units": 1.0,
+            "different_decisions_vs_kelly": 237
+          },
+          "kelly_market_agrees": {
+            "fixtures": 306,
+            "bets": 10,
+            "no_bets": 296,
+            "outcomes": {
+              "loss": 3,
+              "win": 7
+            },
+            "profit_units": 2.2,
+            "roi": 0.22000000000000003,
+            "positive_return_rate": 0.7,
+            "max_drawdown_end_of_day_units": 1.0,
+            "different_decisions_vs_kelly": 239
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.3216273264167335,
+              -0.08840543619791671
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.3695835341051313,
+              -0.06572581397016641
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.06491917229729735,
+              0.046382163973196666
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.3618251852709589,
+              -0.09280283554888516
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.04738127666810963,
+              0.01694722113651662
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.29503571428571435,
+              0.7934999999999991
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.08937215521831733,
+              0.26160834802639055
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.40020833333333333,
+              0.712528409090909
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.08050126655629139,
+              0.2605898754152823
+            ]
+          }
+        }
+      }
+    },
+    "1x2_closing": {
+      "all": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 1224,
+            "bets": 356,
+            "no_bets": 868,
+            "outcomes": {
+              "loss": 235,
+              "win": 121
+            },
+            "profit_units": -29.959999999999997,
+            "roi": -0.08415730337078652,
+            "positive_return_rate": 0.3398876404494382,
+            "max_drawdown_end_of_day_units": 38.05,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 1224,
+            "bets": 356,
+            "no_bets": 868,
+            "outcomes": {
+              "loss": 235,
+              "win": 121
+            },
+            "profit_units": -28.810000000000013,
+            "roi": -0.08092696629213486,
+            "positive_return_rate": 0.3398876404494382,
+            "max_drawdown_end_of_day_units": 41.0,
+            "different_decisions_vs_kelly": 7
+          },
+          "probability_near_ev": {
+            "fixtures": 1224,
+            "bets": 356,
+            "no_bets": 868,
+            "outcomes": {
+              "loss": 236,
+              "win": 120
+            },
+            "profit_units": -32.45999999999998,
+            "roi": -0.09117977528089882,
+            "positive_return_rate": 0.33707865168539325,
+            "max_drawdown_end_of_day_units": 44.40999999999998,
+            "different_decisions_vs_kelly": 3
+          },
+          "kelly_model_agrees": {
+            "fixtures": 1224,
+            "bets": 200,
+            "no_bets": 1024,
+            "outcomes": {
+              "loss": 118,
+              "win": 82
+            },
+            "profit_units": -16.160000000000004,
+            "roi": -0.08080000000000002,
+            "positive_return_rate": 0.41,
+            "max_drawdown_end_of_day_units": 18.76,
+            "different_decisions_vs_kelly": 156
+          },
+          "kelly_market_agrees": {
+            "fixtures": 1224,
+            "bets": 139,
+            "no_bets": 1085,
+            "outcomes": {
+              "loss": 77,
+              "win": 62
+            },
+            "profit_units": -14.140000000000002,
+            "roi": -0.10172661870503599,
+            "positive_return_rate": 0.4460431654676259,
+            "max_drawdown_end_of_day_units": 16.490000000000002,
+            "different_decisions_vs_kelly": 217
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.21871409541044584,
+              0.060269553634261605
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.22020828956582633,
+              0.06922341585045387
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.011185511517824619,
+              0.012642179146212391
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.2286521294021295,
+              0.05805973402963324
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.012251909391683158,
+              0.007974287508546183
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.24094587648492233,
+              0.08654353932584269
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.020589336400117463,
+              0.04353869718759297
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.2963400192080377,
+              0.0878640724946694
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.02249418981481481,
+              0.04662639236349359
+            ]
+          }
+        }
+      },
+      "2021-22": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 306,
+            "bets": 88,
+            "no_bets": 218,
+            "outcomes": {
+              "loss": 68,
+              "win": 20
+            },
+            "profit_units": -33.53,
+            "roi": -0.3810227272727273,
+            "positive_return_rate": 0.22727272727272727,
+            "max_drawdown_end_of_day_units": 33.53,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 306,
+            "bets": 88,
+            "no_bets": 218,
+            "outcomes": {
+              "loss": 67,
+              "win": 21
+            },
+            "profit_units": -29.779999999999998,
+            "roi": -0.3384090909090909,
+            "positive_return_rate": 0.23863636363636365,
+            "max_drawdown_end_of_day_units": 29.779999999999998,
+            "different_decisions_vs_kelly": 2
+          },
+          "probability_near_ev": {
+            "fixtures": 306,
+            "bets": 88,
+            "no_bets": 218,
+            "outcomes": {
+              "loss": 68,
+              "win": 20
+            },
+            "profit_units": -33.53,
+            "roi": -0.3810227272727273,
+            "positive_return_rate": 0.22727272727272727,
+            "max_drawdown_end_of_day_units": 33.53,
+            "different_decisions_vs_kelly": 0
+          },
+          "kelly_model_agrees": {
+            "fixtures": 306,
+            "bets": 43,
+            "no_bets": 263,
+            "outcomes": {
+              "loss": 31,
+              "win": 12
+            },
+            "profit_units": -17.279999999999998,
+            "roi": -0.401860465116279,
+            "positive_return_rate": 0.27906976744186046,
+            "max_drawdown_end_of_day_units": 17.279999999999998,
+            "different_decisions_vs_kelly": 45
+          },
+          "kelly_market_agrees": {
+            "fixtures": 306,
+            "bets": 29,
+            "no_bets": 277,
+            "outcomes": {
+              "loss": 19,
+              "win": 10
+            },
+            "profit_units": -9.08,
+            "roi": -0.31310344827586206,
+            "positive_return_rate": 0.3448275862068966,
+            "max_drawdown_end_of_day_units": 9.08,
+            "different_decisions_vs_kelly": 59
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.636410007022472,
+              -0.09387352941176541
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.5953882769472857,
+              -0.05970809821564765
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.03813559322033899
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.636410007022472,
+              -0.09387352941176541
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.7016323631323632,
+              -0.11476552631578965
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.014242406036720173,
+              0.11283013003872559
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.6632504347826086,
+              0.0475624999999997
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.008114927642322191,
+              0.14221497175141237
+            ]
+          }
+        }
+      },
+      "2022-23": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 306,
+            "bets": 84,
+            "no_bets": 222,
+            "outcomes": {
+              "win": 31,
+              "loss": 53
+            },
+            "profit_units": 3.8000000000000025,
+            "roi": 0.045238095238095265,
+            "positive_return_rate": 0.36904761904761907,
+            "max_drawdown_end_of_day_units": 12.849999999999998,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 306,
+            "bets": 84,
+            "no_bets": 222,
+            "outcomes": {
+              "win": 30,
+              "loss": 54
+            },
+            "profit_units": -0.3999999999999986,
+            "roi": -0.004761904761904745,
+            "positive_return_rate": 0.35714285714285715,
+            "max_drawdown_end_of_day_units": 17.049999999999997,
+            "different_decisions_vs_kelly": 2
+          },
+          "probability_near_ev": {
+            "fixtures": 306,
+            "bets": 84,
+            "no_bets": 222,
+            "outcomes": {
+              "win": 31,
+              "loss": 53
+            },
+            "profit_units": 3.8000000000000025,
+            "roi": 0.045238095238095265,
+            "positive_return_rate": 0.36904761904761907,
+            "max_drawdown_end_of_day_units": 12.849999999999998,
+            "different_decisions_vs_kelly": 0
+          },
+          "kelly_model_agrees": {
+            "fixtures": 306,
+            "bets": 45,
+            "no_bets": 261,
+            "outcomes": {
+              "win": 21,
+              "loss": 24
+            },
+            "profit_units": 5.899999999999999,
+            "roi": 0.13111111111111107,
+            "positive_return_rate": 0.4666666666666667,
+            "max_drawdown_end_of_day_units": 8.26,
+            "different_decisions_vs_kelly": 39
+          },
+          "kelly_market_agrees": {
+            "fixtures": 306,
+            "bets": 27,
+            "no_bets": 279,
+            "outcomes": {
+              "win": 12,
+              "loss": 15
+            },
+            "profit_units": -2.55,
+            "roi": -0.09444444444444444,
+            "positive_return_rate": 0.4444444444444444,
+            "max_drawdown_end_of_day_units": 7.26,
+            "different_decisions_vs_kelly": 57
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.23738247508305654,
+              0.35902653727241485
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.3113622670807453,
+              0.33125899503722034
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.04242424242424245,
+              0.0
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.23738247508305654,
+              0.35902653727241485
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.27275267857142854,
+              0.5608646683673465
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.0559042632204397,
+              0.0710078651094276
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.5734692118226601,
+              0.36113997695852446
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.08838829471182412,
+              0.0511469421101774
+            ]
+          }
+        }
+      },
+      "2023-24": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 306,
+            "bets": 78,
+            "no_bets": 228,
+            "outcomes": {
+              "win": 29,
+              "loss": 49
+            },
+            "profit_units": -1.379999999999999,
+            "roi": -0.01769230769230768,
+            "positive_return_rate": 0.3717948717948718,
+            "max_drawdown_end_of_day_units": 12.08,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 306,
+            "bets": 78,
+            "no_bets": 228,
+            "outcomes": {
+              "win": 28,
+              "loss": 50
+            },
+            "profit_units": -3.879999999999999,
+            "roi": -0.04974358974358973,
+            "positive_return_rate": 0.358974358974359,
+            "max_drawdown_end_of_day_units": 12.08,
+            "different_decisions_vs_kelly": 1
+          },
+          "probability_near_ev": {
+            "fixtures": 306,
+            "bets": 78,
+            "no_bets": 228,
+            "outcomes": {
+              "win": 28,
+              "loss": 50
+            },
+            "profit_units": -3.879999999999999,
+            "roi": -0.04974358974358973,
+            "positive_return_rate": 0.358974358974359,
+            "max_drawdown_end_of_day_units": 12.08,
+            "different_decisions_vs_kelly": 1
+          },
+          "kelly_model_agrees": {
+            "fixtures": 306,
+            "bets": 43,
+            "no_bets": 263,
+            "outcomes": {
+              "win": 20,
+              "loss": 23
+            },
+            "profit_units": 0.46999999999999953,
+            "roi": 0.010930232558139524,
+            "positive_return_rate": 0.46511627906976744,
+            "max_drawdown_end_of_day_units": 6.16,
+            "different_decisions_vs_kelly": 35
+          },
+          "kelly_market_agrees": {
+            "fixtures": 306,
+            "bets": 30,
+            "no_bets": 276,
+            "outcomes": {
+              "win": 16,
+              "loss": 14
+            },
+            "profit_units": 1.4699999999999998,
+            "roi": 0.048999999999999995,
+            "positive_return_rate": 0.5333333333333333,
+            "max_drawdown_end_of_day_units": 5.0,
+            "different_decisions_vs_kelly": 48
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.28026995230524643,
+              0.27342703580203553
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.3161550751879699,
+              0.24227937487941337
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.024671052631578958,
+              0.0
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.3161550751879699,
+              0.24227937487941337
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.024671052631578958,
+              0.0
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.28562820512820514,
+              0.34550203488372083
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.0611660837293747,
+              0.06543554877532884
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.29091222570532915,
+              0.40966062801932346
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.060500889775668705,
+              0.07452410800385718
+            ]
+          }
+        }
+      },
+      "2025-26": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 306,
+            "bets": 106,
+            "no_bets": 200,
+            "outcomes": {
+              "loss": 65,
+              "win": 41
+            },
+            "profit_units": 1.1500000000000008,
+            "roi": 0.010849056603773593,
+            "positive_return_rate": 0.3867924528301887,
+            "max_drawdown_end_of_day_units": 14.959999999999999,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 306,
+            "bets": 106,
+            "no_bets": 200,
+            "outcomes": {
+              "loss": 64,
+              "win": 42
+            },
+            "profit_units": 5.249999999999999,
+            "roi": 0.04952830188679244,
+            "positive_return_rate": 0.39622641509433965,
+            "max_drawdown_end_of_day_units": 14.959999999999999,
+            "different_decisions_vs_kelly": 2
+          },
+          "probability_near_ev": {
+            "fixtures": 306,
+            "bets": 106,
+            "no_bets": 200,
+            "outcomes": {
+              "loss": 65,
+              "win": 41
+            },
+            "profit_units": 1.1500000000000004,
+            "roi": 0.010849056603773588,
+            "positive_return_rate": 0.3867924528301887,
+            "max_drawdown_end_of_day_units": 14.959999999999999,
+            "different_decisions_vs_kelly": 2
+          },
+          "kelly_model_agrees": {
+            "fixtures": 306,
+            "bets": 69,
+            "no_bets": 237,
+            "outcomes": {
+              "loss": 40,
+              "win": 29
+            },
+            "profit_units": -5.25,
+            "roi": -0.07608695652173914,
+            "positive_return_rate": 0.42028985507246375,
+            "max_drawdown_end_of_day_units": 12.209999999999999,
+            "different_decisions_vs_kelly": 37
+          },
+          "kelly_market_agrees": {
+            "fixtures": 306,
+            "bets": 53,
+            "no_bets": 253,
+            "outcomes": {
+              "loss": 29,
+              "win": 24
+            },
+            "profit_units": -3.9800000000000004,
+            "roi": -0.07509433962264152,
+            "positive_return_rate": 0.4528301886792453,
+            "max_drawdown_end_of_day_units": 10.89,
+            "different_decisions_vs_kelly": 53
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.26469010416666666,
+              0.2825972329472329
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.25078853155339803,
+              0.3467529529268715
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.041278642125957554
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.27937300605060505,
+              0.30135267857142817
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.039677419354838706,
+              0.03930344246633036
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.39214683436970044,
+              0.2403960084033611
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.08721177290142808,
+              0.044958313944470245
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.4067600076248571,
+              0.27006249999999965
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.08028880877742949,
+              0.046134220643989914
+            ]
+          }
+        }
+      }
+    },
+    "all_markets_closing": {
+      "all": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 1224,
+            "bets": 934,
+            "no_bets": 290,
+            "outcomes": {
+              "win": 380,
+              "loss": 433,
+              "push": 34,
+              "half_loss": 43,
+              "half_win": 44
+            },
+            "profit_units": -30.315000000000023,
+            "roi": -0.0324571734475375,
+            "positive_return_rate": 0.4539614561027837,
+            "max_drawdown_end_of_day_units": 38.56000000000002,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 1224,
+            "bets": 934,
+            "no_bets": 290,
+            "outcomes": {
+              "win": 348,
+              "loss": 509,
+              "push": 20,
+              "half_loss": 28,
+              "half_win": 29
+            },
+            "profit_units": -79.05999999999996,
+            "roi": -0.08464668094218411,
+            "positive_return_rate": 0.40364025695931477,
+            "max_drawdown_end_of_day_units": 86.82499999999996,
+            "different_decisions_vs_kelly": 215
+          },
+          "probability_near_ev": {
+            "fixtures": 1224,
+            "bets": 934,
+            "no_bets": 290,
+            "outcomes": {
+              "win": 361,
+              "loss": 490,
+              "push": 21,
+              "half_loss": 30,
+              "half_win": 32
+            },
+            "profit_units": -58.13000000000002,
+            "roi": -0.06223768736616704,
+            "positive_return_rate": 0.4207708779443255,
+            "max_drawdown_end_of_day_units": 66.12500000000001,
+            "different_decisions_vs_kelly": 174
+          },
+          "kelly_model_agrees": {
+            "fixtures": 1224,
+            "bets": 28,
+            "no_bets": 1196,
+            "outcomes": {
+              "loss": 11,
+              "win": 17
+            },
+            "profit_units": 5.85,
+            "roi": 0.2089285714285714,
+            "positive_return_rate": 0.6071428571428571,
+            "max_drawdown_end_of_day_units": 2.4699999999999998,
+            "different_decisions_vs_kelly": 906
+          },
+          "kelly_market_agrees": {
+            "fixtures": 1224,
+            "bets": 24,
+            "no_bets": 1200,
+            "outcomes": {
+              "loss": 9,
+              "win": 15
+            },
+            "profit_units": 3.7499999999999996,
+            "roi": 0.15624999999999997,
+            "positive_return_rate": 0.625,
+            "max_drawdown_end_of_day_units": 2.4699999999999998,
+            "different_decisions_vs_kelly": 910
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.0944540598468731,
+              0.029906510745891207
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.15078661309550093,
+              -0.011793673077541122
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.06683955582043657,
+              -0.013852822794620565
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.12404494694447132,
+              0.006008236280358712
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.04687120782926103,
+              0.0004046994715221947
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.18279166666666669,
+              0.5712255555555553
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.018584294045752854,
+              0.07707628375495514
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.2872746305418719,
+              0.5276242857142855
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.020836215153501012,
+              0.07582479200991778
+            ]
+          }
+        }
+      },
+      "2021-22": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 306,
+            "bets": 235,
+            "no_bets": 71,
+            "outcomes": {
+              "win": 88,
+              "loss": 121,
+              "push": 8,
+              "half_loss": 7,
+              "half_win": 11
+            },
+            "profit_units": -29.400000000000002,
+            "roi": -0.12510638297872342,
+            "positive_return_rate": 0.42127659574468085,
+            "max_drawdown_end_of_day_units": 33.45,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 306,
+            "bets": 235,
+            "no_bets": 71,
+            "outcomes": {
+              "win": 77,
+              "loss": 139,
+              "push": 6,
+              "half_loss": 4,
+              "half_win": 9
+            },
+            "profit_units": -47.57000000000001,
+            "roi": -0.20242553191489365,
+            "positive_return_rate": 0.3659574468085106,
+            "max_drawdown_end_of_day_units": 50.06000000000001,
+            "different_decisions_vs_kelly": 46
+          },
+          "probability_near_ev": {
+            "fixtures": 306,
+            "bets": 235,
+            "no_bets": 71,
+            "outcomes": {
+              "win": 79,
+              "loss": 135,
+              "push": 7,
+              "half_loss": 5,
+              "half_win": 9
+            },
+            "profit_units": -41.720000000000006,
+            "roi": -0.17753191489361705,
+            "positive_return_rate": 0.37446808510638296,
+            "max_drawdown_end_of_day_units": 44.21000000000001,
+            "different_decisions_vs_kelly": 39
+          },
+          "kelly_model_agrees": {
+            "fixtures": 306,
+            "bets": 8,
+            "no_bets": 298,
+            "outcomes": {
+              "loss": 4,
+              "win": 4
+            },
+            "profit_units": -0.8500000000000001,
+            "roi": -0.10625000000000001,
+            "positive_return_rate": 0.5,
+            "max_drawdown_end_of_day_units": 2.0,
+            "different_decisions_vs_kelly": 227
+          },
+          "kelly_market_agrees": {
+            "fixtures": 306,
+            "bets": 7,
+            "no_bets": 299,
+            "outcomes": {
+              "loss": 3,
+              "win": 4
+            },
+            "profit_units": 0.1499999999999999,
+            "roi": 0.021428571428571415,
+            "positive_return_rate": 0.5714285714285714,
+            "max_drawdown_end_of_day_units": 2.0,
+            "different_decisions_vs_kelly": 228
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.2348987403931929,
+              -0.013230663059427746
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.3226277265745008,
+              -0.08308584738243148
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.10810809580818682,
+              -0.013488766339869299
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.2846959692028985,
+              -0.0662737797572538
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.08055489916051263,
+              -0.0010424308964091787
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.75,
+              0.5215178571428567
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.004563062963617119,
+              0.17626643527970604
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.7,
+              0.7600624999999996
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.008749590137058182,
+              0.17943100639177845
+            ]
+          }
+        }
+      },
+      "2022-23": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 306,
+            "bets": 226,
+            "no_bets": 80,
+            "outcomes": {
+              "loss": 97,
+              "win": 102,
+              "half_win": 10,
+              "push": 7,
+              "half_loss": 10
+            },
+            "profit_units": 11.28,
+            "roi": 0.049911504424778756,
+            "positive_return_rate": 0.49557522123893805,
+            "max_drawdown_end_of_day_units": 14.02,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 306,
+            "bets": 226,
+            "no_bets": 80,
+            "outcomes": {
+              "loss": 109,
+              "win": 100,
+              "half_win": 5,
+              "push": 5,
+              "half_loss": 7
+            },
+            "profit_units": 16.69999999999999,
+            "roi": 0.07389380530973447,
+            "positive_return_rate": 0.4646017699115044,
+            "max_drawdown_end_of_day_units": 14.920000000000003,
+            "different_decisions_vs_kelly": 53
+          },
+          "probability_near_ev": {
+            "fixtures": 306,
+            "bets": 226,
+            "no_bets": 80,
+            "outcomes": {
+              "loss": 103,
+              "win": 103,
+              "half_win": 6,
+              "push": 5,
+              "half_loss": 9
+            },
+            "profit_units": 23.749999999999993,
+            "roi": 0.10508849557522121,
+            "positive_return_rate": 0.4823008849557522,
+            "max_drawdown_end_of_day_units": 13.620000000000001,
+            "different_decisions_vs_kelly": 41
+          },
+          "kelly_model_agrees": {
+            "fixtures": 306,
+            "bets": 3,
+            "no_bets": 303,
+            "outcomes": {
+              "win": 2,
+              "loss": 1
+            },
+            "profit_units": 2.6,
+            "roi": 0.8666666666666667,
+            "positive_return_rate": 0.6666666666666666,
+            "max_drawdown_end_of_day_units": 1.0,
+            "different_decisions_vs_kelly": 223
+          },
+          "kelly_market_agrees": {
+            "fixtures": 306,
+            "bets": 1,
+            "no_bets": 305,
+            "outcomes": {
+              "win": 1
+            },
+            "profit_units": 1.7000000000000002,
+            "roi": 1.7000000000000002,
+            "positive_return_rate": 1.0,
+            "max_drawdown_end_of_day_units": 0,
+            "different_decisions_vs_kelly": 225
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.10629435327561708,
+              0.20050407196969694
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.10152393939393942,
+              0.25697856757728216
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.04535430743243246,
+              0.07939247271825403
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.06962528384279475,
+              0.27692361266377497
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.014222287984006755,
+              0.09473878490790255
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -1.0,
+              1.9
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.1302115079365079,
+              0.0813635365604575
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              1.7000000000000002,
+              1.7000000000000002
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.137368805239899,
+              0.08262536375661364
+            ]
+          }
+        }
+      },
+      "2023-24": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 306,
+            "bets": 228,
+            "no_bets": 78,
+            "outcomes": {
+              "loss": 91,
+              "win": 96,
+              "half_win": 16,
+              "push": 10,
+              "half_loss": 15
+            },
+            "profit_units": 14.154999999999994,
+            "roi": 0.06208333333333331,
+            "positive_return_rate": 0.49122807017543857,
+            "max_drawdown_end_of_day_units": 7.425000000000002,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 306,
+            "bets": 228,
+            "no_bets": 78,
+            "outcomes": {
+              "loss": 122,
+              "win": 84,
+              "half_win": 9,
+              "half_loss": 10,
+              "push": 3
+            },
+            "profit_units": -13.859999999999998,
+            "roi": -0.06078947368421052,
+            "positive_return_rate": 0.40789473684210525,
+            "max_drawdown_end_of_day_units": 19.619999999999997,
+            "different_decisions_vs_kelly": 65
+          },
+          "probability_near_ev": {
+            "fixtures": 306,
+            "bets": 228,
+            "no_bets": 78,
+            "outcomes": {
+              "loss": 113,
+              "win": 91,
+              "half_win": 10,
+              "half_loss": 11,
+              "push": 3
+            },
+            "profit_units": -5.690000000000001,
+            "roi": -0.024956140350877197,
+            "positive_return_rate": 0.44298245614035087,
+            "max_drawdown_end_of_day_units": 12.775,
+            "different_decisions_vs_kelly": 47
+          },
+          "kelly_model_agrees": {
+            "fixtures": 306,
+            "bets": 2,
+            "no_bets": 304,
+            "outcomes": {
+              "win": 1,
+              "loss": 1
+            },
+            "profit_units": -0.42999999999999994,
+            "roi": -0.21499999999999997,
+            "positive_return_rate": 0.5,
+            "max_drawdown_end_of_day_units": 1.0,
+            "different_decisions_vs_kelly": 226
+          },
+          "kelly_market_agrees": {
+            "fixtures": 306,
+            "bets": 2,
+            "no_bets": 304,
+            "outcomes": {
+              "win": 1,
+              "loss": 1
+            },
+            "profit_units": -0.42999999999999994,
+            "roi": -0.21499999999999997,
+            "positive_return_rate": 0.5,
+            "max_drawdown_end_of_day_units": 1.0,
+            "different_decisions_vs_kelly": 226
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.043086013009257386,
+              0.17216782464338404
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.18745047307132465,
+              0.07502316810344824
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.14891902333529133,
+              -0.03292652514317348
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.12262538197097021,
+              0.08222016007423724
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.1123894917190177,
+              -0.01594889679365291
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -1.0,
+              0.5700000000000001
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.12977323561875082,
+              0.0324617742862617
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -1.0,
+              0.5700000000000001
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.12977323561875082,
+              0.0324617742862617
+            ]
+          }
+        }
+      },
+      "2025-26": {
+        "summary": {
+          "kelly_baseline": {
+            "fixtures": 306,
+            "bets": 245,
+            "no_bets": 61,
+            "outcomes": {
+              "loss": 124,
+              "win": 94,
+              "push": 9,
+              "half_loss": 11,
+              "half_win": 7
+            },
+            "profit_units": -26.350000000000005,
+            "roi": -0.10755102040816329,
+            "positive_return_rate": 0.4122448979591837,
+            "max_drawdown_end_of_day_units": 37.504999999999995,
+            "different_decisions_vs_kelly": 0
+          },
+          "max_ev": {
+            "fixtures": 306,
+            "bets": 245,
+            "no_bets": 61,
+            "outcomes": {
+              "loss": 139,
+              "win": 87,
+              "push": 6,
+              "half_loss": 7,
+              "half_win": 6
+            },
+            "profit_units": -34.32999999999999,
+            "roi": -0.1401224489795918,
+            "positive_return_rate": 0.3795918367346939,
+            "max_drawdown_end_of_day_units": 43.98499999999999,
+            "different_decisions_vs_kelly": 51
+          },
+          "probability_near_ev": {
+            "fixtures": 306,
+            "bets": 245,
+            "no_bets": 61,
+            "outcomes": {
+              "loss": 139,
+              "win": 88,
+              "push": 6,
+              "half_loss": 5,
+              "half_win": 7
+            },
+            "profit_units": -34.470000000000006,
+            "roi": -0.14069387755102042,
+            "positive_return_rate": 0.3877551020408163,
+            "max_drawdown_end_of_day_units": 45.785000000000004,
+            "different_decisions_vs_kelly": 47
+          },
+          "kelly_model_agrees": {
+            "fixtures": 306,
+            "bets": 15,
+            "no_bets": 291,
+            "outcomes": {
+              "loss": 5,
+              "win": 10
+            },
+            "profit_units": 4.529999999999999,
+            "roi": 0.30199999999999994,
+            "positive_return_rate": 0.6666666666666666,
+            "max_drawdown_end_of_day_units": 2.0,
+            "different_decisions_vs_kelly": 230
+          },
+          "kelly_market_agrees": {
+            "fixtures": 306,
+            "bets": 14,
+            "no_bets": 292,
+            "outcomes": {
+              "loss": 5,
+              "win": 9
+            },
+            "profit_units": 2.33,
+            "roi": 0.16642857142857143,
+            "positive_return_rate": 0.6428571428571429,
+            "max_drawdown_end_of_day_units": 2.0,
+            "different_decisions_vs_kelly": 231
+          }
+        },
+        "uncertainty": {
+          "kelly_baseline": {
+            "roi_95_percent_week_bootstrap": [
+              -0.22127988735779247,
+              0.00899205232436933
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0,
+              0.0
+            ]
+          },
+          "max_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.26800083986562145,
+              -0.018627018186306833
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.06557749827853332,
+              0.013104719981638173
+            ]
+          },
+          "probability_near_ev": {
+            "roi_95_percent_week_bootstrap": [
+              -0.26400878624927987,
+              -0.02025459860414254
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.06246257476739033,
+              0.006605850168350147
+            ]
+          },
+          "kelly_model_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.2250340909090909,
+              0.6843810096153845
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              0.0068402380952381,
+              0.1934972005044136
+            ]
+          },
+          "kelly_market_agrees": {
+            "roi_95_percent_week_bootstrap": [
+              -0.462,
+              0.6300294117647057
+            ],
+            "profit_per_fixture_difference_vs_kelly_95_percent": [
+              -0.0026749071568783274,
+              0.18757540581806487
+            ]
+          }
+        }
+      }
+    }
+  }
+}

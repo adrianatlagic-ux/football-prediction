@@ -5,13 +5,18 @@ import pandas as pd
 from scipy.stats import poisson
 from scipy.optimize import minimize_scalar
 
-from .fifa_rankings import get_points
+from .fifa_rankings import get_points, has_ranking
 
 MAX_GOALS = 8
 
 # How strongly the FIFA-points gap between two teams shifts the xG
 # towards the stronger side. 0 = no effect, 1 = very strong effect.
 RANK_ADJUSTMENT_STRENGTH = 0.6
+
+
+# Fitted on WC2026 group fixtures only. Pass it explicitly for those; it is
+# not a property of national-team football in general (see predict_scorelines).
+WC2026_GROUP_GOAL_UPLIFT = 1.15
 
 
 def _rank_adjustment_factors(home_team: str, away_team: str) -> tuple[float, float]:
@@ -22,6 +27,13 @@ def _rank_adjustment_factors(home_team: str, away_team: str) -> tuple[float, flo
     matches against similarly weak opponents. This rebalances the data-driven
     xG using each team's FIFA ranking points.
     """
+    # Both sides need real data. FIFA covers 62 nations, so for a tie like
+    # Andorra vs Malta both fall back to the same 900-point placeholder, and
+    # this would report them as evenly matched - overriding the goal history
+    # that does know the difference. Better to leave xG to the ratings.
+    if not (has_ranking(home_team) and has_ranking(away_team)):
+        return 1.0, 1.0
+
     home_points = get_points(home_team)
     away_points = get_points(away_team)
     total = home_points + away_points
@@ -268,10 +280,15 @@ def predict_scorelines(
     rho: float | None = None,
     target_result_probs: tuple[float, float, float] | None = None,
     is_knockout: bool = False,
+    club_mode: bool = False,
+    rating_context: tuple | None = None,
+    goal_uplift: float = 1.0,
 ) -> dict:
-    league_avg = float(df_history[["home_goals", "away_goals"]].mean().mean())
-
-    ratings = _compute_team_ratings(df_history)
+    if rating_context is None:
+        league_avg = float(df_history[["home_goals", "away_goals"]].mean().mean())
+        ratings = _compute_team_ratings(df_history)
+    else:
+        league_avg, ratings = rating_context
     home_attack, home_defense = ratings.get(home_team, (1.0, 1.0))
     away_attack, away_defense = ratings.get(away_team, (1.0, 1.0))
 
@@ -279,22 +296,23 @@ def predict_scorelines(
     away_xg = away_attack * home_defense * league_avg
 
     # Rebalance xG towards the stronger team based on FIFA ranking points
-    home_factor, away_factor = _rank_adjustment_factors(home_team, away_team)
+    home_factor, away_factor = (1.0, 1.0) if club_mode else _rank_adjustment_factors(home_team, away_team)
     home_xg *= home_factor
     away_xg *= away_factor
 
-    # WC group stage produces ~15% more goals than historical average - but
-    # this was calibrated on group games specifically (weaker/mismatched
-    # opponents, nothing to lose). Knockout matches are the opposite: teams
-    # play more cautiously with elimination on the line, so applying the same
-    # +15% inflation there overstates expected goals (e.g. South Africa vs
-    # Canada: model said 2.75 xG / 75% Over 1.5, actual game had 1 goal total).
-    # We don't have a calibrated knockout-specific factor, so default to no
-    # adjustment (1.0) rather than guess one - safer than carrying over a
-    # number known to be wrong for this stage.
-    if not is_knockout:
-        home_xg *= 1.15
-        away_xg *= 1.15
+    # Goal uplift is a per-competition calibration, so the caller states it.
+    # It used to be applied to every non-knockout national fixture, which is
+    # only right for the competition it was fitted on: WC group games, with
+    # their mismatched opponents and nothing-to-lose football, run ~15% above
+    # the historical average. Nations League does not. Measured over 188
+    # fixtures since 09/2024: 2.69 actual goals per game, 2.77 predicted
+    # without the uplift (bias +0.08, MAE 1.32) against 3.18 with it (bias
+    # +0.50, MAE 1.39). Knockout ties are cautious for the opposite reason,
+    # and no calibrated factor exists for them either - so the default is no
+    # adjustment, and WC group callers opt in via WC2026_GROUP_GOAL_UPLIFT.
+    if goal_uplift != 1.0 and not is_knockout:
+        home_xg *= goal_uplift
+        away_xg *= goal_uplift
 
     # Use typical rho value (-0.13) — well-established in literature
     if rho is None:
@@ -302,11 +320,9 @@ def predict_scorelines(
 
     # Dixon-Coles corrected probability matrix
     rows = MAX_GOALS + 1
-    matrix = np.zeros((rows, rows))
-    for h in range(rows):
-        for a in range(rows):
-            tau = _tau(h, a, home_xg, away_xg, rho)
-            matrix[h, a] = poisson.pmf(h, home_xg) * poisson.pmf(a, away_xg) * tau
+    matrix = np.outer(poisson.pmf(np.arange(rows), home_xg), poisson.pmf(np.arange(rows), away_xg))
+    for h, a in ((0, 0), (1, 0), (0, 1), (1, 1)):
+        matrix[h, a] *= _tau(h, a, home_xg, away_xg, rho)
 
     matrix = np.clip(matrix, 0, None)
     matrix /= matrix.sum()
@@ -358,4 +374,5 @@ def predict_scorelines(
         "top_scorelines": scorelines,
         "betting_markets": betting_markets,
         "_all_scorelines": all_scorelines,
+        "score_matrix": matrix.tolist(),
     }

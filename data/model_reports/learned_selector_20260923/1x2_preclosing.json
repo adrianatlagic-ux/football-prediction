@@ -1,0 +1,66 @@
+{
+  "scope": "1x2_preclosing",
+  "protocol": {
+    "dev": [
+      "2021-22",
+      "2022-23"
+    ],
+    "holdout": [
+      "2023-24",
+      "2025-26"
+    ],
+    "alpha": 1000,
+    "threshold": 0.05
+  },
+  "development": {
+    "baseline": {
+      "bets": 178,
+      "profit": 20.479999999999997,
+      "roi": 0.11505617977528088
+    },
+    "selector": {
+      "bets": 62,
+      "profit": 25.5,
+      "roi": 0.4112903225806452
+    }
+  },
+  "holdout": {
+    "baseline": {
+      "bets": 182,
+      "profit": -37.04000000000001,
+      "roi": -0.20351648351648358
+    },
+    "selector": {
+      "bets": 64,
+      "profit": -9.0,
+      "roi": -0.140625
+    },
+    "roi_ci95": [
+      -0.875,
+      0.8753906250000014
+    ]
+  },
+  "weights": {
+    "p": -0.012260178168298354,
+    "odds": 0.01978202424423697,
+    "log_odds": 0.016862093357681397,
+    "ev": 0.013656661694801942,
+    "q": -0.00673231323766849,
+    "gap": -0.00671202744698491,
+    "has_market": 0.0,
+    "push": 0.0,
+    "suspicious": -0.003912178061617967,
+    "is_1x2": 0.0,
+    "is_handicap": 0.0,
+    "is_totals": 0.0,
+    "backs_model_fav": 0.015075821412882459,
+    "backs_market_fav": 0.0057079455859589436,
+    "model_market_agree": 0.002089745646700416
+  },
+  "limits": [
+    "Retrospective; not archived live tips",
+    "No historical AI research or per-predictor spread available",
+    "Bundesliga only, single bookmaker",
+    "Holdout reported once; alpha and threshold fixed on development data"
+  ]
+}

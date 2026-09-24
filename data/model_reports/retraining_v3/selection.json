@@ -1,0 +1,9 @@
+{
+  "selected_before_final": "verified_only/monthly/raw",
+  "development_scores": {
+    "verified_only/frozen/calibrated": 0.9852218580482315,
+    "verified_only/frozen/raw": 0.985254658731509,
+    "verified_only/monthly/calibrated": 0.9862441600782428,
+    "verified_only/monthly/raw": 0.9838497458766222
+  }
+}

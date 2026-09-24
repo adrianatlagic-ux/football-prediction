@@ -1,7 +1,27 @@
+"""Squad market values (EUR) from Transfermarkt.
+
+Two sources, deliberately kept apart. The hand-written table below covers the
+48 World Cup 2026 participants as of June 2026. data/national_market_values.csv
+adds all 54 UEFA nations, scraped from the Nations League participant pages
+(scripts/fetch_national_market_values.py).
+
+The CSV wins where both have a team, because it is refetchable and dated. The
+two are different measurements - World Cup 26-man squads versus the squads
+Transfermarkt lists for the Nations League - but across the 16 nations in both
+the median ratio is 1.04, so neither is systematically higher. The spread runs
+0.73 to 1.72, which is too wide for a single conversion factor to fix, so no
+rescaling is attempted; per-team variation would only be traded for a
+different per-team error.
+
+Why this file changed: for a Nations League round, eleven of sixteen teams had
+no entry at all, and a miss returned 0. Zero is not "unknown" - it is a value
+meaning worthless, and the ratio then asserted 2.0 or 0.5. The model was told
+Denmark is worth nothing and Norway twice as strong. Unknown teams now get a
+neutral ratio and raise a flag the model can learn from, the same way
+fifa_ranking_missing already works for rankings.
 """
-Squad market values (EUR) from Transfermarkt, June 2026.
-Alle 48 WM-2026-Teilnehmer. Quelle: transfermarkt.com
-"""
+import csv
+from pathlib import Path
 
 MARKET_VALUES: dict[str, int] = {
     # Top Tier
@@ -55,23 +75,47 @@ MARKET_VALUES: dict[str, int] = {
     "Curaçao":              8_000_000,
 }
 
-_MAX_VALUE = max(MARKET_VALUES.values())
+_CSV = Path(__file__).resolve().parents[1] / "data" / "national_market_values.csv"
+
+
+def _load() -> dict:
+    """Hand-written table overlaid with the scraped one, which wins."""
+    values = dict(MARKET_VALUES)
+    if _CSV.exists():
+        with _CSV.open(encoding="utf-8") as fh:
+            for row in csv.DictReader(fh):
+                try:
+                    values[row["team"]] = int(row["market_value_total_eur"])
+                except (KeyError, TypeError, ValueError):
+                    continue
+    return values
+
+
+VALUES = _load()
+_MAX_VALUE = max(VALUES.values())
+
+
+def has_market_value(team: str) -> bool:
+    """Whether we hold a real value, as opposed to falling back to a placeholder."""
+    return team in VALUES
 
 
 def get_market_value(team: str) -> float:
-    return float(MARKET_VALUES.get(team, 0))
+    return float(VALUES.get(team, 0))
 
 
 def get_market_value_ratio(home: str, away: str) -> float:
-    h = get_market_value(home)
-    a = get_market_value(away)
-    if h == 0 and a == 0:
+    """Strength ratio, or 1.0 where either side is unknown.
+
+    The old code answered 2.0 / 0.5 when one side was missing - a confident
+    claim that the known team is twice as strong, which is exactly backwards
+    for a strong nation we simply had no row for. 1.0 asserts nothing, and
+    market_value_missing tells the model to discount the pair.
+    """
+    if not (has_market_value(home) and has_market_value(away)):
         return 1.0
-    if a == 0:
-        return 2.0
-    if h == 0:
-        return 0.5
-    return h / a
+    h, a = get_market_value(home), get_market_value(away)
+    return h / a if a else 1.0
 
 
 def get_market_value_normalized(team: str) -> float:

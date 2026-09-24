@@ -1,0 +1,390 @@
+{
+  "home_team": "Hamburger SV",
+  "away_team": "1. FC Köln",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.37,
+  "probability_draw": 0.3218,
+  "probability_away_win": 0.3082,
+  "score_prediction": {
+    "home_xg": 1.48,
+    "away_xg": 1.28,
+    "rho": -0.13,
+    "most_likely_score": "1:1",
+    "result": "D",
+    "probability_home_win": 0.37,
+    "probability_draw": 0.3218,
+    "probability_away_win": 0.3082,
+    "top_scorelines": [
+      {
+        "score": "1:1",
+        "probability": 0.1532
+      },
+      {
+        "score": "0:0",
+        "probability": 0.0891
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0815
+      },
+      {
+        "score": "1:2",
+        "probability": 0.0757
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0716
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.6918,
+        "home_or_away": 0.6782,
+        "draw_or_away": 0.63
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7749,
+          "under": 0.2251
+        },
+        {
+          "line": 2.5,
+          "over": 0.5069,
+          "under": 0.4931
+        },
+        {
+          "line": 3.5,
+          "over": 0.2965,
+          "under": 0.7035
+        }
+      ],
+      "btts": {
+        "yes": 0.5816,
+        "no": 0.4184
+      },
+      "win_margin": {
+        "home_1plus": 0.37,
+        "home_2plus": 0.1865,
+        "home_3plus": 0.0719,
+        "away_1plus": 0.3082,
+        "away_2plus": 0.1401,
+        "away_3plus": 0.0477
+      },
+      "scenario": "Though Köln average more goals, Hamburger SV are slight favorites with a 1:1 draw most likely, supported by their strong head-to-head record."
+    },
+    "score_matrix": [
+      [
+        0.0890762470427548,
+        0.06448882427343325,
+        0.05117967015364673,
+        0.021869260599570305,
+        0.007008611393979059,
+        0.0017968831986126957,
+        0.0003839073876353464,
+        7.030501436906488e-05,
+        1.1265596349667406e-05
+      ],
+      [
+        0.07158225762799182,
+        0.15316394912274411,
+        0.07573233666204168,
+        0.03236070496946278,
+        0.010370885862077472,
+        0.002658910519180176,
+        0.0005680811040821715,
+        0.00010403277319379753,
+        1.6670094451378337e-05
+      ],
+      [
+        0.06355226181553081,
+        0.08146834306455172,
+        0.0642776316991241,
+        0.023942629915461998,
+        0.007673080123734404,
+        0.001967241152475942,
+        0.0004203046766082945,
+        7.697045506297697e-05,
+        1.2333659062180002e-05
+      ],
+      [
+        0.03134683018341059,
+        0.04018384621433334,
+        0.025756057105763563,
+        0.013547498250161676,
+        0.0037847077783095665,
+        0.0009703317014188509,
+        0.0002073131458511485,
+        3.79652858147268e-05,
+        6.0835146557719805e-06
+      ],
+      [
+        0.011596248518264171,
+        0.014865358455532957,
+        0.009528033211061403,
+        0.004071363505636335,
+        0.001606130639733215,
+        0.00035895838555178726,
+        7.669211675716232e-05,
+        1.4044638223340794e-05,
+        2.250497016765945e-06
+      ],
+      [
+        0.0034318743913956586,
+        0.004399357509638558,
+        0.0028197923773285653,
+        0.001204907615687052,
+        0.0003861460795872696,
+        0.00012186601348258441,
+        2.2696798115898692e-05,
+        4.1564678593413605e-06,
+        6.66027730225592e-07
+      ],
+      [
+        0.0008463773018034855,
+        0.0010849803675834773,
+        0.000695424130309971,
+        0.000297157279195451,
+        9.523229572809494e-05,
+        2.4415865360452986e-05,
+        6.421283581734656e-06,
+        1.025078324731923e-06,
+        1.642573966716157e-07
+      ],
+      [
+        0.00017891627272777495,
+        0.00022935473687350663,
+        0.00014700617927121978,
+        6.28162790924197e-05,
+        2.0131219680246143e-05,
+        5.16128636295791e-06,
+        1.1027182879615742e-06,
+        2.4858076266269336e-07,
+        3.4722482653813634e-08
+      ],
+      [
+        3.3093578367786826e-05,
+        4.242302191425108e-05,
+        2.7191269078487764e-05,
+        1.161892891699529e-05,
+        3.7236081769991777e-06,
+        9.546668512987706e-07,
+        2.0396632192183441e-07,
+        3.7352381473681254e-08,
+        7.367655119572292e-09
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.07,
+    "total_xg": 2.76,
+    "first_goal": {
+      "Hamburger SV_scores_first": 0.502,
+      "1. FC Köln_scores_first": 0.434,
+      "no_goals": 0.063,
+      "expected_minute": 32
+    },
+    "halftime_xg": {
+      "Hamburger SV": 0.7,
+      "1. FC Köln": 0.6
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.274
+      },
+      {
+        "score": "1:0",
+        "probability": 0.19
+      },
+      {
+        "score": "0:1",
+        "probability": 0.165
+      },
+      {
+        "score": "1:1",
+        "probability": 0.115
+      },
+      {
+        "score": "2:0",
+        "probability": 0.066
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Hamburger SV": 0.2,
+        "1. FC Köln": 0.173
+      },
+      "16-30'": {
+        "Hamburger SV": 0.229,
+        "1. FC Köln": 0.198
+      },
+      "31-45'": {
+        "Hamburger SV": 0.266,
+        "1. FC Köln": 0.23
+      },
+      "46-60'": {
+        "Hamburger SV": 0.215,
+        "1. FC Köln": 0.186
+      },
+      "61-75'": {
+        "Hamburger SV": 0.274,
+        "1. FC Köln": 0.237
+      },
+      "76-90'": {
+        "Hamburger SV": 0.296,
+        "1. FC Köln": 0.256
+      }
+    },
+    "comeback_probability": {
+      "Hamburger SV": 0.03,
+      "1. FC Köln": 0.026
+    },
+    "late_drama_probability": 0.424,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.254
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.212
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Hamburger SV trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.094
+      },
+      {
+        "szenario": "Hamburger SV dominiert früh",
+        "beschreibung": "Hamburger SV geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.067
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 51,
+        "away": 49
+      },
+      "shots": {
+        "home": 14,
+        "away": 12
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 5
+      },
+      "corners": {
+        "home": 6,
+        "away": 5
+      },
+      "passes": {
+        "home": 265,
+        "away": 255
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Hamburger SV and 1. FC Köln is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 22,
+        "type": "chance",
+        "team": "1. FC Köln",
+        "headline": "Big chance for 1. FC Köln!",
+        "description": "1. FC Köln create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 63,
+        "type": "chance",
+        "team": "Hamburger SV",
+        "headline": "Big chance for Hamburger SV!",
+        "description": "Hamburger SV create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 71,
+        "type": "chance",
+        "team": "1. FC Köln",
+        "headline": "Big chance for 1. FC Köln!",
+        "description": "1. FC Köln create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 82,
+        "type": "goal",
+        "team": "Hamburger SV",
+        "headline": "GOAL! Hamburger SV!",
+        "description": "Hamburger SV score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 89,
+        "type": "goal",
+        "team": "1. FC Köln",
+        "headline": "GOAL! 1. FC Köln!",
+        "description": "1. FC Köln score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:1.",
+        "score_after": "1:1"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Hamburger SV": 0.72,
+      "1. FC Köln": 0.94
+    },
+    "win_rate_last_10": {
+      "Hamburger SV": "19%",
+      "1. FC Köln": "19%"
+    },
+    "avg_goals_scored": {
+      "Hamburger SV": 0.77,
+      "1. FC Köln": 1.51
+    },
+    "avg_goals_conceded": {
+      "Hamburger SV": 2.9,
+      "1. FC Köln": 2.45
+    },
+    "clean_sheet_rate": {
+      "Hamburger SV": "0%",
+      "1. FC Köln": "0%"
+    },
+    "h2h_last_10": {
+      "Hamburger SV wins": "50%",
+      "draws": "20%",
+      "1. FC Köln wins": "30%",
+      "total_h2h_games": 10
+    }
+  },
+  "model_version": "club_verified_v3",
+  "generated_at": "2026-09-19T14:36:26.088481+00:00",
+  "training_end": "2026-09-13",
+  "market_value_policy": "current_season"
+}

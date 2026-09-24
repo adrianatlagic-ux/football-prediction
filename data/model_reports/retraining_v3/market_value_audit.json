@@ -1,0 +1,9 @@
+{
+  "rows": 552,
+  "teams": 50,
+  "verified_rows": 0,
+  "season_only_rows": 552,
+  "default_policy": "verified_only",
+  "coverage": "German clubs only",
+  "lagged_season": "Sensitivity analysis only: historical availability not demonstrated"
+}

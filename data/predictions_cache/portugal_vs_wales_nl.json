@@ -1,0 +1,397 @@
+{
+  "home_team": "Portugal",
+  "away_team": "Wales",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6178,
+  "probability_draw": 0.2407,
+  "probability_away_win": 0.1415,
+  "score_prediction": {
+    "home_xg": 2.34,
+    "away_xg": 0.79,
+    "rho": -0.13,
+    "most_likely_score": "2:0",
+    "result": "H",
+    "probability_home_win": 0.6178,
+    "probability_draw": 0.2407,
+    "probability_away_win": 0.1415,
+    "top_scorelines": [
+      {
+        "score": "2:0",
+        "probability": 0.1046
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0822
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0815
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0803
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0641
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8585,
+        "home_or_away": 0.7593,
+        "draw_or_away": 0.3822
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8165,
+          "under": 0.1835
+        },
+        {
+          "line": 2.5,
+          "over": 0.5775,
+          "under": 0.4225
+        },
+        {
+          "line": 3.5,
+          "over": 0.3628,
+          "under": 0.6372
+        }
+      ],
+      "btts": {
+        "yes": 0.522,
+        "no": 0.478
+      },
+      "win_margin": {
+        "home_1plus": 0.6178,
+        "home_2plus": 0.4259,
+        "home_3plus": 0.2406,
+        "away_1plus": 0.1415,
+        "away_2plus": 0.0443,
+        "away_3plus": 0.0096
+      },
+      "scenario": "Portugal are strong favourites with over a 60% win chance, a 2-0 score is most likely, and they're expected to win by at least two goals."
+    },
+    "score_matrix": [
+      [
+        0.06847997713776241,
+        0.034746785189628156,
+        0.01961829903994018,
+        0.005138785724896907,
+        0.0010095339562559524,
+        0.00015866142133867507,
+        2.0779758872243215e-05,
+        2.332721420126797e-06,
+        2.2913598758302527e-07
+      ],
+      [
+        0.08027692465666443,
+        0.1148105513670496,
+        0.04589248788924178,
+        0.012021004530776026,
+        0.0023615719572289643,
+        0.00037115181812914376,
+        4.8609455409172614e-05,
+        5.456863987249648e-06,
+        5.360108189672854e-07
+      ],
+      [
+        0.10457794058062286,
+        0.08217893311251012,
+        0.04669216732661279,
+        0.014060184415632239,
+        0.002762176583863352,
+        0.00043411205741855543,
+        5.685530736192957e-05,
+        6.382537648606915e-06,
+        6.269368707215334e-07
+      ],
+      [
+        0.08154532768628034,
+        0.06407955628464755,
+        0.025177344000839433,
+        0.009536789331943978,
+        0.0021538251127144726,
+        0.00033850169336113923,
+        4.433329480186557e-05,
+        4.976825142434566e-06,
+        4.888580926126144e-07
+      ],
+      [
+        0.047689123756958024,
+        0.037474837328585,
+        0.014724148004491334,
+        0.003856819667327289,
+        0.0010956778241989777,
+        0.0001979616687389337,
+        2.5926880697489412e-05,
+        2.910533771442969e-06,
+        2.8589270212860727e-07
+      ],
+      [
+        0.022311542198527143,
+        0.017532748529850505,
+        0.006888749963489012,
+        0.0018044280955597759,
+        0.00035448674679394216,
+        8.056446521985671e-05,
+        1.2129992064989728e-05,
+        1.3617045553770192e-06,
+        1.3375601364163658e-07
+      ],
+      [
+        0.008698784895092314,
+        0.0068356372107251035,
+        0.002685773739675499,
+        0.0007035072574665741,
+        0.00013820667038987183,
+        2.172097989043105e-05,
+        4.1137859754294465e-06,
+        5.308989810069671e-07,
+        5.214855973382409e-08
+      ],
+      [
+        0.002906971697600203,
+        0.0022843424853339575,
+        0.000897535499676438,
+        0.00023509900649060328,
+        4.618609197585564e-05,
+        7.258746428049951e-06,
+        9.50672187460528e-07,
+        1.5432855101646372e-07,
+        1.7427076200305493e-08
+      ],
+      [
+        0.0008500237657893093,
+        0.0006679615777955642,
+        0.00026244717346040047,
+        6.87449908767402e-05,
+        1.3505214330369296e-05,
+        2.1225204836959154e-06,
+        2.779848023575412e-07,
+        3.120638246651357e-08,
+        4.432686019998093e-09
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": 0.5,
+    "total_xg": 3.13,
+    "first_goal": {
+      "Portugal_scores_first": 0.715,
+      "Wales_scores_first": 0.241,
+      "no_goals": 0.044,
+      "expected_minute": 28
+    },
+    "halftime_xg": {
+      "Portugal": 1.1,
+      "Wales": 0.37
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.254
+      },
+      {
+        "score": "0:0",
+        "probability": 0.231
+      },
+      {
+        "score": "2:0",
+        "probability": 0.14
+      },
+      {
+        "score": "1:1",
+        "probability": 0.094
+      },
+      {
+        "score": "0:1",
+        "probability": 0.086
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Portugal": 0.316,
+        "Wales": 0.107
+      },
+      "16-30'": {
+        "Portugal": 0.363,
+        "Wales": 0.122
+      },
+      "31-45'": {
+        "Portugal": 0.421,
+        "Wales": 0.142
+      },
+      "46-60'": {
+        "Portugal": 0.339,
+        "Wales": 0.115
+      },
+      "61-75'": {
+        "Portugal": 0.433,
+        "Wales": 0.146
+      },
+      "76-90'": {
+        "Portugal": 0.468,
+        "Wales": 0.158
+      }
+    },
+    "comeback_probability": {
+      "Portugal": 0.033,
+      "Wales": 0.012
+    },
+    "late_drama_probability": 0.465,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.191
+      },
+      {
+        "szenario": "Portugal dominiert früh",
+        "beschreibung": "Portugal geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.143
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Portugal trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.106
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 59,
+        "away": 41
+      },
+      "shots": {
+        "home": 19,
+        "away": 9
+      },
+      "shots_on_target": {
+        "home": 8,
+        "away": 3
+      },
+      "corners": {
+        "home": 8,
+        "away": 4
+      },
+      "passes": {
+        "home": 307,
+        "away": 213
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Portugal and Wales is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 19,
+        "type": "chance",
+        "team": "Portugal",
+        "headline": "Big chance for Portugal!",
+        "description": "Portugal create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 33,
+        "type": "goal",
+        "team": "Portugal",
+        "headline": "GOAL! Portugal!",
+        "description": "Portugal score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 41,
+        "type": "chance",
+        "team": "Portugal",
+        "headline": "Big chance for Portugal!",
+        "description": "Portugal create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 48,
+        "type": "chance",
+        "team": "Portugal",
+        "headline": "Big chance for Portugal!",
+        "description": "Portugal create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 51,
+        "type": "chance",
+        "team": "Portugal",
+        "headline": "Big chance for Portugal!",
+        "description": "Portugal create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 61,
+        "type": "goal",
+        "team": "Portugal",
+        "headline": "GOAL! Portugal!",
+        "description": "Portugal score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Portugal": 5,
+      "Wales": 30
+    },
+    "fifa_points": {
+      "Portugal": 1779.55,
+      "Wales": 1529.09
+    },
+    "form_last_10_avg_pts": {
+      "Portugal": 1.84,
+      "Wales": 1.4
+    },
+    "win_rate_last_10": {
+      "Portugal": "46%",
+      "Wales": "36%"
+    },
+    "avg_goals_scored": {
+      "Portugal": 2.22,
+      "Wales": 1.94
+    },
+    "avg_goals_conceded": {
+      "Portugal": 0.6,
+      "Wales": 1.41
+    },
+    "clean_sheet_rate": {
+      "Portugal": "59%",
+      "Wales": "23%"
+    },
+    "h2h_last_10": {
+      "Portugal wins": "100%",
+      "draws": "0%",
+      "Wales wins": "0%",
+      "total_h2h_games": 1
+    }
+  }
+}

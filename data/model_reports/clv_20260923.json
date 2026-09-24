@@ -1,0 +1,39 @@
+{
+  "bets": 360,
+  "unmatched": 0,
+  "mean_clv": 0.002503693819043992,
+  "clv_ci95": [
+    -0.005278452988925616,
+    0.01040810266254775
+  ],
+  "share_beating_close": 0.4027777777777778,
+  "by_season": {
+    "2021-22": {
+      "bets": 97,
+      "mean_clv": 0.0017986956666718496,
+      "share_beating_close": 0.38144329896907214
+    },
+    "2022-23": {
+      "bets": 81,
+      "mean_clv": 0.001344592667205035,
+      "share_beating_close": 0.3950617283950617
+    },
+    "2023-24": {
+      "bets": 73,
+      "mean_clv": 0.0027666314128464695,
+      "share_beating_close": 0.4246575342465753
+    },
+    "2025-26": {
+      "bets": 109,
+      "mean_clv": 0.0038163320734611703,
+      "share_beating_close": 0.41284403669724773
+    }
+  },
+  "mean_model_minus_closing_probability": 0.06993679729637035,
+  "limits": [
+    "Bundesliga only, single bookmaker (Bet365)",
+    "Retrospective; not archived live tips",
+    "1X2 only - football-data carries no closing handicap or totals",
+    "Opening price used as the taken price; our real timing differed"
+  ]
+}

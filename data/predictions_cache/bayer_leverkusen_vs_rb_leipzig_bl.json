@@ -1,0 +1,398 @@
+{
+  "home_team": "Bayer Leverkusen",
+  "away_team": "RB Leipzig",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.381,
+  "probability_draw": 0.3327,
+  "probability_away_win": 0.2863,
+  "score_prediction": {
+    "home_xg": 1.65,
+    "away_xg": 1.32,
+    "rho": -0.13,
+    "most_likely_score": "1:1",
+    "result": "D",
+    "probability_home_win": 0.381,
+    "probability_draw": 0.3327,
+    "probability_away_win": 0.2863,
+    "top_scorelines": [
+      {
+        "score": "1:1",
+        "probability": 0.1557
+      },
+      {
+        "score": "0:0",
+        "probability": 0.0812
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0804
+      },
+      {
+        "score": "2:2",
+        "probability": 0.075
+      },
+      {
+        "score": "1:2",
+        "probability": 0.0721
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7137,
+        "home_or_away": 0.6673,
+        "draw_or_away": 0.619
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8058,
+          "under": 0.1942
+        },
+        {
+          "line": 2.5,
+          "over": 0.5455,
+          "under": 0.4545
+        },
+        {
+          "line": 3.5,
+          "over": 0.3404,
+          "under": 0.6596
+        }
+      ],
+      "btts": {
+        "yes": 0.6202,
+        "no": 0.3798
+      },
+      "win_margin": {
+        "home_1plus": 0.381,
+        "home_2plus": 0.2043,
+        "home_3plus": 0.0855,
+        "away_1plus": 0.2863,
+        "away_2plus": 0.1309,
+        "away_3plus": 0.0452
+      },
+      "scenario": "Bayer Leverkusen is slightly favored, but a 1-1 draw is the most likely outcome, despite RB Leipzig's better recent form."
+    },
+    "score_matrix": [
+      [
+        0.08116633791984,
+        0.05201478078185301,
+        0.04378431186813982,
+        0.01931401904163266,
+        0.006389811480832984,
+        0.0016911939735618524,
+        0.00037300749075191216,
+        7.051717324249121e-05,
+        1.1664880370301977e-05
+      ],
+      [
+        0.06116698035097123,
+        0.15567460133825622,
+        0.07205676549893858,
+        0.03178548848994588,
+        0.010515847521903036,
+        0.002783233591364007,
+        0.0006138662946537234,
+        0.00011605159928708714,
+        1.9197139650095672e-05
+      ],
+      [
+        0.06078993810220516,
+        0.08044648678605872,
+        0.07500857999026618,
+        0.026155024398771577,
+        0.008653076028582495,
+        0.002290213111326961,
+        0.000505126354101188,
+        9.549428229899114e-05,
+        1.5796568805091616e-05
+      ],
+      [
+        0.03334776108634006,
+        0.04413082666849406,
+        0.029200309091251334,
+        0.018150978849136388,
+        0.0047468499075941275,
+        0.0012563506734441724,
+        0.00027709903153149253,
+        5.238565148502348e-05,
+        8.665582149638976e-06
+      ],
+      [
+        0.013720278439853458,
+        0.01815675805356148,
+        0.012013891134234548,
+        0.005299535660843673,
+        0.0024706526065259365,
+        0.0005169007002635715,
+        0.00011400693012590698,
+        2.1553042879453106e-05,
+        3.5652828274930935e-06
+      ],
+      [
+        0.00451595032073604,
+        0.005976191934803286,
+        0.003954302805061283,
+        0.0017443115219748179,
+        0.0005770845397448549,
+        0.00021523024107051176,
+        3.7524721887037725e-05,
+        7.0940594486465435e-06,
+        1.173492228959757e-06
+      ],
+      [
+        0.0012386657815022786,
+        0.0016391908518878957,
+        0.001084613254454395,
+        0.00047844171018210276,
+        0.000158286699730443,
+        4.189380445449743e-05,
+        1.3020642284763773e-05,
+        1.9458072093116385e-06,
+        3.2187348523231234e-07
+      ],
+      [
+        0.00029121405734177085,
+        0.0003853787081748894,
+        0.000254995844071233,
+        0.00011248308761277389,
+        3.721368002580614e-05,
+        9.849359653643188e-06,
+        2.1723616494333512e-06,
+        5.787192706221854e-07,
+        7.567342618567835e-08
+      ],
+      [
+        5.9907139522557056e-05,
+        7.927823351110044e-05,
+        5.245650484007869e-05,
+        2.313947370898396e-05,
+        7.655417261802594e-06,
+        2.0261623644292814e-06,
+        4.46887672985246e-07,
+        8.448424290973249e-08,
+        1.9693349409603893e-08
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.11,
+    "total_xg": 2.97,
+    "first_goal": {
+      "Bayer Leverkusen_scores_first": 0.527,
+      "RB Leipzig_scores_first": 0.422,
+      "no_goals": 0.051,
+      "expected_minute": 30
+    },
+    "halftime_xg": {
+      "Bayer Leverkusen": 0.78,
+      "RB Leipzig": 0.62
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.248
+      },
+      {
+        "score": "1:0",
+        "probability": 0.192
+      },
+      {
+        "score": "0:1",
+        "probability": 0.154
+      },
+      {
+        "score": "1:1",
+        "probability": 0.119
+      },
+      {
+        "score": "2:0",
+        "probability": 0.075
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Bayer Leverkusen": 0.223,
+        "RB Leipzig": 0.178
+      },
+      "16-30'": {
+        "Bayer Leverkusen": 0.256,
+        "RB Leipzig": 0.205
+      },
+      "31-45'": {
+        "Bayer Leverkusen": 0.297,
+        "RB Leipzig": 0.238
+      },
+      "46-60'": {
+        "Bayer Leverkusen": 0.239,
+        "RB Leipzig": 0.191
+      },
+      "61-75'": {
+        "Bayer Leverkusen": 0.305,
+        "RB Leipzig": 0.244
+      },
+      "76-90'": {
+        "Bayer Leverkusen": 0.33,
+        "RB Leipzig": 0.264
+      }
+    },
+    "comeback_probability": {
+      "Bayer Leverkusen": 0.034,
+      "RB Leipzig": 0.028
+    },
+    "late_drama_probability": 0.448,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.241
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.199
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Bayer Leverkusen trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.085
+      },
+      {
+        "szenario": "Bayer Leverkusen dominiert früh",
+        "beschreibung": "Bayer Leverkusen geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.075
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 52,
+        "away": 48
+      },
+      "shots": {
+        "home": 15,
+        "away": 13
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 5
+      },
+      "corners": {
+        "home": 6,
+        "away": 5
+      },
+      "passes": {
+        "home": 270,
+        "away": 250
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Bayer Leverkusen and RB Leipzig is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 4,
+        "type": "chance",
+        "team": "Bayer Leverkusen",
+        "headline": "Big chance for Bayer Leverkusen!",
+        "description": "Bayer Leverkusen create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 6,
+        "type": "chance",
+        "team": "Bayer Leverkusen",
+        "headline": "Big chance for Bayer Leverkusen!",
+        "description": "Bayer Leverkusen create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 48,
+        "type": "goal",
+        "team": "RB Leipzig",
+        "headline": "GOAL! RB Leipzig!",
+        "description": "RB Leipzig score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 53,
+        "type": "chance",
+        "team": "Bayer Leverkusen",
+        "headline": "Big chance for Bayer Leverkusen!",
+        "description": "Bayer Leverkusen create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 57,
+        "type": "goal",
+        "team": "Bayer Leverkusen",
+        "headline": "GOAL! Bayer Leverkusen!",
+        "description": "Bayer Leverkusen score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 77,
+        "type": "chance",
+        "team": "Bayer Leverkusen",
+        "headline": "Big chance for Bayer Leverkusen!",
+        "description": "Bayer Leverkusen create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:1.",
+        "score_after": "1:1"
+      }
+    ]
+  },
+  "explanation": {
+    "form_last_10_avg_pts": {
+      "Bayer Leverkusen": 1.54,
+      "RB Leipzig": 1.95
+    },
+    "win_rate_last_10": {
+      "Bayer Leverkusen": "42%",
+      "RB Leipzig": "65%"
+    },
+    "avg_goals_scored": {
+      "Bayer Leverkusen": 2.34,
+      "RB Leipzig": 2.38
+    },
+    "avg_goals_conceded": {
+      "Bayer Leverkusen": 1.59,
+      "RB Leipzig": 1.54
+    },
+    "clean_sheet_rate": {
+      "Bayer Leverkusen": "21%",
+      "RB Leipzig": "36%"
+    },
+    "h2h_last_10": {
+      "Bayer Leverkusen wins": "60%",
+      "draws": "10%",
+      "RB Leipzig wins": "30%",
+      "total_h2h_games": 10
+    }
+  },
+  "model_version": "club_verified_v3",
+  "generated_at": "2026-09-19T14:36:50.464115+00:00",
+  "training_end": "2026-09-13",
+  "market_value_policy": "current_season"
+}

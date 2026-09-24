@@ -1,0 +1,378 @@
+{
+  "home_team": "Andorra",
+  "away_team": "Malta",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.3799,
+  "probability_draw": 0.3385,
+  "probability_away_win": 0.2817,
+  "score_prediction": {
+    "home_xg": 0.6,
+    "away_xg": 0.97,
+    "rho": -0.13,
+    "most_likely_score": "1:0",
+    "result": "H",
+    "probability_home_win": 0.3799,
+    "probability_draw": 0.3385,
+    "probability_away_win": 0.2817,
+    "top_scorelines": [
+      {
+        "score": "1:0",
+        "probability": 0.2026
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0696
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0676
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0139
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0135
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7183,
+        "home_or_away": 0.6615,
+        "draw_or_away": 0.6201
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.4718,
+          "under": 0.5282
+        },
+        {
+          "line": 2.5,
+          "over": 0.2138,
+          "under": 0.7862
+        },
+        {
+          "line": 3.5,
+          "over": 0.0711,
+          "under": 0.9289
+        }
+      ],
+      "btts": {
+        "yes": 0.2918,
+        "no": 0.7082
+      },
+      "win_margin": {
+        "home_1plus": 0.3799,
+        "home_2plus": 0.1027,
+        "home_3plus": 0.0186,
+        "away_1plus": 0.2817,
+        "away_2plus": 0.1119,
+        "away_3plus": 0.0318
+      },
+      "scenario": "Andorra are marginal favourites with 1-0 the likeliest score, but Malta's superior recent form suggests a very tight, low-scoring match where goals will be scarce."
+    },
+    "score_matrix": [
+      [
+        0.1995273052491863,
+        0.1258266948186534,
+        0.06625956052663287,
+        0.021446482322752907,
+        0.005206247978002472,
+        0.001011075573160964,
+        0.00016362932559783598,
+        2.2698223758371056e-05,
+        2.7550574441034535e-06
+      ],
+      [
+        0.20258991926610634,
+        0.1221350989078074,
+        0.039764291455528136,
+        0.012870658467995667,
+        0.0031244209943685343,
+        0.0006067758894745093,
+        9.819872244894452e-05,
+        1.3621864948649493e-05,
+        1.653390187217098e-06
+      ],
+      [
+        0.06957236744604425,
+        0.0675562531682014,
+        0.01574619130301626,
+        0.0038620284414671536,
+        0.0009375280039769,
+        0.000182071938943464,
+        2.946595622567416e-05,
+        4.087438881881965e-06,
+        4.961237953561775e-07
+      ],
+      [
+        0.013917467780686608,
+        0.013514158154550614,
+        0.0065612679513311865,
+        0.0010195451988214625,
+        0.00018754595060976062,
+        3.642222389482416e-05,
+        5.89445941617528e-06,
+        8.176636936817711e-07,
+        9.924611150334153e-08
+      ],
+      [
+        0.0020880694074770527,
+        0.0020275599451706826,
+        0.0009844019831284558,
+        0.0003186251095215374,
+        3.7132994306085874e-05,
+        5.464509253084117e-06,
+        8.843591790175097e-07,
+        1.2267594732648726e-07,
+        1.4890120279549888e-08
+      ],
+      [
+        0.0002506222493429171,
+        0.00024335955132366105,
+        0.00011815365829595554,
+        3.824324103378668e-05,
+        9.283750747934113e-06,
+        8.655525339602428e-07,
+        1.0614593838632237e-07,
+        1.4724281553641482e-08,
+        1.7871989427575536e-09
+      ],
+      [
+        2.506761813918679e-05,
+        2.434119204938725e-05,
+        1.1817908408676075e-05,
+        3.825147069557001e-06,
+        9.2857485422285e-07,
+        1.8033319905680855e-07,
+        1.4010847343094866e-08,
+        1.4727450109807577e-09,
+        1.7875835347126502e-10
+      ],
+      [
+        2.149115357542248e-06,
+        2.086836865144637e-06,
+        1.0131815601343506e-06,
+        3.279403039569901e-07,
+        7.960925799800061e-08,
+        1.5460457607731976e-08,
+        2.5020723662407894e-09,
+        1.666256248265308e-10,
+        1.532544179510643e-11
+      ],
+      [
+        1.612183373418842e-07,
+        1.565464452718446e-07,
+        7.600496919677576e-08,
+        2.4600815570831322e-08,
+        5.971979198983716e-09,
+        1.1597838437642988e-09,
+        1.876958095240284e-10,
+        2.6036662239603666e-11,
+        1.5171736341566212e-12
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Tactically Balanced",
+    "match_description": "A tight game where goals will make the difference",
+    "dominance_index": -0.24,
+    "total_xg": 1.57,
+    "first_goal": {
+      "Andorra_scores_first": 0.303,
+      "Malta_scores_first": 0.489,
+      "no_goals": 0.208,
+      "expected_minute": 57
+    },
+    "halftime_xg": {
+      "Andorra": 0.28,
+      "Malta": 0.46
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.478
+      },
+      {
+        "score": "0:1",
+        "probability": 0.218
+      },
+      {
+        "score": "1:0",
+        "probability": 0.135
+      },
+      {
+        "score": "1:1",
+        "probability": 0.061
+      },
+      {
+        "score": "0:2",
+        "probability": 0.05
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Andorra": 0.081,
+        "Malta": 0.131
+      },
+      "16-30'": {
+        "Andorra": 0.093,
+        "Malta": 0.15
+      },
+      "31-45'": {
+        "Andorra": 0.108,
+        "Malta": 0.175
+      },
+      "46-60'": {
+        "Andorra": 0.087,
+        "Malta": 0.141
+      },
+      "61-75'": {
+        "Andorra": 0.111,
+        "Malta": 0.179
+      },
+      "76-90'": {
+        "Andorra": 0.12,
+        "Malta": 0.194
+      }
+    },
+    "comeback_probability": {
+      "Andorra": 0.008,
+      "Malta": 0.012
+    },
+    "late_drama_probability": 0.269,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 0:0",
+        "wahrscheinlichkeit": 0.348
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.271
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Malta trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.202
+      },
+      {
+        "szenario": "Malta dominiert früh",
+        "beschreibung": "Malta geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.05
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 46,
+        "away": 54
+      },
+      "shots": {
+        "home": 8,
+        "away": 10
+      },
+      "shots_on_target": {
+        "home": 3,
+        "away": 4
+      },
+      "corners": {
+        "home": 4,
+        "away": 5
+      },
+      "passes": {
+        "home": 239,
+        "away": 281
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Andorra and Malta is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 36,
+        "type": "chance",
+        "team": "Andorra",
+        "headline": "Big chance for Andorra!",
+        "description": "Andorra create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 74,
+        "type": "goal",
+        "team": "Andorra",
+        "headline": "GOAL! Andorra!",
+        "description": "Andorra score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 89,
+        "type": "chance",
+        "team": "Malta",
+        "headline": "Big chance for Malta!",
+        "description": "Malta create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:0.",
+        "score_after": "1:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Andorra": 174,
+      "Malta": 166
+    },
+    "fifa_points": {
+      "Andorra": 954.68,
+      "Malta": 982.43
+    },
+    "form_last_10_avg_pts": {
+      "Andorra": 0.29,
+      "Malta": 0.68
+    },
+    "win_rate_last_10": {
+      "Andorra": "0%",
+      "Malta": "19%"
+    },
+    "avg_goals_scored": {
+      "Andorra": 0.24,
+      "Malta": 0.77
+    },
+    "avg_goals_conceded": {
+      "Andorra": 1.66,
+      "Malta": 2.55
+    },
+    "clean_sheet_rate": {
+      "Andorra": "22%",
+      "Malta": "16%"
+    },
+    "h2h_last_10": {
+      "Andorra wins": "0%",
+      "draws": "50%",
+      "Malta wins": "50%",
+      "total_h2h_games": 4
+    }
+  }
+}

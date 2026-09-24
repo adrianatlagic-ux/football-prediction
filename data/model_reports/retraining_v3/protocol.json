@@ -1,0 +1,297 @@
+{
+  "development_seasons": [
+    "2021-22",
+    "2022-23",
+    "2023-24"
+  ],
+  "heldout_season": "2025-26",
+  "configs": [
+    [
+      "verified_only",
+      "frozen"
+    ],
+    [
+      "verified_only",
+      "monthly"
+    ],
+    [
+      "lagged_season",
+      "frozen"
+    ]
+  ],
+  "selection": "Mean development log-loss across the two competitions; verified data only",
+  "limitations": [
+    "2025/26 was examined in previous experiments; not an untouched future sample",
+    "Season-only values in lagged sensitivity analysis have no proven availability date",
+    "No historical bookmaker odds: no ROI inferred from these predictions",
+    "Missing CL seasons including 2024/25; raw CL scores not audited for extra time"
+  ],
+  "sources": {
+    "bundesliga2_2021-22.csv": "9777ef5953639582276424bf3584351ccd5441c992ce6d2359a1c98d0fde793f",
+    "cl_2011-12.csv": "c6abe37f4ab6c6a9a5f8864a2fdda8d0e2781b668d9f902f7262ee20f7dfca91",
+    "bundesliga2_2012-13.csv": "753bb712bc34e629934ad291824a5a0966b1c0c3c9ca80ceef44f1a3cd64e37f",
+    "cl_2022-23.csv": "10ee7b840470e00d69cb563a2903a2eda056cede0c2e1b9ea6e148888b812066",
+    "bundesliga_2024-25.csv": "e4ef34a0ae6d82547e7daf5a235477512c0bb2ab404040a6c9fe344c015d3455",
+    "bundesliga2_2023-24.csv": "44dea7b4ed343b032d7751eac2408560d14319b911f5f2936e96039cbc3bd515",
+    "bundesliga2_2017-18.csv": "abf448fef101938c7a8ea426e67507c01d3cd2e1643057d487bf2e9869c9da26",
+    "bundesliga2_2019-20.csv": "cc12b70364b565fed9c8562158f6f355a6408ee14ca33e27442416c385645aaa",
+    "pl_2024-25.csv": "eb4920e95c163990b7458bfdc2cc7f13530139bbc9b21106195632d9356e1ef9",
+    "bundesliga_2026-27.csv": "11da6ff589f08707d187cadae0e464be12528d7d268b866241c090d170a906f1",
+    "bundesliga_2015-16.csv": "a3980ab32ae7ce4e509e4f2a55dc6465224c8870fac2d390e4b1a7e2e3bdd731",
+    "bundesliga_2020-21.csv": "b41f491b885019d58bcf36b2818e461067498719ba1fdf480e0dfb77c12e6730",
+    "bundesliga_2018-19.csv": "216a6f16d73adb03fbfc3f16628eb86e3031be6d29aa0bba96652ccb69dc082c",
+    "pl_2022-23.csv": "4face068b6b0bd8be5c60f61a12ba61eaa4c98ff1d87881e87284faa9f06d0c0",
+    "cl_2015-16.csv": "a9dbe3230badcf867ad9f1833afe66fe5032855eec7361e8d8cf59b9221d0e9c",
+    "bundesliga2_2025-26.csv": "6e27eee725618b4754ff27a1b16f4bb9f6e1f6b214c8244592078d040214a992",
+    "bundesliga2_2016-17.csv": "c8d5cb91f73460bf86989a9d0ed06943c78293124adfb81eca10eb3656ce3cf9",
+    "pl_2020-21.csv": "250a07ea47a0ca3398db575d0d7e75d679f9d36abd11a3e887edadec7d645bbb",
+    "bundesliga_2022-23.csv": "a59bfd22211977d4e2bd982342b2b358dc0f13d64736d1afa81404208ba0204b",
+    "bundesliga_2011-12.csv": "8f42775a15090459ea0c834e4f22596d9a8924dcee87dcc94671f77ffc0fdb0a",
+    "bundesliga2_2014-15.csv": "bf44ed54ab8c360340dcb70e5391b6d7216a514c07e9caadfe62ba67a101caad",
+    "bundesliga_2013-14.csv": "4726fbf89950e13ee6badf0dc59550bf74309112c08c5f58e9be1c41f5d71c1e",
+    "bundesliga2_2018-19.csv": "25b933e1914f555e00422a48acd7294b2ac85a1678c60cf25b8e5f3702f8787f",
+    "bundesliga2_2020-21.csv": "feb7277539c68b892fc3bb94a81a84bd869ca7a9952fbfdd2956335a99becdbe",
+    "bundesliga_2025-26.csv": "d4fab4ac16fb3757f4c4ac6121491908bf1f684078bf6eb5de56d74cbd785ef4",
+    "bundesliga_2016-17.csv": "ca7de73c6f33efe32ba03cfe9efe686a61aa8a62e592820be7548bbccf406235",
+    "bundesliga2_2022-23.csv": "124653ae963e880a5f75a57933755761c73ac7ad571f2b03d5252733902b0d79",
+    "cl_2021-22.csv": "3b33e36e180f3b2564711a2747539e3b75d57249d236354ff4a29dfddea8d382",
+    "bundesliga2_2011-12.csv": "90dba431e8544593cc3aad5df5c098fdf300caedbcd7a1f2d28cd9f346b201c8",
+    "bundesliga_2014-15.csv": "06a392f92845e25cc654606e5a1011202ad7c1bfc606a7a0c9eb298e97739893",
+    "bundesliga2_2013-14.csv": "fdbecbdae043e948b2480abc7b7e1a6bf401087dfa932b18e7990126e605fddd",
+    "cl_2023-24.csv": "e6c97f9181242f15115f763e9c7a2959753a1c55df074cae67c84fe432f30b16",
+    "bundesliga_2021-22.csv": "888e9165ebc6f2497b57b10d81b066f59906b58f608b607c4a5d61e09410f59a",
+    "bundesliga_2012-13.csv": "90727aecc9937ef4f253ddfccbb8fd2fbb3e9ea8483529a996b608d783a2b62a",
+    "bundesliga2_2024-25.csv": "81c326ac5a96b41312e22a9a625c4626d24f73a1d37aa60bd8e7868c1246b1ef",
+    "cl_2014-15.csv": "ef2dd368977b0e8c304bf143b2dd540f5ddfe71fab6808c8f85c17ad4873a1f5",
+    "bundesliga_2023-24.csv": "bfb6aad177303beae4d250bc710dd057c277ba691058edde5cc197e52450c1f0",
+    "bundesliga_2017-18.csv": "5458baf1484e4270053cf1d6dca97984851165115b248e0ba43dfed57c7e0ce9",
+    "bundesliga_2019-20.csv": "737cea8d27a589ad61235748b54b275bd06a70c6bb9e0190c45ef69f9e93cfae",
+    "pl_2021-22.csv": "76c0b82070ee73a0ae223c144af89ae1897cc3aae5a4ced8ae69f9b6554d9551",
+    "cl_2016-17.csv": "31184dadf6e920e40578f58a80b2116401886bc0b17e19e89a59639ff0b0d33c",
+    "bundesliga2_2015-16.csv": "b204384520e3e93f70fb367881b093286acccaa8179acefd8aa97d58c611cfa2",
+    "cl_2025-26.csv": "d229d838dcb9e0cc1e884007b7448c4bf9ccacc09bfaf8927f14476601563f19",
+    "pl_2023-24.csv": "913df6eff45511b81911e77c6ec84bdfe7381585a33be0c229f2c47a28fce244"
+  },
+  "coverage": [
+    {
+      "competition": "bundesliga",
+      "season": "2011-12",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga",
+      "season": "2012-13",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga",
+      "season": "2013-14",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga",
+      "season": "2014-15",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga",
+      "season": "2015-16",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga",
+      "season": "2016-17",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga",
+      "season": "2017-18",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga",
+      "season": "2018-19",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga",
+      "season": "2019-20",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga",
+      "season": "2020-21",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga",
+      "season": "2021-22",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga",
+      "season": "2022-23",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga",
+      "season": "2023-24",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga",
+      "season": "2024-25",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga",
+      "season": "2025-26",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga",
+      "season": "2026-27",
+      "matches": 27
+    },
+    {
+      "competition": "bundesliga2",
+      "season": "2011-12",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga2",
+      "season": "2012-13",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga2",
+      "season": "2013-14",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga2",
+      "season": "2014-15",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga2",
+      "season": "2015-16",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga2",
+      "season": "2016-17",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga2",
+      "season": "2017-18",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga2",
+      "season": "2018-19",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga2",
+      "season": "2019-20",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga2",
+      "season": "2020-21",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga2",
+      "season": "2021-22",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga2",
+      "season": "2022-23",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga2",
+      "season": "2023-24",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga2",
+      "season": "2024-25",
+      "matches": 306
+    },
+    {
+      "competition": "bundesliga2",
+      "season": "2025-26",
+      "matches": 306
+    },
+    {
+      "competition": "champions_league",
+      "season": "2011-12",
+      "matches": 125
+    },
+    {
+      "competition": "champions_league",
+      "season": "2014-15",
+      "matches": 125
+    },
+    {
+      "competition": "champions_league",
+      "season": "2015-16",
+      "matches": 125
+    },
+    {
+      "competition": "champions_league",
+      "season": "2016-17",
+      "matches": 125
+    },
+    {
+      "competition": "champions_league",
+      "season": "2021-22",
+      "matches": 125
+    },
+    {
+      "competition": "champions_league",
+      "season": "2022-23",
+      "matches": 125
+    },
+    {
+      "competition": "champions_league",
+      "season": "2023-24",
+      "matches": 125
+    },
+    {
+      "competition": "champions_league",
+      "season": "2025-26",
+      "matches": 189
+    },
+    {
+      "competition": "premier_league",
+      "season": "2020-21",
+      "matches": 380
+    },
+    {
+      "competition": "premier_league",
+      "season": "2021-22",
+      "matches": 380
+    },
+    {
+      "competition": "premier_league",
+      "season": "2022-23",
+      "matches": 380
+    },
+    {
+      "competition": "premier_league",
+      "season": "2023-24",
+      "matches": 380
+    },
+    {
+      "competition": "premier_league",
+      "season": "2024-25",
+      "matches": 380
+    }
+  ]
+}

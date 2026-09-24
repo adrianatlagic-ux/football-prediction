@@ -1,0 +1,111 @@
+competition,team,transfermarkt_id,squad_size,squad_value_eur,determined_date
+bundesliga,1.FC Köln,3,29,156100000,2026-09-24
+bundesliga,1.FC Union Berlin,89,30,115775000,2026-09-24
+bundesliga,1.FSV Mainz 05,39,27,165200000,2026-09-24
+bundesliga,Bayer 04 Leverkusen,15,28,480950000,2026-09-24
+bundesliga,Bayern Munich,27,23,1037500000,2026-09-24
+bundesliga,Borussia Dortmund,16,30,564450000,2026-09-24
+bundesliga,Borussia Mönchengladbach,18,30,138550000,2026-09-24
+bundesliga,Eintracht Frankfurt,24,26,288650000,2026-09-24
+bundesliga,FC Augsburg,167,27,172000000,2026-09-24
+bundesliga,FC Schalke 04,33,27,70925000,2026-09-24
+bundesliga,Hamburger SV,41,28,152800000,2026-09-24
+bundesliga,RB Leipzig,23826,29,487950000,2026-09-24
+bundesliga,SC Freiburg,60,27,211500000,2026-09-24
+bundesliga,SC Paderborn 07,127,32,48375000,2026-09-24
+bundesliga,SV 07 Elversberg,64,27,58050000,2026-09-24
+bundesliga,SV Werder Bremen,86,32,122075000,2026-09-24
+bundesliga,TSG 1899 Hoffenheim,533,27,280950000,2026-09-24
+bundesliga,VfB Stuttgart,79,30,379700000,2026-09-24
+bundesliga2,1.FC Heidenheim 1846,2036,26,37900000,2026-09-24
+bundesliga2,1.FC Kaiserslautern,2,29,34150000,2026-09-24
+bundesliga2,1.FC Magdeburg,187,30,26700000,2026-09-24
+bundesliga2,1.FC Nuremberg,4,30,42650000,2026-09-24
+bundesliga2,Arminia Bielefeld,10,26,19700000,2026-09-24
+bundesliga2,Eintracht Braunschweig,23,27,19275000,2026-09-24
+bundesliga2,FC Energie Cottbus,25,28,11150000,2026-09-24
+bundesliga2,FC St. Pauli,35,28,48425000,2026-09-24
+bundesliga2,Hannover 96,42,32,35075000,2026-09-24
+bundesliga2,Hertha BSC,44,27,25150000,2026-09-24
+bundesliga2,Holstein Kiel,269,31,32025000,2026-09-24
+bundesliga2,Karlsruher SC,48,26,32825000,2026-09-24
+bundesliga2,SG Dynamo Dresden,129,29,23925000,2026-09-24
+bundesliga2,SV Darmstadt 98,105,32,28250000,2026-09-24
+bundesliga2,SpVgg Greuther Fürth,65,28,22250000,2026-09-24
+bundesliga2,VfL Bochum,80,28,24875000,2026-09-24
+bundesliga2,VfL Osnabrück,81,26,12150000,2026-09-24
+bundesliga2,VfL Wolfsburg,82,29,109400000,2026-09-24
+nations_league,Albania,3561,29,100180000,2026-09-24
+nations_league,Andorra,10533,27,3410000,2026-09-24
+nations_league,Armenia,6219,28,45330000,2026-09-24
+nations_league,Austria,3383,28,250500000,2026-09-24
+nations_league,Azerbaijan,8605,30,16380000,2026-09-24
+nations_league,Belarus,3450,27,19500000,2026-09-24
+nations_league,Belgium,3382,28,588800000,2026-09-24
+nations_league,Bosnia and Herzegovina,3446,26,154500000,2026-09-24
+nations_league,Bulgaria,3394,27,41900000,2026-09-24
+nations_league,Croatia,3556,27,434000000,2026-09-24
+nations_league,Cyprus,3668,27,24650000,2026-09-24
+nations_league,Czech Republic,3445,26,176650000,2026-09-24
+nations_league,Denmark,3436,25,426000000,2026-09-24
+nations_league,England,3299,29,1780000000,2026-09-24
+nations_league,Estonia,6133,26,14950000,2026-09-24
+nations_league,Faroe Islands,9173,25,5780000,2026-09-24
+nations_league,Finland,3443,26,50300000,2026-09-24
+nations_league,France,3377,23,1440000000,2026-09-24
+nations_league,Georgia,3669,27,258450000,2026-09-24
+nations_league,Germany,3262,43,1300000000,2026-09-24
+nations_league,Gibraltar,37574,26,2030000,2026-09-24
+nations_league,Greece,3378,26,320600000,2026-09-24
+nations_league,Hungary,3468,25,186600000,2026-09-24
+nations_league,Iceland,3574,24,88900000,2026-09-24
+nations_league,Israel,5547,27,104830000,2026-09-24
+nations_league,Italy,3376,34,869500000,2026-09-24
+nations_league,Kazakhstan,9110,28,18880000,2026-09-24
+nations_league,Kosovo,53982,26,143650000,2026-09-24
+nations_league,Latvia,3555,25,14630000,2026-09-24
+nations_league,Liechtenstein,5673,27,625000,2026-09-24
+nations_league,Lithuania,3851,26,21330000,2026-09-24
+nations_league,Luxembourg,3580,26,31180000,2026-09-24
+nations_league,Malta,3587,29,15750000,2026-09-24
+nations_league,Moldova,6090,26,10180000,2026-09-24
+nations_league,Montenegro,11953,28,82180000,2026-09-24
+nations_league,Netherlands,3379,26,828000000,2026-09-24
+nations_league,North Macedonia,5148,27,36780000,2026-09-24
+nations_league,Northern Ireland,5674,28,106650000,2026-09-24
+nations_league,Norway,3440,25,618100000,2026-09-24
+nations_league,Poland,3442,25,226000000,2026-09-24
+nations_league,Portugal,3300,25,1000000000,2026-09-24
+nations_league,Republic of Ireland,3509,25,188900000,2026-09-24
+nations_league,Romania,3447,33,126500000,2026-09-24
+nations_league,San Marino,10521,26,1220000,2026-09-24
+nations_league,Scotland,3380,28,160500000,2026-09-24
+nations_league,Serbia,3438,29,289600000,2026-09-24
+nations_league,Slovakia,3503,26,61930000,2026-09-24
+nations_league,Slovenia,3588,26,178600000,2026-09-24
+nations_league,Spain,3375,26,1350000000,2026-09-24
+nations_league,Sweden,3557,26,414080000,2026-09-24
+nations_league,Switzerland,3384,25,309400000,2026-09-24
+nations_league,Turkey,3381,30,411000000,2026-09-24
+nations_league,Ukraine,3699,30,259400000,2026-09-24
+nations_league,Wales,3864,28,180100000,2026-09-24
+premier_league,AFC Bournemouth,989,29,574550000,2026-09-24
+premier_league,Arsenal FC,11,24,1328000000,2026-09-24
+premier_league,Aston Villa,405,27,572300000,2026-09-24
+premier_league,Brentford FC,1148,29,584800000,2026-09-24
+premier_league,Brighton & Hove Albion,1237,30,603500000,2026-09-24
+premier_league,Chelsea FC,631,27,1076700000,2026-09-24
+premier_league,Coventry City,990,29,296700000,2026-09-24
+premier_league,Crystal Palace,873,28,579200000,2026-09-24
+premier_league,Everton FC,29,21,394100000,2026-09-24
+premier_league,Fulham FC,931,26,396800000,2026-09-24
+premier_league,Hull City,3008,33,251900000,2026-09-24
+premier_league,Ipswich Town,677,28,330550000,2026-09-24
+premier_league,Leeds United,399,24,407550000,2026-09-24
+premier_league,Liverpool FC,31,29,1034500000,2026-09-24
+premier_league,Manchester City,281,24,1432300000,2026-09-24
+premier_league,Manchester United,985,29,922800000,2026-09-24
+premier_league,Newcastle United,762,25,606100000,2026-09-24
+premier_league,Nottingham Forest,703,24,520500000,2026-09-24
+premier_league,Sunderland AFC,289,28,421275000,2026-09-24
+premier_league,Tottenham Hotspur,148,28,824000000,2026-09-24

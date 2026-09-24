@@ -1,0 +1,16 @@
+{
+  "input_snapshots": 14,
+  "eligible_fixtures": 0,
+  "no_bet_fixtures": 0,
+  "exclusions": {
+    "unidentified_or_nonclub_competition": 10,
+    "logged_after_kickoff": 4
+  },
+  "groups": [],
+  "settlements": [],
+  "interpretation": "One-unit returns at recorded odds, not actual account profit. No evidence of edge without sufficient prospective data.",
+  "source_logs": [
+    "data/bet_log.jsonl",
+    "/Users/doublea/Desktop/football-prediction/data/bet_log.jsonl"
+  ]
+}

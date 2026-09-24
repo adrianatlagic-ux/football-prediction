@@ -1,0 +1,74 @@
+[
+  {
+    "group": "Spieltag 4",
+    "date": "2026-09-18",
+    "time": "20:30",
+    "home_team": "Bayern Munich",
+    "away_team": "Union Berlin",
+    "match_id": "bayern_munich_vs_union_berlin_bl"
+  },
+  {
+    "group": "Spieltag 4",
+    "date": "2026-09-19",
+    "time": "15:30",
+    "home_team": "Eintracht Frankfurt",
+    "away_team": "SC Freiburg",
+    "match_id": "eintracht_frankfurt_vs_sc_freiburg_bl"
+  },
+  {
+    "group": "Spieltag 4",
+    "date": "2026-09-19",
+    "time": "15:30",
+    "home_team": "Borussia Mönchengladbach",
+    "away_team": "1. FSV Mainz 05",
+    "match_id": "borussia_monchengladbach_vs_1_fsv_mainz_05_bl"
+  },
+  {
+    "group": "Spieltag 4",
+    "date": "2026-09-19",
+    "time": "15:30",
+    "home_team": "Hamburger SV",
+    "away_team": "1. FC Köln",
+    "match_id": "hamburger_sv_vs_1_fc_koln_bl"
+  },
+  {
+    "group": "Spieltag 4",
+    "date": "2026-09-19",
+    "time": "15:30",
+    "home_team": "Werder Bremen",
+    "away_team": "Augsburg",
+    "match_id": "werder_bremen_vs_augsburg_bl"
+  },
+  {
+    "group": "Spieltag 4",
+    "date": "2026-09-19",
+    "time": "18:30",
+    "home_team": "VfB Stuttgart",
+    "away_team": "Borussia Dortmund",
+    "match_id": "vfb_stuttgart_vs_borussia_dortmund_bl"
+  },
+  {
+    "group": "Spieltag 4",
+    "date": "2026-09-20",
+    "time": "15:30",
+    "home_team": "Bayer Leverkusen",
+    "away_team": "RB Leipzig",
+    "match_id": "bayer_leverkusen_vs_rb_leipzig_bl"
+  },
+  {
+    "group": "Spieltag 4",
+    "date": "2026-09-20",
+    "time": "17:30",
+    "home_team": "Schalke 04",
+    "away_team": "Elversberg",
+    "match_id": "schalke_04_vs_elversberg_bl"
+  },
+  {
+    "group": "Spieltag 4",
+    "date": "2026-09-20",
+    "time": "19:30",
+    "home_team": "SC Paderborn",
+    "away_team": "TSG Hoffenheim",
+    "match_id": "sc_paderborn_vs_tsg_hoffenheim_bl"
+  }
+]

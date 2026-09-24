@@ -2,8 +2,9 @@ from __future__ import annotations
 
 import pandas as pd
 import numpy as np
-from .fifa_rankings import get_ranking, get_points, get_ranking_diff, get_points_diff
-from .market_values import get_market_value_normalized, get_market_value_ratio
+from .fifa_rankings import get_ranking, get_points, get_ranking_diff, get_points_diff, has_ranking
+from .market_values import (get_market_value_normalized, get_market_value_ratio,
+                            has_market_value)
 
 FORM_WINDOW = 10
 H2H_WINDOW = 10
@@ -52,9 +53,18 @@ def build_features(df: pd.DataFrame) -> pd.DataFrame:
         features["away_fifa_points"] = get_points(row["away_team"])
         raw_pdiff = get_points_diff(row["home_team"], row["away_team"])
         features["points_diff"] = np.sign(raw_pdiff) * np.log1p(abs(raw_pdiff))
+        # Flags the placeholder so the model can discount the ranking
+        # features instead of reading 900 points as a measurement.
+        features["fifa_ranking_missing"] = int(
+            not has_ranking(row["home_team"]) or not has_ranking(row["away_team"]))
         features["home_market_value"] = get_market_value_normalized(row["home_team"])
         features["away_market_value"] = get_market_value_normalized(row["away_team"])
         features["market_value_ratio"] = get_market_value_ratio(row["home_team"], row["away_team"])
+        # Same role as fifa_ranking_missing above: a 0 market value is a
+        # placeholder, not a measurement, and the model should be able to
+        # tell the two apart.
+        features["market_value_missing"] = int(
+            not has_market_value(row["home_team"]) or not has_market_value(row["away_team"]))
         records.append(features)
 
     result = pd.DataFrame(records).fillna(0)
@@ -77,6 +87,8 @@ def build_prediction_row(df_history: pd.DataFrame, home_team: str, away_team: st
     features["away_fifa_ranking"] = get_ranking(away_team)
     raw_rdiff = get_ranking_diff(home_team, away_team)
     features["ranking_diff"] = np.sign(raw_rdiff) * np.log1p(abs(raw_rdiff))
+    features["fifa_ranking_missing"] = int(
+        not has_ranking(home_team) or not has_ranking(away_team))
     features["home_fifa_points"] = get_points(home_team)
     features["away_fifa_points"] = get_points(away_team)
     raw_pdiff = get_points_diff(home_team, away_team)
@@ -84,6 +96,8 @@ def build_prediction_row(df_history: pd.DataFrame, home_team: str, away_team: st
     features["home_market_value"] = get_market_value_normalized(home_team)
     features["away_market_value"] = get_market_value_normalized(away_team)
     features["market_value_ratio"] = get_market_value_ratio(home_team, away_team)
+    features["market_value_missing"] = int(
+        not has_market_value(home_team) or not has_market_value(away_team))
     return pd.DataFrame([features])
 
 
@@ -158,12 +172,12 @@ def _goal_stats(past: pd.DataFrame, team: str, prefix: str) -> dict:
     scored = pd.concat([
         past.loc[home_mask, "home_goals"],
         past.loc[away_mask, "away_goals"],
-    ]).tail(FORM_WINDOW)
+    ]).sort_index().tail(FORM_WINDOW)
 
     conceded = pd.concat([
         past.loc[home_mask, "away_goals"],
         past.loc[away_mask, "home_goals"],
-    ]).tail(FORM_WINDOW)
+    ]).sort_index().tail(FORM_WINDOW)
 
     if scored.empty:
         return {

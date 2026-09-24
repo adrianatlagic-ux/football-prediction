@@ -21,6 +21,15 @@ RESULT_LABELS = {"H": "Home Win", "D": "Draw", "A": "Away Win"}
 POISSON_BLEND = 0.20
 
 
+def wc2026_neutral(home_team: str) -> bool:
+    """Venue rule for WC2026 only: everyone but the three hosts plays neutral.
+
+    Pass the result into predict_match(neutral=...) for World Cup fixtures.
+    It is deliberately not the default - see predict_match.
+    """
+    return home_team not in WC2026_HOST_NATIONS
+
+
 class FootballPredictor:
     def __init__(self, model_path: str | Path | None = None):
         self.model = EnsemblePredictor()
@@ -31,8 +40,22 @@ class FootballPredictor:
         if model_path and Path(model_path).exists():
             self.load(model_path)
 
-    def train(self, since_year: int = 1995, test_size: float = 0.2) -> dict:
-        df_raw = load_wm2026_relevant(since_year=since_year)
+    def train(self, since_year: int = 1995, test_size: float = 0.2,
+              relevant_teams: set | None = None) -> dict:
+        """Train on internationals since `since_year`.
+
+        relevant_teams restricts training to matches involving at least one
+        listed team. It exists for the World Cup model, which only ever had
+        to rank the 48 qualified squads. It must stay None for a general
+        model: 41 of the 54 Nations League entrants - Italy, Denmark, Poland,
+        Wales among them - are not WC2026 participants, so that filter would
+        discard most of the competition being predicted.
+        """
+        if relevant_teams is None:
+            df_raw = load_completed_matches()
+            df_raw = df_raw[df_raw["date"].dt.year >= since_year].reset_index(drop=True)
+        else:
+            df_raw = load_wm2026_relevant(since_year=since_year)
         df_raw["result"] = df_raw.apply(
             lambda r: encode_result(r["home_goals"], r["away_goals"]), axis=1
         )
@@ -44,7 +67,8 @@ class FootballPredictor:
         )
         self._history = history
 
-        print(f"Training auf {len(df_raw):,} kompetitiven WM-Team-Matches seit {since_year}...")
+        scope = "Laenderspielen" if relevant_teams is None else "WM-Team-Matches"
+        print(f"Training auf {len(df_raw):,} {scope} seit {since_year}...")
         features = build_features(df_raw)
         self._feature_cols = get_feature_columns(features)
 
@@ -60,52 +84,56 @@ class FootballPredictor:
         return evaluate(test["result"], y_pred, y_proba)
 
     def _compute_sample_weights(self, df: pd.DataFrame) -> np.ndarray:
-        ref_date = pd.Timestamp("2026-06-01")
+        # Anchor recency on the newest match in the data, not a fixed date.
+        # The hardcoded 2026-06-01 meant every match after that point was
+        # treated as equally recent, so each new Nations League round would
+        # quietly stop counting as "current" the further past it we get.
+        ref_date = max(df["date"].max(), pd.Timestamp.now().normalize())
         days_ago = (ref_date - df["date"]).dt.days.clip(lower=0).values
         half_life_days = 3 * 365
         time_w = np.exp(-np.log(2) / half_life_days * days_ago)
 
-        year = df["date"].dt.year
+        # Competitive matches say more about current strength than friendlies,
+        # where squads rotate and the result does not matter. That ordering is
+        # the only claim these weights make.
+        #
+        # They used to single out WC2026 qualifying and WC2026 itself at 5.0,
+        # which made sense while the World Cup was the thing being predicted
+        # and makes none now: a 2023 qualifier would outweigh a Nations League
+        # tie played last month. Recency is already handled by time_w above,
+        # so competition tiering no longer carries a date rule of its own.
+        # These are reasonable priors, not fitted values.
         tournament = df["tournament"]
-        tournament_w = np.ones(len(df))
+        tournament_w = np.full(len(df), 1.0)
 
-        # WC 2026 qualification — best signal for current squad strength
-        is_wc26_quali = (tournament == "FIFA World Cup qualification") & (year >= 2023)
-        tournament_w[is_wc26_quali] = 5.0
+        is_friendly = tournament == "Friendly"
+        is_major_final = tournament.isin([
+            "FIFA World Cup", "UEFA Euro", "Copa América", "African Cup of Nations",
+            "AFC Asian Cup", "Gold Cup",
+        ])
+        is_qualifier_or_league = tournament.str.contains(
+            "qualification|Nations League", case=False, na=False)
 
-        # WC 2026 group stage matches already played
-        is_wc26 = (tournament == "FIFA World Cup") & (year >= 2026)
-        tournament_w[is_wc26] = 5.0
-
-        # Recent Nations League / competitive tournaments 2024-2026
-        is_recent_comp = (year >= 2024) & ~is_wc26_quali & ~is_wc26 & (tournament != "Friendly")
-        tournament_w[is_recent_comp] = 3.0
-
-        # Recent friendlies 2024-2026
-        is_recent_friendly = (year >= 2024) & (tournament == "Friendly")
-        tournament_w[is_recent_friendly] = 2.0
-
-        # WC 2022 — different squad but still useful reference
-        is_wc22 = (tournament == "FIFA World Cup") & (year == 2022)
-        tournament_w[is_wc22] = 1.5
-
-        # WC 2018 — 8 years ago, different generation of players
-        is_wc18 = (tournament == "FIFA World Cup") & (year == 2018)
-        tournament_w[is_wc18] = 0.5
-
-        # Older WC matches (before 2018)
-        is_wc_old = (tournament == "FIFA World Cup") & (year < 2018)
-        tournament_w[is_wc_old] = 0.2
+        tournament_w[is_major_final.values] = 3.0
+        tournament_w[is_qualifier_or_league.values] = 3.0
+        tournament_w[is_friendly.values] = 1.0
 
         weights = time_w * tournament_w
         return weights / weights.mean()
 
     def predict_match(
         self, home_team: str, away_team: str, neutral: bool | None = None, is_knockout: bool = False,
+        goal_uplift: float = 1.0,
     ) -> dict:
-        # WM 2026: Heimvorteil nur für Gastgeber-Nationen
+        # An ordinary international is played at the home team's ground, so
+        # the default has to be a real home venue. This used to default to
+        # `home_team not in WC2026_HOST_NATIONS`, which is right ONLY for a
+        # World Cup staged entirely in three countries - every other fixture
+        # (Nations League, qualifiers, friendlies) came out as neutral and
+        # silently lost its home advantage. WC2026 callers now opt in via
+        # wc2026_neutral() instead of the rule being the global default.
         if neutral is None:
-            neutral = home_team not in WC2026_HOST_NATIONS
+            neutral = False
         if not self._trained:
             raise RuntimeError("Model not trained. Call .train() first.")
 
@@ -122,7 +150,8 @@ class FootballPredictor:
 
         # Pure Poisson H/D/A (no rescaling) - handles mismatched games far better,
         # especially draws (a 3.0 vs 0.6 xG game is almost never a draw).
-        poisson_pre = predict_scorelines(self._history, home_team, away_team, is_knockout=is_knockout)
+        poisson_pre = predict_scorelines(self._history, home_team, away_team, is_knockout=is_knockout,
+                                         goal_uplift=goal_uplift)
         poi_proba = [
             poisson_pre["probability_home_win"],
             poisson_pre["probability_draw"],
@@ -152,6 +181,7 @@ class FootballPredictor:
             self._history, home_team, away_team,
             target_result_probs=target_result_probs,
             is_knockout=is_knockout,
+            goal_uplift=goal_uplift,
         )
         self._align_score_prediction(score_pred, result["prediction"])
         flow = predict_game_flow(
