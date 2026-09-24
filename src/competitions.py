@@ -48,6 +48,9 @@ class Competition:
     # competitionId on a suspension or eligibility record. None for national
     # teams: their records all come from club competitions and so never apply.
     transfermarkt_code: Optional[str]
+    # The Odds API's own key, so a priced fixture can be traced back to the
+    # competition whose squad registry applies to it.
+    odds_sport_key: Optional[str] = None
     international: bool = False
 
     @property
@@ -60,28 +63,28 @@ COMPETITIONS = {
     c.key: c for c in [
         Competition("nations_league", "UEFA Nations League", None,
                     squad_is_callup=True, has_injury_page=False,
-                    transfermarkt_code=None, international=True),
+                    transfermarkt_code=None, odds_sport_key="soccer_uefa_nations_league", international=True),
         Competition("bundesliga", "Bundesliga", TM.format("L1"),
                     squad_is_callup=False, has_injury_page=True,
-                    transfermarkt_code="L1"),
+                    transfermarkt_code="L1", odds_sport_key="soccer_germany_bundesliga"),
         Competition("bundesliga2", "2. Bundesliga", TM.format("L2"),
                     squad_is_callup=False, has_injury_page=True,
-                    transfermarkt_code="L2"),
+                    transfermarkt_code="L2", odds_sport_key="soccer_germany_bundesliga2"),
         Competition("premier_league", "Premier League", TM.format("GB1"),
                     squad_is_callup=False, has_injury_page=True,
-                    transfermarkt_code="GB1"),
+                    transfermarkt_code="GB1", odds_sport_key="soccer_epl"),
         Competition("la_liga", "LaLiga", TM.format("ES1"),
                     squad_is_callup=False, has_injury_page=True,
-                    transfermarkt_code="ES1"),
+                    transfermarkt_code="ES1", odds_sport_key="soccer_spain_la_liga"),
         Competition("serie_a", "Serie A", TM.format("IT1"),
                     squad_is_callup=False, has_injury_page=True,
-                    transfermarkt_code="IT1"),
+                    transfermarkt_code="IT1", odds_sport_key="soccer_italy_serie_a"),
         Competition("ligue_1", "Ligue 1", TM.format("FR1"),
                     squad_is_callup=False, has_injury_page=True,
-                    transfermarkt_code="FR1"),
+                    transfermarkt_code="FR1", odds_sport_key="soccer_france_ligue_one"),
         Competition("champions_league", "Champions League", TM.format("CL"),
                     squad_is_callup=False, has_injury_page=True,
-                    transfermarkt_code="CL"),
+                    transfermarkt_code="CL", odds_sport_key="soccer_uefa_champs_league"),
     ]
 }
 
@@ -92,3 +95,10 @@ def get(key: str) -> Competition:
     except KeyError:
         raise SystemExit(
             f"unknown competition {key!r}; known: {', '.join(sorted(COMPETITIONS))}")
+
+
+def by_odds_key(sport_key: Optional[str]) -> Optional[Competition]:
+    """The competition a priced fixture belongs to, or None if we do not cover it."""
+    if not sport_key:
+        return None
+    return next((c for c in COMPETITIONS.values() if c.odds_sport_key == sport_key), None)

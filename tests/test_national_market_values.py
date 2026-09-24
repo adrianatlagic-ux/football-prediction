@@ -67,3 +67,43 @@ def test_csv_values_are_plausible():
         value = int(row["market_value_total_eur"])
         # Liechtenstein sits near 600k; England near 1.8bn.
         assert 1e5 < value < 5e9, f"{row['team']} = {value}"
+
+
+def _history():
+    return pd.DataFrame([{"date": pd.Timestamp("2026-06-01"),
+                          "home_team": "Germany", "away_team": "Netherlands",
+                          "home_goals": 1, "away_goals": 1, "result": "draw"}])
+
+
+def test_a_named_squad_replaces_the_stored_value_for_one_match():
+    """The correction the whole squad pipeline exists to make.
+
+    A nation's stored value is its standing strength. When the squad actually
+    named is worth less, that stored number describes a team which is not
+    playing, and the model should be told so for this fixture only.
+    """
+    weaker = build_prediction_row(_history(), "Germany", "Netherlands",
+                                  market_values={"Germany": 400_000_000})
+    stored = build_prediction_row(_history(), "Germany", "Netherlands")
+    assert weaker["home_market_value"].iloc[0] < stored["home_market_value"].iloc[0]
+    assert weaker["market_value_ratio"].iloc[0] < stored["market_value_ratio"].iloc[0]
+    # The opponent was not overridden, so its stored value must be untouched.
+    assert weaker["away_market_value"].iloc[0] == stored["away_market_value"].iloc[0]
+
+
+def test_an_override_equal_to_the_stored_value_changes_nothing():
+    """Guards the no-op case: for national teams both come from the same page."""
+    same = build_prediction_row(_history(), "Germany", "Netherlands",
+                                market_values={"Germany": VALUES["Germany"]})
+    stored = build_prediction_row(_history(), "Germany", "Netherlands")
+    for column in ("home_market_value", "away_market_value", "market_value_ratio"):
+        assert same[column].iloc[0] == stored[column].iloc[0]
+
+
+def test_an_override_can_supply_a_team_we_have_no_stored_value_for():
+    """A squad we priced today beats having no number at all."""
+    known = build_prediction_row(_history(), "Germany", "Nowhereia",
+                                 market_values={"Nowhereia": 200_000_000})
+    assert known["market_value_missing"].iloc[0] == 0
+    assert known["away_market_value"].iloc[0] > 0
+    assert known["market_value_ratio"].iloc[0] != 1.0

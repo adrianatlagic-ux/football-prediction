@@ -185,7 +185,16 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None):
             except (ValueError, KeyError, TypeError):
                 pass
         started = (started_by_day or {}).get(date, 0)
+        # Compare like with like: the best two-fold must not hide three-/four-folds.
+        by_size = []
+        for size in range(MIN_LEGS, min(max_legs, MAX_LEGS) + 1):
+            ticket = next((t for t in tickets if t["leg_count"] == size), None)
+            by_size.append({"leg_count": size, "ticket": ticket,
+                            "reason": None if ticket else (
+                                f"No {size}-fold available. It needs {size} qualifying matches "
+                                f"at one bookmaker and combined odds of at least {MIN_COMBINED_ODDS:.2f}.")})
         days.append({"date": date, "eligible_legs": len({fixture_key(l) for l in day_legs}),
+                     "by_size": by_size,
                      "already_started": started, "recommended": top, "alternatives": tickets[1:3],
                      "all_in": all_in, "all_in_is_worse": bool(all_in and top and all_in["ranking_score"] < top["ranking_score"]),
                      "legs": day_legs,

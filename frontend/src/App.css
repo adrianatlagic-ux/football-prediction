@@ -2902,3 +2902,15 @@ body {
   line-height: 1.5;
   color: #6b7280;
 }
+
+/* Compare ticket sizes without letting the shortest ticket hide the rest. */
+.combo-size-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; align-items: start; }
+.combo-size-option { min-width: 0; }
+.combo-size-title { margin: 0 0 .75rem; color: var(--cyan); font-size: 1rem; }
+.combo-size-option .combo-ticket { margin: 0; padding: 1rem; }
+.combo-size-option .combo-ticket-head { flex-wrap: wrap; }
+.combo-size-option .combo-leg-body { min-width: 0; overflow-wrap: anywhere; }
+.combo-size-option .bet-metrics { grid-template-columns: 1fr; }
+.combo-size-empty { padding: 1.25rem; border: 1px dashed var(--glass-border, #334155); border-radius: 14px; color: var(--text-muted, #94a3b8); }
+.combo-size-empty p { margin: .6rem 0 0; line-height: 1.6; font-size: .85rem; }
+@media (max-width: 1000px) { .combo-size-grid { grid-template-columns: 1fr; } }

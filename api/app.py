@@ -1314,6 +1314,76 @@ def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
         threading.Thread(target=_run, daemon=True).start()
 
 
+# How long before kickoff a prediction is recomputed from the named squad.
+# Squads are announced about a week out and settle during that week; an hour
+# before kickoff the list is final, and anything later is the starting eleven
+# rather than the squad.
+SQUAD_REFRESH_WINDOW_HOURS = float(os.getenv("SQUAD_REFRESH_WINDOW_HOURS", "3"))
+# Keyed by (competition, matchday) - one Apify run per matchday, not per view.
+_squad_values_cache: dict[tuple, dict] = {}
+_adjusted_predictions: dict[tuple, dict] = {}
+
+
+def _squad_values_for(competition_key: str, teams, matchday: str) -> dict:
+    """Named-squad values for a matchday, fetched once and kept."""
+    key = (competition_key, matchday)
+    if key in _squad_values_cache:
+        return _squad_values_cache[key]
+    try:
+        import csv as _csv
+        from src.competitions import get as _competition
+        from src.squad_data import available_squad_values
+        competition = _competition(competition_key)
+        registry_path = Path(__file__).resolve().parents[1] / "data" / "team_registry.csv"
+        with registry_path.open(encoding="utf-8") as fh:
+            registry = {r["team"]: r["transfermarkt_id"] for r in _csv.DictReader(fh)
+                        if r["competition"] == competition_key}
+        values = available_squad_values(teams, registry, competition,
+                                        as_of=datetime.fromisoformat(matchday).date())
+    except Exception:
+        # A failed fetch must leave the stored values in charge, never blank
+        # them - an empty override would read as "both squads worth nothing".
+        values = {}
+    _squad_values_cache[key] = values
+    return values
+
+
+def _prediction_for_kickoff(prediction: dict, vb: dict, competition_key: Optional[str]) -> dict:
+    """Recompute close to kickoff using the squad that was actually named.
+
+    Outside the window, and whenever the squads cannot be priced, the stored
+    prediction is returned untouched. The recomputed one is kept per matchday
+    so the model runs once per fixture rather than once per page view.
+    """
+    from src.bet_audit import timestamp
+    if not competition_key or not vb.get("commence_time"):
+        return prediction
+    try:
+        kickoff = timestamp(vb["commence_time"])
+    except (ValueError, TypeError):
+        return prediction
+    hours = (kickoff - datetime.now(timezone.utc)).total_seconds() / 3600
+    if not 0 < hours <= SQUAD_REFRESH_WINDOW_HOURS:
+        return prediction
+
+    home, away = prediction["home_team"], prediction["away_team"]
+    matchday = kickoff.date().isoformat()
+    cache_key = (competition_key, matchday, home, away)
+    if cache_key in _adjusted_predictions:
+        return _adjusted_predictions[cache_key]
+
+    values = _squad_values_for(competition_key, [home, away], matchday)
+    if not values:
+        return prediction
+    try:
+        adjusted = _predictor_for(home, away).predict_match(home, away, market_values=values)
+    except Exception:
+        return prediction
+    adjusted["squad_values_used"] = {k: int(v) for k, v in values.items()}
+    _adjusted_predictions[cache_key] = adjusted
+    return adjusted
+
+
 _prediction_index: dict[tuple[str, str], dict] = {}
 _prediction_index_ts: float = 0
 _PREDICTION_INDEX_TTL = 300  # seconds - cache files only change when we (re)generate predictions
@@ -1355,6 +1425,18 @@ def value_bets(home_team: str, away_team: str):
         if prediction is None:
             prediction = _predictor_for(home_team, away_team).predict_match(home_team, away_team)
         result = _compute_value_bets(prediction, odds, home_team, away_team)
+        # A cached prediction was computed days ago against the nation or club
+        # at full strength. Close to kickoff the named squad is known, so the
+        # model runs again with what is actually available - and the result is
+        # repriced, because the probabilities it feeds have changed.
+        from src.competitions import by_odds_key
+        competition = by_odds_key(result.get("sport_key"))
+        adjusted = _prediction_for_kickoff(prediction, result, competition.key if competition else None)
+        if adjusted is not prediction:
+            prediction = adjusted
+            result = _compute_value_bets(prediction, odds, home_team, away_team)
+            result["squad_adjusted"] = True
+            result["squad_values_used"] = adjusted.get("squad_values_used")
         _refresh_agent_picks(odds)
         _maybe_prekickoff_refresh(odds)
         agent_eval = _get_agent_pick(result)

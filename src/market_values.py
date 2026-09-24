@@ -95,16 +95,29 @@ VALUES = _load()
 _MAX_VALUE = max(VALUES.values())
 
 
-def has_market_value(team: str) -> bool:
-    """Whether we hold a real value, as opposed to falling back to a placeholder."""
-    return team in VALUES
+def _lookup(team: str, override=None) -> float:
+    """The stored value for a team, unless this match supplies its own.
 
-
-def get_market_value(team: str) -> float:
+    An override is the squad actually named for one fixture, priced from
+    Transfermarkt. The stored figure is a nation's standing strength, which
+    is the right input for a match nobody has told us anything about and the
+    wrong one when half the first choice stayed at home.
+    """
+    if override and team in override:
+        return float(override[team])
     return float(VALUES.get(team, 0))
 
 
-def get_market_value_ratio(home: str, away: str) -> float:
+def has_market_value(team: str, override=None) -> bool:
+    """Whether we hold a real value, as opposed to falling back to a placeholder."""
+    return bool(override and team in override) or team in VALUES
+
+
+def get_market_value(team: str, override=None) -> float:
+    return _lookup(team, override)
+
+
+def get_market_value_ratio(home: str, away: str, override=None) -> float:
     """Strength ratio, or 1.0 where either side is unknown.
 
     The old code answered 2.0 / 0.5 when one side was missing - a confident
@@ -112,11 +125,11 @@ def get_market_value_ratio(home: str, away: str) -> float:
     for a strong nation we simply had no row for. 1.0 asserts nothing, and
     market_value_missing tells the model to discount the pair.
     """
-    if not (has_market_value(home) and has_market_value(away)):
+    if not (has_market_value(home, override) and has_market_value(away, override)):
         return 1.0
-    h, a = get_market_value(home), get_market_value(away)
+    h, a = get_market_value(home, override), get_market_value(away, override)
     return h / a if a else 1.0
 
 
-def get_market_value_normalized(team: str) -> float:
-    return get_market_value(team) / _MAX_VALUE
+def get_market_value_normalized(team: str, override=None) -> float:
+    return get_market_value(team, override) / _MAX_VALUE

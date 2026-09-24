@@ -525,7 +525,6 @@ function ComboTicketCard({ ticket, primary }) {
       </dl>
       <dl className="bet-metrics decision-metrics">
         <BetMetric label="Profit per 1 staked" value={ticket.returns_per_unit.toFixed(2)} detail="If every selection wins" />
-        <BetMetric label="Paper stake" value={`${ticket.stake_pct.toFixed(2)}%`} detail="Flat — not sized by any edge" />
       </dl>
       {primary && (
         <p className="combo-ticket-note">
@@ -559,7 +558,7 @@ function ComboTicketView({ combo, loading }) {
         Every selection must win. Each ticket uses <strong>one bookmaker, one matchday</strong>
         {' '}and at most one selection per match. Selections favour outcomes rated likely by
         both the model and the market. Only win-or-lose markets are combined;
-        quarter lines are excluded.
+        quarter lines are excluded. Compare the best available 2-, 3- and 4-fold for each day.
       </p>
 
       {!combo.recommended && (
@@ -576,41 +575,30 @@ function ComboTicketView({ combo, loading }) {
             {' · '}{day.eligible_legs} eligible {day.eligible_legs === 1 ? 'match' : 'matches'}
           </span>
 
-          {!day.recommended && <p className="smart-bet-notip">{day.reason}</p>}
-
-          {day.recommended && (
-            <>
-              <ComboTicketCard ticket={day.recommended} primary />
-
-              {day.all_in && day.all_in.leg_count > day.recommended.leg_count && (
-                <div className="combo-allin">
-                  <span className="combo-allin-label">
-                    All {day.all_in.leg_count} eligible matches at {day.all_in.bookmaker}
-                  </span>
-                  <div className="combo-allin-row">
-                    <span>Odds <strong>{day.all_in.combined_odds.toFixed(2)}</strong></span>
-                    <span>Hit chance <strong>{(day.all_in.probability * 100).toFixed(1)}%</strong></span>
-                    <span>Model EV <strong className={day.all_in.expected_value >= 0 ? 'positive' : 'negative'}>
-                      {day.all_in.expected_value >= 0 ? '+' : ''}{(day.all_in.expected_value * 100).toFixed(0)}%
-                    </strong></span>
+          <div className="combo-size-grid">
+            {(day.by_size || []).map(option => (
+              <section className="combo-size-option" key={option.leg_count}
+                       aria-label={`${option.leg_count}-fold combo`}>
+                <h3 className="combo-size-title">{option.leg_count}-fold combo</h3>
+                {option.ticket ? (
+                  <ComboTicketCard ticket={option.ticket} />
+                ) : (
+                  <div className="combo-size-empty">
+                    <strong>Not available</strong>
+                    <p>{option.reason}</p>
                   </div>
-                  <p className="combo-allin-note">
-                    {day.all_in_is_worse
-                      ? <>Adding all matches lowers the combined model/market estimate.
-                        Estimated win probability is {(day.all_in.probability * 100).toFixed(1)}%,
-                        versus {(day.recommended.probability * 100).toFixed(1)}% above.</>
-                      : <>For comparison only. Adding legs reduces the estimated chance of every selection winning.</>}
-                  </p>
-                </div>
-              )}
-            </>
-          )}
+                )}
+              </section>
+            ))}
+          </div>
         </div>
       ))}
 
       <p className="smart-bet-finePrint">
         Ranked by the lower of the model and market estimates for each selection.
-        A higher estimated hit rate does not establish profitability.
+        Probabilities assume independent results; combined odds are calculated from individual
+        prices and have not been verified as a bookmaker ticket. A higher estimated hit rate
+        does not establish profitability.
         Tickets can overlap and should not be treated as independent bets.
       </p>
     </div>

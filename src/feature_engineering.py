@@ -71,7 +71,13 @@ def build_features(df: pd.DataFrame) -> pd.DataFrame:
     return result
 
 
-def build_prediction_row(df_history: pd.DataFrame, home_team: str, away_team: str, neutral: bool = True) -> pd.DataFrame:
+def build_prediction_row(df_history: pd.DataFrame, home_team: str, away_team: str,
+                         neutral: bool = True, market_values=None) -> pd.DataFrame:
+    """One feature row for an upcoming match.
+
+    market_values, when given, replaces the stored squad value for this match
+    only - the squad actually named, rather than the nation at full strength.
+    """
     features = {
         "is_neutral": int(neutral),
         "home_is_host": int(home_team in WC2026_HOST_NATIONS and not neutral),
@@ -93,11 +99,11 @@ def build_prediction_row(df_history: pd.DataFrame, home_team: str, away_team: st
     features["away_fifa_points"] = get_points(away_team)
     raw_pdiff = get_points_diff(home_team, away_team)
     features["points_diff"] = np.sign(raw_pdiff) * np.log1p(abs(raw_pdiff))
-    features["home_market_value"] = get_market_value_normalized(home_team)
-    features["away_market_value"] = get_market_value_normalized(away_team)
-    features["market_value_ratio"] = get_market_value_ratio(home_team, away_team)
+    features["home_market_value"] = get_market_value_normalized(home_team, market_values)
+    features["away_market_value"] = get_market_value_normalized(away_team, market_values)
+    features["market_value_ratio"] = get_market_value_ratio(home_team, away_team, market_values)
     features["market_value_missing"] = int(
-        not has_market_value(home_team) or not has_market_value(away_team))
+        not has_market_value(home_team, market_values) or not has_market_value(away_team, market_values))
     return pd.DataFrame([features])
 
 

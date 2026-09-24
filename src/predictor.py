@@ -123,7 +123,7 @@ class FootballPredictor:
 
     def predict_match(
         self, home_team: str, away_team: str, neutral: bool | None = None, is_knockout: bool = False,
-        goal_uplift: float = 1.0,
+        goal_uplift: float = 1.0, market_values=None,
     ) -> dict:
         # An ordinary international is played at the home team's ground, so
         # the default has to be a real home venue. This used to default to
@@ -137,7 +137,8 @@ class FootballPredictor:
         if not self._trained:
             raise RuntimeError("Model not trained. Call .train() first.")
 
-        X = build_prediction_row(self._history, home_team, away_team, neutral=neutral)
+        X = build_prediction_row(self._history, home_team, away_team, neutral=neutral,
+                                 market_values=market_values)
 
         for col in self._feature_cols:
             if col not in X.columns:

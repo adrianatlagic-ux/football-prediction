@@ -212,3 +212,35 @@ def summarise(players: list, competition, absent_names=(),
         "is_pool_not_callup": competition.squad_is_callup and len(players) > 32,
         "as_of": as_of.isoformat(),
     }
+
+
+def available_squad_values(teams, registry, competition, as_of=None, token=None):
+    """Priced strength of the squads actually named, keyed by team name.
+
+    This is the figure the model should use for one fixture instead of the
+    nation's standing value. Germany is worth 1.30bn at full strength; if the
+    squad named for a given window is worth 800m, the stored number describes
+    a team that is not playing.
+
+    registry maps team name to Transfermarkt id (data/team_registry.csv).
+    Teams without an id are simply absent from the result, and the caller
+    falls back to the stored value for them - a partial correction is still
+    better than none, and pretending otherwise would mean discarding a known
+    squad because its opponent is unknown.
+    """
+    wanted = {t: registry[t] for t in teams if t in registry}
+    if not wanted:
+        return {}
+    squads = fetch_squads(wanted.values(), with_injuries=competition.has_injury_page, token=token)
+    values = {}
+    for team, team_id in wanted.items():
+        players = squads.get(str(team_id))
+        if not players:
+            continue
+        summary = summarise(players, competition, as_of=as_of)
+        # A pool listing is not a call-up; its total would overstate who can
+        # play, so the stored national figure stays in charge for that side.
+        if summary["is_pool_not_callup"] or not summary["available_value_eur"]:
+            continue
+        values[team] = summary["available_value_eur"]
+    return values
