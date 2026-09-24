@@ -705,6 +705,16 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
 
     def _add_candidate(market, outcome, team, prob, best, market_prob):
         from src.bet_selection import price_bet, quote_is_fresh, market_evidence, payout_metrics
+        from src.combo_ticket import binary_market
+        # Only markets that settle win-or-lose are shown. A quarter line like
+        # Over/Under 3.25 splits the stake across 3.0 and 3.5, so exactly three
+        # goals refunds one half and wins the other - a result the display has
+        # no honest way to call a win or a loss. Draw-no-bet and whole-goal
+        # lines refund outright. The combo builder already excluded all three
+        # for the same reason; leaving them in the single-bet list only offered
+        # the reader a bet we could not describe.
+        if not binary_market(market):
+            return
         bet = {"market": market, "outcome": outcome, "team": team, "best_odds": best["price"]}
         try:
             priced = price_bet(bet, pricing_prediction, prob)
@@ -1406,11 +1416,10 @@ def best_bets():
 
 @app.get("/combo-ticket")
 def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
-    """Experimental same-book, same-day combos of individually qualified legs.
+    """Same-book, same-day combos ranked by model/market win estimates.
 
-    Quotes are repriced per bookmaker, including that offer's independent
-    reference set. Ticket ranking uses stressed expected log growth and
-    explicitly assumes independence between distinct fixtures.
+    Uses the probability-based combo policy, without the stress selector.
+    Quotes come from offered singles; fixture independence is assumed.
     """
     from src.combo_ticket import combo_report, MAX_LEGS
 
@@ -1485,9 +1494,8 @@ def all_bets():
             "sport_key": vb.get("sport_key"),
             # The displayed pick comes from _combine_signals - the market
             # favourite, with the model and the agent as a confidence light -
-            # not from the stress-tested selector in src/game_pick.py. That
-            # selector still prices combo legs, but it does not choose what
-            # the site shows, and the logged policy has to say which did.
+            # not from the historical stress-tested selector in src/game_pick.py.
+            # Combo tickets also use their own probability-based policy.
             "selection_policy": "market_favorite_consensus_v1",
             **{k: vb.get(k) for k in ("odds_fetched_at", "odds_stage", "snapshot_valid_until", "snapshot_valid", "calculated_at", "quote_basis", "final_refresh_status")},
             "market_favorite": vb.get("market_favorite"),

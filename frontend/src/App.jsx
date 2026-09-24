@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import './App.css'
 import CL_FIXTURES from './cl_fixtures.json'
+import BL_FIXTURES from './bl_fixtures.json'
+import NL_FIXTURES from './nl_fixtures.json'
 import CLUB_CRESTS from './club_crests.json'
 
 const API_BASE = import.meta.env.DEV ? 'http://127.0.0.1:8000' : ''
@@ -41,9 +43,26 @@ function nextGamesWindow(now = new Date()) {
 }
 
 const [_NG_START, _NG_END] = nextGamesWindow()
-const NEXT_GAMES = CL_FIXTURES
-  .filter(f => { const d = fixtureDateTime(f); return d >= _NG_START && d < _NG_END })
-  .sort((a, b) => fixtureDateTime(a) - fixtureDateTime(b))
+const BL_GROUPS = [...new Set(BL_FIXTURES.map(f => f.group))]
+const NL_GROUPS = [...new Set(NL_FIXTURES.map(f => f.group))]
+
+const COMPETITIONS = {
+  cl: { label: 'Champions League', fixtures: CL_FIXTURES, groups: GROUPS,
+        sportKey: 'soccer_uefa_champs_league',
+        logo: 'https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png' },
+  bl: { label: 'Bundesliga', fixtures: BL_FIXTURES, groups: BL_GROUPS,
+        sportKey: 'soccer_germany_bundesliga', emoji: '\u{1F1E9}\u{1F1EA}' },
+  nl: { label: 'Nations League', fixtures: NL_FIXTURES, groups: NL_GROUPS,
+        sportKey: 'soccer_uefa_nations_league', emoji: '\u{1F3C6}' },
+}
+
+// "Next games" follows whichever competition is on screen: showing Champions
+// League kickoffs while the Nations League tab is open would just look broken.
+function nextGamesFor(fixtures) {
+  return fixtures
+    .filter(f => { const d = fixtureDateTime(f); return d >= _NG_START && d < _NG_END })
+    .sort((a, b) => fixtureDateTime(a) - fixtureDateTime(b))
+}
 
 function excitementScore(data) {
   const probs = [data.probability_home_win, data.probability_draw, data.probability_away_win]
@@ -56,10 +75,10 @@ function excitementScore(data) {
 
 // "Hot Game" = the matchup of the day with the most star power (top-ranked
 // teams facing each other), with the AI excitement score as a tiebreaker.
-function getHotFixture(predictionsById) {
+function getHotFixture(predictionsById, fixtures) {
   let best = null
   let bestScore = -Infinity
-  for (const fixture of NEXT_GAMES) {
+  for (const fixture of fixtures) {
     const data = predictionsById[fixture.match_id]
     const score = data ? excitementScore(data) : -1
     if (score > bestScore) {
@@ -138,6 +157,52 @@ function TeamLabel({ name }) {
   }
   const flag = TEAM_FLAGS[name]
   return <>{flag && <span style={{ marginRight: '0.4em' }}>{flag}</span>}{name}</>
+}
+
+
+// club_crests.json's colors come straight from ESPN's team API, which for
+// several Bundesliga clubs just returns a generic placeholder (#ffffff, or
+// the same #DA0308 red for four unrelated teams) instead of a real brand
+// color. Override the ones that are wrong or collide with another club in
+// this season's fixture list; everything else still falls through to the
+// scraped ESPN color.
+const TEAM_COLOR_OVERRIDES = {
+  '1. FC Köln': '#ED1C24',
+  'Augsburg': '#BA3733',
+  'Bayer Leverkusen': '#E32219',
+  'Borussia Mönchengladbach': '#00983A',
+  'Eintracht Frankfurt': '#E1000F',
+  'SC Freiburg': '#FFFFFF',
+  'RB Leipzig': '#FFFFFF',
+  'Elversberg': '#FFFFFF',
+  'Union Berlin': '#F97316',
+}
+
+function getTeamColor(name, fallback) {
+  return TEAM_COLOR_OVERRIDES[name] || CLUB_CRESTS[name]?.color || fallback
+}
+
+function hexColorDistance(a, b) {
+  if (!/^#[0-9a-f]{6}$/i.test(a) || !/^#[0-9a-f]{6}$/i.test(b)) return Infinity
+  const pa = parseInt(a.slice(1), 16), pb = parseInt(b.slice(1), 16)
+  const dr = ((pa >> 16) & 255) - ((pb >> 16) & 255)
+  const dg = ((pa >> 8) & 255) - ((pb >> 8) & 255)
+  const db = (pa & 255) - (pb & 255)
+  return Math.sqrt(dr * dr + dg * dg + db * db)
+}
+
+// Two clubs can legitimately share (near-)identical brand colors (e.g. two
+// clubs both wearing blue). When that happens for the two teams actually
+// facing each other, the donut/legend would show one indistinguishable
+// color twice - swap the away team to a neutral accent so the two sides
+// always read as visually distinct.
+function getMatchColors(homeTeam, awayTeam) {
+  const home = getTeamColor(homeTeam, 'var(--gold)')
+  let away = getTeamColor(awayTeam, 'var(--cyan)')
+  if (home.toLowerCase() === away.toLowerCase() || hexColorDistance(home, away) < 60) {
+    away = home.toLowerCase() === 'var(--cyan)'.toLowerCase() ? '#f97316' : 'var(--cyan)'
+  }
+  return { home, draw: '#6b7280', away }
 }
 
 function TeamCrest({ name, className = 'team-crest' }) {
@@ -406,6 +471,152 @@ function BettingMarkets({ data }) {
   )
 }
 
+function betPercent(value, signed = false) {
+  return Number.isFinite(value) ? `${signed && value > 0 ? '+' : ''}${(value * 100).toFixed(1)}%` : '—'
+}
+
+function BetMetric({ label, value, detail, emphasis = false }) {
+  return (
+    <div className={`bet-metric${emphasis ? ' is-emphasized' : ''}`}>
+      <dt>{label}</dt>
+      <dd>{value}<small>{detail}</small></dd>
+    </div>
+  )
+}
+
+function ComboLegRow({ leg, index }) {
+  return (
+    <div className="combo-leg">
+      <span className="combo-leg-num">{index + 1}</span>
+      <div className="combo-leg-body">
+        <div className="combo-leg-match">
+          <TeamLabel name={leg.home_team} /> <span className="combo-leg-vs">vs</span> <TeamLabel name={leg.away_team} />
+        </div>
+        <div className="combo-leg-pick">{plainBetPhrase(leg)}</div>
+        <div className="combo-leg-meta">
+          {marketGroupLabel(leg.market)} · {leg.bookmaker}
+        </div>
+      </div>
+      <div className="combo-leg-numbers">
+        <span className="combo-leg-odds">{leg.best_odds.toFixed(2)}</span>
+        <span className="combo-leg-prob">{betPercent(leg.probability)} model</span>
+      </div>
+    </div>
+  )
+}
+
+function ComboTicketCard({ ticket, primary }) {
+  return (
+    <div className={`combo-ticket ${primary ? 'is-primary' : ''}`}>
+      <div className="combo-ticket-head">
+        <span className="combo-ticket-legs">{ticket.leg_count}-fold · {ticket.bookmaker}</span>
+        <div className="combo-quote">
+          <span className="combo-quote-label">Estimated combined odds</span>
+          <span className="combo-ticket-odds">{ticket.combined_odds.toFixed(2)}</span>
+        </div>
+      </div>
+      <div className="combo-legs">
+        {ticket.legs.map((leg, i) => <ComboLegRow key={i} leg={leg} index={i} />)}
+      </div>
+      <dl className="bet-metrics probability-metrics">
+        <BetMetric label="Chance all of them land" value={betPercent(ticket.conservative_probability)}
+                   detail="The more cautious of our figure and the price" emphasis />
+        <BetMetric label="Our model on its own" value={betPercent(ticket.probability)} detail="Before checking against the price" />
+      </dl>
+      <dl className="bet-metrics decision-metrics">
+        <BetMetric label="Profit per 1 staked" value={ticket.returns_per_unit.toFixed(2)} detail="If every selection wins" />
+        <BetMetric label="Paper stake" value={`${ticket.stake_pct.toFixed(2)}%`} detail="Flat — not sized by any edge" />
+      </dl>
+      {primary && (
+        <p className="combo-ticket-note">
+          Probabilities assume the results are independent of one another. Prices come
+          from {ticket.bookmaker}'s individual markets; the combined offer itself has
+          not been checked. This is not a bet we expect to profit from — it is the
+          likeliest ticket that at least doubles a stake.
+        </p>
+      )}
+    </div>
+  )
+}
+
+function ComboTicketView({ combo, loading }) {
+  if (loading) {
+    return (
+      <div className="analyzing-status loading-inline">
+        <span className="analyzing-spinner" />
+        <span>Building combinations…</span>
+      </div>
+    )
+  }
+  if (!combo) return null
+  if (combo.error) {
+    return <p className="wm-subtle">Combo suggestion unavailable right now (no current odds).</p>
+  }
+
+  return (
+    <div className="combo-view">
+      <p className="best-bets-intro">
+        Every selection must win. Each ticket uses <strong>one bookmaker, one matchday</strong>
+        {' '}and at most one selection per match. Selections favour outcomes rated likely by
+        both the model and the market. Only win-or-lose markets are combined;
+        quarter lines are excluded.
+      </p>
+
+      {!combo.recommended && (
+        <p className="smart-bet-notip">
+          <strong>No combo ticket today.</strong><br />
+          {combo.reason}
+        </p>
+      )}
+
+      {combo.days?.map(day => (
+        <div className="combo-day" key={day.date}>
+          <span className="combo-section-label">
+            {new Date(day.date + 'T12:00:00').toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'short' })}
+            {' · '}{day.eligible_legs} eligible {day.eligible_legs === 1 ? 'match' : 'matches'}
+          </span>
+
+          {!day.recommended && <p className="smart-bet-notip">{day.reason}</p>}
+
+          {day.recommended && (
+            <>
+              <ComboTicketCard ticket={day.recommended} primary />
+
+              {day.all_in && day.all_in.leg_count > day.recommended.leg_count && (
+                <div className="combo-allin">
+                  <span className="combo-allin-label">
+                    All {day.all_in.leg_count} eligible matches at {day.all_in.bookmaker}
+                  </span>
+                  <div className="combo-allin-row">
+                    <span>Odds <strong>{day.all_in.combined_odds.toFixed(2)}</strong></span>
+                    <span>Hit chance <strong>{(day.all_in.probability * 100).toFixed(1)}%</strong></span>
+                    <span>Model EV <strong className={day.all_in.expected_value >= 0 ? 'positive' : 'negative'}>
+                      {day.all_in.expected_value >= 0 ? '+' : ''}{(day.all_in.expected_value * 100).toFixed(0)}%
+                    </strong></span>
+                  </div>
+                  <p className="combo-allin-note">
+                    {day.all_in_is_worse
+                      ? <>Adding all matches lowers the combined model/market estimate.
+                        Estimated win probability is {(day.all_in.probability * 100).toFixed(1)}%,
+                        versus {(day.recommended.probability * 100).toFixed(1)}% above.</>
+                      : <>For comparison only. Adding legs reduces the estimated chance of every selection winning.</>}
+                  </p>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      ))}
+
+      <p className="smart-bet-finePrint">
+        Ranked by the lower of the model and market estimates for each selection.
+        A higher estimated hit rate does not establish profitability.
+        Tickets can overlap and should not be treated as independent bets.
+      </p>
+    </div>
+  )
+}
+
 function FixtureRow({ fixture }) {
   return (
     <div className="fixture-row fixture-pending">
@@ -521,7 +732,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
 
   // A recommendation with a warning means nothing cleared the clean/above-
   // threshold bar (see MIN_KELLY_FOR_RECOMMENDATION in the backend) - it's a
-  // thin fallback, not a real tip, so it must not be promoted to ★/Value Bet
+  // thin fallback, not a real tip, so it must not be promoted to a ★ signal
   // status just because it was the least-bad green available.
   const recWarning = betInfo.recommendation_warning
   const best = recWarning ? null : betInfo.recommendation
@@ -627,13 +838,15 @@ function SmartBetCard({ betStep, betInfo, data }) {
       {best ? (
         <div className="smart-bet-signal-box is-green">
           <div className="smart-bet-agent-headtitle">
-            <span className="smart-bet-signal-headline">★ Value Bet: {betOutcomeLabel(best)}</span>
+            <span className="smart-bet-signal-headline">★ Biggest gap to the market: {betOutcomeLabel(best)}</span>
           </div>
           <p className="smart-bet-agent-text">
             {best.market_probability != null ? (
               <>We rate this at <strong className="smart-bet-highlight-green">{(best.probability * 100).toFixed(0)}%</strong> (our model pulled partway toward the market to correct for its
               overconfidence), while {best.bookmaker}'s odds of <strong className="smart-bet-highlight-green">{best.best_odds.toFixed(2)}</strong> imply {(best.market_probability * 100).toFixed(0)}% —
-              that remaining {Math.round((best.probability - best.market_probability) * 100)} percentage-point gap is the edge.</>
+              a gap of {Math.round((best.probability - best.market_probability) * 100)} percentage points. Treat that as a disagreement, not
+              a profit: sorted by the size of this gap, our past bets did <em>worse</em> where the
+              gap was widest, not better.</>
             ) : (
               <>We rate this at <strong className="smart-bet-highlight-green">{(best.probability * 100).toFixed(0)}%</strong> at odds of <strong className="smart-bet-highlight-green">{best.best_odds.toFixed(2)}</strong> from {best.bookmaker}, with no
               reliable market comparison available for this one.</>
@@ -643,12 +856,12 @@ function SmartBetCard({ betStep, betInfo, data }) {
       ) : (
         <div className="smart-bet-signal-box is-green">
           <div className="smart-bet-agent-headtitle">
-            <span className="smart-bet-signal-headline">★ Value Bet: No Bet Available</span>
+            <span className="smart-bet-signal-headline">★ Biggest gap to the market: none worth showing</span>
           </div>
           <p className="smart-bet-agent-text">
             {recWarning
-              ? 'The best positive-edge candidate today has a Kelly stake under 1% - too thin to count as a real value bet, so we are not recommending it.'
-              : 'No bet in this match has a positive edge over the market today.'}
+              ? 'The widest gap in this match is too small to be worth naming.'
+              : 'Our model and the bookmakers agree closely on every market in this match.'}
           </p>
         </div>
       )}
@@ -747,6 +960,8 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
   const sp = data.score_prediction || {}
   const gf = data.game_flow || {}
   const ps = gf.predicted_stats || {}
+  // Real kit colours per side, with a guard so two similar ones stay apart.
+  const matchColors = getMatchColors(data.home_team, data.away_team)
 
   const analyzing = revealStep < ANALYZING_STEPS.length
   const show = (n) => revealStep >= n
@@ -792,11 +1007,12 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
             draw={data.probability_draw}
             away={data.probability_away_win}
             score={sp.most_likely_score}
+            colors={matchColors}
           />
           <div className="probabilities-legend">
             <span className="legend-title">Win Probability</span>
             <div className="legend-row">
-              <span className="legend-dot gold" />
+              <span className="legend-dot" style={{ background: matchColors.home }} />
               <span className="legend-name"><TeamLabel name={data.home_team} /></span>
               <span className="legend-value"><AnimatedNumber value={data.probability_home_win * 100} decimals={1} suffix="%" /></span>
             </div>
@@ -806,7 +1022,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
               <span className="legend-value"><AnimatedNumber value={data.probability_draw * 100} decimals={1} suffix="%" /></span>
             </div>
             <div className="legend-row">
-              <span className="legend-dot cyan" />
+              <span className="legend-dot" style={{ background: matchColors.away }} />
               <span className="legend-name"><TeamLabel name={data.away_team} /></span>
               <span className="legend-value"><AnimatedNumber value={data.probability_away_win * 100} decimals={1} suffix="%" /></span>
             </div>
@@ -1128,7 +1344,8 @@ function ResultDonut({ home, draw, away, homeLabel, awayLabel, score, colors }) 
 }
 
 function MatchTicker() {
-  const items = [...CL_FIXTURES]
+  // Spans every competition the site covers, not just the Champions League.
+  const items = Object.values(COMPETITIONS).flatMap(c => c.fixtures)
     .sort((a, b) => fixtureDateTime(a) - fixtureDateTime(b))
     .slice(0, 14)
   if (items.length === 0) return null
@@ -1589,32 +1806,37 @@ export default function App() {
   const [predictionsById, setPredictionsById] = useState({})
   const [realResultsMap, setRealResultsMap] = useState({})
   const [wmLoading, setWmLoading] = useState(true)
+  const [activeCompetition, setActiveCompetition] = useState('cl')
   const [activeGroup, setActiveGroup] = useState(GROUPS[0])
   const [analysisStep, setAnalysisStep] = useState({})
-  const [bestBets, setBestBets] = useState(null)  // null = not loaded, [] = loaded empty
-  const [bestBetsLoading, setBestBetsLoading] = useState(false)
+  const [combo, setCombo] = useState(null)
+  const [comboLoading, setComboLoading] = useState(false)
 
-  async function loadBestBets() {
-    setBestBetsLoading(true)
-    const games = NEXT_GAMES.filter(f => predictionsById[f.match_id])
+  const competition = COMPETITIONS[activeCompetition]
+  const currentFixtures = competition.fixtures
+  const currentGroups = competition.groups
+  const nextGames = nextGamesFor(currentFixtures)
+
+  // Anything already loaded belongs to the competition being left, so it is
+  // dropped rather than shown under the new one.
+  function switchCompetition(key) {
+    setActiveCompetition(key)
+    setActiveGroup(COMPETITIONS[key].groups[0])
+    setCombo(null)
+    setComboLoading(false)
+  }
+
+  async function loadCombo() {
+    setComboLoading(true)
+    setCombo(null)
     try {
-      const results = await Promise.all(games.map(f =>
-        axios.get(`${API_BASE}/value-bets`, { params: { home_team: f.home_team, away_team: f.away_team } })
-          .then(r => ({ fixture: f, data: r.data })).catch(() => null)
-      ))
-      const clean = results
-        .filter(x => x && x.data.odds_found && x.data.combined && x.data.combined.consensus_pick)
-        .map(x => ({
-          fixture: x.fixture,
-          rec: x.data.combined.consensus_pick,
-          consensusLabel: x.data.combined.consensus_label,
-          commence: x.data.commence_time,
-          agentEval: x.data.agent_eval,
-        }))
-        .sort((a, b) => (a.commence || '').localeCompare(b.commence || ''))
-      setBestBets(clean)
+      const r = await axios.get(`${API_BASE}/combo-ticket`,
+                                { params: { competition: competition.sportKey } })
+      setCombo(r.data)
+    } catch {
+      setCombo({ error: true })
     } finally {
-      setBestBetsLoading(false)
+      setComboLoading(false)
     }
   }
 
@@ -1677,20 +1899,6 @@ export default function App() {
   }
 
   // From the Best Bets tab: jump straight to a match's Smart Bet view.
-  function goToMatchSmartBet(fixture) {
-    setActiveGroup(fixture.group)
-    setAnalysisStep(prev => ({ ...prev, [fixture.match_id]: Infinity }))  // reveal instantly
-    setBetStepById(prev => ({ ...prev, [fixture.match_id]: Infinity }))   // show bets instantly
-    if (betInfoById[fixture.match_id] === undefined) {
-      axios.get(`${API_BASE}/value-bets`, { params: { home_team: fixture.home_team, away_team: fixture.away_team } })
-        .then(r => setBetInfoById(prev => ({ ...prev, [fixture.match_id]: r.data })))
-        .catch(() => setBetInfoById(prev => ({ ...prev, [fixture.match_id]: { odds_found: false, bets: [] } })))
-    }
-    setTimeout(() => {
-      document.getElementById(`match-${fixture.match_id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }, 120)
-  }
-
   useEffect(() => {
     async function loadAll() {
       try {
@@ -1700,7 +1908,7 @@ export default function App() {
         ])
         if (listResp.status === 'fulfilled') {
           const ids = (listResp.value.data.match_ids || []).filter(id =>
-            CL_FIXTURES.some(f => f.match_id === id)
+            Object.values(COMPETITIONS).some(c => c.fixtures.some(f => f.match_id === id))
           )
           const all = await Promise.all(
             ids.map(id => axios.get(`${API_BASE}/predictions/${id}`).then(r => ({ matchId: id, data: r.data })))
@@ -1780,10 +1988,18 @@ export default function App() {
               <h2 className="section-title">Predictions</h2>
 
               <div className="competition-select">
-                <button className="competition-pill active">
-                  <img src="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png" alt="" />
-                  Champions League
-                </button>
+                {Object.entries(COMPETITIONS).map(([key, c]) => (
+                  <button
+                    key={key}
+                    className={`competition-pill ${activeCompetition === key ? 'active' : ''}`}
+                    onClick={() => switchCompetition(key)}
+                  >
+                    {c.logo
+                      ? <img src={c.logo} alt="" />
+                      : <span className="competition-pill-emoji">{c.emoji}</span>}
+                    {c.label}
+                  </button>
+                ))}
                 <button className="competition-pill soon" disabled title="Coming soon">
                   <span className="competition-pill-emoji">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
                   Premier League
@@ -1792,11 +2008,6 @@ export default function App() {
                 <button className="competition-pill soon" disabled title="Coming soon">
                   <span className="competition-pill-emoji">🇪🇸</span>
                   La Liga
-                  <span className="competition-pill-soon">Soon</span>
-                </button>
-                <button className="competition-pill soon" disabled title="Coming soon">
-                  <span className="competition-pill-emoji">🇩🇪</span>
-                  Bundesliga
                   <span className="competition-pill-soon">Soon</span>
                 </button>
               </div>
@@ -1815,12 +2026,12 @@ export default function App() {
                   🔥 Hot Game
                 </button>
                 <button
-                  className={`group-tab special-tab ${activeGroup === 'best' ? 'active' : ''}`}
-                  onClick={() => { setActiveGroup('best'); if (bestBets === null && !bestBetsLoading) loadBestBets() }}
+                  className={`group-tab special-tab ${activeGroup === 'combo' ? 'active' : ''}`}
+                  onClick={() => { setActiveGroup('combo'); if (combo === null && !comboLoading) loadCombo() }}
                 >
-                  ⭐ Best Bets
+                  🎟️ Combo Ticket
                 </button>
-                {GROUPS.map(g => (
+                {currentGroups.map(g => (
                   <button
                     key={g}
                     className={`group-tab ${activeGroup === g ? 'active' : ''}`}
@@ -1838,82 +2049,31 @@ export default function App() {
                 </div>
               )}
 
-              {activeGroup === 'next' && NEXT_GAMES.length === 0 && (
+              {activeGroup === 'combo' && (
+                <ComboTicketView combo={combo} loading={comboLoading} />
+              )}
+
+              {activeGroup === 'next' && nextGames.length === 0 && (
                 <p className="wm-subtle">No matches scheduled for today.</p>
               )}
 
               {activeGroup === 'hot' && (
-                NEXT_GAMES.length === 0
+                nextGames.length === 0
                   ? <p className="wm-subtle">No matches scheduled for today.</p>
                   : <p className="wm-subtle hot-game-subtitle">🔥 Today's marquee matchup — the highest-ranked teams in action.</p>
               )}
 
-              {activeGroup === 'best' && (
-                <div className="best-bets-view">
-                  <p className="best-bets-intro">
-                    Our strongest value bets from the next matchday. Each one is a bet where the odds pay
-                    <strong> more</strong> than the outcome's real chance — that's your edge. Place them as
-                    <strong> single bets</strong> (not one combo slip). Tap any card for the full breakdown.
-                  </p>
-                  {bestBetsLoading && (
-                    <div className="analyzing-status loading-inline">
-                      <span className="analyzing-spinner" />
-                      <span>Scanning the next games…</span>
-                    </div>
-                  )}
-                  {!bestBetsLoading && bestBets && bestBets.length === 0 && (
-                    <div className="best-bets-empty">
-                      <strong>No clear bets right now.</strong> None of the next games offers a reliable edge —
-                      the disciplined move is to sit this round out.
-                      <button className="best-bets-refresh" onClick={loadBestBets}>↻ Refresh</button>
-                    </div>
-                  )}
-                  {!bestBetsLoading && bestBets && bestBets.length > 0 && (
-                    <div className="best-bets-cards">
-                      {bestBets.map((b, i) => {
-                        const r = b.rec
-                        const dt = b.commence ? new Date(b.commence) : fixtureDateTime(b.fixture)
-                        const when = dt.toLocaleString('en-GB', { weekday: 'short', hour: '2-digit', minute: '2-digit' })
-                        return (
-                          <button className="best-bet-card" key={i} onClick={() => goToMatchSmartBet(b.fixture)}>
-                            <div className="best-bet-card-top">
-                              <span className="best-bet-card-match">
-                                <TeamLabel name={b.fixture.home_team} /> v <TeamLabel name={b.fixture.away_team} />
-                              </span>
-                              <span className="best-bet-card-when">{when}</span>
-                            </div>
-                            <div className="best-bet-card-pick">{plainBetPhrase(r)}</div>
-                            <div className="best-bet-card-stats">
-                              <span><span className="bb-stat-label">Odds</span> {r.best_odds.toFixed(2)}</span>
-                              <span><span className="bb-stat-label">Edge</span> <span className={r.expected_value >= 0 ? 'positive' : 'negative'}>{r.expected_value >= 0 ? '+' : ''}{(r.expected_value * 100).toFixed(0)}%</span></span>
-                              {r.expected_value > 0 && <span><span className="bb-stat-label">Stake</span> {r.kelly_stake_pct}% of budget</span>}
-                            </div>
-                            <div className="best-bet-card-consensus">{b.consensusLabel}</div>
-                            {b.agentEval && (
-                              <div className="best-bet-card-agent">
-                                ✨ {b.agentEval.agrees_with_model ? 'AI agrees' : 'AI sees it differently'} — {b.agentEval.bet_reasoning}
-                              </div>
-                            )}
-                            <span className="best-bet-card-cta">View full analysis →</span>
-                          </button>
-                        )
-                      })}
-                    </div>
-                  )}
-                </div>
-              )}
 
               <div className="fixtures-list">
                 {(() => {
-                  if (activeGroup === 'best') return null
                   let fixtures
                   if (activeGroup === 'next') {
-                    fixtures = NEXT_GAMES
+                    fixtures = nextGames
                   } else if (activeGroup === 'hot') {
-                    const hotFixture = getHotFixture(predictionsById)
+                    const hotFixture = getHotFixture(predictionsById, nextGames)
                     fixtures = hotFixture ? [hotFixture] : []
                   } else {
-                    fixtures = CL_FIXTURES.filter(f => f.group === activeGroup)
+                    fixtures = currentFixtures.filter(f => f.group === activeGroup)
                   }
                   return fixtures.map(fixture => {
                     const realKey = `${fixture.home_team}__${fixture.away_team}`

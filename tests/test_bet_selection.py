@@ -66,7 +66,7 @@ def test_consensus_requires_complete_matching_lines():
     assert market_consensus(e, "h2h", "A") is None
 
 
-def test_api_prices_all_lines_and_rejects_stale_best_offer():
+def test_api_excludes_quarter_lines_and_rejects_stale_best_offer():
     e = event()
     stale = deepcopy(e["bookmakers"][0])
     stale["last_update"] = (datetime.now(timezone.utc)-timedelta(hours=3)).isoformat()
@@ -76,9 +76,8 @@ def test_api_prices_all_lines_and_rejects_stale_best_offer():
     home = next(b for b in vb["bets"] if b["market"] == "1X2" and b["team"] == "A")
     assert home["best_odds"] == 2.2
     assert vb["market_favorite"] == home
-    assert any(b["market"] == "Over/Under 0.75" for b in vb["bets"])
-    dnb = next(b for b in vb["bets"] if b["market"] == "Handicap 0.0" and b["team"] == "A")
-    assert dnb["expected_value"] == .2 and dnb["market_probability"] is None
+    assert not any(b["market"] in {"Over/Under 0.75", "Handicap +0.25", "Handicap -0.25"} for b in vb["bets"])
+    assert not any(b["market"] == "Handicap 0.0" for b in vb["bets"])
     e["bookmakers"] = [stale]
     assert api._compute_value_bets(prediction(), [e], "A", "B")["market_favorite"] is None
 

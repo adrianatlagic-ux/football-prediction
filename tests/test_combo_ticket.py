@@ -9,7 +9,8 @@ from src.combo_ticket import build_tickets, combo_report, leg_pool, score_ticket
 def leg(home, away, prob, odds, market_prob=None, **extra):
     return {"home_team": home, "away_team": away, "commence_time": "2026-09-19T13:30:00Z",
             "sport_key": "soccer_germany_bundesliga", "market": "1X2", "outcome": "home_win",
-            "stressed_probability": max(0, prob - .03), "team": home, "best_odds": odds, "bookmaker": "Book", "probability": prob,
+            "conservative_probability": min(prob, market_prob if market_prob is not None else prob),
+            "market_agrees": True, "team": home, "best_odds": odds, "bookmaker": "Book", "probability": prob,
             "market_probability": market_prob, "expected_value": prob * odds - 1, **extra}
 
 
@@ -38,12 +39,12 @@ def test_probabilities_and_odds_multiply():
     assert abs(t["expected_value"] - 0.2) < 1e-9
 
 
-def test_stress_haircut_lowers_edge_more_with_more_legs():
-    two = score_ticket([leg("A", "B", 0.8, 1.5), leg("C", "D", 0.8, 1.5)])
-    three = score_ticket([leg("A", "B", 0.8, 1.5), leg("C", "D", 0.8, 1.5), leg("E", "F", 0.8, 1.5)])
-    two_gap = two["probability"] - two["stressed_probability"]
-    three_gap = three["probability"] - three["stressed_probability"]
-    assert three_gap > two_gap
+def test_the_market_checked_probability_falls_faster_with_more_legs():
+    """Each leg contributes its own gap between our number and the price."""
+    two = score_ticket([leg("A", "B", .8, 1.5, .7), leg("C", "D", .8, 1.5, .7)])
+    three = score_ticket([leg("A", "B", .8, 1.5, .7), leg("C", "D", .8, 1.5, .7), leg("E", "F", .8, 1.5, .7)])
+    assert (three["probability"] - three["conservative_probability"]
+            > two["probability"] - two["conservative_probability"])
 
 
 def test_only_one_leg_per_fixture_is_ever_used():
@@ -52,11 +53,19 @@ def test_only_one_leg_per_fixture_is_ever_used():
     assert len(pool) == 1
 
 
-def test_low_probability_and_negative_ev_legs_are_rejected():
-    assert leg_pool([vb("A", "B", [candidate(0.40, 3.0)])]) == []          # below floor
-    assert leg_pool([vb("A", "B", [candidate(0.60, 1.2)])]) == []          # negative EV
-    assert leg_pool([vb("A", "B", [candidate(0.90, 1.8, selection_market_reference={"books": {"r1": .5, "r2": .5, "r3": .5}})])]) == []
-    assert leg_pool([vb("A", "B", [candidate(0.70, 1.8, quote_fresh=False)])]) == []
+def test_unlikely_legs_and_legs_the_market_disputes_are_rejected():
+    """No edge test any more - a leg must be likely, and the price must agree.
+
+    The second half matters more than it looks: sorted by how far the model
+    departs from the price, the most confident fifth of past bets did worst
+    against the closing line. A leg the market calls the underdog is a worse
+    bet for that reason, not a hidden bargain.
+    """
+    assert leg_pool([vb("A", "B", [candidate(.40, 3.0)])]) == []                      # below the floor
+    assert leg_pool([vb("A", "B", [candidate(.90, 1.8, market_probability=.3)])]) == []  # market disagrees
+    assert leg_pool([vb("A", "B", [candidate(.90, 1.8, market_probability=None)])]) == []  # no price to check
+    # Short odds are fine now: we are not claiming an edge, only a likely outcome.
+    assert leg_pool([vb("A", "B", [candidate(.60, 1.2, market_probability=.8)])]) != []
 
 
 def test_in_play_and_expired_snapshots_are_skipped():
@@ -64,9 +73,17 @@ def test_in_play_and_expired_snapshots_are_skipped():
     assert leg_pool([vb("A", "B", [candidate(0.8, 1.6)], exclusion="expired")]) == []
 
 
-def test_tickets_need_a_positive_edge_after_stress():
-    thin = [leg("A", "B", 0.60, 1.68), leg("C", "D", 0.60, 1.68)]  # EV positive, thin
-    assert all(t["stressed_expected_value"] > 0 for t in build_tickets(thin))
+def test_a_ticket_must_pay_more_than_a_single_bet():
+    """Ranking by likelihood alone walks to the shortest prices on the board.
+
+    The first version of this returned a two-fold at 1.58 - worse than simply
+    backing one of its own legs. A ticket has to at least double the stake
+    before it competes.
+    """
+    short = [leg("A", "B", .8, 1.2, .75), leg("C", "D", .8, 1.2, .75)]   # 1.44 combined
+    assert build_tickets(short) == []
+    worthwhile = [leg("A", "B", .7, 1.5, .65), leg("C", "D", .7, 1.5, .65)]  # 2.25
+    assert build_tickets(worthwhile)
 
 
 def test_ranking_prefers_growth_over_raw_expected_value():
@@ -85,11 +102,15 @@ def test_report_explains_itself_when_nothing_qualifies():
     assert report["experimental"] is True
 
 
-def test_leg_without_enough_independent_bookmakers_is_rejected():
-    """The single-bet view excludes these as unverifiable; so must the combo."""
-    thin = candidate(0.75, 1.6, selection_market_reference={"book_count": 1, "books": {}})
-    assert leg_pool([vb("A", "B", [thin])]) == []
-    assert leg_pool([vb("A", "B", [candidate(0.75, 1.6, selection_market_reference=None)])]) == []
+def test_a_stale_quote_is_still_rejected():
+    """Freshness is the price check that survived dropping the stress test.
+
+    The reference-bookmaker rule went with it: it excluded every Nations
+    League leg, because few books price Andorra or Liechtenstein completely.
+    A stale price is different - nobody is offering it any more.
+    """
+    assert leg_pool([vb("A", "B", [candidate(.75, 1.6, quote_fresh=False)])]) == []
+    assert leg_pool([vb("A", "B", [candidate(.75, 1.6, selection_market_reference=None)])]) != []
 
 
 def test_market_probability_only_when_every_leg_has_one():
@@ -155,18 +176,20 @@ def test_duplicate_fixture_rows_do_not_create_extra_legs():
     assert build_tickets(leg_pool([row, row])) == []
 
 
-def test_each_bookmakers_price_must_pass_its_own_stress_check():
+def test_each_bookmaker_is_judged_on_its_own_price():
+    """One leg per book, each at that book's own quote - never a mixed price."""
     offered = candidate(.75, 1.6, bookmaker="Good", bookmaker_key="good")
-    worse = candidate(.75, 1.3, bookmaker="Bad", bookmaker_key="bad")
+    worse = candidate(.75, 1.3, bookmaker="Bad", bookmaker_key="bad", market_probability=1/1.3)
     best = {**offered, "bookmaker_offers": [offered, worse]}
-    pool = leg_pool([vb("A", "B", [best])])
-    assert [l["bookmaker"] for l in pool] == ["Good"]
-    assert pool[0]["passes_single_bet_test"]
+    pool = {l["bookmaker"]: l for l in leg_pool([vb("A", "B", [best])])}
+    assert set(pool) == {"Good", "Bad"}
+    assert pool["Good"]["best_odds"] == 1.6 and pool["Bad"]["best_odds"] == 1.3
+    assert all(l["market_agrees"] for l in pool.values())
 
 
-def test_forged_reference_count_cannot_qualify():
-    c = candidate(.75, 1.6, selection_market_reference={"book_count": 10, "books": {}})
-    assert leg_pool([vb("A", "B", [c])]) == []
+def test_a_leg_the_market_calls_an_underdog_cannot_qualify():
+    """However sure the model is - that disagreement predicted worse results."""
+    assert leg_pool([vb("A", "B", [candidate(.95, 1.6, market_probability=.35)])]) == []
 
 
 def test_combined_quote_never_uses_mixed_best_prices():
@@ -185,11 +208,13 @@ def test_combined_quote_never_uses_mixed_best_prices():
         assert "margin_cost" not in ticket
 
 
-def test_stake_and_ranking_use_stressed_probabilities():
-    ticket = score_ticket([leg("A", "B", .8, 1.5, stressed_probability=.70),
-                           leg("C", "D", .8, 1.5, stressed_probability=.70)])
-    assert ticket["kelly_fraction"] == pytest.approx((.70**2 * 2.25 - 1) / 1.25)
-    assert ticket["stressed_probability"] == .49
+def test_ranking_and_stake_use_the_market_checked_probability():
+    """Stake is flat: sizing by an edge we cannot measure would be a pretence."""
+    ticket = score_ticket([leg("A", "B", .8, 1.5, .70), leg("C", "D", .8, 1.5, .70)])
+    assert ticket["conservative_probability"] == pytest.approx(.49)
+    assert ticket["ranking_score"] == pytest.approx(.49)
+    assert "kelly_fraction" not in ticket
+    assert ticket["stake_pct"] == pytest.approx(1.0)
 
 
 def test_api_reprices_each_offer_and_excludes_that_book_from_reference(monkeypatch):
@@ -224,4 +249,4 @@ def test_api_reprices_each_offer_and_excludes_that_book_from_reference(monkeypat
     assert ticket is not None
     assert sorted(l["best_odds"] for l in ticket["legs"]) == [1.65, 1.7]
     assert len({l["bookmaker_key"] for l in ticket["legs"]}) == 1
-    assert ticket["legs_passing_single_bet_test"] == 2
+    assert ticket["legs_the_market_agrees_with"] == 2
