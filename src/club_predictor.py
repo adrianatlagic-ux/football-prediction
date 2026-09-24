@@ -110,7 +110,8 @@ class ClubFootballPredictor:
         weights = np.exp(-np.log(2) / half_life_days * days_ago)
         return weights / weights.mean()
 
-    def predict_match(self, home_team: str, away_team: str, is_knockout: bool = False, as_of=None) -> dict:
+    def predict_match(self, home_team: str, away_team: str, is_knockout: bool = False,
+                      as_of=None, market_values=None) -> dict:
         if not self._trained:
             raise RuntimeError("Model not trained. Call .train() first.")
 
@@ -122,7 +123,7 @@ class ClubFootballPredictor:
         if as_of <= pd.Timestamp(self.bundle.metadata["training_end"]):
             raise ValueError("Historical prediction requires a model trained strictly before this date")
         past = self._history[self._history.date < as_of]
-        X = prediction_row(past, home_team, away_team, as_of)
+        X = prediction_row(past, home_team, away_team, as_of, market_values=market_values)
         for col in self._feature_cols:
             if col not in X.columns:
                 X[col] = 0.0

@@ -74,8 +74,18 @@ class MarketValueHistory:
         past = undated[(undated.season_start_year <= upper) & (undated.season_start_year >= upper - 3)]
         return None if past.empty else float(past.sort_values("season_start_year").iloc[-1].market_value)
 
-    def features(self, home, away, as_of, policy=DEFAULT_POLICY):
+    def features(self, home, away, as_of, policy=DEFAULT_POLICY, override=None):
+        """Market-value features, optionally for one specific fixture.
+
+        override carries the squad available for this match - the standing
+        roster minus whoever is injured or suspended for it. The stored value
+        describes a club at full strength, which is what history should be
+        trained on and not what an eleven missing its two most valuable
+        players is worth on the night.
+        """
         h, a = self.value(home, as_of, policy), self.value(away, as_of, policy)
+        if override:
+            h, a = override.get(home, h), override.get(away, a)
         # Fixed denominator; never a maximum computed using future seasons.
         return {"home_market_value": (h or 0) / 1e9, "away_market_value": (a or 0) / 1e9,
                 "market_value_ratio": h / a if h and a else 1.0,

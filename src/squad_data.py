@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import urllib.request
 from datetime import date, datetime
 from typing import Optional
@@ -29,6 +30,7 @@ from typing import Optional
 ACTOR = "solidcode~transfermarkt-scraper"
 ENDPOINT = "https://api.apify.com/v2/acts/{}/run-sync-get-dataset-items?token={}"
 SQUAD_URL = "https://www.transfermarkt.com/x/startseite/verein/{}"
+ABSENCE_URL = "https://www.transfermarkt.com/x/sperrenundverletzungen/verein/{}"
 
 # Records that belong to the competition that issued them: bans, and squad
 # registration gaps ("No eligibility" - not named in a Champions League squad,
@@ -90,6 +92,55 @@ def fetch_squads(transfermarkt_ids, with_injuries: bool = True,
     if missing:
         raise RuntimeError(f"no squad returned for {', '.join(missing)}")
     return squads
+
+
+def fetch_absences(transfermarkt_id: str) -> dict:
+    """Current injuries and bans for a club, keyed by Transfermarkt player id.
+
+    The squad feed does not carry these. Its "injuries" field returns card
+    suspensions and registration gaps only - three Bundesliga clubs came back
+    with no injured players at all, which is not what the club pages say. This
+    is the page that does: name, reason, and the dates either side of it.
+
+    Only clubs have such a page; national teams return an empty one, because
+    Transfermarkt records injuries against the club a player belongs to.
+    """
+    with urllib.request.urlopen(ABSENCE_URL.format(transfermarkt_id), timeout=30) as response:
+        body = response.read().decode("utf-8", "ignore")
+    out = {}
+    for match in re.finditer(r"/profil/spieler/(\d+)", body):
+        player_id = match.group(1)
+        if player_id in out:
+            continue
+        # Reason and dates follow the player block as plain cells.
+        window = re.sub(r"<[^>]+>", "\x00", body[match.end():match.end() + 1600])
+        cells = [c.strip() for c in window.split("\x00") if c.strip()]
+        # The reason sits immediately before the first date: the row runs
+        # name, position, age, reason, from, to. Anchoring on the date keeps
+        # this working when a cell is empty rather than counting columns.
+        first_date = next((i for i, c in enumerate(cells)
+                           if re.fullmatch(r"\d{2}/\d{2}/\d{4}", c)), None)
+        dates = [c for c in cells if re.fullmatch(r"\d{2}/\d{2}/\d{4}", c)]
+        reason = cells[first_date - 1] if first_date else None
+        out[player_id] = {
+            "name": reason,
+            # No competition is attached to these. An injury applies
+            # everywhere, and a ban whose competition we cannot read is left
+            # to the competition test, which will not match and so will not
+            # rule anyone out on a guess.
+            "competitionId": None,
+            "start": _to_iso(dates[0]) if dates else None,
+            "end": _to_iso(dates[1]) if len(dates) > 1 else None,
+        }
+    return out
+
+
+def _to_iso(value: str):
+    try:
+        day, month, year = value.split("/")
+        return f"{year}-{month}-{day}"
+    except (ValueError, AttributeError):
+        return None
 
 
 def is_competition_bound(record: dict) -> bool:
@@ -231,12 +282,21 @@ def available_squad_values(teams, registry, competition, as_of=None, token=None)
     wanted = {t: registry[t] for t in teams if t in registry}
     if not wanted:
         return {}
-    squads = fetch_squads(wanted.values(), with_injuries=competition.has_injury_page, token=token)
+    squads = fetch_squads(wanted.values(), with_injuries=False, token=token)
     values = {}
     for team, team_id in wanted.items():
         players = squads.get(str(team_id))
         if not players:
             continue
+        if competition.has_injury_page:
+            # The squad feed carries no injuries - see fetch_absences - so the
+            # club's own absence page is read and attached here.
+            try:
+                absences = fetch_absences(team_id)
+            except Exception:
+                absences = {}
+            players = [{**p, "injuries": [absences[str(p["id"])]] if str(p.get("id")) in absences else []}
+                       for p in players]
         summary = summarise(players, competition, as_of=as_of)
         # A pool listing is not a call-up; its total would overstate who can
         # play, so the stored national figure stays in charge for that side.

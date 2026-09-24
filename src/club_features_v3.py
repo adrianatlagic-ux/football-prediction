@@ -15,7 +15,7 @@ class ClubFeatureState:
         self.market_values = market_values or MarketValueHistory()
         self.policy = policy
 
-    def row(self, home, away, date):
+    def row(self, home, away, date, override=None):
         f = {}
         for side, team in (("home", home), ("away", away)):
             games = list(self.teams[team])
@@ -35,7 +35,7 @@ class ClubFeatureState:
         f.update(h2h_home_wins=winners.count(home) / n if n else 0,
                  h2h_draws=winners.count(None) / n if n else 0,
                  h2h_away_wins=winners.count(away) / n if n else 0, h2h_games=float(n))
-        f.update(self.market_values.features(home, away, date, self.policy))
+        f.update(self.market_values.features(home, away, date, self.policy, override))
         return f
 
     def update(self, day):
@@ -65,10 +65,16 @@ def build_features(history, policy=DEFAULT_POLICY, market_values=None):
     return pd.DataFrame(records)
 
 
-def prediction_row(history, home, away, as_of, policy=DEFAULT_POLICY):
+def prediction_row(history, home, away, as_of, policy=DEFAULT_POLICY, market_values=None):
+    """One feature row for an upcoming club fixture.
+
+    market_values, when given, replaces the stored squad value for these two
+    clubs in this row only - the players actually available, rather than the
+    roster at full strength.
+    """
     history = prepare_history(history)
     state = ClubFeatureState(policy=policy)
     history = history[history.date < pd.Timestamp(as_of).normalize()]
     for _, day in history.groupby("date", sort=True):
         state.update(day)
-    return pd.DataFrame([state.row(home, away, as_of)])
+    return pd.DataFrame([state.row(home, away, as_of, override=market_values)])

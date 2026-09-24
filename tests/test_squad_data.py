@@ -125,3 +125,42 @@ def test_every_club_competition_declares_its_transfermarkt_code():
         else:
             # Without a code, no competition-bound record can ever match.
             assert competition.transfermarkt_code is None
+
+
+PAGE_INJURY = {"name": "Adductor pain", "competitionId": None,
+               "start": "2026-09-18", "end": None}
+PAGE_BAN = {"name": "Red card suspension", "competitionId": None,
+            "start": "2026-09-20", "end": "2026-10-05"}
+
+
+def test_an_injury_read_from_the_club_page_counts_everywhere():
+    """These records carry no competition, and an injury needs none."""
+    subject = player("1", "A", 1, [PAGE_INJURY])
+    for key in ("bundesliga", "champions_league", "nations_league"):
+        assert active_absences(subject, MATCHDAY, get(key)), key
+
+
+def test_a_ban_without_a_competition_rules_nobody_out():
+    """We cannot read which competition issued it, so we do not guess.
+
+    Guessing wrong in this direction removes a player who will be on the
+    pitch - the mistake that put four Dortmund men out of a league fixture.
+    """
+    subject = player("1", "A", 1, [PAGE_BAN])
+    for key in ("bundesliga", "champions_league"):
+        assert active_absences(subject, MATCHDAY, get(key)) == [], key
+
+
+def test_an_injured_player_is_subtracted_from_a_club_squad_value():
+    """What the whole club path exists to do: Bayern minus its injured man."""
+    squad = [player("1", "Fit", 200_000_000), player("2", "Hurt", 34_000_000, [PAGE_INJURY])]
+    result = summarise(squad, get("bundesliga"), as_of=MATCHDAY)
+    assert result["available_value_eur"] == 200_000_000
+    assert result["absent_players"][0]["reason"] == "Adductor pain"
+
+
+def test_every_competition_with_an_injury_page_can_be_asked_for_one():
+    """A club competition must carry the id its absence page is fetched by."""
+    for competition in COMPETITIONS.values():
+        if competition.has_injury_page:
+            assert competition.odds_sport_key, competition.key
