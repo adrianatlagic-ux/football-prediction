@@ -870,7 +870,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
   const agentEval = betInfo.agent_eval
   const agentPick = agentEval && agentEval.pick
   const combined = betInfo.combined
-  const consensusPick = combined && combined.consensus_pick
+  const priceTipPick = betInfo.price_tip && betInfo.price_tip.tip
   const modelFavorite = betInfo.model_favorite
   const safestPick = betInfo.safest_pick
   const scenarioText = data?.score_prediction?.betting_markets?.scenario
@@ -879,31 +879,33 @@ function SmartBetCard({ betStep, betInfo, data }) {
   const reds = betInfo.red_bets || []
   // Everything else the bookmakers price, weakest edge last - so every
   // market bet-at-home lists is on the page, not only the top few.
-  const shown = [...greens, ...reds]
-  const rest = (betInfo.bets || [])
-    .filter(b => !shown.some(x => sameBet(x, b)))
+  const allRest = (betInfo.bets || [])
+    .filter(b => ![...greens, ...reds].some(x => sameBet(x, b)))
     .sort((a, b) => b.expected_value - a.expected_value)
+  // The price tip's row is always shown, even when its model edge would
+  // otherwise put it behind "Show all markets".
+  const priceTipRow = priceTipPick && allRest.find(b => sameBet(b, priceTipPick))
+  const rest = allRest.filter(b => b !== priceTipRow)
   const hasUserBook = (betInfo.bets || []).some(b => b.bookmaker_key === USER_BOOK_KEY)
 
   const renderRow = (b, i, kind) => {
     const isRec = best && sameBet(b, best)
-    const isGamePick = consensusPick && sameBet(b, consensusPick)
+    const isPriceTip = priceTipPick && sameBet(b, priceTipPick)
     const isAgentPick = agentPick && sameBet(b, agentPick)
     const isModelFavorite = modelFavorite && sameBet(b, modelFavorite)
     const isSafestPick = safestPick && sameBet(b, safestPick)
-    // Any marked signal (Game Pick, value bet, AI pick ✨, model favorite ◆,
-    // safest pick 🛡) is a headline in its own right - dimming its row to 40%
-    // opacity just because its edge happens to be negative buries it visually
-    // even though we deliberately show these regardless of edge. The Game
-    // Pick especially is *expected* to have flat/negative edge at short odds
-    // (that's the whole "swim with the market" point), so graying it out
-    // here would visually contradict the headline box above.
-    const keepFullOpacity = isRec || isGamePick || isAgentPick || isModelFavorite || isSafestPick
+    // Any marked signal (price tip 💰, value bet ★, AI pick ✨, model
+    // favorite ◆, safest pick 🛡) is a headline in its own right - dimming its
+    // row to 40% opacity just because the model rates its edge negative
+    // buries it, even though we deliberately show these regardless of edge.
+    // The price tip especially is chosen against Pinnacle, not the model, so
+    // the model's edge column may well be negative on it.
+    const keepFullOpacity = isRec || isPriceTip || isAgentPick || isModelFavorite || isSafestPick
     return (
       <div className={`smart-bet-table-row ${kind !== 'green' && !keepFullOpacity ? 'is-red' : ''} ${isRec ? 'is-rec' : ''}`} key={`${kind}-${i}`}>
         <span className="smart-bet-col-market">{marketGroupLabel(b.market)}{b.suspicious ? ' ⚠' : ''}</span>
         <span className="smart-bet-col-pick">
-          {isRec ? '★ ' : ''}{isAgentPick ? '✨ ' : ''}{isModelFavorite ? '◆ ' : ''}{isSafestPick ? '🛡 ' : ''}{betOutcomeLabel(b)}
+          {isPriceTip ? '💰 ' : ''}{isRec ? '★ ' : ''}{isAgentPick ? '✨ ' : ''}{isModelFavorite ? '◆ ' : ''}{isSafestPick ? '🛡 ' : ''}{betOutcomeLabel(b)}
         </span>
         <span className="smart-bet-col-odds" title={b.bookmaker}>
           {b.best_odds.toFixed(2)}{b.bookmaker_key !== USER_BOOK_KEY && hasUserBook ? '*' : ''}
@@ -931,6 +933,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
           </div>
           {greens.map((b, i) => renderRow(b, i, 'green'))}
           {reds.map((b, i) => renderRow(b, i, 'red'))}
+          {priceTipRow && renderRow(priceTipRow, 0, 'tip')}
           {showAllMarkets && rest.map((b, i) => renderRow(b, i, 'rest'))}
           {rest.length > 0 && (
             <button className="smart-bet-more" onClick={() => setShowAllMarkets(v => !v)}>
@@ -1029,7 +1032,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
       )}
 
       <div className="smart-bet-finePrint">
-        <p><strong>★</strong> top pick by edge. <strong>✨</strong> AI agent's own pick after live research. <strong>◆</strong> model's
+        <p><strong>💰</strong> price tip: bet-at-home pays more than Pinnacle's fair price. <strong>★</strong> top pick by edge. <strong>✨</strong> AI agent's own pick after live research. <strong>◆</strong> model's
         most likely outcome (no proven market edge required). <strong>🛡</strong> safest pick across all markets (highest
         model probability among bets priced at odds 1.50 or below, confirming the market also sees it
         as near-certain).</p>
