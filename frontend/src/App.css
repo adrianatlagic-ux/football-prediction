@@ -2962,3 +2962,8 @@ body {
 @media (max-width: 420px) {
   .price-tip-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+.wm-ticker-event.wm-ticker-yellow {
+  padding: 0.55rem 1rem;
+  background: transparent;
+}

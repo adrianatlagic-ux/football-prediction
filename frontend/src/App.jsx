@@ -1664,28 +1664,58 @@ function buildRealResultsMap(results) {
   return map
 }
 
-function RealTicker({ events, homeTeam, awayTeam }) {
+// ESPN minutes read "32'", "45'+2'" or "90'+4'"; stoppage time counts with
+// the half it belongs to.
+function tickerMinute(minute) {
+  const m = String(minute || '').match(/^(\d+)'?(?:\+(\d+))?/)
+  return m ? { base: Number(m[1]), extra: Number(m[2] || 0) } : { base: 0, extra: 0 }
+}
+
+// The real match, told the way the old predicted ticker told it: kickoff,
+// every goal with the running score, cards, half-time and full-time.
+function RealTicker({ events, homeTeam, awayTeam, homeScore, awayScore }) {
   if (!events || events.length === 0) return null
-  const goalEvents = events.filter(e => e.type === 'goal')
-  const cardEvents = events.filter(e => e.type === 'red_card')
-  if (goalEvents.length === 0 && cardEvents.length === 0) return null
+  let home = 0, away = 0
+  const score = () => `${home}:${away}`
+  const rows = [{ key: 'ko', minute: "1'", type: 'kickoff', head: '🟢 Kickoff', text: `${homeTeam} vs ${awayTeam} is underway.`, score: '0:0' }]
+  let halftimeShown = false
+  events.forEach((e, i) => {
+    const t = tickerMinute(e.minute)
+    if (!halftimeShown && t.base > 45) {
+      rows.push({ key: 'ht', minute: 'HT', type: 'halftime', head: '⏸️ Half-time', text: `${homeTeam} ${score()} ${awayTeam} at the break.`, score: score() })
+      halftimeShown = true
+    }
+    if (e.type === 'goal') {
+      if (e.team === homeTeam) home += 1; else away += 1
+      const how = e.own_goal ? ' (own goal)' : e.penalty ? ' (penalty)' : ''
+      rows.push({ key: i, minute: e.minute, type: 'goal', head: `⚽ GOAL! ${e.team}!`,
+                  text: `${e.player || 'Unknown'}${how} makes it ${score()}.`, score: score() })
+    } else if (e.type === 'red_card') {
+      rows.push({ key: i, minute: e.minute, type: 'chance', head: `🟥 Red card — ${e.team}`,
+                  text: `${e.player || 'A player'} is sent off. ${e.team} play on with ten.`, score: score() })
+    } else if (e.type === 'yellow_card') {
+      rows.push({ key: i, minute: e.minute, type: 'yellow', head: `🟨 Yellow card — ${e.team}`,
+                  text: `${e.player || 'A player'} is booked.`, score: null })
+    }
+  })
+  if (!halftimeShown) {
+    rows.push({ key: 'ht', minute: 'HT', type: 'halftime', head: '⏸️ Half-time', text: `${homeTeam} ${score()} ${awayTeam} at the break.`, score: score() })
+  }
+  const final = homeScore != null ? `${homeScore}:${awayScore}` : score()
+  rows.push({ key: 'ft', minute: 'FT', type: 'fulltime', head: '🏁 Full-time', text: `${homeTeam} ${final} ${awayTeam}.`, score: final })
 
   return (
     <div className="wm-stories real-ticker">
-      <h4>Match Events</h4>
-      {events.filter(e => e.type === 'goal' || e.type === 'red_card').map((e, i) => (
-        <div className={`wm-ticker-event wm-ticker-${e.type === 'goal' ? 'goal' : 'chance'}`} key={i}>
-          <span className="wm-ticker-minute">{e.minute}</span>
+      <h4>Match Ticker</h4>
+      {rows.map(r => (
+        <div className={`wm-ticker-event wm-ticker-${r.type}`} key={r.key}>
+          <span className="wm-ticker-minute">{r.minute}</span>
           <div className="wm-ticker-body">
             <div className="wm-ticker-head">
-              <span>
-                {e.type === 'goal' ? '⚽' : '🟥'}
-                {' '}{e.player}
-                {e.own_goal ? ' (OG)' : ''}
-                {e.penalty ? ' (P)' : ''}
-                {' — '}{e.team}
-              </span>
+              <span>{r.head}</span>
+              {r.score && <span className="wm-ticker-score">{r.score}</span>}
             </div>
+            <p>{r.text}</p>
           </div>
         </div>
       ))}
@@ -1860,7 +1890,8 @@ function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive })
       </div>
 
       <RealStats stats={result.stats} homeTeam={fixture.home_team} awayTeam={fixture.away_team} />
-      <RealTicker events={result.events} homeTeam={fixture.home_team} awayTeam={fixture.away_team} />
+      <RealTicker events={result.events} homeTeam={fixture.home_team} awayTeam={fixture.away_team}
+                  homeScore={result.home_score} awayScore={result.away_score} />
 
       {aiData && (
         <div className="ai-prediction-section">
