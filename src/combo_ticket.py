@@ -62,8 +62,12 @@ def book_key(leg):
     return leg.get("bookmaker_key") or leg.get("bookmaker")
 
 
-def leg_pool(value_bet_results):
-    """One qualifying leg per fixture AND bookmaker at that bookmaker's price."""
+def leg_pool(value_bet_results, book=None):
+    """One qualifying leg per fixture AND bookmaker at that bookmaker's price.
+
+    With `book`, only that bookmaker's prices are used - the one the user
+    can actually bet with.
+    """
     selected = {}
     for prediction, vb in value_bet_results:
         if not vb.get("odds_found") or not vb.get("snapshot_valid") or vb.get("in_play") or vb.get("exclusion"):
@@ -84,6 +88,8 @@ def leg_pool(value_bet_results):
                 continue
             for offered in candidate.get("bookmaker_offers", [candidate]):
                 if not book_key(offered) or not offered.get("quote_fresh"):
+                    continue
+                if book and book_key(offered) != book:
                     continue
                 # Freshness (checked above) survives from the old stress test;
                 # its reference-bookmaker requirement does not. That rule ruled
@@ -209,9 +215,9 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None):
     return days
 
 
-def combo_report(value_bet_results, max_legs=MAX_LEGS):
+def combo_report(value_bet_results, max_legs=MAX_LEGS, book=None):
     pairs = list(value_bet_results)
-    legs = leg_pool(pairs)
+    legs = leg_pool(pairs, book=book)
     days, started = set(), defaultdict(int)
     for _, vb in pairs:
         date = match_day(vb.get("commence_time"))
@@ -229,3 +235,35 @@ def combo_report(value_bet_results, max_legs=MAX_LEGS):
                            "ranking": "model_market_win_probability"},
             "reason": None if tickets else "No same-day ticket at one bookmaker passes all leg and ticket checks. Push/quarter markets are currently excluded.",
             "interpretation": "Model estimate assuming independence between different fixtures; not guaranteed. Same-book singles prices multiplied, not a verified offered accumulator price. Experimental, no proven profitability."}
+
+
+def price_tip_combos(entries, max_legs=MAX_LEGS):
+    """Accumulators of the day's price tips - the only legs with a measured edge.
+
+    Each entry is {"home_team", "away_team", "commence_time", "tip"} with a
+    tip from src/price_tip.py. Legs are win-or-lose only (Draw No Bet refunds
+    on a draw and is left out), one per match, same matchday; the best-edged
+    MAX_LEGS of a day make its ticket. Probability and edge are judged by
+    Pinnacle's fair prices, independence assumed as for every combo here.
+    Price tips are rare - most days have fewer than two - so most days have
+    no such ticket at all.
+    """
+    by_day = defaultdict(list)
+    for e in entries:
+        tip = e.get("tip") or {}
+        if not tip or not binary_market(tip.get("market")):
+            continue
+        day = match_day(e.get("commence_time"))
+        if day:
+            by_day[day].append({**tip, **{k: e.get(k) for k in ("home_team", "away_team", "commence_time")}})
+    out = []
+    for day, legs in sorted(by_day.items()):
+        legs = sorted(legs, key=lambda l: -l["edge"])[:max_legs]
+        if len(legs) < MIN_LEGS:
+            continue
+        odds = _product(l["book_odds"] for l in legs)
+        probability = _product(l["probability"] for l in legs)
+        out.append({"date": day, "legs": legs, "leg_count": len(legs),
+                    "combined_odds": round(odds, 2), "probability": round(probability, 4),
+                    "edge": round(odds * probability - 1, 4), "stake_pct": round(MAX_STAKE_FRACTION * 100, 2)})
+    return out

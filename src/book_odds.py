@@ -259,3 +259,37 @@ def refresh_if_due(sport_key: str, events: list) -> bool:
             fetched = [{**f, "markets": {}} for f in fetched]
         store(sport_key, fetched)
         return True
+
+
+# How far ahead the daily 1X2 read looks, and how far past the budget it may
+# go: at 0.3 cents a match it is the cheap part, and without it neither the
+# bet table nor the combo has bet-at-home prices outside the last hour.
+DAILY_HORIZON = timedelta(hours=30)
+DAILY_RESERVE = 1.0
+
+
+def daily_refresh(sport_key: str, events: list) -> bool:
+    """Read bet-at-home's 1X2 for every match in the next DAILY_HORIZON."""
+    if sport_key not in LEAGUES or not os.getenv("APIFY_TOKEN"):
+        return False
+    now = _now()
+    listed = 0
+    for e in events:
+        try:
+            kickoff = datetime.fromisoformat(e["commence_time"].replace("Z", "+00:00"))
+        except (KeyError, ValueError):
+            continue
+        listed += now - timedelta(hours=2) <= kickoff <= now + DAILY_HORIZON
+    if not listed:
+        return False
+    items = min(listed, 40)
+    if spent_this_month() + items * PRICE_PER_MATCH > MONTHLY_BUDGET + DAILY_RESERVE:
+        return False
+    with _refresh_lock:
+        try:
+            fetched = fetch_league(sport_key, items)
+        except Exception:
+            return False
+        _record_spend(items * PRICE_PER_MATCH)
+        store(sport_key, fetched)
+        return True

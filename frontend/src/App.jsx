@@ -554,6 +554,48 @@ function ComboTicketCard({ ticket, primary }) {
   )
 }
 
+// A combo of the day's price tips: every leg is a bet where bet-at-home pays
+// more than Pinnacle's fair price, so the edges multiply.
+function PriceTipComboCard({ ticket }) {
+  return (
+    <div className="combo-ticket is-primary price-tip-combo">
+      <div className="combo-ticket-head">
+        <span className="combo-ticket-legs">💰 {ticket.leg_count}-fold · bet-at-home</span>
+        <div className="combo-quote">
+          <span className="combo-quote-label">Combined odds</span>
+          <span className="combo-ticket-odds">{ticket.combined_odds.toFixed(2)}</span>
+        </div>
+      </div>
+      <div className="combo-legs">
+        {ticket.legs.map((leg, i) => (
+          <div className="combo-leg" key={i}>
+            <span className="combo-leg-num">{i + 1}</span>
+            <div className="combo-leg-body">
+              <div className="combo-leg-match">
+                <TeamLabel name={leg.home_team} /> <span className="combo-leg-vs">vs</span> <TeamLabel name={leg.away_team} />
+              </div>
+              <div className="combo-leg-pick">{betOutcomeLabel(leg)}</div>
+              <div className="combo-leg-meta">{marketGroupLabel(leg.market)} · fair {leg.fair_odds.toFixed(2)} · edge {(leg.edge * 100).toFixed(1)}%</div>
+            </div>
+            <div className="combo-leg-numbers">
+              <span className="combo-leg-odds">{leg.book_odds.toFixed(2)}</span>
+              <span className="combo-leg-prob">{betPercent(leg.probability)} Pinnacle</span>
+            </div>
+          </div>
+        ))}
+      </div>
+      <dl className="bet-metrics probability-metrics">
+        <BetMetric label="Chance all of them land" value={betPercent(ticket.probability)} detail="By Pinnacle's fair prices" emphasis />
+        <BetMetric label="Edge" value={`${ticket.edge >= 0 ? '+' : ''}${(ticket.edge * 100).toFixed(1)}%`} detail="Per 1 staked, on average over many tickets" />
+      </dl>
+      <p className="combo-ticket-note">
+        Only price tips, all read in the hour before kickoff. Results are assumed independent;
+        the combined offer at bet-at-home has not been checked. An edge is an average, not a promise for this ticket.
+      </p>
+    </div>
+  )
+}
+
 function ComboTicketView({ combo, loading }) {
   if (loading) {
     return (
@@ -570,8 +612,15 @@ function ComboTicketView({ combo, loading }) {
 
   return (
     <div className="combo-view">
+      {combo.price_tip_combos?.length > 0 && (
+        <div className="combo-day">
+          <span className="combo-section-label">💰 Price tip combo</span>
+          {combo.price_tip_combos.map(t => <PriceTipComboCard key={t.date} ticket={t} />)}
+        </div>
+      )}
+
       <p className="best-bets-intro">
-        Every selection must win. Each ticket uses <strong>one bookmaker, one matchday</strong>
+        Every selection must win. All prices are <strong>bet-at-home's</strong>; each ticket uses <strong>one matchday</strong>
         {' '}and at most one selection per match. Selections favour outcomes rated likely by
         both the model and the market. Only win-or-lose markets are combined;
         quarter lines are excluded. Compare the best available 2-, 3- and 4-fold for each day.

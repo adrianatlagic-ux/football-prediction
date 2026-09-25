@@ -586,6 +586,14 @@ def _fetch_event_odds(event):
     return fresh
 
 
+def _refresh_book_daily(events: list[dict]) -> None:
+    for sport in book_odds.LEAGUES:
+        try:
+            book_odds.daily_refresh(sport, [e for e in events if e.get("sport_key") == sport])
+        except Exception:
+            pass
+
+
 def _get_odds() -> list[dict]:
     from src.bet_audit import timestamp
     from src.odds_schedule import stamp_event
@@ -603,6 +611,11 @@ def _get_odds() -> list[dict]:
                 fetched = datetime.now(timezone.utc)
                 stage = "daily" if fetched.hour >= ODDS_REFRESH_HOUR_UTC else "initial"
                 _odds_cache = [stamp_event(e, fetched, stage) for e in events]
+                # bet-at-home's 1X2, read right after the snapshot so the two
+                # line up for the bet table and the combo all day. Cheap (0.3
+                # cents a match) and in the background: a scraper must not
+                # hold up the odds every page is waiting for.
+                threading.Thread(target=_refresh_book_daily, args=(list(_odds_cache),), daemon=True).start()
                 _odds_cache_date = fetched.date().isoformat()
                 _odds_cache_fetched_at = time.time()
                 if stage == "daily":
@@ -1050,10 +1063,15 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
     # reliable footing - not simply because DC/O-U mathematically score higher
     # (they always do; see the earlier Double Chance discussion).
     WEAK_1X2_THRESHOLD = 0.55
+    MODEL_FAVORITE_MIN_ODDS = 1.20
     STRONG_ALTERNATIVE_THRESHOLD = 0.65
     if model_favorite is not None and model_favorite["probability"] < WEAK_1X2_THRESHOLD:
+        # Near-certain lines at odds like 1.02 (Under 6.5) clear the
+        # probability bar trivially and say nothing; with bet-at-home's full
+        # book listing every line they started winning this slot.
         alternative = max(
-            (c for c in candidates if c["market"] != "1X2" and c["probability"] >= STRONG_ALTERNATIVE_THRESHOLD),
+            (c for c in candidates if c["market"] != "1X2" and c["probability"] >= STRONG_ALTERNATIVE_THRESHOLD
+             and c["best_odds"] >= MODEL_FAVORITE_MIN_ODDS),
             key=lambda c: c["probability"],
             default=None,
         )
@@ -1735,8 +1753,20 @@ def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
             continue
         pairs.append((data, vb))
 
-    report = combo_report(pairs, max_legs=max_legs)
+    # Only bet-at-home: the one bookmaker the user bets with.
+    report = combo_report(pairs, max_legs=max_legs, book=USER_BOOK_KEY)
     report["competition"] = competition
+
+    from src.combo_ticket import price_tip_combos
+    tips = []
+    for data, vb in pairs:
+        if not vb.get("odds_found") or vb.get("in_play"):
+            continue
+        tip = _price_tip_for(odds, data["home_team"], data["away_team"], data, None)
+        if tip and tip.get("tip"):
+            tips.append({"home_team": vb["home_team"], "away_team": vb["away_team"],
+                         "commence_time": vb.get("commence_time"), "tip": tip["tip"]})
+    report["price_tip_combos"] = price_tip_combos(tips)
 
     return report
 

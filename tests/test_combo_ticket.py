@@ -228,13 +228,14 @@ def test_api_reprices_each_offer_and_excludes_that_book_from_reference(monkeypat
     from api import app as api
     now = datetime.now(timezone.utc)
     predictions, events = {}, []
-    for home, away, best_book in [("A", "B", "X"), ("C", "D", "Y")]:
+    # "betathome" is the user's book: the combo is built at its prices only.
+    for home, away, best_book in [("A", "B", "betathome"), ("C", "D", "Y")]:
         p = {"home_team": home, "away_team": away, "probability_home_win": .75,
              "probability_draw": .15, "probability_away_win": .10}
         predictions[(home, away)] = p
         books = []
-        for name in ("X", "Y", "r1", "r2"):
-            price = 1.70 if name == best_book else 1.65 if name in ("X", "Y") else 1.5
+        for name in ("betathome", "Y", "r1", "r2"):
+            price = 1.70 if name == best_book else 1.65 if name in ("betathome", "Y") else 1.5
             books.append({"key": name, "title": name, "last_update": now.isoformat(), "markets": [
                 {"key": "h2h", "outcomes": [{"name": n, "price": q} for n, q in [(home, price), ("Draw", 5), (away, 8)]]}]})
         events.append({"id": home, "home_team": home, "away_team": away,
@@ -254,5 +255,19 @@ def test_api_reprices_each_offer_and_excludes_that_book_from_reference(monkeypat
     ticket = report["recommended"]
     assert ticket is not None
     assert sorted(l["best_odds"] for l in ticket["legs"]) == [1.65, 1.7]
-    assert len({l["bookmaker_key"] for l in ticket["legs"]}) == 1
+    assert {l["bookmaker_key"] for l in ticket["legs"]} == {"betathome"}
     assert ticket["legs_the_market_agrees_with"] == 2
+
+
+def test_price_tip_combos_need_two_binary_tips_on_one_day():
+    from src.combo_ticket import price_tip_combos
+    def entry(home, kickoff, market="1X2", odds=2.35, p=.44):
+        return {"home_team": home, "away_team": home + " B", "commence_time": kickoff,
+                "tip": {"market": market, "outcome": "home_win", "team": home, "book_odds": odds,
+                        "probability": p, "edge": round(odds * p - 1, 4)}}
+    same_day = [entry("A", "2026-09-25T18:45:00Z"), entry("C", "2026-09-25T18:45:00Z", odds=1.9, p=.55),
+                entry("E", "2026-09-25T18:45:00Z", market="Handicap 0.0")]
+    combos = price_tip_combos(same_day + [entry("G", "2026-09-27T16:00:00Z")])
+    assert len(combos) == 1 and combos[0]["leg_count"] == 2
+    assert combos[0]["combined_odds"] == round(2.35 * 1.9, 2)
+    assert combos[0]["edge"] == round(2.35 * 1.9 * .44 * .55 - 1, 4)
