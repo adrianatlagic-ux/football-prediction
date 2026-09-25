@@ -160,7 +160,8 @@ def market_rows(event: dict, fixture: dict, fair: dict) -> list:
     exact = {("home", 0.5): h + d, ("home", -0.5): h, ("away", 0.5): a + d, ("away", -0.5): a}
     rows = []
     for line in markets.get("spreads", []):
-        for side, team, point in (("home", home, line["point"]), ("away", away, -line["point"])):
+        # "+ 0.0" turns the away side of Draw No Bet from -0.0 into 0.0.
+        for side, team, point in (("home", home, line["point"] + 0.0), ("away", away, -line["point"] + 0.0)):
             offered = line.get(side)
             if not offered or offered <= 1:
                 continue

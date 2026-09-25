@@ -112,3 +112,9 @@ def test_no_tip_when_book_and_pinnacle_were_read_apart():
     result = build_price_tip(event, _book({"home": 1.70, "draw": 3.60, "away": 5.00}), now=NOW)
     assert result["tip"] is None and "different time" in result["reason"]
     assert len(result["outcomes"]) == 3
+
+
+def test_draw_no_bet_away_side_is_labelled_zero_not_minus_zero():
+    book = _full_book(spreads=[{"point": 0.0, "home": 1.30, "away": 3.20}], totals=[])
+    markets = {r["market"] for r in build_price_tip(_event(), book, now=NOW)["outcomes"]}
+    assert "Handicap -0.0" not in markets and "Handicap 0.0" in markets

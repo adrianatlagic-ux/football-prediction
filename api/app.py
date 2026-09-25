@@ -745,7 +745,7 @@ def _with_book_odds(event: dict) -> dict:
             markets.append({"key": "spreads", "last_update": full_time, "outcomes": [
                 {"name": name, "price": line[side], "point": point}
                 for line in full["spreads"]
-                for side, name, point in (("home", home, line["point"]), ("away", away, -line["point"]))
+                for side, name, point in (("home", home, line["point"] + 0.0), ("away", away, -line["point"] + 0.0))
                 if line.get(side)]})
         if full.get("btts"):
             markets.append({"key": "btts", "last_update": full_time, "outcomes": [
