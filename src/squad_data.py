@@ -24,7 +24,8 @@ import json
 import os
 import re
 import urllib.request
-from datetime import date, datetime
+from datetime import date, datetime, timedelta, timezone
+from pathlib import Path
 from typing import Optional
 
 ACTOR = "solidcode~transfermarkt-scraper"
@@ -36,6 +37,18 @@ ABSENCE_URL = "https://www.transfermarkt.com/x/sperrenundverletzungen/verein/{}"
 # registration gaps ("No eligibility" - not named in a Champions League squad,
 # say). Everything else, injuries above all, travels with the player.
 COMPETITION_BOUND_MARKERS = ("suspension", "ban", "sperre", "suspended", "eligibility")
+# Squads with their player values are kept this long before Apify is paid
+# again. Values move when Transfermarkt updates them, every few weeks, and a
+# national call-up stands for the whole international window. What does change
+# by the hour - who is injured or banned - comes from fetch_absences, which is
+# read fresh for every match and costs nothing.
+SQUAD_CACHE_DIR = Path(os.getenv("SQUAD_CACHE_DIR",
+                                 Path(__file__).resolve().parents[1] / "data" / "squad_cache"))
+CLUB_SQUAD_TTL = timedelta(days=7)
+NATIONAL_SQUAD_TTL = timedelta(days=10)
+# All that summarise() reads from a player row.
+_KEPT_FIELDS = ("id", "name", "marketValueEur", "positionName")
+
 # The per-player sum never matches the published squad total exactly - a
 # player or two carries no value - but a healthy fetch lands within this.
 TOLERANCE = 0.15
@@ -265,6 +278,35 @@ def summarise(players: list, competition, absent_names=(),
     }
 
 
+def cached_squads(transfermarkt_ids, ttl: timedelta, token: Optional[str] = None,
+                  now: Optional[datetime] = None) -> dict:
+    """Squads keyed by Transfermarkt id, from the cache where it is young enough.
+
+    Only the stale or missing ones go to Apify, still in a single run.
+    """
+    now = now or datetime.now(timezone.utc)
+    out, stale = {}, []
+    for team_id in (str(i) for i in transfermarkt_ids):
+        try:
+            cached = json.loads((SQUAD_CACHE_DIR / f"{team_id}.json").read_text(encoding="utf-8"))
+            if now - datetime.fromisoformat(cached["fetched_at"]) < ttl:
+                out[team_id] = cached["players"]
+                continue
+        except (OSError, ValueError, KeyError):
+            pass
+        stale.append(team_id)
+    if stale:
+        fetched = fetch_squads(stale, with_injuries=False, token=token)
+        SQUAD_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        for team_id, players in fetched.items():
+            slim = [{k: p.get(k) for k in _KEPT_FIELDS} for p in players]
+            (SQUAD_CACHE_DIR / f"{team_id}.json").write_text(
+                json.dumps({"fetched_at": now.isoformat(), "players": slim}, ensure_ascii=False) + "\n",
+                encoding="utf-8")
+            out[team_id] = slim
+    return out
+
+
 def available_squad_values(teams, registry, competition, as_of=None, token=None):
     """Priced strength of the squads actually named, keyed by team name.
 
@@ -282,7 +324,8 @@ def available_squad_values(teams, registry, competition, as_of=None, token=None)
     wanted = {t: registry[t] for t in teams if t in registry}
     if not wanted:
         return {}
-    squads = fetch_squads(wanted.values(), with_injuries=False, token=token)
+    ttl = NATIONAL_SQUAD_TTL if competition.international else CLUB_SQUAD_TTL
+    squads = cached_squads(wanted.values(), ttl, token=token)
     values = {}
     for team, team_id in wanted.items():
         players = squads.get(str(team_id))
