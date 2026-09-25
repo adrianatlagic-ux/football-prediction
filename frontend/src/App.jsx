@@ -328,8 +328,17 @@ function FormRating({ data }) {
   // are never normalized against each other. Bars can undershoot (gap in the
   // middle) or overshoot into each other (overlap, blended via opacity) -
   // both are honest outcomes, not something to force into summing to 100.
-  const homePct = Math.max(0, Math.min(100, homeRating))
-  const awayPct = Math.max(0, Math.min(100, awayRating))
+  let homePct = Math.max(0, Math.min(100, homeRating))
+  let awayPct = Math.max(0, Math.min(100, awayRating))
+  // When both teams are in form (70 and 71) the bars would run into each
+  // other, and the semi-transparent overlap mixed gold and orange into a
+  // third colour in the middle. They meet in proportion instead; the numbers
+  // shown stay the teams' own ratings.
+  if (homePct + awayPct > 100) {
+    const total = homePct + awayPct
+    homePct = (homePct / total) * 100
+    awayPct = 100 - homePct
+  }
 
   return (
     <div className="form-rating-box">
