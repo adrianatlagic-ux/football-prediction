@@ -877,16 +877,24 @@ function SmartBetCard({ betStep, betInfo, data }) {
   const sameBet = (a, b) => a.market === b.market && a.outcome === b.outcome && a.team === b.team
   const greens = betInfo.green_bets || []
   const reds = betInfo.red_bets || []
-  // Everything else the bookmakers price, weakest edge last - so every
-  // market bet-at-home lists is on the page, not only the top few.
-  const allRest = (betInfo.bets || [])
-    .filter(b => ![...greens, ...reds].some(x => sameBet(x, b)))
-    .sort((a, b) => b.expected_value - a.expected_value)
-  // The price tip's row is always shown, even when its model edge would
-  // otherwise put it behind "Show all markets".
-  const priceTipRow = priceTipPick && allRest.find(b => sameBet(b, priceTipPick))
-  const rest = allRest.filter(b => b !== priceTipRow)
+  // One list of every bet: the marked ones first (price tip, then the other
+  // signals), then the rest by stake size and edge. Only the first
+  // TABLE_ROWS are shown; the others sit behind "Show all markets".
+  const TABLE_ROWS = 10
+  const allBets = (betInfo.bets && betInfo.bets.length) ? betInfo.bets : [...greens, ...reds]
+  const signals = [priceTipPick, best, agentPick, modelFavorite, safestPick].filter(Boolean)
+  const signalRank = b => { const i = signals.findIndex(x => sameBet(x, b)); return i === -1 ? signals.length : i }
+  const ordered = [...allBets].sort((a, b) =>
+    signalRank(a) - signalRank(b)
+    || (b.kelly_stake_pct || 0) - (a.kelly_stake_pct || 0)
+    || b.expected_value - a.expected_value)
+  const visibleRows = showAllMarkets ? ordered : ordered.slice(0, TABLE_ROWS)
+  const hiddenCount = ordered.length - TABLE_ROWS
   const hasUserBook = (betInfo.bets || []).some(b => b.bookmaker_key === USER_BOOK_KEY)
+
+  // Greyed out: no positive edge, or a stake under 1% - the sizing itself
+  // says the bet is barely worth making.
+  const dimmed = b => b.expected_value <= 0 || (b.kelly_stake_pct || 0) < 1
 
   const renderRow = (b, i, kind) => {
     const isRec = best && sameBet(b, best)
@@ -902,7 +910,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
     // the model's edge column may well be negative on it.
     const keepFullOpacity = isRec || isPriceTip || isAgentPick || isModelFavorite || isSafestPick
     return (
-      <div className={`smart-bet-table-row ${kind !== 'green' && !keepFullOpacity ? 'is-red' : ''} ${isRec ? 'is-rec' : ''}`} key={`${kind}-${i}`}>
+      <div className={`smart-bet-table-row ${dimmed(b) && !keepFullOpacity ? 'is-red' : ''} ${isRec ? 'is-rec' : ''}`} key={`${kind}-${i}`}>
         <span className="smart-bet-col-market">{marketGroupLabel(b.market)}{b.suspicious ? ' ⚠' : ''}</span>
         <span className="smart-bet-col-pick">
           {isPriceTip ? '💰 ' : ''}{isRec ? '★ ' : ''}{isAgentPick ? '✨ ' : ''}{isModelFavorite ? '◆ ' : ''}{isSafestPick ? '🛡 ' : ''}{betOutcomeLabel(b)}
@@ -931,13 +939,10 @@ function SmartBetCard({ betStep, betInfo, data }) {
             <span>Edge</span>
             <span>Stake</span>
           </div>
-          {greens.map((b, i) => renderRow(b, i, 'green'))}
-          {reds.map((b, i) => renderRow(b, i, 'red'))}
-          {priceTipRow && renderRow(priceTipRow, 0, 'tip')}
-          {showAllMarkets && rest.map((b, i) => renderRow(b, i, 'rest'))}
-          {rest.length > 0 && (
+          {visibleRows.map((b, i) => renderRow(b, i, 'row'))}
+          {hiddenCount > 0 && (
             <button className="smart-bet-more" onClick={() => setShowAllMarkets(v => !v)}>
-              {showAllMarkets ? 'Show fewer markets ▲' : `Show all markets (${rest.length} more) ▼`}
+              {showAllMarkets ? 'Show fewer markets ▲' : `Show all markets (${hiddenCount} more) ▼`}
             </button>
           )}
           <p className="smart-bet-table-note">
