@@ -1,0 +1,402 @@
+{
+  "home_team": "Georgia",
+  "away_team": "Northern Ireland",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4684,
+  "probability_draw": 0.204,
+  "probability_away_win": 0.3276,
+  "score_prediction": {
+    "home_xg": 1.69,
+    "away_xg": 1.16,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.4684,
+    "probability_draw": 0.204,
+    "probability_away_win": 0.3276,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.093
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0804
+      },
+      {
+        "score": "2:0",
+        "probability": 0.08
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0524
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0451
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.6724,
+        "home_or_away": 0.796,
+        "draw_or_away": 0.5316
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7956,
+          "under": 0.2044
+        },
+        {
+          "line": 2.5,
+          "over": 0.5672,
+          "under": 0.4328
+        },
+        {
+          "line": 3.5,
+          "over": 0.3219,
+          "under": 0.6781
+        }
+      ],
+      "btts": {
+        "yes": 0.5637,
+        "no": 0.4363
+      },
+      "win_margin": {
+        "home_1plus": 0.4684,
+        "home_2plus": 0.259,
+        "home_3plus": 0.1119,
+        "away_1plus": 0.3276,
+        "away_2plus": 0.1375,
+        "away_3plus": 0.0426
+      },
+      "scenario": "Georgia is favored to win 2-1, despite Northern Ireland's marginally better recent form, with both teams likely to score."
+    },
+    "score_matrix": [
+      [
+        0.05474375539846759,
+        0.06925529219472212,
+        0.05156284376662795,
+        0.01996821249947022,
+        0.005799663303511313,
+        0.0013475855962565763,
+        0.00026093281112525004,
+        4.330661471949298e-05,
+        6.289090327804994e-06
+      ],
+      [
+        0.08038291977624083,
+        0.09679265331021106,
+        0.08717820038440836,
+        0.03376060557241654,
+        0.009805592025218005,
+        0.0022783865001183793,
+        0.00044116366036945693,
+        7.32192497580943e-05,
+        1.0633074841924753e-05
+      ],
+      [
+        0.08004111622197932,
+        0.09299010104925787,
+        0.04206283899745183,
+        0.028539822696861873,
+        0.008289242834735483,
+        0.0019260539213025684,
+        0.00037294155225491303,
+        6.189653208710743e-05,
+        8.988762658894255e-06
+      ],
+      [
+        0.04510897097771249,
+        0.05240666256842707,
+        0.030442484300051413,
+        0.00918016936818701,
+        0.004671589204507068,
+        0.001085470999637171,
+        0.0002101795983253706,
+        3.488318256076082e-05,
+        5.065819331918105e-06
+      ],
+      [
+        0.019066631239483,
+        0.022151214891998124,
+        0.01286740995376759,
+        0.00498302959079467,
+        0.0011270036758326937,
+        0.0004588061935941871,
+        8.883857929972492e-05,
+        1.4744401477794889e-05,
+        2.1412173018810167e-06
+      ],
+      [
+        0.006447257278416676,
+        0.007490289167730252,
+        0.004351030941795713,
+        0.0016849790292943084,
+        0.0004893933817883589,
+        8.854824241422421e-05,
+        3.0040187477286063e-05,
+        4.9857234112106485e-06,
+        7.240386967592305e-07
+      ],
+      [
+        0.0018167484112251893,
+        0.0021106604494668226,
+        0.0012260606656975621,
+        0.00047480391152778147,
+        0.00013790432278925138,
+        3.204287375437815e-05,
+        4.831389665989401e-06,
+        1.4049082726150493e-06,
+        2.040241447175387e-07
+      ],
+      [
+        0.00043880118060725127,
+        0.0005097900685447601,
+        0.000296131739694978,
+        0.00011467989494198969,
+        3.330817810373542e-05,
+        7.739349458953465e-06,
+        1.4985691567312606e-06,
+        1.9367368125327778e-07,
+        4.927816918472799e-08
+      ],
+      [
+        9.273610234006391e-05,
+        0.00010773887140205618,
+        6.258438794647316e-05,
+        2.4236412625350144e-05,
+        7.039339796475563e-06,
+        1.6356316600556716e-06,
+        3.1670713029981525e-07,
+        5.256339213019398e-08,
+        5.944088336781946e-09
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.19,
+    "total_xg": 2.85,
+    "first_goal": {
+      "Georgia_scores_first": 0.559,
+      "Northern Ireland_scores_first": 0.383,
+      "no_goals": 0.058,
+      "expected_minute": 31
+    },
+    "halftime_xg": {
+      "Georgia": 0.79,
+      "Northern Ireland": 0.55
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.262
+      },
+      {
+        "score": "1:0",
+        "probability": 0.208
+      },
+      {
+        "score": "0:1",
+        "probability": 0.143
+      },
+      {
+        "score": "1:1",
+        "probability": 0.114
+      },
+      {
+        "score": "2:0",
+        "probability": 0.083
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Georgia": 0.228,
+        "Northern Ireland": 0.157
+      },
+      "16-30'": {
+        "Georgia": 0.262,
+        "Northern Ireland": 0.18
+      },
+      "31-45'": {
+        "Georgia": 0.304,
+        "Northern Ireland": 0.209
+      },
+      "46-60'": {
+        "Georgia": 0.245,
+        "Northern Ireland": 0.168
+      },
+      "61-75'": {
+        "Georgia": 0.313,
+        "Northern Ireland": 0.215
+      },
+      "76-90'": {
+        "Georgia": 0.338,
+        "Northern Ireland": 0.232
+      }
+    },
+    "comeback_probability": {
+      "Georgia": 0.033,
+      "Northern Ireland": 0.023
+    },
+    "late_drama_probability": 0.434,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.241
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.207
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Georgia trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.099
+      },
+      {
+        "szenario": "Georgia dominiert früh",
+        "beschreibung": "Georgia geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.084
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 53,
+        "away": 47
+      },
+      "shots": {
+        "home": 15,
+        "away": 12
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 4
+      },
+      "corners": {
+        "home": 6,
+        "away": 5
+      },
+      "passes": {
+        "home": 276,
+        "away": 244
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Georgia and Northern Ireland is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 29,
+        "type": "chance",
+        "team": "Georgia",
+        "headline": "Big chance for Georgia!",
+        "description": "Georgia create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 41,
+        "type": "goal",
+        "team": "Georgia",
+        "headline": "GOAL! Georgia!",
+        "description": "Georgia score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 68,
+        "type": "goal",
+        "team": "Georgia",
+        "headline": "GOAL! Georgia!",
+        "description": "Georgia score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 72,
+        "type": "goal",
+        "team": "Northern Ireland",
+        "headline": "GOAL! Northern Ireland!",
+        "description": "Northern Ireland score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 79,
+        "type": "chance",
+        "team": "Northern Ireland",
+        "headline": "Big chance for Northern Ireland!",
+        "description": "Northern Ireland create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 83,
+        "type": "chance",
+        "team": "Georgia",
+        "headline": "Big chance for Georgia!",
+        "description": "Georgia create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Georgia": 68,
+      "Northern Ireland": 72
+    },
+    "fifa_points": {
+      "Georgia": 1377.32,
+      "Northern Ireland": 1355.98
+    },
+    "form_last_10_avg_pts": {
+      "Georgia": 1.1,
+      "Northern Ireland": 1.19
+    },
+    "win_rate_last_10": {
+      "Georgia": "30%",
+      "Northern Ireland": "34%"
+    },
+    "avg_goals_scored": {
+      "Georgia": 1.34,
+      "Northern Ireland": 0.85
+    },
+    "avg_goals_conceded": {
+      "Georgia": 1.84,
+      "Northern Ireland": 1.08
+    },
+    "clean_sheet_rate": {
+      "Georgia": "30%",
+      "Northern Ireland": "27%"
+    },
+    "h2h_last_10": {
+      "Georgia wins": "0%",
+      "draws": "0%",
+      "Northern Ireland wins": "100%",
+      "total_h2h_games": 1
+    }
+  }
+}

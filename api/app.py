@@ -310,12 +310,16 @@ def _espn_team(name: str) -> str:
         return name
 
 
+_ESPN_LEAGUES = (("uefa.champions", "soccer_uefa_champs_league"),
+                 ("ger.1", "soccer_germany_bundesliga"),
+                 ("ger.2", "soccer_germany_bundesliga2"),
+                 ("uefa.nations", "soccer_uefa_nations_league"))
+
+
 def _fetch_espn_results() -> list[dict]:
     results = []
     errors = []
-    for league, sport in (("uefa.champions", "soccer_uefa_champs_league"),
-                          ("ger.1", "soccer_germany_bundesliga"),
-                          ("ger.2", "soccer_germany_bundesliga2")):
+    for league, sport in _ESPN_LEAGUES:
         try:
             results.extend(_fetch_espn_league(league, sport))
         except Exception as exc:
@@ -325,11 +329,41 @@ def _fetch_espn_results() -> list[dict]:
     return results
 
 
+def _espn_national_team(name: str) -> str:
+    """ESPN's nation names mapped the way the national fixtures file spells them."""
+    try:
+        from scripts.fetch_national_results import team_name
+        return team_name(name)
+    except Exception:
+        return name
+
+
+def _headline_value(home: str, away: str, sport: str) -> float:
+    """How much of a headline a result is: the weaker side's value, since a
+    top game needs two strong teams. A side we hold no value for (Bodø/Glimt,
+    Sabah) counts as a quarter of its opponent rather than zero, so Bayern's
+    5:0 is not ranked below two anonymous clubs."""
+    h, a = _team_value(home, sport), _team_value(away, sport)
+    return min(h, a) if h and a else max(h, a) / 4
+
+
+def _team_value(team: str, sport: str) -> float:
+    """Squad market value, used only to rank which results are the headline ones."""
+    try:
+        if sport == "soccer_uefa_nations_league":
+            from src.market_values import VALUES
+        else:
+            from src.club_market_values import MARKET_VALUES as VALUES
+        return float(VALUES.get(team, 0))
+    except Exception:
+        return 0.0
+
+
 # The bare scoreboard only returns ESPN's current window, so a match played
 # a few days ago silently disappears and its card loses the real result.
 # Date ranges are rejected (HTTP 400), single days are not, so the recent
 # days are requested individually and merged.
-ESPN_RESULT_DAYS = 6
+ESPN_RESULT_DAYS = 12
 
 
 def _fetch_espn_league(league, sport) -> list[dict]:
@@ -344,13 +378,19 @@ def _fetch_espn_league(league, sport) -> list[dict]:
         f"{base}?limit=100&dates={(today - timedelta(days=d)).strftime('%Y%m%d')}"
         for d in range(ESPN_RESULT_DAYS + 1)
     ]
-    for url in urls:
+    def _get(url):
         try:
             with urllib.request.urlopen(url, timeout=8) as resp:
-                payload = json.loads(resp.read())
+                return json.loads(resp.read())
         except Exception:
             # One missing day must not drop the whole competition.
-            continue
+            return {}
+
+    # Parallel, because the ticker needs each competition's last matchday and
+    # a club competition's can lie almost two weeks back.
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        payloads = list(pool.map(_get, urls))
+    for payload in payloads:
         for event in payload.get("events", []):
             if event.get("id") not in seen:
                 seen.add(event.get("id"))
@@ -368,8 +408,9 @@ def _fetch_espn_league(league, sport) -> list[dict]:
         home_c = next((c for c in competitors if c.get("homeAway") == "home"), competitors[0])
         away_c = next((c for c in competitors if c.get("homeAway") == "away"), competitors[1])
 
-        home_team = _espn_team(home_c["team"]["displayName"])
-        away_team = _espn_team(away_c["team"]["displayName"])
+        to_name = _espn_national_team if sport == "soccer_uefa_nations_league" else _espn_team
+        home_team = to_name(home_c["team"]["displayName"])
+        away_team = to_name(away_c["team"]["displayName"])
 
         def stat(competitor, name):
             for s in competitor.get("statistics", []):
@@ -408,6 +449,7 @@ def _fetch_espn_league(league, sport) -> list[dict]:
             "score_scope": "regulation" if status.get("name") in ("STATUS_FULL_TIME", "STATUS_FINAL") and comp["status"].get("period") == 2 else "unverified",
             "home_team": home_team,
             "away_team": away_team,
+            "headline_value": _headline_value(home_team, away_team, sport),
             "home_score": int(home_c.get("score", 0)) if completed else None,
             "away_score": int(away_c.get("score", 0)) if completed else None,
             "completed": completed,

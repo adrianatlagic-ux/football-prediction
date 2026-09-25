@@ -50,31 +50,37 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--league", default="uefa.nations")
     parser.add_argument("--season", type=int, default=datetime.now(TZ).year)
-    parser.add_argument("--days", type=int, default=1, help="how many matchdays to include")
+    parser.add_argument("--days", type=int, default=1, help="how many matchdays to include, today first")
+    parser.add_argument("--past-days", type=int, default=7,
+                        help="also keep matchdays from this many days back, so their results stay on the site")
     parser.add_argument("--write", action="store_true")
     args = parser.parse_args()
 
     now = datetime.now(TZ)
-    upcoming = []
+    today = now.date()
+    upcoming, past = [], []
     for event in fetch(args.league, args.season):
-        if event["competitions"][0]["status"]["type"].get("completed"):
-            continue
         kickoff = datetime.fromisoformat(event["date"].replace("Z", "+00:00")).astimezone(TZ)
-        if kickoff <= now:
-            continue
+        # Today's games stay in even after kickoff: the site shows them with
+        # their live or final score instead of dropping them mid-evening.
+        if kickoff.date() < today:
+            if (today - kickoff.date()).days > args.past_days:
+                continue
+            target = past
+        else:
+            target = upcoming
         sides = {c["homeAway"]: c["team"]["displayName"] for c in event["competitions"][0]["competitors"]}
         if "home" not in sides or "away" not in sides:
             continue
-        upcoming.append((kickoff, team_name(sides["home"]), team_name(sides["away"])))
+        target.append((kickoff, team_name(sides["home"]), team_name(sides["away"])))
 
     if not upcoming:
         print("No upcoming fixtures found.")
         return
 
-    upcoming.sort()
-    days = sorted({k.date() for k, _, _ in upcoming})[: args.days]
+    days = set(sorted({k.date() for k, _, _ in upcoming})[: args.days]) | {k.date() for k, _, _ in past}
     fixtures = []
-    for kickoff, home, away in upcoming:
+    for kickoff, home, away in sorted(past + upcoming):
         if kickoff.date() not in days:
             continue
         fixtures.append({

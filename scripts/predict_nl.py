@@ -47,6 +47,11 @@ def main():
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     ok, failed = 0, []
     for f in fixtures:
+        # The fixtures file also keeps recent matchdays for their results. A
+        # match that already has a prediction keeps it: re-predicting after
+        # the game could let its own result into the inputs.
+        if (CACHE_DIR / f"{f['match_id']}.json").exists():
+            continue
         try:
             result = predictor.predict_match(f["home_team"], f["away_team"], is_knockout=False)
         except Exception as exc:

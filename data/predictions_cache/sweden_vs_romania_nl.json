@@ -1,0 +1,410 @@
+{
+  "home_team": "Sweden",
+  "away_team": "Romania",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4684,
+  "probability_draw": 0.2788,
+  "probability_away_win": 0.2528,
+  "score_prediction": {
+    "home_xg": 1.67,
+    "away_xg": 1.43,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.4684,
+    "probability_draw": 0.2788,
+    "probability_away_win": 0.2528,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1004
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0701
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0684
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0558
+      },
+      {
+        "score": "3:2",
+        "probability": 0.04
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7472,
+        "home_or_away": 0.7212,
+        "draw_or_away": 0.5316
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8292,
+          "under": 0.1708
+        },
+        {
+          "line": 2.5,
+          "over": 0.5941,
+          "under": 0.4059
+        },
+        {
+          "line": 3.5,
+          "over": 0.3756,
+          "under": 0.6244
+        }
+      ],
+      "btts": {
+        "yes": 0.6333,
+        "no": 0.3667
+      },
+      "win_margin": {
+        "home_1plus": 0.4684,
+        "home_2plus": 0.2508,
+        "home_3plus": 0.1052,
+        "away_1plus": 0.2528,
+        "away_2plus": 0.1207,
+        "away_3plus": 0.0441
+      },
+      "scenario": "Sweden is favored to win with a probable 2-1 scoreline, and there's a high likelihood that both sides will score."
+    },
+    "score_matrix": [
+      [
+        0.06218432674201052,
+        0.04035930112832391,
+        0.036886702699086824,
+        0.017600919375628916,
+        0.00629886260222153,
+        0.001803345347361883,
+        0.00043024360735444345,
+        8.798388994423774e-05,
+        1.574345129763801e-05
+      ],
+      [
+        0.06843420254009239,
+        0.12805370570712,
+        0.06153721168084681,
+        0.0293631965489398,
+        0.010508243159155339,
+        0.0030084782931011525,
+        0.000717765210842686,
+        0.0001467814378577385,
+        2.6264426587357633e-05
+      ],
+      [
+        0.07013526305471382,
+        0.10039757040510185,
+        0.0676563349361293,
+        0.024492962360975024,
+        0.008765326477592166,
+        0.0025094865088657204,
+        0.0005987153429936076,
+        0.0001224359965968756,
+        2.1908160127067948e-05
+      ],
+      [
+        0.03900166557849807,
+        0.05583029556442683,
+        0.03996011268464514,
+        0.017952325320018808,
+        0.004874328790906666,
+        0.0013955056177115926,
+        0.0003329408712124739,
+        6.808569022285185e-05,
+        1.218295472919969e-05
+      ],
+      [
+        0.0162663885288739,
+        0.023285089645851086,
+        0.016666127175460274,
+        0.007952436494859607,
+        0.0026795105941486938,
+        0.0005820222350821229,
+        0.0001388593406961987,
+        2.8396435741760664e-05,
+        5.081133641741138e-06
+      ],
+      [
+        0.005427366074707415,
+        0.0077691926124896235,
+        0.005560740976295514,
+        0.0026533722569612155,
+        0.0009495655836187216,
+        0.00025595889187320304,
+        4.6331149259900345e-05,
+        9.474620117051284e-06,
+        1.695346960346429e-06
+      ],
+      [
+        0.0015090576936504234,
+        0.002160193309967864,
+        0.0015461420580752498,
+        0.0007377596726238461,
+        0.0002640229588093034,
+        7.55889760474458e-05,
+        1.6979405179859368e-05,
+        2.6343806894990217e-06,
+        4.713845240401549e-07
+      ],
+      [
+        0.00035964645382349395,
+        0.0005148284699598434,
+        0.00036848459183094415,
+        0.00017582671037003636,
+        6.29233204689846e-05,
+        1.8014756690879996e-05,
+        4.29797537983247e-06,
+        8.275250391927427e-07,
+        1.1234280383821403e-07
+      ],
+      [
+        7.499870664690134e-05,
+        0.00010735951649600016,
+        7.684176366214135e-05,
+        3.666594159775534e-05,
+        1.3121685485653072e-05,
+        3.756698941449015e-06,
+        8.962763048564855e-07,
+        1.8328657164952686e-07,
+        3.087848050201696e-08
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.08,
+    "total_xg": 3.1,
+    "first_goal": {
+      "Sweden_scores_first": 0.514,
+      "Romania_scores_first": 0.441,
+      "no_goals": 0.045,
+      "expected_minute": 29
+    },
+    "halftime_xg": {
+      "Sweden": 0.78,
+      "Romania": 0.67
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.233
+      },
+      {
+        "score": "1:0",
+        "probability": 0.183
+      },
+      {
+        "score": "0:1",
+        "probability": 0.157
+      },
+      {
+        "score": "1:1",
+        "probability": 0.123
+      },
+      {
+        "score": "2:0",
+        "probability": 0.072
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Sweden": 0.225,
+        "Romania": 0.193
+      },
+      "16-30'": {
+        "Sweden": 0.259,
+        "Romania": 0.222
+      },
+      "31-45'": {
+        "Sweden": 0.301,
+        "Romania": 0.257
+      },
+      "46-60'": {
+        "Sweden": 0.242,
+        "Romania": 0.207
+      },
+      "61-75'": {
+        "Sweden": 0.309,
+        "Romania": 0.265
+      },
+      "76-90'": {
+        "Sweden": 0.334,
+        "Romania": 0.286
+      }
+    },
+    "comeback_probability": {
+      "Sweden": 0.035,
+      "Romania": 0.031
+    },
+    "late_drama_probability": 0.462,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.236
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.191
+      },
+      {
+        "szenario": "Sweden dominiert früh",
+        "beschreibung": "Sweden geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.073
+      },
+      {
+        "szenario": "Romania dominiert früh",
+        "beschreibung": "Romania geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.053
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 51,
+        "away": 49
+      },
+      "shots": {
+        "home": 15,
+        "away": 13
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 5
+      },
+      "corners": {
+        "home": 7,
+        "away": 6
+      },
+      "passes": {
+        "home": 265,
+        "away": 255
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Sweden and Romania is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 9,
+        "type": "goal",
+        "team": "Sweden",
+        "headline": "GOAL! Sweden!",
+        "description": "Sweden score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 17,
+        "type": "chance",
+        "team": "Romania",
+        "headline": "Big chance for Romania!",
+        "description": "Romania create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 39,
+        "type": "chance",
+        "team": "Romania",
+        "headline": "Big chance for Romania!",
+        "description": "Romania create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 56,
+        "type": "chance",
+        "team": "Romania",
+        "headline": "Big chance for Romania!",
+        "description": "Romania create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 69,
+        "type": "goal",
+        "team": "Sweden",
+        "headline": "GOAL! Sweden!",
+        "description": "Sweden score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 73,
+        "type": "goal",
+        "team": "Romania",
+        "headline": "GOAL! Romania!",
+        "description": "Romania score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 79,
+        "type": "chance",
+        "team": "Sweden",
+        "headline": "Big chance for Sweden!",
+        "description": "Sweden create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Sweden": 32,
+      "Romania": 51
+    },
+    "fifa_points": {
+      "Sweden": 1524.62,
+      "Romania": 1462.85
+    },
+    "form_last_10_avg_pts": {
+      "Sweden": 1.29,
+      "Romania": 1.19
+    },
+    "win_rate_last_10": {
+      "Sweden": "34%",
+      "Romania": "37%"
+    },
+    "avg_goals_scored": {
+      "Sweden": 1.78,
+      "Romania": 1.61
+    },
+    "avg_goals_conceded": {
+      "Sweden": 2.05,
+      "Romania": 1.5
+    },
+    "clean_sheet_rate": {
+      "Sweden": "0%",
+      "Romania": "16%"
+    },
+    "h2h_last_10": {
+      "Sweden wins": "40%",
+      "draws": "40%",
+      "Romania wins": "20%",
+      "total_h2h_games": 5
+    }
+  }
+}

@@ -1,0 +1,402 @@
+{
+  "home_team": "Hungary",
+  "away_team": "Ukraine",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4177,
+  "probability_draw": 0.2674,
+  "probability_away_win": 0.3149,
+  "score_prediction": {
+    "home_xg": 1.21,
+    "away_xg": 1.42,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.4177,
+    "probability_draw": 0.2674,
+    "probability_away_win": 0.3149,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1027
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0968
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0721
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0416
+      },
+      {
+        "score": "3:2",
+        "probability": 0.0296
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.6851,
+        "home_or_away": 0.7326,
+        "draw_or_away": 0.5823
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7557,
+          "under": 0.2443
+        },
+        {
+          "line": 2.5,
+          "over": 0.499,
+          "under": 0.501
+        },
+        {
+          "line": 3.5,
+          "over": 0.2714,
+          "under": 0.7286
+        }
+      ],
+      "btts": {
+        "yes": 0.5464,
+        "no": 0.4536
+      },
+      "win_margin": {
+        "home_1plus": 0.4177,
+        "home_2plus": 0.1837,
+        "home_3plus": 0.0599,
+        "away_1plus": 0.3149,
+        "away_2plus": 0.156,
+        "away_3plus": 0.0586
+      },
+      "scenario": "Hungary is marginally favored to win with a likely 2:1 score, though Ukraine has superior recent form, winning 65% of their last ten matches."
+    },
+    "score_matrix": [
+      [
+        0.0801471082737751,
+        0.06701926631831866,
+        0.05668911579618207,
+        0.02692434861007194,
+        0.009590737188639117,
+        0.0027330574612196615,
+        0.0006490292785814822,
+        0.00013210918868068722,
+        2.3529343777082804e-05
+      ],
+      [
+        0.09683383381880312,
+        0.12785670127092463,
+        0.06879365814407834,
+        0.03267336962341588,
+        0.011638599160323716,
+        0.0033166335024743983,
+        0.0007876132426683453,
+        0.00016031780062448648,
+        2.85534464494884e-05
+      ],
+      [
+        0.07211249961396392,
+        0.1027489343314545,
+        0.0489103260452255,
+        0.019824975118413884,
+        0.00706186540984284,
+        0.0020124088032943657,
+        0.0004778941724958454,
+        9.727482794249377e-05,
+        1.7325160273655612e-05
+      ],
+      [
+        0.029170106563866607,
+        0.04156279951210956,
+        0.02961021584719971,
+        0.009396660710103278,
+        0.002856583361380391,
+        0.0008140361179602322,
+        0.00019331217212799635,
+        3.93484778957083e-05,
+        7.008171594716722e-06
+      ],
+      [
+        0.008849663250154823,
+        0.012609373867406033,
+        0.008983184152529225,
+        0.004266540028967253,
+        0.0010154745898805478,
+        0.00024696329105410215,
+        5.8647287480528385e-05,
+        1.1937590218286167e-05,
+        2.126147824546121e-06
+      ],
+      [
+        0.0021478574847073775,
+        0.003060358035443647,
+        0.002180263674798817,
+        0.0010355105811354602,
+        0.00036885979986197426,
+        7.023353845414198e-05,
+        1.4233989679848486e-05,
+        2.897312787496965e-06,
+        5.160266994866501e-07
+      ],
+      [
+        0.00043441311872637186,
+        0.0006189701542407092,
+        0.0004409674055931189,
+        0.00020943632630565282,
+        7.460343024232646e-05,
+        2.125962349358284e-05,
+        3.3733200363115703e-06,
+        5.859935740167739e-07,
+        1.0436854840981805e-07
+      ],
+      [
+        7.531016735057186e-05,
+        0.00010730510634104212,
+        7.644642318521503e-05,
+        3.630803054385332e-05,
+        1.2933303747705727e-05,
+        3.6855834552279075e-06,
+        8.75229154542156e-07,
+        1.1903562682454072e-07,
+        1.8093405811325236e-08
+      ],
+      [
+        1.1423846171184882e-05,
+        1.6277178385706936e-05,
+        1.1596205526139577e-05,
+        5.507587757451888e-06,
+        1.9618608973636445e-06,
+        5.590684488535793e-07,
+        1.3276405534305144e-07,
+        2.7023975984045555e-08,
+        3.2159736862920046e-09
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.08,
+    "total_xg": 2.63,
+    "first_goal": {
+      "Hungary_scores_first": 0.427,
+      "Ukraine_scores_first": 0.501,
+      "no_goals": 0.072,
+      "expected_minute": 34
+    },
+    "halftime_xg": {
+      "Hungary": 0.57,
+      "Ukraine": 0.67
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.291
+      },
+      {
+        "score": "0:1",
+        "probability": 0.194
+      },
+      {
+        "score": "1:0",
+        "probability": 0.165
+      },
+      {
+        "score": "1:1",
+        "probability": 0.11
+      },
+      {
+        "score": "0:2",
+        "probability": 0.065
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Hungary": 0.163,
+        "Ukraine": 0.192
+      },
+      "16-30'": {
+        "Hungary": 0.188,
+        "Ukraine": 0.22
+      },
+      "31-45'": {
+        "Hungary": 0.218,
+        "Ukraine": 0.256
+      },
+      "46-60'": {
+        "Hungary": 0.175,
+        "Ukraine": 0.206
+      },
+      "61-75'": {
+        "Hungary": 0.224,
+        "Ukraine": 0.263
+      },
+      "76-90'": {
+        "Hungary": 0.242,
+        "Ukraine": 0.284
+      }
+    },
+    "comeback_probability": {
+      "Hungary": 0.024,
+      "Ukraine": 0.028
+    },
+    "late_drama_probability": 0.409,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.261
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.22
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Ukraine trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.103
+      },
+      {
+        "szenario": "Ukraine dominiert früh",
+        "beschreibung": "Ukraine geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.065
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 49,
+        "away": 51
+      },
+      "shots": {
+        "home": 12,
+        "away": 13
+      },
+      "shots_on_target": {
+        "home": 4,
+        "away": 5
+      },
+      "corners": {
+        "home": 5,
+        "away": 6
+      },
+      "passes": {
+        "home": 255,
+        "away": 265
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Hungary and Ukraine is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 5,
+        "type": "goal",
+        "team": "Hungary",
+        "headline": "GOAL! Hungary!",
+        "description": "Hungary score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 40,
+        "type": "chance",
+        "team": "Ukraine",
+        "headline": "Big chance for Ukraine!",
+        "description": "Ukraine create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 48,
+        "type": "goal",
+        "team": "Hungary",
+        "headline": "GOAL! Hungary!",
+        "description": "Hungary score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 64,
+        "type": "chance",
+        "team": "Ukraine",
+        "headline": "Big chance for Ukraine!",
+        "description": "Ukraine create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 71,
+        "type": "chance",
+        "team": "Ukraine",
+        "headline": "Big chance for Ukraine!",
+        "description": "Ukraine create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 88,
+        "type": "goal",
+        "team": "Ukraine",
+        "headline": "GOAL! Ukraine!",
+        "description": "Ukraine score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Hungary": 41,
+      "Ukraine": 28
+    },
+    "fifa_points": {
+      "Hungary": 1492.18,
+      "Ukraine": 1543.06
+    },
+    "form_last_10_avg_pts": {
+      "Hungary": 1.56,
+      "Ukraine": 2.01
+    },
+    "win_rate_last_10": {
+      "Hungary": "41%",
+      "Ukraine": "65%"
+    },
+    "avg_goals_scored": {
+      "Hungary": 1.29,
+      "Ukraine": 1.57
+    },
+    "avg_goals_conceded": {
+      "Hungary": 1.1,
+      "Ukraine": 1.33
+    },
+    "clean_sheet_rate": {
+      "Hungary": "52%",
+      "Ukraine": "44%"
+    },
+    "h2h_last_10": {
+      "Hungary wins": "100%",
+      "draws": "0%",
+      "Ukraine wins": "0%",
+      "total_h2h_games": 2
+    }
+  }
+}

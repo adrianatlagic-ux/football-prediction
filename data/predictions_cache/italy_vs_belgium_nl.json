@@ -1,0 +1,410 @@
+{
+  "home_team": "Italy",
+  "away_team": "Belgium",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.3328,
+  "probability_draw": 0.2638,
+  "probability_away_win": 0.4034,
+  "score_prediction": {
+    "home_xg": 1.34,
+    "away_xg": 1.61,
+    "rho": -0.13,
+    "most_likely_score": "1:2",
+    "result": "A",
+    "probability_home_win": 0.3328,
+    "probability_draw": 0.2638,
+    "probability_away_win": 0.4034,
+    "top_scorelines": [
+      {
+        "score": "1:2",
+        "probability": 0.0866
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0665
+      },
+      {
+        "score": "0:2",
+        "probability": 0.0648
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0464
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0347
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.5966,
+        "home_or_away": 0.7362,
+        "draw_or_away": 0.6672
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8074,
+          "under": 0.1926
+        },
+        {
+          "line": 2.5,
+          "over": 0.5674,
+          "under": 0.4326
+        },
+        {
+          "line": 3.5,
+          "over": 0.3404,
+          "under": 0.6596
+        }
+      ],
+      "btts": {
+        "yes": 0.603,
+        "no": 0.397
+      },
+      "win_margin": {
+        "home_1plus": 0.3328,
+        "home_2plus": 0.1533,
+        "home_3plus": 0.0535,
+        "away_1plus": 0.4034,
+        "away_2plus": 0.2132,
+        "away_3plus": 0.0875
+      },
+      "scenario": "Belgium is slightly favored with a 1:2 most likely score, though Italy holds a stronger head-to-head record historically."
+    },
+    "score_matrix": [
+      [
+        0.06513371945115776,
+        0.0665255506091816,
+        0.06475233154795013,
+        0.03471416922685652,
+        0.013957878229664078,
+        0.004489748572716107,
+        0.0012034925076318617,
+        0.0002765145389326287,
+        5.5590503087243734e-05
+      ],
+      [
+        0.06092012048255492,
+        0.12369424563545608,
+        0.08657788730571012,
+        0.04641499941988232,
+        0.01866254974154574,
+        0.006003072579274458,
+        0.0016091441992611354,
+        0.00036971710543537005,
+        7.432795385894454e-05
+      ],
+      [
+        0.05149329628212795,
+        0.08281772834061167,
+        0.0588484806704862,
+        0.031029867905940957,
+        0.012476493816784479,
+        0.004013240363951618,
+        0.0010757628475439667,
+        0.0002471673615773464,
+        4.969054440995986e-05
+      ],
+      [
+        0.022949911331055114,
+        0.03691081479116962,
+        0.029682211597577227,
+        0.014061023651629126,
+        0.005560615604191584,
+        0.0017886505070149853,
+        0.00047945390462304164,
+        0.00011015936911577581,
+        2.214644760654481e-05
+      ],
+      [
+        0.007671364062870683,
+        0.012338012728489105,
+        0.00992173991748964,
+        0.005319112845620711,
+        0.0018898230834843333,
+        0.0005978841932161551,
+        0.00016026490911758706,
+        3.682247888599652e-05,
+        7.402793842571484e-06
+      ],
+      [
+        0.002051418002838905,
+        0.0032993378000374493,
+        0.00265319644843021,
+        0.001422396820332205,
+        0.0005719175211342398,
+        0.0001625568721187753,
+        4.2856826646828535e-05,
+        9.84678806491446e-06,
+        1.979598991196011e-06
+      ],
+      [
+        0.0004571455380340771,
+        0.0007352365786334238,
+        0.0005912480617062119,
+        0.00031697214260032456,
+        0.0001274482053624441,
+        4.099551441172259e-05,
+        9.71017432206745e-06,
+        2.1942944936689914e-06,
+        4.411411251483896e-07
+      ],
+      [
+        8.731885219544757e-05,
+        0.00014043670734371872,
+        0.00011293362357420872,
+        6.054449046756066e-05,
+        2.4343737564356894e-05,
+        7.830506842498602e-06,
+        2.0989942227891846e-06,
+        4.2614278513359993e-07,
+        8.426186739089263e-08
+      ],
+      [
+        1.459384080139879e-05,
+        2.3471574558256915e-05,
+        1.887490824865682e-05,
+        1.0118967818171257e-05,
+        4.068636057309262e-06,
+        1.3087342238294608e-06,
+        3.5081069849470805e-07,
+        8.060229534604665e-08,
+        1.4318560514484195e-08
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.09,
+    "total_xg": 2.95,
+    "first_goal": {
+      "Italy_scores_first": 0.43,
+      "Belgium_scores_first": 0.517,
+      "no_goals": 0.052,
+      "expected_minute": 30
+    },
+    "halftime_xg": {
+      "Italy": 0.63,
+      "Belgium": 0.76
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.25
+      },
+      {
+        "score": "0:1",
+        "probability": 0.189
+      },
+      {
+        "score": "1:0",
+        "probability": 0.158
+      },
+      {
+        "score": "1:1",
+        "probability": 0.119
+      },
+      {
+        "score": "0:2",
+        "probability": 0.072
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Italy": 0.181,
+        "Belgium": 0.217
+      },
+      "16-30'": {
+        "Italy": 0.208,
+        "Belgium": 0.25
+      },
+      "31-45'": {
+        "Italy": 0.241,
+        "Belgium": 0.29
+      },
+      "46-60'": {
+        "Italy": 0.194,
+        "Belgium": 0.233
+      },
+      "61-75'": {
+        "Italy": 0.248,
+        "Belgium": 0.298
+      },
+      "76-90'": {
+        "Italy": 0.268,
+        "Belgium": 0.322
+      }
+    },
+    "comeback_probability": {
+      "Italy": 0.028,
+      "Belgium": 0.033
+    },
+    "late_drama_probability": 0.446,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.243
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.2
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Belgium trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.085
+      },
+      {
+        "szenario": "Belgium dominiert früh",
+        "beschreibung": "Belgium geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.072
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 48,
+        "away": 52
+      },
+      "shots": {
+        "home": 13,
+        "away": 14
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 6
+      },
+      "corners": {
+        "home": 5,
+        "away": 6
+      },
+      "passes": {
+        "home": 250,
+        "away": 270
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Italy and Belgium is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 14,
+        "type": "goal",
+        "team": "Belgium",
+        "headline": "GOAL! Belgium!",
+        "description": "Belgium score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 18,
+        "type": "chance",
+        "team": "Belgium",
+        "headline": "Big chance for Belgium!",
+        "description": "Belgium create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 20,
+        "type": "chance",
+        "team": "Italy",
+        "headline": "Big chance for Italy!",
+        "description": "Italy create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 50,
+        "type": "goal",
+        "team": "Belgium",
+        "headline": "GOAL! Belgium!",
+        "description": "Belgium score to make it 0:2.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 52,
+        "type": "chance",
+        "team": "Belgium",
+        "headline": "Big chance for Belgium!",
+        "description": "Belgium create a great opportunity but fail to convert.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 72,
+        "type": "chance",
+        "team": "Belgium",
+        "headline": "Big chance for Belgium!",
+        "description": "Belgium create a great opportunity but fail to convert.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 86,
+        "type": "goal",
+        "team": "Italy",
+        "headline": "GOAL! Italy!",
+        "description": "Italy score to make it 1:2.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:2.",
+        "score_after": "1:2"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Italy": 10,
+      "Belgium": 8
+    },
+    "fifa_points": {
+      "Italy": 1710.06,
+      "Belgium": 1739.54
+    },
+    "form_last_10_avg_pts": {
+      "Italy": 2.11,
+      "Belgium": 1.95
+    },
+    "win_rate_last_10": {
+      "Italy": "65%",
+      "Belgium": "47%"
+    },
+    "avg_goals_scored": {
+      "Italy": 2.2,
+      "Belgium": 2.84
+    },
+    "avg_goals_conceded": {
+      "Italy": 1.23,
+      "Belgium": 0.82
+    },
+    "clean_sheet_rate": {
+      "Italy": "49%",
+      "Belgium": "34%"
+    },
+    "h2h_last_10": {
+      "Italy wins": "60%",
+      "draws": "20%",
+      "Belgium wins": "20%",
+      "total_h2h_games": 10
+    }
+  }
+}

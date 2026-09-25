@@ -1395,22 +1395,52 @@ function ResultDonut({ home, draw, away, homeLabel, awayLabel, score, colors }) 
   )
 }
 
-function MatchTicker() {
-  // Spans every competition the site covers, not just the Champions League.
-  const items = Object.values(COMPETITIONS).flatMap(c => c.fixtures)
-    .sort((a, b) => fixtureDateTime(a) - fixtureDateTime(b))
-    .slice(0, 14)
+// How many days one competition's matchday spans: Champions League rounds run
+// Tuesday to Thursday, Bundesliga Friday to Sunday (sometimes Monday). A
+// Nations League "matchday" on this site is one evening, as in its tabs.
+const MATCHDAY_SPAN_DAYS = { cl: 3, bl: 4, nl: 1 }
+const berlinDate = (iso) => new Date(iso).toLocaleDateString('sv-SE', { timeZone: 'Europe/Berlin' })
+
+function lastMatchday(results, key) {
+  const done = results
+    .filter(r => r.completed && r.sport_key === COMPETITIONS[key].sportKey)
+    .sort((a, b) => new Date(b.commence_time) - new Date(a.commence_time))
+  if (done.length === 0) return []
+  const latest = new Date(berlinDate(done[0].commence_time))
+  const span = MATCHDAY_SPAN_DAYS[key] || 1
+  return done.filter(r => (latest - new Date(berlinDate(r.commence_time))) / 86400000 < span)
+}
+
+// Before anyone picks a competition, the ticker mixes the headline results
+// of every competition's last matchday; after, it follows the chosen one.
+function tickerResults(results, competitionKey) {
+  if (competitionKey) {
+    return lastMatchday(results, competitionKey)
+      .sort((a, b) => new Date(a.commence_time) - new Date(b.commence_time))
+  }
+  const byValue = (a, b) => (b.headline_value || 0) - (a.headline_value || 0)
+  return Object.keys(COMPETITIONS)
+    .flatMap(key => lastMatchday(results, key).sort(byValue).slice(0, 5))
+    .sort(byValue)
+}
+
+function MatchTicker({ results, competitionKey }) {
+  const items = tickerResults(results || [], competitionKey)
   if (items.length === 0) return null
-  const loop = [...items, ...items]
+  // The track scrolls by half its width, so the list is repeated; a short
+  // matchday is repeated until it fills the bar.
+  let loop = [...items]
+  while (loop.length < 12) loop = [...loop, ...items]
+  loop = [...loop, ...loop]
   return (
     <div className="match-ticker">
       <div className="match-ticker-track">
-        {loop.map((f, i) => (
-          <span className="match-ticker-item" key={`${f.match_id}-${i}`}>
-            <span className="match-ticker-team"><TeamLabel name={f.home_team} /></span>
-            <span className="match-ticker-vs">vs</span>
-            <span className="match-ticker-team"><TeamLabel name={f.away_team} /></span>
-            <span className="match-ticker-date">{f.date.slice(5)}</span>
+        {loop.map((r, i) => (
+          <span className="match-ticker-item" key={`${r.result_event_id}-${i}`}>
+            <span className="match-ticker-team"><TeamLabel name={r.home_team} /></span>
+            <span className="match-ticker-score">{r.home_score}:{r.away_score}</span>
+            <span className="match-ticker-team"><TeamLabel name={r.away_team} /></span>
+            <span className="match-ticker-date">{berlinDate(r.commence_time).slice(5).split('-').reverse().join('.')}</span>
           </span>
         ))}
       </div>
@@ -1829,8 +1859,8 @@ function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive })
         <span className="team-name"><TeamLabel name={fixture.away_team} /></span>
       </div>
 
-      <RealTicker events={result.events} homeTeam={fixture.home_team} awayTeam={fixture.away_team} />
       <RealStats stats={result.stats} homeTeam={fixture.home_team} awayTeam={fixture.away_team} />
+      <RealTicker events={result.events} homeTeam={fixture.home_team} awayTeam={fixture.away_team} />
 
       {aiData && (
         <div className="ai-prediction-section">
@@ -1857,6 +1887,9 @@ export default function App() {
   const [page, setPage] = useState('home')
   const [predictionsById, setPredictionsById] = useState({})
   const [realResultsMap, setRealResultsMap] = useState({})
+  const [realResults, setRealResults] = useState([])
+  // null until someone picks a competition: the ticker then shows a mix.
+  const [tickerCompetition, setTickerCompetition] = useState(null)
   const [wmLoading, setWmLoading] = useState(true)
   const [activeCompetition, setActiveCompetition] = useState('cl')
   const [activeGroup, setActiveGroup] = useState(GROUPS[0])
@@ -1873,6 +1906,7 @@ export default function App() {
   // dropped rather than shown under the new one.
   function switchCompetition(key) {
     setActiveCompetition(key)
+    setTickerCompetition(key)
     setActiveGroup(COMPETITIONS[key].groups[0])
     setCombo(null)
     setComboLoading(false)
@@ -1972,6 +2006,7 @@ export default function App() {
         if (resultsResp.status === 'fulfilled') {
           const results = resultsResp.value.data.results || []
           setRealResultsMap(buildRealResultsMap(results))
+          setRealResults(results)
         }
       } catch (e) {
         // non-fatal
@@ -1991,7 +2026,7 @@ export default function App() {
         </div>
       </nav>
 
-      {page === 'home' && <MatchTicker />}
+      {page === 'home' && <MatchTicker results={realResults} competitionKey={tickerCompetition} />}
 
       {page === 'home' && (
         <>

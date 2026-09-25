@@ -1,0 +1,410 @@
+{
+  "home_team": "Montenegro",
+  "away_team": "Cyprus",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.5981,
+  "probability_draw": 0.2475,
+  "probability_away_win": 0.1544,
+  "score_prediction": {
+    "home_xg": 1.77,
+    "away_xg": 1.29,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.5981,
+    "probability_draw": 0.2475,
+    "probability_away_win": 0.1544,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1195
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0929
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0873
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0706
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0549
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8456,
+        "home_or_away": 0.7525,
+        "draw_or_away": 0.4019
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8274,
+          "under": 0.1726
+        },
+        {
+          "line": 2.5,
+          "over": 0.597,
+          "under": 0.403
+        },
+        {
+          "line": 3.5,
+          "over": 0.3727,
+          "under": 0.6273
+        }
+      ],
+      "btts": {
+        "yes": 0.6069,
+        "no": 0.3931
+      },
+      "win_margin": {
+        "home_1plus": 0.5981,
+        "home_2plus": 0.3359,
+        "home_3plus": 0.1489,
+        "away_1plus": 0.1544,
+        "away_2plus": 0.0685,
+        "away_3plus": 0.0229
+      },
+      "scenario": "Montenegro is heavily favored to win, with a 2-1 score most likely and a high chance of both teams finding the net."
+    },
+    "score_matrix": [
+      [
+        0.057752713607418675,
+        0.027098467876750056,
+        0.022653596355711507,
+        0.009715211915609912,
+        0.0031248463075073296,
+        0.0008040721730302413,
+        0.00017241702892936518,
+        3.168972657850299e-05,
+        5.096416112428939e-06
+      ],
+      [
+        0.08726789823849074,
+        0.11481791124231733,
+        0.04016492194804057,
+        0.017225111729368497,
+        0.005540365691605113,
+        0.0014256233563642775,
+        0.00030569611997677433,
+        5.6186018969981876e-05,
+        9.03596727672936e-06
+      ],
+      [
+        0.09290142605924717,
+        0.11952500087701022,
+        0.05794518470260363,
+        0.015270097897324213,
+        0.0049115458771475905,
+        0.0012638181138342342,
+        0.0002710002554537073,
+        4.980902438326262e-05,
+        8.010404058942727e-06
+      ],
+      [
+        0.054904873497647444,
+        0.07063944366982332,
+        0.04544160366926216,
+        0.014686590523474704,
+        0.002902730523110611,
+        0.0007469182832548903,
+        0.00016016153222477792,
+        2.9437203483401864e-05,
+        4.734160068122167e-06
+      ],
+      [
+        0.02433664310925243,
+        0.03131100793998354,
+        0.02014203877290263,
+        0.008638106374745387,
+        0.0020938576268257282,
+        0.0003310723171437349,
+        7.099176814882317e-05,
+        1.3048071503901925e-05,
+        2.0984214453185105e-06
+      ],
+      [
+        0.00862979418907142,
+        0.011102909845101443,
+        0.00714238395074142,
+        0.003063079811899678,
+        0.0009852233510661466,
+        0.00019105274589235037,
+        2.5173740909636853e-05,
+        4.626857169144726e-06,
+        7.441020157849044e-07
+      ],
+      [
+        0.0025501102532028154,
+        0.003280917669187921,
+        0.0021105794815086745,
+        0.0009051422390346039,
+        0.0002911341932615613,
+        7.491341345551302e-05,
+        1.2105895691365061e-05,
+        1.3672395480859678e-06,
+        2.198826690774356e-07
+      ],
+      [
+        0.0006459080345218901,
+        0.0008310115535090039,
+        0.0005345809040575143,
+        0.0002292601442793722,
+        7.374030762611716e-05,
+        1.897454260403219e-05,
+        4.0687072265562e-06,
+        5.635688648847464e-07,
+        5.569327146967796e-08
+      ],
+      [
+        0.00014314970890727448,
+        0.00018417337395632645,
+        0.00011847677488617356,
+        5.080990042479438e-05,
+        1.6342734580202534e-05,
+        4.2052430148611695e-06,
+        9.017293855797441e-07,
+        1.6573512404352044e-07,
+        2.0086911323875777e-08
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.16,
+    "total_xg": 3.06,
+    "first_goal": {
+      "Montenegro_scores_first": 0.551,
+      "Cyprus_scores_first": 0.402,
+      "no_goals": 0.047,
+      "expected_minute": 29
+    },
+    "halftime_xg": {
+      "Montenegro": 0.83,
+      "Cyprus": 0.61
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.238
+      },
+      {
+        "score": "1:0",
+        "probability": 0.198
+      },
+      {
+        "score": "0:1",
+        "probability": 0.144
+      },
+      {
+        "score": "1:1",
+        "probability": 0.12
+      },
+      {
+        "score": "2:0",
+        "probability": 0.082
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Montenegro": 0.239,
+        "Cyprus": 0.174
+      },
+      "16-30'": {
+        "Montenegro": 0.274,
+        "Cyprus": 0.2
+      },
+      "31-45'": {
+        "Montenegro": 0.319,
+        "Cyprus": 0.232
+      },
+      "46-60'": {
+        "Montenegro": 0.257,
+        "Cyprus": 0.187
+      },
+      "61-75'": {
+        "Montenegro": 0.327,
+        "Cyprus": 0.239
+      },
+      "76-90'": {
+        "Montenegro": 0.354,
+        "Cyprus": 0.258
+      }
+    },
+    "comeback_probability": {
+      "Montenegro": 0.036,
+      "Cyprus": 0.027
+    },
+    "late_drama_probability": 0.458,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.233
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.193
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Montenegro trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.084
+      },
+      {
+        "szenario": "Montenegro dominiert früh",
+        "beschreibung": "Montenegro geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.083
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 53,
+        "away": 47
+      },
+      "shots": {
+        "home": 16,
+        "away": 12
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 5
+      },
+      "corners": {
+        "home": 6,
+        "away": 5
+      },
+      "passes": {
+        "home": 276,
+        "away": 244
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Montenegro and Cyprus is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 3,
+        "type": "chance",
+        "team": "Cyprus",
+        "headline": "Big chance for Cyprus!",
+        "description": "Cyprus create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 4,
+        "type": "goal",
+        "team": "Montenegro",
+        "headline": "GOAL! Montenegro!",
+        "description": "Montenegro score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 40,
+        "type": "chance",
+        "team": "Montenegro",
+        "headline": "Big chance for Montenegro!",
+        "description": "Montenegro create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 51,
+        "type": "chance",
+        "team": "Montenegro",
+        "headline": "Big chance for Montenegro!",
+        "description": "Montenegro create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 60,
+        "type": "goal",
+        "team": "Cyprus",
+        "headline": "GOAL! Cyprus!",
+        "description": "Cyprus score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 78,
+        "type": "goal",
+        "team": "Montenegro",
+        "headline": "GOAL! Montenegro!",
+        "description": "Montenegro score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "chance",
+        "team": "Montenegro",
+        "headline": "Big chance for Montenegro!",
+        "description": "Montenegro create a great opportunity but fail to convert.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Montenegro": 80,
+      "Cyprus": 128
+    },
+    "fifa_points": {
+      "Montenegro": 1314.05,
+      "Cyprus": 1128.1
+    },
+    "form_last_10_avg_pts": {
+      "Montenegro": 1.15,
+      "Cyprus": 1.03
+    },
+    "win_rate_last_10": {
+      "Montenegro": "36%",
+      "Cyprus": "27%"
+    },
+    "avg_goals_scored": {
+      "Montenegro": 1.45,
+      "Cyprus": 1.6
+    },
+    "avg_goals_conceded": {
+      "Montenegro": 2.11,
+      "Cyprus": 1.85
+    },
+    "clean_sheet_rate": {
+      "Montenegro": "15%",
+      "Cyprus": "10%"
+    },
+    "h2h_last_10": {
+      "Montenegro wins": "40%",
+      "draws": "60%",
+      "Cyprus wins": "0%",
+      "total_h2h_games": 5
+    }
+  }
+}

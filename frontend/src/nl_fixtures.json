@@ -62,5 +62,69 @@
     "home_team": "Serbia",
     "away_team": "Greece",
     "match_id": "serbia_vs_greece_nl"
+  },
+  {
+    "group": "Fri 25 Sep",
+    "date": "2026-09-25",
+    "time": "18:00",
+    "home_team": "Armenia",
+    "away_team": "Latvia",
+    "match_id": "armenia_vs_latvia_nl"
+  },
+  {
+    "group": "Fri 25 Sep",
+    "date": "2026-09-25",
+    "time": "18:00",
+    "home_team": "Georgia",
+    "away_team": "Northern Ireland",
+    "match_id": "georgia_vs_northern_ireland_nl"
+  },
+  {
+    "group": "Fri 25 Sep",
+    "date": "2026-09-25",
+    "time": "20:45",
+    "home_team": "Hungary",
+    "away_team": "Ukraine",
+    "match_id": "hungary_vs_ukraine_nl"
+  },
+  {
+    "group": "Fri 25 Sep",
+    "date": "2026-09-25",
+    "time": "20:45",
+    "home_team": "Italy",
+    "away_team": "Belgium",
+    "match_id": "italy_vs_belgium_nl"
+  },
+  {
+    "group": "Fri 25 Sep",
+    "date": "2026-09-25",
+    "time": "20:45",
+    "home_team": "Montenegro",
+    "away_team": "Cyprus",
+    "match_id": "montenegro_vs_cyprus_nl"
+  },
+  {
+    "group": "Fri 25 Sep",
+    "date": "2026-09-25",
+    "time": "20:45",
+    "home_team": "Poland",
+    "away_team": "Bosnia and Herzegovina",
+    "match_id": "poland_vs_bosnia_and_herzegovina_nl"
+  },
+  {
+    "group": "Fri 25 Sep",
+    "date": "2026-09-25",
+    "time": "20:45",
+    "home_team": "Sweden",
+    "away_team": "Romania",
+    "match_id": "sweden_vs_romania_nl"
+  },
+  {
+    "group": "Fri 25 Sep",
+    "date": "2026-09-25",
+    "time": "20:45",
+    "home_team": "Turkey",
+    "away_team": "France",
+    "match_id": "turkey_vs_france_nl"
   }
 ]

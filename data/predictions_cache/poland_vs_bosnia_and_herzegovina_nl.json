@@ -1,0 +1,402 @@
+{
+  "home_team": "Poland",
+  "away_team": "Bosnia and Herzegovina",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.5646,
+  "probability_draw": 0.2707,
+  "probability_away_win": 0.1648,
+  "score_prediction": {
+    "home_xg": 1.76,
+    "away_xg": 1.05,
+    "rho": -0.13,
+    "most_likely_score": "2:1",
+    "result": "H",
+    "probability_home_win": 0.5645,
+    "probability_draw": 0.2707,
+    "probability_away_win": 0.1648,
+    "top_scorelines": [
+      {
+        "score": "2:1",
+        "probability": 0.1051
+      },
+      {
+        "score": "2:0",
+        "probability": 0.1004
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0986
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0616
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0588
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8352,
+        "home_or_away": 0.7293,
+        "draw_or_away": 0.4355
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7863,
+          "under": 0.2137
+        },
+        {
+          "line": 2.5,
+          "over": 0.5308,
+          "under": 0.4692
+        },
+        {
+          "line": 3.5,
+          "over": 0.3121,
+          "under": 0.6879
+        }
+      ],
+      "btts": {
+        "yes": 0.5505,
+        "no": 0.4495
+      },
+      "win_margin": {
+        "home_1plus": 0.5645,
+        "home_2plus": 0.3232,
+        "home_3plus": 0.1452,
+        "away_1plus": 0.1648,
+        "away_2plus": 0.0645,
+        "away_3plus": 0.0184
+      },
+      "scenario": "Poland are strong favorites to win, with a 2-1 score most likely and a dominant historical record against Bosnia, hinting at goals."
+    },
+    "score_matrix": [
+      [
+        0.0769056679454756,
+        0.03830322465621764,
+        0.025988506670479878,
+        0.00906742876733706,
+        0.0023727295731113345,
+        0.0004967093337328063,
+        8.665131395967408e-05,
+        1.2956902617779867e-05,
+        1.6952559984741228e-06
+      ],
+      [
+        0.0986027352977426,
+        0.12909556906878672,
+        0.04571098685021504,
+        0.015948631539487855,
+        0.004173376011589273,
+        0.0008736582717324761,
+        0.00015241033750752937,
+        2.2789797532060962e-05,
+        2.981772890476277e-06
+      ],
+      [
+        0.10037382615691191,
+        0.10506173328727857,
+        0.0525818976773561,
+        0.014025963396514629,
+        0.0036702596729702277,
+        0.0007683354468401894,
+        0.00013403669210353415,
+        2.0042400829640775e-05,
+        2.6223088366541374e-06
+      ],
+      [
+        0.05884891996989386,
+        0.06159742804320341,
+        0.03223715187533343,
+        0.01075615620315439,
+        0.0021518639473372334,
+        0.0004504731258370718,
+        7.858537298657126e-05,
+        1.1750808827235722e-05,
+        1.5374530270805868e-06
+      ],
+      [
+        0.025877229509581344,
+        0.027085811999427452,
+        0.014175420351639439,
+        0.004945825318680277,
+        0.001237657483366558,
+        0.00019808343927378713,
+        3.4555803809312056e-05,
+        5.1671020827766206e-06,
+        6.760536108788111e-07
+      ],
+      [
+        0.009103052459540401,
+        0.009528205770588539,
+        0.004986607822496301,
+        0.0017398349121956708,
+        0.0004552732482849816,
+        9.114310456348469e-05,
+        1.215598813394158e-05,
+        1.817675315895014e-06,
+        2.3782111153023106e-07
+      ],
+      [
+        0.0026685482968228386,
+        0.0027931814513749743,
+        0.0014618177661603628,
+        0.0005100304004978874,
+        0.00013346277599736344,
+        2.7939217049860813e-05,
+        4.661059760246408e-06,
+        5.328492162346004e-07,
+        6.971695757475117e-08
+      ],
+      [
+        0.0006705270451824697,
+        0.0007018436606445588,
+        0.0003673114511383415,
+        0.00012815551354504278,
+        3.3535237468967237e-05,
+        7.020296644231421e-06,
+        1.224695988774341e-06,
+        1.7512653112926194e-07,
+        1.7517803825160815e-08
+      ],
+      [
+        0.00014742311540674743,
+        0.00015430843502000767,
+        8.075766494497143e-05,
+        2.817646983682884e-05,
+        7.373109286344846e-06,
+        1.5434933009905514e-06,
+        2.6926355825383286e-07,
+        4.026276744557435e-08,
+        5.0377350815292605e-09
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.25,
+    "total_xg": 2.81,
+    "first_goal": {
+      "Poland_scores_first": 0.589,
+      "Bosnia and Herzegovina_scores_first": 0.351,
+      "no_goals": 0.06,
+      "expected_minute": 32
+    },
+    "halftime_xg": {
+      "Poland": 0.83,
+      "Bosnia and Herzegovina": 0.49
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.267
+      },
+      {
+        "score": "1:0",
+        "probability": 0.221
+      },
+      {
+        "score": "0:1",
+        "probability": 0.132
+      },
+      {
+        "score": "1:1",
+        "probability": 0.109
+      },
+      {
+        "score": "2:0",
+        "probability": 0.091
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Poland": 0.238,
+        "Bosnia and Herzegovina": 0.142
+      },
+      "16-30'": {
+        "Poland": 0.273,
+        "Bosnia and Herzegovina": 0.163
+      },
+      "31-45'": {
+        "Poland": 0.317,
+        "Bosnia and Herzegovina": 0.189
+      },
+      "46-60'": {
+        "Poland": 0.255,
+        "Bosnia and Herzegovina": 0.152
+      },
+      "61-75'": {
+        "Poland": 0.326,
+        "Bosnia and Herzegovina": 0.194
+      },
+      "76-90'": {
+        "Poland": 0.352,
+        "Bosnia and Herzegovina": 0.21
+      }
+    },
+    "comeback_probability": {
+      "Poland": 0.033,
+      "Bosnia and Herzegovina": 0.02
+    },
+    "late_drama_probability": 0.43,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.236
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.209
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Poland trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.107
+      },
+      {
+        "szenario": "Poland dominiert früh",
+        "beschreibung": "Poland geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.092
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 55,
+        "away": 45
+      },
+      "shots": {
+        "home": 15,
+        "away": 11
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 4
+      },
+      "corners": {
+        "home": 6,
+        "away": 5
+      },
+      "passes": {
+        "home": 286,
+        "away": 234
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Poland and Bosnia and Herzegovina is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 19,
+        "type": "chance",
+        "team": "Poland",
+        "headline": "Big chance for Poland!",
+        "description": "Poland create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 22,
+        "type": "goal",
+        "team": "Poland",
+        "headline": "GOAL! Poland!",
+        "description": "Poland score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 49,
+        "type": "goal",
+        "team": "Bosnia and Herzegovina",
+        "headline": "GOAL! Bosnia and Herzegovina!",
+        "description": "Bosnia and Herzegovina score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 68,
+        "type": "chance",
+        "team": "Bosnia and Herzegovina",
+        "headline": "Big chance for Bosnia and Herzegovina!",
+        "description": "Bosnia and Herzegovina create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 70,
+        "type": "chance",
+        "team": "Bosnia and Herzegovina",
+        "headline": "Big chance for Bosnia and Herzegovina!",
+        "description": "Bosnia and Herzegovina create a great opportunity but fail to convert.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 73,
+        "type": "goal",
+        "team": "Poland",
+        "headline": "GOAL! Poland!",
+        "description": "Poland score to make it 2:1.",
+        "score_after": "2:1"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:1.",
+        "score_after": "2:1"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Poland": 36,
+      "Bosnia and Herzegovina": 73
+    },
+    "fifa_points": {
+      "Poland": 1517.3,
+      "Bosnia and Herzegovina": 1344.25
+    },
+    "form_last_10_avg_pts": {
+      "Poland": 1.57,
+      "Bosnia and Herzegovina": 1.44
+    },
+    "win_rate_last_10": {
+      "Poland": "47%",
+      "Bosnia and Herzegovina": "29%"
+    },
+    "avg_goals_scored": {
+      "Poland": 1.55,
+      "Bosnia and Herzegovina": 1.58
+    },
+    "avg_goals_conceded": {
+      "Poland": 1.48,
+      "Bosnia and Herzegovina": 1.39
+    },
+    "clean_sheet_rate": {
+      "Poland": "16%",
+      "Bosnia and Herzegovina": "11%"
+    },
+    "h2h_last_10": {
+      "Poland wins": "67%",
+      "draws": "33%",
+      "Bosnia and Herzegovina wins": "0%",
+      "total_h2h_games": 3
+    }
+  }
+}

@@ -1,0 +1,397 @@
+{
+  "home_team": "Turkey",
+  "away_team": "France",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.1972,
+  "probability_draw": 0.2044,
+  "probability_away_win": 0.5984,
+  "score_prediction": {
+    "home_xg": 0.97,
+    "away_xg": 2.36,
+    "rho": -0.13,
+    "most_likely_score": "0:2",
+    "result": "A",
+    "probability_home_win": 0.1972,
+    "probability_draw": 0.2044,
+    "probability_away_win": 0.5984,
+    "top_scorelines": [
+      {
+        "score": "0:2",
+        "probability": 0.0885
+      },
+      {
+        "score": "1:2",
+        "probability": 0.0862
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0697
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0679
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0654
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.4016,
+        "home_or_away": 0.7956,
+        "draw_or_away": 0.8028
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8504,
+          "under": 0.1496
+        },
+        {
+          "line": 2.5,
+          "over": 0.6414,
+          "under": 0.3586
+        },
+        {
+          "line": 3.5,
+          "over": 0.416,
+          "under": 0.584
+        }
+      ],
+      "btts": {
+        "yes": 0.5837,
+        "no": 0.4163
+      },
+      "win_margin": {
+        "home_1plus": 0.1972,
+        "home_2plus": 0.0707,
+        "home_3plus": 0.0182,
+        "away_1plus": 0.5984,
+        "away_2plus": 0.4066,
+        "away_3plus": 0.2274
+      },
+      "scenario": "France is a clear favorite with nearly a 60% win probability and a 0-2 most likely score, showing potential for a comfortable victory."
+    },
+    "score_matrix": [
+      [
+        0.04726313266239063,
+        0.06539513866494168,
+        0.08846482125912986,
+        0.0696749094153023,
+        0.04115697855600628,
+        0.019449146306174208,
+        0.007659075595248522,
+        0.0025852668602782624,
+        0.000763558744625061
+      ],
+      [
+        0.03678226672604148,
+        0.09464214481135397,
+        0.08620758835827248,
+        0.06789711236944836,
+        0.04010683359697929,
+        0.018952889689012344,
+        0.007463649693995546,
+        0.002519302227880227,
+        0.0007440760859187656
+      ],
+      [
+        0.02586741223933703,
+        0.06111953584255114,
+        0.04821121690966601,
+        0.03308233844001974,
+        0.019541741857785625,
+        0.009234647678336327,
+        0.0036366051008321636,
+        0.0012275103612938315,
+        0.0003625452694592969
+      ],
+      [
+        0.008402463240879737,
+        0.019853344759229376,
+        0.023454746949154903,
+        0.012334102096150509,
+        0.006347707536554612,
+        0.002999673370562292,
+        0.0011812716478407643,
+        0.0003987298997340591,
+        0.00011776490325360263
+      ],
+      [
+        0.0020470173396482188,
+        0.0048366936941103,
+        0.0057140712581034,
+        0.004500403568721942,
+        0.001774963844552261,
+        0.0007307837269608966,
+        0.0002877826985544415,
+        9.713901688028781e-05,
+        2.8690015302807786e-05
+      ],
+      [
+        0.00039895729323124047,
+        0.0009426565115088199,
+        0.0011136546614964797,
+        0.0008771146152255231,
+        0.0005181117236166546,
+        0.00016347504179397489,
+        5.608795012639839e-05,
+        1.8932091336541077e-05,
+        5.591594475666768e-06
+      ],
+      [
+        6.479627648950888e-05,
+        0.00015310067766816915,
+        0.000180873182629929,
+        0.00014245575174433683,
+        8.414863211051059e-05,
+        3.976528683111769e-05,
+        1.0455646968201176e-05,
+        3.0748379477703247e-06,
+        9.081535989179481e-07
+      ],
+      [
+        9.020422954976752e-06,
+        2.1313460311011107e-05,
+        2.5179727862894672e-05,
+        1.983155827343166e-05,
+        1.1714504194426075e-05,
+        5.5358073885731005e-06,
+        2.180001456226225e-06,
+        4.913113370880193e-07,
+        1.2642593084265514e-07
+      ],
+      [
+        1.0987826825568435e-06,
+        2.596204325671995e-06,
+        3.067156503119206e-06,
+        2.4156930232347147e-06,
+        1.4269502004308239e-06,
+        6.743197434193953e-07,
+        2.655471766685302e-07,
+        8.963357354867996e-08,
+        1.767578727968437e-08
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": -0.42,
+    "total_xg": 3.33,
+    "first_goal": {
+      "Turkey_scores_first": 0.281,
+      "France_scores_first": 0.683,
+      "no_goals": 0.036,
+      "expected_minute": 27
+    },
+    "halftime_xg": {
+      "Turkey": 0.46,
+      "France": 1.11
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:1",
+        "probability": 0.233
+      },
+      {
+        "score": "0:0",
+        "probability": 0.21
+      },
+      {
+        "score": "0:2",
+        "probability": 0.129
+      },
+      {
+        "score": "1:1",
+        "probability": 0.106
+      },
+      {
+        "score": "1:0",
+        "probability": 0.096
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Turkey": 0.131,
+        "France": 0.319
+      },
+      "16-30'": {
+        "Turkey": 0.15,
+        "France": 0.366
+      },
+      "31-45'": {
+        "Turkey": 0.175,
+        "France": 0.425
+      },
+      "46-60'": {
+        "Turkey": 0.141,
+        "France": 0.342
+      },
+      "61-75'": {
+        "Turkey": 0.179,
+        "France": 0.437
+      },
+      "76-90'": {
+        "Turkey": 0.194,
+        "France": 0.472
+      }
+    },
+    "comeback_probability": {
+      "Turkey": 0.017,
+      "France": 0.038
+    },
+    "late_drama_probability": 0.486,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.178
+      },
+      {
+        "szenario": "France dominiert früh",
+        "beschreibung": "France geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.132
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "France trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.087
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 42,
+        "away": 58
+      },
+      "shots": {
+        "home": 10,
+        "away": 19
+      },
+      "shots_on_target": {
+        "home": 4,
+        "away": 8
+      },
+      "corners": {
+        "home": 4,
+        "away": 8
+      },
+      "passes": {
+        "home": 218,
+        "away": 302
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Turkey and France is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 27,
+        "type": "chance",
+        "team": "Turkey",
+        "headline": "Big chance for Turkey!",
+        "description": "Turkey create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 34,
+        "type": "goal",
+        "team": "France",
+        "headline": "GOAL! France!",
+        "description": "France score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 44,
+        "type": "chance",
+        "team": "France",
+        "headline": "Big chance for France!",
+        "description": "France create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 47,
+        "type": "goal",
+        "team": "France",
+        "headline": "GOAL! France!",
+        "description": "France score to make it 0:2.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 64,
+        "type": "chance",
+        "team": "France",
+        "headline": "Big chance for France!",
+        "description": "France create a great opportunity but fail to convert.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 83,
+        "type": "chance",
+        "team": "France",
+        "headline": "Big chance for France!",
+        "description": "France create a great opportunity but fail to convert.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 0:2.",
+        "score_after": "0:2"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Turkey": 27,
+      "France": 2
+    },
+    "fifa_points": {
+      "Turkey": 1555.72,
+      "France": 1870.92
+    },
+    "form_last_10_avg_pts": {
+      "Turkey": 1.66,
+      "France": 2.87
+    },
+    "win_rate_last_10": {
+      "Turkey": "52%",
+      "France": "93%"
+    },
+    "avg_goals_scored": {
+      "Turkey": 1.46,
+      "France": 3.03
+    },
+    "avg_goals_conceded": {
+      "Turkey": 1.25,
+      "France": 0.78
+    },
+    "clean_sheet_rate": {
+      "Turkey": "33%",
+      "France": "28%"
+    },
+    "h2h_last_10": {
+      "Turkey wins": "17%",
+      "draws": "17%",
+      "France wins": "67%",
+      "total_h2h_games": 6
+    }
+  }
+}
