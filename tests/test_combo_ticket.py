@@ -271,3 +271,8 @@ def test_price_tip_combos_need_two_binary_tips_on_one_day():
     assert len(combos) == 1 and combos[0]["leg_count"] == 2
     assert combos[0]["combined_odds"] == round(2.35 * 1.9, 2)
     assert combos[0]["edge"] == round(2.35 * 1.9 * .44 * .55 - 1, 4)
+
+
+def test_near_certain_legs_are_left_out():
+    rows = [vb(h, a, [candidate(.95, 1.02, bookmaker="X", bookmaker_key="X")]) for h, a in [("A", "B"), ("C", "D")]]
+    assert leg_pool(rows) == []

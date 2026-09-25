@@ -586,6 +586,37 @@ def _fetch_event_odds(event):
     return fresh
 
 
+# The day's odds snapshot, kept on disk. Every process start used to fetch
+# all competitions again (9 credits of a 500-a-month plan); a restart on the
+# same day now reuses the stored snapshot instead.
+ODDS_SNAPSHOT_PATH = Path(os.getenv("ODDS_SNAPSHOT_PATH",
+                                    Path(__file__).parent.parent / "data" / "odds_snapshot.json"))
+
+
+def _load_odds_snapshot(now: datetime) -> Optional[tuple]:
+    """(events, fetched_at, stage) from disk if it is today's, else None."""
+    try:
+        stored = json.loads(ODDS_SNAPSHOT_PATH.read_text(encoding="utf-8"))
+        fetched = datetime.fromisoformat(stored["fetched_at"])
+    except (OSError, ValueError, KeyError):
+        return None
+    if fetched.date() != now.date():
+        return None
+    # A snapshot from before the daily refresh hour does not stand in for it.
+    if now.hour >= ODDS_REFRESH_HOUR_UTC and fetched.hour < ODDS_REFRESH_HOUR_UTC:
+        return None
+    return stored["events"], fetched, stored.get("stage", "daily")
+
+
+def _save_odds_snapshot(events: list[dict], fetched: datetime, stage: str) -> None:
+    try:
+        ODDS_SNAPSHOT_PATH.parent.mkdir(parents=True, exist_ok=True)
+        ODDS_SNAPSHOT_PATH.write_text(json.dumps({"fetched_at": fetched.isoformat(), "stage": stage,
+                                                  "events": events}), encoding="utf-8")
+    except OSError:
+        pass
+
+
 def _refresh_book_daily(events: list[dict]) -> None:
     for sport in book_odds.LEAGUES:
         try:
@@ -605,11 +636,22 @@ def _get_odds() -> list[dict]:
         today = now.date().isoformat()
         due = now.hour >= ODDS_REFRESH_HOUR_UTC and _odds_daily_refresh_date != today
         ttl_expired = ODDS_CACHE_TTL_SECONDS > 0 and time.time() - _odds_cache_fetched_at >= ODDS_CACHE_TTL_SECONDS
+        if not _odds_cache and not ttl_expired:
+            stored = _load_odds_snapshot(now)
+            if stored:
+                events, fetched, stage = stored
+                _odds_cache = [stamp_event(e, fetched, stage) for e in events]
+                _odds_cache_date = fetched.date().isoformat()
+                _odds_cache_fetched_at = fetched.timestamp()
+                if stage == "daily":
+                    _odds_daily_refresh_date = fetched.date().isoformat()
+                due = now.hour >= ODDS_REFRESH_HOUR_UTC and _odds_daily_refresh_date != today
         if not _odds_cache or due or ttl_expired:
             try:
                 events = _fetch_odds()
                 fetched = datetime.now(timezone.utc)
                 stage = "daily" if fetched.hour >= ODDS_REFRESH_HOUR_UTC else "initial"
+                _save_odds_snapshot(events, fetched, stage)
                 _odds_cache = [stamp_event(e, fetched, stage) for e in events]
                 # bet-at-home's 1X2, read right after the snapshot so the two
                 # line up for the bet table and the combo all day. Cheap (0.3

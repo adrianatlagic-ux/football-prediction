@@ -29,6 +29,10 @@ MIN_LEG_PROBABILITY = 0.55
 # likes it; see the module docstring for why that disagreement is a red flag.
 MIN_MARKET_AGREEMENT = 0.5
 MIN_LEGS, MAX_LEGS = 2, 4
+# A leg priced like a certainty (Under 6.5 at 1.01) is always the likeliest
+# bet of its match once a bookmaker lists every line, and four of them still
+# multiply to about 1.05 - a ticket that can never reach MIN_COMBINED_ODDS.
+MIN_LEG_ODDS = 1.20
 # A combo exists to pay more than a single bet does. Ranking purely by how
 # likely a ticket is to land walks straight to the shortest prices on the
 # board - a first attempt returned a two-fold at 1.58, which is worse than
@@ -97,7 +101,7 @@ def leg_pool(value_bet_results, book=None):
                 # Andorra or Liechtenstein completely - a rule that can only
                 # ever produce tickets for the biggest fixtures is a rule
                 # against small leagues, not against bad prices.
-                if offered["probability"] < MIN_LEG_PROBABILITY:
+                if offered["probability"] < MIN_LEG_PROBABILITY or offered["best_odds"] < MIN_LEG_ODDS:
                     continue
                 market_probability = offered.get("market_probability")
                 if not isinstance(market_probability, (int, float)) or market_probability < MIN_MARKET_AGREEMENT:

@@ -24,3 +24,5 @@ data/processed/
 htmlcov/
 .coverage
 .fly_token
+data/odds_snapshot.json
+data/book_odds/spend.json
