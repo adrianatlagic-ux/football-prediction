@@ -77,6 +77,27 @@ def upcoming(window_minutes: int, now: datetime) -> list:
     return sorted(due, key=lambda f: f["kickoff"])
 
 
+def refreshed_in_window(fixture: dict, window_minutes: int, api_base: str | None) -> bool:
+    """Whether this match already got its squad refresh for this kickoff.
+
+    The job runs every 15 minutes and a match stays in the 75-minute window
+    for five runs; without this check each run would pay Apify for the same
+    squads again. The scheduled job uploads to the live app and never
+    commits, so its own checkout cannot tell - the live cache is asked.
+    """
+    import urllib.request
+    try:
+        if api_base:
+            with urllib.request.urlopen(f"{api_base}/predictions/{fixture['match_id']}", timeout=15) as r:
+                cached = json.loads(r.read())
+        else:
+            cached = json.loads((CACHE / f"{fixture['match_id']}.json").read_text(encoding="utf-8"))
+        stamp = datetime.fromisoformat(cached["squad_refreshed_at"])
+    except Exception:
+        return False
+    return (fixture["kickoff"] - stamp).total_seconds() / 60 <= window_minutes
+
+
 def upload(api_base: str, match_id: str, payload: dict) -> bool:
     """Push one prediction to a deployment; False if it did not take."""
     import os
@@ -100,6 +121,7 @@ def upload(api_base: str, match_id: str, payload: dict) -> bool:
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--force", action="store_true", help="refresh matches already refreshed in this window")
     ap.add_argument("--window", type=int, default=DEFAULT_WINDOW_MINUTES,
                     help=f"minutes before kickoff to act (default {DEFAULT_WINDOW_MINUTES})")
     ap.add_argument("--api", default=None,
@@ -108,7 +130,8 @@ def main():
     args = ap.parse_args()
 
     now = datetime.now(timezone.utc)
-    due = upcoming(args.window, now)
+    due = [f for f in upcoming(args.window, now)
+           if args.force or not refreshed_in_window(f, args.window, args.api)]
     print(f"{now:%H:%M} UTC | {len(due)} Spiel(e) im {args.window}-Minuten-Fenster")
     if not due:
         return
