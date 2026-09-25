@@ -25,10 +25,17 @@ schreiben darf; er gehört beim Zusammenführen mit hinüber.
 | Schlägt der Preisvergleich gegen Pinnacle die Schlussquote? | Ja, in den Prüfjahren signifikant – aber großteils durch Ausreißerpreise |
 | Hilft unser Modell bei der Auswahl darunter? | Nein. CLV ist flach über alle Modellmeinungen |
 | Schlägt eine KI mit allen Signalen und eigenem Urteil den Markt? | Nein. Eigenes Urteil: −2,38 % CLV, signifikant negativ |
+| Gibt es den Preisvorteil auch bei in Deutschland zugelassenen Buchmachern? | Ja, klein und selten. bet-at-home: 46 Gelegenheiten in 389 Spielen, Ø +7,9 % EV |
+| Weiß unser Modell etwas, das Pinnacle nicht weiß? | Nein. Schon 5 % Modell-Beimischung verschlechtert die Vorhersage auf neuen Spielen |
 
 Die zentrale Aussage nach diesen Tagen: **Alles, was eine Meinung über das
 Spiel bildet, verliert gegen den Markt. Positiv ist nur ein Buchmacher, der
-über Pinnacles margenbereinigter Quote liegt.**
+über Pinnacles margenbereinigter Quote liegt.** Das gilt auch für
+Buchmacher, die Adrian legal nutzen kann – dort allerdings in kleinem Umfang.
+
+Adrian will mit **einem** Buchmacher arbeiten. Der Vorschlag am Ende dieses
+Berichts ist deshalb ein reiner Preistipp bei bet-at-home, ohne Modell. Dazu
+brauche ich deine Einschätzung – die Fragen stehen in Abschnitt 10.
 
 ---
 
@@ -321,6 +328,22 @@ sein eigenes Urteil setzte (Preis unter Pinnacles fairer Quote), ergaben 220
 Wetten **−2,38 % [−3,50, −1,31]** – signifikant negativ, dieselbe Richtung wie
 unser Modell überall sonst.
 
+### Nach Quotenhöhe
+
+Derselbe Preisvergleich, Prüfjahre, Schwelle 2 %, aufgeteilt nach der Quote:
+
+| Quotenbereich | Wetten | CLV (95 %) | gewonnen |
+|---|---:|---|---:|
+| unter 2,5 | 13 | zu wenige | 62 % |
+| **2,5 – 5** | **138** | **+2,45 % [+1,45, +3,49]** | 29 % |
+| 5 – 10 | 77 | +4,83 % | 10 % |
+| über 10 | 44 | +10,79 % | 5 % |
+
+Die großen Werte bei Außenseitern sind am wenigsten glaubwürdig: Dort sind
+gerundete und veraltete Quoten am häufigsten, und bei 5 % Trefferquote
+entscheidet ein einzelner Treffer über den ROI. **Der belastbarste Bereich
+sind ausgeglichene Spiele mit Quoten zwischen 2,5 und 5.**
+
 ### Live-Stand
 
 Pinnacle ist im Feed der Odds API enthalten (69 Quoten über 18 CL-Spiele).
@@ -330,7 +353,105 @@ marathonbet 9,30 – letztere in Deutschland nicht zugelassen.
 
 ---
 
-## 7. Was daraus folgt
+## 7. Buchmacher, die Adrian nutzen kann
+
+Der Archivtest rechnete mit dem besten Preis über rund 40 Buchmacher, die
+meisten in Deutschland nicht nutzbar. Deshalb die praktische Frage.
+
+### Quellen
+
+| Quelle | Inhalt | Kosten |
+|---|---|---|
+| Odds API (vorhanden) | ~20 Buchmacher, **inkl. Pinnacle**, meist SE/FR/IT-lizenziert | bezahlt |
+| Oddsportal über Apify (`piotrv1001/oddsportal-scraper`) | je Buchmacher 1X2; mit `apifyProxyCountry: "DE"` genau die in Deutschland lizenzierten | ~0,3 ct/Spiel; mit Eröffnungs-/Schlussquote je Buchmacher ~2 ct |
+| Flashscore über Apify | je Buchmacher, braucht Spiel-IDs | nicht getestet |
+| **Tipico** | **in keiner Quelle gefunden** | – |
+
+Oddsportal führt **kein Pinnacle** – weder mit deutschem noch mit maltesischem
+Proxy. Historische Pinnacle-Schlussquoten kommen aus dem football-data-Archiv,
+das sie für 2025-26 nur bis zur Saisonmitte enthält (149 Spiele).
+
+Für die aktuelle Quote liefert Oddsportal keinen Zeitstempel, nur für die
+Eröffnungsquote. Für einen Abruf vor Anpfiff reicht das; Sekunden-Live-Quoten
+sind es nicht.
+
+### Test: deutsche Buchmacher gegen Pinnacles Schlussquote
+
+`scripts/german_books_vs_pinnacle.py`, 389 Bundesligaspiele (2023-24 und
+2025-26 bis zur Saisonmitte). **Beide Preise sind Schlussquoten, im selben
+Moment verglichen** – das beseitigt das Problem veralteter Quoten aus dem
+Archivtest. Pinnacles Schlussquote gilt als beste Schätzung der wahren
+Wahrscheinlichkeit; eine Quote darüber ist per Konstruktion positiver
+Erwartungswert.
+
+| Buchmacher | Ø gegen fair | Fälle > 2 % über fair | EV dieser Fälle |
+|---|---:|---:|---:|
+| **bet-at-home.de** | −5,71 % | **46** | **+7,93 %** |
+| Betano.de | −5,13 % | 38 | +5,61 % |
+| Interwetten.de | −6,39 % | 31 | +3,18 % |
+| bet365 | −5,91 % | 21 | +3,99 % |
+| Neobet | −5,68 % | 11 | +5,58 % |
+| Bet365.de | −6,02 % | 11 | +4,25 % |
+| Winamax.de | −5,16 % | 7 | +3,50 % |
+| Oddset.de | −6,88 % | 2 | +3,10 % |
+
+Im Schnitt liegen alle 5–7 % unter fair, das ist ihre Marge. Nur ein paar
+Prozent ihrer Preise liegen darüber. Den ROI je Buchmacher lasse ich weg: Bei
+11 bis 46 Wetten schwankt er zwischen −100 % und +27 %.
+
+### Warum bet-at-home
+
+| | bet-at-home | Betano | Interwetten |
+|---|---:|---:|---:|
+| Gelegenheiten | 46 | 38 | 31 |
+| Vorteil bei Quote unter 2,5 | +6,4 % | +3,6 % | +3,0 % |
+| Vorteil bei Quote 2,5–5 | +9,0 % | +5,4 % | +3,2 % |
+| davon Quote über 10 | **0** | 13 | 0 |
+
+Bei Betano stammt ein Drittel der Gelegenheiten aus großen Außenseitern,
+also aus dem am wenigsten glaubwürdigen Bereich. Bei bet-at-home liegen alle
+bei normalen Quoten, 37 von 46 unter 5, und dort ist der Vorteil zugleich am
+größten.
+
+Hochgerechnet auf eine volle Bundesliga-Saison mit 10 € Einsatz: etwa
+**36 Gelegenheiten, rund 29 € Erwartungswert**. Mit allen vier Buchmachern
+zusammen wären es rund 99 Wetten und 58 €. Das ist ein Erwartungswert, keine
+Prognose des Ergebnisses; eine Saison kann bei dieser Streuung deutlich im
+Minus enden.
+
+---
+
+## 8. Kann das Modell den Preistipp verbessern?
+
+Beim Preistipp ist der Vorteil durch den Preis festgelegt. Das Modell kann
+nur helfen, wenn es über den Spielausgang etwas weiß, das Pinnacle entgangen
+ist. `scripts/does_the_model_add_anything.py` prüft genau das, mit allen
+Spielen: p = (1 − w) · Pinnacle + w · Modell. Trägt das Modell Information,
+die dem Markt fehlt, muss ein w > 0 den Log-Loss auf neuen Spielen senken.
+Gewicht gewählt auf 2021-22/2022-23, geprüft auf 455 Spielen 2023-24/2025-26.
+
+| gegen | beste Beimischung | Log-Loss Pinnacle allein | mit Modell |
+|---|---:|---:|---:|
+| Pinnacle-Schlussquote | 5 % | 0,9364 | 0,9373 |
+| Pinnacle vor Schluss (Wettzeitpunkt) | 5 % | 0,9380 | 0,9389 |
+
+Beide Male **schlechter**, Intervalle schließen null ein. Das Modell allein:
+0,9823. Es enthält keine Information, die Pinnacle fehlt – also hilft es
+weder als Filter noch als Gewichtung, Veto oder Tie-Break.
+
+Unter den 46 bet-at-home-Tipps selbst zeigt es eher in die Gegenrichtung:
+
+| Tipps, bei denen das Modell … | Anzahl | gewonnen | erwartet | ROI |
+|---|---:|---:|---:|---:|
+| … die Wette höher einschätzt als Pinnacle | 19 | 21 % | 29 % | −49 % |
+| … die Wette niedriger einschätzt | 27 | 56 % | 50 % | +28 % |
+
+46 Wetten beweisen nichts. Aber „nur Tipps nehmen, die das Modell auch mag"
+hätte die schlechtere Hälfte gewählt – dieselbe Richtung wie überall sonst.
+
+---
+
+## 9. Was daraus folgt
 
 In jedem Test dieser Tage gilt dasselbe:
 
@@ -338,31 +459,74 @@ In jedem Test dieser Tage gilt dasselbe:
   eine **Meinung über das Spiel** bildet, verliert gegen den Markt oder ist
   nicht von Zufall zu unterscheiden.
 - Positiv ist nur ein **Buchmacher, der langsamer ist als Pinnacle**. Dafür
-  braucht es kein Modell, sondern Konten bei solchen Buchmachern oder eine
-  Wettbörse. Mit einem Tipico-Konto ist das nicht umsetzbar.
+  braucht es kein Modell. Bei in Deutschland zugelassenen Buchmachern kommt
+  das vor, aber selten, und der erwartete Betrag ist klein.
+- Unser Modell weiß nichts, was Pinnacle nicht weiß.
 
 Die Seite ist jetzt so beschriftet, dass sie nur behauptet, was belegt ist:
 wer wahrscheinlich gewinnt, nicht womit man Geld verdient.
 
+### Vorschlag: Preistipp bei bet-at-home
+
+1. **Einmal vor jedem Spieltag** (der Zeitplan-Job existiert schon): Pinnacle
+   über die Odds API, bet-at-home über Oddsportal mit deutschem Proxy.
+   Kosten rund 3 Cent pro Spieltag.
+2. **Tipp nur, wo bet-at-home mindestens 2 % über Pinnacles margenbereinigter
+   Quote liegt.** Kein Modell, keine KI. Bei mehreren Kandidaten eines Spiels
+   der mit dem größten Abstand. Die meisten Spiele haben keinen Tipp.
+3. **Kombi** nur aus solchen bet-at-home-Beinen am selben Spieltag. Weil alles
+   beim selben Buchmacher liegt, ist das die eine Konstellation, in der eine
+   Kombi mathematisch besser ist als Einzelwetten – Vorteile multiplizieren
+   sich. Sie kommt selten vor.
+4. **Laufende Bilanz**: Jeder Tipp wird mit Zeitpunkt festgehalten und nach
+   Anpfiff gegen Pinnacles Schlussquote ausgewertet. Das ist zugleich der
+   Vorwärtstest, den das Archiv nicht leisten kann.
+5. **Das Modell bleibt Information zum Spiel** (Wahrscheinlichkeiten,
+   Spielverlauf), sichtbar getrennt vom Preistipp.
+
+Der bisherige Game Pick (Marktfavorit) würde dann keine Wettempfehlung mehr
+sein, sondern nur noch „wer gewinnt wahrscheinlich".
+
 ---
 
-## 8. Offen
+## 10. Fragen an dich
+
+1. **Das Testdesign.** Schlussquote gegen Schlussquote vermeidet veraltete
+   Quoten, hat aber eine Restlücke: Oddsportals „Schluss" ist die letzte
+   erfasste Quote, womöglich Minuten vor Pinnacles Anstoßquote. Siehst du eine
+   Möglichkeit, dass der Vorteil ein Zeitartefakt ist – oder einen weiteren
+   Fehler im Aufbau?
+2. **Reicht die Grundlage?** 46 Gelegenheiten in gut einer Saison. Würdest du
+   den Preistipp auf dieser Basis bauen und vorwärts messen, oder vorher den
+   Test Eröffnungsquote gegen Schlussquote machen (~14 $, Adrian hat noch ~9 $
+   Apify-Budget diesen Monat)?
+3. **Ein Buchmacher.** Adrian will nur bei einem wetten. bet-at-home liegt
+   vorn, aber das Risiko, bei dauerhaftem Gewinn begrenzt zu werden, trägt
+   dann ein einziges Konto. Siehst du das als Grund, doch zwei zu empfehlen?
+4. **Game Pick ersetzen oder daneben?** Soll der Preistipp die bisherige
+   Wettempfehlung ersetzen, oder läuft beides nebeneinander und die Bilanz
+   entscheidet?
+5. **Schwelle 2 %.** Festgelegt vor jedem Ergebnis. Würdest du sie ändern,
+   oder zusätzlich auf Quoten unter 5 begrenzen, weil dort der Vorteil am
+   glaubwürdigsten war?
+6. **`game_pick.py` / `bet_selection.combine`** sind in der App unbenutzt,
+   nur noch in Tests. Entfernen, oder als Vergleichsstrategie in der Bilanz
+   mitlaufen lassen?
+
+---
+
+## 11. Offen
 
 1. **Push und Merge.** `git merge --ff-only merge/codex-into-claude` im
    Hauptverzeichnis, dann pushen. Braucht Zugangsdaten.
 2. **Secrets für den Zeitplan-Job:** `APIFY_TOKEN`, `PREDICTION_WRITE_TOKEN`,
    `MODEL_ARTIFACT_URL`; in der App-Umgebung `PREDICTIONS_WRITE_TOKEN`. Ohne
    sie ist der Job inert (er läuft ohnehin nur auf dem Standardbranch).
-3. **Preistipp als Funktion.** Pinnacles aktuelle Quote als fairer Maßstab,
-   Tipp nur, wo ein Buchmacher mindestens 2 % darüber liegt – mit Filter auf
-   frische Quoten und höchstens 5–10 % über dem Marktdurchschnitt, um die
-   Ausreißergruppe auszuschließen. Jeder solche Tipp wird protokolliert und nach
-   Anpfiff gegen Pinnacles Schlussquote ausgewertet: Das ist zugleich der
-   Vorwärtstest, den das Archiv nicht leisten kann.
-4. **Welche Buchmacher Adrian nutzen kann.** Tipico fehlt im Feed; davon hängt
-   ab, ob Punkt 3 für ihn praktisch relevant wird.
-5. **`game_pick.py` / `bet_selection.combine`** – unbenutzt in der App, siehe
-   Abschnitt 4.
+3. **Preistipp bauen** – nach deiner Antwort auf die Fragen oben.
+4. **Die neuen Skripte liegen auf `codex/bet-selection`**
+   (`german_books_vs_pinnacle.py`, `does_the_model_add_anything.py`, dazu die
+   Oddsportal-Daten), die früheren auf `merge/codex-into-claude`. Beides muss
+   beim Zusammenführen zusammenkommen.
 
 ---
 
@@ -378,10 +542,17 @@ wer wahrscheinlich gewinnt, nicht womit man Geld verdient.
   verzerrt. Die Zerlegung nach Preisabstand hat es aufgedeckt.
 - Die Commit-Nachricht zu `placed_bets.jsonl` nannte zunächst falsche Beträge,
   geschrieben vor der Rechnung; korrigiert.
+- Aus dem Live-Vergleich hatte ich Neobet als besten deutschen Buchmacher
+  genannt. Der Test über 389 Spiele zeigt: Neobet hatte die wenigsten
+  Gelegenheiten, bet-at-home die meisten.
+- Meine erste Kostenschätzung für den Oddsportal-Test (4 $) galt nur für die
+  Variante Schluss gegen Schluss; Eröffnung gegen Schluss kostet rund 14 $.
 
 ---
 
-## Reproduzieren (auf `merge/codex-into-claude`)
+## Reproduzieren
+
+Auf `merge/codex-into-claude`:
 
 ```sh
 python3 scripts/pinnacle_edge_test.py
@@ -391,5 +562,15 @@ python3 scripts/refresh_squad_predictions.py --dry-run
 python3 -m pytest tests/ -q
 ```
 
+Auf `codex/bet-selection`:
+
+```sh
+python3 scripts/german_books_vs_pinnacle.py
+python3 scripts/does_the_model_add_anything.py
+```
+
 Gespeicherte Ergebnisse: `data/model_reports/pinnacle_edge_20260925.json`,
-`data/model_reports/llm_bettor/` (alle 910 KI-Antworten).
+`data/model_reports/llm_bettor/` (alle 910 KI-Antworten),
+`data/model_reports/german_books_vs_pinnacle_20260925.json`,
+`data/odds_archive/oddsportal_de_20260925/` (Schlussquoten der deutschen
+Buchmacher, 616 Spiele).
