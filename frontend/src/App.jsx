@@ -688,6 +688,97 @@ function plainBetPhrase(b) {
   return b.market
 }
 
+const pct = (x, digits = 0) => `${(x * 100).toFixed(digits)}%`
+const signedPct = (x) => `${x >= 0 ? '+' : ''}${(x * 100).toFixed(1)}%`
+const bookName = (b) => (b || 'bet-at-home').replace(/\.de$/, '')
+
+// The headline tip: where bet-at-home pays more than Pinnacle's margin-free
+// price (src/price_tip.py). Model and AI are shown beside it, not used by it.
+function PriceTipBox({ priceTip }) {
+  if (!priceTip) {
+    return (
+      <p className="smart-bet-notip">
+        <strong>No price tip for this match.</strong><br />
+        No sharp reference price is available here.
+      </p>
+    )
+  }
+  const tip = priceTip.tip
+  const book = bookName(priceTip.bookmaker)
+  if (!tip) {
+    return (
+      <div className="price-tip is-empty">
+        <span className="smart-bet-label price-tip-label-muted">Price Tip</span>
+        <div className="price-tip-none">No tip for this match</div>
+        <p className="price-tip-reason">{priceTip.reason}</p>
+        {priceTip.outcomes.length > 0 && (
+          <div className="price-tip-table">
+            <div className="price-tip-table-head">
+              <span>Outcome</span><span>Pinnacle</span><span>{book}</span><span>Chance</span><span>Edge</span>
+            </div>
+            {priceTip.outcomes.map((o) => (
+              <div className="price-tip-table-row" key={o.outcome}>
+                <span>{betOutcomeLabel(o)}</span>
+                <span>{o.pinnacle_odds.toFixed(2)}</span>
+                <span>{o.book_odds.toFixed(2)}</span>
+                <span>{pct(o.probability)}</span>
+                <span className={o.edge >= priceTip.threshold ? 'positive' : 'negative'}>{signedPct(o.edge)}</span>
+              </div>
+            ))}
+          </div>
+        )}
+        <p className="price-tip-footnote">
+          A tip appears when {book} pays at least {pct(priceTip.threshold)} above Pinnacle's fair price.
+          That usually happens in the last hour before kickoff, when Pinnacle moves first.
+        </p>
+      </div>
+    )
+  }
+  return (
+    <div className="smart-bet-best price-tip">
+      <span className="smart-bet-label">Price Tip</span>
+      <div className="smart-bet-pick">{betOutcomeLabel(tip)}</div>
+      <div className="price-tip-kpis">
+        <div className="price-tip-kpi">
+          <span className="price-tip-kpi-label">Pinnacle</span>
+          <span className="price-tip-kpi-value">{tip.pinnacle_odds.toFixed(2)}</span>
+          <span className="price-tip-kpi-sub">fair {tip.fair_odds.toFixed(2)}</span>
+        </div>
+        <div className="price-tip-kpi is-book">
+          <span className="price-tip-kpi-label">{book}</span>
+          <span className="price-tip-kpi-value">{tip.book_odds.toFixed(2)}</span>
+          <span className="price-tip-kpi-sub">your odds</span>
+        </div>
+        <div className="price-tip-kpi">
+          <span className="price-tip-kpi-label">Chance</span>
+          <span className="price-tip-kpi-value">{pct(tip.probability)}</span>
+          <span className="price-tip-kpi-sub">per Pinnacle</span>
+        </div>
+        <div className="price-tip-kpi is-edge">
+          <span className="price-tip-kpi-label">Edge</span>
+          <span className="price-tip-kpi-value">{signedPct(tip.edge)}</span>
+          <span className="price-tip-kpi-sub">per € staked</span>
+        </div>
+      </div>
+      <div className="smart-bet-agree-row">
+        {priceTip.model_agrees != null && (
+          <span className={`smart-bet-agree-chip ${priceTip.model_agrees ? 'yes' : 'no'}`}>
+            {priceTip.model_agrees ? '◆ Model agrees ✓' : '◆ Model differs ✕'}
+          </span>
+        )}
+        {priceTip.ai_agrees != null && (
+          <span className={`smart-bet-agree-chip ${priceTip.ai_agrees ? 'yes' : 'no'}`}>
+            {priceTip.ai_agrees ? '✨ AI agrees ✓' : '✨ AI differs ✕'}
+          </span>
+        )}
+      </div>
+      <div className="smart-bet-best-meta">
+        Chosen on price alone. Edge is an average over many bets, not a promise for this one.
+      </div>
+    </div>
+  )
+}
+
 function SmartBetCard({ betStep, betInfo, data }) {
   const analyzing = betStep < BET_STEPS.length
   if (analyzing) {
@@ -766,34 +857,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
 
   return (
     <div className="wm-reveal smart-bet-card">
-      {consensusPick ? (
-        <div className={`smart-bet-best ${combined.agreement_count === 0 ? 'is-warning' : ''}`}>
-          <span className="smart-bet-label">Game Pick</span>
-          <div className="smart-bet-pick">{betOutcomeLabel(consensusPick)}</div>
-          <div className="smart-bet-odds-row">
-            <span className="smart-bet-odds">{consensusPick.best_odds.toFixed(2)}</span>
-            {consensusPick.market_probability != null && (
-              <span className="smart-bet-winprob">
-                {(consensusPick.market_probability * 100).toFixed(0)}% win chance
-              </span>
-            )}
-          </div>
-          <div className="smart-bet-best-meta">at {consensusPick.bookmaker}</div>
-          <div className="smart-bet-agree-row">
-            <span className={`smart-bet-agree-chip ${combined.model_agrees ? 'yes' : 'no'}`}>
-              {combined.model_agrees ? '◆ Model agrees ✓' : '◆ Model differs ✕'}
-            </span>
-            <span className={`smart-bet-agree-chip ${combined.agent_agrees ? 'yes' : 'no'}`}>
-              {combined.agent_agrees ? '✨ AI agrees ✓' : '✨ AI differs ✕'}
-            </span>
-          </div>
-        </div>
-      ) : (
-        <p className="smart-bet-notip">
-          <strong>No clear tip for this match.</strong><br />
-          The market doesn't have a clear favorite here — better to sit this one out. Odds below for comparison.
-        </p>
-      )}
+      <PriceTipBox priceTip={betInfo.price_tip} />
 
       {(greens.length > 0 || reds.length > 0) && (
         <div className="smart-bet-table">

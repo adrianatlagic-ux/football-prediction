@@ -26,6 +26,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from src.club_predictor import ClubFootballPredictor as FootballPredictor
 
 from src.club_predictor import DEFAULT_MODEL_PATH as MODEL_PATH
+from src import book_odds
+from src.price_tip import build_price_tip, model_and_ai_view
 PREDICTIONS_CACHE_DIR = Path(__file__).parent.parent / "data" / "predictions_cache"
 
 app = FastAPI(
@@ -1273,6 +1275,9 @@ PREKICKOFF_WINDOW_HOURS = 1
 # instead of recomputing from the stale once-a-day odds cache - odds (and so
 # the recommended pick) can genuinely move in that last hour before kickoff.
 _prekickoff_vb_cache: dict[tuple[str, str], dict] = {}
+# The event behind that refresh. The price tip reads Pinnacle from it: a gap to
+# bet-at-home measured against the morning's Pinnacle price would be stale.
+_prekickoff_event_cache: dict[tuple[str, str], dict] = {}
 
 
 def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
@@ -1326,6 +1331,11 @@ def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
                     # the stable team-pair cache key, so store the refreshed
                     # pricing result under that key.
                     _prekickoff_vb_cache[_match_key(home, away)] = fresh_vb
+                    _prekickoff_event_cache[_match_key(home, away)] = fresh_event
+                # bet-at-home must be as fresh as Pinnacle for the price tip;
+                # refresh_if_due fetches each competition at most every 45 min.
+                if event:
+                    book_odds.refresh_if_due(event.get("sport_key"))
 
                 agent = _call_gemini_agent_pick(data, fresh_vb, home, away, previous_eval=previous_eval)
                 if agent is not None:
@@ -1335,6 +1345,20 @@ def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
                 _agent_prekickoff_in_progress.discard(key)
 
         threading.Thread(target=_run, daemon=True).start()
+
+
+def _price_tip_for(odds: list[dict], home: str, away: str, prediction: dict,
+                   agent_eval: Optional[dict]) -> Optional[dict]:
+    """bet-at-home against Pinnacle's fair price for one match (src/price_tip.py)."""
+    event = _prekickoff_event_cache.get(_match_key(home, away)) or _find_odds_match(odds, home, away)
+    if not event:
+        return None
+    try:
+        tip = build_price_tip(event, book_odds.load())
+    except Exception:
+        return None
+    tip.update(model_and_ai_view(tip.get("tip"), prediction, agent_eval))
+    return tip
 
 
 _prediction_index: dict[tuple[str, str], dict] = {}
@@ -1396,6 +1420,7 @@ def value_bets(home_team: str, away_team: str):
         agent_eval = _get_agent_pick(result)
         result["agent_eval"] = agent_eval
         result["combined"] = _combine_recommendation(result, agent_eval)
+        result["price_tip"] = _price_tip_for(odds, home_team, away_team, prediction, agent_eval)
         return result
     except HTTPException:
         raise

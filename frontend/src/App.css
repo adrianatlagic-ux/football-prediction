@@ -2914,3 +2914,45 @@ body {
 .combo-size-empty { padding: 1.25rem; border: 1px dashed var(--glass-border, #334155); border-radius: 14px; color: var(--text-muted, #94a3b8); }
 .combo-size-empty p { margin: .6rem 0 0; line-height: 1.6; font-size: .85rem; }
 @media (max-width: 1000px) { .combo-size-grid { grid-template-columns: 1fr; } }
+
+/* Price tip (bet-at-home vs Pinnacle fair price) */
+.price-tip.is-empty { text-align: center; padding: 0.4rem 0.2rem; }
+.price-tip-label-muted { color: #94a3b8; }
+.price-tip-none { font-size: 0.95rem; font-weight: 700; color: #e2e8f0; }
+.price-tip-reason { margin: 0.35rem 0 0.6rem; font-size: 0.78rem; color: #9ca3af; }
+.price-tip-kpis {
+  margin-top: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+.price-tip-kpi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.45rem 0.2rem;
+  border-radius: 8px;
+  background: rgba(148,163,184,0.08);
+}
+.price-tip-kpi.is-book { background: rgba(250,204,21,0.10); }
+.price-tip-kpi.is-edge { background: rgba(74,222,128,0.12); }
+.price-tip-kpi-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.06em; color: #94a3b8; }
+.price-tip-kpi-value { font-size: 1.15rem; font-weight: 800; color: #f1f5f9; }
+.price-tip-kpi.is-book .price-tip-kpi-value { color: var(--gold-light); }
+.price-tip-kpi.is-edge .price-tip-kpi-value { color: #4ade80; }
+.price-tip-kpi-sub { font-size: 0.62rem; color: #6b7280; }
+.price-tip-table { font-size: 0.75rem; text-align: left; }
+.price-tip-table-head, .price-tip-table-row {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1.2fr 0.9fr 1fr;
+  gap: 0.3rem;
+  padding: 0.25rem 0.3rem;
+}
+.price-tip-table-head { white-space: nowrap; font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280; }
+.price-tip-table-row { border-top: 1px solid rgba(148,163,184,0.12); color: #cbd5e1; }
+.price-tip-table-row .positive { color: #4ade80; font-weight: 700; }
+.price-tip-table-row .negative { color: #f87171; }
+.price-tip-footnote { margin-top: 0.55rem; font-size: 0.66rem; line-height: 1.5; color: #6b7280; }
+@media (max-width: 420px) {
+  .price-tip-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

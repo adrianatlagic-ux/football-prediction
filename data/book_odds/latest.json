@@ -1,0 +1,952 @@
+{
+ "bookmaker": "bet-at-home.de",
+ "fetched_at": "2026-09-25T15:52:33.120968+00:00",
+ "fixtures": [
+  {
+   "sport_key": "soccer_uefa_champs_league",
+   "home_team": "Lens",
+   "away_team": "Sporting CP",
+   "commence_time": "2026-10-13T16:45:00.000Z",
+   "odds": {
+    "home": 2.3,
+    "draw": 3.7,
+    "away": 2.65
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_champs_league",
+   "home_team": "Sabah Baku",
+   "away_team": "Slavia Prague",
+   "commence_time": "2026-10-13T16:45:00.000Z",
+   "odds": {
+    "home": 3.4,
+    "draw": 3.7,
+    "away": 1.95
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_champs_league",
+   "home_team": "Arsenal",
+   "away_team": "Lille",
+   "commence_time": "2026-10-13T19:00:00.000Z",
+   "odds": {
+    "home": 1.25,
+    "draw": 5.5,
+    "away": 9.5
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_champs_league",
+   "home_team": "Atl. Madrid",
+   "away_team": "Manchester Utd",
+   "commence_time": "2026-10-13T19:00:00.000Z",
+   "odds": {
+    "home": 2.2,
+    "draw": 3.75,
+    "away": 2.8
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_champs_league",
+   "home_team": "Galatasaray",
+   "away_team": "Barcelona",
+   "commence_time": "2026-10-13T19:00:00.000Z",
+   "odds": {
+    "home": 7.0,
+    "draw": 6.0,
+    "away": 1.3
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_champs_league",
+   "home_team": "Viking",
+   "away_team": "Bayern Munich",
+   "commence_time": "2026-10-13T19:00:00.000Z",
+   "odds": {
+    "home": 17.0,
+    "draw": 10.0,
+    "away": 1.08
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_champs_league",
+   "home_team": "Inter",
+   "away_team": "Club Brugge KV",
+   "commence_time": "2026-10-13T19:00:00.000Z",
+   "odds": {
+    "home": 1.25,
+    "draw": 5.5,
+    "away": 9.0
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_champs_league",
+   "home_team": "Villarreal",
+   "away_team": "Napoli",
+   "commence_time": "2026-10-13T19:00:00.000Z",
+   "odds": {
+    "home": 2.25,
+    "draw": 3.45,
+    "away": 2.9
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_champs_league",
+   "home_team": "RB Leipzig",
+   "away_team": "PSV",
+   "commence_time": "2026-10-13T19:00:00.000Z",
+   "odds": {
+    "home": 1.95,
+    "draw": 4.0,
+    "away": 3.1
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_champs_league",
+   "home_team": "Feyenoord",
+   "away_team": "Como",
+   "commence_time": "2026-10-14T16:45:00.000Z",
+   "odds": {
+    "home": 3.4,
+    "draw": 4.1,
+    "away": 1.85
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_champs_league",
+   "home_team": "LASK",
+   "away_team": "Liverpool",
+   "commence_time": "2026-10-14T16:45:00.000Z",
+   "odds": {
+    "home": 9.5,
+    "draw": 6.0,
+    "away": 1.23
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_champs_league",
+   "home_team": "Shakhtar Donetsk",
+   "away_team": "AEK Athens",
+   "commence_time": "2026-10-14T19:00:00.000Z",
+   "odds": {
+    "home": 2.55,
+    "draw": 3.45,
+    "away": 2.5
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_champs_league",
+   "home_team": "AS Roma",
+   "away_team": "Real Madrid",
+   "commence_time": "2026-10-14T19:00:00.000Z",
+   "odds": {
+    "home": 3.3,
+    "draw": 3.8,
+    "away": 1.95
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_champs_league",
+   "home_team": "Aston Villa",
+   "away_team": "Fenerbahce",
+   "commence_time": "2026-10-14T19:00:00.000Z",
+   "odds": {
+    "home": 1.7,
+    "draw": 3.85,
+    "away": 4.3
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_champs_league",
+   "home_team": "Betis",
+   "away_team": "FC Porto",
+   "commence_time": "2026-10-14T19:00:00.000Z",
+   "odds": {
+    "home": 2.0,
+    "draw": 3.65,
+    "away": 3.25
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_champs_league",
+   "home_team": "Bodo/Glimt",
+   "away_team": "Dortmund",
+   "commence_time": "2026-10-14T19:00:00.000Z",
+   "odds": {
+    "home": 3.1,
+    "draw": 4.0,
+    "away": 1.95
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_champs_league",
+   "home_team": "Manchester City",
+   "away_team": "PSG",
+   "commence_time": "2026-10-14T19:00:00.000Z",
+   "odds": {
+    "home": 2.1,
+    "draw": 3.9,
+    "away": 2.85
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_champs_league",
+   "home_team": "Slovan Bratislava",
+   "away_team": "Stuttgart",
+   "commence_time": "2026-10-14T19:00:00.000Z",
+   "odds": {
+    "home": 7.5,
+    "draw": 5.25,
+    "away": 1.3
+   }
+  },
+  {
+   "sport_key": "soccer_germany_bundesliga",
+   "home_team": "Dortmund",
+   "away_team": "Werder Bremen",
+   "commence_time": "2026-10-09T18:30:00.000Z",
+   "odds": {
+    "home": 1.38,
+    "draw": 5.5,
+    "away": 7.0
+   }
+  },
+  {
+   "sport_key": "soccer_germany_bundesliga",
+   "home_team": "Augsburg",
+   "away_team": "Bayern Munich",
+   "commence_time": "2026-10-10T13:30:00.000Z",
+   "odds": {
+    "home": 8.5,
+    "draw": 7.5,
+    "away": 1.2
+   }
+  },
+  {
+   "sport_key": "soccer_germany_bundesliga",
+   "home_team": "Mainz",
+   "away_team": "Bayer Leverkusen",
+   "commence_time": "2026-10-10T13:30:00.000Z",
+   "odds": {
+    "home": 2.85,
+    "draw": 3.85,
+    "away": 2.2
+   }
+  },
+  {
+   "sport_key": "soccer_germany_bundesliga",
+   "home_team": "Union Berlin",
+   "away_team": "Elversberg",
+   "commence_time": "2026-10-10T13:30:00.000Z",
+   "odds": {
+    "home": 2.2,
+    "draw": 3.8,
+    "away": 2.85
+   }
+  },
+  {
+   "sport_key": "soccer_germany_bundesliga",
+   "home_team": "Hoffenheim",
+   "away_team": "Hamburger SV",
+   "commence_time": "2026-10-10T13:30:00.000Z",
+   "odds": {
+    "home": 1.4,
+    "draw": 4.8,
+    "away": 7.0
+   }
+  },
+  {
+   "sport_key": "soccer_germany_bundesliga",
+   "home_team": "Paderborn",
+   "away_team": "Stuttgart",
+   "commence_time": "2026-10-10T13:30:00.000Z",
+   "odds": {
+    "home": 4.8,
+    "draw": 4.6,
+    "away": 1.55
+   }
+  },
+  {
+   "sport_key": "soccer_germany_bundesliga",
+   "home_team": "RB Leipzig",
+   "away_team": "Eintracht Frankfurt",
+   "commence_time": "2026-10-10T16:30:00.000Z",
+   "odds": {
+    "home": 1.48,
+    "draw": 4.9,
+    "away": 5.0
+   }
+  },
+  {
+   "sport_key": "soccer_germany_bundesliga",
+   "home_team": "FC Koln",
+   "away_team": "B. Monchengladbach",
+   "commence_time": "2026-10-11T13:30:00.000Z",
+   "odds": {
+    "home": 1.88,
+    "draw": 4.0,
+    "away": 3.3
+   }
+  },
+  {
+   "sport_key": "soccer_germany_bundesliga",
+   "home_team": "Freiburg",
+   "away_team": "Schalke",
+   "commence_time": "2026-10-11T15:30:00.000Z",
+   "odds": {
+    "home": 1.58,
+    "draw": 4.0,
+    "away": 5.0
+   }
+  },
+  {
+   "sport_key": "soccer_germany_bundesliga",
+   "home_team": "Eintracht Frankfurt",
+   "away_team": "FC Koln",
+   "commence_time": "2026-10-16T18:30:00.000Z",
+   "odds": {
+    "home": 1.9,
+    "draw": 4.0,
+    "away": 3.25
+   }
+  },
+  {
+   "sport_key": "soccer_germany_bundesliga",
+   "home_team": "Elversberg",
+   "away_team": "Augsburg",
+   "commence_time": "2026-10-17T13:30:00.000Z",
+   "odds": {
+    "home": 2.2,
+    "draw": 3.75,
+    "away": 2.7
+   }
+  },
+  {
+   "sport_key": "soccer_germany_bundesliga",
+   "home_team": "Union Berlin",
+   "away_team": "Dortmund",
+   "commence_time": "2026-10-17T13:30:00.000Z",
+   "odds": {
+    "home": 4.3,
+    "draw": 4.2,
+    "away": 1.63
+   }
+  },
+  {
+   "sport_key": "soccer_germany_bundesliga",
+   "home_team": "Hamburger SV",
+   "away_team": "Stuttgart",
+   "commence_time": "2026-10-17T13:30:00.000Z",
+   "odds": {
+    "home": 3.6,
+    "draw": 3.95,
+    "away": 1.83
+   }
+  },
+  {
+   "sport_key": "soccer_germany_bundesliga",
+   "home_team": "Schalke",
+   "away_team": "Mainz",
+   "commence_time": "2026-10-17T13:30:00.000Z",
+   "odds": {
+    "home": 2.9,
+    "draw": 3.55,
+    "away": 2.2
+   }
+  },
+  {
+   "sport_key": "soccer_germany_bundesliga",
+   "home_team": "Werder Bremen",
+   "away_team": "Paderborn",
+   "commence_time": "2026-10-17T13:30:00.000Z",
+   "odds": {
+    "home": 1.8,
+    "draw": 3.9,
+    "away": 3.8
+   }
+  },
+  {
+   "sport_key": "soccer_germany_bundesliga",
+   "home_team": "Bayern Munich",
+   "away_team": "RB Leipzig",
+   "commence_time": "2026-10-17T16:30:00.000Z",
+   "odds": {
+    "home": 1.18,
+    "draw": 7.5,
+    "away": 10.0
+   }
+  },
+  {
+   "sport_key": "soccer_germany_bundesliga",
+   "home_team": "Bayer Leverkusen",
+   "away_team": "Freiburg",
+   "commence_time": "2026-10-18T13:30:00.000Z",
+   "odds": {
+    "home": 1.6,
+    "draw": 4.3,
+    "away": 4.4
+   }
+  },
+  {
+   "sport_key": "soccer_germany_bundesliga",
+   "home_team": "B. Monchengladbach",
+   "away_team": "Hoffenheim",
+   "commence_time": "2026-10-18T15:30:00.000Z",
+   "odds": {
+    "home": 3.45,
+    "draw": 4.1,
+    "away": 1.83
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Georgia",
+   "away_team": "Northern Ireland",
+   "commence_time": "2026-09-25T16:00:00.000Z",
+   "odds": {
+    "home": 1.83,
+    "draw": 3.4,
+    "away": 4.7
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Armenia",
+   "away_team": "Latvia",
+   "commence_time": "2026-09-25T16:00:00.000Z",
+   "odds": {
+    "home": 1.8,
+    "draw": 3.5,
+    "away": 4.8
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Italy",
+   "away_team": "Belgium",
+   "commence_time": "2026-09-25T18:45:00.000Z",
+   "odds": {
+    "home": 2.3,
+    "draw": 3.5,
+    "away": 3.2
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Turkey",
+   "away_team": "France",
+   "commence_time": "2026-09-25T18:45:00.000Z",
+   "odds": {
+    "home": 7.0,
+    "draw": 5.5,
+    "away": 1.38
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Poland",
+   "away_team": "Bosnia & Herzegovina",
+   "commence_time": "2026-09-25T18:45:00.000Z",
+   "odds": {
+    "home": 1.5,
+    "draw": 4.5,
+    "away": 6.0
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Hungary",
+   "away_team": "Ukraine",
+   "commence_time": "2026-09-25T18:45:00.000Z",
+   "odds": {
+    "home": 2.6,
+    "draw": 3.15,
+    "away": 2.8
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Sweden",
+   "away_team": "Romania",
+   "commence_time": "2026-09-25T18:45:00.000Z",
+   "odds": {
+    "home": 1.48,
+    "draw": 4.6,
+    "away": 6.25
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Montenegro",
+   "away_team": "Cyprus",
+   "commence_time": "2026-09-25T18:45:00.000Z",
+   "odds": {
+    "home": 1.7,
+    "draw": 3.7,
+    "away": 5.25
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Slovenia",
+   "away_team": "Scotland",
+   "commence_time": "2026-09-26T13:00:00.000Z",
+   "odds": {
+    "home": 2.55,
+    "draw": 3.2,
+    "away": 2.85
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Bulgaria",
+   "away_team": "Luxembourg",
+   "commence_time": "2026-09-26T16:00:00.000Z",
+   "odds": {
+    "home": 2.3,
+    "draw": 3.2,
+    "away": 3.3
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Iceland",
+   "away_team": "Estonia",
+   "commence_time": "2026-09-26T16:00:00.000Z",
+   "odds": {
+    "home": 1.3,
+    "draw": 5.5,
+    "away": 9.5
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Faroe Islands",
+   "away_team": "Kazakhstan",
+   "commence_time": "2026-09-26T16:00:00.000Z",
+   "odds": {
+    "home": 2.35,
+    "draw": 3.15,
+    "away": 3.25
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "San Marino",
+   "away_team": "Finland",
+   "commence_time": "2026-09-26T16:00:00.000Z",
+   "odds": {
+    "home": 25.0,
+    "draw": 10.0,
+    "away": 1.09
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Czech Republic",
+   "away_team": "Croatia",
+   "commence_time": "2026-09-26T18:45:00.000Z",
+   "odds": {
+    "home": 3.25,
+    "draw": 3.6,
+    "away": 2.15
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "England",
+   "away_team": "Spain",
+   "commence_time": "2026-09-26T18:45:00.000Z",
+   "odds": {
+    "home": 3.1,
+    "draw": 3.4,
+    "away": 2.3
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "North Macedonia",
+   "away_team": "Switzerland",
+   "commence_time": "2026-09-26T18:45:00.000Z",
+   "odds": {
+    "home": 7.25,
+    "draw": 4.7,
+    "away": 1.43
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Albania",
+   "away_team": "Belarus",
+   "commence_time": "2026-09-26T18:45:00.000Z",
+   "odds": {
+    "home": 1.5,
+    "draw": 4.0,
+    "away": 6.75
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Slovakia",
+   "away_team": "Moldova",
+   "commence_time": "2026-09-26T18:45:00.000Z",
+   "odds": {
+    "home": 1.2,
+    "draw": 6.5,
+    "away": 14.0
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Lithuania",
+   "away_team": "Azerbaijan",
+   "commence_time": "2026-09-27T13:00:00.000Z",
+   "odds": {
+    "home": 2.45,
+    "draw": 3.0,
+    "away": 3.1
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Denmark",
+   "away_team": "Wales",
+   "commence_time": "2026-09-27T16:00:00.000Z",
+   "odds": {
+    "home": 1.48,
+    "draw": 4.5,
+    "away": 6.5
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Serbia",
+   "away_team": "Netherlands",
+   "commence_time": "2026-09-27T16:00:00.000Z",
+   "odds": {
+    "home": 7.0,
+    "draw": 4.6,
+    "away": 1.45
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Austria",
+   "away_team": "Kosovo",
+   "commence_time": "2026-09-27T16:00:00.000Z",
+   "odds": {
+    "home": 1.55,
+    "draw": 4.2,
+    "away": 5.75
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Gibraltar",
+   "away_team": "Andorra",
+   "commence_time": "2026-09-27T16:00:00.000Z",
+   "odds": {
+    "home": 3.55,
+    "draw": 2.85,
+    "away": 2.35
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Germany",
+   "away_team": "Greece",
+   "commence_time": "2026-09-27T18:45:00.000Z",
+   "odds": {
+    "home": 1.4,
+    "draw": 5.0,
+    "away": 7.0
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Norway",
+   "away_team": "Portugal",
+   "commence_time": "2026-09-27T18:45:00.000Z",
+   "odds": {
+    "home": 2.45,
+    "draw": 3.75,
+    "away": 2.65
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Israel",
+   "away_team": "Ireland",
+   "commence_time": "2026-09-27T18:45:00.000Z",
+   "odds": {
+    "home": 2.95,
+    "draw": 3.3,
+    "away": 2.4
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Georgia",
+   "away_team": "Ukraine",
+   "commence_time": "2026-09-28T16:00:00.000Z",
+   "odds": {
+    "home": 2.6,
+    "draw": 3.25,
+    "away": 2.75
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Armenia",
+   "away_team": "Montenegro",
+   "commence_time": "2026-09-28T16:00:00.000Z",
+   "odds": {
+    "home": 2.65,
+    "draw": 3.3,
+    "away": 2.65
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Latvia",
+   "away_team": "Cyprus",
+   "commence_time": "2026-09-28T16:00:00.000Z",
+   "odds": {
+    "home": 2.6,
+    "draw": 3.3,
+    "away": 2.75
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Belgium",
+   "away_team": "France",
+   "commence_time": "2026-09-28T18:45:00.000Z",
+   "odds": {
+    "home": 4.3,
+    "draw": 4.2,
+    "away": 1.73
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Turkey",
+   "away_team": "Italy",
+   "commence_time": "2026-09-28T18:45:00.000Z",
+   "odds": {
+    "home": 2.85,
+    "draw": 3.45,
+    "away": 2.45
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Romania",
+   "away_team": "Bosnia & Herzegovina",
+   "commence_time": "2026-09-28T18:45:00.000Z",
+   "odds": {
+    "home": 2.15,
+    "draw": 3.4,
+    "away": 3.35
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Northern Ireland",
+   "away_team": "Hungary",
+   "commence_time": "2026-09-28T18:45:00.000Z",
+   "odds": {
+    "home": 3.2,
+    "draw": 3.2,
+    "away": 2.3
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Sweden",
+   "away_team": "Poland",
+   "commence_time": "2026-09-28T18:45:00.000Z",
+   "odds": {
+    "home": 1.93,
+    "draw": 3.7,
+    "away": 3.75
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Finland",
+   "away_team": "Belarus",
+   "commence_time": "2026-09-29T16:00:00.000Z",
+   "odds": {
+    "home": 1.95,
+    "draw": 3.2,
+    "away": 4.4
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Moldova",
+   "away_team": "Faroe Islands",
+   "commence_time": "2026-09-29T16:00:00.000Z",
+   "odds": {
+    "home": 2.4,
+    "draw": 3.05,
+    "away": 3.25
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Spain",
+   "away_team": "Croatia",
+   "commence_time": "2026-09-29T18:45:00.000Z",
+   "odds": {
+    "home": 1.35,
+    "draw": 5.5,
+    "away": 7.75
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Czech Republic",
+   "away_team": "England",
+   "commence_time": "2026-09-29T18:45:00.000Z",
+   "odds": {
+    "home": 6.75,
+    "draw": 4.6,
+    "away": 1.45
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Slovenia",
+   "away_team": "North Macedonia",
+   "commence_time": "2026-09-29T18:45:00.000Z",
+   "odds": {
+    "home": 1.7,
+    "draw": 3.6,
+    "away": 5.25
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Scotland",
+   "away_team": "Switzerland",
+   "commence_time": "2026-09-29T18:45:00.000Z",
+   "odds": {
+    "home": 3.35,
+    "draw": 3.45,
+    "away": 2.15
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "San Marino",
+   "away_team": "Albania",
+   "commence_time": "2026-09-29T18:45:00.000Z",
+   "odds": {
+    "home": 35.0,
+    "draw": 10.0,
+    "away": 1.08
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Bulgaria",
+   "away_team": "Estonia",
+   "commence_time": "2026-09-29T18:45:00.000Z",
+   "odds": {
+    "home": 1.55,
+    "draw": 3.75,
+    "away": 6.75
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Luxembourg",
+   "away_team": "Iceland",
+   "commence_time": "2026-09-29T18:45:00.000Z",
+   "odds": {
+    "home": 2.8,
+    "draw": 3.35,
+    "away": 2.5
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Slovakia",
+   "away_team": "Kazakhstan",
+   "commence_time": "2026-09-29T18:45:00.000Z",
+   "odds": {
+    "home": 1.33,
+    "draw": 4.7,
+    "away": 10.0
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Denmark",
+   "away_team": "Portugal",
+   "commence_time": "2026-10-01T18:45:00.000Z",
+   "odds": {
+    "home": 3.65,
+    "draw": 3.55,
+    "away": 2.0
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Germany",
+   "away_team": "Serbia",
+   "commence_time": "2026-10-01T18:45:00.000Z",
+   "odds": {
+    "home": 1.33,
+    "draw": 5.5,
+    "away": 8.0
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Greece",
+   "away_team": "Netherlands",
+   "commence_time": "2026-10-01T18:45:00.000Z",
+   "odds": {
+    "home": 3.95,
+    "draw": 3.7,
+    "away": 1.9
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Wales",
+   "away_team": "Norway",
+   "commence_time": "2026-10-01T18:45:00.000Z",
+   "odds": {
+    "home": 3.55,
+    "draw": 3.75,
+    "away": 2.0
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Ireland",
+   "away_team": "Austria",
+   "commence_time": "2026-10-01T18:45:00.000Z",
+   "odds": {
+    "home": 2.85,
+    "draw": 3.3,
+    "away": 2.2
+   }
+  },
+  {
+   "sport_key": "soccer_uefa_nations_league",
+   "home_team": "Israel",
+   "away_team": "Kosovo",
+   "commence_time": "2026-10-01T18:45:00.000Z",
+   "odds": {
+    "home": 2.5,
+    "draw": 3.3,
+    "away": 2.5
+   }
+  }
+ ]
+}
