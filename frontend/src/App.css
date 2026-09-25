@@ -2016,8 +2016,9 @@ body {
   text-align: center;
   gap: 0.3rem;
   padding: 1.75rem 1.25rem;
-  background: rgba(34,211,238,0.04);
-  border: 1px dashed rgba(34,211,238,0.3);
+  /* The same green as the bet card this box opens into. */
+  background: rgba(22,163,74,0.08);
+  border: 1px solid rgba(74,222,128,0.25);
   border-radius: 14px;
 }
 
@@ -2043,8 +2044,8 @@ body {
 
 .smart-bet-btn {
   align-self: center;
-  background: linear-gradient(135deg, var(--cyan), var(--cyan-light));
-  color: #06282d;
+  background: linear-gradient(135deg, #16a34a, #4ade80);
+  color: #052e16;
   border: none;
   padding: 0.8rem 1.8rem;
   border-radius: 999px;
