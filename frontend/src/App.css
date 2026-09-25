@@ -2982,3 +2982,7 @@ body {
 }
 .smart-bet-table-note { margin-top: 0.45rem; font-size: 0.64rem; color: #6b7280; line-height: 1.5; }
 .price-tip-table-row em { font-style: normal; color: #94a3b8; }
+
+/* Flags are wide, not square like crests. */
+.team-crest.team-flag { width: 1.35em; height: 0.95em; object-fit: cover; border-radius: 2px; }
+.fixture-teams .team-crest.team-flag { width: 2em; height: 1.35em; }

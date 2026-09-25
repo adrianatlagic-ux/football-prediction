@@ -5,6 +5,7 @@ import CL_FIXTURES from './cl_fixtures.json'
 import BL_FIXTURES from './bl_fixtures.json'
 import NL_FIXTURES from './nl_fixtures.json'
 import CLUB_CRESTS from './club_crests.json'
+import TEAM_COLORS from './team_colors.json'
 
 const API_BASE = import.meta.env.DEV ? 'http://127.0.0.1:8000' : ''
 // The one bookmaker the user bets with (api/app.py USER_BOOK_KEY).
@@ -143,6 +144,16 @@ const TEAM_FLAGS = {
 }
 
 function TeamLabel({ name }) {
+  const iso = TEAM_COLORS[name]?.iso
+  if (iso) {
+    return (
+      <>
+        <img src={`https://flagcdn.com/w40/${iso}.png`} alt="" className="team-crest team-flag"
+             onError={(e) => { e.currentTarget.style.display = 'none' }} />
+        {name}
+      </>
+    )
+  }
   const crest = CLUB_CRESTS[name]
   if (crest) {
     return (
@@ -162,27 +173,10 @@ function TeamLabel({ name }) {
 }
 
 
-// club_crests.json's colors come straight from ESPN's team API, which for
-// several Bundesliga clubs just returns a generic placeholder (#ffffff, or
-// the same #DA0308 red for four unrelated teams) instead of a real brand
-// color. Override the ones that are wrong or collide with another club in
-// this season's fixture list; everything else still falls through to the
-// scraped ESPN color.
-const TEAM_COLOR_OVERRIDES = {
-  '1. FC Köln': '#ED1C24',
-  'Augsburg': '#BA3733',
-  'Bayer Leverkusen': '#E32219',
-  'Borussia Mönchengladbach': '#00983A',
-  'Eintracht Frankfurt': '#E1000F',
-  'SC Freiburg': '#FFFFFF',
-  'RB Leipzig': '#FFFFFF',
-  'Elversberg': '#FFFFFF',
-  'Union Berlin': '#F97316',
-}
-
-function getTeamColor(name, fallback) {
-  return TEAM_COLOR_OVERRIDES[name] || CLUB_CRESTS[name]?.color || fallback
-}
+// Team colours come from team_colors.json (scripts/build_team_colors.py): a
+// nation's flag colours, a club's own colour plus its crest's. The draw is
+// always grey, so neither team may take a colour close to it.
+const DRAW_GREY = '#6b7280'
 
 function hexColorDistance(a, b) {
   if (!/^#[0-9a-f]{6}$/i.test(a) || !/^#[0-9a-f]{6}$/i.test(b)) return Infinity
@@ -193,18 +187,29 @@ function hexColorDistance(a, b) {
   return Math.sqrt(dr * dr + dg * dg + db * db)
 }
 
-// Two clubs can legitimately share (near-)identical brand colors (e.g. two
-// clubs both wearing blue). When that happens for the two teams actually
-// facing each other, the donut/legend would show one indistinguishable
-// color twice - swap the away team to a neutral accent so the two sides
-// always read as visually distinct.
+// Navy or black would vanish on the dark page; lift them toward white.
+function readableColor(hex) {
+  const n = parseInt(hex.slice(1), 16)
+  const rgb = [(n >> 16) & 255, (n >> 8) & 255, n & 255]
+  const luminance = (0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]) / 255
+  if (luminance >= 0.18) return hex
+  const lifted = rgb.map(c => Math.round(c + (255 - c) * 0.35))
+  return '#' + lifted.map(c => c.toString(16).padStart(2, '0')).join('')
+}
+
+function teamColors(name) {
+  return (TEAM_COLORS[name]?.colors || []).map(readableColor)
+}
+
+// Each side takes its first colour that is clearly not the draw grey; the
+// away side also skips colours too close to the home side's, falling back to
+// its flag's or crest's next colour (Germany red vs England red: Germany gold).
 function getMatchColors(homeTeam, awayTeam) {
-  const home = getTeamColor(homeTeam, 'var(--gold)')
-  let away = getTeamColor(awayTeam, 'var(--cyan)')
-  if (home.toLowerCase() === away.toLowerCase() || hexColorDistance(home, away) < 60) {
-    away = home.toLowerCase() === 'var(--cyan)'.toLowerCase() ? '#f97316' : 'var(--cyan)'
-  }
-  return { home, draw: '#6b7280', away }
+  const clear = c => hexColorDistance(c, DRAW_GREY) > 80
+  const home = teamColors(homeTeam).find(clear) || '#e6b64c'
+  const away = teamColors(awayTeam).find(c => clear(c) && hexColorDistance(c, home) > 120)
+    || ['#22d3ee', '#f97316', '#a855f7'].find(c => hexColorDistance(c, home) > 120)
+  return { home, draw: DRAW_GREY, away }
 }
 
 function TeamCrest({ name, className = 'team-crest' }) {
@@ -1481,6 +1486,7 @@ function MatchTicker({ results, competitionKey }) {
 }
 
 function HeroPreviewCard() {
+  const colors = getMatchColors('Real Madrid', 'Barcelona')
   return (
     <div className="hero-preview card">
       <div className="hero-preview-badge">
@@ -1493,11 +1499,11 @@ function HeroPreviewCard() {
         <span className="hero-preview-team"><TeamLabel name="Barcelona" /></span>
       </div>
       <div className="hero-preview-body">
-        <ResultDonut home={0.48} draw={0.24} away={0.28} score="2–1" />
+        <ResultDonut home={0.48} draw={0.24} away={0.28} score="2–1" colors={colors} />
         <div className="hero-preview-bars">
-          <ProbabilityBar label="Real Madrid" value={0.48} color="linear-gradient(90deg,var(--gold),var(--gold-light))" />
-          <ProbabilityBar label="Draw" value={0.24} color="linear-gradient(90deg,#6b7280,#9ca3af)" />
-          <ProbabilityBar label="Barcelona" value={0.28} color="linear-gradient(90deg,var(--cyan),var(--cyan-light))" />
+          <ProbabilityBar label="Real Madrid" value={0.48} color={colors.home} />
+          <ProbabilityBar label="Draw" value={0.24} color={colors.draw} />
+          <ProbabilityBar label="Barcelona" value={0.28} color={colors.away} />
         </div>
       </div>
       <p className="hero-preview-note">

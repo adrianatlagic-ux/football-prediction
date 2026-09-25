@@ -1,0 +1,1405 @@
+{
+ "Albania": {
+  "colors": [
+   "#fb0c0c",
+   "#120c0c"
+  ],
+  "iso": "al"
+ },
+ "Algeria": {
+  "colors": [
+   "#0c6c3c",
+   "#cb103c",
+   "#fcfcfc"
+  ],
+  "iso": "dz"
+ },
+ "Andorra": {
+  "colors": [
+   "#cc0d3b",
+   "#0c0c9c",
+   "#fbe20c"
+  ],
+  "iso": "ad"
+ },
+ "Argentina": {
+  "colors": [
+   "#6db4e4",
+   "#fafbfb"
+  ],
+  "iso": "ar"
+ },
+ "Armenia": {
+  "colors": [
+   "#e30c0d",
+   "#fbb30c",
+   "#0e3b9a"
+  ],
+  "iso": "am"
+ },
+ "Australia": {
+  "colors": [
+   "#0d256d",
+   "#e40d2d",
+   "#f6f4f8"
+  ],
+  "iso": "au"
+ },
+ "Austria": {
+  "colors": [
+   "#cc0c24",
+   "#fcfcfc"
+  ],
+  "iso": "at"
+ },
+ "Azerbaijan": {
+  "colors": [
+   "#0db3e3",
+   "#559b25",
+   "#e63c3e"
+  ],
+  "iso": "az"
+ },
+ "Belarus": {
+  "colors": [
+   "#cb0e25",
+   "#0c833b"
+  ],
+  "iso": "by"
+ },
+ "Belgium": {
+  "colors": [
+   "#fbe224",
+   "#e53c3c",
+   "#0d0d0c"
+  ],
+  "iso": "be"
+ },
+ "Bosnia and Herzegovina": {
+  "colors": [
+   "#0c249b",
+   "#fccc0c"
+  ],
+  "iso": "ba"
+ },
+ "Brazil": {
+  "colors": [
+   "#0c9c3c",
+   "#facb0c",
+   "#372684"
+  ],
+  "iso": "br"
+ },
+ "Bulgaria": {
+  "colors": [
+   "#0c9c6c",
+   "#cc240c",
+   "#fcfcfc"
+  ],
+  "iso": "bg"
+ },
+ "Canada": {
+  "colors": [
+   "#fc0c0c",
+   "#fcfcfc"
+  ],
+  "iso": "ca"
+ },
+ "Cape Verde": {
+  "colors": [
+   "#0c3c9b",
+   "#cc1f24",
+   "#fcfcfb"
+  ],
+  "iso": "cv"
+ },
+ "Colombia": {
+  "colors": [
+   "#fbcb0c",
+   "#cb0c25",
+   "#0e3b83"
+  ],
+  "iso": "co"
+ },
+ "Croatia": {
+  "colors": [
+   "#fc0d0d",
+   "#0c0c9c",
+   "#fbfafb"
+  ],
+  "iso": "hr"
+ },
+ "Curacao": {
+  "colors": [
+   "#0c2484",
+   "#f7df11"
+  ],
+  "iso": "cw"
+ },
+ "Curaçao": {
+  "colors": [
+   "#0c2484",
+   "#f7df11"
+  ],
+  "iso": "cw"
+ },
+ "Cyprus": {
+  "colors": [
+   "#ce820e",
+   "#fcfcfc"
+  ],
+  "iso": "cy"
+ },
+ "Czech Republic": {
+  "colors": [
+   "#cd0d24",
+   "#0c3c84",
+   "#fcfbfb"
+  ],
+  "iso": "cz"
+ },
+ "DR Congo": {
+  "colors": [
+   "#0c84fc",
+   "#cc0e24",
+   "#f7d01f"
+  ],
+  "iso": "cd"
+ },
+ "Denmark": {
+  "colors": [
+   "#cc0c24",
+   "#fcf9fb"
+  ],
+  "iso": "dk"
+ },
+ "Ecuador": {
+  "colors": [
+   "#fbe30d",
+   "#e42425",
+   "#0f569b"
+  ],
+  "iso": "ec"
+ },
+ "Egypt": {
+  "colors": [
+   "#cc0c24",
+   "#0c0c0c",
+   "#fcfbfa"
+  ],
+  "iso": "eg"
+ },
+ "England": {
+  "colors": [
+   "#cc0f27",
+   "#fcfcfc"
+  ],
+  "iso": "gb-eng"
+ },
+ "Estonia": {
+  "colors": [
+   "#0c6ccc",
+   "#0c0c0c",
+   "#fcfcfc"
+  ],
+  "iso": "ee"
+ },
+ "Faroe Islands": {
+  "colors": [
+   "#e33c40",
+   "#0e56b3",
+   "#fcfcfc"
+  ],
+  "iso": "fo"
+ },
+ "Finland": {
+  "colors": [
+   "#0d256d",
+   "#fbfbfb"
+  ],
+  "iso": "fi"
+ },
+ "France": {
+  "colors": [
+   "#0d2555",
+   "#cc0d25",
+   "#fbfbfb"
+  ],
+  "iso": "fr"
+ },
+ "Georgia": {
+  "colors": [
+   "#fc0f0f",
+   "#fcfafa"
+  ],
+  "iso": "ge"
+ },
+ "Germany": {
+  "colors": [
+   "#fccc0c",
+   "#e30c0c",
+   "#0c0c0c"
+  ],
+  "iso": "de"
+ },
+ "Ghana": {
+  "colors": [
+   "#cd0e24",
+   "#0e6d3c",
+   "#fccc0c"
+  ],
+  "iso": "gh"
+ },
+ "Gibraltar": {
+  "colors": [
+   "#e00c0d",
+   "#fcfbfc"
+  ],
+  "iso": "gi"
+ },
+ "Greece": {
+  "colors": [
+   "#0d55b4",
+   "#fcfcfc"
+  ],
+  "iso": "gr"
+ },
+ "Haiti": {
+  "colors": [
+   "#0d249c",
+   "#cc0d3c",
+   "#fafaf9"
+  ],
+  "iso": "ht"
+ },
+ "Hungary": {
+  "colors": [
+   "#cc253d",
+   "#3d6d55",
+   "#fbfafa"
+  ],
+  "iso": "hu"
+ },
+ "Iceland": {
+  "colors": [
+   "#0c549c",
+   "#e4273f",
+   "#fcfcfc"
+  ],
+  "iso": "is"
+ },
+ "Iran": {
+  "colors": [
+   "#e40d0d",
+   "#259c3d",
+   "#e47070"
+  ],
+  "iso": "ir"
+ },
+ "Iraq": {
+  "colors": [
+   "#cc0c24",
+   "#0c0c0c",
+   "#fbfcfc"
+  ],
+  "iso": "iq"
+ },
+ "Israel": {
+  "colors": [
+   "#0d3db5",
+   "#3e6dcc",
+   "#fbfbfc"
+  ],
+  "iso": "il"
+ },
+ "Italy": {
+  "colors": [
+   "#0d9c3d",
+   "#cc253d",
+   "#fbfbfb"
+  ],
+  "iso": "it"
+ },
+ "Ivory Coast": {
+  "colors": [
+   "#fc850d",
+   "#0d9d6b",
+   "#fbfbfb"
+  ],
+  "iso": "ci"
+ },
+ "Japan": {
+  "colors": [
+   "#b50c25",
+   "#fcfcfc"
+  ],
+  "iso": "jp"
+ },
+ "Jordan": {
+  "colors": [
+   "#0d843d",
+   "#cb0c24",
+   "#0d0d0d"
+  ],
+  "iso": "jo"
+ },
+ "Kazakhstan": {
+  "colors": [
+   "#0cb4cb",
+   "#7fcc78"
+  ],
+  "iso": "kz"
+ },
+ "Kosovo": {
+  "colors": [
+   "#25549c",
+   "#ca9d55"
+  ],
+  "iso": "xk"
+ },
+ "Latvia": {
+  "colors": [
+   "#9c243c",
+   "#fcfcfc"
+  ],
+  "iso": "lv"
+ },
+ "Liechtenstein": {
+  "colors": [
+   "#cc0c24",
+   "#0c2484"
+  ],
+  "iso": "li"
+ },
+ "Lithuania": {
+  "colors": [
+   "#fcb40c",
+   "#0c6c3c",
+   "#cb2424"
+  ],
+  "iso": "lt"
+ },
+ "Luxembourg": {
+  "colors": [
+   "#0c9ce4",
+   "#e4253c",
+   "#fcfcfc"
+  ],
+  "iso": "lu"
+ },
+ "Malta": {
+  "colors": [
+   "#cc0c24",
+   "#fcfcfc"
+  ],
+  "iso": "mt"
+ },
+ "Mexico": {
+  "colors": [
+   "#0d6d3d",
+   "#cc0d25",
+   "#fbfaf9"
+  ],
+  "iso": "mx"
+ },
+ "Moldova": {
+  "colors": [
+   "#cb0d25",
+   "#0d3db3",
+   "#faca0d"
+  ],
+  "iso": "md"
+ },
+ "Montenegro": {
+  "colors": [
+   "#e40d0c",
+   "#f9bc0c"
+  ],
+  "iso": "me"
+ },
+ "Morocco": {
+  "colors": [
+   "#cc2424"
+  ],
+  "iso": "ma"
+ },
+ "Netherlands": {
+  "colors": [
+   "#b42424",
+   "#243c84",
+   "#fcfcfc"
+  ],
+  "iso": "nl"
+ },
+ "New Zealand": {
+  "colors": [
+   "#0d256d",
+   "#cc152e",
+   "#f5f3f8"
+  ],
+  "iso": "nz"
+ },
+ "North Macedonia": {
+  "colors": [
+   "#e22624",
+   "#fce224",
+   "#e48124"
+  ],
+  "iso": "mk"
+ },
+ "Northern Ireland": {
+  "colors": [
+   "#ca0d0c",
+   "#fcfcfc"
+  ],
+  "iso": "gb-nir"
+ },
+ "Norway": {
+  "colors": [
+   "#b40c24",
+   "#0f2757",
+   "#f9f9f9"
+  ],
+  "iso": "no"
+ },
+ "Panama": {
+  "colors": [
+   "#e40e24",
+   "#0d2555",
+   "#fbfbfb"
+  ],
+  "iso": "pa"
+ },
+ "Paraguay": {
+  "colors": [
+   "#cd2625",
+   "#0d3db3",
+   "#faf9fa"
+  ],
+  "iso": "py"
+ },
+ "Poland": {
+  "colors": [
+   "#e40c3c",
+   "#fcfcfc"
+  ],
+  "iso": "pl"
+ },
+ "Portugal": {
+  "colors": [
+   "#fc0c0c",
+   "#0c6c0c"
+  ],
+  "iso": "pt"
+ },
+ "Qatar": {
+  "colors": [
+   "#840c3c",
+   "#fcfbfb"
+  ],
+  "iso": "qa"
+ },
+ "Republic of Ireland": {
+  "colors": [
+   "#fc853d",
+   "#0d9d6c",
+   "#fbfbfb"
+  ],
+  "iso": "ie"
+ },
+ "Romania": {
+  "colors": [
+   "#0d2583",
+   "#cc0d24",
+   "#fbcb0d"
+  ],
+  "iso": "ro"
+ },
+ "San Marino": {
+  "colors": [
+   "#55b4e3",
+   "#4e6755",
+   "#fcfcfc"
+  ],
+  "iso": "sm"
+ },
+ "Saudi Arabia": {
+  "colors": [
+   "#0d553c",
+   "#589179"
+  ],
+  "iso": "sa"
+ },
+ "Scotland": {
+  "colors": [
+   "#0c54b4",
+   "#fafbfc"
+  ],
+  "iso": "gb-sct"
+ },
+ "Senegal": {
+  "colors": [
+   "#0d853c",
+   "#e42424",
+   "#fbe53c"
+  ],
+  "iso": "sn"
+ },
+ "Serbia": {
+  "colors": [
+   "#c93e3d",
+   "#0d3d6d",
+   "#fafafa"
+  ],
+  "iso": "rs"
+ },
+ "Slovakia": {
+  "colors": [
+   "#e52425",
+   "#0d549c",
+   "#fcfbfb"
+  ],
+  "iso": "sk"
+ },
+ "Slovenia": {
+  "colors": [
+   "#fb0c0d",
+   "#0f0df9",
+   "#fbfbfc"
+  ],
+  "iso": "si"
+ },
+ "South Africa": {
+  "colors": [
+   "#0e6e52",
+   "#0c0c84",
+   "#e43c3b"
+  ],
+  "iso": "za"
+ },
+ "South Korea": {
+  "colors": [
+   "#0d3d9c",
+   "#cb263d",
+   "#fcfbfc"
+  ],
+  "iso": "kr"
+ },
+ "Spain": {
+  "colors": [
+   "#b30e22",
+   "#fbb50c"
+  ],
+  "iso": "es"
+ },
+ "Sweden": {
+  "colors": [
+   "#0c549b",
+   "#fccc0c"
+  ],
+  "iso": "se"
+ },
+ "Switzerland": {
+  "colors": [
+   "#fc0c0c",
+   "#fcfcfc"
+  ],
+  "iso": "ch"
+ },
+ "Tunisia": {
+  "colors": [
+   "#e40c0c",
+   "#fcf9fa"
+  ],
+  "iso": "tn"
+ },
+ "Turkey": {
+  "colors": [
+   "#e40c0c",
+   "#fcf9fa"
+  ],
+  "iso": "tr"
+ },
+ "Ukraine": {
+  "colors": [
+   "#0d55b3",
+   "#fbcd0d"
+  ],
+  "iso": "ua"
+ },
+ "United States": {
+  "colors": [
+   "#b41b3c",
+   "#113666",
+   "#cc5c79"
+  ],
+  "iso": "us"
+ },
+ "Uruguay": {
+  "colors": [
+   "#0c3caf",
+   "#fcfcfc"
+  ],
+  "iso": "uy"
+ },
+ "Uzbekistan": {
+  "colors": [
+   "#3b843c",
+   "#3a83fb",
+   "#fcfcfc"
+  ],
+  "iso": "uz"
+ },
+ "Wales": {
+  "colors": [
+   "#0db13c",
+   "#bd0e25",
+   "#fbfbfb"
+  ],
+  "iso": "gb-wls"
+ },
+ "1. FC Köln": {
+  "colors": [
+   "#ed1c24",
+   "#e32127",
+   "#474a4a",
+   "#bfc0c1"
+  ]
+ },
+ "1. FSV Mainz 05": {
+  "colors": [
+   "#c3141e",
+   "#e42425",
+   "#a19898"
+  ]
+ },
+ "AS Monaco FC": {
+  "colors": [
+   "#e51b22",
+   "#ce2526",
+   "#d5ad28",
+   "#e9c79c"
+  ]
+ },
+ "AS Roma": {
+  "colors": [
+   "#990a2c",
+   "#990e25",
+   "#f8b40c",
+   "#b5b3b2"
+  ]
+ },
+ "Ajax": {
+  "colors": [
+   "#df1b27",
+   "#a8a8a8",
+   "#797979",
+   "#4a4949"
+  ]
+ },
+ "Anderlecht": {
+  "colors": [
+   "#695196",
+   "#3d3d9a",
+   "#f2e210",
+   "#b6b4c9"
+  ]
+ },
+ "Arsenal": {
+  "colors": [
+   "#e20520",
+   "#d72431",
+   "#9d824f",
+   "#263f6d"
+  ]
+ },
+ "Aston Villa": {
+  "colors": [
+   "#660e36",
+   "#9ab6de",
+   "#fae40f",
+   "#4b0f24"
+  ]
+ },
+ "Atalanta": {
+  "colors": [
+   "#1157bf",
+   "#0e6eb7",
+   "#b2c4d1",
+   "#f8f9fa"
+  ]
+ },
+ "Atalanta BC": {
+  "colors": [
+   "#1157bf",
+   "#0e6eb7",
+   "#b2c4d1",
+   "#f8f9fa"
+  ]
+ },
+ "Atlético Madrid": {
+  "colors": [
+   "#ca3624",
+   "#26256c",
+   "#e40d22",
+   "#f5bab9"
+  ]
+ },
+ "Augsburg": {
+  "colors": [
+   "#ba3733",
+   "#b52a36",
+   "#ecbe26",
+   "#38502d"
+  ]
+ },
+ "BSC Young Boys": {
+  "colors": [
+   "#ffdd00",
+   "#faca24",
+   "#7c6825",
+   "#272524"
+  ]
+ },
+ "Barcelona": {
+  "colors": [
+   "#a50044",
+   "#e9bb0c",
+   "#0d519b",
+   "#e10f3c"
+  ]
+ },
+ "Basel": {
+  "colors": [
+   "#c8142f",
+   "#f5d915",
+   "#e12325",
+   "#0f4f9a"
+  ]
+ },
+ "Bayer Leverkusen": {
+  "colors": [
+   "#e32219",
+   "#f40c0c",
+   "#f8f80c",
+   "#900c0c"
+  ]
+ },
+ "Bayern Munich": {
+  "colors": [
+   "#dc052d",
+   "#e40e28",
+   "#116eb6",
+   "#e4566e"
+  ]
+ },
+ "Benfica": {
+  "colors": [
+   "#ca281d",
+   "#b2b6c0",
+   "#f0b20d",
+   "#7d5a0e"
+  ]
+ },
+ "Besiktas": {
+  "colors": [
+   "#f5f5f5",
+   "#e42426",
+   "#6b656a",
+   "#262324"
+  ]
+ },
+ "Borussia Dortmund": {
+  "colors": [
+   "#ffee00",
+   "#fbe20c",
+   "#b59e0c",
+   "#0e0e0c"
+  ]
+ },
+ "Borussia Mönchengladbach": {
+  "colors": [
+   "#00983a",
+   "#b6b7b7",
+   "#7a8080",
+   "#464848"
+  ]
+ },
+ "Bournemouth": {
+  "colors": [
+   "#da291c",
+   "#c40f18",
+   "#817764",
+   "#cabdb6"
+  ]
+ },
+ "Braga": {
+  "colors": [
+   "#de1f26",
+   "#a57e25",
+   "#c72526",
+   "#594515"
+  ]
+ },
+ "Brentford": {
+  "colors": [
+   "#e30613",
+   "#e40d0e",
+   "#dbc2c2",
+   "#535353"
+  ]
+ },
+ "Brighton & Hove Albion": {
+  "colors": [
+   "#0606fa",
+   "#0e57b2",
+   "#9ec1de",
+   "#528fc5"
+  ]
+ },
+ "Burnley": {
+  "colors": [
+   "#6c1d45",
+   "#580d3d",
+   "#8a3e74",
+   "#c9abc2"
+  ]
+ },
+ "Celtic": {
+  "colors": [
+   "#009921",
+   "#48945f",
+   "#9cc4aa",
+   "#cce4cc"
+  ]
+ },
+ "Chelsea": {
+  "colors": [
+   "#144992",
+   "#124f99",
+   "#d9a42f",
+   "#d8cbbe"
+  ]
+ },
+ "Club Atlético de Madrid": {
+  "colors": [
+   "#ca3624",
+   "#26256c",
+   "#e40d22",
+   "#f5bab9"
+  ]
+ },
+ "Club Brugge": {
+  "colors": [
+   "#0081ff",
+   "#896632",
+   "#0e549a",
+   "#da1823"
+  ]
+ },
+ "Crystal Palace": {
+  "colors": [
+   "#0202fb",
+   "#20438b",
+   "#bdc0cb",
+   "#6a85b8"
+  ]
+ },
+ "Eintracht Frankfurt": {
+  "colors": [
+   "#e1000f",
+   "#df2627",
+   "#e46a6e",
+   "#fabfc1"
+  ]
+ },
+ "Elversberg": {
+  "colors": [
+   "#f5f5f5",
+   "#d2c092",
+   "#fbfbfb",
+   "#0e0e0d"
+  ]
+ },
+ "Everton": {
+  "colors": [
+   "#0606fa",
+   "#0d0d9d",
+   "#cacaec",
+   "#8585d2"
+  ]
+ },
+ "FC Internazionale Milano": {
+  "colors": [
+   "#00239c",
+   "#0d259b",
+   "#f9fafb",
+   "#0c0c0d"
+  ]
+ },
+ "FK Shakhtar Donetsk": {
+  "colors": [
+   "#ff5900",
+   "#fc6e26",
+   "#a8a8a8",
+   "#484848"
+  ]
+ },
+ "Feyenoord": {
+  "colors": [
+   "#ef2f24",
+   "#b09866",
+   "#e30d23",
+   "#625536"
+  ]
+ },
+ "Fulham": {
+  "colors": [
+   "#f5f5f5",
+   "#ee3c3c",
+   "#fbfbfb",
+   "#100e0e"
+  ]
+ },
+ "Galatasaray": {
+  "colors": [
+   "#aa0031",
+   "#960e26",
+   "#fc9d0f",
+   "#fcfbfb"
+  ]
+ },
+ "Galatasaray SK": {
+  "colors": [
+   "#aa0031",
+   "#960e26",
+   "#fc9d0f",
+   "#fcfbfb"
+  ]
+ },
+ "Hamburger SV": {
+  "colors": [
+   "#1a26af",
+   "#0d539c",
+   "#f8fafa",
+   "#0d0d0d"
+  ]
+ },
+ "Inter Milan": {
+  "colors": [
+   "#00239c",
+   "#0d259b",
+   "#f9fafb",
+   "#0c0c0d"
+  ]
+ },
+ "Ipswich Town": {
+  "colors": [
+   "#0000fa",
+   "#126aae",
+   "#ed2538",
+   "#7baad2"
+  ]
+ },
+ "Juventus": {
+  "colors": [
+   "#f5f5f5",
+   "#0c0c0c"
+  ]
+ },
+ "Juventus FC": {
+  "colors": [
+   "#f5f5f5",
+   "#0c0c0c"
+  ]
+ },
+ "Leeds United": {
+  "colors": [
+   "#f5f5f5",
+   "#464f93",
+   "#d7d00c",
+   "#a2890e"
+  ]
+ },
+ "Lille": {
+  "colors": [
+   "#c2051b",
+   "#23266d",
+   "#e4270d",
+   "#fbfafa"
+  ]
+ },
+ "Liverpool": {
+  "colors": [
+   "#d11317",
+   "#e40c0c"
+  ]
+ },
+ "Lyon": {
+  "colors": [
+   "#1d4fa0",
+   "#0e3d84",
+   "#c99257",
+   "#e41b25"
+  ]
+ },
+ "Manchester City": {
+  "colors": [
+   "#99c5ea",
+   "#0f285b",
+   "#7cb3da",
+   "#396191"
+  ]
+ },
+ "Manchester City FC": {
+  "colors": [
+   "#99c5ea",
+   "#0f285b",
+   "#7cb3da",
+   "#396191"
+  ]
+ },
+ "Manchester United": {
+  "colors": [
+   "#da020e",
+   "#e02824",
+   "#f8d70c",
+   "#ee861c"
+  ]
+ },
+ "Manchester United FC": {
+  "colors": [
+   "#da020e",
+   "#e02824",
+   "#f8d70c",
+   "#ee861c"
+  ]
+ },
+ "Marseille": {
+  "colors": [
+   "#2faee0",
+   "#0e68b4",
+   "#9ebfdd",
+   "#fafbfc"
+  ]
+ },
+ "Milan": {
+  "colors": [
+   "#e4002b",
+   "#dd0c24",
+   "#64686c",
+   "#a4a6ab"
+  ]
+ },
+ "Monaco": {
+  "colors": [
+   "#e51b22",
+   "#ce2526",
+   "#d5ad28",
+   "#e9c79c"
+  ]
+ },
+ "Napoli": {
+  "colors": [
+   "#0677d2",
+   "#0c5684",
+   "#0e9de4",
+   "#f7fafb"
+  ]
+ },
+ "Newcastle United": {
+  "colors": [
+   "#f5f5f5",
+   "#0caff0",
+   "#b3b6b9",
+   "#725d37"
+  ]
+ },
+ "Newcastle United FC": {
+  "colors": [
+   "#f5f5f5",
+   "#0caff0",
+   "#b3b6b9",
+   "#725d37"
+  ]
+ },
+ "Norwich City": {
+  "colors": [
+   "#f9d71c",
+   "#0f863c",
+   "#f9f90c",
+   "#79bd24"
+  ]
+ },
+ "Nottingham Forest": {
+  "colors": [
+   "#c8102e",
+   "#cc0c29"
+  ]
+ },
+ "Olympique de Marseille": {
+  "colors": [
+   "#2faee0",
+   "#0e68b4",
+   "#9ebfdd",
+   "#fafbfc"
+  ]
+ },
+ "PSV Eindhoven": {
+  "colors": [
+   "#ef2f24",
+   "#b69949",
+   "#e41f25",
+   "#d9c0a7"
+  ]
+ },
+ "Paris Saint Germain": {
+  "colors": [
+   "#011f68",
+   "#0d559c",
+   "#e53d3e",
+   "#a0bed8"
+  ]
+ },
+ "Porto": {
+  "colors": [
+   "#1f5fbf",
+   "#1076b7",
+   "#0e467b",
+   "#c38039"
+  ]
+ },
+ "RB Leipzig": {
+  "colors": [
+   "#dd0741",
+   "#e41042",
+   "#0f1d44",
+   "#b6bbcb"
+  ]
+ },
+ "RC Lens": {
+  "colors": [
+   "#fdd835",
+   "#e42425",
+   "#fbf90c",
+   "#b6b5b5"
+  ]
+ },
+ "Rangers FC": {
+  "colors": [
+   "#0046ff",
+   "#112773",
+   "#51649f",
+   "#b1b8d5"
+  ]
+ },
+ "Real Madrid": {
+  "colors": [
+   "#f5f5f5",
+   "#f5ba11",
+   "#14599b",
+   "#968f4e"
+  ]
+ },
+ "Real Madrid CF": {
+  "colors": [
+   "#f5f5f5",
+   "#f5ba11",
+   "#14599b",
+   "#968f4e"
+  ]
+ },
+ "Real Sociedad de Fútbol": {
+  "colors": [
+   "#3366cc",
+   "#252580",
+   "#e0a110",
+   "#352c26"
+  ]
+ },
+ "Royal Antwerp FC": {
+  "colors": [
+   "#c60000",
+   "#e8292a",
+   "#f06466",
+   "#eca0a0"
+  ]
+ },
+ "SC Freiburg": {
+  "colors": [
+   "#d50032",
+   "#454748",
+   "#c0c1c1",
+   "#777878"
+  ]
+ },
+ "SC Paderborn": {
+  "colors": [
+   "#1f6fc0",
+   "#0e6cb5",
+   "#565656",
+   "#9a9d9e"
+  ]
+ },
+ "SS Lazio": {
+  "colors": [
+   "#74bde7",
+   "#ddc180",
+   "#89c8e0",
+   "#4b5d63"
+  ]
+ },
+ "Schalke 04": {
+  "colors": [
+   "#1f5fbf",
+   "#0c54a0"
+  ]
+ },
+ "Sevilla": {
+  "colors": [
+   "#d81e05",
+   "#e22628",
+   "#c28627",
+   "#e5ba9e"
+  ]
+ },
+ "Shakhtar Donetsk": {
+  "colors": [
+   "#ff5900",
+   "#fc6e26",
+   "#a8a8a8",
+   "#484848"
+  ]
+ },
+ "Sheffield United": {
+  "colors": [
+   "#ee2737",
+   "#e72426",
+   "#f1babb",
+   "#fc6c6f"
+  ]
+ },
+ "Southampton": {
+  "colors": [
+   "#ed1a3b",
+   "#e02425",
+   "#b7b4b4",
+   "#6d6969"
+  ]
+ },
+ "Sport Lisboa e Benfica": {
+  "colors": [
+   "#ca281d",
+   "#b2b6c0",
+   "#f0b20d",
+   "#7d5a0e"
+  ]
+ },
+ "Sporting Lisbon": {
+  "colors": [
+   "#008127",
+   "#0f866a",
+   "#9fd3c2",
+   "#edb854"
+  ]
+ },
+ "TSG Hoffenheim": {
+  "colors": [
+   "#003399",
+   "#0e56b3",
+   "#a2bfde",
+   "#558dc3"
+  ]
+ },
+ "Tottenham": {
+  "colors": [
+   "#f5f5f5",
+   "#0c2454"
+  ]
+ },
+ "Tottenham Hotspur FC": {
+  "colors": [
+   "#f5f5f5",
+   "#0c2454"
+  ]
+ },
+ "Trabzonspor": {
+  "colors": [
+   "#5699eb",
+   "#b32525",
+   "#0db2e4"
+  ]
+ },
+ "Union Berlin": {
+  "colors": [
+   "#e30613",
+   "#e61e25",
+   "#fbdc13",
+   "#fc5832"
+  ]
+ },
+ "Valencia": {
+  "colors": [
+   "#ee7814",
+   "#e03a24",
+   "#fbe03c",
+   "#d38524"
+  ]
+ },
+ "VfB Stuttgart": {
+  "colors": [
+   "#e32219",
+   "#ce0f26",
+   "#fae10c",
+   "#fcf9f9"
+  ]
+ },
+ "Villarreal": {
+  "colors": [
+   "#ffe667",
+   "#0e5585",
+   "#f7e26a",
+   "#e4120e"
+  ]
+ },
+ "Watford": {
+  "colors": [
+   "#fbee23",
+   "#e82324",
+   "#fbf60c",
+   "#110e0e"
+  ]
+ },
+ "Werder Bremen": {
+  "colors": [
+   "#03915c",
+   "#119856",
+   "#6abc94",
+   "#aed9c2"
+  ]
+ },
+ "West Bromwich Albion": {
+  "colors": [
+   "#091453",
+   "#253a6f",
+   "#bfc3ce",
+   "#7582a2"
+  ]
+ },
+ "West Ham United": {
+  "colors": [
+   "#7c2c3b",
+   "#83263c",
+   "#27b1e3",
+   "#f7d33c"
+  ]
+ },
+ "Wolverhampton Wanderers": {
+  "colors": [
+   "#fdb913",
+   "#fbb40d",
+   "#252424",
+   "#f9f9f5"
+  ]
+ }
+}
