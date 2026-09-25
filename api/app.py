@@ -543,6 +543,7 @@ MODEL_MARKET_BLEND_TOTALS = 0.3
 
 # Fetch every competition available in the frontend, including national teams.
 # This list also allows the event-specific refresh in the final pre-match hour.
+ODDS_HORIZON_HOURS = 24
 ODDS_SPORT_KEYS = [
     "soccer_uefa_champs_league",
     "soccer_germany_bundesliga",
@@ -555,10 +556,16 @@ def _fetch_odds() -> list[dict]:
         raise HTTPException(status_code=503, detail="ODDS_API_KEY ist nicht konfiguriert.")
     events: list[dict] = []
     last_error: Exception | None = None
+    # Only matches kicking off in the next ODDS_HORIZON_HOURS. The Odds API
+    # charges nothing for a call that returns no events, so a competition
+    # without a match in that window costs no credits at all.
+    now = datetime.now(timezone.utc)
+    window = (f"&commenceTimeFrom={now.strftime('%Y-%m-%dT%H:%M:%SZ')}"
+              f"&commenceTimeTo={(now + timedelta(hours=ODDS_HORIZON_HOURS)).strftime('%Y-%m-%dT%H:%M:%SZ')}")
     for sport_key in ODDS_SPORT_KEYS:
         url = (
             f"https://api.the-odds-api.com/v4/sports/{sport_key}/odds/"
-            f"?apiKey={ODDS_API_KEY}&regions=eu&markets=h2h,totals,spreads&oddsFormat=decimal"
+            f"?apiKey={ODDS_API_KEY}&regions=eu&markets=h2h,totals,spreads&oddsFormat=decimal{window}"
         )
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
         try:
