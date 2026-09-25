@@ -693,6 +693,84 @@ def _best_price(event, market_key, outcome_name, point=None):
     return max(_available_prices(event, market_key, outcome_name, point), key=lambda o: o["price"], default=None)
 
 
+# The only bookmaker the user bets with. Its odds come from OddsPortal
+# (src/book_odds.py) and are added to the Odds API event as one more book.
+USER_BOOK_KEY = "betathome"
+
+
+def _with_book_odds(event: dict) -> dict:
+    """The event with bet-at-home added, when its odds match the snapshot.
+
+    bet-at-home is only added if it was fetched within the quote-freshness
+    window of the event's own odds snapshot, either side: a price from hours
+    earlier set beside a fresh Pinnacle price would show gaps that no longer
+    exist. The full market book has its own fetch time and is checked alone.
+    """
+    from src.price_tip import match_fixture
+    from src.bet_selection import MAX_QUOTE_AGE_SECONDS
+    from src.bet_audit import timestamp
+    try:
+        snapshot = timestamp(event["odds_fetched_at"])
+        fixture = match_fixture(event, book_odds.load().get("fixtures", []))
+    except Exception:
+        return event
+    if not fixture:
+        return event
+
+    def stamp(value):
+        try:
+            fetched = timestamp(value)
+        except (TypeError, ValueError):
+            return None
+        if abs((snapshot - fetched).total_seconds()) > MAX_QUOTE_AGE_SECONDS:
+            return None
+        return min(fetched, snapshot).isoformat()
+
+    home, away = event["home_team"], event["away_team"]
+    markets = []
+    h2h_time = stamp(fixture.get("fetched_at"))
+    if h2h_time:
+        o = fixture["odds"]
+        markets.append({"key": "h2h", "last_update": h2h_time, "outcomes": [
+            {"name": home, "price": o["home"]}, {"name": "Draw", "price": o["draw"]},
+            {"name": away, "price": o["away"]}]})
+    full = fixture.get("markets") or {}
+    full_time = stamp(fixture.get("markets_fetched_at"))
+    if full and full_time:
+        if full.get("totals"):
+            markets.append({"key": "totals", "last_update": full_time, "outcomes": [
+                {"name": side.title(), "price": line[side], "point": line["point"]}
+                for line in full["totals"] for side in ("over", "under") if line.get(side)]})
+        if full.get("spreads"):
+            markets.append({"key": "spreads", "last_update": full_time, "outcomes": [
+                {"name": name, "price": line[side], "point": point}
+                for line in full["spreads"]
+                for side, name, point in (("home", home, line["point"]), ("away", away, -line["point"]))
+                if line.get(side)]})
+        if full.get("btts"):
+            markets.append({"key": "btts", "last_update": full_time, "outcomes": [
+                {"name": "Yes", "price": full["btts"]["yes"]}, {"name": "No", "price": full["btts"]["no"]}]})
+    if not markets:
+        return event
+    books = [b for b in event.get("bookmakers", []) if b.get("key") != USER_BOOK_KEY]
+    return {**event, "bookmakers": books + [{"key": USER_BOOK_KEY, "title": "bet-at-home",
+                                             "last_update": h2h_time or full_time, "markets": markets}]}
+
+
+def _user_price(event, market_key, outcome_name, point=None):
+    """bet-at-home's price where it quotes this market, else the best other.
+
+    Once bet-at-home's own book covers a market, a line only other bookmakers
+    offer is dropped: it is a bet the user cannot place.
+    """
+    offers = _available_prices(event, market_key, outcome_name, point)
+    covered = any(m.get("key") == market_key for b in event.get("bookmakers", [])
+                  if b.get("key") == USER_BOOK_KEY for m in b.get("markets", []))
+    if covered:
+        return next((o for o in offers if o["bookmaker_key"] == USER_BOOK_KEY), None)
+    return max(offers, key=lambda o: o["price"], default=None)
+
+
 @app.get("/odds")
 def get_odds():
     try:
@@ -709,6 +787,8 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
     event = _find_odds_match(odds, home_team, away_team)
     if event is None:
         return {"home_team": home_team, "away_team": away_team, "odds_found": False, "bets": []}
+    if event.get("odds_fetched_at"):
+        event = _with_book_odds(event)
 
     # Once a match has kicked off, bookmaker odds become live/in-play odds that
     # react to the score and game state - but our model's probabilities are
@@ -769,7 +849,11 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
         # lines refund outright. The combo builder already excluded all three
         # for the same reason; leaving them in the single-bet list only offered
         # the reader a bet we could not describe.
-        if not binary_market(market):
+        # Draw No Bet is the one exception, and only at bet-at-home: it is a
+        # market the user can place there, and a draw returning the stake is
+        # a result anyone can read.
+        if not binary_market(market) and not (market == "Handicap 0.0"
+                                              and best.get("bookmaker_key") == USER_BOOK_KEY):
             return
         bet = {"market": market, "outcome": outcome, "team": team, "best_odds": best["price"]}
         try:
@@ -797,9 +881,10 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
             prob = blend * raw_prob + (1 - blend) * market_prob
             priced = payout_metrics([(best["price"] - 1, prob), (-1, 1 - prob)])
         ev = priced["expected_value"]
-        feed_key = "h2h" if market == "1X2" else "totals" if market.startswith("Over/Under") else "spreads"
-        feed_name = (team or "Draw") if feed_key == "h2h" else outcome if feed_key == "totals" else team
-        point = None if feed_key == "h2h" else float(market.split()[-1])
+        feed_key = ("h2h" if market == "1X2" else "totals" if market.startswith("Over/Under")
+                    else "btts" if market == "BTTS" else "spreads")
+        feed_name = (team or "Draw") if feed_key == "h2h" else outcome if feed_key in ("totals", "btts") else team
+        point = None if feed_key in ("h2h", "btts") else float(market.split()[-1])
         reference = market_evidence(event, feed_key, feed_name, point, now=quote_as_of, exclude_book=best.get("bookmaker_key"))
         deviation = abs(prob - market_prob) if market_prob is not None else None
         # Retain the legacy contradiction guard as an explicit experimental
@@ -857,7 +942,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
     from src.bet_selection import market_consensus
     for label, outcome_name, prob in h2h_outcomes:
         market_prob = market_consensus(event, "h2h", outcome_name, now=quote_as_of)
-        best = _best_price(event, "h2h", outcome_name)
+        best = _user_price(event, "h2h", outcome_name)
         if best:
             _add_candidate("1X2", label, outcome_name if label != "draw" else None, prob, best, market_prob)
 
@@ -877,7 +962,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
             if prob is None:
                 continue
             market_prob = market_consensus(event, "totals", side, line, now=quote_as_of)
-            best = _best_price(event, "totals", side, point=line)
+            best = _user_price(event, "totals", side, point=line)
             if best:
                 _add_candidate(f"Over/Under {line}", side, None, prob, best, market_prob)
 
@@ -891,10 +976,17 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
             market_prob = market_consensus(event, "spreads", team_name, point, now=quote_as_of)
             # price_bet derives probabilities from H/D/A or the complete matrix.
             prob = 0.0
-            best = _best_price(event, "spreads", team_name, point=point)
+            best = _user_price(event, "spreads", team_name, point=point)
             if best:
                 sign = "+" if point > 0 else ""
                 _add_candidate(f"Handicap {sign}{point}", "handicap", team_name, prob, best, market_prob)
+
+    # Both teams to score: bet-at-home's book carries it, the Odds API feed
+    # does not. price_bet reads it off the full score matrix.
+    for side in ("Yes", "No"):
+        best = _user_price(event, "btts", side)
+        if best:
+            _add_candidate("BTTS", side, None, 0.0, best, None)
 
     candidates.sort(key=lambda c: c["expected_value"], reverse=True)
 
@@ -1364,6 +1456,12 @@ def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
                     fresh_event = _fetch_event_odds(event) if event else None
                 except Exception:
                     fresh_event = None
+                # bet-at-home must be as fresh as Pinnacle for the price tip and
+                # for its odds to enter the table; refresh_if_due reads its full
+                # market book once per match in this window.
+                if event:
+                    sport = event.get("sport_key")
+                    book_odds.refresh_if_due(sport, [e for e in odds if e.get("sport_key") == sport])
                 fresh_vb = _compute_value_bets(data, [fresh_event], home, away) if fresh_event else vb
 
                 if fresh_event:
@@ -1374,10 +1472,6 @@ def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
                     # pricing result under that key.
                     _prekickoff_vb_cache[_match_key(home, away)] = fresh_vb
                     _prekickoff_event_cache[_match_key(home, away)] = fresh_event
-                # bet-at-home must be as fresh as Pinnacle for the price tip;
-                # refresh_if_due fetches each competition at most every 45 min.
-                if event:
-                    book_odds.refresh_if_due(event.get("sport_key"))
 
                 agent = _call_gemini_agent_pick(data, fresh_vb, home, away, previous_eval=previous_eval)
                 if agent is not None:
@@ -1390,7 +1484,7 @@ def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
 
 
 def _price_tip_for(odds: list[dict], home: str, away: str, prediction: dict,
-                   agent_eval: Optional[dict]) -> Optional[dict]:
+                   agent_eval: Optional[dict], candidates: Optional[list] = None) -> Optional[dict]:
     """bet-at-home against Pinnacle's fair price for one match (src/price_tip.py)."""
     event = _prekickoff_event_cache.get(_match_key(home, away)) or _find_odds_match(odds, home, away)
     if not event:
@@ -1399,7 +1493,7 @@ def _price_tip_for(odds: list[dict], home: str, away: str, prediction: dict,
         tip = build_price_tip(event, book_odds.load())
     except Exception:
         return None
-    tip.update(model_and_ai_view(tip.get("tip"), prediction, agent_eval))
+    tip.update(model_and_ai_view(tip.get("tip"), prediction, agent_eval, candidates))
     return tip
 
 
@@ -1462,7 +1556,8 @@ def value_bets(home_team: str, away_team: str):
         agent_eval = _get_agent_pick(result)
         result["agent_eval"] = agent_eval
         result["combined"] = _combine_recommendation(result, agent_eval)
-        result["price_tip"] = _price_tip_for(odds, home_team, away_team, prediction, agent_eval)
+        result["price_tip"] = _price_tip_for(odds, home_team, away_team, prediction, agent_eval,
+                                             result.get("bets", []))
         return result
     except HTTPException:
         raise

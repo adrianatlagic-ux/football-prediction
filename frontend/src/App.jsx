@@ -7,6 +7,8 @@ import NL_FIXTURES from './nl_fixtures.json'
 import CLUB_CRESTS from './club_crests.json'
 
 const API_BASE = import.meta.env.DEV ? 'http://127.0.0.1:8000' : ''
+// The one bookmaker the user bets with (api/app.py USER_BOOK_KEY).
+const USER_BOOK_KEY = 'betathome'
 
 // Champions League stages in tournament order (2024/25+ format: a single
 // 36-team league phase, then a knockout bracket) - a plain alphabetical sort
@@ -663,6 +665,7 @@ function betOutcomeLabel(b) {
   if (b.outcome === 'home_win' || b.outcome === 'away_win') return <>Win <TeamLabel name={b.team} /></>
   if (b.team) return <TeamLabel name={b.team} />
   if (b.outcome === 'draw') return 'Draw'
+  if (b.market === 'BTTS') return `Both score: ${b.outcome}`
   if (b.outcome === 'Over') return `Over ${b.market.replace('Over/Under ', '')}`
   if (b.outcome === 'Under') return `Under ${b.market.replace('Over/Under ', '')}`
   return b.outcome
@@ -672,7 +675,8 @@ function marketGroupLabel(market) {
   if (market === '1X2') return 'Match Result'
   if (market === 'Handicap +0.5') return 'Double Chance'
   if (market === 'Handicap 0.0') return 'Draw No Bet'
-  if (market.startsWith('Handicap')) return 'Handicap'
+  if (market.startsWith('Handicap')) return 'Asian Handicap'
+  if (market === 'BTTS') return 'Both Teams Score'
   return 'Goals'
 }
 
@@ -686,6 +690,13 @@ function plainBetPhrase(b) {
   if (b.market === 'Handicap 0.0') return <><TeamLabel name={b.team} /> to win (draw no bet)</>
   if (b.outcome === 'handicap') return <><TeamLabel name={b.team} /> {b.market.replace('Handicap ', '')} handicap</>
   return b.market
+}
+
+// 1X2 always, plus the three other bets closest to paying off.
+function priceTipRows(outcomes) {
+  const main = outcomes.filter(o => o.market === '1X2')
+  const others = outcomes.filter(o => o.market !== '1X2').sort((a, b) => b.edge - a.edge).slice(0, 3)
+  return [...main, ...others]
 }
 
 const pct = (x, digits = 0) => `${(x * 100).toFixed(digits)}%`
@@ -716,10 +727,10 @@ function PriceTipBox({ priceTip }) {
             <div className="price-tip-table-head">
               <span>Outcome</span><span>Pinnacle</span><span>{book}</span><span>Chance</span><span>Edge</span>
             </div>
-            {priceTip.outcomes.map((o) => (
-              <div className="price-tip-table-row" key={o.outcome}>
+            {priceTipRows(priceTip.outcomes).map((o) => (
+              <div className="price-tip-table-row" key={`${o.market}-${o.outcome}-${o.side}`}>
                 <span>{betOutcomeLabel(o)}</span>
-                <span>{o.pinnacle_odds.toFixed(2)}</span>
+                <span>{o.pinnacle_odds ? o.pinnacle_odds.toFixed(2) : <em title="fair odds from Pinnacle's 1X2">{o.fair_odds.toFixed(2)}</em>}</span>
                 <span>{o.book_odds.toFixed(2)}</span>
                 <span>{pct(o.probability)}</span>
                 <span className={o.edge >= priceTip.threshold ? 'positive' : 'negative'}>{signedPct(o.edge)}</span>
@@ -741,8 +752,8 @@ function PriceTipBox({ priceTip }) {
       <div className="price-tip-kpis">
         <div className="price-tip-kpi">
           <span className="price-tip-kpi-label">Pinnacle</span>
-          <span className="price-tip-kpi-value">{tip.pinnacle_odds.toFixed(2)}</span>
-          <span className="price-tip-kpi-sub">fair {tip.fair_odds.toFixed(2)}</span>
+          <span className="price-tip-kpi-value">{(tip.pinnacle_odds || tip.fair_odds).toFixed(2)}</span>
+          <span className="price-tip-kpi-sub">{tip.pinnacle_odds ? `fair ${tip.fair_odds.toFixed(2)}` : 'fair, from 1X2'}</span>
         </div>
         <div className="price-tip-kpi is-book">
           <span className="price-tip-kpi-label">{book}</span>
@@ -780,6 +791,7 @@ function PriceTipBox({ priceTip }) {
 }
 
 function SmartBetCard({ betStep, betInfo, data }) {
+  const [showAllMarkets, setShowAllMarkets] = useState(false)
   const analyzing = betStep < BET_STEPS.length
   if (analyzing) {
     return (
@@ -825,6 +837,13 @@ function SmartBetCard({ betStep, betInfo, data }) {
   const sameBet = (a, b) => a.market === b.market && a.outcome === b.outcome && a.team === b.team
   const greens = betInfo.green_bets || []
   const reds = betInfo.red_bets || []
+  // Everything else the bookmakers price, weakest edge last - so every
+  // market bet-at-home lists is on the page, not only the top few.
+  const shown = [...greens, ...reds]
+  const rest = (betInfo.bets || [])
+    .filter(b => !shown.some(x => sameBet(x, b)))
+    .sort((a, b) => b.expected_value - a.expected_value)
+  const hasUserBook = (betInfo.bets || []).some(b => b.bookmaker_key === USER_BOOK_KEY)
 
   const renderRow = (b, i, kind) => {
     const isRec = best && sameBet(b, best)
@@ -841,12 +860,14 @@ function SmartBetCard({ betStep, betInfo, data }) {
     // here would visually contradict the headline box above.
     const keepFullOpacity = isRec || isGamePick || isAgentPick || isModelFavorite || isSafestPick
     return (
-      <div className={`smart-bet-table-row ${kind === 'red' && !keepFullOpacity ? 'is-red' : ''} ${isRec ? 'is-rec' : ''}`} key={`${kind}-${i}`}>
+      <div className={`smart-bet-table-row ${kind !== 'green' && !keepFullOpacity ? 'is-red' : ''} ${isRec ? 'is-rec' : ''}`} key={`${kind}-${i}`}>
         <span className="smart-bet-col-market">{marketGroupLabel(b.market)}{b.suspicious ? ' ⚠' : ''}</span>
         <span className="smart-bet-col-pick">
           {isRec ? '★ ' : ''}{isAgentPick ? '✨ ' : ''}{isModelFavorite ? '◆ ' : ''}{isSafestPick ? '🛡 ' : ''}{betOutcomeLabel(b)}
         </span>
-        <span className="smart-bet-col-odds">{b.best_odds.toFixed(2)}</span>
+        <span className="smart-bet-col-odds" title={b.bookmaker}>
+          {b.best_odds.toFixed(2)}{b.bookmaker_key !== USER_BOOK_KEY && hasUserBook ? '*' : ''}
+        </span>
         <span className={`smart-bet-col-edge ${b.expected_value >= 0 ? 'positive' : 'negative'}`}>
           {b.expected_value >= 0 ? '+' : ''}{(b.expected_value * 100).toFixed(0)}%
         </span>
@@ -870,6 +891,17 @@ function SmartBetCard({ betStep, betInfo, data }) {
           </div>
           {greens.map((b, i) => renderRow(b, i, 'green'))}
           {reds.map((b, i) => renderRow(b, i, 'red'))}
+          {showAllMarkets && rest.map((b, i) => renderRow(b, i, 'rest'))}
+          {rest.length > 0 && (
+            <button className="smart-bet-more" onClick={() => setShowAllMarkets(v => !v)}>
+              {showAllMarkets ? 'Show fewer markets ▲' : `Show all markets (${rest.length} more) ▼`}
+            </button>
+          )}
+          <p className="smart-bet-table-note">
+            {hasUserBook
+              ? 'Odds are bet-at-home\'s. * = not offered at bet-at-home, best other bookmaker shown.'
+              : 'bet-at-home\'s full market list is read in the hour before kickoff; until then, best available odds are shown.'}
+          </p>
         </div>
       )}
 

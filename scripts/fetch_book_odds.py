@@ -39,7 +39,7 @@ def main():
         except Exception as exc:
             print(f"  {sport_key}: FEHLER {type(exc).__name__}: {exc}")
             continue
-        book_odds.store(sport_key, fixtures)
+        book_odds.store(sport_key, fixtures, replace=True)
         print(f"  {sport_key:28} {len(fixtures):3} Spiele mit {book_odds.BOOKMAKER}")
     print(f"\n-> {book_odds.path()}")
 

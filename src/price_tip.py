@@ -31,6 +31,9 @@ KICKOFF_TOLERANCE = timedelta(minutes=90)
 # Older bookmaker odds are not shown as a tip: the gap could be a price that
 # has long since moved.
 MAX_BOOK_AGE = timedelta(hours=30)
+# A tip needs both prices read together. Numbers from a morning read are
+# still shown, for orientation, but never tipped: the gap may have closed.
+ALIGNMENT = timedelta(minutes=30)
 
 OUTCOMES = (("home_win", "home"), ("draw", "draw"), ("away_win", "away"))
 _GENERIC = {"fc", "sc", "cf", "ac", "afc", "vfl", "vfb", "tsg", "sv", "fk", "sk", "cd", "rb", "1", "04", "05",
@@ -105,12 +108,89 @@ def match_fixture(event: dict, fixtures: list) -> Optional[dict]:
     return candidates[0] if len(candidates) == 1 else None
 
 
+def _pinnacle_two_way(event: dict, key: str, first: tuple, second: tuple) -> Optional[tuple]:
+    """Pinnacle's margin-free pair for one exact line, or None if it has none.
+
+    `first`/`second` are (outcome name, point). Pinnacle quotes one main line
+    per market here, usually a quarter line, so most .5 lines have no match -
+    and a line it does not quote is never estimated.
+    """
+    book = next((b for b in event.get("bookmakers", []) if b.get("key") == "pinnacle"), None)
+    market = next((m for m in (book or {}).get("markets", []) if m.get("key") == key), None)
+    if not market:
+        return None
+    prices = []
+    for name, point in (first, second):
+        o = next((o for o in market.get("outcomes", [])
+                  if o.get("name") == name and o.get("point") == point), None)
+        if not o or float(o["price"]) <= 1:
+            return None
+        prices.append(float(o["price"]))
+    p1, p2 = 1 / prices[0], 1 / prices[1]
+    return prices[0], p1 / (p1 + p2)
+
+
+def _row(market, outcome, team, offered, probability, pinnacle_odds=None, refund=0.0, side=None):
+    """One comparable bet. `refund` is the chance the stake comes back (Draw
+    No Bet on a draw); probability is then the chance of winning given no
+    refund, and the edge counts the refund at stake value."""
+    win = probability * (1 - refund)
+    return {"market": market, "outcome": outcome, "team": team, "side": side,
+            "book_odds": round(offered, 2),
+            "pinnacle_odds": round(pinnacle_odds, 2) if pinnacle_odds else None,
+            "fair_odds": round(1 / probability, 2), "probability": round(probability, 4),
+            # Expected return per unit staked, judged by Pinnacle's estimate.
+            "edge": round(offered * win + refund - 1, 4)}
+
+
+def _handicap_label(point: float) -> str:
+    return f"Handicap {'+' if point > 0 else ''}{point}"
+
+
+def market_rows(event: dict, fixture: dict, fair: dict) -> list:
+    """Every bet-at-home market that Pinnacle prices exactly.
+
+    From Pinnacle's 1X2 alone: Double Chance and Asian Handicap +/-0.5 (a
+    team +0.5 is win-or-draw, -0.5 is win) and Draw No Bet. Other Over/Under
+    and Asian Handicap lines only where Pinnacle quotes the very same line.
+    """
+    markets = fixture.get("markets") or {}
+    home, away = event.get("home_team"), event.get("away_team")
+    h, d, a = fair["home"], fair["draw"], fair["away"]
+    exact = {("home", 0.5): h + d, ("home", -0.5): h, ("away", 0.5): a + d, ("away", -0.5): a}
+    rows = []
+    for line in markets.get("spreads", []):
+        for side, team, point in (("home", home, line["point"]), ("away", away, -line["point"])):
+            offered = line.get(side)
+            if not offered or offered <= 1:
+                continue
+            label = _handicap_label(point)
+            if point == 0:
+                win, lose = (h, a) if side == "home" else (a, h)
+                rows.append(_row(label, "handicap", team, offered, win / (win + lose), refund=d, side=side))
+            elif (side, point) in exact:
+                rows.append(_row(label, "handicap", team, offered, exact[(side, point)], side=side))
+            else:
+                pair = _pinnacle_two_way(event, "spreads", (team, point),
+                                         (away if side == "home" else home, -point))
+                if pair:
+                    rows.append(_row(label, "handicap", team, offered, pair[1], pinnacle_odds=pair[0], side=side))
+    for line in markets.get("totals", []):
+        for side, other in (("Over", "Under"), ("Under", "Over")):
+            offered = line.get(side.lower())
+            pair = _pinnacle_two_way(event, "totals", (side, line["point"]), (other, line["point"]))
+            if offered and offered > 1 and pair:
+                rows.append(_row(f"Over/Under {line['point']}", side, None, offered, pair[1],
+                                 pinnacle_odds=pair[0]))
+    return rows
+
+
 def build_price_tip(event: dict, book: dict, now: Optional[datetime] = None) -> dict:
     """Compare the bookmaker against Pinnacle's fair price for one event.
 
-    Always returns every outcome's numbers, so the page can show why there is
-    or is not a tip. `tip` is the outcome with the largest edge if that edge
-    clears THRESHOLD, else None.
+    Always returns every comparable bet's numbers, so the page can show why
+    there is or is not a tip. `tip` is the bet with the largest edge if that
+    edge clears THRESHOLD, else None.
     """
     now = now or datetime.now(timezone.utc)
     bookmaker = book.get("bookmaker")
@@ -135,43 +215,72 @@ def build_price_tip(event: dict, book: dict, now: Optional[datetime] = None) -> 
     if fetched is None or now - fetched > MAX_BOOK_AGE:
         return {**base, "reason": f"{bookmaker} odds are too old to compare against current prices."}
 
+    snapshot = _time(event.get("odds_fetched_at"))
+
+    def aligned(value) -> bool:
+        t = _time(value)
+        return t is not None and (snapshot is None or abs(snapshot - t) <= ALIGNMENT)
+
     fair = fair_probabilities(pinnacle)
     rows = []
     for outcome, key in OUTCOMES:
-        offered = float(fixture["odds"][key])
-        rows.append({
-            "market": "1X2", "outcome": outcome,
-            "team": event.get("home_team") if key == "home" else event.get("away_team") if key == "away" else None,
-            "book_odds": round(offered, 2),
-            "pinnacle_odds": round(pinnacle[key], 2),
-            "fair_odds": round(1 / fair[key], 2),
-            "probability": round(fair[key], 4),
-            # Expected return per unit staked, judged by Pinnacle's estimate.
-            "edge": round(offered * fair[key] - 1, 4),
-        })
+        rows.append(_row("1X2", outcome,
+                         event.get("home_team") if key == "home" else event.get("away_team") if key == "away" else None,
+                         float(fixture["odds"][key]), fair[key], pinnacle_odds=pinnacle[key], side=key))
+    # The full book comes from its own, rarer fetch and is only compared when
+    # it was read together with this Pinnacle price.
+    full_book = bool(fixture.get("markets")) and aligned(fixture.get("markets_fetched_at"))
+    if full_book:
+        rows += market_rows(event, fixture, fair)
+    base["full_book"] = full_book
     best = max(rows, key=lambda r: r["edge"])
-    tip = best if best["edge"] >= THRESHOLD else None
-    reason = None if tip else (
-        f"{bookmaker} pays less than the fair price on every outcome here "
-        f"(closest: {best['edge']:+.1%}).")
+    if not aligned(stamp):
+        tip, reason = None, (f"{bookmaker}'s odds were read at a different time than Pinnacle's. "
+                             "A tip is only given when both are read together, in the hour before kickoff.")
+    elif best["edge"] >= THRESHOLD:
+        tip, reason = best, None
+    else:
+        tip, reason = None, (f"{bookmaker} pays less than the fair price on every comparable bet here "
+                             f"(closest: {best['edge']:+.1%}).")
     return {**base, "outcomes": rows, "tip": tip, "reason": reason}
 
 
-def model_and_ai_view(tip: Optional[dict], prediction: dict, agent_eval: Optional[dict]) -> dict:
-    """Whether the model and the AI side with the tipped outcome - display only.
+def _same(a: dict, b: dict) -> bool:
+    return bool(a and b and a.get("market") == b.get("market") and a.get("outcome") == b.get("outcome")
+                and (a.get("team") or None) == (b.get("team") or None))
 
-    The model "agrees" when it rates the outcome at least as likely as
-    Pinnacle does. Neither view changes the tip: among bet-at-home's archived
+
+def model_and_ai_view(tip: Optional[dict], prediction: dict, agent_eval: Optional[dict],
+                      candidates: Optional[list] = None) -> dict:
+    """Whether the model and the AI side with the tipped bet - display only.
+
+    The model "agrees" when it rates the bet at least as likely as Pinnacle
+    does. Neither view changes the tip: among bet-at-home's archived
     opportunities, the ones the model liked did worse, not better.
     """
     if not tip:
         return {"model_agrees": None, "ai_agrees": None, "model_probability": None}
-    key = {"home_win": "probability_home_win", "draw": "probability_draw",
-           "away_win": "probability_away_win"}[tip["outcome"]]
-    model_p = prediction.get(key)
+    try:
+        h, d, a = (float(prediction[k]) for k in ("probability_home_win", "probability_draw",
+                                                    "probability_away_win"))
+    except (KeyError, TypeError, ValueError):
+        h = d = a = None
+    model_p = None
+    if tip["market"] == "1X2":
+        model_p = prediction.get({"home_win": "probability_home_win", "draw": "probability_draw",
+                                  "away_win": "probability_away_win"}[tip["outcome"]])
+    elif h is not None and tip["market"] in ("Handicap +0.5", "Handicap -0.5", "Handicap 0.0"):
+        # The Odds API and our cache may spell a team differently; the row
+        # records which side it is.
+        is_home = tip.get("side") == "home"
+        win, lose = (h, a) if is_home else (a, h)
+        model_p = {"Handicap +0.5": win + d, "Handicap -0.5": win,
+                   "Handicap 0.0": win / (win + lose) if win + lose else None}[tip["market"]]
+    else:
+        match = next((c for c in candidates or [] if _same(c, tip)), None)
+        model_p = match.get("model_probability_raw") if match else None
     model_agrees = None if model_p is None else float(model_p) >= tip["probability"]
     pick = (agent_eval or {}).get("pick")
-    ai_agrees = None if not agent_eval else bool(
-        pick and pick.get("market") == "1X2" and pick.get("outcome") == tip["outcome"])
+    ai_agrees = None if not agent_eval else _same(pick, tip)
     return {"model_agrees": model_agrees, "ai_agrees": ai_agrees,
             "model_probability": None if model_p is None else round(float(model_p), 4)}

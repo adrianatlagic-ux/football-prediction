@@ -2967,3 +2967,18 @@ body {
   padding: 0.55rem 1rem;
   background: transparent;
 }
+
+.smart-bet-more {
+  display: block;
+  width: 100%;
+  margin-top: 0.4rem;
+  padding: 0.4rem;
+  background: transparent;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+.smart-bet-table-note { margin-top: 0.45rem; font-size: 0.64rem; color: #6b7280; line-height: 1.5; }
+.price-tip-table-row em { font-style: normal; color: #94a3b8; }

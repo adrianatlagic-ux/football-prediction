@@ -8,8 +8,14 @@ the bookmaker has not yet followed, and comparing a fresh Pinnacle price with
 a bet-at-home quote from the morning would invent gaps that never existed.
 
 So the app refreshes these odds itself inside the same pre-kickoff window
-that refreshes Pinnacle, at most once per competition per REFRESH_INTERVAL.
-Each fetch costs about 0.3 cents per fixture on Apify.
+that refreshes Pinnacle. That refresh reads bet-at-home's full market book
+(Asian Handicap, Over/Under, Draw No Bet, Double Chance, both teams to
+score), which costs 2.3 cents per match instead of 0.3, so it runs once per
+match and stops at a monthly budget; past the budget it falls back to 1X2.
+
+OddsPortal cannot be asked for one match, only for a league page, soonest
+match first - games already in play included. A refresh therefore pays for
+every match from the top of the list down to the last one in the window.
 """
 from __future__ import annotations
 
@@ -30,16 +36,23 @@ LEAGUES = {
     "soccer_germany_bundesliga": "https://www.oddsportal.com/football/germany/bundesliga/",
     "soccer_uefa_nations_league": "https://www.oddsportal.com/football/europe/uefa-nations-league/",
 }
-REFRESH_INTERVAL = timedelta(minutes=45)
-# OddsPortal lists upcoming fixtures soonest first; a window's matches are at
-# the top, so a small cap keeps a refresh cheap.
-WINDOW_ITEMS = 15
+PRICE_PER_MATCH = 0.003          # USD, 1X2 only
+PRICE_PER_FULL_BOOK = 0.023      # USD, match plus every market
+MONTHLY_BUDGET = float(os.getenv("BOOK_MARKETS_BUDGET_USD", "4.0"))
+MAX_WINDOW_ITEMS = 12
 
 _lock = threading.Lock()
+# One window refresh at a time: every match thread in the window calls in,
+# and only the first may pay for a fetch.
+_refresh_lock = threading.Lock()
 
 
 def path() -> Path:
     return Path(os.getenv("BOOK_ODDS_PATH", str(DEFAULT_PATH)))
+
+
+def spend_path() -> Path:
+    return path().with_name("spend.json")
 
 
 def load() -> dict:
@@ -53,11 +66,64 @@ def _now() -> datetime:
     return datetime.now(timezone.utc)
 
 
-def fetch_league(sport_key: str, max_items: int, token: Optional[str] = None) -> list:
+def _pair(offer: dict, keys: tuple) -> Optional[dict]:
+    odds = (offer or {}).get("closingOdds") or {}
+    try:
+        values = {k: float(odds[k]) for k in keys}
+    except (KeyError, TypeError, ValueError):
+        return None
+    return values if all(v > 1 for v in values.values()) else None
+
+
+def parse_markets(item: dict) -> dict:
+    """bet-at-home's full-time markets from one OddsPortal match.
+
+    OddsPortal's Asian Handicap line is the home side's handicap. Double
+    Chance 1X and X2 are the same bets as Asian Handicap +0.5 for home or
+    away, so they are merged into that line at whichever price is higher;
+    Draw No Bet is Asian Handicap 0. "12" has no handicap form and is left out.
+    """
+    totals, spreads, btts, dc = {}, {}, None, None
+    for market in item.get("markets") or []:
+        if market.get("scope") != "Full Time":
+            continue
+        offer = next((b for b in market.get("bookmakers", []) if b.get("bookmaker") == BOOKMAKER), None)
+        if offer is None:
+            continue
+        kind, line = market.get("market"), market.get("handicap")
+        if kind == "Over/Under" and line is not None:
+            pair = _pair(offer, ("over", "under"))
+            if pair:
+                totals[float(line)] = pair
+        elif kind == "Asian Handicap" and line is not None:
+            pair = _pair(offer, ("home", "away"))
+            if pair:
+                spreads[float(line)] = pair
+        elif kind == "Draw No Bet":
+            pair = _pair(offer, ("home", "away"))
+            if pair:
+                spreads[0.0] = pair
+        elif kind == "Both Teams to Score":
+            btts = _pair(offer, ("yes", "no"))
+        elif kind == "Double Chance":
+            dc = _pair(offer, ("homeOrDraw", "drawOrAway"))
+    if dc:
+        # Home +0.5 is 1X; away +0.5 (home -0.5) is X2.
+        plus = spreads.setdefault(0.5, {})
+        plus["home"] = max(plus.get("home", 0), dc["homeOrDraw"])
+        minus = spreads.setdefault(-0.5, {})
+        minus["away"] = max(minus.get("away", 0), dc["drawOrAway"])
+    return {"totals": [{"point": k, **v} for k, v in sorted(totals.items())],
+            "spreads": [{"point": k, **v} for k, v in sorted(spreads.items())],
+            "btts": btts}
+
+
+def fetch_league(sport_key: str, max_items: int, token: Optional[str] = None,
+                 full_book: bool = False) -> list:
     """One OddsPortal read of a competition; returns bet-at-home fixtures."""
     token = token or os.environ["APIFY_TOKEN"]
     payload = {"startUrls": [{"url": LEAGUES[sport_key]}], "maxItems": max_items,
-               "scrapeMatchMarkets": False,
+               "scrapeMatchMarkets": full_book,
                # The proxy country decides which bookmakers OddsPortal lists;
                # Germany returns exactly the ones licensed there.
                "proxyConfiguration": {"useApifyProxy": True, "apifyProxyGroups": ["RESIDENTIAL"],
@@ -73,17 +139,40 @@ def fetch_league(sport_key: str, max_items: int, token: Optional[str] = None) ->
         offer = next((b for b in m.get("bookmakerOdds", []) if b.get("bookmaker") == BOOKMAKER), None)
         if not offer or not all(offer.get(k) for k in ("home", "draw", "away")):
             continue
-        out.append({"sport_key": sport_key, "home_team": m["homeTeam"], "away_team": m["awayTeam"],
-                    "commence_time": m["startTime"], "fetched_at": stamp,
-                    "odds": {k: float(offer[k]) for k in ("home", "draw", "away")}})
+        fixture = {"sport_key": sport_key, "home_team": m["homeTeam"], "away_team": m["awayTeam"],
+                   "commence_time": m["startTime"], "fetched_at": stamp,
+                   "odds": {k: float(offer[k]) for k in ("home", "draw", "away")}}
+        if full_book:
+            fixture["markets"] = parse_markets(m)
+        out.append(fixture)
     return out
 
 
-def store(sport_key: str, fixtures: list) -> None:
-    """Replace one competition's fixtures, keeping the others."""
+def _identity(f: dict) -> tuple:
+    return (f.get("sport_key"), f.get("home_team"), f.get("away_team"), str(f.get("commence_time"))[:10])
+
+
+def store(sport_key: str, fixtures: list, replace: bool = False) -> None:
+    """Save fetched fixtures.
+
+    A full read (the script) replaces the competition's list. A window
+    refresh only covers the next few matches, so it updates those and keeps
+    the rest; a fixture keeps its full market book until a newer fetch of
+    the same match brings one.
+    """
     with _lock:
         data = load()
-        data["fixtures"] = [f for f in data.get("fixtures", []) if f.get("sport_key") != sport_key] + fixtures
+        kept = [f for f in data.get("fixtures", []) if f.get("sport_key") != sport_key]
+        mine = {} if replace else {_identity(f): f for f in data.get("fixtures", [])
+                                   if f.get("sport_key") == sport_key}
+        for f in fixtures:
+            old = mine.get(_identity(f))
+            if old and "markets" in old and "markets" not in f:
+                f = {**f, "markets": old["markets"], "markets_fetched_at": old.get("markets_fetched_at")}
+            elif "markets" in f:
+                f = {**f, "markets_fetched_at": f["fetched_at"]}
+            mine[_identity(f)] = f
+        data["fixtures"] = kept + list(mine.values())
         stamps = data.get("fetched_at") if isinstance(data.get("fetched_at"), dict) else {}
         stamps[sport_key] = _now().isoformat()
         data["fetched_at"] = stamps
@@ -92,24 +181,81 @@ def store(sport_key: str, fixtures: list) -> None:
         path().write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-def refresh_if_due(sport_key: str) -> bool:
-    """Fetch a competition when its stored odds are older than the interval.
+def _month() -> str:
+    return _now().strftime("%Y-%m")
 
-    Called from the pre-kickoff window. Returns True if a fetch happened.
-    Failures are swallowed: without fresh odds the tip simply says so, which
-    is better than a request failing on a scraper.
+
+def spent_this_month() -> float:
+    try:
+        return float(json.loads(spend_path().read_text()).get(_month(), 0.0))
+    except (OSError, ValueError, AttributeError):
+        return 0.0
+
+
+def _record_spend(usd: float) -> None:
+    try:
+        data = json.loads(spend_path().read_text())
+    except (OSError, ValueError):
+        data = {}
+    data[_month()] = round(float(data.get(_month(), 0.0)) + usd, 4)
+    spend_path().parent.mkdir(parents=True, exist_ok=True)
+    spend_path().write_text(json.dumps(data, indent=1) + "\n")
+
+
+def _has_fresh_book(fixtures: list, event: dict) -> bool:
+    """Whether this match already has a full book fetched inside its window."""
+    from src.price_tip import match_fixture
+    fixture = match_fixture(event, fixtures)
+    if not fixture or not fixture.get("markets_fetched_at"):
+        return False
+    try:
+        kickoff = datetime.fromisoformat(event["commence_time"].replace("Z", "+00:00"))
+        fetched = datetime.fromisoformat(fixture["markets_fetched_at"])
+    except (KeyError, ValueError):
+        return False
+    return kickoff - fetched <= WINDOW
+
+
+# The pre-kickoff window a full book belongs to (the app's window is one hour;
+# a little slack so a fetch at T-65 min still counts).
+WINDOW = timedelta(minutes=75)
+
+
+def refresh_if_due(sport_key: str, events: list) -> bool:
+    """Fetch the full market book when a match in the window lacks one.
+
+    `events` are the Odds API events of this competition. The fetch size is
+    every match from now back to two hours ago (still in play, and so still
+    at the top of OddsPortal's list) up to the end of the window. Each match
+    is fetched once; past the monthly budget only 1X2 is read. Failures are
+    swallowed: without fresh odds the tip simply says so.
     """
     if sport_key not in LEAGUES or not os.getenv("APIFY_TOKEN"):
         return False
-    stamps = load().get("fetched_at")
-    last = stamps.get(sport_key) if isinstance(stamps, dict) else None
-    try:
-        if last and _now() - datetime.fromisoformat(last) < REFRESH_INTERVAL:
+    now = _now()
+    listed, due = [], []
+    for e in events:
+        try:
+            kickoff = datetime.fromisoformat(e["commence_time"].replace("Z", "+00:00"))
+        except (KeyError, ValueError):
+            continue
+        if now - timedelta(hours=2) <= kickoff <= now + WINDOW:
+            listed.append(e)
+            if kickoff > now:
+                due.append(e)
+    with _refresh_lock:
+        fixtures = load().get("fixtures", [])
+        if not due or all(_has_fresh_book(fixtures, e) for e in due):
             return False
-    except ValueError:
-        pass
-    try:
-        store(sport_key, fetch_league(sport_key, WINDOW_ITEMS))
+        items = min(len(listed), MAX_WINDOW_ITEMS)
+        full = spent_this_month() + items * PRICE_PER_FULL_BOOK <= MONTHLY_BUDGET
+        try:
+            fetched = fetch_league(sport_key, items, full_book=full)
+        except Exception:
+            return False
+        _record_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
+        if not full:
+            # Past the budget: mark the 1X2 read so the window is not retried.
+            fetched = [{**f, "markets": {}} for f in fetched]
+        store(sport_key, fetched)
         return True
-    except Exception:
-        return False
