@@ -322,37 +322,30 @@ function FormRating({ data }) {
   const away = data.away_team
   const homeRating = computeFormRating(explanation, home)
   const awayRating = computeFormRating(explanation, away)
-  const homeBetter = homeRating >= awayRating
-  // Each bar is that team's own 0-100 rating, pulled in from its own edge -
-  // the two numbers are independent (not shares of one shared 100), so they
-  // are never normalized against each other. Bars can undershoot (gap in the
-  // middle) or overshoot into each other (overlap, blended via opacity) -
-  // both are honest outcomes, not something to force into summing to 100.
-  const homePct = Math.max(0, Math.min(100, homeRating))
-  const awayPct = Math.max(0, Math.min(100, awayRating))
+  // Each team's own 0-100 rating on its own bar. They are independent
+  // numbers, not shares of one 100 - drawn from opposite edges of a single
+  // track they overlapped whenever both teams were in form (70 + 71 > 100).
+  const colors = getMatchColors(home, away)
+  // A flame only for a real gap; 71 against 70 is noise.
+  const leader = Math.abs(homeRating - awayRating) >= 5 ? (homeRating > awayRating ? home : away) : null
+  const rows = [[home, homeRating, colors.home], [away, awayRating, colors.away]]
 
   return (
     <div className="form-rating-box">
       <h4>Form Rating</h4>
 
-      <div className="form-tug">
-        <div className="form-tug-header">
-          <span className="form-tug-name">
-            <TeamLabel name={home} />{homeBetter && <span className="form-rating-flame">🔥</span>}
-          </span>
-          <span className="form-tug-name away">
-            {!homeBetter && <span className="form-rating-flame">🔥</span>}<TeamLabel name={away} />
-          </span>
-        </div>
-        <div className="form-tug-track">
-          <div className="form-tug-scale-mark" />
-          <div className="form-tug-fill-home" style={{ width: `${homePct}%` }} />
-          <div className="form-tug-fill-away" style={{ width: `${awayPct}%` }} />
-        </div>
-        <div className="form-tug-values">
-          <span className="form-tug-value home">{homeRating}</span>
-          <span className="form-tug-value away">{awayRating}</span>
-        </div>
+      <div className="form-bars">
+        {rows.map(([team, rating, color]) => (
+          <div className="form-bar-row" key={team}>
+            <span className="form-bar-name">
+              <TeamLabel name={team} />{leader === team && <span className="form-rating-flame">🔥</span>}
+            </span>
+            <div className="form-bar-track">
+              <div className="form-bar-fill" style={{ width: `${Math.max(0, Math.min(100, rating))}%`, background: color }} />
+            </div>
+            <span className="form-bar-value" style={{ color }}>{rating}</span>
+          </div>
+        ))}
       </div>
 
       <p className="form-rating-detail">
