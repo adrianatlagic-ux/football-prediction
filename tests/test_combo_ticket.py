@@ -192,6 +192,12 @@ def test_a_leg_the_market_calls_an_underdog_cannot_qualify():
     assert leg_pool([vb("A", "B", [candidate(.95, 1.6, market_probability=.35)])]) == []
 
 
+@pytest.mark.parametrize("warning", ["high_deviation", "contradicts_favorite"])
+def test_warning_candidates_can_never_become_combo_legs(warning):
+    """The ! warning has the same exclusion meaning in singles and combos."""
+    assert leg_pool([vb("A", "B", [candidate(.80, 1.6, market_probability=.70, **{warning: True})])]) == []
+
+
 def test_combined_quote_never_uses_mixed_best_prices():
     rows = []
     for home, away, best_book in [("A", "B", "X"), ("C", "D", "Y")]:

@@ -1126,6 +1126,13 @@ def _refresh_agent_picks(odds: list[dict]) -> None:
     if now - _agent_picks_last_check < AGENT_PICKS_CHECK_COOLDOWN_SECONDS:
         return
     _agent_picks_last_check = now
+    # Predictions, not odds rows, are the unit the agent evaluates.  Take the
+    # snapshot before starting the thread so a cache refresh cannot mutate the
+    # iterable while workers are reading it.
+    fixtures = list(_get_prediction_index().values())
+    if not fixtures:
+        return
+    _agent_picks_refresh_in_progress = True
 
     def _eval_one(data):
         home, away = data["home_team"], data["away_team"]
@@ -1314,7 +1321,11 @@ def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
 
                 if fresh_event:
                     fresh_vb["odds_refreshed"] = True
-                    _prekickoff_vb_cache[key] = fresh_vb
+                    # The pre-kickoff tracking key contains event metadata so
+                    # an agent can distinguish rematches.  Public readers use
+                    # the stable team-pair cache key, so store the refreshed
+                    # pricing result under that key.
+                    _prekickoff_vb_cache[_match_key(home, away)] = fresh_vb
 
                 agent = _call_gemini_agent_pick(data, fresh_vb, home, away, previous_eval=previous_eval)
                 if agent is not None:
@@ -1331,6 +1342,11 @@ _prediction_index_ts: float = 0
 _PREDICTION_INDEX_TTL = 300  # seconds - cache files only change when we (re)generate predictions
 
 
+def _match_key(home_team: str, away_team: str) -> tuple[str, str]:
+    """The cache identity shared by prediction and pre-kickoff readers."""
+    return (_norm_team(home_team), _norm_team(away_team))
+
+
 def _get_prediction_index() -> dict[tuple[str, str], dict]:
     global _prediction_index, _prediction_index_ts
     now = time.time()
@@ -1342,7 +1358,7 @@ def _get_prediction_index() -> dict[tuple[str, str], dict]:
                     data = json.loads(path.read_text(encoding="utf-8"))
                 except Exception:
                     continue
-                key = (_norm_team(data.get("home_team", "")), _norm_team(data.get("away_team", "")))
+                key = _match_key(data.get("home_team", ""), data.get("away_team", ""))
                 index[key] = data
         _prediction_index = index
         _prediction_index_ts = now
@@ -1350,7 +1366,7 @@ def _get_prediction_index() -> dict[tuple[str, str], dict]:
 
 
 def _find_cached_prediction(home_team: str, away_team: str) -> Optional[dict]:
-    return _get_prediction_index().get((_norm_team(home_team), _norm_team(away_team)))
+    return _get_prediction_index().get(_match_key(home_team, away_team))
 
 
 @app.get("/value-bets")
@@ -1410,7 +1426,7 @@ def best_bets():
     for data in _get_prediction_index().values():
         try:
             home, away = data["home_team"], data["away_team"]
-            match_key = (_norm_team(home), _norm_team(away))
+            match_key = _match_key(home, away)
             vb = _prekickoff_vb_cache.get(match_key) or _compute_value_bets(data, odds, home, away)
         except Exception:
             continue
@@ -1489,7 +1505,7 @@ def all_bets():
     for data in _get_prediction_index().values():
         try:
             home, away = data["home_team"], data["away_team"]
-            match_key = (_norm_team(home), _norm_team(away))
+            match_key = _match_key(home, away)
             cached = _prekickoff_vb_cache.get(match_key)
             fresh = _compute_value_bets(data, odds, home, away)
             # Prefer the fresh pre-kickoff recompute so the log captures what

@@ -75,6 +75,13 @@ def leg_pool(value_bet_results):
         for candidate in vb.get("bets", []):
             if not binary_market(candidate.get("market")):
                 continue
+            # The single-bet UI marks a large model/market gap with an
+            # exclamation point.  A combo must not turn that warning into a
+            # leg merely because the market still puts it fractionally above
+            # 50%; those are precisely the unsupported model departures the
+            # warning is for.
+            if candidate.get("high_deviation") or candidate.get("contradicts_favorite"):
+                continue
             for offered in candidate.get("bookmaker_offers", [candidate]):
                 if not book_key(offered) or not offered.get("quote_fresh"):
                     continue

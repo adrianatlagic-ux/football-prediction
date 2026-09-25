@@ -53,12 +53,23 @@ def _has_movement(entry) -> bool:
     return bool((entry.get("combined") or {}).get("movement_ranking"))
 
 
+def _fixture_key(entry) -> tuple:
+    """Keep home/away rematches as separate observations in the audit log."""
+    sport, event = entry.get("sport_key"), entry.get("event_id")
+    if sport and event:
+        return ("event", str(sport), str(event))
+    return ("fixture", _norm(entry.get("home_team", "")), _norm(entry.get("away_team", "")),
+            entry.get("commence_time"))
+
+
 def _build_entry(m, now):
     return {
         "logged_at": now,
         "home_team": m["home_team"],
         "away_team": m["away_team"],
         "commence_time": m.get("commence_time"),
+        "event_id": m.get("event_id"),
+        "sport_key": m.get("sport_key"),
         "recommendation": m.get("recommendation"),
         "recommendation_warning": m.get("recommendation_warning"),
         "green_bets": m.get("green_bets", []),
@@ -99,12 +110,12 @@ def main():
     now = now_dt.isoformat()
 
     entries = _load_log()
-    by_key = {(_norm(e["home_team"]), _norm(e["away_team"])): e for e in entries}
+    by_key = {_fixture_key(e): e for e in entries}
 
     added = updated = skipped_early = 0
     for m in matches:
-        key = (_norm(m["home_team"]), _norm(m["away_team"]))
         new_entry = _build_entry(m, now)
+        key = _fixture_key(new_entry)
         old = by_key.get(key)
         if old is None:
             commence = m.get("commence_time")

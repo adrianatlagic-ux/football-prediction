@@ -7,6 +7,7 @@ API and frontend already read from for match cards).
 """
 import argparse
 import json
+import os
 import sys
 import urllib.request
 from pathlib import Path
@@ -22,9 +23,13 @@ CACHE_DIR = Path(__file__).parent.parent / "data" / "predictions_cache"
 
 def upload(api_base: str, match_id: str, payload: dict) -> None:
     data = json.dumps(payload).encode("utf-8")
+    headers = {"Content-Type": "application/json"}
+    token = os.getenv("PREDICTION_WRITE_TOKEN", "")
+    if token:
+        headers["X-Prediction-Token"] = token
     req = urllib.request.Request(
         f"{api_base}/predictions/{match_id}", data=data,
-        headers={"Content-Type": "application/json"}, method="POST",
+        headers=headers, method="POST",
     )
     with urllib.request.urlopen(req, timeout=15) as resp:
         resp.read()
