@@ -1,0 +1,53 @@
+{
+  "matches_joined": 389,
+  "books": {
+    "Interwetten.de": {
+      "prices": 1167,
+      "mean_ev": -0.06392976900113785,
+      "share_above_fair": 0.07197943444730077,
+      "bets_over_2pct": 31
+    },
+    "bet365": {
+      "prices": 1167,
+      "mean_ev": -0.0591456604148444,
+      "share_above_fair": 0.03598971722365039,
+      "bets_over_2pct": 21
+    },
+    "bet-at-home.de": {
+      "prices": 1119,
+      "mean_ev": -0.057143311868953155,
+      "share_above_fair": 0.07685433422698838,
+      "bets_over_2pct": 46
+    },
+    "Betano.de": {
+      "prices": 1143,
+      "mean_ev": -0.051299769153479995,
+      "share_above_fair": 0.06649168853893263,
+      "bets_over_2pct": 38
+    },
+    "Neobet": {
+      "prices": 588,
+      "mean_ev": -0.05682940382825148,
+      "share_above_fair": 0.04421768707482993,
+      "bets_over_2pct": 11
+    },
+    "Bet365.de": {
+      "prices": 351,
+      "mean_ev": -0.06024122789797709,
+      "share_above_fair": 0.05128205128205128,
+      "bets_over_2pct": 11
+    },
+    "Winamax.de": {
+      "prices": 351,
+      "mean_ev": -0.0515541679551816,
+      "share_above_fair": 0.05698005698005698,
+      "bets_over_2pct": 7
+    },
+    "Oddset.de": {
+      "prices": 117,
+      "mean_ev": -0.06883762064253147,
+      "share_above_fair": 0.05982905982905983,
+      "bets_over_2pct": 2
+    }
+  }
+}
