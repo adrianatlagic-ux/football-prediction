@@ -2986,3 +2986,23 @@ body {
 /* Flags are wide, not square like crests. */
 .team-crest.team-flag { width: 1.35em; height: 0.95em; object-fit: cover; border-radius: 2px; }
 .fixture-teams .team-crest.team-flag { width: 2em; height: 1.35em; }
+
+.agent-factors-toggle {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cyan-light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+.agent-factors-toggle + .agent-factors-row { margin-top: 0.6rem; }
+.agent-factors-chevron { font-size: 0.7rem; opacity: 0.7; }

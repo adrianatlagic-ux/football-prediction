@@ -795,6 +795,32 @@ function PriceTipBox({ priceTip }) {
   )
 }
 
+// The AI's research, closed until the reader asks for it.
+function AgentFactors({ research }) {
+  const [open, setOpen] = useState(false)
+  const rows = [
+    ['⚕', 'Lineups & injuries', research.lineups_injuries],
+    ['📈', 'Form', research.form],
+    ['🏆', 'Table situation', research.table_situation],
+    ['💬', 'Other', research.other],
+  ].filter(([, , text]) => text)
+  if (rows.length === 0) return null
+  return (
+    <div className="wm-reveal agent-factors">
+      <button className="agent-factors-toggle" onClick={() => setOpen(v => !v)} aria-expanded={open}>
+        <span>✨ External Factors (AI Agent)</span>
+        <span className="agent-factors-chevron">{open ? '▲' : '▼'}</span>
+      </button>
+      {open && rows.map(([icon, label, text]) => (
+        <div className="agent-factors-row" key={label}>
+          <span className="agent-factors-cat">{icon} {label}</span>
+          <p className="agent-factors-text">{text}</p>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 function SmartBetCard({ betStep, betInfo, data }) {
   const [showAllMarkets, setShowAllMarkets] = useState(false)
   const analyzing = betStep < BET_STEPS.length
@@ -1204,20 +1230,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
           <span className="wm-cluster-label">Smart Bet</span>
 
           {betInfo && betInfo.agent_eval && betInfo.agent_eval.research && (
-            <div className="wm-reveal agent-factors">
-              <h4>✨ External Factors (AI Agent)</h4>
-              {[
-                ['⚕', 'Lineups & injuries', betInfo.agent_eval.research.lineups_injuries],
-                ['📈', 'Form', betInfo.agent_eval.research.form],
-                ['🏆', 'Table situation', betInfo.agent_eval.research.table_situation],
-                ['💬', 'Other', betInfo.agent_eval.research.other],
-              ].filter(([, , text]) => text).map(([icon, label, text]) => (
-                <div className="agent-factors-row" key={label}>
-                  <span className="agent-factors-cat">{icon} {label}</span>
-                  <p className="agent-factors-text">{text}</p>
-                </div>
-              ))}
-            </div>
+            <AgentFactors research={betInfo.agent_eval.research} />
           )}
 
           {onStartBetCheck && (

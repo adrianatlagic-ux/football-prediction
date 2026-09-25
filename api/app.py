@@ -1122,14 +1122,40 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
     }
 
 
+# The prompt was written for the World Cup; the competition is now named.
+_AGENT_COMPETITION_NAMES = {
+    "soccer_uefa_champs_league": "UEFA Champions League",
+    "soccer_germany_bundesliga": "Bundesliga",
+    "soccer_uefa_nations_league": "UEFA Nations League",
+}
+
+
 def _call_gemini_agent_pick(
     prediction: dict, value_bets: dict, home_team: str, away_team: str,
     previous_eval: Optional[dict] = None,
 ) -> Optional[dict]:
-    """Research without model numbers or a preferred tip; retain sourced claims.
+    """Ask Gemini (with Google Search grounding) to research current context our
+    stats model can't see, and separately evaluate the candidate bets against it.
 
-    Previous output is used only to label revisions after the independent
-    request, not to anchor the next prompt. Claims are not auto-verified.
+    Returns two distinct, structured pieces - kept deliberately apart and kept
+    short, since a wall of prose isn't scannable in a UI card:
+    - "research": short factual bullets by category (lineups/injuries, form,
+      table situation, other) - shown in the main analysis section,
+      independent of any betting angle. Empty string for categories with
+      nothing worth reporting.
+    - "bet_headline" / "bet_reasoning" / "bet_points": the betting verdict -
+      a plain-language pick label, one sentence of reasoning, and a couple of
+      short supporting bullets - shown only in the Smart Bet section.
+
+    If `previous_eval` is given (an earlier agent_eval for this same match),
+    the agent is told what it concluded before and asked to explicitly confirm
+    or revise it with a reason - rather than re-researching from a blank slate
+    and potentially flip-flopping for no real reason. This is what lets us
+    safely re-check a match later (e.g. closer to kickoff) without the earlier,
+    possibly-better take silently vanishing without explanation.
+
+    Returns None if the call fails (caller treats that as "no agent opinion",
+    not block the rest of the response).
     """
     if not GEMINI_API_KEY:
         return None
@@ -1139,12 +1165,82 @@ def _call_gemini_agent_pick(
     except ImportError:
         return None
 
-    from src.bet_research import research_prompt, capture_evidence
-    candidates = value_bets.get("bets") or []
+    candidates = (value_bets.get("green_bets") or []) + (value_bets.get("red_bets") or [])
     if not candidates:
         return None
-    model_rec = value_bets.get("model_favorite")
-    prompt = research_prompt(value_bets, home_team, away_team)
+
+    # Deliberately give the agent ONLY the market + outcome + odds for each
+    # candidate - NOT our model's per-bet probability or expected value, and
+    # NOT which bet our system already recommends. Revealing those anchored the
+    # agent into rubber-stamping our pick, so its "agreement" carried no
+    # independent information (see Netherlands-Morocco: agent just echoed the
+    # lone green bet). With only the raw market on the table it has to form its
+    # own view, which is the entire point of having a second opinion.
+    cand_lines = "\n".join(
+        f"- market={c['market']}, outcome={c.get('team') or c['outcome']}, odds={c['best_odds']}"
+        for c in candidates
+    )
+
+    previous_block = ""
+    if previous_eval and previous_eval.get("bet_headline"):
+        prev_pick = previous_eval.get("pick")
+        prev_pick_desc = (
+            f"market={prev_pick['market']}, outcome={prev_pick.get('team') or prev_pick['outcome']}"
+            if prev_pick else "none"
+        )
+        previous_block = f"""
+
+YOUR EARLIER ASSESSMENT of this same match (from an earlier check today): \
+pick="{previous_eval['bet_headline']}" ({prev_pick_desc}), reasoning="{previous_eval.get('bet_reasoning', '')}"
+
+You are being asked again now, closer to kickoff, with a chance to search for newer information. \
+Do NOT change your pick just to seem thorough or different - only revise it if you find a CONCRETE, \
+NEW fact (e.g. a confirmed lineup change, injury, or news) that genuinely changes the picture. If \
+nothing material has changed, keep the same pick and say so explicitly in bet_reasoning."""
+
+    competition = _AGENT_COMPETITION_NAMES.get(value_bets.get("sport_key"), "football")
+    prompt = f"""You are researching an upcoming {competition} match: {home_team} vs {away_team}.
+
+For reference only, our statistical model's headline probabilities: Home win \
+{prediction['probability_home_win']:.0%}, Draw {prediction['probability_draw']:.0%}, \
+Away win {prediction['probability_away_win']:.0%}. Treat these as one input to weigh \
+against your own research - NOT as the answer to agree with.
+
+The bets available to pick from (market and current odds only - decide for yourself \
+which, if any, is worth backing):
+{cand_lines}{previous_block}
+
+STEP 1 - RESEARCH (use Google Search). Our stats model only sees historical results, so dig up CURRENT \
+context across as many of these angles as you can actually find information on - don't limit yourself \
+to just one or two:
+- Confirmed/expected lineups, key injuries or suspensions (incl. accumulated yellow cards)
+- Recent form (last 2-3 matches, goals for/against, performance trend)
+- Table situation: what does each team need from this result, is it a dead rubber, must-win, or \
+already decided?
+- Squad fatigue / travel / rest days since the last match, weather/pitch conditions if notable
+- Coach or player quotes/interviews about tactics, motivation, or team news
+- Head-to-head history or tactical matchup notes if genuinely relevant
+- Any other concrete, current fact you find that could matter
+
+STEP 2 - BETTING VERDICT. Based on YOUR research plus the odds, decide which ONE bet from the list is \
+the best one to actually back - or none, if nothing looks good. Form this view independently; do not \
+assume the model's most-likely outcome is the right bet. Then write bet_reasoning as exactly one \
+sentence explaining why you landed on that pick (or why none of them are worth backing - e.g. too \
+unpredictable, no real edge, the odds don't justify it). Wrap the 2-4 words/phrases in that sentence \
+that most directly justify the pick (the actual stat or fact doing the work, e.g. "zero goals \
+conceded", "erratic form", "unbeaten in 8") in double asterisks like **this** - not team names, not \
+filler words, only the specific evidence a reader would want to see highlighted.
+
+Keep everything SHORT - this renders in a small card, not an article. Respond with ONLY raw JSON, no \
+markdown formatting, no code fences, exactly this shape - everything in English:
+{{"research": {{"lineups_injuries": "<one short sentence, or empty string if nothing found>", \
+"form": "<one short sentence, or empty string>", "table_situation": "<one short sentence, or empty \
+string>", "other": "<one short sentence on anything else notable, or empty string>"}}, \
+"pick_market": "<one of the market strings above, or null>", "pick_outcome": "<matching outcome \
+string, or null>", "bet_headline": "<2-5 words naming the pick in plain language, e.g. 'Over 2.5 \
+goals' or 'Croatia to win' - or 'No good bet' if pick is null>", "bet_reasoning": "<exactly ONE \
+sentence with your verdict>", "bet_points": ["<short supporting fact, max 8 words>", "<short \
+supporting fact, max 8 words>"]}}"""
 
     try:
         client = genai.Client(api_key=GEMINI_API_KEY)
@@ -1160,6 +1256,7 @@ def _call_gemini_agent_pick(
         parsed = json.loads(text)
         if not isinstance(parsed, dict):
             return None
+        # Which pages the search actually returned, kept for the audit log.
         source_urls = []
         for candidate in getattr(response, "candidates", []) or []:
             grounding = getattr(candidate, "grounding_metadata", None)
@@ -1167,6 +1264,7 @@ def _call_gemini_agent_pick(
                 uri = getattr(getattr(chunk, "web", None), "uri", None)
                 if uri:
                     source_urls.append(uri)
+        from src.bet_research import capture_evidence
         evidence = capture_evidence(parsed, source_urls)
     except Exception:
         return None
@@ -1212,7 +1310,7 @@ def _call_gemini_agent_pick(
     research = parsed.get("research") or {}
     return {
         "pick": pick,
-        "research_version": "unanchored_club_v1",
+        "research_version": "claude_prompt_v1",
         "evidence": evidence,
         "agrees_with_model": agrees_with_model,
         "revised_from_previous": revised_from_previous,
