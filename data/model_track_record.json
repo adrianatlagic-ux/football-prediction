@@ -17,6 +17,7 @@
    1.0
   ]
  ],
+ "min_cases": 30,
  "archive": [
   {
    "from": 0.0,
@@ -131,6 +132,46 @@
    "model_expected": 0.4756
   }
  ],
+ "by_competition": {
+  "soccer_germany_bundesliga": [
+   {
+    "from": 0.0,
+    "to": 0.05,
+    "n": 896,
+    "verdict": "same",
+    "hit_rate": 0.2768,
+    "market_expected": 0.2762,
+    "model_expected": 0.2994
+   },
+   {
+    "from": 0.05,
+    "to": 0.1,
+    "n": 502,
+    "verdict": "same",
+    "hit_rate": 0.241,
+    "market_expected": 0.2475,
+    "model_expected": 0.3192
+   },
+   {
+    "from": 0.1,
+    "to": 0.2,
+    "n": 272,
+    "verdict": "same",
+    "hit_rate": 0.1985,
+    "market_expected": 0.2444,
+    "model_expected": 0.3772
+   },
+   {
+    "from": 0.2,
+    "to": 1.0,
+    "n": 20,
+    "verdict": "too_few",
+    "hit_rate": 0.45,
+    "market_expected": 0.2358,
+    "model_expected": 0.4608
+   }
+  ]
+ },
  "sources": {
   "archive": "Bundesliga 1X2, model vs Pinnacle pre-closing, 2021-22..2025-26",
   "live": "data/bet_log.jsonl, graded against /real-results"

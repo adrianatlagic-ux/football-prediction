@@ -3038,3 +3038,4 @@ body {
 .model-track.is-worse .model-track-label { color: #f87171; }
 .model-track.is-same { background: rgba(148,163,184,0.08); border: 1px solid rgba(148,163,184,0.2); }
 .model-track.is-same .model-track-label { color: #94a3b8; }
+.model-track-advice { font-weight: 700; color: #e2e8f0 !important; }

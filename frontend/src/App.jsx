@@ -981,51 +981,57 @@ function impliesBet(pick, tip, home, away, sameBet) {
 let MODEL_TRACK_RECORD = null
 
 const TRACK_VERDICTS = {
-  better: ['is-better', 'The model has been right here more often than the market expected.'],
-  worse: ['is-worse', 'The model has done worse here than the market expected - follow the market.'],
-  same: ['is-same', 'The model has been no better than the market here.'],
-  too_few: ['is-same', 'Too few past cases to judge the model here.'],
+  better: ['is-better', 'Here the model has been right more often than the market.'],
+  worse: ['is-worse', 'Better to trust the market.'],
+  same: ['is-same', 'Better to trust the market.'],
 }
 
-function ModelTrackRecord({ bet, bets = [] }) {
-  const rows = MODEL_TRACK_RECORD?.combined
-  if (!rows?.length) return null
-  // A handicap on a team (Draw No Bet, +/-0.5) has no margin-free market
-  // price of its own here; it is judged on the same team's win in 1X2, which
-  // is what the past cases measure.
+const COMPETITION_NAMES = {
+  soccer_germany_bundesliga: 'Bundesliga',
+  soccer_uefa_champs_league: 'Champions League',
+  soccer_uefa_nations_league: 'Nations League',
+}
+
+// How the model did in the past when it disagreed with the market this much -
+// in this competition only, since a Nations League tip is a different model
+// and a different market from a Bundesliga one.
+function ModelTrackRecord({ bet, bets = [], competition }) {
+  const record = MODEL_TRACK_RECORD
+  if (!record) return null
+  // A handicap on a team (Draw No Bet, +/-0.5) is judged on the same team's
+  // 1X2 win, which is what the past cases measure.
   let basis = bet
-  let viaWin = false
   if ((bet.model_probability_raw == null || bet.market_probability == null) && bet.team
       && String(bet.market).startsWith('Handicap')) {
     const win = bets.find(b => b.market === '1X2' && b.team === bet.team)
-    if (win && win.model_probability_raw != null && win.market_probability != null) {
-      basis = win
-      viaWin = true
-    }
+    if (win && win.model_probability_raw != null && win.market_probability != null) basis = win
   }
-  if (basis.model_probability_raw == null || basis.market_probability == null) {
+  if (basis.model_probability_raw == null || basis.market_probability == null) return null
+  const name = COMPETITION_NAMES[competition] || 'this competition'
+  const rows = record.by_competition?.[competition] || []
+  const gap = basis.model_probability_raw - basis.market_probability
+  const row = rows.find(r => gap >= r.from && gap < r.to)
+  const minCases = record.min_cases || 30
+  const optimism = `The model is ${gap >= 0.1 ? 'much ' : ''}more optimistic than the market here `
+    + `(${pct(basis.model_probability_raw)} vs ${pct(basis.market_probability)}).`
+  if (!row || row.n < minCases) {
     return (
       <div className="model-track is-same">
-        <span className="model-track-label">Track record</span>
-        <p>No track record for this kind of bet: without a comparable market price (Draw No Bet refunds on a
-          draw) the past cases do not apply.</p>
+        <span className="model-track-label">Is the model worth trusting here?</span>
+        <p>{optimism} There are too few past {name} cases like this to tell yet
+          ({row ? row.n : 0} of {minCases}); the record builds with every match.</p>
       </div>
     )
   }
-  const gap = basis.model_probability_raw - basis.market_probability
-  const row = rows.find(r => gap >= r.from && gap < r.to)
-  if (!row || !row.n) return null
-  const [cls, text] = TRACK_VERDICTS[row.verdict] || TRACK_VERDICTS.same
-  const band = `${Math.round(row.from * 100)}–${row.to >= 1 ? '100' : Math.round(row.to * 100)}`
+  const [cls, advice] = TRACK_VERDICTS[row.verdict] || TRACK_VERDICTS.same
   return (
     <div className={`model-track ${cls}`}>
-      <span className="model-track-label">Track record</span>
+      <span className="model-track-label">Is the model worth trusting here?</span>
       <p>
-        {viaWin && <>Judged on {bet.team}'s win: the model gives {pct(basis.model_probability_raw)}, the market {pct(basis.market_probability)}. </>}
-        When the model rated a bet {band} points above the market ({row.n} past cases), it landed
-        {' '}<strong>{pct(row.hit_rate)}</strong> of the time - the market expected {pct(row.market_expected)},
-        the model {pct(row.model_expected)}. {text}
+        {optimism} In {row.n} similar {name} bets, {pct(row.hit_rate)} came in
+        {row.hit_rate < row.market_expected ? ' - the market was closer.' : row.hit_rate > row.model_expected ? ' - more than even the model expected.' : '.'}
       </p>
+      <p className="model-track-advice">→ {advice}</p>
     </div>
   )
 }
@@ -1229,7 +1235,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
               reliable market comparison available for this one.</>
             )}
           </p>
-          <ModelTrackRecord bet={best} bets={betInfo.bets || []} />
+          <ModelTrackRecord bet={best} bets={betInfo.bets || []} competition={betInfo.sport_key} />
         </div>
       ) : (
         <div className="smart-bet-signal-box is-green">

@@ -107,7 +107,8 @@ def live_cases(api: str | None) -> list:
                 continue
             g = grade(b, entry["home_team"], entry["away_team"], res["home_score"], res["away_score"])
             if g in ("win", "loss"):
-                cases.append({"gap": model - market, "won": g == "win", "market": market, "model": model})
+                cases.append({"gap": model - market, "won": g == "win", "market": market, "model": model,
+                              "competition": entry.get("sport_key")})
     return cases
 
 
@@ -117,9 +118,16 @@ def main():
     args = parser.parse_args()
     archive = archive_cases()
     live = live_cases(args.api)
-    report = {"buckets": [[lo, hi] for lo, hi in BUCKETS],
+    # Per competition: a Nations League tip is a different model and a
+    # different market from the Bundesliga, so its record is its own. The
+    # archive is Bundesliga only.
+    by_competition = {"soccer_germany_bundesliga": summarise(
+        archive + [c for c in live if c.get("competition") == "soccer_germany_bundesliga"])}
+    for comp in {c.get("competition") for c in live} - {"soccer_germany_bundesliga", None}:
+        by_competition[comp] = summarise([c for c in live if c.get("competition") == comp])
+    report = {"buckets": [[lo, hi] for lo, hi in BUCKETS], "min_cases": MIN_CASES,
               "archive": summarise(archive), "live": summarise(live),
-              "combined": summarise(archive + live),
+              "combined": summarise(archive + live), "by_competition": by_competition,
               "sources": {"archive": "Bundesliga 1X2, model vs Pinnacle pre-closing, 2021-22..2025-26",
                           "live": "data/bet_log.jsonl, graded against /real-results"}}
     OUT.write_text(json.dumps(report, indent=1) + "\n")
