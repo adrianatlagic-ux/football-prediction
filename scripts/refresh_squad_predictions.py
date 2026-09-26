@@ -38,7 +38,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from src.competitions import COMPETITIONS, get as get_competition
+from src.competitions import get as get_competition
 from src.squad_data import available_squad_values
 
 CACHE = ROOT / "data" / "predictions_cache"

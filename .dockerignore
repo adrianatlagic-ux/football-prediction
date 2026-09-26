@@ -7,3 +7,10 @@ __pycache__
 *.pyc
 .venv
 node_modules
+
+# Runtime state the server builds itself; a local copy would give it a stale
+# odds snapshot and a wrong Apify spend count.
+data/odds_snapshot.json
+data/book_odds/spend.json
+data/jobs/
+data/squad_cache/

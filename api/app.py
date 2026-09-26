@@ -60,6 +60,12 @@ def _get_predictor() -> FootballPredictor:
         _predictor = FootballPredictor(model_path=MODEL_PATH if MODEL_PATH.exists() else None)
         if not _predictor._trained:
             raise HTTPException(status_code=503, detail="Modell nicht trainiert. POST /train aufrufen.")
+        # The artifact carries the history it was trained with; read the
+        # result files now rather than waiting for the next daily job.
+        try:
+            _predictor.refresh_history()
+        except Exception:
+            pass
     return _predictor
 
 
@@ -72,6 +78,10 @@ def _get_national_predictor():
         if not _national_predictor._trained:
             raise HTTPException(status_code=503,
                                 detail="Nationalmannschafts-Modell nicht trainiert.")
+        try:
+            _national_predictor.refresh_history()
+        except Exception:
+            pass
     return _national_predictor
 
 

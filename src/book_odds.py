@@ -40,7 +40,9 @@ PRICE_PER_MATCH = 0.003          # USD, 1X2 only
 PRICE_PER_FULL_BOOK = 0.023      # USD, match plus every market
 # Two full reads per match: the morning one and the last-hour one.
 MONTHLY_BUDGET = float(os.getenv("BOOK_MARKETS_BUDGET_USD", "7.0"))
-MAX_WINDOW_ITEMS = 12
+# A Nations League evening lists ten matches at one kickoff plus those still
+# in play; a smaller cap left matches without a book and re-fetched them.
+MAX_WINDOW_ITEMS = 20
 
 _lock = threading.Lock()
 # One window refresh at a time: every match thread in the window calls in,
@@ -56,9 +58,19 @@ def spend_path() -> Path:
     return path().with_name("spend.json")
 
 
+_cache = {"key": None, "data": None}
+
+
 def load() -> dict:
+    """The stored odds, re-read only when the file changed: the bet table and
+    the combo ask for them once per match, hundreds of times per request."""
     try:
-        return json.loads(path().read_text(encoding="utf-8"))
+        stat = path().stat()
+        key = (str(path()), stat.st_mtime_ns, stat.st_size)
+        if _cache["key"] != key:
+            _cache["data"] = json.loads(path().read_text(encoding="utf-8"))
+            _cache["key"] = key
+        return _cache["data"]
     except (OSError, ValueError):
         return {"bookmaker": BOOKMAKER, "fixtures": [], "fetched_at": {}}
 
@@ -162,7 +174,7 @@ def store(sport_key: str, fixtures: list, replace: bool = False) -> None:
     the same match brings one.
     """
     with _lock:
-        data = load()
+        data = dict(load())
         kept = [f for f in data.get("fixtures", []) if f.get("sport_key") != sport_key]
         mine = {} if replace else {_identity(f): f for f in data.get("fixtures", [])
                                    if f.get("sport_key") == sport_key}
