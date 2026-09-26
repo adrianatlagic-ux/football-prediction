@@ -795,13 +795,16 @@ function PriceTipBox({ priceTip }) {
                 <span>{betOutcomeLabel(o)}</span>
                 <span>{o.pinnacle_odds ? o.pinnacle_odds.toFixed(2) : <em title="fair odds from Pinnacle's 1X2">{o.fair_odds.toFixed(2)}</em>}</span>
                 <span>{o.book_odds.toFixed(2)}</span>
-                <span>{pct(o.probability)}</span>
+                <span title={o.refund_probability > 0 ? `win ${pct(o.win_probability)} · draw refunds ${pct(o.refund_probability)} · lose ${pct(o.loss_probability)}` : undefined}>
+                  {pct(o.win_probability ?? o.probability)}{o.refund_probability > 0 ? '*' : ''}
+                </span>
                 <span className={o.edge >= priceTip.threshold ? 'positive' : 'negative'}>{signedPct(o.edge)}</span>
               </div>
             ))}
           </div>
         )}
         <p className="price-tip-footnote">
+          {priceTip.outcomes.some(o => o.refund_probability > 0) && <>* Draw No Bet: chance to win; a draw returns the stake. </>}
           A tip appears when {book} pays at least {pct(priceTip.threshold)} above Pinnacle's fair price.
           That usually happens in the last hour before kickoff, when Pinnacle moves first.
         </p>
@@ -825,8 +828,12 @@ function PriceTipBox({ priceTip }) {
         </div>
         <div className="price-tip-kpi">
           <span className="price-tip-kpi-label">Chance</span>
-          <span className="price-tip-kpi-value">{pct(tip.probability)}</span>
-          <span className="price-tip-kpi-sub">per Pinnacle</span>
+          <span className="price-tip-kpi-value">{pct(tip.win_probability ?? tip.probability)}</span>
+          <span className="price-tip-kpi-sub">
+            {tip.refund_probability > 0
+              ? `win · ${pct(tip.refund_probability)} refund · ${pct(tip.loss_probability)} lose`
+              : 'per Pinnacle'}
+          </span>
         </div>
         <div className="price-tip-kpi is-edge">
           <span className="price-tip-kpi-label">Edge</span>

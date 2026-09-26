@@ -118,3 +118,11 @@ def test_draw_no_bet_away_side_is_labelled_zero_not_minus_zero():
     book = _full_book(spreads=[{"point": 0.0, "home": 1.30, "away": 3.20}], totals=[])
     markets = {r["market"] for r in build_price_tip(_event(), book, now=NOW)["outcomes"]}
     assert "Handicap -0.0" not in markets and "Handicap 0.0" in markets
+
+
+def test_draw_no_bet_reports_win_refund_and_loss_separately():
+    book = _full_book(spreads=[{"point": 0.0, "home": 1.30, "away": 3.20}], totals=[])
+    dnb = next(r for r in build_price_tip(_event(), book, now=NOW)["outcomes"]
+               if r["market"] == "Handicap 0.0" and r["side"] == "home")
+    assert dnb["win_probability"] < dnb["probability"]
+    assert abs(dnb["win_probability"] + dnb["refund_probability"] + dnb["loss_probability"] - 1) < 1e-3

@@ -136,6 +136,11 @@ def _row(market, outcome, team, offered, probability, pinnacle_odds=None, refund
     refund, and the edge counts the refund at stake value."""
     win = probability * (1 - refund)
     return {"market": market, "outcome": outcome, "team": team, "side": side,
+            # The three ways the bet can end. Only Draw No Bet has a refund;
+            # for it "probability" alone (the chance given no draw) reads
+            # higher than the chance of actually winning, so all three are kept.
+            "win_probability": round(win, 4), "refund_probability": round(refund, 4),
+            "loss_probability": round(1 - win - refund, 4),
             "book_odds": round(offered, 2),
             "pinnacle_odds": round(pinnacle_odds, 2) if pinnacle_odds else None,
             "fair_odds": round(1 / probability, 2), "probability": round(probability, 4),
