@@ -3010,7 +3010,7 @@ body {
 
 /* 🎯 Most likely: the second headline tip, under the price tip. */
 .likely-tip {
-  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
   padding: 0.8rem 0.9rem;
   border-radius: 10px;
   background: rgba(34,211,238,0.06);

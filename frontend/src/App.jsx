@@ -1117,9 +1117,9 @@ function SmartBetCard({ betStep, betInfo, data }) {
 
   return (
     <div className="wm-reveal smart-bet-card">
-      <PriceTipBox priceTip={betInfo.price_tip} />
       <LikelyTipBox pick={likelyPick} agentPick={agentPick} sameBet={sameBet}
                     home={betInfo.home_team} away={betInfo.away_team} />
+      <PriceTipBox priceTip={betInfo.price_tip} />
 
       {(greens.length > 0 || reds.length > 0) && (
         <div className="smart-bet-table">
