@@ -48,9 +48,24 @@ def test_the_market_checked_probability_falls_faster_with_more_legs():
 
 
 def test_only_one_leg_per_fixture_is_ever_used():
-    """Two bets on the same match are dependent; multiplying them would lie."""
-    pool = leg_pool([vb("A", "B", [candidate(0.75, 1.6), candidate(0.70, 1.7, outcome="over")])])
-    assert len(pool) == 1
+    """Two bets on the same match are dependent; multiplying them would lie.
+
+    A match may offer several candidate legs, but a ticket takes one."""
+    pool = leg_pool([vb("A", "B", [candidate(0.75, 1.6), candidate(0.70, 1.7, outcome="over")]),
+                     vb("C", "D", [candidate(0.75, 1.6)])])
+    assert len(pool) == 3
+    for ticket in build_tickets(pool):
+        assert len({(l["home_team"], l["away_team"]) for l in ticket["legs"]}) == ticket["leg_count"]
+
+
+def test_search_uses_another_leg_of_a_match_when_the_likeliest_is_too_short():
+    # A's likeliest leg (1.25) cannot reach 2.0 with C's 1.5; A's second leg (1.4) can.
+    pool = leg_pool([vb("A", "B", [candidate(0.90, 1.25, market_probability=.8),
+                                   candidate(0.70, 1.4, outcome="over", market_probability=.7)]),
+                     vb("C", "D", [candidate(0.75, 1.5)])])
+    tickets = build_tickets(pool)
+    assert tickets and tickets[0]["leg_count"] == 2
+    assert sorted(l["best_odds"] for l in tickets[0]["legs"]) == [1.4, 1.5]
 
 
 def test_unlikely_legs_and_legs_the_market_disputes_are_rejected():

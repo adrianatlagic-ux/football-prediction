@@ -20,7 +20,7 @@ a stake, which no accumulator arithmetic here accounts for.
 """
 import math
 from collections import defaultdict
-from itertools import combinations
+from itertools import combinations, product
 from zoneinfo import ZoneInfo
 from .bet_audit import fixture_key, norm, timestamp
 
@@ -67,7 +67,12 @@ def book_key(leg):
 
 
 def leg_pool(value_bet_results, book=None):
-    """One qualifying leg per fixture AND bookmaker at that bookmaker's price.
+    """Every qualifying leg, per bookmaker at that bookmaker's price.
+
+    A match may contribute several legs (Over 1.5 and Team +0.5, say); the
+    ticket search picks at most one of them. Choosing one per match up front
+    hid combinations: the likeliest leg of a match can be too short to help a
+    ticket reach its minimum odds while another leg of the same match fits.
 
     With `book`, only that bookmaker's prices are used - the one the user
     can actually bet with.
@@ -113,7 +118,7 @@ def leg_pool(value_bet_results, book=None):
                        # ticket is never advertised on model confidence alone.
                        "conservative_probability": min(offered["probability"], market_probability),
                        "market_agrees": True, "quote_fresh": True}
-                key = (identity, book_key(leg))
+                key = (identity, book_key(leg), leg["market"], leg["outcome"], leg.get("team"))
                 old = selected.get(key)
                 if old is None or (leg["conservative_probability"], leg["probability"]) > (old["conservative_probability"], old["probability"]):
                     selected[key] = leg
@@ -164,21 +169,46 @@ def score_ticket(legs):
             "min_snapshot_time": min((l.get("odds_fetched_at") for l in legs if l.get("odds_fetched_at")), default=None)}
 
 
-def build_tickets(legs, min_legs=MIN_LEGS, max_legs=MAX_LEGS, pool_size=7):
+# Search bounds: the best few legs of each match and the best matches of a
+# day. Wider than any day needs in practice and still small enough to try
+# every combination (8 matches x 4 legs at 4-folds is ~18,000 tickets).
+LEGS_PER_FIXTURE = 4
+FIXTURES_PER_DAY = 8
+
+
+def _by_fixture(group):
+    fixtures = defaultdict(list)
+    for leg in group:
+        fixtures[fixture_key(leg)].append(leg)
+    for legs in fixtures.values():
+        legs.sort(key=lambda l: (-l.get("conservative_probability", l["probability"]), -l["best_odds"]))
+    return fixtures
+
+
+def build_tickets(legs, min_legs=MIN_LEGS, max_legs=MAX_LEGS, pool_size=FIXTURES_PER_DAY):
+    """Every ticket of one leg per match, same book and day, best first.
+
+    All legs of a match stay candidates until the ticket is put together, so
+    the search sees every mix and keeps the likeliest ticket that reaches
+    MIN_COMBINED_ODDS - often with fewer legs, and so less margin paid.
+    """
     groups = defaultdict(list)
     for leg in legs:
         groups[(book_key(leg), match_day(leg.get("commence_time")))].append(leg)
     tickets = []
     for group in groups.values():
-        ranked = sorted(group, key=lambda l: (-l.get("conservative_probability", l["probability"]), l["home_team"]))[:pool_size]
+        fixtures = _by_fixture(group)
+        ranked = sorted(fixtures.values(), key=lambda ls: (-ls[0].get("conservative_probability", ls[0]["probability"]),
+                                                           ls[0]["home_team"]))[:pool_size]
         for size in range(max(MIN_LEGS, min_legs), min(MAX_LEGS, max_legs, len(ranked))+1):
             for chosen in combinations(ranked, size):
-                try:
-                    ticket = score_ticket(list(chosen))
-                except (ValueError, KeyError, TypeError):
-                    continue
-                if ticket["combined_odds"] >= MIN_COMBINED_ODDS:
-                    tickets.append(ticket)
+                for picks in product(*(ls[:LEGS_PER_FIXTURE] for ls in chosen)):
+                    if _product(l["best_odds"] for l in picks) < MIN_COMBINED_ODDS:
+                        continue
+                    try:
+                        tickets.append(score_ticket(list(picks)))
+                    except (ValueError, KeyError, TypeError):
+                        continue
     return sorted(tickets, key=lambda t: (-t["ranking_score"], -t["conservative_probability"], t["bookmaker_key"]))
 
 
@@ -196,7 +226,9 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None):
         all_in = None
         # Comparison uses only the recommended bookmaker, never mixed best prices.
         if top:
-            same_book = [l for l in day_legs if book_key(l) == top["bookmaker_key"]]
+            # One leg per match: each match's likeliest.
+            same_book = [ls[0] for ls in _by_fixture(
+                [l for l in day_legs if book_key(l) == top["bookmaker_key"]]).values()]
             try:
                 all_in = score_ticket(same_book)
             except (ValueError, KeyError, TypeError):
