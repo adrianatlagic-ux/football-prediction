@@ -1068,10 +1068,11 @@ function SmartBetCard({ betStep, betInfo, data }) {
   // The model's favourite is no longer marked.
   const signals = [priceTipPick, likelyPick, best, agentPick].filter(Boolean)
   const signalRank = b => { const i = signals.findIndex(x => sameBet(x, b)); return i === -1 ? signals.length : i }
-  // After the marked bets: positive edges without ⚠, then positive edges
-  // with ⚠ (the model/market gap the warning is about), then the rest -
-  // each group with the largest edge first.
-  const edgeGroup = b => b.expected_value > 0 ? (b.suspicious ? 1 : 0) : 2
+  // After the marked bets: positive edges with a stake of at least 1% -
+  // first those without ⚠, then those with it - then the greyed rest
+  // (smaller stakes, then no edge). Largest edge first within each group.
+  const worthStaking = b => b.expected_value > 0 && (b.kelly_stake_pct || 0) >= 1
+  const edgeGroup = b => worthStaking(b) ? (b.suspicious ? 1 : 0) : (b.expected_value > 0 ? 2 : 3)
   const ordered = [...allBets].sort((a, b) =>
     signalRank(a) - signalRank(b)
     || edgeGroup(a) - edgeGroup(b)
