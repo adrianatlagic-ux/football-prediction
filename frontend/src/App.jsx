@@ -547,9 +547,11 @@ function BetMetric({ label, value, detail, emphasis = false }) {
   )
 }
 
-function ComboLegRow({ leg, index }) {
+function ComboLegRow({ leg, index, onOpenLeg }) {
   return (
-    <div className="combo-leg">
+    <div className={`combo-leg ${onOpenLeg ? 'is-clickable' : ''}`} role={onOpenLeg ? 'button' : undefined}
+         tabIndex={onOpenLeg ? 0 : undefined} onClick={onOpenLeg ? () => onOpenLeg(leg) : undefined}
+         title={onOpenLeg ? 'Open this match with the bet' : undefined}>
       <span className="combo-leg-num">{index + 1}</span>
       <div className="combo-leg-body">
         <div className="combo-leg-match">
@@ -568,7 +570,7 @@ function ComboLegRow({ leg, index }) {
   )
 }
 
-function ComboTicketCard({ ticket, primary }) {
+function ComboTicketCard({ ticket, primary, onOpenLeg }) {
   return (
     <div className={`combo-ticket ${primary ? 'is-primary' : ''}`}>
       <div className="combo-ticket-head">
@@ -579,7 +581,7 @@ function ComboTicketCard({ ticket, primary }) {
         </div>
       </div>
       <div className="combo-legs">
-        {ticket.legs.map((leg, i) => <ComboLegRow key={i} leg={leg} index={i} />)}
+        {ticket.legs.map((leg, i) => <ComboLegRow key={i} leg={leg} index={i} onOpenLeg={onOpenLeg} />)}
       </div>
       <dl className="bet-metrics probability-metrics">
         <BetMetric label="Chance all of them land" value={betPercent(ticket.conservative_probability)}
@@ -603,7 +605,7 @@ function ComboTicketCard({ ticket, primary }) {
 
 // A combo of the day's price tips: every leg is a bet where bet-at-home pays
 // more than Pinnacle's fair price, so the edges multiply.
-function PriceTipComboCard({ ticket }) {
+function PriceTipComboCard({ ticket, onOpenLeg }) {
   return (
     <div className="combo-ticket is-primary price-tip-combo">
       <div className="combo-ticket-head">
@@ -615,7 +617,8 @@ function PriceTipComboCard({ ticket }) {
       </div>
       <div className="combo-legs">
         {ticket.legs.map((leg, i) => (
-          <div className="combo-leg" key={i}>
+          <div className={`combo-leg ${onOpenLeg ? 'is-clickable' : ''}`} key={i} role="button" tabIndex={0}
+               onClick={onOpenLeg ? () => onOpenLeg(leg) : undefined}>
             <span className="combo-leg-num">{i + 1}</span>
             <div className="combo-leg-body">
               <div className="combo-leg-match">
@@ -643,7 +646,7 @@ function PriceTipComboCard({ ticket }) {
   )
 }
 
-function ComboTicketView({ combo, loading }) {
+function ComboTicketView({ combo, loading, onOpenLeg }) {
   if (loading) {
     return (
       <div className="analyzing-status loading-inline">
@@ -662,7 +665,7 @@ function ComboTicketView({ combo, loading }) {
       {combo.price_tip_combos?.length > 0 && (
         <div className="combo-day">
           <span className="combo-section-label">💰 Price tip combo</span>
-          {combo.price_tip_combos.map(t => <PriceTipComboCard key={t.date} ticket={t} />)}
+          {combo.price_tip_combos.map(t => <PriceTipComboCard key={t.date} ticket={t} onOpenLeg={onOpenLeg} />)}
         </div>
       )}
 
@@ -693,7 +696,7 @@ function ComboTicketView({ combo, loading }) {
                        aria-label={`${option.leg_count}-fold combo`}>
                 <h3 className="combo-size-title">{option.leg_count}-fold combo</h3>
                 {option.ticket ? (
-                  <ComboTicketCard ticket={option.ticket} />
+                  <ComboTicketCard ticket={option.ticket} onOpenLeg={onOpenLeg} />
                 ) : (
                   <div className="combo-size-empty">
                     <strong>Not available</strong>
@@ -1007,8 +1010,13 @@ function LikelyTipBox({ pick, agentPick, sameBet, home, away }) {
   )
 }
 
-function SmartBetCard({ betStep, betInfo, data }) {
+function SmartBetCard({ betStep, betInfo, data, focusBet }) {
   const [showAllMarkets, setShowAllMarkets] = useState(false)
+  const focusRow = useRef(null)
+  // Opened from a combo: bring the combo's bet into view once the table exists.
+  useEffect(() => {
+    if (focusBet && focusRow.current) focusRow.current.scrollIntoView({ block: 'center', behavior: 'smooth' })
+  }, [focusBet, betInfo])
   const analyzing = betStep < BET_STEPS.length
   if (analyzing) {
     return (
@@ -1068,7 +1076,8 @@ function SmartBetCard({ betStep, betInfo, data }) {
     signalRank(a) - signalRank(b)
     || (b.kelly_stake_pct || 0) - (a.kelly_stake_pct || 0)
     || b.expected_value - a.expected_value)
-  const visibleRows = showAllMarkets ? ordered : ordered.slice(0, TABLE_ROWS)
+  const focusIndex = focusBet ? ordered.findIndex(b => sameBet(b, focusBet)) : -1
+  const visibleRows = (showAllMarkets || focusIndex >= TABLE_ROWS) ? ordered : ordered.slice(0, TABLE_ROWS)
   const hiddenCount = ordered.length - TABLE_ROWS
   const hasUserBook = (betInfo.bets || []).some(b => b.bookmaker_key === USER_BOOK_KEY)
 
@@ -1081,6 +1090,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
     const isPriceTip = priceTipPick && sameBet(b, priceTipPick)
     const isAgentPick = agentPick && sameBet(b, agentPick)
     const isLikelyPick = likelyPick && sameBet(b, likelyPick)
+    const isFocus = focusBet && sameBet(b, focusBet)
     // Any marked signal (price tip 💰, value bet ★, AI pick ✨, model
     // favorite ◆, most likely 🎯) is a headline in its own right - dimming its
     // row to 40% opacity just because the model rates its edge negative
@@ -1089,7 +1099,8 @@ function SmartBetCard({ betStep, betInfo, data }) {
     // the model's edge column may well be negative on it.
     const keepFullOpacity = isPriceTip || isAgentPick || isLikelyPick || isRec
     return (
-      <div className={`smart-bet-table-row ${dimmed(b) && !keepFullOpacity ? 'is-red' : ''} ${isPriceTip ? 'is-rec' : ''}`} key={`${kind}-${i}`}>
+      <div className={`smart-bet-table-row ${dimmed(b) && !keepFullOpacity ? 'is-red' : ''} ${isPriceTip ? 'is-rec' : ''} ${isFocus ? 'is-focus' : ''}`}
+           key={`${kind}-${i}`} ref={isFocus ? focusRow : undefined}>
         <span className="smart-bet-col-market">{marketGroupLabel(b.market)}{b.suspicious ? ' ⚠' : ''}</span>
         <span className="smart-bet-col-pick">
           {isPriceTip ? '💰 ' : ''}{isLikelyPick ? '🎯 ' : ''}{isRec ? '★ ' : ''}{isAgentPick ? '✨ ' : ''}{betOutcomeLabel(b)}
@@ -1231,7 +1242,7 @@ function RevealSection({ visible, className = '', children }) {
   return <div className={`wm-reveal ${className}`}>{children}</div>
 }
 
-function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Infinity, betStep, onStartBetCheck, betInfo }) {
+function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Infinity, betStep, onStartBetCheck, betInfo, focusBet }) {
   const sp = data.score_prediction || {}
   const gf = data.game_flow || {}
   const ps = gf.predicted_stats || {}
@@ -1407,7 +1418,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
                   </button>
                 </div>
               ) : (
-                <SmartBetCard betStep={betStep} betInfo={betInfo} data={data} />
+                <SmartBetCard betStep={betStep} betInfo={betInfo} data={data} focusBet={focusBet} />
               )}
             </div>
           )}
@@ -2209,6 +2220,45 @@ export default function App() {
 
   const [betStepById, setBetStepById] = useState({})
   const [betInfoById, setBetInfoById] = useState({})
+  const [focusBet, setFocusBet] = useState(null)
+
+  // A combo leg names the match as the odds feed spells it; the fixture list
+  // may spell it differently ("Bosnia & Herzegovina"), so names are compared
+  // loosely and the kickoff date settles a doubt.
+  function findFixture(leg) {
+    const simple = name => String(name || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase().replace(/\band\b|&/g, ' ').replace(/[^a-z]/g, '')
+    const words = name => new Set(String(name || '').toLowerCase().split(/[^a-zà-ž]+/).filter(w => w.length > 2))
+    const overlap = (a, b) => [...words(a)].some(w => words(b).has(w))
+    const date = leg.commence_time ? berlinDate(leg.commence_time) : null
+    const keys = Object.keys(COMPETITIONS)
+    const ordered = [...keys.filter(k => COMPETITIONS[k].sportKey === leg.sport_key), ...keys.filter(k => COMPETITIONS[k].sportKey !== leg.sport_key)]
+    for (const key of ordered) {
+      const fixtures = COMPETITIONS[key].fixtures
+      const exact = fixtures.find(f => simple(f.home_team) === simple(leg.home_team) && simple(f.away_team) === simple(leg.away_team)
+        && (!date || f.date === date))
+      const loose = exact || fixtures.find(f => f.date === date && overlap(f.home_team, leg.home_team) && overlap(f.away_team, leg.away_team))
+      if (loose) return [key, loose]
+    }
+    return [null, null]
+  }
+
+  // From a combo leg straight to that match: analysis open, bet tips loaded
+  // at once (no reveal animation), the combo's bet highlighted in the table.
+  function openLeg(leg) {
+    const [key, fixture] = findFixture(leg)
+    if (!fixture) return
+    const id = fixture.match_id
+    setActiveCompetition(key)
+    setActiveGroup(fixture.group)
+    setAnalysisStep(prev => ({ ...prev, [id]: Infinity }))
+    setBetStepById(prev => ({ ...prev, [id]: Infinity }))
+    axios.get(`${API_BASE}/value-bets`, { params: { home_team: fixture.home_team, away_team: fixture.away_team } })
+      .then(r => setBetInfoById(prev => ({ ...prev, [id]: r.data })))
+      .catch(() => setBetInfoById(prev => ({ ...prev, [id]: { odds_found: false, bets: [] } })))
+    setFocusBet({ matchId: id, bet: { market: leg.market, outcome: leg.outcome, team: leg.team ?? null } })
+    setTimeout(() => document.getElementById(`match-${id}`)?.scrollIntoView({ block: 'start', behavior: 'smooth' }), 150)
+  }
 
   function startBetCheck(matchId, fixture) {
     setBetStepById(prev => ({ ...prev, [matchId]: 0 }))
@@ -2388,7 +2438,7 @@ export default function App() {
               )}
 
               {activeGroup === 'combo' && (
-                <ComboTicketView combo={combo} loading={comboLoading} />
+                <ComboTicketView combo={combo} loading={comboLoading} onOpenLeg={openLeg} />
               )}
 
               {activeGroup === 'next' && nextGames.length === 0 && (
@@ -2458,6 +2508,7 @@ export default function App() {
                         betStep={betStepById[fixture.match_id]}
                         betInfo={betInfoById[fixture.match_id]}
                         onStartBetCheck={() => startBetCheck(fixture.match_id, fixture)}
+                        focusBet={focusBet && focusBet.matchId === fixture.match_id ? focusBet.bet : null}
                       />
                     )
                   })
