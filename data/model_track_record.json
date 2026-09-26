@@ -170,6 +170,44 @@
     "market_expected": 0.2358,
     "model_expected": 0.4608
    }
+  ],
+  "soccer_uefa_nations_league": [
+   {
+    "from": 0.0,
+    "to": 0.05,
+    "n": 258,
+    "verdict": "same",
+    "hit_rate": 0.3178,
+    "market_expected": 0.2975,
+    "model_expected": 0.32
+   },
+   {
+    "from": 0.05,
+    "to": 0.1,
+    "n": 140,
+    "verdict": "same",
+    "hit_rate": 0.2857,
+    "market_expected": 0.3219,
+    "model_expected": 0.3953
+   },
+   {
+    "from": 0.1,
+    "to": 0.2,
+    "n": 80,
+    "verdict": "same",
+    "hit_rate": 0.375,
+    "market_expected": 0.365,
+    "model_expected": 0.4995
+   },
+   {
+    "from": 0.2,
+    "to": 1.0,
+    "n": 14,
+    "verdict": "too_few",
+    "hit_rate": 0.3571,
+    "market_expected": 0.3124,
+    "model_expected": 0.5469
+   }
   ]
  },
  "sources": {

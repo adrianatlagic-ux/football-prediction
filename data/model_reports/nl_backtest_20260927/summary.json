@@ -1,0 +1,16 @@
+{
+ "2020-2021": {
+  "matches": 167,
+  "skipped": 0,
+  "cutoff": "2020-09-01",
+  "logloss_model": 1.0101335604869477,
+  "logloss_market": 0.9569369935373779
+ },
+ "2024-2025": {
+  "matches": 182,
+  "skipped": 0,
+  "cutoff": "2024-09-01",
+  "logloss_model": 0.8941617069185546,
+  "logloss_market": 0.8899083969731166
+ }
+}

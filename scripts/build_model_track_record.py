@@ -13,6 +13,9 @@ Two sources, kept apart in the output:
   archive  every Bundesliga 1X2 outcome 2021-22 to 2025-26 (except 2024-25,
            which has no archive), the model's point-in-time forecast against
            Pinnacle's pre-closing margin-free price
+  nations  Nations League 2020-21 and 2024-25, national models trained
+           before each season against the average German-licensed price
+           (scripts/nl_backtest.py)
   live     every bet the site logged (data/bet_log.jsonl) with a model and a
            market probability, graded against the real result
 
@@ -85,6 +88,21 @@ def archive_cases() -> list:
     return cases
 
 
+def nations_league_cases() -> list:
+    """Nations League 2020-21 and 2024-25: point-in-time national models
+    against the average German-licensed price (scripts/nl_backtest.py)."""
+    path = ROOT / "data" / "model_reports" / "nl_backtest_20260927" / "cases.jsonl"
+    if not path.exists():
+        return []
+    cases = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        r = json.loads(line)
+        if r["model"] > r["market"]:
+            cases.append({"gap": r["model"] - r["market"], "won": r["won"], "market": r["market"],
+                          "model": r["model"], "competition": "soccer_uefa_nations_league"})
+    return cases
+
+
 def live_cases(api: str | None) -> list:
     path = ROOT / "data" / "bet_log.jsonl"
     if not api or not path.exists():
@@ -123,8 +141,10 @@ def main():
     # archive is Bundesliga only.
     by_competition = {"soccer_germany_bundesliga": summarise(
         archive + [c for c in live if c.get("competition") == "soccer_germany_bundesliga"])}
-    for comp in {c.get("competition") for c in live} - {"soccer_germany_bundesliga", None}:
-        by_competition[comp] = summarise([c for c in live if c.get("competition") == comp])
+    nl_archive = nations_league_cases()
+    for comp in ({c.get("competition") for c in live} | {"soccer_uefa_nations_league"}) - {"soccer_germany_bundesliga", None}:
+        extra = nl_archive if comp == "soccer_uefa_nations_league" else []
+        by_competition[comp] = summarise(extra + [c for c in live if c.get("competition") == comp])
     report = {"buckets": [[lo, hi] for lo, hi in BUCKETS], "min_cases": MIN_CASES,
               "archive": summarise(archive), "live": summarise(live),
               "combined": summarise(archive + live), "by_competition": by_competition,

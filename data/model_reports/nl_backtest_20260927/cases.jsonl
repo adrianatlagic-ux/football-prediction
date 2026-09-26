@@ -1,0 +1,1047 @@
+{"season": "2020-2021", "date": "2022-03-29", "home": "Cyprus", "away": "Estonia", "outcome": 0, "model": 0.46855314468553144, "market": 0.38083593344265376, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2022-03-29", "home": "Cyprus", "away": "Estonia", "outcome": 1, "model": 0.290970902909709, "market": 0.33836861712350896, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2022-03-29", "home": "Cyprus", "away": "Estonia", "outcome": 2, "model": 0.24047595240475952, "market": 0.2807954494338372, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2022-03-24", "home": "Estonia", "away": "Cyprus", "outcome": 0, "model": 0.5131, "market": 0.4261716937354988, "won": false, "books": 1}
+{"season": "2020-2021", "date": "2022-03-24", "home": "Estonia", "away": "Cyprus", "outcome": 1, "model": 0.2746, "market": 0.33410672853828305, "won": true, "books": 1}
+{"season": "2020-2021", "date": "2022-03-24", "home": "Estonia", "away": "Cyprus", "outcome": 2, "model": 0.2123, "market": 0.2397215777262181, "won": false, "books": 1}
+{"season": "2020-2021", "date": "2022-03-24", "home": "Moldova", "away": "Kazakhstan", "outcome": 0, "model": 0.326, "market": 0.40633245382585753, "won": false, "books": 1}
+{"season": "2020-2021", "date": "2022-03-24", "home": "Moldova", "away": "Kazakhstan", "outcome": 1, "model": 0.2863, "market": 0.3324538258575198, "won": false, "books": 1}
+{"season": "2020-2021", "date": "2022-03-24", "home": "Moldova", "away": "Kazakhstan", "outcome": 2, "model": 0.3877, "market": 0.2612137203166227, "won": true, "books": 1}
+{"season": "2020-2021", "date": "2021-10-10", "home": "Spain", "away": "France", "outcome": 0, "model": 0.5079, "market": 0.32773248639572755, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2021-10-10", "home": "Spain", "away": "France", "outcome": 1, "model": 0.2523, "market": 0.3096433556531062, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2021-10-10", "home": "Spain", "away": "France", "outcome": 2, "model": 0.2398, "market": 0.36262415795116626, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2021-10-10", "home": "Italy", "away": "Belgium", "outcome": 0, "model": 0.4186418641864187, "market": 0.4823297108760197, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2021-10-10", "home": "Italy", "away": "Belgium", "outcome": 1, "model": 0.26042604260426044, "market": 0.27401919806289815, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2021-10-10", "home": "Italy", "away": "Belgium", "outcome": 2, "model": 0.3209320932093209, "market": 0.24365109106108215, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2021-10-07", "home": "Belgium", "away": "France", "outcome": 0, "model": 0.3802, "market": 0.30901936319792694, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2021-10-07", "home": "Belgium", "away": "France", "outcome": 1, "model": 0.3035, "market": 0.2993017731602563, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2021-10-07", "home": "Belgium", "away": "France", "outcome": 2, "model": 0.3163, "market": 0.39167886364181687, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2021-10-06", "home": "Italy", "away": "Spain", "outcome": 0, "model": 0.4731, "market": 0.43097014925373134, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2021-10-06", "home": "Italy", "away": "Spain", "outcome": 1, "model": 0.2204, "market": 0.3078358208955224, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2021-10-06", "home": "Italy", "away": "Spain", "outcome": 2, "model": 0.3065, "market": 0.2611940298507463, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Belgium", "away": "Denmark", "outcome": 0, "model": 0.6225, "market": 0.5497819330026574, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Belgium", "away": "Denmark", "outcome": 1, "model": 0.2228, "market": 0.2575690699820669, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Belgium", "away": "Denmark", "outcome": 2, "model": 0.1547, "market": 0.1926489970152755, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Bosnia and Herzegovina", "away": "Italy", "outcome": 0, "model": 0.1076, "market": 0.09655172413793105, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Bosnia and Herzegovina", "away": "Italy", "outcome": 1, "model": 0.1968, "market": 0.17931034482758623, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Bosnia and Herzegovina", "away": "Italy", "outcome": 2, "model": 0.6956, "market": 0.7241379310344829, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "England", "away": "Iceland", "outcome": 0, "model": 0.7428, "market": 0.8176412289395442, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "England", "away": "Iceland", "outcome": 1, "model": 0.1968, "market": 0.12537165510406342, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "England", "away": "Iceland", "outcome": 2, "model": 0.0604, "market": 0.05698711595639247, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Poland", "away": "Netherlands", "outcome": 0, "model": 0.22277772222777717, "market": 0.2969815728982176, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Poland", "away": "Netherlands", "outcome": 1, "model": 0.2925707429257074, "market": 0.25684892791197195, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Poland", "away": "Netherlands", "outcome": 2, "model": 0.48465153484651524, "market": 0.44616949918981047, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Austria", "away": "Norway", "outcome": 0, "model": 0.4106, "market": 0.7274238802868128, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Austria", "away": "Norway", "outcome": 1, "model": 0.2844, "market": 0.1787384391561883, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Austria", "away": "Norway", "outcome": 2, "model": 0.305, "market": 0.09383768055699887, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Republic of Ireland", "away": "Bulgaria", "outcome": 0, "model": 0.48594859485948594, "market": 0.5237778516794146, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Republic of Ireland", "away": "Bulgaria", "outcome": 1, "model": 0.2672267226722672, "market": 0.2976388427003658, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Republic of Ireland", "away": "Bulgaria", "outcome": 2, "model": 0.24682468246824682, "market": 0.17858330562021946, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Czech Republic", "away": "Slovakia", "outcome": 0, "model": 0.4765, "market": 0.6361815450448399, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Czech Republic", "away": "Slovakia", "outcome": 1, "model": 0.2527, "market": 0.21896481085264258, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Czech Republic", "away": "Slovakia", "outcome": 2, "model": 0.2708, "market": 0.14485364410251741, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Wales", "away": "Finland", "outcome": 0, "model": 0.4625, "market": 0.4592824863967537, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Wales", "away": "Finland", "outcome": 1, "model": 0.3331, "market": 0.313843032371115, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Wales", "away": "Finland", "outcome": 2, "model": 0.2044, "market": 0.2268744812321313, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Hungary", "away": "Turkey", "outcome": 0, "model": 0.2607, "market": 0.26104722987741136, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Hungary", "away": "Turkey", "outcome": 1, "model": 0.241, "market": 0.2805283664354271, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Hungary", "away": "Turkey", "outcome": 2, "model": 0.4983, "market": 0.4584244036871615, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Israel", "away": "Scotland", "outcome": 0, "model": 0.3457, "market": 0.3071296933815435, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Israel", "away": "Scotland", "outcome": 1, "model": 0.2639, "market": 0.2992797331673187, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Israel", "away": "Scotland", "outcome": 2, "model": 0.3904, "market": 0.3935905734511377, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Northern Ireland", "away": "Romania", "outcome": 0, "model": 0.3327332733273327, "market": 0.3450544722956814, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Northern Ireland", "away": "Romania", "outcome": 1, "model": 0.22682268226822683, "market": 0.3086130758816161, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Northern Ireland", "away": "Romania", "outcome": 2, "model": 0.44044404440444046, "market": 0.34633245182270245, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Serbia", "away": "Russia", "outcome": 0, "model": 0.3256, "market": 0.3297033187718681, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Serbia", "away": "Russia", "outcome": 1, "model": 0.3176, "market": 0.28810997701910934, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Serbia", "away": "Russia", "outcome": 2, "model": 0.3568, "market": 0.38218670420902257, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Greece", "away": "Slovenia", "outcome": 0, "model": 0.3929, "market": 0.4709684900136244, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Greece", "away": "Slovenia", "outcome": 1, "model": 0.356, "market": 0.3058236948140418, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Greece", "away": "Slovenia", "outcome": 2, "model": 0.2511, "market": 0.22320781517233382, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Kosovo", "away": "Moldova", "outcome": 0, "model": 0.6335, "market": 0.6450451040421735, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Kosovo", "away": "Moldova", "outcome": 1, "model": 0.1897, "market": 0.23544146297539334, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Kosovo", "away": "Moldova", "outcome": 2, "model": 0.1768, "market": 0.11951343298243317, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Armenia", "away": "North Macedonia", "outcome": 0, "model": 0.3497, "market": 0.29430531185197, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Armenia", "away": "North Macedonia", "outcome": 1, "model": 0.2734, "market": 0.28712713351411706, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Armenia", "away": "North Macedonia", "outcome": 2, "model": 0.3769, "market": 0.4185675546339129, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Georgia", "away": "Estonia", "outcome": 0, "model": 0.7006, "market": 0.6138357219331693, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Georgia", "away": "Estonia", "outcome": 1, "model": 0.1451, "market": 0.24876500309923177, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Georgia", "away": "Estonia", "outcome": 2, "model": 0.1543, "market": 0.13739927496759896, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Albania", "away": "Belarus", "outcome": 0, "model": 0.5859, "market": 0.5349514255877978, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Albania", "away": "Belarus", "outcome": 1, "model": 0.2361, "market": 0.27290275624189103, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Albania", "away": "Belarus", "outcome": 2, "model": 0.178, "market": 0.192145818170311, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Kazakhstan", "away": "Lithuania", "outcome": 0, "model": 0.653034696530347, "market": 0.46491137141080136, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Kazakhstan", "away": "Lithuania", "outcome": 1, "model": 0.21187881211878812, "market": 0.29309629936767906, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-18", "home": "Kazakhstan", "away": "Lithuania", "outcome": 2, "model": 0.13508649135086492, "market": 0.24199232922151967, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Croatia", "away": "Portugal", "outcome": 0, "model": 0.2082, "market": 0.22860140908409532, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Croatia", "away": "Portugal", "outcome": 1, "model": 0.2686, "market": 0.25298555938639883, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Croatia", "away": "Portugal", "outcome": 2, "model": 0.5232, "market": 0.5184130315295058, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "France", "away": "Sweden", "outcome": 0, "model": 0.6348, "market": 0.6096055312056301, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "France", "away": "Sweden", "outcome": 1, "model": 0.2855, "market": 0.2392122970553738, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "France", "away": "Sweden", "outcome": 2, "model": 0.0797, "market": 0.15118217173899626, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Spain", "away": "Germany", "outcome": 0, "model": 0.36833683368336834, "market": 0.39379474940334136, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Spain", "away": "Germany", "outcome": 1, "model": 0.23302330233023302, "market": 0.2625298329355609, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Spain", "away": "Germany", "outcome": 2, "model": 0.39863986398639867, "market": 0.3436754176610979, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Luxembourg", "away": "Azerbaijan", "outcome": 0, "model": 0.4724, "market": 0.4454432212234455, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Luxembourg", "away": "Azerbaijan", "outcome": 1, "model": 0.3482, "market": 0.3131333535333132, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Luxembourg", "away": "Azerbaijan", "outcome": 2, "model": 0.1794, "market": 0.24142342524324142, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Montenegro", "away": "Cyprus", "outcome": 0, "model": 0.5813418658134187, "market": 0.5586021929940014, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Montenegro", "away": "Cyprus", "outcome": 1, "model": 0.27877212278772123, "market": 0.2659261144112288, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Montenegro", "away": "Cyprus", "outcome": 2, "model": 0.13988601139886012, "market": 0.17547169259476994, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Andorra", "away": "Latvia", "outcome": 0, "model": 0.1730826917308269, "market": 0.1544166629657592, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Andorra", "away": "Latvia", "outcome": 1, "model": 0.286971302869713, "market": 0.30377048452280503, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Andorra", "away": "Latvia", "outcome": 2, "model": 0.5399460053994601, "market": 0.5418128525114357, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Malta", "away": "Faroe Islands", "outcome": 0, "model": 0.3371, "market": 0.348313038623914, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Malta", "away": "Faroe Islands", "outcome": 1, "model": 0.3016, "market": 0.3085726248211856, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Malta", "away": "Faroe Islands", "outcome": 2, "model": 0.3613, "market": 0.34311433655490037, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Gibraltar", "away": "Liechtenstein", "outcome": 0, "model": 0.4142, "market": 0.3634776855475127, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Gibraltar", "away": "Liechtenstein", "outcome": 1, "model": 0.3658, "market": 0.3226661559421779, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-17", "home": "Gibraltar", "away": "Liechtenstein", "outcome": 2, "model": 0.22, "market": 0.3138561585103095, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Belgium", "away": "England", "outcome": 0, "model": 0.367, "market": 0.4355938202074293, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Belgium", "away": "England", "outcome": 1, "model": 0.2326, "market": 0.2834610531499092, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Belgium", "away": "England", "outcome": 2, "model": 0.4004, "market": 0.2809451266426615, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Denmark", "away": "Iceland", "outcome": 0, "model": 0.6645335466453355, "market": 0.7260999676480104, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Denmark", "away": "Iceland", "outcome": 1, "model": 0.27897210278972107, "market": 0.1840019411193789, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Denmark", "away": "Iceland", "outcome": 2, "model": 0.05649435056494351, "market": 0.08989809123261082, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Italy", "away": "Poland", "outcome": 0, "model": 0.5249, "market": 0.5712686556951702, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Italy", "away": "Poland", "outcome": 1, "model": 0.2839, "market": 0.26281505647684134, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Italy", "away": "Poland", "outcome": 2, "model": 0.1912, "market": 0.16591628782798853, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Austria", "away": "Northern Ireland", "outcome": 0, "model": 0.5897410258974103, "market": 0.7727908026473932, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Austria", "away": "Northern Ireland", "outcome": 1, "model": 0.2286771322867713, "market": 0.16165521892113838, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Austria", "away": "Northern Ireland", "outcome": 2, "model": 0.18158184181581843, "market": 0.06555397843146853, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Czech Republic", "away": "Israel", "outcome": 0, "model": 0.5692, "market": 0.5334281650071123, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Czech Republic", "away": "Israel", "outcome": 1, "model": 0.2136, "market": 0.2532005689900427, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Czech Republic", "away": "Israel", "outcome": 2, "model": 0.2172, "market": 0.21337126600284492, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Hungary", "away": "Serbia", "outcome": 0, "model": 0.3177, "market": 0.24824909666770753, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Hungary", "away": "Serbia", "outcome": 1, "model": 0.3336, "market": 0.2989918365526163, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Hungary", "away": "Serbia", "outcome": 2, "model": 0.3487, "market": 0.45275906677967614, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Moldova", "away": "Greece", "outcome": 0, "model": 0.0378, "market": 0.090258541089566, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Moldova", "away": "Greece", "outcome": 1, "model": 0.1163, "market": 0.2229916897506925, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Moldova", "away": "Greece", "outcome": 2, "model": 0.8459, "market": 0.6867497691597415, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Slovenia", "away": "Kosovo", "outcome": 0, "model": 0.6045, "market": 0.552134211085156, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Slovenia", "away": "Kosovo", "outcome": 1, "model": 0.2538, "market": 0.29050753875557445, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Slovenia", "away": "Kosovo", "outcome": 2, "model": 0.1417, "market": 0.15735825015926946, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Bulgaria", "away": "Finland", "outcome": 0, "model": 0.3802619738026198, "market": 0.24645646514318773, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Bulgaria", "away": "Finland", "outcome": 1, "model": 0.3146685331466853, "market": 0.3080705814289847, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Bulgaria", "away": "Finland", "outcome": 2, "model": 0.3050694930506949, "market": 0.4454729534278276, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Wales", "away": "Republic of Ireland", "outcome": 0, "model": 0.5528, "market": 0.4321503445270174, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Wales", "away": "Republic of Ireland", "outcome": 1, "model": 0.2694, "market": 0.32897258060880213, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Wales", "away": "Republic of Ireland", "outcome": 2, "model": 0.1778, "market": 0.23887707486418044, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Turkey", "away": "Russia", "outcome": 0, "model": 0.3931, "market": 0.39238698032804137, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Turkey", "away": "Russia", "outcome": 1, "model": 0.255, "market": 0.29551644455955617, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Turkey", "away": "Russia", "outcome": 2, "model": 0.3519, "market": 0.3120965751124026, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Albania", "away": "Kazakhstan", "outcome": 0, "model": 0.6593659365936594, "market": 0.5598298213569742, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Albania", "away": "Kazakhstan", "outcome": 1, "model": 0.21022102210221025, "market": 0.28674210362186486, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Albania", "away": "Kazakhstan", "outcome": 2, "model": 0.13041304130413042, "market": 0.153428075021161, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Georgia", "away": "Armenia", "outcome": 0, "model": 0.6158, "market": 0.5044843049327354, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Georgia", "away": "Armenia", "outcome": 1, "model": 0.1575, "market": 0.2858744394618835, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Georgia", "away": "Armenia", "outcome": 2, "model": 0.2267, "market": 0.20964125560538122, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Belarus", "away": "Lithuania", "outcome": 0, "model": 0.5045, "market": 0.5417286548858812, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Belarus", "away": "Lithuania", "outcome": 1, "model": 0.3114, "market": 0.2830654232737037, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Belarus", "away": "Lithuania", "outcome": 2, "model": 0.1841, "market": 0.1752059218404151, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "North Macedonia", "away": "Armenia", "outcome": 0, "model": 0.6331, "market": 0.6371171601228125, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "North Macedonia", "away": "Armenia", "outcome": 1, "model": 0.2332, "market": 0.23282306098315125, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "North Macedonia", "away": "Armenia", "outcome": 2, "model": 0.1337, "market": 0.13005977889403622, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Gibraltar", "away": "San Marino", "outcome": 0, "model": 0.5475, "market": 0.6314011065218389, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Gibraltar", "away": "San Marino", "outcome": 1, "model": 0.1599, "market": 0.24883636101530918, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Gibraltar", "away": "San Marino", "outcome": 2, "model": 0.2926, "market": 0.11976253246285201, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Italy", "away": "Bosnia and Herzegovina", "outcome": 0, "model": 0.626, "market": 0.7146638433033352, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Italy", "away": "Bosnia and Herzegovina", "outcome": 1, "model": 0.2774, "market": 0.18528321863419803, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Italy", "away": "Bosnia and Herzegovina", "outcome": 2, "model": 0.0966, "market": 0.10005293806246693, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Netherlands", "away": "Poland", "outcome": 0, "model": 0.7443255674432556, "market": 0.6382448028923035, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Netherlands", "away": "Poland", "outcome": 1, "model": 0.15328467153284672, "market": 0.22927240492247794, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Netherlands", "away": "Poland", "outcome": 2, "model": 0.10238976102389762, "market": 0.13248279218521866, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Norway", "away": "Austria", "outcome": 0, "model": 0.405, "market": 0.37336770698842203, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Norway", "away": "Austria", "outcome": 1, "model": 0.244, "market": 0.3080591641818663, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Norway", "away": "Austria", "outcome": 2, "model": 0.351, "market": 0.31857312882971156, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Slovakia", "away": "Czech Republic", "outcome": 0, "model": 0.3009, "market": 0.3162681531465454, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Slovakia", "away": "Czech Republic", "outcome": 1, "model": 0.2539, "market": 0.3029191726565938, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Slovakia", "away": "Czech Republic", "outcome": 2, "model": 0.4452, "market": 0.38081267419686077, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Scotland", "away": "Israel", "outcome": 0, "model": 0.5364, "market": 0.45656527128826174, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Scotland", "away": "Israel", "outcome": 1, "model": 0.2442, "market": 0.2971297797272814, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Scotland", "away": "Israel", "outcome": 2, "model": 0.2194, "market": 0.24630494898445696, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Romania", "away": "Northern Ireland", "outcome": 0, "model": 0.5595, "market": 0.44999904194370455, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Romania", "away": "Northern Ireland", "outcome": 1, "model": 0.2754, "market": 0.3068845925386576, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Romania", "away": "Northern Ireland", "outcome": 2, "model": 0.1651, "market": 0.24311636551763777, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Belarus", "away": "Albania", "outcome": 0, "model": 0.31793179317931797, "market": 0.32392674239709995, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Belarus", "away": "Albania", "outcome": 1, "model": 0.2706270627062706, "market": 0.32280975363021347, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Belarus", "away": "Albania", "outcome": 2, "model": 0.4114411441144114, "market": 0.35326350397268647, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Lithuania", "away": "Kazakhstan", "outcome": 0, "model": 0.3454, "market": 0.24524408031530273, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Lithuania", "away": "Kazakhstan", "outcome": 1, "model": 0.3197, "market": 0.323891319864693, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-04", "home": "Lithuania", "away": "Kazakhstan", "outcome": 2, "model": 0.3349, "market": 0.43086459982000436, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Germany", "away": "Spain", "outcome": 0, "model": 0.4233, "market": 0.39996908037912215, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Germany", "away": "Spain", "outcome": 1, "model": 0.1549, "market": 0.2858637871778711, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Germany", "away": "Spain", "outcome": 2, "model": 0.4218, "market": 0.3141671324430068, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Ukraine", "away": "Switzerland", "outcome": 0, "model": 0.2721, "market": 0.3694644425672126, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Ukraine", "away": "Switzerland", "outcome": 1, "model": 0.2949, "market": 0.3136728321124322, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Ukraine", "away": "Switzerland", "outcome": 2, "model": 0.433, "market": 0.3168627253203552, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Bulgaria", "away": "Republic of Ireland", "outcome": 0, "model": 0.2151, "market": 0.23118127995489143, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Bulgaria", "away": "Republic of Ireland", "outcome": 1, "model": 0.2385, "market": 0.3120947279391034, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Bulgaria", "away": "Republic of Ireland", "outcome": 2, "model": 0.5464, "market": 0.45672399210600506, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Finland", "away": "Wales", "outcome": 0, "model": 0.3427, "market": 0.2501470299941188, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Finland", "away": "Wales", "outcome": 1, "model": 0.2566, "market": 0.32346598706136054, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Finland", "away": "Wales", "outcome": 2, "model": 0.4007, "market": 0.42638698294452065, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Turkey", "away": "Hungary", "outcome": 0, "model": 0.5823, "market": 0.5221278265975081, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Turkey", "away": "Hungary", "outcome": 1, "model": 0.2707, "market": 0.2920652530029811, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Turkey", "away": "Hungary", "outcome": 2, "model": 0.147, "market": 0.18580692039951083, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Russia", "away": "Serbia", "outcome": 0, "model": 0.5398539853985398, "market": 0.45059142434696886, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Russia", "away": "Serbia", "outcome": 1, "model": 0.2057205720572057, "market": 0.2947264662395268, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Russia", "away": "Serbia", "outcome": 2, "model": 0.2544254425442544, "market": 0.25468210941350417, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Slovenia", "away": "Greece", "outcome": 0, "model": 0.3952604739526047, "market": 0.299508307195687, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Slovenia", "away": "Greece", "outcome": 1, "model": 0.29247075292470753, "market": 0.32550729219531266, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Slovenia", "away": "Greece", "outcome": 2, "model": 0.31226877312268775, "market": 0.3749844006090002, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Moldova", "away": "Kosovo", "outcome": 0, "model": 0.1396860313968603, "market": 0.09444389238467382, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Moldova", "away": "Kosovo", "outcome": 1, "model": 0.20117988201179882, "market": 0.22118007584232746, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Moldova", "away": "Kosovo", "outcome": 2, "model": 0.6591340865913409, "market": 0.6843760317729988, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Faroe Islands", "away": "Malta", "outcome": 0, "model": 0.5055, "market": 0.5892404997342947, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Faroe Islands", "away": "Malta", "outcome": 1, "model": 0.2561, "market": 0.2675287326379844, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Faroe Islands", "away": "Malta", "outcome": 2, "model": 0.2384, "market": 0.14323076762772088, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Latvia", "away": "Andorra", "outcome": 0, "model": 0.5681, "market": 0.6112312187355834, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Latvia", "away": "Andorra", "outcome": 1, "model": 0.2433, "market": 0.270866312675827, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-03", "home": "Latvia", "away": "Andorra", "outcome": 2, "model": 0.1886, "market": 0.11790246858858967, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "England", "away": "Belgium", "outcome": 0, "model": 0.49094909490949096, "market": 0.40446743304301486, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "England", "away": "Belgium", "outcome": 1, "model": 0.2923292329232923, "market": 0.29917749809213473, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "England", "away": "Belgium", "outcome": 2, "model": 0.21672167216721672, "market": 0.29635506886485047, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Bosnia and Herzegovina", "away": "Netherlands", "outcome": 0, "model": 0.13, "market": 0.13022595553468316, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Bosnia and Herzegovina", "away": "Netherlands", "outcome": 1, "model": 0.2854, "market": 0.22750317533167536, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Bosnia and Herzegovina", "away": "Netherlands", "outcome": 2, "model": 0.5846, "market": 0.6422708691336414, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Croatia", "away": "Sweden", "outcome": 0, "model": 0.576, "market": 0.48611111111111116, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Croatia", "away": "Sweden", "outcome": 1, "model": 0.2445, "market": 0.2708333333333333, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Croatia", "away": "Sweden", "outcome": 2, "model": 0.1795, "market": 0.24305555555555558, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Finland", "away": "Bulgaria", "outcome": 0, "model": 0.5227, "market": 0.5551174596363868, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Finland", "away": "Bulgaria", "outcome": 1, "model": 0.2287, "market": 0.2817262783139621, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Finland", "away": "Bulgaria", "outcome": 2, "model": 0.2486, "market": 0.16315626204965106, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Norway", "away": "Romania", "outcome": 0, "model": 0.6333000000000001, "market": 0.568466549736908, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Norway", "away": "Romania", "outcome": 1, "model": 0.21230000000000002, "market": 0.2599599097970433, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Norway", "away": "Romania", "outcome": 2, "model": 0.15440000000000004, "market": 0.17157354046604859, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Lithuania", "away": "Belarus", "outcome": 0, "model": 0.3738, "market": 0.3067888508303437, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Lithuania", "away": "Belarus", "outcome": 1, "model": 0.3088, "market": 0.3245888865440496, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Lithuania", "away": "Belarus", "outcome": 2, "model": 0.3174, "market": 0.3686222626256067, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Estonia", "away": "North Macedonia", "outcome": 0, "model": 0.1301, "market": 0.18441463892700136, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Estonia", "away": "North Macedonia", "outcome": 1, "model": 0.2395, "market": 0.2840982275361913, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Estonia", "away": "North Macedonia", "outcome": 2, "model": 0.6304, "market": 0.5314871335368073, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Republic of Ireland", "away": "Wales", "outcome": 0, "model": 0.3961, "market": 0.32448248608471925, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Republic of Ireland", "away": "Wales", "outcome": 1, "model": 0.2633, "market": 0.34990835253165614, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Republic of Ireland", "away": "Wales", "outcome": 2, "model": 0.3406, "market": 0.3256091613836245, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Kazakhstan", "away": "Albania", "outcome": 0, "model": 0.2331, "market": 0.2701421800947867, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Kazakhstan", "away": "Albania", "outcome": 1, "model": 0.3113, "market": 0.31516587677725116, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Kazakhstan", "away": "Albania", "outcome": 2, "model": 0.4556, "market": 0.4146919431279621, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Ukraine", "away": "Germany", "outcome": 0, "model": 0.1328132813281328, "market": 0.1328081501889254, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Ukraine", "away": "Germany", "outcome": 1, "model": 0.2297229722972297, "market": 0.17600782729498848, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Ukraine", "away": "Germany", "outcome": 2, "model": 0.6374637463746374, "market": 0.6911840225160861, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Spain", "away": "Switzerland", "outcome": 0, "model": 0.6411641164116412, "market": 0.6418691631412705, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Spain", "away": "Switzerland", "outcome": 1, "model": 0.20182018201820182, "market": 0.2149446389272153, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Spain", "away": "Switzerland", "outcome": 2, "model": 0.157015701570157, "market": 0.1431861979315142, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Netherlands", "away": "Bosnia and Herzegovina", "outcome": 0, "model": 0.7836, "market": 0.7157596079442868, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Netherlands", "away": "Bosnia and Herzegovina", "outcome": 1, "model": 0.1496, "market": 0.18132576734588599, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Netherlands", "away": "Bosnia and Herzegovina", "outcome": 2, "model": 0.0668, "market": 0.1029146247098272, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Andorra", "away": "Malta", "outcome": 0, "model": 0.4166, "market": 0.2618164534938, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Andorra", "away": "Malta", "outcome": 1, "model": 0.3202, "market": 0.3579521825110547, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Andorra", "away": "Malta", "outcome": 2, "model": 0.2632, "market": 0.38023136399514523, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Slovakia", "away": "Scotland", "outcome": 0, "model": 0.2978, "market": 0.34148330594363324, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Slovakia", "away": "Scotland", "outcome": 1, "model": 0.2895, "market": 0.31330811568425754, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "Slovakia", "away": "Scotland", "outcome": 2, "model": 0.4127, "market": 0.3452085783721092, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "North Macedonia", "away": "Estonia", "outcome": 0, "model": 0.702, "market": 0.5685207955789964, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "North Macedonia", "away": "Estonia", "outcome": 1, "model": 0.1805, "market": 0.2673497225668935, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-15", "home": "North Macedonia", "away": "Estonia", "outcome": 2, "model": 0.1175, "market": 0.16412948185411025, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Faroe Islands", "away": "Latvia", "outcome": 0, "model": 0.4449, "market": 0.3879256056089676, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Faroe Islands", "away": "Latvia", "outcome": 1, "model": 0.3135, "market": 0.3311222133590831, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Faroe Islands", "away": "Latvia", "outcome": 2, "model": 0.2416, "market": 0.2809521810319493, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Sweden", "away": "Croatia", "outcome": 0, "model": 0.259, "market": 0.35334532962538856, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Sweden", "away": "Croatia", "outcome": 1, "model": 0.3007, "market": 0.29592671356126293, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Sweden", "away": "Croatia", "outcome": 2, "model": 0.4403, "market": 0.3507279568133486, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Liechtenstein", "away": "Gibraltar", "outcome": 0, "model": 0.4954, "market": 0.5905511811023622, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Liechtenstein", "away": "Gibraltar", "outcome": 1, "model": 0.261, "market": 0.25590551181102367, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Liechtenstein", "away": "Gibraltar", "outcome": 2, "model": 0.2436, "market": 0.15354330708661418, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Montenegro", "away": "Azerbaijan", "outcome": 0, "model": 0.5127487251274871, "market": 0.5053506949677911, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Montenegro", "away": "Azerbaijan", "outcome": 1, "model": 0.340965903409659, "market": 0.29876078821995194, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Montenegro", "away": "Azerbaijan", "outcome": 2, "model": 0.1462853714628537, "market": 0.19588851681225716, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Portugal", "away": "France", "outcome": 0, "model": 0.4228, "market": 0.4268592917241566, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Portugal", "away": "France", "outcome": 1, "model": 0.2574, "market": 0.2956199442685929, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Portugal", "away": "France", "outcome": 2, "model": 0.3198, "market": 0.27752076400725045, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Luxembourg", "away": "Cyprus", "outcome": 0, "model": 0.3652, "market": 0.49614607576651043, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Luxembourg", "away": "Cyprus", "outcome": 1, "model": 0.367, "market": 0.2830863495364474, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-10", "home": "Luxembourg", "away": "Cyprus", "outcome": 2, "model": 0.2678, "market": 0.22076757469704214, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Belgium", "away": "Iceland", "outcome": 0, "model": 0.6894310568943106, "market": 0.8000315283360921, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Belgium", "away": "Iceland", "outcome": 1, "model": 0.22497750224977503, "market": 0.13486245763379837, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Belgium", "away": "Iceland", "outcome": 2, "model": 0.0855914408559144, "market": 0.06510601403010956, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Germany", "away": "Ukraine", "outcome": 0, "model": 0.7408, "market": 0.7696066454923041, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Germany", "away": "Ukraine", "outcome": 1, "model": 0.1663, "market": 0.1402394331785976, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Germany", "away": "Ukraine", "outcome": 2, "model": 0.0929, "market": 0.09015392132909847, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Switzerland", "away": "Spain", "outcome": 0, "model": 0.1826, "market": 0.23661971830985915, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Switzerland", "away": "Spain", "outcome": 1, "model": 0.2501, "market": 0.2704225352112676, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Switzerland", "away": "Spain", "outcome": 2, "model": 0.5673, "market": 0.49295774647887325, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "France", "away": "Croatia", "outcome": 0, "model": 0.5652, "market": 0.5529953917050691, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "France", "away": "Croatia", "outcome": 1, "model": 0.2898, "market": 0.2626728110599078, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "France", "away": "Croatia", "outcome": 2, "model": 0.145, "market": 0.18433179723502305, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Azerbaijan", "away": "Montenegro", "outcome": 0, "model": 0.3113, "market": 0.24178023444200902, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Azerbaijan", "away": "Montenegro", "outcome": 1, "model": 0.2334, "market": 0.31964166587248644, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Azerbaijan", "away": "Montenegro", "outcome": 2, "model": 0.4553, "market": 0.43857809968550465, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Cyprus", "away": "Luxembourg", "outcome": 0, "model": 0.4199, "market": 0.2971938775510204, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Cyprus", "away": "Luxembourg", "outcome": 1, "model": 0.305, "market": 0.2971938775510204, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Cyprus", "away": "Luxembourg", "outcome": 2, "model": 0.2751, "market": 0.40561224489795916, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Denmark", "away": "England", "outcome": 0, "model": 0.3162, "market": 0.2545760164837293, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Denmark", "away": "England", "outcome": 1, "model": 0.2377, "market": 0.29930982129716416, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Denmark", "away": "England", "outcome": 2, "model": 0.4461, "market": 0.4461141622191066, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Latvia", "away": "Faroe Islands", "outcome": 0, "model": 0.5697, "market": 0.4156088772418311, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Latvia", "away": "Faroe Islands", "outcome": 1, "model": 0.2328, "market": 0.3195888952583736, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Latvia", "away": "Faroe Islands", "outcome": 2, "model": 0.1975, "market": 0.2648022274997952, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Sweden", "away": "Portugal", "outcome": 0, "model": 0.418058194180582, "market": 0.16613350394540416, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Sweden", "away": "Portugal", "outcome": 1, "model": 0.25387461253874616, "market": 0.2513862230752826, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Sweden", "away": "Portugal", "outcome": 2, "model": 0.32806719328067196, "market": 0.5824802729793134, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Malta", "away": "Andorra", "outcome": 0, "model": 0.4427, "market": 0.5675117924528302, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Malta", "away": "Andorra", "outcome": 1, "model": 0.3549, "market": 0.30033903301886794, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "Malta", "away": "Andorra", "outcome": 2, "model": 0.2024, "market": 0.13214917452830188, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Cyprus", "away": "Azerbaijan", "outcome": 0, "model": 0.3678, "market": 0.3915343915343916, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Cyprus", "away": "Azerbaijan", "outcome": 1, "model": 0.383, "market": 0.326278659611993, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Cyprus", "away": "Azerbaijan", "outcome": 2, "model": 0.2492, "market": 0.28218694885361556, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "San Marino", "away": "Gibraltar", "outcome": 0, "model": 0.1857, "market": 0.1842585797907743, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "San Marino", "away": "Gibraltar", "outcome": 1, "model": 0.1661, "market": 0.31230267761148184, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-11-14", "home": "San Marino", "away": "Gibraltar", "outcome": 2, "model": 0.6482, "market": 0.5034387425977439, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Iceland", "away": "Belgium", "outcome": 0, "model": 0.0967096709670967, "market": 0.0907830907830908, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Iceland", "away": "Belgium", "outcome": 1, "model": 0.207020702070207, "market": 0.1815661815661816, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Iceland", "away": "Belgium", "outcome": 2, "model": 0.6962696269626963, "market": 0.7276507276507277, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Luxembourg", "away": "Montenegro", "outcome": 0, "model": 0.3657, "market": 0.2834310903419287, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Luxembourg", "away": "Montenegro", "outcome": 1, "model": 0.2105, "market": 0.31149357453419885, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Luxembourg", "away": "Montenegro", "outcome": 2, "model": 0.4238, "market": 0.40507533512387234, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Poland", "away": "Bosnia and Herzegovina", "outcome": 0, "model": 0.6203, "market": 0.4904458598726114, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Poland", "away": "Bosnia and Herzegovina", "outcome": 1, "model": 0.2147, "market": 0.28535031847133757, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Poland", "away": "Bosnia and Herzegovina", "outcome": 2, "model": 0.165, "market": 0.2242038216560509, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "San Marino", "away": "Liechtenstein", "outcome": 0, "model": 0.1958, "market": 0.13498625399756192, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "San Marino", "away": "Liechtenstein", "outcome": 1, "model": 0.1219, "market": 0.2772255007472316, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "San Marino", "away": "Liechtenstein", "outcome": 2, "model": 0.6823, "market": 0.5877882452552063, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Croatia", "away": "France", "outcome": 0, "model": 0.24872487248724873, "market": 0.26756761753341596, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Croatia", "away": "France", "outcome": 1, "model": 0.18031803180318032, "market": 0.2690835813721322, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Croatia", "away": "France", "outcome": 2, "model": 0.5709570957095709, "market": 0.463348801094452, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Armenia", "away": "Estonia", "outcome": 0, "model": 0.5116488351164884, "market": 0.5504103651242939, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Armenia", "away": "Estonia", "outcome": 1, "model": 0.24817518248175183, "market": 0.2784620486279712, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Armenia", "away": "Estonia", "outcome": 2, "model": 0.24017598240175983, "market": 0.171127586247735, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "England", "away": "Denmark", "outcome": 0, "model": 0.4905, "market": 0.5091018634074967, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "England", "away": "Denmark", "outcome": 1, "model": 0.2658, "market": 0.2816628652579938, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "England", "away": "Denmark", "outcome": 2, "model": 0.2437, "market": 0.20923527133450967, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Georgia", "away": "North Macedonia", "outcome": 0, "model": 0.4806, "market": 0.3237257994161662, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Georgia", "away": "North Macedonia", "outcome": 1, "model": 0.2937, "market": 0.3259738952454451, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-08", "home": "Georgia", "away": "North Macedonia", "outcome": 2, "model": 0.2257, "market": 0.35030030533838874, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Italy", "away": "Netherlands", "outcome": 0, "model": 0.48774877487748775, "market": 0.4787234042553191, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Italy", "away": "Netherlands", "outcome": 1, "model": 0.25152515251525154, "market": 0.28723404255319146, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Italy", "away": "Netherlands", "outcome": 2, "model": 0.2607260726072607, "market": 0.23404255319148937, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Bosnia and Herzegovina", "away": "Poland", "outcome": 0, "model": 0.2577, "market": 0.2483487348052593, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Bosnia and Herzegovina", "away": "Poland", "outcome": 1, "model": 0.2677, "market": 0.31501953609526173, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Bosnia and Herzegovina", "away": "Poland", "outcome": 2, "model": 0.4746, "market": 0.43663172909947906, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Portugal", "away": "Sweden", "outcome": 0, "model": 0.5785, "market": 0.626995539516949, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Portugal", "away": "Sweden", "outcome": 1, "model": 0.2677, "market": 0.23630485157673956, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Portugal", "away": "Sweden", "outcome": 2, "model": 0.1538, "market": 0.13669960890631155, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Netherlands", "away": "Italy", "outcome": 0, "model": 0.533, "market": 0.39823008849557523, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Netherlands", "away": "Italy", "outcome": 1, "model": 0.265, "market": 0.30088495575221236, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Netherlands", "away": "Italy", "outcome": 2, "model": 0.202, "market": 0.30088495575221236, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Romania", "away": "Austria", "outcome": 0, "model": 0.2592, "market": 0.2031773468377048, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Romania", "away": "Austria", "outcome": 1, "model": 0.3163, "market": 0.27722156944619775, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Romania", "away": "Austria", "outcome": 2, "model": 0.4245, "market": 0.5196010837160975, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Bulgaria", "away": "Wales", "outcome": 0, "model": 0.18198180181981802, "market": 0.24887857086645163, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Bulgaria", "away": "Wales", "outcome": 1, "model": 0.21157884211578842, "market": 0.3420949083182498, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Bulgaria", "away": "Wales", "outcome": 2, "model": 0.6064393560643936, "market": 0.4090265208152987, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Austria", "away": "Romania", "outcome": 0, "model": 0.5557, "market": 0.5865024102838778, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Austria", "away": "Romania", "outcome": 1, "model": 0.2478, "market": 0.2570969469737547, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Austria", "away": "Romania", "outcome": 2, "model": 0.1965, "market": 0.15640064274236742, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Scotland", "away": "Czech Republic", "outcome": 0, "model": 0.3814, "market": 0.26417649714409097, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Scotland", "away": "Czech Republic", "outcome": 1, "model": 0.2746, "market": 0.29962510059473574, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Scotland", "away": "Czech Republic", "outcome": 2, "model": 0.344, "market": 0.4361984022611734, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Russia", "away": "Hungary", "outcome": 0, "model": 0.6586, "market": 0.6640313126789087, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Russia", "away": "Hungary", "outcome": 1, "model": 0.202, "market": 0.21430101454637507, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Russia", "away": "Hungary", "outcome": 2, "model": 0.1394, "market": 0.12166767277471617, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Czech Republic", "away": "Scotland", "outcome": 0, "model": 0.5081, "market": 0.21051588284850584, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Czech Republic", "away": "Scotland", "outcome": 1, "model": 0.1927, "market": 0.26022102185440305, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Czech Republic", "away": "Scotland", "outcome": 2, "model": 0.2992, "market": 0.529263095297091, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Slovakia", "away": "Israel", "outcome": 0, "model": 0.5541, "market": 0.30998722107539567, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Slovakia", "away": "Israel", "outcome": 1, "model": 0.2557, "market": 0.29536518234542414, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Slovakia", "away": "Israel", "outcome": 2, "model": 0.1902, "market": 0.3946475965791802, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Israel", "away": "Slovakia", "outcome": 0, "model": 0.2638, "market": 0.4943643280544988, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Israel", "away": "Slovakia", "outcome": 1, "model": 0.2668, "market": 0.2803857382995665, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Israel", "away": "Slovakia", "outcome": 2, "model": 0.4694, "market": 0.22524993364593474, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Northern Ireland", "away": "Norway", "outcome": 0, "model": 0.1753, "market": 0.21675825980338492, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Northern Ireland", "away": "Norway", "outcome": 1, "model": 0.225, "market": 0.3114093665841963, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Northern Ireland", "away": "Norway", "outcome": 2, "model": 0.5997, "market": 0.4718323736124187, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Norway", "away": "Northern Ireland", "outcome": 0, "model": 0.6863313668633136, "market": 0.6934529061652736, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Norway", "away": "Northern Ireland", "outcome": 1, "model": 0.22037796220377964, "market": 0.20727383568896088, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Norway", "away": "Northern Ireland", "outcome": 2, "model": 0.0932906709329067, "market": 0.09927325814576547, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Turkey", "away": "Serbia", "outcome": 0, "model": 0.4007, "market": 0.3490882024562709, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Turkey", "away": "Serbia", "outcome": 1, "model": 0.246, "market": 0.2992184592482322, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Turkey", "away": "Serbia", "outcome": 2, "model": 0.3533, "market": 0.3516933382954968, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Estonia", "away": "Armenia", "outcome": 0, "model": 0.4193, "market": 0.2336018411967779, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Estonia", "away": "Armenia", "outcome": 1, "model": 0.2249, "market": 0.30034522439585726, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Estonia", "away": "Armenia", "outcome": 2, "model": 0.3558, "market": 0.46605293440736484, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Albania", "away": "Lithuania", "outcome": 0, "model": 0.7640764076407641, "market": 0.6678726747798123, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Albania", "away": "Lithuania", "outcome": 1, "model": 0.143014301430143, "market": 0.220553301904031, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Albania", "away": "Lithuania", "outcome": 2, "model": 0.0929092909290929, "market": 0.11157402331615686, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Belarus", "away": "Kazakhstan", "outcome": 0, "model": 0.5329, "market": 0.4892559930443423, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Belarus", "away": "Kazakhstan", "outcome": 1, "model": 0.2621, "market": 0.3100235995528506, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Belarus", "away": "Kazakhstan", "outcome": 2, "model": 0.205, "market": 0.2007204074028071, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Kazakhstan", "away": "Belarus", "outcome": 0, "model": 0.4185, "market": 0.3020151080792651, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Kazakhstan", "away": "Belarus", "outcome": 1, "model": 0.3235, "market": 0.33082927033417736, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-07", "home": "Kazakhstan", "away": "Belarus", "outcome": 2, "model": 0.258, "market": 0.3671556215865576, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "North Macedonia", "away": "Georgia", "outcome": 0, "model": 0.3685, "market": 0.3778694867165334, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "North Macedonia", "away": "Georgia", "outcome": 1, "model": 0.2884, "market": 0.3198349239102399, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "North Macedonia", "away": "Georgia", "outcome": 2, "model": 0.3431, "market": 0.3022955893732267, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Switzerland", "away": "Germany", "outcome": 0, "model": 0.23557644235576444, "market": 0.2111118557737417, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Switzerland", "away": "Germany", "outcome": 1, "model": 0.23787621237876214, "market": 0.2496481469070438, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Switzerland", "away": "Germany", "outcome": 2, "model": 0.5265473452654734, "market": 0.5392399973192145, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Spain", "away": "Ukraine", "outcome": 0, "model": 0.7313, "market": 0.6817713356055979, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Spain", "away": "Ukraine", "outcome": 1, "model": 0.1498, "market": 0.19682938140914746, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Spain", "away": "Ukraine", "outcome": 2, "model": 0.1189, "market": 0.12139928298525482, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Greece", "away": "Kosovo", "outcome": 0, "model": 0.6378, "market": 0.5856727976766699, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Greece", "away": "Kosovo", "outcome": 1, "model": 0.1946, "market": 0.2581477896095515, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Greece", "away": "Kosovo", "outcome": 2, "model": 0.1676, "market": 0.15617941271377864, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Serbia", "away": "Turkey", "outcome": 0, "model": 0.2869, "market": 0.4904458598726114, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Serbia", "away": "Turkey", "outcome": 1, "model": 0.2878, "market": 0.28535031847133757, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Serbia", "away": "Turkey", "outcome": 2, "model": 0.4253, "market": 0.2242038216560509, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Kosovo", "away": "Greece", "outcome": 0, "model": 0.2692, "market": 0.2745509605678486, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Kosovo", "away": "Greece", "outcome": 1, "model": 0.3343, "market": 0.3160099982374902, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Kosovo", "away": "Greece", "outcome": 2, "model": 0.3965, "market": 0.40943904119466124, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Malta", "away": "Latvia", "outcome": 0, "model": 0.28047195280471954, "market": 0.26860142019141714, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Malta", "away": "Latvia", "outcome": 1, "model": 0.2582741725827417, "market": 0.31954306884841005, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Malta", "away": "Latvia", "outcome": 2, "model": 0.46125387461253875, "market": 0.41185551096017287, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Moldova", "away": "Slovenia", "outcome": 0, "model": 0.043104310431043104, "market": 0.11426514341376645, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Moldova", "away": "Slovenia", "outcome": 1, "model": 0.13071307130713072, "market": 0.26554575582072487, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Moldova", "away": "Slovenia", "outcome": 2, "model": 0.8261826182618262, "market": 0.6201891007655087, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Republic of Ireland", "away": "Finland", "outcome": 0, "model": 0.41744174417441743, "market": 0.5274444140128975, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Republic of Ireland", "away": "Finland", "outcome": 1, "model": 0.2682268226822682, "market": 0.29804795458506583, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Republic of Ireland", "away": "Finland", "outcome": 2, "model": 0.31433143314331435, "market": 0.17450763140203673, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Finland", "away": "Republic of Ireland", "outcome": 0, "model": 0.343, "market": 0.3552020759438215, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Finland", "away": "Republic of Ireland", "outcome": 1, "model": 0.3219, "market": 0.34344906607803327, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Finland", "away": "Republic of Ireland", "outcome": 2, "model": 0.3351, "market": 0.3013488579781453, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Hungary", "away": "Russia", "outcome": 0, "model": 0.2984, "market": 0.2444329166934876, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Hungary", "away": "Russia", "outcome": 1, "model": 0.2718, "market": 0.2943956197912131, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Hungary", "away": "Russia", "outcome": 2, "model": 0.4298, "market": 0.46117146351529936, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Lithuania", "away": "Albania", "outcome": 0, "model": 0.1942, "market": 0.2043383157127233, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Lithuania", "away": "Albania", "outcome": 1, "model": 0.2303, "market": 0.3117025154939847, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-14", "home": "Lithuania", "away": "Albania", "outcome": 2, "model": 0.5755, "market": 0.48395916879329204, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Slovenia", "away": "Moldova", "outcome": 0, "model": 0.8765000000000001, "market": 0.6534338062016226, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Slovenia", "away": "Moldova", "outcome": 1, "model": 0.07980000000000001, "market": 0.23986810607401332, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Slovenia", "away": "Moldova", "outcome": 2, "model": 0.04370000000000001, "market": 0.10669808772436404, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Germany", "away": "Switzerland", "outcome": 0, "model": 0.6769, "market": 0.6431839282318594, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Germany", "away": "Switzerland", "outcome": 1, "model": 0.1604, "market": 0.2055392118480073, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Germany", "away": "Switzerland", "outcome": 2, "model": 0.1627, "market": 0.15127685992013334, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Wales", "away": "Bulgaria", "outcome": 0, "model": 0.6293370662933706, "market": 0.593294826720241, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Wales", "away": "Bulgaria", "outcome": 1, "model": 0.23277672232776722, "market": 0.2678302360622803, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Wales", "away": "Bulgaria", "outcome": 2, "model": 0.13788621137886212, "market": 0.13887493721747865, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Andorra", "away": "Faroe Islands", "outcome": 0, "model": 0.43, "market": 0.23211169284467717, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Andorra", "away": "Faroe Islands", "outcome": 1, "model": 0.2892, "market": 0.3257707969749855, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-06", "home": "Andorra", "away": "Faroe Islands", "outcome": 2, "model": 0.2808, "market": 0.44211751018033746, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Ukraine", "away": "Spain", "outcome": 0, "model": 0.0941, "market": 0.1024799520561628, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Ukraine", "away": "Spain", "outcome": 1, "model": 0.2052, "market": 0.18478353928255475, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Ukraine", "away": "Spain", "outcome": 2, "model": 0.7007, "market": 0.7127365086612825, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Denmark", "away": "Belgium", "outcome": 0, "model": 0.2978, "market": 0.3168436264615605, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Denmark", "away": "Belgium", "outcome": 1, "model": 0.322, "market": 0.2854447085239284, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Denmark", "away": "Belgium", "outcome": 2, "model": 0.3802, "market": 0.39771166501451105, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Montenegro", "away": "Luxembourg", "outcome": 0, "model": 0.5776, "market": 0.494014236030278, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Montenegro", "away": "Luxembourg", "outcome": 1, "model": 0.2829, "market": 0.2861667830663196, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Montenegro", "away": "Luxembourg", "outcome": 2, "model": 0.1395, "market": 0.2198189809034024, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Portugal", "away": "Croatia", "outcome": 0, "model": 0.5793, "market": 0.5313020709354915, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Portugal", "away": "Croatia", "outcome": 1, "model": 0.2476, "market": 0.26417519638181386, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Portugal", "away": "Croatia", "outcome": 2, "model": 0.1731, "market": 0.20452273268269458, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Sweden", "away": "France", "outcome": 0, "model": 0.4347434743474347, "market": 0.19142245311946424, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Sweden", "away": "France", "outcome": 1, "model": 0.2653265326532653, "market": 0.2762510620820256, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Sweden", "away": "France", "outcome": 2, "model": 0.2999299929992999, "market": 0.5323264847985101, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Faroe Islands", "away": "Andorra", "outcome": 0, "model": 0.5268, "market": 0.6592414208308248, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Faroe Islands", "away": "Andorra", "outcome": 1, "model": 0.3282, "market": 0.25285972305839854, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Faroe Islands", "away": "Andorra", "outcome": 2, "model": 0.145, "market": 0.08789885611077664, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Iceland", "away": "England", "outcome": 0, "model": 0.1595, "market": 0.08226089745263071, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Iceland", "away": "England", "outcome": 1, "model": 0.3853, "market": 0.18440552060531254, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Iceland", "away": "England", "outcome": 2, "model": 0.4552, "market": 0.7333335819420567, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Liechtenstein", "away": "San Marino", "outcome": 0, "model": 0.615038496150385, "market": 0.765717042651373, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Liechtenstein", "away": "San Marino", "outcome": 1, "model": 0.24597540245975402, "market": 0.18983401682398623, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Liechtenstein", "away": "San Marino", "outcome": 2, "model": 0.13898610138986103, "market": 0.04444894052464068, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Azerbaijan", "away": "Luxembourg", "outcome": 0, "model": 0.5352, "market": 0.3954186369170654, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Azerbaijan", "away": "Luxembourg", "outcome": 1, "model": 0.2409, "market": 0.33020924767109316, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Azerbaijan", "away": "Luxembourg", "outcome": 2, "model": 0.2239, "market": 0.27437211541184126, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Azerbaijan", "away": "Cyprus", "outcome": 0, "model": 0.5136, "market": 0.38364147497588896, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Azerbaijan", "away": "Cyprus", "outcome": 1, "model": 0.3049, "market": 0.3297970574354133, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Azerbaijan", "away": "Cyprus", "outcome": 2, "model": 0.1815, "market": 0.2865614675886976, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Cyprus", "away": "Montenegro", "outcome": 0, "model": 0.3314, "market": 0.2709255106370083, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Cyprus", "away": "Montenegro", "outcome": 1, "model": 0.2593, "market": 0.31365537305291236, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Cyprus", "away": "Montenegro", "outcome": 2, "model": 0.4093, "market": 0.41541911631007944, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Latvia", "away": "Malta", "outcome": 0, "model": 0.6559344065593441, "market": 0.5779047091294665, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Latvia", "away": "Malta", "outcome": 1, "model": 0.1845815418458154, "market": 0.27535459670286344, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-13", "home": "Latvia", "away": "Malta", "outcome": 2, "model": 0.15948405159484053, "market": 0.1467406941676702, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Estonia", "away": "Georgia", "outcome": 0, "model": 0.1418, "market": 0.16023993144815765, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Estonia", "away": "Georgia", "outcome": 1, "model": 0.396, "market": 0.2855184233076264, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-09-05", "home": "Estonia", "away": "Georgia", "outcome": 2, "model": 0.4622, "market": 0.5542416452442159, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Iceland", "away": "Denmark", "outcome": 0, "model": 0.1511, "market": 0.16172146484897085, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Iceland", "away": "Denmark", "outcome": 1, "model": 0.2551, "market": 0.2619620422346966, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Iceland", "away": "Denmark", "outcome": 2, "model": 0.5938, "market": 0.5763164929163326, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "France", "away": "Portugal", "outcome": 0, "model": 0.5396, "market": 0.4481679620470375, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "France", "away": "Portugal", "outcome": 1, "model": 0.2407, "market": 0.28666599374179874, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "France", "away": "Portugal", "outcome": 2, "model": 0.2197, "market": 0.26516604421116385, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Poland", "away": "Italy", "outcome": 0, "model": 0.2386, "market": 0.21500254586666231, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Poland", "away": "Italy", "outcome": 1, "model": 0.2313, "market": 0.27336037974475635, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Poland", "away": "Italy", "outcome": 2, "model": 0.5301, "market": 0.5116370743885813, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Northern Ireland", "away": "Austria", "outcome": 0, "model": 0.2243, "market": 0.16559300196650167, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Northern Ireland", "away": "Austria", "outcome": 1, "model": 0.292, "market": 0.2573404760290228, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Northern Ireland", "away": "Austria", "outcome": 2, "model": 0.4837, "market": 0.5770665220044755, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Israel", "away": "Czech Republic", "outcome": 0, "model": 0.2375, "market": 0.2638471438917219, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Israel", "away": "Czech Republic", "outcome": 1, "model": 0.1704, "market": 0.27538564872663684, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Israel", "away": "Czech Republic", "outcome": 2, "model": 0.5921, "market": 0.4607672073816413, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Serbia", "away": "Hungary", "outcome": 0, "model": 0.5433543354335434, "market": 0.5925155925155925, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Serbia", "away": "Hungary", "outcome": 1, "model": 0.25082508250825086, "market": 0.24948024948024947, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Serbia", "away": "Hungary", "outcome": 2, "model": 0.20582058205820583, "market": 0.15800415800415799, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Russia", "away": "Turkey", "outcome": 0, "model": 0.6272, "market": 0.4924662965900079, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Russia", "away": "Turkey", "outcome": 1, "model": 0.2147, "market": 0.2740681998413957, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Russia", "away": "Turkey", "outcome": 2, "model": 0.1581, "market": 0.23346550356859636, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Scotland", "away": "Slovakia", "outcome": 0, "model": 0.3958, "market": 0.5029176956703175, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Scotland", "away": "Slovakia", "outcome": 1, "model": 0.2312, "market": 0.2797293691894074, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Scotland", "away": "Slovakia", "outcome": 2, "model": 0.373, "market": 0.2173529351402752, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Greece", "away": "Moldova", "outcome": 0, "model": 0.899, "market": 0.7764511008351163, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Greece", "away": "Moldova", "outcome": 1, "model": 0.0718, "market": 0.15280557664435088, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Greece", "away": "Moldova", "outcome": 2, "model": 0.0292, "market": 0.07074332252053281, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Kosovo", "away": "Slovenia", "outcome": 0, "model": 0.2651, "market": 0.30212820123265677, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Kosovo", "away": "Slovenia", "outcome": 1, "model": 0.268, "market": 0.33415592574495256, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Kosovo", "away": "Slovenia", "outcome": 2, "model": 0.4669, "market": 0.36371587302239067, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Armenia", "away": "Georgia", "outcome": 0, "model": 0.24172417241724173, "market": 0.29586254406937634, "won": false, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Armenia", "away": "Georgia", "outcome": 1, "model": 0.19711971197119713, "market": 0.31770474530939746, "won": true, "books": 2}
+{"season": "2020-2021", "date": "2020-10-11", "home": "Armenia", "away": "Georgia", "outcome": 2, "model": 0.5611561156115612, "market": 0.3864327106212262, "won": false, "books": 2}
+{"season": "2024-2025", "date": "2026-03-31", "home": "Latvia", "away": "Gibraltar", "outcome": 0, "model": 0.8666, "market": 0.7550917135578632, "won": true, "books": 8}
+{"season": "2024-2025", "date": "2026-03-31", "home": "Latvia", "away": "Gibraltar", "outcome": 1, "model": 0.096, "market": 0.16975982768836853, "won": false, "books": 8}
+{"season": "2024-2025", "date": "2026-03-31", "home": "Latvia", "away": "Gibraltar", "outcome": 2, "model": 0.0374, "market": 0.07514845875376823, "won": false, "books": 8}
+{"season": "2024-2025", "date": "2026-03-31", "home": "Luxembourg", "away": "Malta", "outcome": 0, "model": 0.6421, "market": 0.5607361381207608, "won": true, "books": 8}
+{"season": "2024-2025", "date": "2026-03-31", "home": "Luxembourg", "away": "Malta", "outcome": 1, "model": 0.2178, "market": 0.2559882369681734, "won": false, "books": 8}
+{"season": "2024-2025", "date": "2026-03-31", "home": "Luxembourg", "away": "Malta", "outcome": 2, "model": 0.1401, "market": 0.1832756249110658, "won": false, "books": 8}
+{"season": "2024-2025", "date": "2026-03-26", "home": "Gibraltar", "away": "Latvia", "outcome": 0, "model": 0.1197, "market": 0.1376468310008832, "won": false, "books": 8}
+{"season": "2024-2025", "date": "2026-03-26", "home": "Gibraltar", "away": "Latvia", "outcome": 1, "model": 0.1356, "market": 0.24248664528653002, "won": false, "books": 8}
+{"season": "2024-2025", "date": "2026-03-26", "home": "Gibraltar", "away": "Latvia", "outcome": 2, "model": 0.7447, "market": 0.6198665237125867, "won": true, "books": 8}
+{"season": "2024-2025", "date": "2026-03-26", "home": "Malta", "away": "Luxembourg", "outcome": 0, "model": 0.2493, "market": 0.25165667402966235, "won": false, "books": 8}
+{"season": "2024-2025", "date": "2026-03-26", "home": "Malta", "away": "Luxembourg", "outcome": 1, "model": 0.4133, "market": 0.32281476806563586, "won": false, "books": 8}
+{"season": "2024-2025", "date": "2026-03-26", "home": "Malta", "away": "Luxembourg", "outcome": 2, "model": 0.3374, "market": 0.4255285579047018, "won": true, "books": 8}
+{"season": "2024-2025", "date": "2025-06-08", "home": "Germany", "away": "France", "outcome": 0, "model": 0.4379, "market": 0.3852407273399129, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-06-08", "home": "Germany", "away": "France", "outcome": 1, "model": 0.2412, "market": 0.2501039276971162, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-06-08", "home": "Germany", "away": "France", "outcome": 2, "model": 0.3209, "market": 0.3646553449629709, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-06-05", "home": "Spain", "away": "France", "outcome": 0, "model": 0.5143, "market": 0.3850250963788656, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-06-05", "home": "Spain", "away": "France", "outcome": 1, "model": 0.2037, "market": 0.29562298421659033, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-06-05", "home": "Spain", "away": "France", "outcome": 2, "model": 0.282, "market": 0.31935191940454405, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-06-04", "home": "Germany", "away": "Portugal", "outcome": 0, "model": 0.5433, "market": 0.5042295929734072, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-06-04", "home": "Germany", "away": "Portugal", "outcome": 1, "model": 0.181, "market": 0.24948860068996714, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-06-04", "home": "Germany", "away": "Portugal", "outcome": 2, "model": 0.2757, "market": 0.2462818063366256, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Germany", "away": "Italy", "outcome": 0, "model": 0.5817, "market": 0.49945302979949047, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Germany", "away": "Italy", "outcome": 1, "model": 0.203, "market": 0.2650728370444223, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Germany", "away": "Italy", "outcome": 2, "model": 0.2153, "market": 0.2354741331560873, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Belgium", "away": "Ukraine", "outcome": 0, "model": 0.5553555355535553, "market": 0.6495826801677753, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Belgium", "away": "Ukraine", "outcome": 1, "model": 0.2687268726872687, "market": 0.2121679447527857, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Belgium", "away": "Ukraine", "outcome": 2, "model": 0.17591759175917593, "market": 0.13824937507943905, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Republic of Ireland", "away": "Bulgaria", "outcome": 0, "model": 0.5184000000000001, "market": 0.5969126607301916, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Republic of Ireland", "away": "Bulgaria", "outcome": 1, "model": 0.27670000000000006, "market": 0.24976082383184328, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Republic of Ireland", "away": "Bulgaria", "outcome": 2, "model": 0.20490000000000003, "market": 0.1533265154379652, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Serbia", "away": "Austria", "outcome": 0, "model": 0.2769276927692769, "market": 0.33023955902437424, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Serbia", "away": "Austria", "outcome": 1, "model": 0.27932793279327933, "market": 0.3107500112786735, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Serbia", "away": "Austria", "outcome": 2, "model": 0.44374437443744374, "market": 0.35901042969695235, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Scotland", "away": "Greece", "outcome": 0, "model": 0.3339, "market": 0.36579455990145743, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Scotland", "away": "Greece", "outcome": 1, "model": 0.3594, "market": 0.2981397666908431, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Scotland", "away": "Greece", "outcome": 2, "model": 0.3067, "market": 0.33606567340769944, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Hungary", "away": "Turkey", "outcome": 0, "model": 0.3314, "market": 0.4353066315676702, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Hungary", "away": "Turkey", "outcome": 1, "model": 0.3508, "market": 0.25857451139441995, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Hungary", "away": "Turkey", "outcome": 2, "model": 0.3178, "market": 0.30611885703791003, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Iceland", "away": "Kosovo", "outcome": 0, "model": 0.4043, "market": 0.3705596894208994, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Iceland", "away": "Kosovo", "outcome": 1, "model": 0.3048, "market": 0.28573277256551277, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Iceland", "away": "Kosovo", "outcome": 2, "model": 0.2909, "market": 0.3437075380135879, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Georgia", "away": "Armenia", "outcome": 0, "model": 0.6349, "market": 0.6633137195158144, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Georgia", "away": "Armenia", "outcome": 1, "model": 0.217, "market": 0.207104501944894, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-23", "home": "Georgia", "away": "Armenia", "outcome": 2, "model": 0.1481, "market": 0.1295817785392916, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Croatia", "away": "France", "outcome": 0, "model": 0.1906, "market": 0.2222435657760688, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Croatia", "away": "France", "outcome": 1, "model": 0.2103, "market": 0.2782932627166609, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Croatia", "away": "France", "outcome": 2, "model": 0.5991, "market": 0.4994631715072704, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Denmark", "away": "Portugal", "outcome": 0, "model": 0.1798, "market": 0.2749608854377934, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Denmark", "away": "Portugal", "outcome": 1, "model": 0.2144, "market": 0.2918815553108884, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Denmark", "away": "Portugal", "outcome": 2, "model": 0.6058, "market": 0.4331575592513184, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Italy", "away": "Germany", "outcome": 0, "model": 0.2825, "market": 0.3485016648168701, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Italy", "away": "Germany", "outcome": 1, "model": 0.2495, "market": 0.3029966703662597, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Italy", "away": "Germany", "outcome": 2, "model": 0.468, "market": 0.3485016648168701, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Netherlands", "away": "Spain", "outcome": 0, "model": 0.294, "market": 0.3004059645257844, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Netherlands", "away": "Spain", "outcome": 1, "model": 0.2156, "market": 0.28008438457256957, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Netherlands", "away": "Spain", "outcome": 2, "model": 0.4904, "market": 0.41950965090164605, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Austria", "away": "Serbia", "outcome": 0, "model": 0.5386000000000001, "market": 0.560233873723376, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Austria", "away": "Serbia", "outcome": 1, "model": 0.27860000000000007, "market": 0.26010858422871025, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Austria", "away": "Serbia", "outcome": 2, "model": 0.18280000000000002, "market": 0.17965754204791373, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Ukraine", "away": "Belgium", "outcome": 0, "model": 0.3548, "market": 0.2200859595914697, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Ukraine", "away": "Belgium", "outcome": 1, "model": 0.2357, "market": 0.2821279956780858, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Ukraine", "away": "Belgium", "outcome": 2, "model": 0.4095, "market": 0.49778604473044463, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Greece", "away": "Scotland", "outcome": 0, "model": 0.5329, "market": 0.49529935675408215, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Greece", "away": "Scotland", "outcome": 1, "model": 0.2818, "market": 0.28302820385947547, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Greece", "away": "Scotland", "outcome": 2, "model": 0.1853, "market": 0.22167243938644232, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Bulgaria", "away": "Republic of Ireland", "outcome": 0, "model": 0.3925, "market": 0.26815642458100564, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Bulgaria", "away": "Republic of Ireland", "outcome": 1, "model": 0.277, "market": 0.3296089385474861, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Bulgaria", "away": "Republic of Ireland", "outcome": 2, "model": 0.3305, "market": 0.40223463687150846, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Kosovo", "away": "Iceland", "outcome": 0, "model": 0.38, "market": 0.47903340440653874, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Kosovo", "away": "Iceland", "outcome": 1, "model": 0.2759, "market": 0.2814498933901919, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Kosovo", "away": "Iceland", "outcome": 2, "model": 0.3441, "market": 0.23951670220326937, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Slovakia", "away": "Slovenia", "outcome": 0, "model": 0.45914591459145915, "market": 0.4510530712090928, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Slovakia", "away": "Slovenia", "outcome": 1, "model": 0.2727272727272727, "market": 0.3085379314459593, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Slovakia", "away": "Slovenia", "outcome": 2, "model": 0.26812681268126815, "market": 0.24040899734494794, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Turkey", "away": "Hungary", "outcome": 0, "model": 0.5475547554755475, "market": 0.5431008167257458, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Turkey", "away": "Hungary", "outcome": 1, "model": 0.20982098209820982, "market": 0.2596141266765928, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Turkey", "away": "Hungary", "outcome": 2, "model": 0.24262426242624263, "market": 0.19728505659766132, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Armenia", "away": "Georgia", "outcome": 0, "model": 0.2522747725227477, "market": 0.27070999092712483, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Armenia", "away": "Georgia", "outcome": 1, "model": 0.280971902809719, "market": 0.29063956081133036, "won": false, "books": 7}
+{"season": "2024-2025", "date": "2025-03-20", "home": "Armenia", "away": "Georgia", "outcome": 2, "model": 0.46675332466753316, "market": 0.4386504482615448, "won": true, "books": 7}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Bosnia and Herzegovina", "away": "Netherlands", "outcome": 0, "model": 0.0838, "market": 0.11346755418881857, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Bosnia and Herzegovina", "away": "Netherlands", "outcome": 1, "model": 0.2243, "market": 0.17757351700736015, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Bosnia and Herzegovina", "away": "Netherlands", "outcome": 2, "model": 0.6919, "market": 0.7089589288038213, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Hungary", "away": "Germany", "outcome": 0, "model": 0.1253, "market": 0.17783336141314915, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Hungary", "away": "Germany", "outcome": 1, "model": 0.2335, "market": 0.2173066704682417, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Hungary", "away": "Germany", "outcome": 2, "model": 0.6412, "market": 0.6048599681186091, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Albania", "away": "Ukraine", "outcome": 0, "model": 0.25187481251874816, "market": 0.283470516365507, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Albania", "away": "Ukraine", "outcome": 1, "model": 0.34766523347665235, "market": 0.30555912803035173, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Albania", "away": "Ukraine", "outcome": 2, "model": 0.40045995400459955, "market": 0.4109703556041412, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Czech Republic", "away": "Georgia", "outcome": 0, "model": 0.5615, "market": 0.46187270639619965, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Czech Republic", "away": "Georgia", "outcome": 1, "model": 0.2338, "market": 0.2855213094085598, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Czech Republic", "away": "Georgia", "outcome": 2, "model": 0.2047, "market": 0.2526059841952406, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Wales", "away": "Iceland", "outcome": 0, "model": 0.5469453054694531, "market": 0.5335226753906755, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Wales", "away": "Iceland", "outcome": 1, "model": 0.3037696230376962, "market": 0.2753163660179287, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Wales", "away": "Iceland", "outcome": 2, "model": 0.1492850714928507, "market": 0.19116095859139587, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Montenegro", "away": "Turkey", "outcome": 0, "model": 0.1693, "market": 0.15046668998765222, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Montenegro", "away": "Turkey", "outcome": 1, "model": 0.2325, "market": 0.21857632333079272, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Montenegro", "away": "Turkey", "outcome": 2, "model": 0.5982, "market": 0.630956986681555, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Sweden", "away": "Azerbaijan", "outcome": 0, "model": 0.7973, "market": 0.841342126734454, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Sweden", "away": "Azerbaijan", "outcome": 1, "model": 0.1645, "market": 0.10818635843198489, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Sweden", "away": "Azerbaijan", "outcome": 2, "model": 0.0382, "market": 0.05047151483356124, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Slovakia", "away": "Estonia", "outcome": 0, "model": 0.78, "market": 0.759248759668902, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Slovakia", "away": "Estonia", "outcome": 1, "model": 0.1547, "market": 0.16251043657296702, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Slovakia", "away": "Estonia", "outcome": 2, "model": 0.0653, "market": 0.07824080375813088, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Malta", "away": "Andorra", "outcome": 0, "model": 0.5255000000000001, "market": 0.5906216494168618, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Malta", "away": "Andorra", "outcome": 1, "model": 0.28780000000000006, "market": 0.2794906019561936, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-19", "home": "Malta", "away": "Andorra", "outcome": 2, "model": 0.18670000000000003, "market": 0.12988774862694472, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Croatia", "away": "Portugal", "outcome": 0, "model": 0.1468, "market": 0.391353309635353, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Croatia", "away": "Portugal", "outcome": 1, "model": 0.2313, "market": 0.30286259312544833, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Croatia", "away": "Portugal", "outcome": 2, "model": 0.6219, "market": 0.3057840972391987, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Serbia", "away": "Denmark", "outcome": 0, "model": 0.3527, "market": 0.36837257405103174, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Serbia", "away": "Denmark", "outcome": 1, "model": 0.2676, "market": 0.2897564759303847, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Serbia", "away": "Denmark", "outcome": 2, "model": 0.3797, "market": 0.3418709500185835, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Poland", "away": "Scotland", "outcome": 0, "model": 0.5221, "market": 0.4167974389554956, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Poland", "away": "Scotland", "outcome": 1, "model": 0.1927, "market": 0.28623438578871385, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Poland", "away": "Scotland", "outcome": 2, "model": 0.2852, "market": 0.2969681752557906, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Spain", "away": "Switzerland", "outcome": 0, "model": 0.6074, "market": 0.7402640400612508, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Spain", "away": "Switzerland", "outcome": 1, "model": 0.281, "market": 0.16421801928568475, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Spain", "away": "Switzerland", "outcome": 2, "model": 0.1116, "market": 0.09551794065306463, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Bulgaria", "away": "Belarus", "outcome": 0, "model": 0.5961, "market": 0.43457905988688333, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Bulgaria", "away": "Belarus", "outcome": 1, "model": 0.2396, "market": 0.3112331881038075, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Bulgaria", "away": "Belarus", "outcome": 2, "model": 0.1643, "market": 0.2541877520093091, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Romania", "away": "Cyprus", "outcome": 0, "model": 0.7911, "market": 0.7042576804721787, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Romania", "away": "Cyprus", "outcome": 1, "model": 0.1436, "market": 0.1918100186651869, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Romania", "away": "Cyprus", "outcome": 2, "model": 0.0653, "market": 0.1039323008626343, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Kosovo", "away": "Lithuania", "outcome": 0, "model": 0.5996, "market": 0.6857268416319189, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Kosovo", "away": "Lithuania", "outcome": 1, "model": 0.2317, "market": 0.20661638459651702, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Kosovo", "away": "Lithuania", "outcome": 2, "model": 0.1687, "market": 0.10765677377156405, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Luxembourg", "away": "Northern Ireland", "outcome": 0, "model": 0.19, "market": 0.23591908346579496, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Luxembourg", "away": "Northern Ireland", "outcome": 1, "model": 0.2338, "market": 0.32703266052844676, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Luxembourg", "away": "Northern Ireland", "outcome": 2, "model": 0.5762, "market": 0.4370482560057583, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Liechtenstein", "away": "San Marino", "outcome": 0, "model": 0.4803, "market": 0.5084455108873899, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Liechtenstein", "away": "San Marino", "outcome": 1, "model": 0.2988, "market": 0.30639224597448583, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-18", "home": "Liechtenstein", "away": "San Marino", "outcome": 2, "model": 0.2209, "market": 0.18516224313812427, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Georgia", "away": "Albania", "outcome": 0, "model": 0.5852585258525852, "market": 0.539483759262674, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Georgia", "away": "Albania", "outcome": 1, "model": 0.21642164216421642, "market": 0.2674494557251217, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Georgia", "away": "Albania", "outcome": 2, "model": 0.1983198319831983, "market": 0.19306678501220442, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Azerbaijan", "away": "Slovakia", "outcome": 0, "model": 0.1487, "market": 0.1717881460742875, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Azerbaijan", "away": "Slovakia", "outcome": 1, "model": 0.3308, "market": 0.2387637777083135, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Azerbaijan", "away": "Slovakia", "outcome": 2, "model": 0.5205, "market": 0.589448076217399, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-09-09", "home": "France", "away": "Belgium", "outcome": 0, "model": 0.563943605639436, "market": 0.520148718283217, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "France", "away": "Belgium", "outcome": 1, "model": 0.20507949205079493, "market": 0.2673798186680582, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "France", "away": "Belgium", "outcome": 2, "model": 0.23097690230976903, "market": 0.21247146304872477, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Austria", "away": "Norway", "outcome": 0, "model": 0.4361436143614361, "market": 0.4884437050932644, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Austria", "away": "Norway", "outcome": 1, "model": 0.26102610261026105, "market": 0.2746610979365023, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Austria", "away": "Norway", "outcome": 2, "model": 0.30283028302830284, "market": 0.23689519697023323, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Romania", "away": "Lithuania", "outcome": 0, "model": 0.7592, "market": 0.7589822273366578, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Romania", "away": "Lithuania", "outcome": 1, "model": 0.1506, "market": 0.16941567574478966, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Romania", "away": "Lithuania", "outcome": 2, "model": 0.0902, "market": 0.07160209691855261, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Cyprus", "away": "Kosovo", "outcome": 0, "model": 0.332, "market": 0.21992974927759418, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Cyprus", "away": "Kosovo", "outcome": 1, "model": 0.2317, "market": 0.286373782291973, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Cyprus", "away": "Kosovo", "outcome": 2, "model": 0.4363, "market": 0.49369646843043274, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Greece", "away": "Republic of Ireland", "outcome": 0, "model": 0.5644, "market": 0.5205476787202241, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Greece", "away": "Republic of Ireland", "outcome": 1, "model": 0.2457, "market": 0.2863803338855944, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Greece", "away": "Republic of Ireland", "outcome": 2, "model": 0.1899, "market": 0.1930719873941815, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Croatia", "away": "Poland", "outcome": 0, "model": 0.5194, "market": 0.5558047893301, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Croatia", "away": "Poland", "outcome": 1, "model": 0.2491, "market": 0.24734768111548955, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Croatia", "away": "Poland", "outcome": 2, "model": 0.2315, "market": 0.19684752955441043, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Portugal", "away": "Scotland", "outcome": 0, "model": 0.7292000000000001, "market": 0.7495163588664396, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Portugal", "away": "Scotland", "outcome": 1, "model": 0.17070000000000002, "market": 0.1629941396849963, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Portugal", "away": "Scotland", "outcome": 2, "model": 0.10010000000000001, "market": 0.08748950144856418, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Faroe Islands", "away": "Latvia", "outcome": 0, "model": 0.5401, "market": 0.35996842923091465, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Faroe Islands", "away": "Latvia", "outcome": 1, "model": 0.2623, "market": 0.327583726255123, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Faroe Islands", "away": "Latvia", "outcome": 2, "model": 0.1976, "market": 0.31244784451396224, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Switzerland", "away": "Spain", "outcome": 0, "model": 0.1651, "market": 0.18674686500497112, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Switzerland", "away": "Spain", "outcome": 1, "model": 0.2129, "market": 0.2508025179090509, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Switzerland", "away": "Spain", "outcome": 2, "model": 0.622, "market": 0.5624506170859781, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Finland", "away": "England", "outcome": 0, "model": 0.0868, "market": 0.07904793447384177, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Finland", "away": "England", "outcome": 1, "model": 0.142, "market": 0.16184094875355082, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Finland", "away": "England", "outcome": 2, "model": 0.7712, "market": 0.7591111167726075, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Sweden", "away": "Estonia", "outcome": 0, "model": 0.7988000000000001, "market": 0.8436609196310281, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Sweden", "away": "Estonia", "outcome": 1, "model": 0.12320000000000002, "market": 0.11349248085512638, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Sweden", "away": "Estonia", "outcome": 2, "model": 0.07800000000000001, "market": 0.042846599513845465, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Denmark", "away": "Serbia", "outcome": 0, "model": 0.4786, "market": 0.5128951936391946, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Denmark", "away": "Serbia", "outcome": 1, "model": 0.3031, "market": 0.291060155899543, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Denmark", "away": "Serbia", "outcome": 2, "model": 0.2183, "market": 0.1960446504612624, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Armenia", "away": "North Macedonia", "outcome": 0, "model": 0.3011, "market": 0.37535929296819576, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Armenia", "away": "North Macedonia", "outcome": 1, "model": 0.3017, "market": 0.3005250035473212, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Armenia", "away": "North Macedonia", "outcome": 2, "model": 0.3972, "market": 0.324115703484483, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Liechtenstein", "away": "Gibraltar", "outcome": 0, "model": 0.4249, "market": 0.43296662024068483, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Liechtenstein", "away": "Gibraltar", "outcome": 1, "model": 0.3306, "market": 0.32027667798626, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Liechtenstein", "away": "Gibraltar", "outcome": 2, "model": 0.2445, "market": 0.24675670177305523, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Slovakia", "away": "Azerbaijan", "outcome": 0, "model": 0.7613, "market": 0.7117277559191, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Slovakia", "away": "Azerbaijan", "outcome": 1, "model": 0.1636, "market": 0.1823888083569177, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Slovakia", "away": "Azerbaijan", "outcome": 2, "model": 0.0751, "market": 0.10588343572398244, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Malta", "away": "Moldova", "outcome": 0, "model": 0.27852785278527853, "market": 0.34034257930880507, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Malta", "away": "Moldova", "outcome": 1, "model": 0.3721372137213721, "market": 0.3584596747853194, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Malta", "away": "Moldova", "outcome": 2, "model": 0.3493349334933493, "market": 0.3011977459058754, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Bulgaria", "away": "Northern Ireland", "outcome": 0, "model": 0.31736826317368266, "market": 0.3075692414265157, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Bulgaria", "away": "Northern Ireland", "outcome": 1, "model": 0.2243775622437756, "market": 0.32786026777062605, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Bulgaria", "away": "Northern Ireland", "outcome": 2, "model": 0.45825417458254175, "market": 0.36457049080285836, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Kazakhstan", "away": "Slovenia", "outcome": 0, "model": 0.1075, "market": 0.1572678402023822, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Kazakhstan", "away": "Slovenia", "outcome": 1, "model": 0.1898, "market": 0.2529777590386845, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-13", "home": "Kazakhstan", "away": "Slovenia", "outcome": 2, "model": 0.7027, "market": 0.5897544007589333, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Gibraltar", "away": "Liechtenstein", "outcome": 0, "model": 0.42800000000000005, "market": 0.48397538517833083, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Gibraltar", "away": "Liechtenstein", "outcome": 1, "model": 0.35900000000000004, "market": 0.30784008106424976, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Gibraltar", "away": "Liechtenstein", "outcome": 2, "model": 0.21300000000000002, "market": 0.20818453375741947, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Spain", "away": "Denmark", "outcome": 0, "model": 0.7146714671467147, "market": 0.6410742467997452, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Spain", "away": "Denmark", "outcome": 1, "model": 0.18741874187418742, "market": 0.21763952489506364, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Spain", "away": "Denmark", "outcome": 2, "model": 0.09790979097909791, "market": 0.14128622830519125, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Poland", "away": "Portugal", "outcome": 0, "model": 0.1497, "market": 0.19045066773862168, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Poland", "away": "Portugal", "outcome": 1, "model": 0.2543, "market": 0.2289070525704587, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Poland", "away": "Portugal", "outcome": 2, "model": 0.596, "market": 0.5806422796909197, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Luxembourg", "away": "Belarus", "outcome": 0, "model": 0.5333, "market": 0.48247009294274207, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Luxembourg", "away": "Belarus", "outcome": 1, "model": 0.2662, "market": 0.3021218473379471, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-08", "home": "Luxembourg", "away": "Belarus", "outcome": 2, "model": 0.2005, "market": 0.21540805971931082, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Serbia", "away": "Switzerland", "outcome": 0, "model": 0.3483, "market": 0.2959931428295486, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Serbia", "away": "Switzerland", "outcome": 1, "model": 0.2269, "market": 0.31777190250262577, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Serbia", "away": "Switzerland", "outcome": 2, "model": 0.4248, "market": 0.3862349546678256, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Netherlands", "away": "Bosnia and Herzegovina", "outcome": 0, "model": 0.7982, "market": 0.8097337127727701, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Netherlands", "away": "Bosnia and Herzegovina", "outcome": 1, "model": 0.1417, "market": 0.1260535331229378, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Netherlands", "away": "Bosnia and Herzegovina", "outcome": 2, "model": 0.0601, "market": 0.06421275410429224, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Belarus", "away": "Northern Ireland", "outcome": 0, "model": 0.2725, "market": 0.1814381634440393, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Belarus", "away": "Northern Ireland", "outcome": 1, "model": 0.2904, "market": 0.2961794319148804, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Belarus", "away": "Northern Ireland", "outcome": 2, "model": 0.4371, "market": 0.5223824046410802, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Cyprus", "away": "Romania", "outcome": 0, "model": 0.1363, "market": 0.17841284660091225, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Cyprus", "away": "Romania", "outcome": 1, "model": 0.2047, "market": 0.25303055188172274, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Cyprus", "away": "Romania", "outcome": 2, "model": 0.659, "market": 0.568556601517365, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Germany", "away": "Hungary", "outcome": 0, "model": 0.6546, "market": 0.7409701221724929, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Germany", "away": "Hungary", "outcome": 1, "model": 0.2384, "market": 0.16228377887988388, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Germany", "away": "Hungary", "outcome": 2, "model": 0.107, "market": 0.09674609894762308, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Croatia", "away": "Scotland", "outcome": 0, "model": 0.6351635163516351, "market": 0.6259742478272939, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Croatia", "away": "Scotland", "outcome": 1, "model": 0.21792179217921792, "market": 0.22033126205576078, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Croatia", "away": "Scotland", "outcome": 2, "model": 0.14691469146914693, "market": 0.15369449011694533, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Ukraine", "away": "Albania", "outcome": 0, "model": 0.6451, "market": 0.5200930564806502, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Ukraine", "away": "Albania", "outcome": 1, "model": 0.1977, "market": 0.2791115229793519, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Ukraine", "away": "Albania", "outcome": 2, "model": 0.1572, "market": 0.20079542053999785, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Bulgaria", "away": "Luxembourg", "outcome": 0, "model": 0.6719, "market": 0.5040723829421576, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Bulgaria", "away": "Luxembourg", "outcome": 1, "model": 0.186, "market": 0.29364964364543145, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Bulgaria", "away": "Luxembourg", "outcome": 2, "model": 0.1421, "market": 0.20227797341241094, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Greece", "away": "Finland", "outcome": 0, "model": 0.6125, "market": 0.6080954169797146, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Greece", "away": "Finland", "outcome": 1, "model": 0.2623, "market": 0.25638617580766343, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Greece", "away": "Finland", "outcome": 2, "model": 0.1252, "market": 0.13551840721262212, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Lithuania", "away": "Kosovo", "outcome": 0, "model": 0.2905, "market": 0.2032187589588461, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Lithuania", "away": "Kosovo", "outcome": 1, "model": 0.2306, "market": 0.28040570598179065, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-12", "home": "Lithuania", "away": "Kosovo", "outcome": 2, "model": 0.4789, "market": 0.5163755350593631, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Bosnia and Herzegovina", "away": "Germany", "outcome": 0, "model": 0.0629, "market": 0.09333003485233235, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Bosnia and Herzegovina", "away": "Germany", "outcome": 1, "model": 0.2114, "market": 0.15709015767224255, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Bosnia and Herzegovina", "away": "Germany", "outcome": 2, "model": 0.7257, "market": 0.7495798074754251, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Georgia", "away": "Czech Republic", "outcome": 0, "model": 0.2953, "market": 0.3004419661951304, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Georgia", "away": "Czech Republic", "outcome": 1, "model": 0.2983, "market": 0.29033535571150215, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Georgia", "away": "Czech Republic", "outcome": 2, "model": 0.4064, "market": 0.4092226780933673, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Hungary", "away": "Netherlands", "outcome": 0, "model": 0.124, "market": 0.1855536138369853, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Hungary", "away": "Netherlands", "outcome": 1, "model": 0.2506, "market": 0.23515705515974372, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Hungary", "away": "Netherlands", "outcome": 2, "model": 0.6254, "market": 0.5792893310032711, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Republic of Ireland", "away": "England", "outcome": 0, "model": 0.108, "market": 0.14976036582684782, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Republic of Ireland", "away": "England", "outcome": 1, "model": 0.3618, "market": 0.24159814741532196, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Republic of Ireland", "away": "England", "outcome": 2, "model": 0.5302, "market": 0.6086414867578303, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Czech Republic", "away": "Albania", "outcome": 0, "model": 0.6017, "market": 0.5752555516390553, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Czech Republic", "away": "Albania", "outcome": 1, "model": 0.1937, "market": 0.2696510398308072, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Czech Republic", "away": "Albania", "outcome": 2, "model": 0.2046, "market": 0.15509340853013745, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Armenia", "away": "Latvia", "outcome": 0, "model": 0.5357000000000001, "market": 0.5659112625210924, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Armenia", "away": "Latvia", "outcome": 1, "model": 0.27580000000000005, "market": 0.25269299690112945, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Armenia", "away": "Latvia", "outcome": 2, "model": 0.18850000000000003, "market": 0.18139574057777816, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Ukraine", "away": "Georgia", "outcome": 0, "model": 0.4527, "market": 0.40653387915193506, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Ukraine", "away": "Georgia", "outcome": 1, "model": 0.3175, "market": 0.28791001167902996, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Ukraine", "away": "Georgia", "outcome": 2, "model": 0.2298, "market": 0.30555610916903503, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Iceland", "away": "Wales", "outcome": 0, "model": 0.27832783278327833, "market": 0.3035202586965918, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Iceland", "away": "Wales", "outcome": 1, "model": 0.31013101310131014, "market": 0.3006387372532697, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Iceland", "away": "Wales", "outcome": 2, "model": 0.41154115411541153, "market": 0.3958410040501385, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Moldova", "away": "Malta", "outcome": 0, "model": 0.5512, "market": 0.49517664939979533, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Moldova", "away": "Malta", "outcome": 1, "model": 0.2081, "market": 0.30484816526567204, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Moldova", "away": "Malta", "outcome": 2, "model": 0.2407, "market": 0.19997518533453273, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Turkey", "away": "Montenegro", "outcome": 0, "model": 0.7474999999999999, "market": 0.7406048919536377, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Turkey", "away": "Montenegro", "outcome": 1, "model": 0.13849999999999998, "market": 0.16013078744943515, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Turkey", "away": "Montenegro", "outcome": 2, "model": 0.11399999999999998, "market": 0.09926432059692733, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Faroe Islands", "away": "North Macedonia", "outcome": 0, "model": 0.2991, "market": 0.19966687006283293, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Faroe Islands", "away": "North Macedonia", "outcome": 1, "model": 0.2384, "market": 0.28705905635173246, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-07", "home": "Faroe Islands", "away": "North Macedonia", "outcome": 2, "model": 0.4625, "market": 0.5132740735854346, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-11-17", "home": "Israel", "away": "Belgium", "outcome": 0, "model": 0.1435, "market": 0.17751064389241103, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-17", "home": "Israel", "away": "Belgium", "outcome": 1, "model": 0.2727, "market": 0.2236718042426834, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-17", "home": "Israel", "away": "Belgium", "outcome": 2, "model": 0.5838, "market": 0.5988175518649056, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Slovakia", "away": "Sweden", "outcome": 0, "model": 0.47085291470852914, "market": 0.3637048192771084, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Slovakia", "away": "Sweden", "outcome": 1, "model": 0.3106689331066893, "market": 0.2936746987951807, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Slovakia", "away": "Sweden", "outcome": 2, "model": 0.21847815218478153, "market": 0.34262048192771094, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Belgium", "away": "Israel", "outcome": 0, "model": 0.6805, "market": 0.7687774124240032, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Belgium", "away": "Israel", "outcome": 1, "model": 0.2397, "market": 0.15033326188895452, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Belgium", "away": "Israel", "outcome": 2, "model": 0.0798, "market": 0.08088932568704225, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-11-17", "home": "Italy", "away": "France", "outcome": 0, "model": 0.316, "market": 0.3992102985292897, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-17", "home": "Italy", "away": "France", "outcome": 1, "model": 0.2239, "market": 0.31078586758469134, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-17", "home": "Italy", "away": "France", "outcome": 2, "model": 0.4601, "market": 0.2900038338860189, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-09-06", "home": "France", "away": "Italy", "outcome": 0, "model": 0.5606, "market": 0.5926886871764891, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-06", "home": "France", "away": "Italy", "outcome": 1, "model": 0.2577, "market": 0.2453030299110919, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-06", "home": "France", "away": "Italy", "outcome": 2, "model": 0.1817, "market": 0.16200828291241895, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Estonia", "away": "Azerbaijan", "outcome": 0, "model": 0.4441, "market": 0.2952567221355661, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Estonia", "away": "Azerbaijan", "outcome": 1, "model": 0.3042, "market": 0.3077594497830005, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-11", "home": "Estonia", "away": "Azerbaijan", "outcome": 2, "model": 0.2517, "market": 0.3969838280814334, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-17", "home": "Austria", "away": "Slovenia", "outcome": 0, "model": 0.6718000000000001, "market": 0.6747667005451354, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-17", "home": "Austria", "away": "Slovenia", "outcome": 1, "model": 0.21200000000000002, "market": 0.20142289568511504, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-17", "home": "Austria", "away": "Slovenia", "outcome": 2, "model": 0.11620000000000001, "market": 0.12381040376974962, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Slovenia", "away": "Austria", "outcome": 0, "model": 0.3283, "market": 0.23582658408766083, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Slovenia", "away": "Austria", "outcome": 1, "model": 0.2949, "market": 0.28656503096712727, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Slovenia", "away": "Austria", "outcome": 2, "model": 0.3768, "market": 0.47760838494521207, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Italy", "away": "Belgium", "outcome": 0, "model": 0.3761, "market": 0.4983738620436268, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Italy", "away": "Belgium", "outcome": 1, "model": 0.2729, "market": 0.2833018084831331, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Italy", "away": "Belgium", "outcome": 2, "model": 0.351, "market": 0.21832432947324018, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-11-17", "home": "England", "away": "Republic of Ireland", "outcome": 0, "model": 0.7154284571542846, "market": 0.7780776904119234, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-17", "home": "England", "away": "Republic of Ireland", "outcome": 1, "model": 0.213978602139786, "market": 0.15212416383053629, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-17", "home": "England", "away": "Republic of Ireland", "outcome": 2, "model": 0.0705929407059294, "market": 0.06979814575754019, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Iceland", "away": "Montenegro", "outcome": 0, "model": 0.4786478647864787, "market": 0.4723261683056305, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Iceland", "away": "Montenegro", "outcome": 1, "model": 0.23992399239923992, "market": 0.284244191106083, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Iceland", "away": "Montenegro", "outcome": 2, "model": 0.2814281428142814, "market": 0.2434296405882865, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Israel", "away": "France", "outcome": 0, "model": 0.088, "market": 0.06365724464444757, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Israel", "away": "France", "outcome": 1, "model": 0.1811, "market": 0.14062719729995782, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Israel", "away": "France", "outcome": 2, "model": 0.7309, "market": 0.7957155580555946, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-11-17", "home": "Finland", "away": "Greece", "outcome": 0, "model": 0.16491649164916491, "market": 0.18656471612699282, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-17", "home": "Finland", "away": "Greece", "outcome": 1, "model": 0.3049304930493049, "market": 0.2570334540119168, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-17", "home": "Finland", "away": "Greece", "outcome": 2, "model": 0.5301530153015301, "market": 0.5564018298610904, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Wales", "away": "Turkey", "outcome": 0, "model": 0.4512, "market": 0.35144856611529796, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Wales", "away": "Turkey", "outcome": 1, "model": 0.2489, "market": 0.29839972594695113, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Wales", "away": "Turkey", "outcome": 2, "model": 0.2999, "market": 0.35015170793775074, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Austria", "away": "Kazakhstan", "outcome": 0, "model": 0.8575, "market": 0.848227536637937, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Austria", "away": "Kazakhstan", "outcome": 1, "model": 0.106, "market": 0.10485815022455734, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Austria", "away": "Kazakhstan", "outcome": 2, "model": 0.0365, "market": 0.04691431313750566, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-11-17", "home": "Norway", "away": "Kazakhstan", "outcome": 0, "model": 0.8074, "market": 0.8716017096352388, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-17", "home": "Norway", "away": "Kazakhstan", "outcome": 1, "model": 0.123, "market": 0.09274185678877417, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-17", "home": "Norway", "away": "Kazakhstan", "outcome": 2, "model": 0.0696, "market": 0.035656433575987044, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-10", "home": "England", "away": "Greece", "outcome": 0, "model": 0.5833416658334167, "market": 0.7413538387905753, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "England", "away": "Greece", "outcome": 1, "model": 0.29727027297270275, "market": 0.1728475252553618, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "England", "away": "Greece", "outcome": 2, "model": 0.11938806119388062, "market": 0.08579863595406297, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-11-17", "home": "Latvia", "away": "Armenia", "outcome": 0, "model": 0.42074207420742077, "market": 0.28960106562218774, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-17", "home": "Latvia", "away": "Armenia", "outcome": 1, "model": 0.2443244324432443, "market": 0.29686378827102006, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-17", "home": "Latvia", "away": "Armenia", "outcome": 2, "model": 0.3349334933493349, "market": 0.41353514610679215, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Kosovo", "away": "Romania", "outcome": 0, "model": 0.306, "market": 0.4396619571944892, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Kosovo", "away": "Romania", "outcome": 1, "model": 0.2806, "market": 0.29130976304910944, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Kosovo", "away": "Romania", "outcome": 2, "model": 0.4134, "market": 0.26902827975640137, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Finland", "away": "Republic of Ireland", "outcome": 0, "model": 0.4592, "market": 0.3002944022735532, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Finland", "away": "Republic of Ireland", "outcome": 1, "model": 0.2281, "market": 0.32284210483334214, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Finland", "away": "Republic of Ireland", "outcome": 2, "model": 0.3127, "market": 0.3768634928931046, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-11-17", "home": "North Macedonia", "away": "Faroe Islands", "outcome": 0, "model": 0.7356735673567357, "market": 0.6148366559439319, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-17", "home": "North Macedonia", "away": "Faroe Islands", "outcome": 1, "model": 0.1755175517551755, "market": 0.24370468486896785, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-17", "home": "North Macedonia", "away": "Faroe Islands", "outcome": 2, "model": 0.08880888088808882, "market": 0.14145865918710013, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Lithuania", "away": "Cyprus", "outcome": 0, "model": 0.42115788421157885, "market": 0.3966304719086844, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Lithuania", "away": "Cyprus", "outcome": 1, "model": 0.27007299270072993, "market": 0.3183655961808838, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Lithuania", "away": "Cyprus", "outcome": 2, "model": 0.3087691230876913, "market": 0.2850039319104319, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Germany", "away": "Bosnia and Herzegovina", "outcome": 0, "model": 0.8181818181818182, "market": 0.8870116156282998, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Germany", "away": "Bosnia and Herzegovina", "outcome": 1, "model": 0.10681068106810682, "market": 0.08217337045214552, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Germany", "away": "Bosnia and Herzegovina", "outcome": 2, "model": 0.075007500750075, "market": 0.030815013919554567, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Kazakhstan", "away": "Norway", "outcome": 0, "model": 0.1045, "market": 0.09584122286399246, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Kazakhstan", "away": "Norway", "outcome": 1, "model": 0.1294, "market": 0.1713420423144038, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-06", "home": "Kazakhstan", "away": "Norway", "outcome": 2, "model": 0.7661, "market": 0.7328167348216038, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Norway", "away": "Slovenia", "outcome": 0, "model": 0.5138, "market": 0.5737415245531128, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Norway", "away": "Slovenia", "outcome": 1, "model": 0.2561, "market": 0.2644339428806246, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Norway", "away": "Slovenia", "outcome": 2, "model": 0.2301, "market": 0.16182453256626259, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Netherlands", "away": "Hungary", "outcome": 0, "model": 0.5738, "market": 0.6920471535950039, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Netherlands", "away": "Hungary", "outcome": 1, "model": 0.2136, "market": 0.1950832511162871, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Netherlands", "away": "Hungary", "outcome": 2, "model": 0.2126, "market": 0.11286959528870896, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Faroe Islands", "away": "Armenia", "outcome": 0, "model": 0.323, "market": 0.2717550058892815, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Faroe Islands", "away": "Armenia", "outcome": 1, "model": 0.2142, "market": 0.30605418138987045, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Faroe Islands", "away": "Armenia", "outcome": 2, "model": 0.4628, "market": 0.42219081272084796, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Portugal", "away": "Croatia", "outcome": 0, "model": 0.5113, "market": 0.6154398195612056, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Portugal", "away": "Croatia", "outcome": 1, "model": 0.2207, "market": 0.2289317203198688, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Portugal", "away": "Croatia", "outcome": 2, "model": 0.268, "market": 0.15562846011892556, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Gibraltar", "away": "San Marino", "outcome": 0, "model": 0.6176, "market": 0.5839524517087666, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Gibraltar", "away": "San Marino", "outcome": 1, "model": 0.2462, "market": 0.2725111441307578, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Gibraltar", "away": "San Marino", "outcome": 2, "model": 0.1362, "market": 0.14353640416047547, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Albania", "away": "Czech Republic", "outcome": 0, "model": 0.27247275272472754, "market": 0.2662981193207644, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Albania", "away": "Czech Republic", "outcome": 1, "model": 0.22467753224677534, "market": 0.30203141328712896, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Albania", "away": "Czech Republic", "outcome": 2, "model": 0.5028497150284972, "market": 0.4316704673921067, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Latvia", "away": "North Macedonia", "outcome": 0, "model": 0.25982598259825984, "market": 0.260341059176923, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Latvia", "away": "North Macedonia", "outcome": 1, "model": 0.23672367236723674, "market": 0.3139661278445949, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Latvia", "away": "North Macedonia", "outcome": 2, "model": 0.5034503450345035, "market": 0.42569281297848216, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Denmark", "away": "Switzerland", "outcome": 0, "model": 0.3883, "market": 0.3749692527180597, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Denmark", "away": "Switzerland", "outcome": 1, "model": 0.3156, "market": 0.31923058001672655, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Denmark", "away": "Switzerland", "outcome": 2, "model": 0.2961, "market": 0.3058001672652138, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Moldova", "away": "Andorra", "outcome": 0, "model": 0.6753, "market": 0.6630533440522808, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Moldova", "away": "Andorra", "outcome": 1, "model": 0.2141, "market": 0.25040844376442517, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-10-10", "home": "Moldova", "away": "Andorra", "outcome": 2, "model": 0.1106, "market": 0.086538212183294, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Sweden", "away": "Slovakia", "outcome": 0, "model": 0.5625562556255626, "market": 0.6031869473585978, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Sweden", "away": "Slovakia", "outcome": 1, "model": 0.23942394239423942, "market": 0.22709916243477182, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Sweden", "away": "Slovakia", "outcome": 2, "model": 0.19801980198019803, "market": 0.16971389020663055, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Scotland", "away": "Poland", "outcome": 0, "model": 0.4543, "market": 0.38457597540865507, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Scotland", "away": "Poland", "outcome": 1, "model": 0.2071, "market": 0.3037415347176638, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Scotland", "away": "Poland", "outcome": 2, "model": 0.3386, "market": 0.3116824898736812, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Hungary", "away": "Bosnia and Herzegovina", "outcome": 0, "model": 0.6522, "market": 0.6041685180154218, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Hungary", "away": "Bosnia and Herzegovina", "outcome": 1, "model": 0.2197, "market": 0.23478826071391395, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Hungary", "away": "Bosnia and Herzegovina", "outcome": 2, "model": 0.1281, "market": 0.16104322127066426, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Georgia", "away": "Ukraine", "outcome": 0, "model": 0.295, "market": 0.3219397512577199, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Georgia", "away": "Ukraine", "outcome": 1, "model": 0.3439, "market": 0.294860706759407, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Georgia", "away": "Ukraine", "outcome": 2, "model": 0.3611, "market": 0.3831995419828731, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Serbia", "away": "Spain", "outcome": 0, "model": 0.1762176217621762, "market": 0.17225584819237694, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Serbia", "away": "Spain", "outcome": 1, "model": 0.25662566256625663, "market": 0.24292491411745465, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Serbia", "away": "Spain", "outcome": 2, "model": 0.5671567156715672, "market": 0.5848192376901685, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Belarus", "away": "Bulgaria", "outcome": 0, "model": 0.2551255125512551, "market": 0.2686739743767633, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Belarus", "away": "Bulgaria", "outcome": 1, "model": 0.3941394139413941, "market": 0.30289995837380324, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Belarus", "away": "Bulgaria", "outcome": 2, "model": 0.3507350735073507, "market": 0.42842606724943333, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Montenegro", "away": "Iceland", "outcome": 0, "model": 0.45325467453254675, "market": 0.38153858671331514, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Montenegro", "away": "Iceland", "outcome": 1, "model": 0.24067593240675933, "market": 0.29661934014075914, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Montenegro", "away": "Iceland", "outcome": 2, "model": 0.3060693930606939, "market": 0.32184207314592567, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Netherlands", "away": "Germany", "outcome": 0, "model": 0.4773, "market": 0.37944183741176285, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Netherlands", "away": "Germany", "outcome": 1, "model": 0.2005, "market": 0.27180647379066103, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Netherlands", "away": "Germany", "outcome": 2, "model": 0.3222, "market": 0.34875168879757606, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Albania", "away": "Georgia", "outcome": 0, "model": 0.3192, "market": 0.3879830134854772, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Albania", "away": "Georgia", "outcome": 1, "model": 0.3175, "market": 0.29958182053941906, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Albania", "away": "Georgia", "outcome": 2, "model": 0.3633, "market": 0.31243516597510373, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Turkey", "away": "Wales", "outcome": 0, "model": 0.4847, "market": 0.5735493564888546, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Turkey", "away": "Wales", "outcome": 1, "model": 0.2549, "market": 0.24475370996696622, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Turkey", "away": "Wales", "outcome": 2, "model": 0.2604, "market": 0.18169693354417912, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Estonia", "away": "Slovakia", "outcome": 0, "model": 0.106, "market": 0.12947066623043413, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Estonia", "away": "Slovakia", "outcome": 1, "model": 0.2103, "market": 0.23698620701530837, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Estonia", "away": "Slovakia", "outcome": 2, "model": 0.6837, "market": 0.6335431267542576, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Andorra", "away": "Moldova", "outcome": 0, "model": 0.2281, "market": 0.19424663766777192, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Andorra", "away": "Moldova", "outcome": 1, "model": 0.3028, "market": 0.3206399977940619, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Andorra", "away": "Moldova", "outcome": 2, "model": 0.4691, "market": 0.4851133645381662, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Northern Ireland", "away": "Luxembourg", "outcome": 0, "model": 0.649, "market": 0.581708198139176, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Northern Ireland", "away": "Luxembourg", "outcome": 1, "model": 0.1996, "market": 0.2701379951472527, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Northern Ireland", "away": "Luxembourg", "outcome": 2, "model": 0.1514, "market": 0.1481538067135714, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Czech Republic", "away": "Ukraine", "outcome": 0, "model": 0.45614561456145614, "market": 0.3869441361598468, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Czech Republic", "away": "Ukraine", "outcome": 1, "model": 0.23762376237623764, "market": 0.2947004876016171, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Czech Republic", "away": "Ukraine", "outcome": 2, "model": 0.30623062306230625, "market": 0.31835537623853616, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Azerbaijan", "away": "Estonia", "outcome": 0, "model": 0.3806619338066194, "market": 0.5550661576401404, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Azerbaijan", "away": "Estonia", "outcome": 1, "model": 0.3358664133586642, "market": 0.26655719434696007, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-16", "home": "Azerbaijan", "away": "Estonia", "outcome": 2, "model": 0.2834716528347166, "market": 0.17837664801289957, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-05", "home": "San Marino", "away": "Liechtenstein", "outcome": 0, "model": 0.34613461346134616, "market": 0.29164038700156236, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "San Marino", "away": "Liechtenstein", "outcome": 1, "model": 0.2618261826182618, "market": 0.350185297403363, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "San Marino", "away": "Liechtenstein", "outcome": 2, "model": 0.39203920392039204, "market": 0.3581743155950747, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "England", "away": "Finland", "outcome": 0, "model": 0.8238, "market": 0.8536093959254298, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "England", "away": "Finland", "outcome": 1, "model": 0.1177, "market": 0.10192350996124536, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "England", "away": "Finland", "outcome": 2, "model": 0.0585, "market": 0.044467094113324716, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Scotland", "away": "Croatia", "outcome": 0, "model": 0.2024, "market": 0.2760499571446064, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Scotland", "away": "Croatia", "outcome": 1, "model": 0.3596, "market": 0.284314925921391, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Scotland", "away": "Croatia", "outcome": 2, "model": 0.438, "market": 0.4396351169340027, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Azerbaijan", "away": "Sweden", "outcome": 0, "model": 0.2013, "market": 0.17125867195242814, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Azerbaijan", "away": "Sweden", "outcome": 1, "model": 0.2294, "market": 0.2346878097125867, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-05", "home": "Azerbaijan", "away": "Sweden", "outcome": 2, "model": 0.5693, "market": 0.5940535183349851, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Republic of Ireland", "away": "Greece", "outcome": 0, "model": 0.2147214721472147, "market": 0.3427558066025731, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Republic of Ireland", "away": "Greece", "outcome": 1, "model": 0.244024402440244, "market": 0.3229365932956216, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Republic of Ireland", "away": "Greece", "outcome": 2, "model": 0.5412541254125413, "market": 0.33430760010180544, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "North Macedonia", "away": "Armenia", "outcome": 0, "model": 0.6371, "market": 0.44695820113119056, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "North Macedonia", "away": "Armenia", "outcome": 1, "model": 0.1891, "market": 0.29107463098358394, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "North Macedonia", "away": "Armenia", "outcome": 2, "model": 0.1738, "market": 0.26196716788522556, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Andorra", "away": "Malta", "outcome": 0, "model": 0.3451654834516548, "market": 0.2614562055972851, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Andorra", "away": "Malta", "outcome": 1, "model": 0.27277272272772723, "market": 0.36563016251495345, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Andorra", "away": "Malta", "outcome": 2, "model": 0.38206179382061795, "market": 0.37291363188776133, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Denmark", "away": "Spain", "outcome": 0, "model": 0.1046, "market": 0.2511439267886855, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Denmark", "away": "Spain", "outcome": 1, "model": 0.224, "market": 0.295601081530782, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Denmark", "away": "Spain", "outcome": 2, "model": 0.6714, "market": 0.45325499168053246, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Latvia", "away": "Faroe Islands", "outcome": 0, "model": 0.45380000000000004, "market": 0.45648593230024537, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Latvia", "away": "Faroe Islands", "outcome": 1, "model": 0.31100000000000005, "market": 0.2999764697973041, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-10", "home": "Latvia", "away": "Faroe Islands", "outcome": 2, "model": 0.23520000000000002, "market": 0.2435375979024505, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Portugal", "away": "Poland", "outcome": 0, "model": 0.7306, "market": 0.7666913808314729, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Portugal", "away": "Poland", "outcome": 1, "model": 0.1741, "market": 0.15408384314927495, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Portugal", "away": "Poland", "outcome": 2, "model": 0.0953, "market": 0.0792247760192522, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Switzerland", "away": "Serbia", "outcome": 0, "model": 0.4546, "market": 0.535750652171805, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Switzerland", "away": "Serbia", "outcome": 1, "model": 0.2452, "market": 0.24748586557017757, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Switzerland", "away": "Serbia", "outcome": 2, "model": 0.3002, "market": 0.21676348225801764, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Israel", "away": "Italy", "outcome": 0, "model": 0.0948, "market": 0.11748818015027537, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Israel", "away": "Italy", "outcome": 1, "model": 0.2115, "market": 0.19130398626489284, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Israel", "away": "Italy", "outcome": 2, "model": 0.6937, "market": 0.6912078335848317, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Northern Ireland", "away": "Belarus", "outcome": 0, "model": 0.5572, "market": 0.6527934603073879, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Northern Ireland", "away": "Belarus", "outcome": 1, "model": 0.3128, "market": 0.24085254896837466, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Northern Ireland", "away": "Belarus", "outcome": 2, "model": 0.13, "market": 0.10635399072423735, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Norway", "away": "Austria", "outcome": 0, "model": 0.4114, "market": 0.427910437350322, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Norway", "away": "Austria", "outcome": 1, "model": 0.3129, "market": 0.27615150317375436, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Norway", "away": "Austria", "outcome": 2, "model": 0.2757, "market": 0.29593805947592366, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Luxembourg", "away": "Bulgaria", "outcome": 0, "model": 0.3042, "market": 0.32719677706964306, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Luxembourg", "away": "Bulgaria", "outcome": 1, "model": 0.2928, "market": 0.3173149952118351, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Luxembourg", "away": "Bulgaria", "outcome": 2, "model": 0.403, "market": 0.355488227718522, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Turkey", "away": "Iceland", "outcome": 0, "model": 0.4874, "market": 0.6613598232929788, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Turkey", "away": "Iceland", "outcome": 1, "model": 0.3135, "market": 0.20219918164371328, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Turkey", "away": "Iceland", "outcome": 2, "model": 0.1991, "market": 0.13644099506330795, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Slovenia", "away": "Kazakhstan", "outcome": 0, "model": 0.733, "market": 0.7144223367777752, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Slovenia", "away": "Kazakhstan", "outcome": 1, "model": 0.1707, "market": 0.19012852511021439, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Slovenia", "away": "Kazakhstan", "outcome": 2, "model": 0.0963, "market": 0.09544913811201045, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Montenegro", "away": "Wales", "outcome": 0, "model": 0.2585741425857414, "market": 0.24396127284142358, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Montenegro", "away": "Wales", "outcome": 1, "model": 0.23987601239876014, "market": 0.296401546442851, "won": false, "books": 5}
+{"season": "2024-2025", "date": "2024-09-09", "home": "Montenegro", "away": "Wales", "outcome": 2, "model": 0.5015498450154985, "market": 0.4596371807157255, "won": true, "books": 5}
+{"season": "2024-2025", "date": "2024-11-15", "home": "San Marino", "away": "Gibraltar", "outcome": 0, "model": 0.27462746274627464, "market": 0.25175847117392003, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-15", "home": "San Marino", "away": "Gibraltar", "outcome": 1, "model": 0.31033103310331034, "market": 0.36441303998715274, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-15", "home": "San Marino", "away": "Gibraltar", "outcome": 2, "model": 0.415041504150415, "market": 0.3838284888389273, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Cyprus", "away": "Lithuania", "outcome": 0, "model": 0.5492, "market": 0.4361026773392217, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Cyprus", "away": "Lithuania", "outcome": 1, "model": 0.2148, "market": 0.3022357162572454, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-15", "home": "Cyprus", "away": "Lithuania", "outcome": 2, "model": 0.236, "market": 0.261661606403533, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "Belgium", "away": "Italy", "outcome": 0, "model": 0.3209, "market": 0.3633717996843579, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "Belgium", "away": "Italy", "outcome": 1, "model": 0.3062, "market": 0.2929335738993901, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "Belgium", "away": "Italy", "outcome": 2, "model": 0.3729, "market": 0.3436946264162519, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "France", "away": "Israel", "outcome": 0, "model": 0.8774, "market": 0.8490046026219328, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "France", "away": "Israel", "outcome": 1, "model": 0.0966, "market": 0.10392187485645517, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "France", "away": "Israel", "outcome": 2, "model": 0.026, "market": 0.04707352252161212, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "Greece", "away": "England", "outcome": 0, "model": 0.2709, "market": 0.26377835370748376, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "Greece", "away": "England", "outcome": 1, "model": 0.3612, "market": 0.2986170041971514, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "Greece", "away": "England", "outcome": 2, "model": 0.3679, "market": 0.43760464209536476, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "Republic of Ireland", "away": "Finland", "outcome": 0, "model": 0.5629000000000001, "market": 0.5700091923238422, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "Republic of Ireland", "away": "Finland", "outcome": 1, "model": 0.21610000000000001, "market": 0.2557338538533994, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "Republic of Ireland", "away": "Finland", "outcome": 2, "model": 0.22100000000000003, "market": 0.17425695382275838, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "Slovenia", "away": "Norway", "outcome": 0, "model": 0.5053505350535054, "market": 0.34549072964685335, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "Slovenia", "away": "Norway", "outcome": 1, "model": 0.2216221622162216, "market": 0.2959811546818837, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "Slovenia", "away": "Norway", "outcome": 2, "model": 0.27302730273027304, "market": 0.3585281156712629, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "North Macedonia", "away": "Latvia", "outcome": 0, "model": 0.7855000000000001, "market": 0.6429245313709798, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "North Macedonia", "away": "Latvia", "outcome": 1, "model": 0.13450000000000004, "market": 0.22030281144879726, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "North Macedonia", "away": "Latvia", "outcome": 2, "model": 0.08000000000000002, "market": 0.1367726571802229, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "Armenia", "away": "Faroe Islands", "outcome": 0, "model": 0.5554, "market": 0.6610834102679688, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "Armenia", "away": "Faroe Islands", "outcome": 1, "model": 0.2504, "market": 0.21534152088455474, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "Armenia", "away": "Faroe Islands", "outcome": 2, "model": 0.1942, "market": 0.12357506884747652, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "Kazakhstan", "away": "Austria", "outcome": 0, "model": 0.0955, "market": 0.07233103383159149, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "Kazakhstan", "away": "Austria", "outcome": 1, "model": 0.2292, "market": 0.1314197702071912, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-11-14", "home": "Kazakhstan", "away": "Austria", "outcome": 2, "model": 0.6753, "market": 0.7962491959612173, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Poland", "away": "Croatia", "outcome": 0, "model": 0.16820000000000002, "market": 0.32454966792488893, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Poland", "away": "Croatia", "outcome": 1, "model": 0.30410000000000004, "market": 0.28914424960581014, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Poland", "away": "Croatia", "outcome": 2, "model": 0.5277000000000001, "market": 0.386306082469301, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Switzerland", "away": "Denmark", "outcome": 0, "model": 0.39013901390139016, "market": 0.4427893034388358, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Switzerland", "away": "Denmark", "outcome": 1, "model": 0.24932493249324933, "market": 0.2880149268568719, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Switzerland", "away": "Denmark", "outcome": 2, "model": 0.3605360536053605, "market": 0.26919576970429226, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Scotland", "away": "Portugal", "outcome": 0, "model": 0.0799, "market": 0.15710522791196035, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Scotland", "away": "Portugal", "outcome": 1, "model": 0.1794, "market": 0.21858118666011872, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Scotland", "away": "Portugal", "outcome": 2, "model": 0.7407, "market": 0.6243135854279208, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Spain", "away": "Serbia", "outcome": 0, "model": 0.7035, "market": 0.7091669503023634, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Spain", "away": "Serbia", "outcome": 1, "model": 0.2074, "market": 0.18603393370850954, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Spain", "away": "Serbia", "outcome": 2, "model": 0.0891, "market": 0.10479911598912704, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Belarus", "away": "Luxembourg", "outcome": 0, "model": 0.3555, "market": 0.3229699442560772, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Belarus", "away": "Luxembourg", "outcome": 1, "model": 0.4703, "market": 0.3391184414688811, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Belarus", "away": "Luxembourg", "outcome": 2, "model": 0.1742, "market": 0.3379116142750417, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Northern Ireland", "away": "Bulgaria", "outcome": 0, "model": 0.4852, "market": 0.5167785234899329, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Northern Ireland", "away": "Bulgaria", "outcome": 1, "model": 0.276, "market": 0.2953020134228188, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Northern Ireland", "away": "Bulgaria", "outcome": 2, "model": 0.2388, "market": 0.18791946308724838, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Kosovo", "away": "Cyprus", "outcome": 0, "model": 0.6615, "market": 0.7067829105239746, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Kosovo", "away": "Cyprus", "outcome": 1, "model": 0.1851, "market": 0.18680258384657314, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Kosovo", "away": "Cyprus", "outcome": 2, "model": 0.1534, "market": 0.10641450562945236, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Lithuania", "away": "Romania", "outcome": 0, "model": 0.1127, "market": 0.18114245191542322, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Lithuania", "away": "Romania", "outcome": 1, "model": 0.2466, "market": 0.25033214177171226, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-15", "home": "Lithuania", "away": "Romania", "outcome": 2, "model": 0.6407, "market": 0.5685254063128645, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Belgium", "away": "France", "outcome": 0, "model": 0.1855185518551855, "market": 0.31131818254719257, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Belgium", "away": "France", "outcome": 1, "model": 0.19531953195319532, "market": 0.2876617856971019, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Belgium", "away": "France", "outcome": 2, "model": 0.6191619161916191, "market": 0.40102003175570566, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Bosnia and Herzegovina", "away": "Hungary", "outcome": 0, "model": 0.2971, "market": 0.2937438577241709, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Bosnia and Herzegovina", "away": "Hungary", "outcome": 1, "model": 0.2283, "market": 0.29193620321509905, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Bosnia and Herzegovina", "away": "Hungary", "outcome": 2, "model": 0.4746, "market": 0.4143199390607301, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Germany", "away": "Netherlands", "outcome": 0, "model": 0.5252, "market": 0.5170463725965422, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Germany", "away": "Netherlands", "outcome": 1, "model": 0.1997, "market": 0.23654871546291809, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Germany", "away": "Netherlands", "outcome": 2, "model": 0.2751, "market": 0.24640491194053968, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Italy", "away": "Israel", "outcome": 0, "model": 0.7635000000000001, "market": 0.7990861348416711, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Italy", "away": "Israel", "outcome": 1, "model": 0.15950000000000003, "market": 0.13451093282641538, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Italy", "away": "Israel", "outcome": 2, "model": 0.07700000000000001, "market": 0.06640293233191351, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Ukraine", "away": "Czech Republic", "outcome": 0, "model": 0.3917, "market": 0.33924926681419004, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Ukraine", "away": "Czech Republic", "outcome": 1, "model": 0.3098, "market": 0.29671017379673675, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Ukraine", "away": "Czech Republic", "outcome": 2, "model": 0.2985, "market": 0.3640405593890731, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Iceland", "away": "Turkey", "outcome": 0, "model": 0.3361, "market": 0.22128068195218922, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Iceland", "away": "Turkey", "outcome": 1, "model": 0.2892, "market": 0.2667834700719352, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Iceland", "away": "Turkey", "outcome": 2, "model": 0.3747, "market": 0.5119358479758755, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Wales", "away": "Montenegro", "outcome": 0, "model": 0.6273, "market": 0.605999670347783, "won": true, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Wales", "away": "Montenegro", "outcome": 1, "model": 0.2217, "market": 0.23458051755398054, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Wales", "away": "Montenegro", "outcome": 2, "model": 0.151, "market": 0.15941981209823639, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Estonia", "away": "Sweden", "outcome": 0, "model": 0.13328667133286673, "market": 0.06254925224590242, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Estonia", "away": "Sweden", "outcome": 1, "model": 0.22317768223177684, "market": 0.14375855539012578, "won": false, "books": 6}
+{"season": "2024-2025", "date": "2024-10-14", "home": "Estonia", "away": "Sweden", "outcome": 2, "model": 0.6435356464353564, "market": 0.7936921923639718, "won": true, "books": 6}

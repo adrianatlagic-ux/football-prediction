@@ -1028,8 +1028,8 @@ function ModelTrackRecord({ bet, bets = [], competition }) {
     <div className={`model-track ${cls}`}>
       <span className="model-track-label">Is the model worth trusting here?</span>
       <p>
-        {optimism} In {row.n} similar {name} bets, {pct(row.hit_rate)} came in
-        {row.hit_rate < row.market_expected ? ' - the market was closer.' : row.hit_rate > row.model_expected ? ' - more than even the model expected.' : '.'}
+        {optimism} In {row.n} similar {name} bets, {pct(row.hit_rate)} came in: the market had
+        expected {pct(row.market_expected)}, the model {pct(row.model_expected)}.
       </p>
       <p className="model-track-advice">→ {advice}</p>
     </div>
