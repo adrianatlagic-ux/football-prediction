@@ -1,0 +1,383 @@
+{
+  "home_team": "Bulgaria",
+  "away_team": "Luxembourg",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4885,
+  "probability_draw": 0.2072,
+  "probability_away_win": 0.3043,
+  "score_prediction": {
+    "home_xg": 1.14,
+    "away_xg": 1.04,
+    "rho": -0.13,
+    "most_likely_score": "1:0",
+    "result": "H",
+    "probability_home_win": 0.4885,
+    "probability_draw": 0.2072,
+    "probability_away_win": 0.3043,
+    "top_scorelines": [
+      {
+        "score": "1:0",
+        "probability": 0.1508
+      },
+      {
+        "score": "2:1",
+        "probability": 0.1029
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0994
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0391
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0378
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.6957,
+        "home_or_away": 0.7928,
+        "draw_or_away": 0.5115
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.6678,
+          "under": 0.3322
+        },
+        {
+          "line": 2.5,
+          "over": 0.4128,
+          "under": 0.5872
+        },
+        {
+          "line": 3.5,
+          "over": 0.1833,
+          "under": 0.8167
+        }
+      ],
+      "btts": {
+        "yes": 0.4297,
+        "no": 0.5703
+      },
+      "win_margin": {
+        "home_1plus": 0.4885,
+        "home_2plus": 0.2125,
+        "home_3plus": 0.0677,
+        "away_1plus": 0.3043,
+        "away_2plus": 0.1227,
+        "away_3plus": 0.0356
+      },
+      "scenario": "Bulgaria are narrow favorites with almost a 50% win chance, 1-0 is the most likely score, and few goals are expected."
+    },
+    "score_matrix": [
+      [
+        0.08279307265100182,
+        0.09832289343724847,
+        0.059785025107645495,
+        0.020640989743518787,
+        0.005344780613852617,
+        0.0011071825591768294,
+        0.00019112933219500502,
+        2.8280602602546445e-05,
+        3.6614914889345836e-06
+      ],
+      [
+        0.1507943535811332,
+        0.09581830390142562,
+        0.0681964542227582,
+        0.023545065166766757,
+        0.006096762287997646,
+        0.0012629571464959203,
+        0.0002180201936888729,
+        3.225953016334746e-05,
+        4.176643503327952e-06
+      ],
+      [
+        0.09938757569742439,
+        0.10294172797836895,
+        0.0250460232729131,
+        0.013428864133837476,
+        0.0034772718547148264,
+        0.000720324187129093,
+        0.00012434722684961038,
+        1.839913563698638e-05,
+        2.382137307516659e-06
+      ],
+      [
+        0.03779028970413274,
+        0.03914169045424662,
+        0.02027070900502402,
+        0.0032879484958387565,
+        0.00132216838822748,
+        0.00027388996583813227,
+        4.728073598312013e-05,
+        6.995931444631937e-06,
+        9.057637067246645e-07
+      ],
+      [
+        0.010776794679070405,
+        0.011162178557499002,
+        0.0057806719836402155,
+        0.0019957972905443374,
+        0.00024279165683664287,
+        7.810620002133421e-05,
+        1.3483219841781182e-05,
+        1.995055273667451e-06,
+        2.58299938199679e-07
+      ],
+      [
+        0.0024586062602666788,
+        0.002546527320686485,
+        0.0013187962423676775,
+        0.00045531903120370524,
+        0.00011790037015351246,
+        1.1474201852801386e-05,
+        3.0760471641846835e-06,
+        4.5514974827746743e-07,
+        5.8928268005102814e-08
+      ],
+      [
+        0.00046741980671070876,
+        0.0004841349862542478,
+        0.0002507239547301268,
+        8.656332532638167e-05,
+        2.2414718907572574e-05,
+        4.643256222527491e-06,
+        3.765726030813568e-07,
+        8.653114197358531e-08,
+        1.12031926729717e-08
+      ],
+      [
+        7.616903443095266e-05,
+        7.889287939407243e-05,
+        4.0857065246965944e-05,
+        1.4106045170917791e-05,
+        3.652621202010149e-06,
+        7.566481736712609e-07,
+        1.3061771876887128e-07,
+        9.079906490751738e-09,
+        1.8256315975337283e-09
+      ],
+      [
+        1.0860700611083865e-05,
+        1.1249085010025793e-05,
+        5.825679120260663e-06,
+        2.011336162422289e-06,
+        5.208156518866004e-07,
+        1.0788805901978891e-07,
+        1.8624365513487293e-08,
+        2.7557689537371288e-09,
+        1.6762166010214738e-10
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Tactically Balanced",
+    "match_description": "A tight game where goals will make the difference",
+    "dominance_index": 0.05,
+    "total_xg": 2.18,
+    "first_goal": {
+      "Bulgaria_scores_first": 0.464,
+      "Luxembourg_scores_first": 0.423,
+      "no_goals": 0.113,
+      "expected_minute": 41
+    },
+    "halftime_xg": {
+      "Bulgaria": 0.54,
+      "Luxembourg": 0.49
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.359
+      },
+      {
+        "score": "1:0",
+        "probability": 0.192
+      },
+      {
+        "score": "0:1",
+        "probability": 0.176
+      },
+      {
+        "score": "1:1",
+        "probability": 0.094
+      },
+      {
+        "score": "2:0",
+        "probability": 0.052
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Bulgaria": 0.154,
+        "Luxembourg": 0.14
+      },
+      "16-30'": {
+        "Bulgaria": 0.177,
+        "Luxembourg": 0.161
+      },
+      "31-45'": {
+        "Bulgaria": 0.205,
+        "Luxembourg": 0.187
+      },
+      "46-60'": {
+        "Bulgaria": 0.165,
+        "Luxembourg": 0.151
+      },
+      "61-75'": {
+        "Bulgaria": 0.211,
+        "Luxembourg": 0.192
+      },
+      "76-90'": {
+        "Bulgaria": 0.228,
+        "Luxembourg": 0.208
+      }
+    },
+    "comeback_probability": {
+      "Bulgaria": 0.02,
+      "Luxembourg": 0.018
+    },
+    "late_drama_probability": 0.353,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.293
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.247
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Bulgaria trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.129
+      },
+      {
+        "szenario": "Bulgaria dominiert früh",
+        "beschreibung": "Bulgaria geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.052
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 51,
+        "away": 49
+      },
+      "shots": {
+        "home": 12,
+        "away": 11
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 4
+      },
+      "corners": {
+        "home": 6,
+        "away": 5
+      },
+      "passes": {
+        "home": 265,
+        "away": 255
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Bulgaria and Luxembourg is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 33,
+        "type": "chance",
+        "team": "Luxembourg",
+        "headline": "Big chance for Luxembourg!",
+        "description": "Luxembourg create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 56,
+        "type": "chance",
+        "team": "Bulgaria",
+        "headline": "Big chance for Bulgaria!",
+        "description": "Bulgaria create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 68,
+        "type": "goal",
+        "team": "Bulgaria",
+        "headline": "GOAL! Bulgaria!",
+        "description": "Bulgaria score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:0.",
+        "score_after": "1:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Bulgaria": 86,
+      "Luxembourg": 96
+    },
+    "fifa_points": {
+      "Bulgaria": 1271.52,
+      "Luxembourg": 1242.61
+    },
+    "form_last_10_avg_pts": {
+      "Bulgaria": 1.41,
+      "Luxembourg": 1.03
+    },
+    "win_rate_last_10": {
+      "Bulgaria": "45%",
+      "Luxembourg": "32%"
+    },
+    "avg_goals_scored": {
+      "Bulgaria": 2.12,
+      "Luxembourg": 0.88
+    },
+    "avg_goals_conceded": {
+      "Bulgaria": 2.32,
+      "Luxembourg": 1.22
+    },
+    "clean_sheet_rate": {
+      "Bulgaria": "17%",
+      "Luxembourg": "38%"
+    },
+    "h2h_last_10": {
+      "Bulgaria wins": "70%",
+      "draws": "30%",
+      "Luxembourg wins": "0%",
+      "total_h2h_games": 10
+    }
+  },
+  "history_refreshed_at": "2026-09-26T14:41:13.154864+00:00",
+  "match_id": "bulgaria_vs_luxembourg_nl",
+  "group": "Sat 26 Sep",
+  "date": "2026-09-26",
+  "time": "18:00"
+}

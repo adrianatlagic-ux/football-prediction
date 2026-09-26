@@ -1,0 +1,399 @@
+{
+  "home_team": "Austria",
+  "away_team": "Kosovo",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.7044,
+  "probability_draw": 0.1895,
+  "probability_away_win": 0.1062,
+  "score_prediction": {
+    "home_xg": 1.84,
+    "away_xg": 0.91,
+    "rho": -0.13,
+    "most_likely_score": "2:0",
+    "result": "H",
+    "probability_home_win": 0.7043,
+    "probability_draw": 0.1895,
+    "probability_away_win": 0.1062,
+    "top_scorelines": [
+      {
+        "score": "2:0",
+        "probability": 0.1317
+      },
+      {
+        "score": "1:0",
+        "probability": 0.1264
+      },
+      {
+        "score": "2:1",
+        "probability": 0.1202
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0806
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0736
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8938,
+        "home_or_away": 0.8105,
+        "draw_or_away": 0.2957
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7876,
+          "under": 0.2124
+        },
+        {
+          "line": 2.5,
+          "over": 0.5486,
+          "under": 0.4514
+        },
+        {
+          "line": 3.5,
+          "over": 0.312,
+          "under": 0.688
+        }
+      ],
+      "btts": {
+        "yes": 0.4959,
+        "no": 0.5041
+      },
+      "win_margin": {
+        "home_1plus": 0.7043,
+        "home_2plus": 0.4191,
+        "home_3plus": 0.1966,
+        "away_1plus": 0.1062,
+        "away_2plus": 0.0378,
+        "away_3plus": 0.0096
+      },
+      "scenario": "Austria is a heavy favorite, expected to win 2-0, with a strong chance of securing victory by at least two goals."
+    },
+    "score_matrix": [
+      [
+        0.05829361042681554,
+        0.027876718660583492,
+        0.016708539883411748,
+        0.005082871093480257,
+        0.001159687444259571,
+        0.00021167170186131267,
+        3.2196109959518055e-05,
+        4.197562900109287e-06,
+        4.788495421407085e-07
+      ],
+      [
+        0.12643562629886285,
+        0.0906326871482361,
+        0.03067738198047215,
+        0.009332304269566999,
+        0.002129221042278411,
+        0.0003886356137500017,
+        5.91130266561473e-05,
+        7.70685178790244e-06,
+        8.791821677972472e-07
+      ],
+      [
+        0.13169414698987525,
+        0.12018722956994145,
+        0.03359835904132513,
+        0.008567195722461887,
+        0.0019546569505957414,
+        0.00035677334038207984,
+        5.4266647816211656e-05,
+        7.075005889625693e-06,
+        8.071024571905458e-07
+      ],
+      [
+        0.08059813883581365,
+        0.07355578996168054,
+        0.03356438693893722,
+        0.006255286452709857,
+        0.0011962696587617947,
+        0.00021834886271173928,
+        3.321173275211306e-05,
+        4.3299745659926015e-06,
+        4.939547989507166e-07
+      ],
+      [
+        0.03699515201858125,
+        0.03376266090985765,
+        0.01540630609034249,
+        0.004686721187508141,
+        0.0006550868247314445,
+        0.00010022377049624552,
+        1.524443516577777e-05,
+        1.987490897672036e-06,
+        2.2672896845317118e-07
+      ],
+      [
+        0.013584842455640263,
+        0.012397852267595828,
+        0.005657288310521181,
+        0.001720992224436087,
+        0.0003926546704886709,
+        4.390667010309724e-05,
+        5.597848332892328e-06,
+        7.298186182160492e-07,
+        8.325624165618123e-08
+      ],
+      [
+        0.004157029918674088,
+        0.0037938049684410713,
+        0.0017311585940135465,
+        0.0005266322513601134,
+        0.0001201542983114109,
+        2.1931137510733886e-05,
+        2.0436176536307424e-06,
+        2.2332815717490107e-07,
+        2.5476827472328115e-08
+      ],
+      [
+        0.0010903474306233122,
+        0.0009950771537735443,
+        0.0004540656098010926,
+        0.00013813037995574946,
+        3.1515272443355506e-05,
+        5.75231833864268e-06,
+        8.749505584569659e-07,
+        6.988359058406314e-08,
+        6.6823174040918476e-09
+      ],
+      [
+        0.0002502388363529741,
+        0.0002283739494844986,
+        0.00010420976528515667,
+        3.170144173711771e-05,
+        7.232873561286696e-06,
+        1.3201786943918729e-06,
+        2.008044440380734e-07,
+        2.6179848606900008e-08,
+        1.8296452050055134e-09
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.34,
+    "total_xg": 2.75,
+    "first_goal": {
+      "Austria_scores_first": 0.626,
+      "Kosovo_scores_first": 0.31,
+      "no_goals": 0.064,
+      "expected_minute": 32
+    },
+    "halftime_xg": {
+      "Austria": 0.86,
+      "Kosovo": 0.43
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.275
+      },
+      {
+        "score": "1:0",
+        "probability": 0.238
+      },
+      {
+        "score": "0:1",
+        "probability": 0.118
+      },
+      {
+        "score": "2:0",
+        "probability": 0.103
+      },
+      {
+        "score": "1:1",
+        "probability": 0.102
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Austria": 0.248,
+        "Kosovo": 0.123
+      },
+      "16-30'": {
+        "Austria": 0.285,
+        "Kosovo": 0.141
+      },
+      "31-45'": {
+        "Austria": 0.331,
+        "Kosovo": 0.164
+      },
+      "46-60'": {
+        "Austria": 0.267,
+        "Kosovo": 0.132
+      },
+      "61-75'": {
+        "Austria": 0.34,
+        "Kosovo": 0.168
+      },
+      "76-90'": {
+        "Austria": 0.368,
+        "Kosovo": 0.182
+      }
+    },
+    "comeback_probability": {
+      "Austria": 0.031,
+      "Kosovo": 0.016
+    },
+    "late_drama_probability": 0.423,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.227
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.213
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Austria trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.119
+      },
+      {
+        "szenario": "Austria dominiert früh",
+        "beschreibung": "Austria geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.104
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 56,
+        "away": 44
+      },
+      "shots": {
+        "home": 16,
+        "away": 10
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 4
+      },
+      "corners": {
+        "home": 7,
+        "away": 4
+      },
+      "passes": {
+        "home": 291,
+        "away": 229
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Austria and Kosovo is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 16,
+        "type": "chance",
+        "team": "Kosovo",
+        "headline": "Big chance for Kosovo!",
+        "description": "Kosovo create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 44,
+        "type": "goal",
+        "team": "Austria",
+        "headline": "GOAL! Austria!",
+        "description": "Austria score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 61,
+        "type": "goal",
+        "team": "Austria",
+        "headline": "GOAL! Austria!",
+        "description": "Austria score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 65,
+        "type": "chance",
+        "team": "Kosovo",
+        "headline": "Big chance for Kosovo!",
+        "description": "Kosovo create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 87,
+        "type": "chance",
+        "team": "Austria",
+        "headline": "Big chance for Austria!",
+        "description": "Austria create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Austria": 22,
+      "Kosovo": 91
+    },
+    "fifa_points": {
+      "Austria": 1601.86,
+      "Kosovo": 1262.1
+    },
+    "form_last_10_avg_pts": {
+      "Austria": 1.99,
+      "Kosovo": 1.68
+    },
+    "win_rate_last_10": {
+      "Austria": "59%",
+      "Kosovo": "50%"
+    },
+    "avg_goals_scored": {
+      "Austria": 2.54,
+      "Kosovo": 1.24
+    },
+    "avg_goals_conceded": {
+      "Austria": 1.22,
+      "Kosovo": 1.07
+    },
+    "clean_sheet_rate": {
+      "Austria": "21%",
+      "Kosovo": "46%"
+    },
+    "h2h_last_10": {
+      "Austria wins": "0%",
+      "draws": "0%",
+      "Kosovo wins": "0%",
+      "total_h2h_games": 0
+    }
+  },
+  "history_refreshed_at": "2026-09-26T14:41:13.154864+00:00",
+  "match_id": "austria_vs_kosovo_nl",
+  "group": "Sun 27 Sep",
+  "date": "2026-09-27",
+  "time": "18:00"
+}

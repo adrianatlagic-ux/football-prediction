@@ -1,0 +1,383 @@
+{
+  "home_team": "Lithuania",
+  "away_team": "Azerbaijan",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.3728,
+  "probability_draw": 0.2766,
+  "probability_away_win": 0.3507,
+  "score_prediction": {
+    "home_xg": 1.03,
+    "away_xg": 1.08,
+    "rho": -0.13,
+    "most_likely_score": "1:0",
+    "result": "H",
+    "probability_home_win": 0.3728,
+    "probability_draw": 0.2766,
+    "probability_away_win": 0.3507,
+    "top_scorelines": [
+      {
+        "score": "1:0",
+        "probability": 0.1253
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0808
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0748
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0276
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0256
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.6493,
+        "home_or_away": 0.7234,
+        "draw_or_away": 0.6272
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.6439,
+          "under": 0.3561
+        },
+        {
+          "line": 2.5,
+          "over": 0.3711,
+          "under": 0.6289
+        },
+        {
+          "line": 3.5,
+          "over": 0.1652,
+          "under": 0.8348
+        }
+      ],
+      "btts": {
+        "yes": 0.4289,
+        "no": 0.5711
+      },
+      "win_margin": {
+        "home_1plus": 0.3728,
+        "home_2plus": 0.1499,
+        "home_3plus": 0.0434,
+        "away_1plus": 0.3507,
+        "away_2plus": 0.1469,
+        "away_3plus": 0.0446
+      },
+      "scenario": "Lithuania is favored with nearly a 45% win chance, likely in a low-scoring 1-0 match."
+    },
+    "score_matrix": [
+      [
+        0.11527889064690666,
+        0.11510049427523605,
+        0.07177239960056565,
+        0.025857381346343893,
+        0.006986712585317229,
+        0.0015102581996527607,
+        0.0002720497183959026,
+        4.2004765975763e-05,
+        5.674882989024414e-06
+      ],
+      [
+        0.1253459218973657,
+        0.1262364564128539,
+        0.0736281836006119,
+        0.02652596306929998,
+        0.00716736461173563,
+        0.0015493082107775405,
+        0.00027908397553967835,
+        4.3090862763070265e-05,
+        5.821615676126644e-06
+      ],
+      [
+        0.07480376595056117,
+        0.08084846736729714,
+        0.0309657290252983,
+        0.01360591599221156,
+        0.003676343834832857,
+        0.0007946839595158613,
+        0.00014315005702318864,
+        2.2102521113165507e-05,
+        2.9860711794473345e-06
+      ],
+      [
+        0.025579310171583516,
+        0.027646308944552913,
+        0.014940168306547227,
+        0.003814817344412431,
+        0.0012571337559492614,
+        0.0002717439052770824,
+        4.8950472788977826e-05,
+        7.5580050809379426e-06,
+        1.021093522804604e-06
+      ],
+      [
+        0.006560175485882414,
+        0.007090286524406304,
+        0.003831617241517701,
+        0.0013804134839929276,
+        0.00026435572176030693,
+        6.969256378997609e-05,
+        1.2554040334103621e-05,
+        1.9383571848323387e-06,
+        2.618738602473187e-07
+      ],
+      [
+        0.0013459597500289715,
+        0.001454723322350275,
+        0.0007861379006854668,
+        0.0002832212327017993,
+        7.652690442400547e-05,
+        1.172421178881714e-05,
+        2.575728808826351e-06,
+        3.976952686065018e-07,
+        5.372900103604343e-08
+      ],
+      [
+        0.0002301269293528113,
+        0.00024872289919753007,
+        0.0001344107809529354,
+        4.8424057708843213e-05,
+        1.3084270556822652e-05,
+        2.8283154135242532e-06,
+        3.610905337074765e-07,
+        6.799638026366374e-08,
+        9.186374277055868e-09
+      ],
+      [
+        3.372531562098916e-05,
+        3.64505723045737e-05,
+        1.9698025012760228e-05,
+        7.0965907139706045e-06,
+        1.9175120245173023e-06,
+        4.14492255491648e-07,
+        7.466438613590166e-08,
+        8.17061923448507e-09,
+        1.346271697873591e-09
+      ],
+      [
+        4.324666836329384e-06,
+        4.674132126215304e-06,
+        2.525918407146173e-06,
+        9.100104757095703e-07,
+        2.458865249442424e-07,
+        5.315119749760023e-08,
+        9.574368353008604e-09,
+        1.4782926606401335e-09,
+        1.415500238907001e-10
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Tactically Balanced",
+    "match_description": "A tight game where goals will make the difference",
+    "dominance_index": -0.02,
+    "total_xg": 2.11,
+    "first_goal": {
+      "Lithuania_scores_first": 0.429,
+      "Azerbaijan_scores_first": 0.45,
+      "no_goals": 0.121,
+      "expected_minute": 42
+    },
+    "halftime_xg": {
+      "Lithuania": 0.48,
+      "Azerbaijan": 0.51
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.371
+      },
+      {
+        "score": "0:1",
+        "probability": 0.188
+      },
+      {
+        "score": "1:0",
+        "probability": 0.18
+      },
+      {
+        "score": "1:1",
+        "probability": 0.091
+      },
+      {
+        "score": "0:2",
+        "probability": 0.048
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Lithuania": 0.139,
+        "Azerbaijan": 0.146
+      },
+      "16-30'": {
+        "Lithuania": 0.16,
+        "Azerbaijan": 0.167
+      },
+      "31-45'": {
+        "Lithuania": 0.185,
+        "Azerbaijan": 0.194
+      },
+      "46-60'": {
+        "Lithuania": 0.149,
+        "Azerbaijan": 0.157
+      },
+      "61-75'": {
+        "Lithuania": 0.191,
+        "Azerbaijan": 0.2
+      },
+      "76-90'": {
+        "Lithuania": 0.206,
+        "Azerbaijan": 0.216
+      }
+    },
+    "comeback_probability": {
+      "Lithuania": 0.018,
+      "Azerbaijan": 0.019
+    },
+    "late_drama_probability": 0.344,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.299
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.251
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Azerbaijan trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.131
+      },
+      {
+        "szenario": "Azerbaijan dominiert früh",
+        "beschreibung": "Azerbaijan geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.048
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 49,
+        "away": 51
+      },
+      "shots": {
+        "home": 11,
+        "away": 12
+      },
+      "shots_on_target": {
+        "home": 4,
+        "away": 5
+      },
+      "corners": {
+        "home": 5,
+        "away": 6
+      },
+      "passes": {
+        "home": 255,
+        "away": 265
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Lithuania and Azerbaijan is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 3,
+        "type": "chance",
+        "team": "Lithuania",
+        "headline": "Big chance for Lithuania!",
+        "description": "Lithuania create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 62,
+        "type": "chance",
+        "team": "Azerbaijan",
+        "headline": "Big chance for Azerbaijan!",
+        "description": "Azerbaijan create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 79,
+        "type": "goal",
+        "team": "Lithuania",
+        "headline": "GOAL! Lithuania!",
+        "description": "Lithuania score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:0.",
+        "score_after": "1:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Lithuania": 145,
+      "Azerbaijan": 124
+    },
+    "fifa_points": {
+      "Lithuania": 1065.34,
+      "Azerbaijan": 1148.09
+    },
+    "form_last_10_avg_pts": {
+      "Lithuania": 1.07,
+      "Azerbaijan": 0.75
+    },
+    "win_rate_last_10": {
+      "Lithuania": "30%",
+      "Azerbaijan": "15%"
+    },
+    "avg_goals_scored": {
+      "Lithuania": 0.87,
+      "Azerbaijan": 1.44
+    },
+    "avg_goals_conceded": {
+      "Lithuania": 1.58,
+      "Azerbaijan": 1.92
+    },
+    "clean_sheet_rate": {
+      "Lithuania": "40%",
+      "Azerbaijan": "5%"
+    },
+    "h2h_last_10": {
+      "Lithuania wins": "33%",
+      "draws": "33%",
+      "Azerbaijan wins": "33%",
+      "total_h2h_games": 3
+    }
+  },
+  "history_refreshed_at": "2026-09-26T14:41:13.154864+00:00",
+  "match_id": "lithuania_vs_azerbaijan_nl",
+  "group": "Sun 27 Sep",
+  "date": "2026-09-27",
+  "time": "15:00"
+}

@@ -1,0 +1,402 @@
+{
+  "home_team": "Iceland",
+  "away_team": "Estonia",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6969,
+  "probability_draw": 0.2021,
+  "probability_away_win": 0.101,
+  "score_prediction": {
+    "home_xg": 2.32,
+    "away_xg": 0.91,
+    "rho": -0.13,
+    "most_likely_score": "2:0",
+    "result": "H",
+    "probability_home_win": 0.6969,
+    "probability_draw": 0.2021,
+    "probability_away_win": 0.101,
+    "top_scorelines": [
+      {
+        "score": "2:0",
+        "probability": 0.1094
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0998
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0845
+      },
+      {
+        "score": "1:0",
+        "probability": 0.0833
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0771
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.899,
+        "home_or_away": 0.7979,
+        "draw_or_away": 0.3031
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8449,
+          "under": 0.1551
+        },
+        {
+          "line": 2.5,
+          "over": 0.6268,
+          "under": 0.3732
+        },
+        {
+          "line": 3.5,
+          "over": 0.4066,
+          "under": 0.5934
+        }
+      ],
+      "btts": {
+        "yes": 0.5478,
+        "no": 0.4522
+      },
+      "win_margin": {
+        "home_1plus": 0.6969,
+        "home_2plus": 0.4718,
+        "home_3plus": 0.2617,
+        "away_1plus": 0.101,
+        "away_2plus": 0.0349,
+        "away_3plus": 0.0087
+      },
+      "scenario": "Iceland is a strong favorite with nearly a 70% chance to win, and a 2-0 score is most likely, with over 2.5 goals expected."
+    },
+    "score_matrix": [
+      [
+        0.050727979265909585,
+        0.020995248643701673,
+        0.013699433046153455,
+        0.004164155284791112,
+        0.0009493197187851449,
+        0.00017313627698098958,
+        2.6313729201438707e-05,
+        3.4279141588532355e-06,
+        3.9073789072990977e-07
+      ],
+      [
+        0.08326403903310947,
+        0.09502154981257337,
+        0.03174373499917272,
+        0.009649000904670938,
+        0.0021997226805722547,
+        0.00040118390861226735,
+        6.097303762837095e-05,
+        7.943014743161385e-06,
+        9.054009764987047e-07
+      ],
+      [
+        0.10944187593146279,
+        0.09979967006709423,
+        0.04442062680070261,
+        0.011179124226993254,
+        0.002548551228671531,
+        0.00046480301914742053,
+        7.064204562513081e-05,
+        9.202605474692745e-06,
+        1.0489780332200309e-06
+      ],
+      [
+        0.0845313304980446,
+        0.077083829404756,
+        0.03514623939249944,
+        0.010429012323406013,
+        0.0019684643046227017,
+        0.00035900716516084675,
+        5.456289975818276e-05,
+        7.10796007655723e-06,
+        8.102155418721181e-07
+      ],
+      [
+        0.0489680876832134,
+        0.04465383065675598,
+        0.020359837259948638,
+        0.00618868851271967,
+        0.0013772862306283178,
+        0.00020796897717000778,
+        3.160769910833099e-05,
+        4.117564579037191e-06,
+        4.693491213605575e-07
+      ],
+      [
+        0.022693347872065932,
+        0.020693985835625504,
+        0.009435387237248643,
+        0.0028680323846738726,
+        0.0006538372156363683,
+        0.00011640863712141652,
+        1.4647999242715651e-05,
+        1.908208586422296e-06,
+        2.1751110546501686e-07
+      ],
+      [
+        0.008764007710732326,
+        0.007991868474040925,
+        0.0036438786805353136,
+        0.0011076134766722534,
+        0.0002525072295064247,
+        4.605209473945541e-05,
+        6.832564050350968e-06,
+        7.369364299780672e-07,
+        8.400122433287228e-08
+      ],
+      [
+        0.0029010829172161274,
+        0.0026454875294422684,
+        0.0012062054874237102,
+        0.0003666448777900191,
+        8.358555060347485e-05,
+        1.5244275194674491e-05,
+        2.3168670156221416e-06,
+        2.946379195116403e-07,
+        2.780628737226113e-08
+      ],
+      [
+        0.0008402830159510981,
+        0.0007662511907911666,
+        0.00034937091208746415,
+        0.00010619671084343123,
+        2.4210103797522213e-05,
+        4.41542206896367e-06,
+        6.710680318343885e-07,
+        8.742066129315877e-08,
+        9.727688897576891e-09
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": 0.44,
+    "total_xg": 3.23,
+    "first_goal": {
+      "Iceland_scores_first": 0.69,
+      "Estonia_scores_first": 0.271,
+      "no_goals": 0.04,
+      "expected_minute": 27
+    },
+    "halftime_xg": {
+      "Iceland": 1.09,
+      "Estonia": 0.43
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.24
+      },
+      {
+        "score": "0:0",
+        "probability": 0.22
+      },
+      {
+        "score": "2:0",
+        "probability": 0.131
+      },
+      {
+        "score": "1:1",
+        "probability": 0.103
+      },
+      {
+        "score": "0:1",
+        "probability": 0.094
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Iceland": 0.313,
+        "Estonia": 0.123
+      },
+      "16-30'": {
+        "Iceland": 0.36,
+        "Estonia": 0.141
+      },
+      "31-45'": {
+        "Iceland": 0.418,
+        "Estonia": 0.164
+      },
+      "46-60'": {
+        "Iceland": 0.336,
+        "Estonia": 0.132
+      },
+      "61-75'": {
+        "Iceland": 0.429,
+        "Estonia": 0.168
+      },
+      "76-90'": {
+        "Iceland": 0.464,
+        "Estonia": 0.182
+      }
+    },
+    "comeback_probability": {
+      "Iceland": 0.037,
+      "Estonia": 0.015
+    },
+    "late_drama_probability": 0.476,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.184
+      },
+      {
+        "szenario": "Iceland dominiert früh",
+        "beschreibung": "Iceland geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.134
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Iceland trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.095
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 58,
+        "away": 42
+      },
+      "shots": {
+        "home": 19,
+        "away": 10
+      },
+      "shots_on_target": {
+        "home": 7,
+        "away": 4
+      },
+      "corners": {
+        "home": 8,
+        "away": 4
+      },
+      "passes": {
+        "home": 302,
+        "away": 218
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Iceland and Estonia is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 6,
+        "type": "chance",
+        "team": "Iceland",
+        "headline": "Big chance for Iceland!",
+        "description": "Iceland create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 18,
+        "type": "chance",
+        "team": "Estonia",
+        "headline": "Big chance for Estonia!",
+        "description": "Estonia create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 24,
+        "type": "goal",
+        "team": "Iceland",
+        "headline": "GOAL! Iceland!",
+        "description": "Iceland score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 60,
+        "type": "chance",
+        "team": "Iceland",
+        "headline": "Big chance for Iceland!",
+        "description": "Iceland create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 64,
+        "type": "goal",
+        "team": "Iceland",
+        "headline": "GOAL! Iceland!",
+        "description": "Iceland score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 86,
+        "type": "chance",
+        "team": "Iceland",
+        "headline": "Big chance for Iceland!",
+        "description": "Iceland create a great opportunity but fail to convert.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Iceland": 74,
+      "Estonia": 129
+    },
+    "fifa_points": {
+      "Iceland": 1343.09,
+      "Estonia": 1127.2
+    },
+    "form_last_10_avg_pts": {
+      "Iceland": 0.76,
+      "Estonia": 0.72
+    },
+    "win_rate_last_10": {
+      "Iceland": "14%",
+      "Estonia": "13%"
+    },
+    "avg_goals_scored": {
+      "Iceland": 1.24,
+      "Estonia": 1.02
+    },
+    "avg_goals_conceded": {
+      "Iceland": 1.83,
+      "Estonia": 2.1
+    },
+    "clean_sheet_rate": {
+      "Iceland": "14%",
+      "Estonia": "8%"
+    },
+    "h2h_last_10": {
+      "Iceland wins": "43%",
+      "draws": "43%",
+      "Estonia wins": "14%",
+      "total_h2h_games": 7
+    }
+  },
+  "history_refreshed_at": "2026-09-26T14:41:13.154864+00:00",
+  "match_id": "iceland_vs_estonia_nl",
+  "group": "Sat 26 Sep",
+  "date": "2026-09-26",
+  "time": "18:00"
+}

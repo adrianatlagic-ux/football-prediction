@@ -1,0 +1,402 @@
+{
+  "home_team": "Serbia",
+  "away_team": "Netherlands",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.1298,
+  "probability_draw": 0.2473,
+  "probability_away_win": 0.6229,
+  "score_prediction": {
+    "home_xg": 0.73,
+    "away_xg": 2.17,
+    "rho": -0.13,
+    "most_likely_score": "0:2",
+    "result": "A",
+    "probability_home_win": 0.1298,
+    "probability_draw": 0.2473,
+    "probability_away_win": 0.6229,
+    "top_scorelines": [
+      {
+        "score": "0:2",
+        "probability": 0.1167
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0974
+      },
+      {
+        "score": "1:2",
+        "probability": 0.0848
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0844
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0614
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.3771,
+        "home_or_away": 0.7527,
+        "draw_or_away": 0.8702
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7848,
+          "under": 0.2152
+        },
+        {
+          "line": 2.5,
+          "over": 0.531,
+          "under": 0.469
+        },
+        {
+          "line": 3.5,
+          "over": 0.3162,
+          "under": 0.6838
+        }
+      ],
+      "btts": {
+        "yes": 0.4836,
+        "no": 0.5164
+      },
+      "win_margin": {
+        "home_1plus": 0.1298,
+        "home_2plus": 0.0389,
+        "home_3plus": 0.0079,
+        "away_1plus": 0.6229,
+        "away_2plus": 0.4151,
+        "away_3plus": 0.2235
+      },
+      "scenario": "With a near 60% win probability and 2-0 most likely score, Netherlands are strong favorites, boasting far superior form and goal statistics."
+    },
+    "score_matrix": [
+      [
+        0.07990360951722164,
+        0.09740124466120387,
+        0.11670516580542635,
+        0.08441483378197387,
+        0.04579401507161231,
+        0.019874154552460888,
+        0.007187657210908309,
+        0.002228123510655208,
+        0.0006043648791152808
+      ],
+      [
+        0.03736972787240414,
+        0.11817547389382413,
+        0.08482459587147961,
+        0.06135507465926692,
+        0.03328437773061583,
+        0.014445094324363127,
+        0.005224191354087219,
+        0.00161946281502376,
+        0.00043926938688677733
+      ],
+      [
+        0.018917069475778307,
+        0.04104911546337812,
+        0.041235435096818276,
+        0.022297296682281014,
+        0.012096010790731807,
+        0.005249550351662901,
+        0.0018985445815849307,
+        0.0005885355539544249,
+        0.00015963667059736543
+      ],
+      [
+        0.0045831526601855235,
+        0.009945217094811333,
+        0.01079031732044944,
+        0.007226195977165004,
+        0.0029305735808687877,
+        0.0012718402652063944,
+        0.0004599718609012397,
+        0.00014258806276382858,
+        3.8676140215495695e-05
+      ],
+      [
+        0.0008327910541374202,
+        0.0018071158527977462,
+        0.0019606765041534978,
+        0.00141819070352277,
+        0.0007123138958036354,
+        0.00023110231617568994,
+        8.35801203484215e-05,
+        2.590925328062161e-05,
+        7.027726538510178e-06
+      ],
+      [
+        0.0001210591906966052,
+        0.00026269252238941734,
+        0.0002850149621942321,
+        0.00020615617563248426,
+        0.00011183720432836924,
+        4.493793085121511e-05,
+        1.2149676293274834e-05,
+        3.76631475340974e-06,
+        1.0215898489331155e-06
+      ],
+      [
+        1.466487059719974e-05,
+        3.182205188656387e-05,
+        3.45261480338097e-05,
+        2.4973350813493773e-05,
+        1.354773743315726e-05,
+        5.8795855126849316e-06,
+        1.9687575405517274e-06,
+        4.56243909853157e-07,
+        1.2375337098992423e-07
+      ],
+      [
+        1.5226914682581286e-06,
+        3.3041660060328664e-06,
+        3.584939307472509e-06,
+        2.5930476484930846e-06,
+        1.4066966405833106e-06,
+        6.10492580737056e-07,
+        2.2078983981723057e-07,
+        6.336914072009844e-08,
+        1.2849632795977273e-08
+      ],
+      [
+        1.3834187152358692e-07,
+        3.001950944284881e-07,
+        3.2570433566660324e-07,
+        2.3558749235833876e-07,
+        1.2780333375536322e-07,
+        5.546539658952867e-08,
+        2.005953293259716e-08,
+        6.218315040407163e-09,
+        1.5616349059277446e-09
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": -0.5,
+    "total_xg": 2.9,
+    "first_goal": {
+      "Serbia_scores_first": 0.238,
+      "Netherlands_scores_first": 0.707,
+      "no_goals": 0.055,
+      "expected_minute": 31
+    },
+    "halftime_xg": {
+      "Serbia": 0.34,
+      "Netherlands": 1.02
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:1",
+        "probability": 0.262
+      },
+      {
+        "score": "0:0",
+        "probability": 0.257
+      },
+      {
+        "score": "0:2",
+        "probability": 0.134
+      },
+      {
+        "score": "1:1",
+        "probability": 0.09
+      },
+      {
+        "score": "1:0",
+        "probability": 0.088
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Serbia": 0.099,
+        "Netherlands": 0.293
+      },
+      "16-30'": {
+        "Serbia": 0.113,
+        "Netherlands": 0.336
+      },
+      "31-45'": {
+        "Serbia": 0.131,
+        "Netherlands": 0.391
+      },
+      "46-60'": {
+        "Serbia": 0.106,
+        "Netherlands": 0.315
+      },
+      "61-75'": {
+        "Serbia": 0.135,
+        "Netherlands": 0.401
+      },
+      "76-90'": {
+        "Serbia": 0.146,
+        "Netherlands": 0.434
+      }
+    },
+    "comeback_probability": {
+      "Serbia": 0.011,
+      "Netherlands": 0.03
+    },
+    "late_drama_probability": 0.44,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.205
+      },
+      {
+        "szenario": "Netherlands dominiert früh",
+        "beschreibung": "Netherlands geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.136
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Netherlands trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.122
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 41,
+        "away": 59
+      },
+      "shots": {
+        "home": 9,
+        "away": 18
+      },
+      "shots_on_target": {
+        "home": 3,
+        "away": 7
+      },
+      "corners": {
+        "home": 4,
+        "away": 7
+      },
+      "passes": {
+        "home": 213,
+        "away": 307
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Serbia and Netherlands is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 6,
+        "type": "chance",
+        "team": "Netherlands",
+        "headline": "Big chance for Netherlands!",
+        "description": "Netherlands create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 31,
+        "type": "goal",
+        "team": "Netherlands",
+        "headline": "GOAL! Netherlands!",
+        "description": "Netherlands score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 32,
+        "type": "chance",
+        "team": "Netherlands",
+        "headline": "Big chance for Netherlands!",
+        "description": "Netherlands create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 49,
+        "type": "chance",
+        "team": "Netherlands",
+        "headline": "Big chance for Netherlands!",
+        "description": "Netherlands create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 68,
+        "type": "goal",
+        "team": "Netherlands",
+        "headline": "GOAL! Netherlands!",
+        "description": "Netherlands score to make it 0:2.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 86,
+        "type": "chance",
+        "team": "Serbia",
+        "headline": "Big chance for Serbia!",
+        "description": "Serbia create a great opportunity but fail to convert.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 0:2.",
+        "score_after": "0:2"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Serbia": 34,
+      "Netherlands": 7
+    },
+    "fifa_points": {
+      "Serbia": 1520.9,
+      "Netherlands": 1754.17
+    },
+    "form_last_10_avg_pts": {
+      "Serbia": 1.06,
+      "Netherlands": 2.1
+    },
+    "win_rate_last_10": {
+      "Serbia": "35%",
+      "Netherlands": "55%"
+    },
+    "avg_goals_scored": {
+      "Serbia": 0.91,
+      "Netherlands": 2.57
+    },
+    "avg_goals_conceded": {
+      "Serbia": 1.97,
+      "Netherlands": 0.93
+    },
+    "clean_sheet_rate": {
+      "Serbia": "5%",
+      "Netherlands": "18%"
+    },
+    "h2h_last_10": {
+      "Serbia wins": "0%",
+      "draws": "0%",
+      "Netherlands wins": "100%",
+      "total_h2h_games": 3
+    }
+  },
+  "history_refreshed_at": "2026-09-26T14:41:13.154864+00:00",
+  "match_id": "serbia_vs_netherlands_nl",
+  "group": "Sun 27 Sep",
+  "date": "2026-09-27",
+  "time": "18:00"
+}

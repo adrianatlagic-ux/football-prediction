@@ -1,0 +1,402 @@
+{
+  "home_team": "North Macedonia",
+  "away_team": "Switzerland",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.1353,
+  "probability_draw": 0.221,
+  "probability_away_win": 0.6436,
+  "score_prediction": {
+    "home_xg": 0.69,
+    "away_xg": 2.44,
+    "rho": -0.13,
+    "most_likely_score": "0:2",
+    "result": "A",
+    "probability_home_win": 0.1353,
+    "probability_draw": 0.221,
+    "probability_away_win": 0.6437,
+    "top_scorelines": [
+      {
+        "score": "0:2",
+        "probability": 0.1117
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0908
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0833
+      },
+      {
+        "score": "1:2",
+        "probability": 0.0773
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0629
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.3563,
+        "home_or_away": 0.779,
+        "draw_or_away": 0.8647
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8125,
+          "under": 0.1875
+        },
+        {
+          "line": 2.5,
+          "over": 0.5766,
+          "under": 0.4234
+        },
+        {
+          "line": 3.5,
+          "over": 0.359,
+          "under": 0.641
+        }
+      ],
+      "btts": {
+        "yes": 0.488,
+        "no": 0.512
+      },
+      "win_margin": {
+        "home_1plus": 0.1353,
+        "home_2plus": 0.0387,
+        "home_3plus": 0.0074,
+        "away_1plus": 0.6437,
+        "away_2plus": 0.4579,
+        "away_3plus": 0.2684
+      },
+      "scenario": "Switzerland is heavily favored to win 0:2, having a roughly two-thirds chance of victory and a strong likelihood of winning by at least two goals."
+    },
+    "score_matrix": [
+      [
+        0.0675540585927536,
+        0.08332065994272629,
+        0.11167238256539075,
+        0.09079951615931622,
+        0.0553710233365326,
+        0.027012921257909286,
+        0.01098194613530178,
+        0.003826839748298742,
+        0.0011668345932396196
+      ],
+      [
+        0.036513664405080165,
+        0.10571569548325846,
+        0.07732148056198689,
+        0.06286919704287064,
+        0.03833865998252552,
+        0.018703631264810446,
+        0.007603852583124588,
+        0.002649687491342409,
+        0.0008079112869952533
+      ],
+      [
+        0.018510814604299913,
+        0.04515278454279542,
+        0.03950157597208125,
+        0.021765181710220804,
+        0.013272762183951974,
+        0.006475157187739684,
+        0.002632437520342183,
+        0.0009173161490362397,
+        0.0002796971616354388
+      ],
+      [
+        0.0042722696478538266,
+        0.010421198366573127,
+        0.01271003288030079,
+        0.007412851492440415,
+        0.003063334609191538,
+        0.0014944570571106448,
+        0.0006075628306177855,
+        0.00021171526076995697,
+        6.455370656504632e-05
+      ],
+      [
+        0.0007395253126677577,
+        0.0018038983059705039,
+        0.002200093115504473,
+        0.0017888701378451668,
+        0.00078248983279541,
+        0.00025868892029871704,
+        0.00010516847701868148,
+        3.664768549805617e-05,
+        1.1174177654109517e-05
+      ],
+      [
+        0.0001024088333658582,
+        0.0002498022959601954,
+        0.00030466701463171246,
+        0.00024772120807993084,
+        0.00015106442604254504,
+        5.2863033475534226e-05,
+        1.4563640829946683e-05,
+        5.074940171927453e-06,
+        1.547390573085504e-06
+      ],
+      [
+        1.1817906445874175e-05,
+        2.88270070715049e-05,
+        3.515835653745202e-05,
+        2.858685101204912e-05,
+        1.743272719348896e-05,
+        8.504608703477507e-06,
+        2.48006444648564e-06,
+        5.856444820144022e-07,
+        1.7856777024909196e-07
+      ],
+      [
+        1.1689525614970441e-06,
+        2.851385218766339e-06,
+        3.4776422643647713e-06,
+        2.8276305002681324e-06,
+        1.7243351180718139e-06,
+        8.41222104269646e-07,
+        3.4199395721444017e-07,
+        8.548310187093727e-08,
+        1.7662794454288927e-08
+      ],
+      [
+        1.0117221989594501e-07,
+        2.4678586784704586e-07,
+        3.009880806789561e-07,
+        2.44729909647691e-07,
+        1.4924028355474287e-07,
+        7.280732385367497e-08,
+        2.9599394348451698e-08,
+        1.0314395774908018e-08,
+        2.255868007002311e-09
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": -0.56,
+    "total_xg": 3.13,
+    "first_goal": {
+      "North Macedonia_scores_first": 0.211,
+      "Switzerland_scores_first": 0.745,
+      "no_goals": 0.044,
+      "expected_minute": 28
+    },
+    "halftime_xg": {
+      "North Macedonia": 0.32,
+      "Switzerland": 1.15
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:1",
+        "probability": 0.265
+      },
+      {
+        "score": "0:0",
+        "probability": 0.231
+      },
+      {
+        "score": "0:2",
+        "probability": 0.152
+      },
+      {
+        "score": "1:1",
+        "probability": 0.086
+      },
+      {
+        "score": "1:0",
+        "probability": 0.075
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "North Macedonia": 0.093,
+        "Switzerland": 0.329
+      },
+      "16-30'": {
+        "North Macedonia": 0.107,
+        "Switzerland": 0.378
+      },
+      "31-45'": {
+        "North Macedonia": 0.124,
+        "Switzerland": 0.439
+      },
+      "46-60'": {
+        "North Macedonia": 0.1,
+        "Switzerland": 0.354
+      },
+      "61-75'": {
+        "North Macedonia": 0.128,
+        "Switzerland": 0.451
+      },
+      "76-90'": {
+        "North Macedonia": 0.138,
+        "Switzerland": 0.488
+      }
+    },
+    "comeback_probability": {
+      "North Macedonia": 0.009,
+      "Switzerland": 0.031
+    },
+    "late_drama_probability": 0.465,
+    "match_stories": [
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.191
+      },
+      {
+        "szenario": "Switzerland dominiert früh",
+        "beschreibung": "Switzerland geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.156
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Switzerland trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.111
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 40,
+        "away": 60
+      },
+      "shots": {
+        "home": 8,
+        "away": 20
+      },
+      "shots_on_target": {
+        "home": 3,
+        "away": 8
+      },
+      "corners": {
+        "home": 4,
+        "away": 8
+      },
+      "passes": {
+        "home": 208,
+        "away": 312
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between North Macedonia and Switzerland is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 24,
+        "type": "goal",
+        "team": "Switzerland",
+        "headline": "GOAL! Switzerland!",
+        "description": "Switzerland score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 27,
+        "type": "chance",
+        "team": "North Macedonia",
+        "headline": "Big chance for North Macedonia!",
+        "description": "North Macedonia create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 44,
+        "type": "chance",
+        "team": "Switzerland",
+        "headline": "Big chance for Switzerland!",
+        "description": "Switzerland create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 58,
+        "type": "chance",
+        "team": "North Macedonia",
+        "headline": "Big chance for North Macedonia!",
+        "description": "North Macedonia create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 68,
+        "type": "goal",
+        "team": "Switzerland",
+        "headline": "GOAL! Switzerland!",
+        "description": "Switzerland score to make it 0:2.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 72,
+        "type": "chance",
+        "team": "North Macedonia",
+        "headline": "Big chance for North Macedonia!",
+        "description": "North Macedonia create a great opportunity but fail to convert.",
+        "score_after": "0:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 0:2.",
+        "score_after": "0:2"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "North Macedonia": 63,
+      "Switzerland": 17
+    },
+    "fifa_points": {
+      "North Macedonia": 1388.5,
+      "Switzerland": 1648.3
+    },
+    "form_last_10_avg_pts": {
+      "North Macedonia": 0.93,
+      "Switzerland": 1.87
+    },
+    "win_rate_last_10": {
+      "North Macedonia": "11%",
+      "Switzerland": "49%"
+    },
+    "avg_goals_scored": {
+      "North Macedonia": 0.63,
+      "Switzerland": 2.31
+    },
+    "avg_goals_conceded": {
+      "North Macedonia": 1.52,
+      "Switzerland": 1.01
+    },
+    "clean_sheet_rate": {
+      "North Macedonia": "61%",
+      "Switzerland": "29%"
+    },
+    "h2h_last_10": {
+      "North Macedonia wins": "0%",
+      "draws": "0%",
+      "Switzerland wins": "0%",
+      "total_h2h_games": 0
+    }
+  },
+  "history_refreshed_at": "2026-09-26T14:41:13.154864+00:00",
+  "match_id": "north_macedonia_vs_switzerland_nl",
+  "group": "Sat 26 Sep",
+  "date": "2026-09-26",
+  "time": "20:45"
+}

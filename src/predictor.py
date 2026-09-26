@@ -265,6 +265,21 @@ class FootballPredictor:
             },
         }
 
+    def refresh_history(self) -> int:
+        """Re-read the international results so predictions see the latest
+        matches, without retraining (see ClubFootballPredictor.refresh_history).
+        Keeps the history's own start date. Returns the number of matches added."""
+        before = 0 if self._history is None else len(self._history)
+        fresh = load_completed_matches()
+        if self._history is not None and len(self._history):
+            fresh = fresh[fresh["date"] >= self._history["date"].min()]
+        fresh = fresh.reset_index(drop=True)
+        fresh["result"] = fresh.apply(lambda r: encode_result(r["home_goals"], r["away_goals"]), axis=1)
+        if len(fresh) < before:
+            raise ValueError("Result file holds fewer matches than the model's history")
+        self._history = fresh
+        return len(fresh) - before
+
     def save(self, path: str | Path) -> None:
         joblib.dump({
             "model": self.model,

@@ -261,6 +261,56 @@ def save_prediction(match_id: str, payload: dict[str, Any],
     return {"status": "ok", "match_id": match_id}
 
 
+# ── Scheduled jobs (src/jobs.py), knocked on by .github/workflows/jobs.yml ──
+
+def _require_job_token(token: str) -> None:
+    # Jobs spend Apify credit and rewrite the cache, so unlike the prediction
+    # upload they are refused outright when no token is configured.
+    if not PREDICTIONS_WRITE_TOKEN or not secrets.compare_digest(token, PREDICTIONS_WRITE_TOKEN):
+        raise HTTPException(status_code=401, detail="Invalid job token")
+
+
+def _start_job(name: str, work) -> dict:
+    from src import jobs
+    if jobs._lock.locked():
+        return {"started": False, "reason": "another job is running"}
+
+    def run():
+        global _prediction_index_ts
+        try:
+            work()
+        finally:
+            _prediction_index_ts = 0     # the cache changed: re-read it
+    threading.Thread(target=run, daemon=True, name=f"job-{name}").start()
+    return {"started": True, "job": name}
+
+
+@app.post("/jobs/daily")
+def job_daily(x_prediction_token: str = Header(default="")):
+    _require_job_token(x_prediction_token)
+    from src import jobs
+    return _start_job("daily", lambda: jobs.run_daily(_get_predictor, _get_national_predictor, _get_odds))
+
+
+@app.post("/jobs/hourly")
+def job_hourly(x_prediction_token: str = Header(default="")):
+    _require_job_token(x_prediction_token)
+    from src import jobs
+    return _start_job("hourly", lambda: jobs.run_hourly(_get_predictor, _get_national_predictor))
+
+
+@app.get("/jobs/status")
+def job_status():
+    from src import jobs
+    out = {}
+    for name in ("daily", "hourly"):
+        try:
+            out[name] = json.loads((jobs.REPORTS / f"last_{name}.json").read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            out[name] = None
+    return out
+
+
 @app.get("/predictions/{match_id}")
 def get_prediction(match_id: str):
     path = _cache_path(match_id)

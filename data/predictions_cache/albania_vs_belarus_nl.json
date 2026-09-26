@@ -1,0 +1,383 @@
+{
+  "home_team": "Albania",
+  "away_team": "Belarus",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.5851,
+  "probability_draw": 0.25,
+  "probability_away_win": 0.1649,
+  "score_prediction": {
+    "home_xg": 1.25,
+    "away_xg": 0.78,
+    "rho": -0.13,
+    "most_likely_score": "1:0",
+    "result": "H",
+    "probability_home_win": 0.5851,
+    "probability_draw": 0.25,
+    "probability_away_win": 0.1649,
+    "top_scorelines": [
+      {
+        "score": "1:0",
+        "probability": 0.1884
+      },
+      {
+        "score": "2:0",
+        "probability": 0.1312
+      },
+      {
+        "score": "2:1",
+        "probability": 0.1026
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0547
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0428
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8351,
+        "home_or_away": 0.75,
+        "draw_or_away": 0.4149
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.6332,
+          "under": 0.3668
+        },
+        {
+          "line": 2.5,
+          "over": 0.3608,
+          "under": 0.6392
+        },
+        {
+          "line": 3.5,
+          "over": 0.1572,
+          "under": 0.8428
+        }
+      ],
+      "btts": {
+        "yes": 0.3844,
+        "no": 0.6156
+      },
+      "win_margin": {
+        "home_1plus": 0.5851,
+        "home_2plus": 0.2759,
+        "home_3plus": 0.0964,
+        "away_1plus": 0.1649,
+        "away_2plus": 0.0542,
+        "away_3plus": 0.0123
+      },
+      "scenario": "Albania are strong favourites with nearly a 60% win probability and 1-0 the most likely score, while Belarus has only a 16% chance."
+    },
+    "score_matrix": [
+      [
+        0.11272207929469669,
+        0.06555550498568788,
+        0.030614632361875106,
+        0.00798115372868161,
+        0.0015604992595021367,
+        0.00024409081911609578,
+        3.1816915651605395e-05,
+        3.554822487491153e-06,
+        3.475248095683428e-07
+      ],
+      [
+        0.1883527643610117,
+        0.11057266343766702,
+        0.03830316981276034,
+        0.009985535117910954,
+        0.00195240195677908,
+        0.0003053916174405089,
+        3.98073936905859e-05,
+        4.447578131369502e-06,
+        4.348019482219951e-07
+      ],
+      [
+        0.13116341598716103,
+        0.1025818674742136,
+        0.023937174490051512,
+        0.006246647726675477,
+        0.0012213634122617033,
+        0.00019104372778267297,
+        2.4902297409795315e-05,
+        2.7822699029617105e-06,
+        2.719989033480273e-07
+      ],
+      [
+        0.05470123497802084,
+        0.04278140207739345,
+        0.016729497647018435,
+        0.0026025191011998334,
+        0.0005093652563472766,
+        7.967410551079255e-05,
+        1.0385414346322843e-05,
+        1.1603357429260706e-06,
+        1.1343617283695037e-07
+      ],
+      [
+        0.01710971625891597,
+        0.013381373400379556,
+        0.005232733008856175,
+        0.0013641596629733255,
+        0.00015916130544752814,
+        2.4920851220641234e-05,
+        3.2484000181761193e-06,
+        3.6293541333245114e-07,
+        3.5481113571154586e-08
+      ],
+      [
+        0.004281327696944881,
+        0.0033483924394334904,
+        0.0013093755865097596,
+        0.0003413507541423558,
+        6.674192944754042e-05,
+        6.229612504919863e-06,
+        8.128401873015524e-07,
+        9.081655205665049e-08,
+        8.878363144769968e-09
+      ],
+      [
+        0.0008927562255294373,
+        0.0006982175641339219,
+        0.00027303520990626373,
+        7.117955746933798e-05,
+        1.3917241854823919e-05,
+        2.1769128972637825e-06,
+        1.6932538909161386e-07,
+        1.8937359615697918e-08,
+        1.8513448469876723e-09
+      ],
+      [
+        0.00015956605746863644,
+        0.00012479534813451837,
+        4.880072605377484e-05,
+        1.2722220280243776e-05,
+        2.4874868974391948e-06,
+        3.89088755178392e-07,
+        5.0717204970380256e-08,
+        3.3813455254691338e-09,
+        3.308986146509466e-10
+      ],
+      [
+        2.495492075214781e-05,
+        1.9517045619465324e-05,
+        7.6320633011729e-06,
+        1.989658727685579e-06,
+        3.890240780674945e-07,
+        6.08505292733519e-08,
+        7.93178606330513e-09,
+        8.861981397742212e-10,
+        5.169792680433265e-11
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Tactically Balanced",
+    "match_description": "A tight game where goals will make the difference",
+    "dominance_index": 0.23,
+    "total_xg": 2.03,
+    "first_goal": {
+      "Albania_scores_first": 0.535,
+      "Belarus_scores_first": 0.334,
+      "no_goals": 0.131,
+      "expected_minute": 44
+    },
+    "halftime_xg": {
+      "Albania": 0.59,
+      "Belarus": 0.37
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.385
+      },
+      {
+        "score": "1:0",
+        "probability": 0.226
+      },
+      {
+        "score": "0:1",
+        "probability": 0.141
+      },
+      {
+        "score": "1:1",
+        "probability": 0.083
+      },
+      {
+        "score": "2:0",
+        "probability": 0.066
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Albania": 0.169,
+        "Belarus": 0.105
+      },
+      "16-30'": {
+        "Albania": 0.194,
+        "Belarus": 0.121
+      },
+      "31-45'": {
+        "Albania": 0.225,
+        "Belarus": 0.14
+      },
+      "46-60'": {
+        "Albania": 0.181,
+        "Belarus": 0.113
+      },
+      "61-75'": {
+        "Albania": 0.231,
+        "Belarus": 0.144
+      },
+      "76-90'": {
+        "Albania": 0.25,
+        "Belarus": 0.156
+      }
+    },
+    "comeback_probability": {
+      "Albania": 0.019,
+      "Belarus": 0.012
+    },
+    "late_drama_probability": 0.334,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 0:0",
+        "wahrscheinlichkeit": 0.295
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.255
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Albania trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.164
+      },
+      {
+        "szenario": "Albania dominiert früh",
+        "beschreibung": "Albania geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.067
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 54,
+        "away": 46
+      },
+      "shots": {
+        "home": 12,
+        "away": 9
+      },
+      "shots_on_target": {
+        "home": 4,
+        "away": 3
+      },
+      "corners": {
+        "home": 5,
+        "away": 4
+      },
+      "passes": {
+        "home": 281,
+        "away": 239
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Albania and Belarus is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 33,
+        "type": "chance",
+        "team": "Albania",
+        "headline": "Big chance for Albania!",
+        "description": "Albania create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 64,
+        "type": "chance",
+        "team": "Albania",
+        "headline": "Big chance for Albania!",
+        "description": "Albania create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 81,
+        "type": "goal",
+        "team": "Albania",
+        "headline": "GOAL! Albania!",
+        "description": "Albania score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:0.",
+        "score_after": "1:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Albania": 66,
+      "Belarus": 100
+    },
+    "fifa_points": {
+      "Albania": 1380.66,
+      "Belarus": 1223.54
+    },
+    "form_last_10_avg_pts": {
+      "Albania": 1.43,
+      "Belarus": 1.36
+    },
+    "win_rate_last_10": {
+      "Albania": "44%",
+      "Belarus": "37%"
+    },
+    "avg_goals_scored": {
+      "Albania": 0.94,
+      "Belarus": 1.14
+    },
+    "avg_goals_conceded": {
+      "Albania": 0.99,
+      "Belarus": 1.87
+    },
+    "clean_sheet_rate": {
+      "Albania": "39%",
+      "Belarus": "28%"
+    },
+    "h2h_last_10": {
+      "Albania wins": "43%",
+      "draws": "29%",
+      "Belarus wins": "29%",
+      "total_h2h_games": 7
+    }
+  },
+  "history_refreshed_at": "2026-09-26T14:41:13.154864+00:00",
+  "match_id": "albania_vs_belarus_nl",
+  "group": "Sat 26 Sep",
+  "date": "2026-09-26",
+  "time": "20:45"
+}

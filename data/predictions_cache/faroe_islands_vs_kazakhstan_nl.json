@@ -1,0 +1,383 @@
+{
+  "home_team": "Faroe Islands",
+  "away_team": "Kazakhstan",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.3881,
+  "probability_draw": 0.3206,
+  "probability_away_win": 0.2913,
+  "score_prediction": {
+    "home_xg": 1.07,
+    "away_xg": 1.04,
+    "rho": -0.13,
+    "most_likely_score": "1:0",
+    "result": "H",
+    "probability_home_win": 0.3881,
+    "probability_draw": 0.3206,
+    "probability_away_win": 0.2913,
+    "top_scorelines": [
+      {
+        "score": "1:0",
+        "probability": 0.1279
+      },
+      {
+        "score": "2:1",
+        "probability": 0.082
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0791
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0293
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0282
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7087,
+        "home_or_away": 0.6794,
+        "draw_or_away": 0.6119
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.6411,
+          "under": 0.3589
+        },
+        {
+          "line": 2.5,
+          "over": 0.3569,
+          "under": 0.6431
+        },
+        {
+          "line": 3.5,
+          "over": 0.1636,
+          "under": 0.8364
+        }
+      ],
+      "btts": {
+        "yes": 0.4387,
+        "no": 0.5613
+      },
+      "win_margin": {
+        "home_1plus": 0.3881,
+        "home_2plus": 0.1615,
+        "home_3plus": 0.0487,
+        "away_1plus": 0.2913,
+        "away_2plus": 0.1182,
+        "away_3plus": 0.0346
+      },
+      "scenario": "Faroe Islands are tipped to win 1-0, boasting better recent form and a superior head-to-head record against Kazakhstan."
+    },
+    "score_matrix": [
+      [
+        0.13350398034706282,
+        0.09740076466119216,
+        0.058671710444251596,
+        0.02028206021286308,
+        0.005258436689889961,
+        0.0010906646023679301,
+        0.00018851440472562574,
+        2.7928722708731782e-05,
+        3.620475894756917e-06
+      ],
+      [
+        0.12786392706116845,
+        0.1463789916782219,
+        0.06281855197994597,
+        0.021715570316511255,
+        0.0056300962769949645,
+        0.0011677513830389721,
+        0.00020183836200714578,
+        2.9902689148273464e-05,
+        3.876366505507454e-06
+      ],
+      [
+        0.07911698827017354,
+        0.08204919412469212,
+        0.03595870654864608,
+        0.011625199541422153,
+        0.0030140121444436254,
+        0.0006251432794411963,
+        0.00010805201978337153,
+        1.6008086506919148e-05,
+        2.075171568851027e-06
+      ],
+      [
+        0.028236291973960517,
+        0.029282775446678302,
+        0.015184021659985556,
+        0.004436344845101427,
+        0.0010756795573784094,
+        0.0002231092025846915,
+        3.856299949842295e-05,
+        5.71317253647521e-06,
+        7.406140147049708e-07
+      ],
+      [
+        0.007557999254055135,
+        0.007838111150952787,
+        0.004064302227982349,
+        0.0014049773201948292,
+        0.0003078711966848252,
+        5.97195689952137e-05,
+        1.0322145758798376e-05,
+        1.5292430680624999e-06,
+        1.982399167654525e-07
+      ],
+      [
+        0.0016184377970585395,
+        0.001678419766638874,
+        0.0008703123833872611,
+        0.0003008558644396953,
+        7.800151953670438e-05,
+        1.3673912492577385e-05,
+        2.21034036670797e-06,
+        3.2746560287290286e-07,
+        4.2450252162542314e-08
+      ],
+      [
+        0.00028880448547525395,
+        0.00029950805523488565,
+        0.00015530415845682854,
+        5.368666209454335e-05,
+        1.3919094547240766e-05,
+        2.886991821899381e-06,
+        4.217489797411645e-07,
+        5.843507555275649e-08,
+        7.57509695854834e-09
+      ],
+      [
+        4.417383107633675e-05,
+        4.581098598997216e-05,
+        2.375440828017336e-05,
+        8.211595254534001e-06,
+        2.1289826238452152e-06,
+        4.415772450676714e-07,
+        7.632380414069035e-08,
+        9.557002635692402e-09,
+        1.1586421619565133e-09
+      ],
+      [
+        5.911997627585119e-06,
+        6.1311059939995206e-06,
+        3.179167438621882e-06,
+        1.0989975395070522e-06,
+        2.8493204946593987e-07,
+        5.909842007418973e-08,
+        1.0214784138334509e-08,
+        1.513337265363446e-09,
+        1.6580799852718507e-10
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Tactically Balanced",
+    "match_description": "A tight game where goals will make the difference",
+    "dominance_index": 0.01,
+    "total_xg": 2.11,
+    "first_goal": {
+      "Faroe Islands_scores_first": 0.446,
+      "Kazakhstan_scores_first": 0.433,
+      "no_goals": 0.121,
+      "expected_minute": 42
+    },
+    "halftime_xg": {
+      "Faroe Islands": 0.5,
+      "Kazakhstan": 0.49
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.371
+      },
+      {
+        "score": "1:0",
+        "probability": 0.187
+      },
+      {
+        "score": "0:1",
+        "probability": 0.181
+      },
+      {
+        "score": "1:1",
+        "probability": 0.091
+      },
+      {
+        "score": "2:0",
+        "probability": 0.047
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Faroe Islands": 0.144,
+        "Kazakhstan": 0.14
+      },
+      "16-30'": {
+        "Faroe Islands": 0.166,
+        "Kazakhstan": 0.161
+      },
+      "31-45'": {
+        "Faroe Islands": 0.193,
+        "Kazakhstan": 0.187
+      },
+      "46-60'": {
+        "Faroe Islands": 0.155,
+        "Kazakhstan": 0.151
+      },
+      "61-75'": {
+        "Faroe Islands": 0.198,
+        "Kazakhstan": 0.192
+      },
+      "76-90'": {
+        "Faroe Islands": 0.214,
+        "Kazakhstan": 0.208
+      }
+    },
+    "comeback_probability": {
+      "Faroe Islands": 0.018,
+      "Kazakhstan": 0.018
+    },
+    "late_drama_probability": 0.344,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.299
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.251
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Faroe Islands trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.13
+      },
+      {
+        "szenario": "Faroe Islands dominiert früh",
+        "beschreibung": "Faroe Islands geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.047
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 51,
+        "away": 49
+      },
+      "shots": {
+        "home": 12,
+        "away": 11
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 4
+      },
+      "corners": {
+        "home": 6,
+        "away": 5
+      },
+      "passes": {
+        "home": 265,
+        "away": 255
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Faroe Islands and Kazakhstan is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 40,
+        "type": "chance",
+        "team": "Faroe Islands",
+        "headline": "Big chance for Faroe Islands!",
+        "description": "Faroe Islands create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 75,
+        "type": "chance",
+        "team": "Faroe Islands",
+        "headline": "Big chance for Faroe Islands!",
+        "description": "Faroe Islands create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 90,
+        "type": "goal",
+        "team": "Faroe Islands",
+        "headline": "GOAL! Faroe Islands!",
+        "description": "Faroe Islands score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:0.",
+        "score_after": "1:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Faroe Islands": 136,
+      "Kazakhstan": 118
+    },
+    "fifa_points": {
+      "Faroe Islands": 1094.46,
+      "Kazakhstan": 1158.06
+    },
+    "form_last_10_avg_pts": {
+      "Faroe Islands": 2.06,
+      "Kazakhstan": 1.44
+    },
+    "win_rate_last_10": {
+      "Faroe Islands": "69%",
+      "Kazakhstan": "41%"
+    },
+    "avg_goals_scored": {
+      "Faroe Islands": 1.47,
+      "Kazakhstan": 1.08
+    },
+    "avg_goals_conceded": {
+      "Faroe Islands": 0.93,
+      "Kazakhstan": 1.12
+    },
+    "clean_sheet_rate": {
+      "Faroe Islands": "34%",
+      "Kazakhstan": "41%"
+    },
+    "h2h_last_10": {
+      "Faroe Islands wins": "60%",
+      "draws": "20%",
+      "Kazakhstan wins": "20%",
+      "total_h2h_games": 5
+    }
+  },
+  "history_refreshed_at": "2026-09-26T14:41:13.154864+00:00",
+  "match_id": "faroe_islands_vs_kazakhstan_nl",
+  "group": "Sat 26 Sep",
+  "date": "2026-09-26",
+  "time": "18:00"
+}

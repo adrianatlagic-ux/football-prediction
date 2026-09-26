@@ -1,0 +1,378 @@
+{
+  "home_team": "Slovenia",
+  "away_team": "Scotland",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.4316,
+  "probability_draw": 0.2727,
+  "probability_away_win": 0.2956,
+  "score_prediction": {
+    "home_xg": 1.12,
+    "away_xg": 1.08,
+    "rho": -0.13,
+    "most_likely_score": "1:0",
+    "result": "H",
+    "probability_home_win": 0.4316,
+    "probability_draw": 0.2727,
+    "probability_away_win": 0.2956,
+    "top_scorelines": [
+      {
+        "score": "1:0",
+        "probability": 0.1319
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0935
+      },
+      {
+        "score": "2:0",
+        "probability": 0.0863
+      },
+      {
+        "score": "3:1",
+        "probability": 0.035
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0324
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.7044,
+        "home_or_away": 0.7273,
+        "draw_or_away": 0.5684
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.6692,
+          "under": 0.3308
+        },
+        {
+          "line": 2.5,
+          "over": 0.3978,
+          "under": 0.6022
+        },
+        {
+          "line": 3.5,
+          "over": 0.1852,
+          "under": 0.8148
+        }
+      ],
+      "btts": {
+        "yes": 0.4524,
+        "no": 0.5476
+      },
+      "win_margin": {
+        "home_1plus": 0.4316,
+        "home_2plus": 0.1851,
+        "home_3plus": 0.0581,
+        "away_1plus": 0.2956,
+        "away_2plus": 0.1232,
+        "away_3plus": 0.0373
+      },
+      "scenario": "Slovenia is predicted to win with 43% likelihood and a 1-0 most likely score, despite never beating Scotland in five past meetings."
+    },
+    "score_matrix": [
+      [
+        0.10674179927180344,
+        0.09197505867397582,
+        0.05833788812741075,
+        0.02106247043500232,
+        0.005703338881454595,
+        0.0012354894264503952,
+        0.00022303223816172427,
+        3.4510357846497355e-05,
+        4.672392688365533e-06
+      ],
+      [
+        0.131912151480858,
+        0.12682060322224636,
+        0.06559614317126883,
+        0.023683010656428957,
+        0.006412934129618869,
+        0.0013892059501199143,
+        0.0002507813548943142,
+        3.880405079536832e-05,
+        5.253720173569443e-06
+      ],
+      [
+        0.08631604055830167,
+        0.0934913369689569,
+        0.03417109073168806,
+        0.013314795989468314,
+        0.0036054077274417303,
+        0.0007810237508034472,
+        0.0001409914738806156,
+        2.1815977174550688e-05,
+        2.9536874898057803e-06
+      ],
+      [
+        0.03235175592960285,
+        0.03504109891496928,
+        0.01897700106047591,
+        0.004624063548391874,
+        0.001351327865254828,
+        0.0002927322615562899,
+        5.284442754368157e-05,
+        8.176755610565016e-06,
+        1.107059315330556e-06
+      ],
+      [
+        0.009094220248277449,
+        0.0098502063371099,
+        0.005334518091422844,
+        0.0019259889788980182,
+        0.00035197455871236594,
+        8.22883204906134e-05,
+        1.4854799968883146e-05,
+        2.2985218051417674e-06,
+        3.111992209458692e-07
+      ],
+      [
+        0.002045140105634937,
+        0.0022151489054400863,
+        0.0011996451147167286,
+        0.0004331231481337055,
+        0.00011728197311099077,
+        1.7146628016231197e-05,
+        3.3405994519763123e-06,
+        5.168996350470207e-07,
+        6.998357090804955e-08
+      ],
+      [
+        0.00038326522574128985,
+        0.0004151253710955354,
+        0.00022481699636837246,
+        8.116854228512908e-05,
+        2.1978984117478097e-05,
+        4.7612114667715015e-06,
+        5.80074383711168e-07,
+        9.68685004836778e-08,
+        1.311512547641713e-08
+      ],
+      [
+        6.156430464779502e-05,
+        6.668203399805915e-05,
+        3.611259546872485e-05,
+        1.3038190082061427e-05,
+        3.5305078133304176e-06,
+        7.647985090897781e-07,
+        1.380624710930228e-07,
+        1.4417669606962706e-08,
+        2.1066966844240277e-09
+      ],
+      [
+        8.652997801995528e-06,
+        9.372305866504458e-06,
+        5.075704355030373e-06,
+        1.8325461607584021e-06,
+        4.96220602562597e-07,
+        1.0749410483856295e-07,
+        1.9404982574570266e-08,
+        3.0025833851332057e-09,
+        2.743611135781328e-10
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Tactically Balanced",
+    "match_description": "A tight game where goals will make the difference",
+    "dominance_index": 0.02,
+    "total_xg": 2.2,
+    "first_goal": {
+      "Slovenia_scores_first": 0.453,
+      "Scotland_scores_first": 0.437,
+      "no_goals": 0.111,
+      "expected_minute": 40
+    },
+    "halftime_xg": {
+      "Slovenia": 0.53,
+      "Scotland": 0.51
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.356
+      },
+      {
+        "score": "1:0",
+        "probability": 0.187
+      },
+      {
+        "score": "0:1",
+        "probability": 0.181
+      },
+      {
+        "score": "1:1",
+        "probability": 0.095
+      },
+      {
+        "score": "2:0",
+        "probability": 0.049
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Slovenia": 0.151,
+        "Scotland": 0.146
+      },
+      "16-30'": {
+        "Slovenia": 0.174,
+        "Scotland": 0.167
+      },
+      "31-45'": {
+        "Slovenia": 0.202,
+        "Scotland": 0.194
+      },
+      "46-60'": {
+        "Slovenia": 0.162,
+        "Scotland": 0.157
+      },
+      "61-75'": {
+        "Slovenia": 0.207,
+        "Scotland": 0.2
+      },
+      "76-90'": {
+        "Slovenia": 0.224,
+        "Scotland": 0.216
+      }
+    },
+    "comeback_probability": {
+      "Slovenia": 0.02,
+      "Scotland": 0.019
+    },
+    "late_drama_probability": 0.356,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.291
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.246
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Slovenia trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.124
+      },
+      {
+        "szenario": "Slovenia dominiert früh",
+        "beschreibung": "Slovenia geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.049
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 51,
+        "away": 49
+      },
+      "shots": {
+        "home": 12,
+        "away": 11
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 4
+      },
+      "corners": {
+        "home": 6,
+        "away": 5
+      },
+      "passes": {
+        "home": 265,
+        "away": 255
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Slovenia and Scotland is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 36,
+        "type": "chance",
+        "team": "Slovenia",
+        "headline": "Big chance for Slovenia!",
+        "description": "Slovenia create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:0.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 75,
+        "type": "chance",
+        "team": "Slovenia",
+        "headline": "Big chance for Slovenia!",
+        "description": "Slovenia create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 84,
+        "type": "goal",
+        "team": "Slovenia",
+        "headline": "GOAL! Slovenia!",
+        "description": "Slovenia score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:0.",
+        "score_after": "1:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Slovenia": 50,
+      "Scotland": 43
+    },
+    "fifa_points": {
+      "Slovenia": 1462.96,
+      "Scotland": 1485.08
+    },
+    "form_last_10_avg_pts": {
+      "Slovenia": 1.22,
+      "Scotland": 1.28
+    },
+    "win_rate_last_10": {
+      "Slovenia": "28%",
+      "Scotland": "43%"
+    },
+    "avg_goals_scored": {
+      "Slovenia": 0.94,
+      "Scotland": 1.28
+    },
+    "avg_goals_conceded": {
+      "Slovenia": 1.27,
+      "Scotland": 1.42
+    },
+    "clean_sheet_rate": {
+      "Slovenia": "23%",
+      "Scotland": "13%"
+    },
+    "h2h_last_10": {
+      "Slovenia wins": "0%",
+      "draws": "60%",
+      "Scotland wins": "40%",
+      "total_h2h_games": 5
+    }
+  }
+}

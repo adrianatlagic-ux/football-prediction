@@ -1,0 +1,399 @@
+{
+  "home_team": "Denmark",
+  "away_team": "Wales",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.6435,
+  "probability_draw": 0.2152,
+  "probability_away_win": 0.1413,
+  "score_prediction": {
+    "home_xg": 1.84,
+    "away_xg": 0.95,
+    "rho": -0.13,
+    "most_likely_score": "2:0",
+    "result": "H",
+    "probability_home_win": 0.6435,
+    "probability_draw": 0.2152,
+    "probability_away_win": 0.1413,
+    "top_scorelines": [
+      {
+        "score": "2:0",
+        "probability": 0.1175
+      },
+      {
+        "score": "2:1",
+        "probability": 0.1121
+      },
+      {
+        "score": "1:0",
+        "probability": 0.112
+      },
+      {
+        "score": "3:0",
+        "probability": 0.0719
+      },
+      {
+        "score": "3:1",
+        "probability": 0.0686
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.8587,
+        "home_or_away": 0.7848,
+        "draw_or_away": 0.3565
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.7886,
+          "under": 0.2114
+        },
+        {
+          "line": 2.5,
+          "over": 0.5461,
+          "under": 0.4539
+        },
+        {
+          "line": 3.5,
+          "over": 0.3145,
+          "under": 0.6855
+        }
+      ],
+      "btts": {
+        "yes": 0.518,
+        "no": 0.482
+      },
+      "win_margin": {
+        "home_1plus": 0.6435,
+        "home_2plus": 0.3809,
+        "home_3plus": 0.1779,
+        "away_1plus": 0.1413,
+        "away_2plus": 0.0517,
+        "away_3plus": 0.0136
+      },
+      "scenario": "Denmark are strong favourites with about a 65% chance to win, with 1-0 the most likely score, and a 36% probability of winning by two or more goals."
+    },
+    "score_matrix": [
+      [
+        0.06376438902557655,
+        0.03524112397700831,
+        0.02208819961295796,
+        0.007025355011917334,
+        0.0016758590754897159,
+        0.00031981343418370614,
+        5.0859801887223874e-05,
+        6.932754729179669e-06,
+        8.268848984379771e-07
+      ],
+      [
+        0.11203220355495819,
+        0.10286203714617077,
+        0.04057734054567625,
+        0.012905996313325946,
+        0.0030786531090933864,
+        0.0005875163597462895,
+        9.343249053457559e-05,
+        1.2735884069090893e-05,
+        1.5190368931794281e-06
+      ],
+      [
+        0.11747714925960195,
+        0.11209406295647589,
+        0.03989047055311775,
+        0.011854542621478475,
+        0.0028278347221292167,
+        0.0005396513030332192,
+        8.582052980515503e-05,
+        1.1698289450412746e-05,
+        1.3952807018238757e-06
+      ],
+      [
+        0.0719375107579406,
+        0.06864116052061643,
+        0.03274792850054904,
+        0.007769250473351603,
+        0.0017316337009107448,
+        0.00033045721369780195,
+        5.255247786501676e-05,
+        7.163485226636841e-06,
+        8.544046321382625e-07
+      ],
+      [
+        0.03303837482436509,
+        0.031524476810023815,
+        0.015039974626912169,
+        0.004783602239011874,
+        0.0008511607984413209,
+        0.0001517674044393894,
+        2.4135509324138283e-05,
+        3.2899374397703337e-06,
+        3.9239807147680335e-07
+      ],
+      [
+        0.012138693146701695,
+        0.011582468951377859,
+        0.005525866145075268,
+        0.0017575525437896961,
+        0.0004192543118694507,
+        5.967934907806738e-05,
+        8.867674126906829e-06,
+        1.2087622731299076e-06,
+        1.4417173381971795e-07
+      ],
+      [
+        0.003716583924327818,
+        0.003546281085490142,
+        0.001691890966726879,
+        0.000538121480744831,
+        0.0001283658641723316,
+        2.4496766138236342e-05,
+        2.905855738507022e-06,
+        3.7009473576397737e-07,
+        4.414201279998801e-08
+      ],
+      [
+        0.0009753694875647808,
+        0.0009306757053093529,
+        0.0004440149499732706,
+        0.00014122303803932386,
+        3.36879644608649e-05,
+        6.428860136547899e-06,
+        1.0223790433946556e-06,
+        1.0395142398141749e-07,
+        1.158450159647322e-08
+      ],
+      [
+        0.00022397649281225015,
+        0.00021371334973907676,
+        0.00010196024431676183,
+        3.242939334027295e-05,
+        7.735850081559076e-06,
+        1.4762749547963968e-06,
+        2.34771412663316e-07,
+        3.200194576115044e-08,
+        2.847101446227608e-09
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": 0.32,
+    "total_xg": 2.79,
+    "first_goal": {
+      "Denmark_scores_first": 0.619,
+      "Wales_scores_first": 0.32,
+      "no_goals": 0.061,
+      "expected_minute": 32
+    },
+    "halftime_xg": {
+      "Denmark": 0.86,
+      "Wales": 0.45
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.27
+      },
+      {
+        "score": "1:0",
+        "probability": 0.234
+      },
+      {
+        "score": "0:1",
+        "probability": 0.121
+      },
+      {
+        "score": "1:1",
+        "probability": 0.104
+      },
+      {
+        "score": "2:0",
+        "probability": 0.101
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Denmark": 0.248,
+        "Wales": 0.128
+      },
+      "16-30'": {
+        "Denmark": 0.285,
+        "Wales": 0.147
+      },
+      "31-45'": {
+        "Denmark": 0.331,
+        "Wales": 0.171
+      },
+      "46-60'": {
+        "Denmark": 0.267,
+        "Wales": 0.138
+      },
+      "61-75'": {
+        "Denmark": 0.34,
+        "Wales": 0.176
+      },
+      "76-90'": {
+        "Denmark": 0.368,
+        "Wales": 0.19
+      }
+    },
+    "comeback_probability": {
+      "Denmark": 0.032,
+      "Wales": 0.017
+    },
+    "late_drama_probability": 0.428,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.228
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.211
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Denmark trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.114
+      },
+      {
+        "szenario": "Denmark dominiert früh",
+        "beschreibung": "Denmark geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.102
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 56,
+        "away": 44
+      },
+      "shots": {
+        "home": 16,
+        "away": 10
+      },
+      "shots_on_target": {
+        "home": 6,
+        "away": 4
+      },
+      "corners": {
+        "home": 7,
+        "away": 4
+      },
+      "passes": {
+        "home": 291,
+        "away": 229
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Denmark and Wales is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 34,
+        "type": "chance",
+        "team": "Wales",
+        "headline": "Big chance for Wales!",
+        "description": "Wales create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 41,
+        "type": "goal",
+        "team": "Denmark",
+        "headline": "GOAL! Denmark!",
+        "description": "Denmark score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 47,
+        "type": "chance",
+        "team": "Wales",
+        "headline": "Big chance for Wales!",
+        "description": "Wales create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 52,
+        "type": "chance",
+        "team": "Denmark",
+        "headline": "Big chance for Denmark!",
+        "description": "Denmark create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 75,
+        "type": "goal",
+        "team": "Denmark",
+        "headline": "GOAL! Denmark!",
+        "description": "Denmark score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Denmark": 20,
+      "Wales": 30
+    },
+    "fifa_points": {
+      "Denmark": 1627.64,
+      "Wales": 1529.09
+    },
+    "form_last_10_avg_pts": {
+      "Denmark": 1.53,
+      "Wales": 1.09
+    },
+    "win_rate_last_10": {
+      "Denmark": "41%",
+      "Wales": "27%"
+    },
+    "avg_goals_scored": {
+      "Denmark": 2.75,
+      "Wales": 1.56
+    },
+    "avg_goals_conceded": {
+      "Denmark": 1.56,
+      "Wales": 1.4
+    },
+    "clean_sheet_rate": {
+      "Denmark": "38%",
+      "Wales": "16%"
+    },
+    "h2h_last_10": {
+      "Denmark wins": "71%",
+      "draws": "0%",
+      "Wales wins": "29%",
+      "total_h2h_games": 7
+    }
+  },
+  "history_refreshed_at": "2026-09-26T14:41:13.154864+00:00",
+  "match_id": "denmark_vs_wales_nl",
+  "group": "Sun 27 Sep",
+  "date": "2026-09-27",
+  "time": "18:00"
+}

@@ -126,5 +126,149 @@
     "home_team": "Turkey",
     "away_team": "France",
     "match_id": "turkey_vs_france_nl"
+  },
+  {
+    "group": "Sat 26 Sep",
+    "date": "2026-09-26",
+    "time": "15:00",
+    "home_team": "Slovenia",
+    "away_team": "Scotland",
+    "match_id": "slovenia_vs_scotland_nl"
+  },
+  {
+    "group": "Sat 26 Sep",
+    "date": "2026-09-26",
+    "time": "18:00",
+    "home_team": "Bulgaria",
+    "away_team": "Luxembourg",
+    "match_id": "bulgaria_vs_luxembourg_nl"
+  },
+  {
+    "group": "Sat 26 Sep",
+    "date": "2026-09-26",
+    "time": "18:00",
+    "home_team": "Faroe Islands",
+    "away_team": "Kazakhstan",
+    "match_id": "faroe_islands_vs_kazakhstan_nl"
+  },
+  {
+    "group": "Sat 26 Sep",
+    "date": "2026-09-26",
+    "time": "18:00",
+    "home_team": "Iceland",
+    "away_team": "Estonia",
+    "match_id": "iceland_vs_estonia_nl"
+  },
+  {
+    "group": "Sat 26 Sep",
+    "date": "2026-09-26",
+    "time": "18:00",
+    "home_team": "San Marino",
+    "away_team": "Finland",
+    "match_id": "san_marino_vs_finland_nl"
+  },
+  {
+    "group": "Sat 26 Sep",
+    "date": "2026-09-26",
+    "time": "20:45",
+    "home_team": "Albania",
+    "away_team": "Belarus",
+    "match_id": "albania_vs_belarus_nl"
+  },
+  {
+    "group": "Sat 26 Sep",
+    "date": "2026-09-26",
+    "time": "20:45",
+    "home_team": "Czech Republic",
+    "away_team": "Croatia",
+    "match_id": "czech_republic_vs_croatia_nl"
+  },
+  {
+    "group": "Sat 26 Sep",
+    "date": "2026-09-26",
+    "time": "20:45",
+    "home_team": "England",
+    "away_team": "Spain",
+    "match_id": "england_vs_spain_nl"
+  },
+  {
+    "group": "Sat 26 Sep",
+    "date": "2026-09-26",
+    "time": "20:45",
+    "home_team": "North Macedonia",
+    "away_team": "Switzerland",
+    "match_id": "north_macedonia_vs_switzerland_nl"
+  },
+  {
+    "group": "Sat 26 Sep",
+    "date": "2026-09-26",
+    "time": "20:45",
+    "home_team": "Slovakia",
+    "away_team": "Moldova",
+    "match_id": "slovakia_vs_moldova_nl"
+  },
+  {
+    "group": "Sun 27 Sep",
+    "date": "2026-09-27",
+    "time": "15:00",
+    "home_team": "Lithuania",
+    "away_team": "Azerbaijan",
+    "match_id": "lithuania_vs_azerbaijan_nl"
+  },
+  {
+    "group": "Sun 27 Sep",
+    "date": "2026-09-27",
+    "time": "18:00",
+    "home_team": "Austria",
+    "away_team": "Kosovo",
+    "match_id": "austria_vs_kosovo_nl"
+  },
+  {
+    "group": "Sun 27 Sep",
+    "date": "2026-09-27",
+    "time": "18:00",
+    "home_team": "Denmark",
+    "away_team": "Wales",
+    "match_id": "denmark_vs_wales_nl"
+  },
+  {
+    "group": "Sun 27 Sep",
+    "date": "2026-09-27",
+    "time": "18:00",
+    "home_team": "Gibraltar",
+    "away_team": "Andorra",
+    "match_id": "gibraltar_vs_andorra_nl"
+  },
+  {
+    "group": "Sun 27 Sep",
+    "date": "2026-09-27",
+    "time": "18:00",
+    "home_team": "Serbia",
+    "away_team": "Netherlands",
+    "match_id": "serbia_vs_netherlands_nl"
+  },
+  {
+    "group": "Sun 27 Sep",
+    "date": "2026-09-27",
+    "time": "20:45",
+    "home_team": "Germany",
+    "away_team": "Greece",
+    "match_id": "germany_vs_greece_nl"
+  },
+  {
+    "group": "Sun 27 Sep",
+    "date": "2026-09-27",
+    "time": "20:45",
+    "home_team": "Israel",
+    "away_team": "Republic of Ireland",
+    "match_id": "israel_vs_republic_of_ireland_nl"
+  },
+  {
+    "group": "Sun 27 Sep",
+    "date": "2026-09-27",
+    "time": "20:45",
+    "home_team": "Norway",
+    "away_team": "Portugal",
+    "match_id": "norway_vs_portugal_nl"
   }
 ]

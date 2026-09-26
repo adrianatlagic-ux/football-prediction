@@ -223,6 +223,24 @@ class ClubFootballPredictor:
             },
         }
 
+    def refresh_history(self) -> int:
+        """Re-read the result files so predictions see the latest matches.
+
+        The artifact carries the history it was trained with; without this,
+        form and goal features stay frozen at the training date however many
+        games have been played since. The model's weights are untouched -
+        a monthly refit measured no better than a frozen model - only the
+        history the features are computed from moves on. Returns the number
+        of matches added; refuses a history that would shrink.
+        """
+        from .club_features_v3 import prepare_history
+        fresh = prepare_history(load_completed_matches())
+        before = 0 if self._history is None else len(self._history)
+        if len(fresh) < before:
+            raise ValueError("Result files hold fewer matches than the model's history")
+        self._history = fresh
+        return len(fresh) - before
+
     def save(self, path: str | Path) -> None:
         joblib.dump({
             "model": self.model,

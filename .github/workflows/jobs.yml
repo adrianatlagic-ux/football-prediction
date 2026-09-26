@@ -1,0 +1,31 @@
+name: Scheduled server jobs
+
+# GitHub only knocks; the server does the work (src/jobs.py). It already
+# holds both models, which GitHub would otherwise have to download first.
+#   daily  06:05 UTC - yesterday's results, fresh history, predictions for
+#                      the next 48 hours, the morning odds read
+#   hourly xx:15     - squad values for matches kicking off within 75 min
+# Needs the repository secret PREDICTION_WRITE_TOKEN, equal to the
+# PREDICTIONS_WRITE_TOKEN secret on the Fly app.
+on:
+  schedule:
+    - cron: "5 6 * * *"
+    - cron: "15 * * * *"
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "daily or hourly"
+        default: "daily"
+
+jobs:
+  knock:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start the job on the server
+        env:
+          TOKEN: ${{ secrets.PREDICTION_WRITE_TOKEN }}
+          API: ${{ vars.API_BASE_URL || 'https://football-prediction.fly.dev' }}
+          JOB: ${{ github.event.inputs.job || (github.event.schedule == '5 6 * * *' && 'daily' || 'hourly') }}
+        run: |
+          if [ -z "$TOKEN" ]; then echo "PREDICTION_WRITE_TOKEN is not set" >&2; exit 1; fi
+          curl -fsS -X POST -H "X-Prediction-Token: $TOKEN" "$API/jobs/$JOB"

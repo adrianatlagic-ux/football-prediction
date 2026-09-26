@@ -1,0 +1,402 @@
+{
+  "home_team": "Slovakia",
+  "away_team": "Moldova",
+  "prediction": "H",
+  "prediction_label": "Home Win",
+  "probability_home_win": 0.9,
+  "probability_draw": 0.0627,
+  "probability_away_win": 0.0372,
+  "score_prediction": {
+    "home_xg": 2.82,
+    "away_xg": 0.62,
+    "rho": -0.13,
+    "most_likely_score": "2:0",
+    "result": "H",
+    "probability_home_win": 0.9001,
+    "probability_draw": 0.0627,
+    "probability_away_win": 0.0372,
+    "top_scorelines": [
+      {
+        "score": "2:0",
+        "probability": 0.1398
+      },
+      {
+        "score": "3:0",
+        "probability": 0.1316
+      },
+      {
+        "score": "4:0",
+        "probability": 0.0929
+      },
+      {
+        "score": "1:0",
+        "probability": 0.091
+      },
+      {
+        "score": "2:1",
+        "probability": 0.0874
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.9628,
+        "home_or_away": 0.9373,
+        "draw_or_away": 0.0999
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8812,
+          "under": 0.1188
+        },
+        {
+          "line": 2.5,
+          "over": 0.7067,
+          "under": 0.2933
+        },
+        {
+          "line": 3.5,
+          "over": 0.4734,
+          "under": 0.5266
+        }
+      ],
+      "btts": {
+        "yes": 0.4203,
+        "no": 0.5797
+      },
+      "win_margin": {
+        "home_1plus": 0.9001,
+        "home_2plus": 0.6918,
+        "home_3plus": 0.4492,
+        "away_1plus": 0.0372,
+        "away_2plus": 0.01,
+        "away_3plus": 0.0018
+      },
+      "scenario": "Slovakia is heavily favored with an 89% win chance, 2:0 being the most likely score, and a 65% probability to win by two or more goals."
+    },
+    "score_matrix": [
+      [
+        0.018470625466904714,
+        0.009514323952604061,
+        0.004698175324975969,
+        0.000978775787125338,
+        0.0001529320388018499,
+        1.9116295110471953e-05,
+        1.9912588930222763e-06,
+        1.777890219294729e-07,
+        1.3889614944458813e-08
+      ],
+      [
+        0.09096103700997905,
+        0.029965975771944153,
+        0.013269090084688701,
+        0.002764363437659626,
+        0.00043192704812633487,
+        5.3990288646293536e-05,
+        5.623926696176506e-06,
+        5.02130802890575e-07,
+        3.922853856898266e-08
+      ],
+      [
+        0.13981042526757115,
+        0.08738055707209813,
+        0.011702459979099735,
+        0.0039037056882623824,
+        0.000609947321583973,
+        7.624257868129672e-05,
+        7.941848143101541e-06,
+        7.090858042729794e-07,
+        5.5396720658267314e-08
+      ],
+      [
+        0.13162252713954986,
+        0.08226317688884766,
+        0.025706960726681032,
+        0.002295206845157048,
+        0.0005742261904663824,
+        7.177748628160354e-05,
+        7.4767394545364295e-06,
+        6.675586984201666e-07,
+        5.215245110892382e-08
+      ],
+      [
+        0.09293561058185945,
+        0.058084119327559594,
+        0.018151088140140336,
+        0.0037814352067923563,
+        0.00025321476340860167,
+        5.0680416632172856e-05,
+        5.279152144162352e-06,
+        4.713476984918628e-07,
+        3.6823634923903836e-08
+      ],
+      [
+        0.05249574158420961,
+        0.032809478511793895,
+        0.010252849542939478,
+        0.002135986885870331,
+        0.00033374428914876,
+        1.787871040370642e-05,
+        2.981989411901145e-06,
+        2.6624613344037814e-07,
+        2.0800250959279323e-08
+      ],
+      [
+        0.024710682905637004,
+        0.015444007367792225,
+        0.004826199350443889,
+        0.00100544716646535,
+        0.00015709939610040476,
+        1.9637209057438765e-05,
+        8.766391548113693e-07,
+        1.25326808989704e-07,
+        9.791049527092072e-09
+      ],
+      [
+        0.009970079714807803,
+        0.006231231454062409,
+        0.0019472384647250135,
+        0.00040567022922706876,
+        6.33852778674886e-05,
+        7.923072803234751e-06,
+        8.253110285403322e-07,
+        3.1579987930050734e-08,
+        3.950418717666063e-09
+      ],
+      [
+        0.0035198209074921278,
+        0.0021998639307623876,
+        0.0006874499358146906,
+        0.00014321716528101867,
+        2.2377436554877666e-05,
+        2.797148879661243e-06,
+        2.9136647815619735e-07,
+        2.6014578694888942e-08,
+        8.710020176424596e-10
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "One-Sided",
+    "match_description": "One team is expected to dominate clearly",
+    "dominance_index": 0.64,
+    "total_xg": 3.44,
+    "first_goal": {
+      "Slovakia_scores_first": 0.793,
+      "Moldova_scores_first": 0.174,
+      "no_goals": 0.032,
+      "expected_minute": 26
+    },
+    "halftime_xg": {
+      "Slovakia": 1.33,
+      "Moldova": 0.29
+    },
+    "top_halftime_scores": [
+      {
+        "score": "1:0",
+        "probability": 0.266
+      },
+      {
+        "score": "0:0",
+        "probability": 0.201
+      },
+      {
+        "score": "2:0",
+        "probability": 0.176
+      },
+      {
+        "score": "3:0",
+        "probability": 0.078
+      },
+      {
+        "score": "1:1",
+        "probability": 0.078
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Slovakia": 0.381,
+        "Moldova": 0.084
+      },
+      "16-30'": {
+        "Slovakia": 0.437,
+        "Moldova": 0.096
+      },
+      "31-45'": {
+        "Slovakia": 0.508,
+        "Moldova": 0.112
+      },
+      "46-60'": {
+        "Slovakia": 0.409,
+        "Moldova": 0.09
+      },
+      "61-75'": {
+        "Slovakia": 0.522,
+        "Moldova": 0.115
+      },
+      "76-90'": {
+        "Slovakia": 0.564,
+        "Moldova": 0.124
+      }
+    },
+    "comeback_probability": {
+      "Slovakia": 0.029,
+      "Moldova": 0.007
+    },
+    "late_drama_probability": 0.497,
+    "match_stories": [
+      {
+        "szenario": "Slovakia dominiert früh",
+        "beschreibung": "Slovakia geht 2:0 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.183
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.174
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Slovakia trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.097
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 62,
+        "away": 38
+      },
+      "shots": {
+        "home": 22,
+        "away": 8
+      },
+      "shots_on_target": {
+        "home": 9,
+        "away": 3
+      },
+      "corners": {
+        "home": 9,
+        "away": 4
+      },
+      "passes": {
+        "home": 322,
+        "away": 198
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Slovakia and Moldova is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 3,
+        "type": "chance",
+        "team": "Moldova",
+        "headline": "Big chance for Moldova!",
+        "description": "Moldova create a great opportunity but fail to convert.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 12,
+        "type": "goal",
+        "team": "Slovakia",
+        "headline": "GOAL! Slovakia!",
+        "description": "Slovakia score to make it 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 32,
+        "type": "chance",
+        "team": "Slovakia",
+        "headline": "Big chance for Slovakia!",
+        "description": "Slovakia create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 1:0.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 47,
+        "type": "chance",
+        "team": "Slovakia",
+        "headline": "Big chance for Slovakia!",
+        "description": "Slovakia create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 79,
+        "type": "chance",
+        "team": "Slovakia",
+        "headline": "Big chance for Slovakia!",
+        "description": "Slovakia create a great opportunity but fail to convert.",
+        "score_after": "1:0"
+      },
+      {
+        "minute": 89,
+        "type": "goal",
+        "team": "Slovakia",
+        "headline": "GOAL! Slovakia!",
+        "description": "Slovakia score to make it 2:0.",
+        "score_after": "2:0"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 2:0.",
+        "score_after": "2:0"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Slovakia": 42,
+      "Moldova": 156
+    },
+    "fifa_points": {
+      "Slovakia": 1491.87,
+      "Moldova": 1019.2
+    },
+    "form_last_10_avg_pts": {
+      "Slovakia": 1.58,
+      "Moldova": 0.1
+    },
+    "win_rate_last_10": {
+      "Slovakia": "53%",
+      "Moldova": "0%"
+    },
+    "avg_goals_scored": {
+      "Slovakia": 1.36,
+      "Moldova": 0.74
+    },
+    "avg_goals_conceded": {
+      "Slovakia": 1.81,
+      "Moldova": 3.14
+    },
+    "clean_sheet_rate": {
+      "Slovakia": "53%",
+      "Moldova": "0%"
+    },
+    "h2h_last_10": {
+      "Slovakia wins": "100%",
+      "draws": "0%",
+      "Moldova wins": "0%",
+      "total_h2h_games": 2
+    }
+  },
+  "history_refreshed_at": "2026-09-26T14:41:13.154864+00:00",
+  "match_id": "slovakia_vs_moldova_nl",
+  "group": "Sat 26 Sep",
+  "date": "2026-09-26",
+  "time": "20:45"
+}

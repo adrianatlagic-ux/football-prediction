@@ -1,0 +1,415 @@
+{
+  "home_team": "Czech Republic",
+  "away_team": "Croatia",
+  "prediction": "A",
+  "prediction_label": "Away Win",
+  "probability_home_win": 0.2743,
+  "probability_draw": 0.2845,
+  "probability_away_win": 0.4413,
+  "score_prediction": {
+    "home_xg": 1.13,
+    "away_xg": 1.84,
+    "rho": -0.13,
+    "most_likely_score": "1:2",
+    "result": "A",
+    "probability_home_win": 0.2743,
+    "probability_draw": 0.2845,
+    "probability_away_win": 0.4413,
+    "top_scorelines": [
+      {
+        "score": "1:2",
+        "probability": 0.0825
+      },
+      {
+        "score": "0:2",
+        "probability": 0.073
+      },
+      {
+        "score": "0:1",
+        "probability": 0.0678
+      },
+      {
+        "score": "1:3",
+        "probability": 0.0505
+      },
+      {
+        "score": "0:3",
+        "probability": 0.0446
+      }
+    ],
+    "betting_markets": {
+      "double_chance": {
+        "home_or_draw": 0.5587,
+        "home_or_away": 0.7155,
+        "draw_or_away": 0.7257
+      },
+      "over_under": [
+        {
+          "line": 1.5,
+          "over": 0.8039,
+          "under": 0.1961
+        },
+        {
+          "line": 2.5,
+          "over": 0.5556,
+          "under": 0.4444
+        },
+        {
+          "line": 3.5,
+          "over": 0.3374,
+          "under": 0.6626
+        }
+      ],
+      "btts": {
+        "yes": 0.593,
+        "no": 0.407
+      },
+      "win_margin": {
+        "home_1plus": 0.2743,
+        "home_2plus": 0.1119,
+        "home_3plus": 0.0337,
+        "away_1plus": 0.4413,
+        "away_2plus": 0.2569,
+        "away_3plus": 0.1183
+      },
+      "scenario": "Croatia are favored to win with a 1:2 score as the most likely outcome, largely due to their much stronger recent form compared to Czech Republic."
+    },
+    "score_matrix": [
+      [
+        0.07260341150417984,
+        0.0678414500711382,
+        0.07297532956001714,
+        0.0446373811299551,
+        0.020477767686909,
+        0.0075154762008670965,
+        0.002298524566958684,
+        0.0006025526576711206,
+        0.00013821300701978738
+      ],
+      [
+        0.05549155067256339,
+        0.13409377562566901,
+        0.08253597844037067,
+        0.050485416767410314,
+        0.023160602391300026,
+        0.008500094284243474,
+        0.002599659025138628,
+        0.0006814943277759413,
+        0.00015632057897295353
+      ],
+      [
+        0.041212139941223226,
+        0.07562563987701414,
+        0.06157172485181559,
+        0.028549807825404543,
+        0.013097460409974523,
+        0.004806854609738008,
+        0.0014701228658014602,
+        0.00038538915468884645,
+        8.840023069225674e-05
+      ],
+      [
+        0.015537142548395316,
+        0.02851117046478471,
+        0.026159470402618127,
+        0.014198744557344866,
+        0.004937795263773393,
+        0.0018122035251609363,
+        0.0005542422345015157,
+        0.00014529326168323338,
+        3.332724259248589e-05
+      ],
+      [
+        0.004393173933338179,
+        0.008061619471193555,
+        0.007396669183200797,
+        0.004524377531603847,
+        0.0018417941914585971,
+        0.000512406014416263,
+        0.00015671366403332898,
+        4.108210811146785e-05,
+        9.423378396078912e-06
+      ],
+      [
+        0.0009937465475879472,
+        0.0018235577828303758,
+        0.0016731444226863786,
+        0.0010234251182036462,
+        0.0004695047353810276,
+        0.00015290166896051122,
+        3.5449009066354674e-05,
+        9.292872015286843e-06,
+        2.131590938536466e-06
+      ],
+      [
+        0.00018732322307055824,
+        0.0003437443100198098,
+        0.0003153910890869315,
+        0.0001929176933279433,
+        8.850258699457781e-05,
+        3.2481034868763e-05,
+        8.814970447827177e-06,
+        1.7517250668301475e-06,
+        4.0180917945710806e-07
+      ],
+      [
+        3.0266403716647855e-05,
+        5.553985187646133e-05,
+        5.095873258246662e-05,
+        3.11703199135575e-05,
+        1.4299641998668167e-05,
+        5.248063205180935e-06,
+        1.6050615933915893e-06,
+        3.7336698792797816e-07,
+        6.492157588983556e-08
+      ],
+      [
+        4.278958484473706e-06,
+        7.852030344869733e-06,
+        7.204367693735446e-06,
+        4.406751000433977e-06,
+        2.0216334595934116e-06,
+        7.419528527107868e-07,
+        2.269180041158352e-07,
+        5.948600611841122e-08,
+        1.2107851276407754e-08
+      ]
+    ]
+  },
+  "game_flow": {
+    "match_type": "Balanced & Open",
+    "match_description": "Both teams play attacking football at an even level",
+    "dominance_index": -0.24,
+    "total_xg": 2.97,
+    "first_goal": {
+      "Czech Republic_scores_first": 0.361,
+      "Croatia_scores_first": 0.588,
+      "no_goals": 0.051,
+      "expected_minute": 30
+    },
+    "halftime_xg": {
+      "Czech Republic": 0.53,
+      "Croatia": 0.86
+    },
+    "top_halftime_scores": [
+      {
+        "score": "0:0",
+        "probability": 0.248
+      },
+      {
+        "score": "0:1",
+        "probability": 0.215
+      },
+      {
+        "score": "1:0",
+        "probability": 0.132
+      },
+      {
+        "score": "1:1",
+        "probability": 0.114
+      },
+      {
+        "score": "0:2",
+        "probability": 0.093
+      }
+    ],
+    "goal_timing": {
+      "1-15'": {
+        "Czech Republic": 0.153,
+        "Croatia": 0.248
+      },
+      "16-30'": {
+        "Czech Republic": 0.175,
+        "Croatia": 0.285
+      },
+      "31-45'": {
+        "Czech Republic": 0.203,
+        "Croatia": 0.331
+      },
+      "46-60'": {
+        "Czech Republic": 0.164,
+        "Croatia": 0.267
+      },
+      "61-75'": {
+        "Czech Republic": 0.209,
+        "Croatia": 0.34
+      },
+      "76-90'": {
+        "Czech Republic": 0.226,
+        "Croatia": 0.368
+      }
+    },
+    "comeback_probability": {
+      "Czech Republic": 0.023,
+      "Croatia": 0.035
+    },
+    "late_drama_probability": 0.448,
+    "match_stories": [
+      {
+        "szenario": "Ausgeglichenes Unentschieden",
+        "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+        "wahrscheinlichkeit": 0.229
+      },
+      {
+        "szenario": "Torloser Krimi",
+        "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+        "wahrscheinlichkeit": 0.199
+      },
+      {
+        "szenario": "Knappes 1:0",
+        "beschreibung": "Croatia trifft einmal und verteidigt das Ergebnis",
+        "wahrscheinlichkeit": 0.096
+      },
+      {
+        "szenario": "Croatia dominiert früh",
+        "beschreibung": "Croatia geht 0:2 in Halbzeit 1, kontrolliert dann",
+        "wahrscheinlichkeit": 0.094
+      }
+    ],
+    "predicted_stats": {
+      "possession": {
+        "home": 46,
+        "away": 54
+      },
+      "shots": {
+        "home": 11,
+        "away": 16
+      },
+      "shots_on_target": {
+        "home": 4,
+        "away": 6
+      },
+      "corners": {
+        "home": 5,
+        "away": 7
+      },
+      "passes": {
+        "home": 239,
+        "away": 281
+      }
+    },
+    "match_ticker": [
+      {
+        "minute": 1,
+        "type": "kickoff",
+        "team": null,
+        "headline": "Kickoff!",
+        "description": "The match between Czech Republic and Croatia is underway.",
+        "score_after": "0:0"
+      },
+      {
+        "minute": 36,
+        "type": "goal",
+        "team": "Croatia",
+        "headline": "GOAL! Croatia!",
+        "description": "Croatia score to make it 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 40,
+        "type": "chance",
+        "team": "Croatia",
+        "headline": "Big chance for Croatia!",
+        "description": "Croatia create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 44,
+        "type": "chance",
+        "team": "Croatia",
+        "headline": "Big chance for Croatia!",
+        "description": "Croatia create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 45,
+        "type": "halftime",
+        "team": null,
+        "headline": "Half-time",
+        "description": "The teams go into the break at 0:1.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 46,
+        "type": "chance",
+        "team": "Croatia",
+        "headline": "Big chance for Croatia!",
+        "description": "Croatia create a great opportunity but fail to convert.",
+        "score_after": "0:1"
+      },
+      {
+        "minute": 71,
+        "type": "goal",
+        "team": "Czech Republic",
+        "headline": "GOAL! Czech Republic!",
+        "description": "Czech Republic score to make it 1:1.",
+        "score_after": "1:1"
+      },
+      {
+        "minute": 72,
+        "type": "goal",
+        "team": "Croatia",
+        "headline": "GOAL! Croatia!",
+        "description": "Croatia score to make it 1:2.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 85,
+        "type": "chance",
+        "team": "Croatia",
+        "headline": "Big chance for Croatia!",
+        "description": "Croatia create a great opportunity but fail to convert.",
+        "score_after": "1:2"
+      },
+      {
+        "minute": 90,
+        "type": "fulltime",
+        "team": null,
+        "headline": "Full-time",
+        "description": "The final score finishes 1:2.",
+        "score_after": "1:2"
+      }
+    ]
+  },
+  "explanation": {
+    "fifa_ranking": {
+      "Czech Republic": 39,
+      "Croatia": 9
+    },
+    "fifa_points": {
+      "Czech Republic": 1500.29,
+      "Croatia": 1714.2
+    },
+    "form_last_10_avg_pts": {
+      "Czech Republic": 1.37,
+      "Croatia": 2.15
+    },
+    "win_rate_last_10": {
+      "Czech Republic": "29%",
+      "Croatia": "70%"
+    },
+    "avg_goals_scored": {
+      "Czech Republic": 1.72,
+      "Croatia": 1.95
+    },
+    "avg_goals_conceded": {
+      "Czech Republic": 1.21,
+      "Croatia": 1.38
+    },
+    "clean_sheet_rate": {
+      "Czech Republic": "22%",
+      "Croatia": "32%"
+    },
+    "h2h_last_10": {
+      "Czech Republic wins": "0%",
+      "draws": "67%",
+      "Croatia wins": "33%",
+      "total_h2h_games": 6
+    }
+  },
+  "history_refreshed_at": "2026-09-26T14:41:13.154864+00:00",
+  "match_id": "czech_republic_vs_croatia_nl",
+  "group": "Sat 26 Sep",
+  "date": "2026-09-26",
+  "time": "20:45"
+}
