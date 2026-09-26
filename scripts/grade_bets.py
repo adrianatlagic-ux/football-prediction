@@ -69,6 +69,10 @@ def grade(bet, home, away, hs, as_):
             return None
         return "push" if m == 0 else ("win" if m > 0 else "loss")
 
+    if market == "BTTS":
+        both = hs > 0 and as_ > 0
+        return "win" if both == (outcome.lower() == "yes") else "loss"
+
     if market.startswith("Handicap"):  # asian handicap, e.g. -1.5 / +2.0
         point = float(market.split()[-1])
         m = _team_margin(team, home, away, hs, as_)
@@ -141,6 +145,8 @@ def main():
     agent_pick = Bucket("KIs eigener Pick")
     agent_agrees = Bucket("Top-Tipp, KI stimmt zu")
     agent_disagrees = Bucket("Top-Tipp, KI widerspricht")
+    price_tip = Bucket("💰 Preistipp (bet-at-home über Pinnacle fair)")
+    price_tip_edges, no_tip = [], 0
 
     pending = 0
     match_rows = []
@@ -189,6 +195,18 @@ def main():
                     if _same_bet(b, consensus_pick):
                         consensus.add(g, b["best_odds"])
 
+            # The price tip is graded at bet-at-home's odds, the ones it was
+            # given at. Its expected edge is kept to set against the result.
+            pt = entry.get("price_tip") or {}
+            tip = pt.get("tip")
+            if tip:
+                g = grade(tip, home, away, hs, as_)
+                if g is not None:
+                    price_tip.add(g, tip["book_odds"])
+                    price_tip_edges.append(tip["edge"])
+            elif pt:
+                no_tip += 1
+
             rec_desc = f"{rec['market']} {rec.get('team') or rec['outcome']}" if rec else "-"
             match_rows.append(f"  {home} {hs}-{as_} {away:18} | {len(entry.get('green_bets', [])):2} grüne Tipps | Top: {rec_desc}")
         else:
@@ -208,6 +226,14 @@ def main():
     print(f"Spiele ausgewertet: {len(match_rows)}  (noch offen: {pending})\n")
     for bucket in [all_green, clean_green, suspicious_green, all_red, top_rec, consensus]:
         print(bucket.report())
+
+    if price_tip.decided or no_tip:
+        print("\n  -- Preistipp --")
+        print(price_tip.report())
+        if price_tip_edges:
+            print(f"  erwarteter Edge im Schnitt {sum(price_tip_edges) / len(price_tip_edges):+.1%} "
+                  f"- einzelne Ergebnisse schwanken weit mehr; erst viele Tipps sagen etwas.")
+        print(f"  Spiele ohne Preistipp: {no_tip}")
 
     if agent_pick.decided or agent_agrees.decided or agent_disagrees.decided:
         print("\n  -- KI-Agent --")

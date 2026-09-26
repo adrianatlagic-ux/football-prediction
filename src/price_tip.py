@@ -195,8 +195,12 @@ def build_price_tip(event: dict, book: dict, now: Optional[datetime] = None) -> 
     """
     now = now or datetime.now(timezone.utc)
     bookmaker = book.get("bookmaker")
+    # Everything needed to audit the tip later, stored whether or not a tip
+    # was given: which rule chose it, and when each side's price was read.
     base = {"bookmaker": bookmaker, "threshold": THRESHOLD, "tip": None,
-            "book_fetched_at": None, "outcomes": []}
+            "rule": "largest_edge_over_pinnacle_fair_v1",
+            "pinnacle_fetched_at": event.get("odds_fetched_at"),
+            "book_fetched_at": None, "book_markets_fetched_at": None, "outcomes": []}
 
     pinnacle = pinnacle_prices(event)
     if pinnacle is None:
@@ -212,6 +216,7 @@ def build_price_tip(event: dict, book: dict, now: Optional[datetime] = None) -> 
     stamp = fixture.get("fetched_at") or book.get("fetched_at")
     stamp = stamp.get(event.get("sport_key")) if isinstance(stamp, dict) else stamp
     base["book_fetched_at"] = stamp
+    base["book_markets_fetched_at"] = fixture.get("markets_fetched_at")
     fetched = _time(stamp)
     if fetched is None or now - fetched > MAX_BOOK_AGE:
         return {**base, "reason": f"{bookmaker} odds are too old to compare against current prices."}

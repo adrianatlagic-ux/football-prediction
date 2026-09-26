@@ -1891,6 +1891,9 @@ def all_bets():
             "red_bets": vb.get("red_bets", []),
             "agent_eval": agent_eval,
             "combined": _combine_recommendation(vb, agent_eval),
+            # The price tip exactly as the page shows it, "no tip" included,
+            # so the log can later say whether the strategy worked.
+            "price_tip": _price_tip_for(odds, home, away, data, agent_eval, vb.get("bets", [])),
         })
 
     out.sort(key=lambda x: x.get("commence_time") or "")

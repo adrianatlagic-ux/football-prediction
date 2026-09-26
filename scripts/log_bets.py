@@ -79,6 +79,9 @@ def _build_entry(m, now):
         "safest_pick": m.get("safest_pick"),
         "odds_refreshed": m.get("odds_refreshed", False),
         "combined": m.get("combined"),
+        # The price tip as shown: the tip or "no tip" with its reason, every
+        # compared bet, and when Pinnacle's and bet-at-home's prices were read.
+        "price_tip": m.get("price_tip"),
     }
 
 
@@ -133,6 +136,12 @@ def main():
             by_key[key] = new_entry
             added += 1
             tag = "+"
+        elif old.get("price_tip") is None and new_entry.get("price_tip") is not None:
+            # An entry logged before the price tip existed, or before the
+            # bet-at-home read in the last hour: fill it in once.
+            old["price_tip"] = new_entry["price_tip"]
+            updated += 1
+            tag = "$"
         elif not _has_movement(old) and _has_movement(new_entry):
             # The first (early-afternoon) snapshot had no movement ranking yet;
             # this later run near kickoff does. Upgrade the stored entry so the
