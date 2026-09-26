@@ -1010,13 +1010,9 @@ function LikelyTipBox({ pick, agentPick, sameBet, home, away }) {
   )
 }
 
-function SmartBetCard({ betStep, betInfo, data, focusBet }) {
+function SmartBetCard({ betStep, betInfo, data }) {
   const [showAllMarkets, setShowAllMarkets] = useState(false)
-  const focusRow = useRef(null)
-  // Opened from a combo: bring the combo's bet into view once the table exists.
-  useEffect(() => {
-    if (focusBet && focusRow.current) focusRow.current.scrollIntoView({ block: 'center', behavior: 'smooth' })
-  }, [focusBet, betInfo])
+
   const analyzing = betStep < BET_STEPS.length
   if (analyzing) {
     return (
@@ -1072,12 +1068,15 @@ function SmartBetCard({ betStep, betInfo, data, focusBet }) {
   // The model's favourite is no longer marked.
   const signals = [priceTipPick, likelyPick, best, agentPick].filter(Boolean)
   const signalRank = b => { const i = signals.findIndex(x => sameBet(x, b)); return i === -1 ? signals.length : i }
+  // After the marked bets: positive edges without ⚠, then positive edges
+  // with ⚠ (the model/market gap the warning is about), then the rest -
+  // each group with the largest edge first.
+  const edgeGroup = b => b.expected_value > 0 ? (b.suspicious ? 1 : 0) : 2
   const ordered = [...allBets].sort((a, b) =>
     signalRank(a) - signalRank(b)
-    || (b.kelly_stake_pct || 0) - (a.kelly_stake_pct || 0)
+    || edgeGroup(a) - edgeGroup(b)
     || b.expected_value - a.expected_value)
-  const focusIndex = focusBet ? ordered.findIndex(b => sameBet(b, focusBet)) : -1
-  const visibleRows = (showAllMarkets || focusIndex >= TABLE_ROWS) ? ordered : ordered.slice(0, TABLE_ROWS)
+  const visibleRows = showAllMarkets ? ordered : ordered.slice(0, TABLE_ROWS)
   const hiddenCount = ordered.length - TABLE_ROWS
   const hasUserBook = (betInfo.bets || []).some(b => b.bookmaker_key === USER_BOOK_KEY)
 
@@ -1090,7 +1089,6 @@ function SmartBetCard({ betStep, betInfo, data, focusBet }) {
     const isPriceTip = priceTipPick && sameBet(b, priceTipPick)
     const isAgentPick = agentPick && sameBet(b, agentPick)
     const isLikelyPick = likelyPick && sameBet(b, likelyPick)
-    const isFocus = focusBet && sameBet(b, focusBet)
     // Any marked signal (price tip 💰, value bet ★, AI pick ✨, model
     // favorite ◆, most likely 🎯) is a headline in its own right - dimming its
     // row to 40% opacity just because the model rates its edge negative
@@ -1099,8 +1097,8 @@ function SmartBetCard({ betStep, betInfo, data, focusBet }) {
     // the model's edge column may well be negative on it.
     const keepFullOpacity = isPriceTip || isAgentPick || isLikelyPick || isRec
     return (
-      <div className={`smart-bet-table-row ${dimmed(b) && !keepFullOpacity ? 'is-red' : ''} ${isPriceTip ? 'is-rec' : ''} ${isFocus ? 'is-focus' : ''}`}
-           key={`${kind}-${i}`} ref={isFocus ? focusRow : undefined}>
+      <div className={`smart-bet-table-row ${dimmed(b) && !keepFullOpacity ? 'is-red' : ''} ${isPriceTip ? 'is-rec' : ''}`}
+           key={`${kind}-${i}`}>
         <span className="smart-bet-col-market">{marketGroupLabel(b.market)}{b.suspicious ? ' ⚠' : ''}</span>
         <span className="smart-bet-col-pick">
           {isPriceTip ? '💰 ' : ''}{isLikelyPick ? '🎯 ' : ''}{isRec ? '★ ' : ''}{isAgentPick ? '✨ ' : ''}{betOutcomeLabel(b)}
@@ -1242,7 +1240,7 @@ function RevealSection({ visible, className = '', children }) {
   return <div className={`wm-reveal ${className}`}>{children}</div>
 }
 
-function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Infinity, betStep, onStartBetCheck, betInfo, focusBet }) {
+function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Infinity, betStep, onStartBetCheck, betInfo }) {
   const sp = data.score_prediction || {}
   const gf = data.game_flow || {}
   const ps = gf.predicted_stats || {}
@@ -1418,7 +1416,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
                   </button>
                 </div>
               ) : (
-                <SmartBetCard betStep={betStep} betInfo={betInfo} data={data} focusBet={focusBet} />
+                <SmartBetCard betStep={betStep} betInfo={betInfo} data={data} />
               )}
             </div>
           )}
@@ -2220,7 +2218,6 @@ export default function App() {
 
   const [betStepById, setBetStepById] = useState({})
   const [betInfoById, setBetInfoById] = useState({})
-  const [focusBet, setFocusBet] = useState(null)
 
   // A combo leg names the match as the odds feed spells it; the fixture list
   // may spell it differently ("Bosnia & Herzegovina"), so names are compared
@@ -2243,8 +2240,8 @@ export default function App() {
     return [null, null]
   }
 
-  // From a combo leg straight to that match: analysis open, bet tips loaded
-  // at once (no reveal animation), the combo's bet highlighted in the table.
+  // From a combo leg straight to that match: analysis open and bet tips
+  // loaded at once, no reveal animation.
   function openLeg(leg) {
     const [key, fixture] = findFixture(leg)
     if (!fixture) return
@@ -2256,7 +2253,6 @@ export default function App() {
     axios.get(`${API_BASE}/value-bets`, { params: { home_team: fixture.home_team, away_team: fixture.away_team } })
       .then(r => setBetInfoById(prev => ({ ...prev, [id]: r.data })))
       .catch(() => setBetInfoById(prev => ({ ...prev, [id]: { odds_found: false, bets: [] } })))
-    setFocusBet({ matchId: id, bet: { market: leg.market, outcome: leg.outcome, team: leg.team ?? null } })
     setTimeout(() => document.getElementById(`match-${id}`)?.scrollIntoView({ block: 'start', behavior: 'smooth' }), 150)
   }
 
@@ -2508,7 +2504,6 @@ export default function App() {
                         betStep={betStepById[fixture.match_id]}
                         betInfo={betInfoById[fixture.match_id]}
                         onStartBetCheck={() => startBetCheck(fixture.match_id, fixture)}
-                        focusBet={focusBet && focusBet.matchId === fixture.match_id ? focusBet.bet : null}
                       />
                     )
                   })

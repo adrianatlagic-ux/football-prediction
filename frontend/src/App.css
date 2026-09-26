@@ -3027,5 +3027,3 @@ body {
 /* Combo legs open their match. */
 .combo-leg.is-clickable { cursor: pointer; border-radius: 8px; transition: background 0.15s ease; }
 .combo-leg.is-clickable:hover { background: rgba(255,255,255,0.04); }
-/* The bet a combo leg pointed at, in its match's table. */
-.smart-bet-table-row.is-focus { outline: 2px solid var(--gold-light); outline-offset: -2px; border-radius: 6px; opacity: 1; }
