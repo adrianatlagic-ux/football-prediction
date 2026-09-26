@@ -502,7 +502,7 @@ ODDS_API_KEY = os.getenv("ODDS_API_KEY", "")
 # Daily at 15:00 UTC, plus one event-only refresh during its final hour.
 # Requests trigger due work; the GitHub logger is the periodic caller.
 # This is not an exact-time scheduler and its calls consume provider credits.
-ODDS_REFRESH_HOUR_UTC = 15
+from src.odds_schedule import DAILY_REFRESH_HOUR_UTC as ODDS_REFRESH_HOUR_UTC
 _odds_cache: list[dict] = []
 _odds_cache_date: str | None = None
 _odds_cache_fetched_at = 0.0
@@ -543,7 +543,9 @@ MODEL_MARKET_BLEND_TOTALS = 0.3
 
 # Fetch every competition available in the frontend, including national teams.
 # This list also allows the event-specific refresh in the final pre-match hour.
-ODDS_HORIZON_HOURS = 24
+# From the 06:00 UTC read to midday the next day, so tomorrow's early
+# kickoffs have bet-at-home prices before the next morning read.
+ODDS_HORIZON_HOURS = 30
 ODDS_SPORT_KEYS = [
     "soccer_uefa_champs_league",
     "soccer_germany_bundesliga",
@@ -552,25 +554,27 @@ ODDS_SPORT_KEYS = [
 
 
 def _fetch_odds() -> list[dict]:
+    """The day's fixtures from the Odds API's free event list - no prices.
+
+    Prices come from two other reads: bet-at-home's full market book right
+    after this one (src/book_odds.daily_refresh), and Pinnacle once per match
+    in its last hour (_fetch_event_odds), when the price tip is decided. The
+    event list costs no credits, so the morning read spends nothing of the
+    Odds API plan; each match then costs 3 credits, once.
+    """
     if not ODDS_API_KEY:
         raise HTTPException(status_code=503, detail="ODDS_API_KEY ist nicht konfiguriert.")
     events: list[dict] = []
     last_error: Exception | None = None
-    # Only matches kicking off in the next ODDS_HORIZON_HOURS. The Odds API
-    # charges nothing for a call that returns no events, so a competition
-    # without a match in that window costs no credits at all.
     now = datetime.now(timezone.utc)
     window = (f"&commenceTimeFrom={now.strftime('%Y-%m-%dT%H:%M:%SZ')}"
               f"&commenceTimeTo={(now + timedelta(hours=ODDS_HORIZON_HOURS)).strftime('%Y-%m-%dT%H:%M:%SZ')}")
     for sport_key in ODDS_SPORT_KEYS:
-        url = (
-            f"https://api.the-odds-api.com/v4/sports/{sport_key}/odds/"
-            f"?apiKey={ODDS_API_KEY}&regions=eu&markets=h2h,totals,spreads&oddsFormat=decimal{window}"
-        )
+        url = f"https://api.the-odds-api.com/v4/sports/{sport_key}/events?apiKey={ODDS_API_KEY}{window}"
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
         try:
             with urllib.request.urlopen(req, timeout=8) as resp:
-                events.extend(json.loads(resp.read()))
+                events.extend({**e, "bookmakers": e.get("bookmakers", [])} for e in json.loads(resp.read()))
         except Exception as exc:
             last_error = exc
     if not events and last_error is not None:
@@ -1633,7 +1637,12 @@ def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
                 # identity changed, and it uses the event's own competition
                 # instead of assuming the Champions League.
                 try:
-                    fresh_event = _fetch_event_odds(event) if event else None
+                    # _get_odds already read this match's final odds in the
+                    # last hour; reading them again cost 3 more credits.
+                    if event and event.get("odds_stage") == "final":
+                        fresh_event = event
+                    else:
+                        fresh_event = _fetch_event_odds(event) if event else None
                 except Exception:
                     fresh_event = None
                 # bet-at-home must be as fresh as Pinnacle for the price tip and
@@ -1673,6 +1682,9 @@ def _price_tip_for(odds: list[dict], home: str, away: str, prediction: dict,
         tip = build_price_tip(event, book_odds.load())
     except Exception:
         return None
+    if not tip.get("outcomes") and event.get("odds_stage") != "final":
+        tip["reason"] = ("Pinnacle's price is read in the hour before kickoff. "
+                         "The price tip is decided then.")
     tip.update(model_and_ai_view(tip.get("tip"), prediction, agent_eval, candidates))
     return tip
 

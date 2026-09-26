@@ -38,7 +38,8 @@ LEAGUES = {
 }
 PRICE_PER_MATCH = 0.003          # USD, 1X2 only
 PRICE_PER_FULL_BOOK = 0.023      # USD, match plus every market
-MONTHLY_BUDGET = float(os.getenv("BOOK_MARKETS_BUDGET_USD", "4.0"))
+# Two full reads per match: the morning one and the last-hour one.
+MONTHLY_BUDGET = float(os.getenv("BOOK_MARKETS_BUDGET_USD", "7.0"))
 MAX_WINDOW_ITEMS = 12
 
 _lock = threading.Lock()
@@ -269,7 +270,9 @@ DAILY_RESERVE = 1.0
 
 
 def daily_refresh(sport_key: str, events: list) -> bool:
-    """Read bet-at-home's 1X2 for every match in the next DAILY_HORIZON."""
+    """The morning read: bet-at-home's full market book for every match in
+    the next DAILY_HORIZON, so the bet table and the combo have every market
+    all day. Past the budget it falls back to 1X2."""
     if sport_key not in LEAGUES or not os.getenv("APIFY_TOKEN"):
         return False
     now = _now()
@@ -283,13 +286,14 @@ def daily_refresh(sport_key: str, events: list) -> bool:
     if not listed:
         return False
     items = min(listed, 40)
-    if spent_this_month() + items * PRICE_PER_MATCH > MONTHLY_BUDGET + DAILY_RESERVE:
+    full = spent_this_month() + items * PRICE_PER_FULL_BOOK <= MONTHLY_BUDGET
+    if not full and spent_this_month() + items * PRICE_PER_MATCH > MONTHLY_BUDGET + DAILY_RESERVE:
         return False
     with _refresh_lock:
         try:
-            fetched = fetch_league(sport_key, items)
+            fetched = fetch_league(sport_key, items, full_book=full)
         except Exception:
             return False
-        _record_spend(items * PRICE_PER_MATCH)
+        _record_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
         store(sport_key, fetched)
         return True

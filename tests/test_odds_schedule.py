@@ -29,7 +29,8 @@ def test_final_snapshot_stays_visible_until_kickoff_not_live():
 
 
 def test_initial_snapshot_expires_at_daily_refresh_boundary():
-    fetched = datetime(2026, 9, 19, 12, tzinfo=timezone.utc)
+    # Fetched three hours before the 06:00 UTC morning read.
+    fetched = datetime(2026, 9, 19, 3, tzinfo=timezone.utc)
     event = stamp_event(fixture(fetched, fetched+timedelta(hours=8)), fetched, "initial")
     assert snapshot_context(event, fetched+timedelta(hours=2))["snapshot_valid"]
     assert not snapshot_context(event, fetched+timedelta(hours=3))["snapshot_valid"]
@@ -37,7 +38,7 @@ def test_initial_snapshot_expires_at_daily_refresh_boundary():
 
 @pytest.fixture
 def clock_and_caches(monkeypatch):
-    clock = {"now": datetime(2026, 9, 19, 14, tzinfo=timezone.utc)}
+    clock = {"now": datetime(2026, 9, 19, 5, tzinfo=timezone.utc)}
     class Clock(datetime):
         @classmethod
         def now(cls, tz=None):
@@ -67,7 +68,7 @@ def test_initial_daily_final_fetch_once_at_first_request(monkeypatch, clock_and_
     clock["now"] += timedelta(minutes=20)
     api._get_odds()
     assert len(calls) == 1
-    clock["now"] = clock["now"].replace(hour=15, minute=5)
+    clock["now"] = clock["now"].replace(hour=6, minute=5)
     assert api._get_odds()[0]["odds_stage"] == "daily"
     clock["now"] = clock["now"].replace(hour=16, minute=5)
     final_snapshot = api._get_odds()[0]
@@ -120,7 +121,7 @@ def test_daily_fetch_includes_nations_league_quotes(monkeypatch):
     def open_(request, timeout):
         path = urlparse(request.full_url).path
         requested.append(path)
-        data = [event] if path == "/v4/sports/soccer_uefa_nations_league/odds/" else []
+        data = [event] if path == "/v4/sports/soccer_uefa_nations_league/events" else []
         return BytesIO(json.dumps(data).encode())
 
     monkeypatch.setattr(api.urllib.request, "urlopen", open_)

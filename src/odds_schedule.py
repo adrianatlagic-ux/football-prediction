@@ -2,7 +2,10 @@
 from datetime import datetime, timezone, timedelta
 from .bet_audit import timestamp
 
-DAILY_REFRESH_HOUR_UTC = 15
+# 06:00 UTC, 08:00 in Germany: the morning read of the day's fixtures and
+# bet-at-home's full market book. Pinnacle is read only in each match's last
+# hour, so the morning snapshot carries no Pinnacle price.
+DAILY_REFRESH_HOUR_UTC = 6
 
 
 def stamp_event(event, fetched_at, stage):
