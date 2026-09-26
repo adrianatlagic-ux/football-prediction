@@ -1061,7 +1061,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
   // One list of every bet: the marked ones first (price tip, then the other
   // signals), then the rest by stake size and edge. Only the first
   // TABLE_ROWS are shown; the others sit behind "Show all markets".
-  const TABLE_ROWS = 10
+  const TABLE_ROWS = 6
   const allBets = (betInfo.bets && betInfo.bets.length) ? betInfo.bets : [...greens, ...reds]
   // Table order: the price tip, the market's likeliest bet, the model's
   // biggest gap to the market (★, explained in its box below), the AI's pick.
@@ -1081,9 +1081,10 @@ function SmartBetCard({ betStep, betInfo, data }) {
   const hiddenCount = ordered.length - TABLE_ROWS
   const hasUserBook = (betInfo.bets || []).some(b => b.bookmaker_key === USER_BOOK_KEY)
 
-  // Greyed out: no positive edge, or a stake under 1% - the sizing itself
-  // says the bet is barely worth making.
-  const dimmed = b => b.expected_value <= 0 || (b.kelly_stake_pct || 0) < 1
+  // Greyed out: no positive edge, a stake under 1% (the sizing itself says
+  // the bet is barely worth making), or a ⚠ - a model/market gap that is
+  // more likely a model error than a bargain.
+  const dimmed = b => b.expected_value <= 0 || (b.kelly_stake_pct || 0) < 1 || b.suspicious
 
   const renderRow = (b, i, kind) => {
     const isRec = best && sameBet(b, best)
