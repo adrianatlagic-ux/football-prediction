@@ -1841,8 +1841,9 @@ function AnalysisFlowPage({ onBack }) {
 function buildRealResultsMap(results) {
   const map = {}
   for (const r of results) {
-    const key = `${r.home_team}__${r.away_team}`
-    map[key] = r
+    // The date is part of the key: the same pairing can meet twice in a
+    // season, and each meeting must show its own result.
+    map[`${r.home_team}__${r.away_team}__${berlinDate(r.commence_time)}`] = r
   }
   return map
 }
@@ -2385,7 +2386,7 @@ export default function App() {
                     fixtures = currentFixtures.filter(f => f.group === activeGroup)
                   }
                   return fixtures.map(fixture => {
-                    const realKey = `${fixture.home_team}__${fixture.away_team}`
+                    const realKey = `${fixture.home_team}__${fixture.away_team}__${fixture.date}`
                     const realResult = realResultsMap[realKey]
                     // Too far ahead: an older cached forecast would not know
                     // the matches still to come, so none is shown yet.
