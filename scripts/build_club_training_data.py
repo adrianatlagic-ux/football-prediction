@@ -148,6 +148,12 @@ TEAM_ALIASES = {
     "Manchester City FC": "Manchester City",
     "Manchester United FC": "Manchester United",
     "Newcastle United FC": "Newcastle United",
+    # ESPN's spellings, since results and fixtures are appended from ESPN
+    # (src/results_update.py, src/fixtures.py). Without these the first new
+    # match of each club started a second, history-less identity.
+    "Lens": "RC Lens",
+    "Internazionale": "Inter Milan",
+    "Bodo/Glimt": "FK Bodø/Glimt",
 }
 
 

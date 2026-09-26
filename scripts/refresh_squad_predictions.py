@@ -59,12 +59,12 @@ def upcoming(window_minutes: int, now: datetime) -> list:
     """Fixtures kicking off within the window, with their competition."""
     from zoneinfo import ZoneInfo
     berlin = ZoneInfo("Europe/Berlin")
+    from src.fixtures import load_all
     due = []
-    for short, filename in FIXTURE_FILES.items():
-        path = ROOT / "frontend" / "src" / filename
-        if not path.exists():
-            continue
-        for fixture in json.loads(path.read_text(encoding="utf-8")):
+    # The served fixture lists (data/fixtures, rebuilt daily), falling back
+    # to the bundled frontend files.
+    for short, fixtures in load_all().items():
+        for fixture in fixtures:
             try:
                 local = datetime.fromisoformat(f"{fixture['date']}T{fixture.get('time', '00:00')}")
             except (KeyError, ValueError):

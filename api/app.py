@@ -299,6 +299,13 @@ def job_hourly(x_prediction_token: str = Header(default="")):
     return _start_job("hourly", lambda: jobs.run_hourly(_get_predictor, _get_national_predictor))
 
 
+@app.get("/fixtures")
+def fixtures():
+    """The season's fixture lists, rebuilt by the daily job (src/fixtures.py)."""
+    from src.fixtures import load_all
+    return load_all()
+
+
 @app.get("/jobs/status")
 def job_status():
     from src import jobs
@@ -339,7 +346,7 @@ _ESPN_NAME_MAP = {
 
 _espn_cache: dict[str, Any] = {}
 _espn_cache_ts: float = 0
-_ESPN_TTL = 180  # seconds
+_ESPN_TTL = 300  # seconds - each refresh reads ~130 ESPN day pages in parallel
 
 
 def _espn_team(name: str) -> str:
@@ -413,7 +420,9 @@ def _team_value(team: str, sport: str) -> float:
 # a few days ago silently disappears and its card loses the real result.
 # Date ranges are rejected (HTTP 400), single days are not, so the recent
 # days are requested individually and merged.
-ESPN_RESULT_DAYS = 12
+# The last matchday played must keep its results on the page, and in the
+# Champions League that can be four weeks back.
+ESPN_RESULT_DAYS = 32
 
 
 def _fetch_espn_league(league, sport) -> list[dict]:

@@ -1,0 +1,1154 @@
+[
+ {
+  "group": "Matchday 1",
+  "date": "2026-09-08",
+  "time": "18:45",
+  "home_team": "AEK Athens",
+  "away_team": "LASK Linz",
+  "match_id": "aek_athens_vs_lask_linz_cl"
+ },
+ {
+  "group": "Matchday 1",
+  "date": "2026-09-08",
+  "time": "18:45",
+  "home_team": "Club Brugge",
+  "away_team": "Aston Villa",
+  "match_id": "club_brugge_vs_aston_villa_cl"
+ },
+ {
+  "group": "Matchday 1",
+  "date": "2026-09-08",
+  "time": "21:00",
+  "home_team": "Borussia Dortmund",
+  "away_team": "Villarreal",
+  "match_id": "borussia_dortmund_vs_villarreal_cl"
+ },
+ {
+  "group": "Matchday 1",
+  "date": "2026-09-08",
+  "time": "21:00",
+  "home_team": "Lille",
+  "away_team": "Real Betis",
+  "match_id": "lille_vs_real_betis_cl"
+ },
+ {
+  "group": "Matchday 1",
+  "date": "2026-09-08",
+  "time": "21:00",
+  "home_team": "Porto",
+  "away_team": "Manchester City",
+  "match_id": "porto_vs_manchester_city_cl"
+ },
+ {
+  "group": "Matchday 1",
+  "date": "2026-09-08",
+  "time": "21:00",
+  "home_team": "Real Madrid",
+  "away_team": "Inter Milan",
+  "match_id": "real_madrid_vs_inter_milan_cl"
+ },
+ {
+  "group": "Matchday 1",
+  "date": "2026-09-09",
+  "time": "18:45",
+  "home_team": "Barcelona",
+  "away_team": "Feyenoord",
+  "match_id": "barcelona_vs_feyenoord_cl"
+ },
+ {
+  "group": "Matchday 1",
+  "date": "2026-09-09",
+  "time": "18:45",
+  "home_team": "VfB Stuttgart",
+  "away_team": "Viking FK",
+  "match_id": "vfb_stuttgart_vs_viking_fk_cl"
+ },
+ {
+  "group": "Matchday 1",
+  "date": "2026-09-09",
+  "time": "21:00",
+  "home_team": "Liverpool",
+  "away_team": "Atlético Madrid",
+  "match_id": "liverpool_vs_atletico_madrid_cl"
+ },
+ {
+  "group": "Matchday 1",
+  "date": "2026-09-09",
+  "time": "21:00",
+  "home_team": "Napoli",
+  "away_team": "Arsenal",
+  "match_id": "napoli_vs_arsenal_cl"
+ },
+ {
+  "group": "Matchday 1",
+  "date": "2026-09-09",
+  "time": "21:00",
+  "home_team": "Paris Saint Germain",
+  "away_team": "Slovan Bratislava",
+  "match_id": "paris_saint_germain_vs_slovan_bratislava_cl"
+ },
+ {
+  "group": "Matchday 1",
+  "date": "2026-09-09",
+  "time": "21:00",
+  "home_team": "Sporting Lisbon",
+  "away_team": "Galatasaray",
+  "match_id": "sporting_lisbon_vs_galatasaray_cl"
+ },
+ {
+  "group": "Matchday 1",
+  "date": "2026-09-10",
+  "time": "18:45",
+  "home_team": "Fenerbahce",
+  "away_team": "AS Roma",
+  "match_id": "fenerbahce_vs_as_roma_cl"
+ },
+ {
+  "group": "Matchday 1",
+  "date": "2026-09-10",
+  "time": "18:45",
+  "home_team": "PSV Eindhoven",
+  "away_team": "Shakhtar Donetsk",
+  "match_id": "psv_eindhoven_vs_shakhtar_donetsk_cl"
+ },
+ {
+  "group": "Matchday 1",
+  "date": "2026-09-10",
+  "time": "21:00",
+  "home_team": "Bayern Munich",
+  "away_team": "FK Bodø/Glimt",
+  "match_id": "bayern_munich_vs_fk_bod_glimt_cl"
+ },
+ {
+  "group": "Matchday 1",
+  "date": "2026-09-10",
+  "time": "21:00",
+  "home_team": "Como",
+  "away_team": "RB Leipzig",
+  "match_id": "como_vs_rb_leipzig_cl"
+ },
+ {
+  "group": "Matchday 1",
+  "date": "2026-09-10",
+  "time": "21:00",
+  "home_team": "Manchester United",
+  "away_team": "Sabah FK",
+  "match_id": "manchester_united_vs_sabah_fk_cl"
+ },
+ {
+  "group": "Matchday 1",
+  "date": "2026-09-10",
+  "time": "21:00",
+  "home_team": "Slavia Praha",
+  "away_team": "RC Lens",
+  "match_id": "slavia_praha_vs_rc_lens_cl"
+ },
+ {
+  "group": "Matchday 2",
+  "date": "2026-10-13",
+  "time": "18:45",
+  "home_team": "RC Lens",
+  "away_team": "Sporting Lisbon",
+  "match_id": "rc_lens_vs_sporting_lisbon_cl"
+ },
+ {
+  "group": "Matchday 2",
+  "date": "2026-10-13",
+  "time": "18:45",
+  "home_team": "Sabah FK",
+  "away_team": "Slavia Praha",
+  "match_id": "sabah_fk_vs_slavia_praha_cl"
+ },
+ {
+  "group": "Matchday 2",
+  "date": "2026-10-13",
+  "time": "21:00",
+  "home_team": "Arsenal",
+  "away_team": "Lille",
+  "match_id": "arsenal_vs_lille_cl"
+ },
+ {
+  "group": "Matchday 2",
+  "date": "2026-10-13",
+  "time": "21:00",
+  "home_team": "Atlético Madrid",
+  "away_team": "Manchester United",
+  "match_id": "atletico_madrid_vs_manchester_united_cl"
+ },
+ {
+  "group": "Matchday 2",
+  "date": "2026-10-13",
+  "time": "21:00",
+  "home_team": "Galatasaray",
+  "away_team": "Barcelona",
+  "match_id": "galatasaray_vs_barcelona_cl"
+ },
+ {
+  "group": "Matchday 2",
+  "date": "2026-10-13",
+  "time": "21:00",
+  "home_team": "Inter Milan",
+  "away_team": "Club Brugge",
+  "match_id": "inter_milan_vs_club_brugge_cl"
+ },
+ {
+  "group": "Matchday 2",
+  "date": "2026-10-13",
+  "time": "21:00",
+  "home_team": "RB Leipzig",
+  "away_team": "PSV Eindhoven",
+  "match_id": "rb_leipzig_vs_psv_eindhoven_cl"
+ },
+ {
+  "group": "Matchday 2",
+  "date": "2026-10-13",
+  "time": "21:00",
+  "home_team": "Viking FK",
+  "away_team": "Bayern Munich",
+  "match_id": "viking_fk_vs_bayern_munich_cl"
+ },
+ {
+  "group": "Matchday 2",
+  "date": "2026-10-13",
+  "time": "21:00",
+  "home_team": "Villarreal",
+  "away_team": "Napoli",
+  "match_id": "villarreal_vs_napoli_cl"
+ },
+ {
+  "group": "Matchday 2",
+  "date": "2026-10-14",
+  "time": "18:45",
+  "home_team": "Feyenoord",
+  "away_team": "Como",
+  "match_id": "feyenoord_vs_como_cl"
+ },
+ {
+  "group": "Matchday 2",
+  "date": "2026-10-14",
+  "time": "18:45",
+  "home_team": "LASK Linz",
+  "away_team": "Liverpool",
+  "match_id": "lask_linz_vs_liverpool_cl"
+ },
+ {
+  "group": "Matchday 2",
+  "date": "2026-10-14",
+  "time": "21:00",
+  "home_team": "AS Roma",
+  "away_team": "Real Madrid",
+  "match_id": "as_roma_vs_real_madrid_cl"
+ },
+ {
+  "group": "Matchday 2",
+  "date": "2026-10-14",
+  "time": "21:00",
+  "home_team": "Aston Villa",
+  "away_team": "Fenerbahce",
+  "match_id": "aston_villa_vs_fenerbahce_cl"
+ },
+ {
+  "group": "Matchday 2",
+  "date": "2026-10-14",
+  "time": "21:00",
+  "home_team": "FK Bodø/Glimt",
+  "away_team": "Borussia Dortmund",
+  "match_id": "fk_bod_glimt_vs_borussia_dortmund_cl"
+ },
+ {
+  "group": "Matchday 2",
+  "date": "2026-10-14",
+  "time": "21:00",
+  "home_team": "Manchester City",
+  "away_team": "Paris Saint Germain",
+  "match_id": "manchester_city_vs_paris_saint_germain_cl"
+ },
+ {
+  "group": "Matchday 2",
+  "date": "2026-10-14",
+  "time": "21:00",
+  "home_team": "Real Betis",
+  "away_team": "Porto",
+  "match_id": "real_betis_vs_porto_cl"
+ },
+ {
+  "group": "Matchday 2",
+  "date": "2026-10-14",
+  "time": "21:00",
+  "home_team": "Shakhtar Donetsk",
+  "away_team": "AEK Athens",
+  "match_id": "shakhtar_donetsk_vs_aek_athens_cl"
+ },
+ {
+  "group": "Matchday 2",
+  "date": "2026-10-14",
+  "time": "21:00",
+  "home_team": "Slovan Bratislava",
+  "away_team": "VfB Stuttgart",
+  "match_id": "slovan_bratislava_vs_vfb_stuttgart_cl"
+ },
+ {
+  "group": "Matchday 3",
+  "date": "2026-10-20",
+  "time": "18:45",
+  "home_team": "Fenerbahce",
+  "away_team": "Slavia Praha",
+  "match_id": "fenerbahce_vs_slavia_praha_cl"
+ },
+ {
+  "group": "Matchday 3",
+  "date": "2026-10-20",
+  "time": "18:45",
+  "home_team": "Sabah FK",
+  "away_team": "Borussia Dortmund",
+  "match_id": "sabah_fk_vs_borussia_dortmund_cl"
+ },
+ {
+  "group": "Matchday 3",
+  "date": "2026-10-20",
+  "time": "21:00",
+  "home_team": "AS Roma",
+  "away_team": "Slovan Bratislava",
+  "match_id": "as_roma_vs_slovan_bratislava_cl"
+ },
+ {
+  "group": "Matchday 3",
+  "date": "2026-10-20",
+  "time": "21:00",
+  "home_team": "Liverpool",
+  "away_team": "Villarreal",
+  "match_id": "liverpool_vs_villarreal_cl"
+ },
+ {
+  "group": "Matchday 3",
+  "date": "2026-10-20",
+  "time": "21:00",
+  "home_team": "Manchester City",
+  "away_team": "AEK Athens",
+  "match_id": "manchester_city_vs_aek_athens_cl"
+ },
+ {
+  "group": "Matchday 3",
+  "date": "2026-10-20",
+  "time": "21:00",
+  "home_team": "Napoli",
+  "away_team": "FK Bodø/Glimt",
+  "match_id": "napoli_vs_fk_bod_glimt_cl"
+ },
+ {
+  "group": "Matchday 3",
+  "date": "2026-10-20",
+  "time": "21:00",
+  "home_team": "Paris Saint Germain",
+  "away_team": "Barcelona",
+  "match_id": "paris_saint_germain_vs_barcelona_cl"
+ },
+ {
+  "group": "Matchday 3",
+  "date": "2026-10-20",
+  "time": "21:00",
+  "home_team": "Porto",
+  "away_team": "PSV Eindhoven",
+  "match_id": "porto_vs_psv_eindhoven_cl"
+ },
+ {
+  "group": "Matchday 3",
+  "date": "2026-10-20",
+  "time": "21:00",
+  "home_team": "VfB Stuttgart",
+  "away_team": "Atlético Madrid",
+  "match_id": "vfb_stuttgart_vs_atletico_madrid_cl"
+ },
+ {
+  "group": "Matchday 3",
+  "date": "2026-10-21",
+  "time": "18:45",
+  "home_team": "Como",
+  "away_team": "Manchester United",
+  "match_id": "como_vs_manchester_united_cl"
+ },
+ {
+  "group": "Matchday 3",
+  "date": "2026-10-21",
+  "time": "18:45",
+  "home_team": "Lille",
+  "away_team": "Galatasaray",
+  "match_id": "lille_vs_galatasaray_cl"
+ },
+ {
+  "group": "Matchday 3",
+  "date": "2026-10-21",
+  "time": "21:00",
+  "home_team": "Aston Villa",
+  "away_team": "Viking FK",
+  "match_id": "aston_villa_vs_viking_fk_cl"
+ },
+ {
+  "group": "Matchday 3",
+  "date": "2026-10-21",
+  "time": "21:00",
+  "home_team": "Bayern Munich",
+  "away_team": "Arsenal",
+  "match_id": "bayern_munich_vs_arsenal_cl"
+ },
+ {
+  "group": "Matchday 3",
+  "date": "2026-10-21",
+  "time": "21:00",
+  "home_team": "Club Brugge",
+  "away_team": "RC Lens",
+  "match_id": "club_brugge_vs_rc_lens_cl"
+ },
+ {
+  "group": "Matchday 3",
+  "date": "2026-10-21",
+  "time": "21:00",
+  "home_team": "Inter Milan",
+  "away_team": "Shakhtar Donetsk",
+  "match_id": "inter_milan_vs_shakhtar_donetsk_cl"
+ },
+ {
+  "group": "Matchday 3",
+  "date": "2026-10-21",
+  "time": "21:00",
+  "home_team": "Real Betis",
+  "away_team": "Feyenoord",
+  "match_id": "real_betis_vs_feyenoord_cl"
+ },
+ {
+  "group": "Matchday 3",
+  "date": "2026-10-21",
+  "time": "21:00",
+  "home_team": "Real Madrid",
+  "away_team": "RB Leipzig",
+  "match_id": "real_madrid_vs_rb_leipzig_cl"
+ },
+ {
+  "group": "Matchday 3",
+  "date": "2026-10-21",
+  "time": "21:00",
+  "home_team": "Sporting Lisbon",
+  "away_team": "LASK Linz",
+  "match_id": "sporting_lisbon_vs_lask_linz_cl"
+ },
+ {
+  "group": "Matchday 4",
+  "date": "2026-11-03",
+  "time": "18:45",
+  "home_team": "Galatasaray",
+  "away_team": "VfB Stuttgart",
+  "match_id": "galatasaray_vs_vfb_stuttgart_cl"
+ },
+ {
+  "group": "Matchday 4",
+  "date": "2026-11-03",
+  "time": "18:45",
+  "home_team": "Shakhtar Donetsk",
+  "away_team": "Sporting Lisbon",
+  "match_id": "shakhtar_donetsk_vs_sporting_lisbon_cl"
+ },
+ {
+  "group": "Matchday 4",
+  "date": "2026-11-03",
+  "time": "21:00",
+  "home_team": "Atlético Madrid",
+  "away_team": "Bayern Munich",
+  "match_id": "atletico_madrid_vs_bayern_munich_cl"
+ },
+ {
+  "group": "Matchday 4",
+  "date": "2026-11-03",
+  "time": "21:00",
+  "home_team": "Barcelona",
+  "away_team": "Aston Villa",
+  "match_id": "barcelona_vs_aston_villa_cl"
+ },
+ {
+  "group": "Matchday 4",
+  "date": "2026-11-03",
+  "time": "21:00",
+  "home_team": "FK Bodø/Glimt",
+  "away_team": "Lille",
+  "match_id": "fk_bod_glimt_vs_lille_cl"
+ },
+ {
+  "group": "Matchday 4",
+  "date": "2026-11-03",
+  "time": "21:00",
+  "home_team": "Feyenoord",
+  "away_team": "Inter Milan",
+  "match_id": "feyenoord_vs_inter_milan_cl"
+ },
+ {
+  "group": "Matchday 4",
+  "date": "2026-11-03",
+  "time": "21:00",
+  "home_team": "LASK Linz",
+  "away_team": "Slovan Bratislava",
+  "match_id": "lask_linz_vs_slovan_bratislava_cl"
+ },
+ {
+  "group": "Matchday 4",
+  "date": "2026-11-03",
+  "time": "21:00",
+  "home_team": "Manchester United",
+  "away_team": "AS Roma",
+  "match_id": "manchester_united_vs_as_roma_cl"
+ },
+ {
+  "group": "Matchday 4",
+  "date": "2026-11-03",
+  "time": "21:00",
+  "home_team": "Villarreal",
+  "away_team": "Paris Saint Germain",
+  "match_id": "villarreal_vs_paris_saint_germain_cl"
+ },
+ {
+  "group": "Matchday 4",
+  "date": "2026-11-04",
+  "time": "18:45",
+  "home_team": "AEK Athens",
+  "away_team": "Real Madrid",
+  "match_id": "aek_athens_vs_real_madrid_cl"
+ },
+ {
+  "group": "Matchday 4",
+  "date": "2026-11-04",
+  "time": "18:45",
+  "home_team": "Fenerbahce",
+  "away_team": "Liverpool",
+  "match_id": "fenerbahce_vs_liverpool_cl"
+ },
+ {
+  "group": "Matchday 4",
+  "date": "2026-11-04",
+  "time": "21:00",
+  "home_team": "Borussia Dortmund",
+  "away_team": "Real Betis",
+  "match_id": "borussia_dortmund_vs_real_betis_cl"
+ },
+ {
+  "group": "Matchday 4",
+  "date": "2026-11-04",
+  "time": "21:00",
+  "home_team": "PSV Eindhoven",
+  "away_team": "Club Brugge",
+  "match_id": "psv_eindhoven_vs_club_brugge_cl"
+ },
+ {
+  "group": "Matchday 4",
+  "date": "2026-11-04",
+  "time": "21:00",
+  "home_team": "Porto",
+  "away_team": "Napoli",
+  "match_id": "porto_vs_napoli_cl"
+ },
+ {
+  "group": "Matchday 4",
+  "date": "2026-11-04",
+  "time": "21:00",
+  "home_team": "RB Leipzig",
+  "away_team": "Manchester City",
+  "match_id": "rb_leipzig_vs_manchester_city_cl"
+ },
+ {
+  "group": "Matchday 4",
+  "date": "2026-11-04",
+  "time": "21:00",
+  "home_team": "RC Lens",
+  "away_team": "Como",
+  "match_id": "rc_lens_vs_como_cl"
+ },
+ {
+  "group": "Matchday 4",
+  "date": "2026-11-04",
+  "time": "21:00",
+  "home_team": "Slavia Praha",
+  "away_team": "Arsenal",
+  "match_id": "slavia_praha_vs_arsenal_cl"
+ },
+ {
+  "group": "Matchday 4",
+  "date": "2026-11-04",
+  "time": "21:00",
+  "home_team": "Viking FK",
+  "away_team": "Sabah FK",
+  "match_id": "viking_fk_vs_sabah_fk_cl"
+ },
+ {
+  "group": "Matchday 5",
+  "date": "2026-11-24",
+  "time": "18:45",
+  "home_team": "FK Bodø/Glimt",
+  "away_team": "LASK Linz",
+  "match_id": "fk_bod_glimt_vs_lask_linz_cl"
+ },
+ {
+  "group": "Matchday 5",
+  "date": "2026-11-24",
+  "time": "18:45",
+  "home_team": "Galatasaray",
+  "away_team": "Aston Villa",
+  "match_id": "galatasaray_vs_aston_villa_cl"
+ },
+ {
+  "group": "Matchday 5",
+  "date": "2026-11-24",
+  "time": "21:00",
+  "home_team": "Arsenal",
+  "away_team": "Borussia Dortmund",
+  "match_id": "arsenal_vs_borussia_dortmund_cl"
+ },
+ {
+  "group": "Matchday 5",
+  "date": "2026-11-24",
+  "time": "21:00",
+  "home_team": "Como",
+  "away_team": "AEK Athens",
+  "match_id": "como_vs_aek_athens_cl"
+ },
+ {
+  "group": "Matchday 5",
+  "date": "2026-11-24",
+  "time": "21:00",
+  "home_team": "Feyenoord",
+  "away_team": "Porto",
+  "match_id": "feyenoord_vs_porto_cl"
+ },
+ {
+  "group": "Matchday 5",
+  "date": "2026-11-24",
+  "time": "21:00",
+  "home_team": "Manchester City",
+  "away_team": "Napoli",
+  "match_id": "manchester_city_vs_napoli_cl"
+ },
+ {
+  "group": "Matchday 5",
+  "date": "2026-11-24",
+  "time": "21:00",
+  "home_team": "RB Leipzig",
+  "away_team": "RC Lens",
+  "match_id": "rb_leipzig_vs_rc_lens_cl"
+ },
+ {
+  "group": "Matchday 5",
+  "date": "2026-11-24",
+  "time": "21:00",
+  "home_team": "Real Madrid",
+  "away_team": "PSV Eindhoven",
+  "match_id": "real_madrid_vs_psv_eindhoven_cl"
+ },
+ {
+  "group": "Matchday 5",
+  "date": "2026-11-24",
+  "time": "21:00",
+  "home_team": "Slovan Bratislava",
+  "away_team": "Real Betis",
+  "match_id": "slovan_bratislava_vs_real_betis_cl"
+ },
+ {
+  "group": "Matchday 5",
+  "date": "2026-11-25",
+  "time": "18:45",
+  "home_team": "Sabah FK",
+  "away_team": "Barcelona",
+  "match_id": "sabah_fk_vs_barcelona_cl"
+ },
+ {
+  "group": "Matchday 5",
+  "date": "2026-11-25",
+  "time": "18:45",
+  "home_team": "Slavia Praha",
+  "away_team": "Villarreal",
+  "match_id": "slavia_praha_vs_villarreal_cl"
+ },
+ {
+  "group": "Matchday 5",
+  "date": "2026-11-25",
+  "time": "21:00",
+  "home_team": "Atlético Madrid",
+  "away_team": "Viking FK",
+  "match_id": "atletico_madrid_vs_viking_fk_cl"
+ },
+ {
+  "group": "Matchday 5",
+  "date": "2026-11-25",
+  "time": "21:00",
+  "home_team": "Club Brugge",
+  "away_team": "Liverpool",
+  "match_id": "club_brugge_vs_liverpool_cl"
+ },
+ {
+  "group": "Matchday 5",
+  "date": "2026-11-25",
+  "time": "21:00",
+  "home_team": "Inter Milan",
+  "away_team": "VfB Stuttgart",
+  "match_id": "inter_milan_vs_vfb_stuttgart_cl"
+ },
+ {
+  "group": "Matchday 5",
+  "date": "2026-11-25",
+  "time": "21:00",
+  "home_team": "Lille",
+  "away_team": "Bayern Munich",
+  "match_id": "lille_vs_bayern_munich_cl"
+ },
+ {
+  "group": "Matchday 5",
+  "date": "2026-11-25",
+  "time": "21:00",
+  "home_team": "Paris Saint Germain",
+  "away_team": "AS Roma",
+  "match_id": "paris_saint_germain_vs_as_roma_cl"
+ },
+ {
+  "group": "Matchday 5",
+  "date": "2026-11-25",
+  "time": "21:00",
+  "home_team": "Shakhtar Donetsk",
+  "away_team": "Fenerbahce",
+  "match_id": "shakhtar_donetsk_vs_fenerbahce_cl"
+ },
+ {
+  "group": "Matchday 5",
+  "date": "2026-11-25",
+  "time": "21:00",
+  "home_team": "Sporting Lisbon",
+  "away_team": "Manchester United",
+  "match_id": "sporting_lisbon_vs_manchester_united_cl"
+ },
+ {
+  "group": "Matchday 6",
+  "date": "2026-12-08",
+  "time": "18:45",
+  "home_team": "Viking FK",
+  "away_team": "Feyenoord",
+  "match_id": "viking_fk_vs_feyenoord_cl"
+ },
+ {
+  "group": "Matchday 6",
+  "date": "2026-12-08",
+  "time": "18:45",
+  "home_team": "Villarreal",
+  "away_team": "Sabah FK",
+  "match_id": "villarreal_vs_sabah_fk_cl"
+ },
+ {
+  "group": "Matchday 6",
+  "date": "2026-12-08",
+  "time": "21:00",
+  "home_team": "AEK Athens",
+  "away_team": "Galatasaray",
+  "match_id": "aek_athens_vs_galatasaray_cl"
+ },
+ {
+  "group": "Matchday 6",
+  "date": "2026-12-08",
+  "time": "21:00",
+  "home_team": "AS Roma",
+  "away_team": "Sporting Lisbon",
+  "match_id": "as_roma_vs_sporting_lisbon_cl"
+ },
+ {
+  "group": "Matchday 6",
+  "date": "2026-12-08",
+  "time": "21:00",
+  "home_team": "Aston Villa",
+  "away_team": "Paris Saint Germain",
+  "match_id": "aston_villa_vs_paris_saint_germain_cl"
+ },
+ {
+  "group": "Matchday 6",
+  "date": "2026-12-08",
+  "time": "21:00",
+  "home_team": "Barcelona",
+  "away_team": "Manchester City",
+  "match_id": "barcelona_vs_manchester_city_cl"
+ },
+ {
+  "group": "Matchday 6",
+  "date": "2026-12-08",
+  "time": "21:00",
+  "home_team": "Bayern Munich",
+  "away_team": "Slavia Praha",
+  "match_id": "bayern_munich_vs_slavia_praha_cl"
+ },
+ {
+  "group": "Matchday 6",
+  "date": "2026-12-08",
+  "time": "21:00",
+  "home_team": "Manchester United",
+  "away_team": "RB Leipzig",
+  "match_id": "manchester_united_vs_rb_leipzig_cl"
+ },
+ {
+  "group": "Matchday 6",
+  "date": "2026-12-08",
+  "time": "21:00",
+  "home_team": "Napoli",
+  "away_team": "Club Brugge",
+  "match_id": "napoli_vs_club_brugge_cl"
+ },
+ {
+  "group": "Matchday 6",
+  "date": "2026-12-09",
+  "time": "18:45",
+  "home_team": "Real Betis",
+  "away_team": "Como",
+  "match_id": "real_betis_vs_como_cl"
+ },
+ {
+  "group": "Matchday 6",
+  "date": "2026-12-09",
+  "time": "18:45",
+  "home_team": "Slovan Bratislava",
+  "away_team": "Shakhtar Donetsk",
+  "match_id": "slovan_bratislava_vs_shakhtar_donetsk_cl"
+ },
+ {
+  "group": "Matchday 6",
+  "date": "2026-12-09",
+  "time": "21:00",
+  "home_team": "Arsenal",
+  "away_team": "Real Madrid",
+  "match_id": "arsenal_vs_real_madrid_cl"
+ },
+ {
+  "group": "Matchday 6",
+  "date": "2026-12-09",
+  "time": "21:00",
+  "home_team": "Borussia Dortmund",
+  "away_team": "Inter Milan",
+  "match_id": "borussia_dortmund_vs_inter_milan_cl"
+ },
+ {
+  "group": "Matchday 6",
+  "date": "2026-12-09",
+  "time": "21:00",
+  "home_team": "LASK Linz",
+  "away_team": "Fenerbahce",
+  "match_id": "lask_linz_vs_fenerbahce_cl"
+ },
+ {
+  "group": "Matchday 6",
+  "date": "2026-12-09",
+  "time": "21:00",
+  "home_team": "Liverpool",
+  "away_team": "Porto",
+  "match_id": "liverpool_vs_porto_cl"
+ },
+ {
+  "group": "Matchday 6",
+  "date": "2026-12-09",
+  "time": "21:00",
+  "home_team": "PSV Eindhoven",
+  "away_team": "Atlético Madrid",
+  "match_id": "psv_eindhoven_vs_atletico_madrid_cl"
+ },
+ {
+  "group": "Matchday 6",
+  "date": "2026-12-09",
+  "time": "21:00",
+  "home_team": "RC Lens",
+  "away_team": "FK Bodø/Glimt",
+  "match_id": "rc_lens_vs_fk_bod_glimt_cl"
+ },
+ {
+  "group": "Matchday 6",
+  "date": "2026-12-09",
+  "time": "21:00",
+  "home_team": "VfB Stuttgart",
+  "away_team": "Lille",
+  "match_id": "vfb_stuttgart_vs_lille_cl"
+ },
+ {
+  "group": "Matchday 7",
+  "date": "2027-01-19",
+  "time": "18:45",
+  "home_team": "FK Bodø/Glimt",
+  "away_team": "Atlético Madrid",
+  "match_id": "fk_bod_glimt_vs_atletico_madrid_cl"
+ },
+ {
+  "group": "Matchday 7",
+  "date": "2027-01-19",
+  "time": "18:45",
+  "home_team": "Galatasaray",
+  "away_team": "Feyenoord",
+  "match_id": "galatasaray_vs_feyenoord_cl"
+ },
+ {
+  "group": "Matchday 7",
+  "date": "2027-01-19",
+  "time": "21:00",
+  "home_team": "AEK Athens",
+  "away_team": "AS Roma",
+  "match_id": "aek_athens_vs_as_roma_cl"
+ },
+ {
+  "group": "Matchday 7",
+  "date": "2027-01-19",
+  "time": "21:00",
+  "home_team": "Aston Villa",
+  "away_team": "Borussia Dortmund",
+  "match_id": "aston_villa_vs_borussia_dortmund_cl"
+ },
+ {
+  "group": "Matchday 7",
+  "date": "2027-01-19",
+  "time": "21:00",
+  "home_team": "Inter Milan",
+  "away_team": "Liverpool",
+  "match_id": "inter_milan_vs_liverpool_cl"
+ },
+ {
+  "group": "Matchday 7",
+  "date": "2027-01-19",
+  "time": "21:00",
+  "home_team": "Lille",
+  "away_team": "Slovan Bratislava",
+  "match_id": "lille_vs_slovan_bratislava_cl"
+ },
+ {
+  "group": "Matchday 7",
+  "date": "2027-01-19",
+  "time": "21:00",
+  "home_team": "Porto",
+  "away_team": "Slavia Praha",
+  "match_id": "porto_vs_slavia_praha_cl"
+ },
+ {
+  "group": "Matchday 7",
+  "date": "2027-01-19",
+  "time": "21:00",
+  "home_team": "Real Madrid",
+  "away_team": "LASK Linz",
+  "match_id": "real_madrid_vs_lask_linz_cl"
+ },
+ {
+  "group": "Matchday 7",
+  "date": "2027-01-19",
+  "time": "21:00",
+  "home_team": "VfB Stuttgart",
+  "away_team": "Club Brugge",
+  "match_id": "vfb_stuttgart_vs_club_brugge_cl"
+ },
+ {
+  "group": "Matchday 7",
+  "date": "2027-01-20",
+  "time": "18:45",
+  "home_team": "Fenerbahce",
+  "away_team": "Villarreal",
+  "match_id": "fenerbahce_vs_villarreal_cl"
+ },
+ {
+  "group": "Matchday 7",
+  "date": "2027-01-20",
+  "time": "18:45",
+  "home_team": "Sabah FK",
+  "away_team": "Napoli",
+  "match_id": "sabah_fk_vs_napoli_cl"
+ },
+ {
+  "group": "Matchday 7",
+  "date": "2027-01-20",
+  "time": "21:00",
+  "home_team": "Como",
+  "away_team": "Paris Saint Germain",
+  "match_id": "como_vs_paris_saint_germain_cl"
+ },
+ {
+  "group": "Matchday 7",
+  "date": "2027-01-20",
+  "time": "21:00",
+  "home_team": "Manchester United",
+  "away_team": "Bayern Munich",
+  "match_id": "manchester_united_vs_bayern_munich_cl"
+ },
+ {
+  "group": "Matchday 7",
+  "date": "2027-01-20",
+  "time": "21:00",
+  "home_team": "RB Leipzig",
+  "away_team": "Shakhtar Donetsk",
+  "match_id": "rb_leipzig_vs_shakhtar_donetsk_cl"
+ },
+ {
+  "group": "Matchday 7",
+  "date": "2027-01-20",
+  "time": "21:00",
+  "home_team": "RC Lens",
+  "away_team": "Manchester City",
+  "match_id": "rc_lens_vs_manchester_city_cl"
+ },
+ {
+  "group": "Matchday 7",
+  "date": "2027-01-20",
+  "time": "21:00",
+  "home_team": "Real Betis",
+  "away_team": "Arsenal",
+  "match_id": "real_betis_vs_arsenal_cl"
+ },
+ {
+  "group": "Matchday 7",
+  "date": "2027-01-20",
+  "time": "21:00",
+  "home_team": "Sporting Lisbon",
+  "away_team": "Barcelona",
+  "match_id": "sporting_lisbon_vs_barcelona_cl"
+ },
+ {
+  "group": "Matchday 7",
+  "date": "2027-01-20",
+  "time": "21:00",
+  "home_team": "Viking FK",
+  "away_team": "PSV Eindhoven",
+  "match_id": "viking_fk_vs_psv_eindhoven_cl"
+ },
+ {
+  "group": "Matchday 8",
+  "date": "2027-01-27",
+  "time": "21:00",
+  "home_team": "AS Roma",
+  "away_team": "Lille",
+  "match_id": "as_roma_vs_lille_cl"
+ },
+ {
+  "group": "Matchday 8",
+  "date": "2027-01-27",
+  "time": "21:00",
+  "home_team": "Arsenal",
+  "away_team": "Sabah FK",
+  "match_id": "arsenal_vs_sabah_fk_cl"
+ },
+ {
+  "group": "Matchday 8",
+  "date": "2027-01-27",
+  "time": "21:00",
+  "home_team": "Atlético Madrid",
+  "away_team": "Fenerbahce",
+  "match_id": "atletico_madrid_vs_fenerbahce_cl"
+ },
+ {
+  "group": "Matchday 8",
+  "date": "2027-01-27",
+  "time": "21:00",
+  "home_team": "Barcelona",
+  "away_team": "Como",
+  "match_id": "barcelona_vs_como_cl"
+ },
+ {
+  "group": "Matchday 8",
+  "date": "2027-01-27",
+  "time": "21:00",
+  "home_team": "Bayern Munich",
+  "away_team": "Real Betis",
+  "match_id": "bayern_munich_vs_real_betis_cl"
+ },
+ {
+  "group": "Matchday 8",
+  "date": "2027-01-27",
+  "time": "21:00",
+  "home_team": "Borussia Dortmund",
+  "away_team": "AEK Athens",
+  "match_id": "borussia_dortmund_vs_aek_athens_cl"
+ },
+ {
+  "group": "Matchday 8",
+  "date": "2027-01-27",
+  "time": "21:00",
+  "home_team": "Club Brugge",
+  "away_team": "FK Bodø/Glimt",
+  "match_id": "club_brugge_vs_fk_bod_glimt_cl"
+ },
+ {
+  "group": "Matchday 8",
+  "date": "2027-01-27",
+  "time": "21:00",
+  "home_team": "Feyenoord",
+  "away_team": "RB Leipzig",
+  "match_id": "feyenoord_vs_rb_leipzig_cl"
+ },
+ {
+  "group": "Matchday 8",
+  "date": "2027-01-27",
+  "time": "21:00",
+  "home_team": "LASK Linz",
+  "away_team": "Porto",
+  "match_id": "lask_linz_vs_porto_cl"
+ },
+ {
+  "group": "Matchday 8",
+  "date": "2027-01-27",
+  "time": "21:00",
+  "home_team": "Liverpool",
+  "away_team": "RC Lens",
+  "match_id": "liverpool_vs_rc_lens_cl"
+ },
+ {
+  "group": "Matchday 8",
+  "date": "2027-01-27",
+  "time": "21:00",
+  "home_team": "Manchester City",
+  "away_team": "Sporting Lisbon",
+  "match_id": "manchester_city_vs_sporting_lisbon_cl"
+ },
+ {
+  "group": "Matchday 8",
+  "date": "2027-01-27",
+  "time": "21:00",
+  "home_team": "Napoli",
+  "away_team": "Viking FK",
+  "match_id": "napoli_vs_viking_fk_cl"
+ },
+ {
+  "group": "Matchday 8",
+  "date": "2027-01-27",
+  "time": "21:00",
+  "home_team": "PSV Eindhoven",
+  "away_team": "VfB Stuttgart",
+  "match_id": "psv_eindhoven_vs_vfb_stuttgart_cl"
+ },
+ {
+  "group": "Matchday 8",
+  "date": "2027-01-27",
+  "time": "21:00",
+  "home_team": "Paris Saint Germain",
+  "away_team": "Galatasaray",
+  "match_id": "paris_saint_germain_vs_galatasaray_cl"
+ },
+ {
+  "group": "Matchday 8",
+  "date": "2027-01-27",
+  "time": "21:00",
+  "home_team": "Shakhtar Donetsk",
+  "away_team": "Real Madrid",
+  "match_id": "shakhtar_donetsk_vs_real_madrid_cl"
+ },
+ {
+  "group": "Matchday 8",
+  "date": "2027-01-27",
+  "time": "21:00",
+  "home_team": "Slavia Praha",
+  "away_team": "Aston Villa",
+  "match_id": "slavia_praha_vs_aston_villa_cl"
+ },
+ {
+  "group": "Matchday 8",
+  "date": "2027-01-27",
+  "time": "21:00",
+  "home_team": "Slovan Bratislava",
+  "away_team": "Inter Milan",
+  "match_id": "slovan_bratislava_vs_inter_milan_cl"
+ },
+ {
+  "group": "Matchday 8",
+  "date": "2027-01-27",
+  "time": "21:00",
+  "home_team": "Villarreal",
+  "away_team": "Manchester United",
+  "match_id": "villarreal_vs_manchester_united_cl"
+ }
+]

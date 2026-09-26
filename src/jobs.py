@@ -88,6 +88,11 @@ def run_daily(club: Callable, national: Callable, morning_odds: Callable) -> dic
                 report[label] = len(step())
             except Exception as exc:
                 report["errors"].append(f"{label}: {type(exc).__name__}: {exc}")
+        try:
+            from src.fixtures import write_all
+            report["fixtures"] = write_all()
+        except Exception as exc:
+            report["errors"].append(f"fixtures: {type(exc).__name__}: {exc}")
         for label, getter in (("club_history_added", club), ("national_history_added", national)):
             try:
                 report[label] = getter().refresh_history()

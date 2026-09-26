@@ -1,0 +1,2450 @@
+[
+ {
+  "group": "Spieltag 1",
+  "date": "2026-08-28",
+  "time": "20:30",
+  "home_team": "Bayern Munich",
+  "away_team": "VfB Stuttgart",
+  "match_id": "bayern_munich_vs_vfb_stuttgart_bl"
+ },
+ {
+  "group": "Spieltag 1",
+  "date": "2026-08-29",
+  "time": "15:30",
+  "home_team": "1. FC Köln",
+  "away_team": "TSG Hoffenheim",
+  "match_id": "1_fc_koln_vs_tsg_hoffenheim_bl"
+ },
+ {
+  "group": "Spieltag 1",
+  "date": "2026-08-29",
+  "time": "15:30",
+  "home_team": "1. FSV Mainz 05",
+  "away_team": "SC Paderborn",
+  "match_id": "1_fsv_mainz_05_vs_sc_paderborn_bl"
+ },
+ {
+  "group": "Spieltag 1",
+  "date": "2026-08-29",
+  "time": "15:30",
+  "home_team": "Elversberg",
+  "away_team": "Bayer Leverkusen",
+  "match_id": "elversberg_vs_bayer_leverkusen_bl"
+ },
+ {
+  "group": "Spieltag 1",
+  "date": "2026-08-29",
+  "time": "15:30",
+  "home_team": "RB Leipzig",
+  "away_team": "Borussia Mönchengladbach",
+  "match_id": "rb_leipzig_vs_borussia_monchengladbach_bl"
+ },
+ {
+  "group": "Spieltag 1",
+  "date": "2026-08-29",
+  "time": "15:30",
+  "home_team": "Union Berlin",
+  "away_team": "Eintracht Frankfurt",
+  "match_id": "union_berlin_vs_eintracht_frankfurt_bl"
+ },
+ {
+  "group": "Spieltag 1",
+  "date": "2026-08-29",
+  "time": "18:30",
+  "home_team": "Borussia Dortmund",
+  "away_team": "Hamburger SV",
+  "match_id": "borussia_dortmund_vs_hamburger_sv_bl"
+ },
+ {
+  "group": "Spieltag 1",
+  "date": "2026-08-30",
+  "time": "15:30",
+  "home_team": "SC Freiburg",
+  "away_team": "Werder Bremen",
+  "match_id": "sc_freiburg_vs_werder_bremen_bl"
+ },
+ {
+  "group": "Spieltag 1",
+  "date": "2026-08-30",
+  "time": "17:30",
+  "home_team": "Augsburg",
+  "away_team": "Schalke 04",
+  "match_id": "augsburg_vs_schalke_04_bl"
+ },
+ {
+  "group": "Spieltag 2",
+  "date": "2026-09-04",
+  "time": "20:30",
+  "home_team": "VfB Stuttgart",
+  "away_team": "1. FC Köln",
+  "match_id": "vfb_stuttgart_vs_1_fc_koln_bl"
+ },
+ {
+  "group": "Spieltag 2",
+  "date": "2026-09-05",
+  "time": "15:30",
+  "home_team": "Bayer Leverkusen",
+  "away_team": "Union Berlin",
+  "match_id": "bayer_leverkusen_vs_union_berlin_bl"
+ },
+ {
+  "group": "Spieltag 2",
+  "date": "2026-09-05",
+  "time": "15:30",
+  "home_team": "Borussia Mönchengladbach",
+  "away_team": "Elversberg",
+  "match_id": "borussia_monchengladbach_vs_elversberg_bl"
+ },
+ {
+  "group": "Spieltag 2",
+  "date": "2026-09-05",
+  "time": "15:30",
+  "home_team": "SC Paderborn",
+  "away_team": "SC Freiburg",
+  "match_id": "sc_paderborn_vs_sc_freiburg_bl"
+ },
+ {
+  "group": "Spieltag 2",
+  "date": "2026-09-05",
+  "time": "15:30",
+  "home_team": "TSG Hoffenheim",
+  "away_team": "Borussia Dortmund",
+  "match_id": "tsg_hoffenheim_vs_borussia_dortmund_bl"
+ },
+ {
+  "group": "Spieltag 2",
+  "date": "2026-09-05",
+  "time": "15:30",
+  "home_team": "Werder Bremen",
+  "away_team": "RB Leipzig",
+  "match_id": "werder_bremen_vs_rb_leipzig_bl"
+ },
+ {
+  "group": "Spieltag 2",
+  "date": "2026-09-05",
+  "time": "18:30",
+  "home_team": "Schalke 04",
+  "away_team": "Bayern Munich",
+  "match_id": "schalke_04_vs_bayern_munich_bl"
+ },
+ {
+  "group": "Spieltag 2",
+  "date": "2026-09-06",
+  "time": "15:30",
+  "home_team": "Hamburger SV",
+  "away_team": "1. FSV Mainz 05",
+  "match_id": "hamburger_sv_vs_1_fsv_mainz_05_bl"
+ },
+ {
+  "group": "Spieltag 2",
+  "date": "2026-09-06",
+  "time": "17:30",
+  "home_team": "Eintracht Frankfurt",
+  "away_team": "Augsburg",
+  "match_id": "eintracht_frankfurt_vs_augsburg_bl"
+ },
+ {
+  "group": "Spieltag 3",
+  "date": "2026-09-11",
+  "time": "20:30",
+  "home_team": "Union Berlin",
+  "away_team": "Schalke 04",
+  "match_id": "union_berlin_vs_schalke_04_bl"
+ },
+ {
+  "group": "Spieltag 3",
+  "date": "2026-09-12",
+  "time": "15:30",
+  "home_team": "1. FSV Mainz 05",
+  "away_team": "Eintracht Frankfurt",
+  "match_id": "1_fsv_mainz_05_vs_eintracht_frankfurt_bl"
+ },
+ {
+  "group": "Spieltag 3",
+  "date": "2026-09-12",
+  "time": "15:30",
+  "home_team": "Augsburg",
+  "away_team": "Bayer Leverkusen",
+  "match_id": "augsburg_vs_bayer_leverkusen_bl"
+ },
+ {
+  "group": "Spieltag 3",
+  "date": "2026-09-12",
+  "time": "15:30",
+  "home_team": "Borussia Dortmund",
+  "away_team": "SC Paderborn",
+  "match_id": "borussia_dortmund_vs_sc_paderborn_bl"
+ },
+ {
+  "group": "Spieltag 3",
+  "date": "2026-09-12",
+  "time": "15:30",
+  "home_team": "SC Freiburg",
+  "away_team": "Borussia Mönchengladbach",
+  "match_id": "sc_freiburg_vs_borussia_monchengladbach_bl"
+ },
+ {
+  "group": "Spieltag 3",
+  "date": "2026-09-12",
+  "time": "15:30",
+  "home_team": "TSG Hoffenheim",
+  "away_team": "VfB Stuttgart",
+  "match_id": "tsg_hoffenheim_vs_vfb_stuttgart_bl"
+ },
+ {
+  "group": "Spieltag 3",
+  "date": "2026-09-12",
+  "time": "18:30",
+  "home_team": "1. FC Köln",
+  "away_team": "Werder Bremen",
+  "match_id": "1_fc_koln_vs_werder_bremen_bl"
+ },
+ {
+  "group": "Spieltag 3",
+  "date": "2026-09-13",
+  "time": "15:30",
+  "home_team": "RB Leipzig",
+  "away_team": "Hamburger SV",
+  "match_id": "rb_leipzig_vs_hamburger_sv_bl"
+ },
+ {
+  "group": "Spieltag 3",
+  "date": "2026-09-13",
+  "time": "17:30",
+  "home_team": "Elversberg",
+  "away_team": "Bayern Munich",
+  "match_id": "elversberg_vs_bayern_munich_bl"
+ },
+ {
+  "group": "Spieltag 4",
+  "date": "2026-09-18",
+  "time": "20:30",
+  "home_team": "Bayern Munich",
+  "away_team": "Union Berlin",
+  "match_id": "bayern_munich_vs_union_berlin_bl"
+ },
+ {
+  "group": "Spieltag 4",
+  "date": "2026-09-19",
+  "time": "15:30",
+  "home_team": "Borussia Mönchengladbach",
+  "away_team": "1. FSV Mainz 05",
+  "match_id": "borussia_monchengladbach_vs_1_fsv_mainz_05_bl"
+ },
+ {
+  "group": "Spieltag 4",
+  "date": "2026-09-19",
+  "time": "15:30",
+  "home_team": "Eintracht Frankfurt",
+  "away_team": "SC Freiburg",
+  "match_id": "eintracht_frankfurt_vs_sc_freiburg_bl"
+ },
+ {
+  "group": "Spieltag 4",
+  "date": "2026-09-19",
+  "time": "15:30",
+  "home_team": "Hamburger SV",
+  "away_team": "1. FC Köln",
+  "match_id": "hamburger_sv_vs_1_fc_koln_bl"
+ },
+ {
+  "group": "Spieltag 4",
+  "date": "2026-09-19",
+  "time": "15:30",
+  "home_team": "Werder Bremen",
+  "away_team": "Augsburg",
+  "match_id": "werder_bremen_vs_augsburg_bl"
+ },
+ {
+  "group": "Spieltag 4",
+  "date": "2026-09-19",
+  "time": "18:30",
+  "home_team": "VfB Stuttgart",
+  "away_team": "Borussia Dortmund",
+  "match_id": "vfb_stuttgart_vs_borussia_dortmund_bl"
+ },
+ {
+  "group": "Spieltag 4",
+  "date": "2026-09-20",
+  "time": "15:30",
+  "home_team": "Bayer Leverkusen",
+  "away_team": "RB Leipzig",
+  "match_id": "bayer_leverkusen_vs_rb_leipzig_bl"
+ },
+ {
+  "group": "Spieltag 4",
+  "date": "2026-09-20",
+  "time": "17:30",
+  "home_team": "Schalke 04",
+  "away_team": "Elversberg",
+  "match_id": "schalke_04_vs_elversberg_bl"
+ },
+ {
+  "group": "Spieltag 4",
+  "date": "2026-09-20",
+  "time": "19:30",
+  "home_team": "SC Paderborn",
+  "away_team": "TSG Hoffenheim",
+  "match_id": "sc_paderborn_vs_tsg_hoffenheim_bl"
+ },
+ {
+  "group": "Spieltag 5",
+  "date": "2026-10-09",
+  "time": "20:30",
+  "home_team": "Borussia Dortmund",
+  "away_team": "Werder Bremen",
+  "match_id": "borussia_dortmund_vs_werder_bremen_bl"
+ },
+ {
+  "group": "Spieltag 5",
+  "date": "2026-10-10",
+  "time": "15:30",
+  "home_team": "1. FSV Mainz 05",
+  "away_team": "Bayer Leverkusen",
+  "match_id": "1_fsv_mainz_05_vs_bayer_leverkusen_bl"
+ },
+ {
+  "group": "Spieltag 5",
+  "date": "2026-10-10",
+  "time": "15:30",
+  "home_team": "Augsburg",
+  "away_team": "Bayern Munich",
+  "match_id": "augsburg_vs_bayern_munich_bl"
+ },
+ {
+  "group": "Spieltag 5",
+  "date": "2026-10-10",
+  "time": "15:30",
+  "home_team": "SC Paderborn",
+  "away_team": "VfB Stuttgart",
+  "match_id": "sc_paderborn_vs_vfb_stuttgart_bl"
+ },
+ {
+  "group": "Spieltag 5",
+  "date": "2026-10-10",
+  "time": "15:30",
+  "home_team": "TSG Hoffenheim",
+  "away_team": "Hamburger SV",
+  "match_id": "tsg_hoffenheim_vs_hamburger_sv_bl"
+ },
+ {
+  "group": "Spieltag 5",
+  "date": "2026-10-10",
+  "time": "15:30",
+  "home_team": "Union Berlin",
+  "away_team": "Elversberg",
+  "match_id": "union_berlin_vs_elversberg_bl"
+ },
+ {
+  "group": "Spieltag 5",
+  "date": "2026-10-10",
+  "time": "18:30",
+  "home_team": "RB Leipzig",
+  "away_team": "Eintracht Frankfurt",
+  "match_id": "rb_leipzig_vs_eintracht_frankfurt_bl"
+ },
+ {
+  "group": "Spieltag 5",
+  "date": "2026-10-11",
+  "time": "15:30",
+  "home_team": "1. FC Köln",
+  "away_team": "Borussia Mönchengladbach",
+  "match_id": "1_fc_koln_vs_borussia_monchengladbach_bl"
+ },
+ {
+  "group": "Spieltag 5",
+  "date": "2026-10-11",
+  "time": "17:30",
+  "home_team": "SC Freiburg",
+  "away_team": "Schalke 04",
+  "match_id": "sc_freiburg_vs_schalke_04_bl"
+ },
+ {
+  "group": "Spieltag 6",
+  "date": "2026-10-16",
+  "time": "20:30",
+  "home_team": "Eintracht Frankfurt",
+  "away_team": "1. FC Köln",
+  "match_id": "eintracht_frankfurt_vs_1_fc_koln_bl"
+ },
+ {
+  "group": "Spieltag 6",
+  "date": "2026-10-17",
+  "time": "15:30",
+  "home_team": "Elversberg",
+  "away_team": "Augsburg",
+  "match_id": "elversberg_vs_augsburg_bl"
+ },
+ {
+  "group": "Spieltag 6",
+  "date": "2026-10-17",
+  "time": "15:30",
+  "home_team": "Hamburger SV",
+  "away_team": "VfB Stuttgart",
+  "match_id": "hamburger_sv_vs_vfb_stuttgart_bl"
+ },
+ {
+  "group": "Spieltag 6",
+  "date": "2026-10-17",
+  "time": "15:30",
+  "home_team": "Schalke 04",
+  "away_team": "1. FSV Mainz 05",
+  "match_id": "schalke_04_vs_1_fsv_mainz_05_bl"
+ },
+ {
+  "group": "Spieltag 6",
+  "date": "2026-10-17",
+  "time": "15:30",
+  "home_team": "Union Berlin",
+  "away_team": "Borussia Dortmund",
+  "match_id": "union_berlin_vs_borussia_dortmund_bl"
+ },
+ {
+  "group": "Spieltag 6",
+  "date": "2026-10-17",
+  "time": "15:30",
+  "home_team": "Werder Bremen",
+  "away_team": "SC Paderborn",
+  "match_id": "werder_bremen_vs_sc_paderborn_bl"
+ },
+ {
+  "group": "Spieltag 6",
+  "date": "2026-10-17",
+  "time": "18:30",
+  "home_team": "Bayern Munich",
+  "away_team": "RB Leipzig",
+  "match_id": "bayern_munich_vs_rb_leipzig_bl"
+ },
+ {
+  "group": "Spieltag 6",
+  "date": "2026-10-18",
+  "time": "15:30",
+  "home_team": "Bayer Leverkusen",
+  "away_team": "SC Freiburg",
+  "match_id": "bayer_leverkusen_vs_sc_freiburg_bl"
+ },
+ {
+  "group": "Spieltag 6",
+  "date": "2026-10-18",
+  "time": "17:30",
+  "home_team": "Borussia Mönchengladbach",
+  "away_team": "TSG Hoffenheim",
+  "match_id": "borussia_monchengladbach_vs_tsg_hoffenheim_bl"
+ },
+ {
+  "group": "Spieltag 7",
+  "date": "2026-10-23",
+  "time": "20:30",
+  "home_team": "VfB Stuttgart",
+  "away_team": "Borussia Mönchengladbach",
+  "match_id": "vfb_stuttgart_vs_borussia_monchengladbach_bl"
+ },
+ {
+  "group": "Spieltag 7",
+  "date": "2026-10-24",
+  "time": "15:30",
+  "home_team": "1. FC Köln",
+  "away_team": "Schalke 04",
+  "match_id": "1_fc_koln_vs_schalke_04_bl"
+ },
+ {
+  "group": "Spieltag 7",
+  "date": "2026-10-24",
+  "time": "15:30",
+  "home_team": "1. FSV Mainz 05",
+  "away_team": "Werder Bremen",
+  "match_id": "1_fsv_mainz_05_vs_werder_bremen_bl"
+ },
+ {
+  "group": "Spieltag 7",
+  "date": "2026-10-24",
+  "time": "15:30",
+  "home_team": "Augsburg",
+  "away_team": "Union Berlin",
+  "match_id": "augsburg_vs_union_berlin_bl"
+ },
+ {
+  "group": "Spieltag 7",
+  "date": "2026-10-24",
+  "time": "15:30",
+  "home_team": "RB Leipzig",
+  "away_team": "Elversberg",
+  "match_id": "rb_leipzig_vs_elversberg_bl"
+ },
+ {
+  "group": "Spieltag 7",
+  "date": "2026-10-24",
+  "time": "15:30",
+  "home_team": "SC Paderborn",
+  "away_team": "Hamburger SV",
+  "match_id": "sc_paderborn_vs_hamburger_sv_bl"
+ },
+ {
+  "group": "Spieltag 7",
+  "date": "2026-10-24",
+  "time": "18:30",
+  "home_team": "Borussia Dortmund",
+  "away_team": "Eintracht Frankfurt",
+  "match_id": "borussia_dortmund_vs_eintracht_frankfurt_bl"
+ },
+ {
+  "group": "Spieltag 7",
+  "date": "2026-10-25",
+  "time": "15:30",
+  "home_team": "TSG Hoffenheim",
+  "away_team": "Bayer Leverkusen",
+  "match_id": "tsg_hoffenheim_vs_bayer_leverkusen_bl"
+ },
+ {
+  "group": "Spieltag 7",
+  "date": "2026-10-25",
+  "time": "17:30",
+  "home_team": "SC Freiburg",
+  "away_team": "Bayern Munich",
+  "match_id": "sc_freiburg_vs_bayern_munich_bl"
+ },
+ {
+  "group": "Spieltag 8",
+  "date": "2026-10-30",
+  "time": "20:30",
+  "home_team": "Elversberg",
+  "away_team": "1. FSV Mainz 05",
+  "match_id": "elversberg_vs_1_fsv_mainz_05_bl"
+ },
+ {
+  "group": "Spieltag 8",
+  "date": "2026-10-31",
+  "time": "15:30",
+  "home_team": "Augsburg",
+  "away_team": "SC Freiburg",
+  "match_id": "augsburg_vs_sc_freiburg_bl"
+ },
+ {
+  "group": "Spieltag 8",
+  "date": "2026-10-31",
+  "time": "15:30",
+  "home_team": "Bayer Leverkusen",
+  "away_team": "VfB Stuttgart",
+  "match_id": "bayer_leverkusen_vs_vfb_stuttgart_bl"
+ },
+ {
+  "group": "Spieltag 8",
+  "date": "2026-10-31",
+  "time": "15:30",
+  "home_team": "Borussia Mönchengladbach",
+  "away_team": "SC Paderborn",
+  "match_id": "borussia_monchengladbach_vs_sc_paderborn_bl"
+ },
+ {
+  "group": "Spieltag 8",
+  "date": "2026-10-31",
+  "time": "15:30",
+  "home_team": "Schalke 04",
+  "away_team": "RB Leipzig",
+  "match_id": "schalke_04_vs_rb_leipzig_bl"
+ },
+ {
+  "group": "Spieltag 8",
+  "date": "2026-10-31",
+  "time": "15:30",
+  "home_team": "Werder Bremen",
+  "away_team": "TSG Hoffenheim",
+  "match_id": "werder_bremen_vs_tsg_hoffenheim_bl"
+ },
+ {
+  "group": "Spieltag 8",
+  "date": "2026-10-31",
+  "time": "18:30",
+  "home_team": "Bayern Munich",
+  "away_team": "Borussia Dortmund",
+  "match_id": "bayern_munich_vs_borussia_dortmund_bl"
+ },
+ {
+  "group": "Spieltag 8",
+  "date": "2026-11-01",
+  "time": "15:30",
+  "home_team": "Union Berlin",
+  "away_team": "1. FC Köln",
+  "match_id": "union_berlin_vs_1_fc_koln_bl"
+ },
+ {
+  "group": "Spieltag 8",
+  "date": "2026-11-01",
+  "time": "17:30",
+  "home_team": "Eintracht Frankfurt",
+  "away_team": "Hamburger SV",
+  "match_id": "eintracht_frankfurt_vs_hamburger_sv_bl"
+ },
+ {
+  "group": "Spieltag 9",
+  "date": "2026-11-06",
+  "time": "20:30",
+  "home_team": "Hamburger SV",
+  "away_team": "Borussia Mönchengladbach",
+  "match_id": "hamburger_sv_vs_borussia_monchengladbach_bl"
+ },
+ {
+  "group": "Spieltag 9",
+  "date": "2026-11-07",
+  "time": "15:30",
+  "home_team": "1. FSV Mainz 05",
+  "away_team": "Bayern Munich",
+  "match_id": "1_fsv_mainz_05_vs_bayern_munich_bl"
+ },
+ {
+  "group": "Spieltag 9",
+  "date": "2026-11-07",
+  "time": "15:30",
+  "home_team": "Borussia Dortmund",
+  "away_team": "Elversberg",
+  "match_id": "borussia_dortmund_vs_elversberg_bl"
+ },
+ {
+  "group": "Spieltag 9",
+  "date": "2026-11-07",
+  "time": "15:30",
+  "home_team": "RB Leipzig",
+  "away_team": "Augsburg",
+  "match_id": "rb_leipzig_vs_augsburg_bl"
+ },
+ {
+  "group": "Spieltag 9",
+  "date": "2026-11-07",
+  "time": "15:30",
+  "home_team": "SC Paderborn",
+  "away_team": "Eintracht Frankfurt",
+  "match_id": "sc_paderborn_vs_eintracht_frankfurt_bl"
+ },
+ {
+  "group": "Spieltag 9",
+  "date": "2026-11-07",
+  "time": "18:30",
+  "home_team": "VfB Stuttgart",
+  "away_team": "Werder Bremen",
+  "match_id": "vfb_stuttgart_vs_werder_bremen_bl"
+ },
+ {
+  "group": "Spieltag 9",
+  "date": "2026-11-08",
+  "time": "15:30",
+  "home_team": "1. FC Köln",
+  "away_team": "Bayer Leverkusen",
+  "match_id": "1_fc_koln_vs_bayer_leverkusen_bl"
+ },
+ {
+  "group": "Spieltag 9",
+  "date": "2026-11-08",
+  "time": "17:30",
+  "home_team": "SC Freiburg",
+  "away_team": "Union Berlin",
+  "match_id": "sc_freiburg_vs_union_berlin_bl"
+ },
+ {
+  "group": "Spieltag 9",
+  "date": "2026-11-08",
+  "time": "19:30",
+  "home_team": "TSG Hoffenheim",
+  "away_team": "Schalke 04",
+  "match_id": "tsg_hoffenheim_vs_schalke_04_bl"
+ },
+ {
+  "group": "Spieltag 10",
+  "date": "2026-11-20",
+  "time": "20:30",
+  "home_team": "Bayern Munich",
+  "away_team": "1. FC Köln",
+  "match_id": "bayern_munich_vs_1_fc_koln_bl"
+ },
+ {
+  "group": "Spieltag 10",
+  "date": "2026-11-21",
+  "time": "15:30",
+  "home_team": "Bayer Leverkusen",
+  "away_team": "SC Paderborn",
+  "match_id": "bayer_leverkusen_vs_sc_paderborn_bl"
+ },
+ {
+  "group": "Spieltag 10",
+  "date": "2026-11-21",
+  "time": "15:30",
+  "home_team": "Borussia Mönchengladbach",
+  "away_team": "Borussia Dortmund",
+  "match_id": "borussia_monchengladbach_vs_borussia_dortmund_bl"
+ },
+ {
+  "group": "Spieltag 10",
+  "date": "2026-11-21",
+  "time": "15:30",
+  "home_team": "Eintracht Frankfurt",
+  "away_team": "TSG Hoffenheim",
+  "match_id": "eintracht_frankfurt_vs_tsg_hoffenheim_bl"
+ },
+ {
+  "group": "Spieltag 10",
+  "date": "2026-11-21",
+  "time": "15:30",
+  "home_team": "Elversberg",
+  "away_team": "SC Freiburg",
+  "match_id": "elversberg_vs_sc_freiburg_bl"
+ },
+ {
+  "group": "Spieltag 10",
+  "date": "2026-11-21",
+  "time": "15:30",
+  "home_team": "Union Berlin",
+  "away_team": "RB Leipzig",
+  "match_id": "union_berlin_vs_rb_leipzig_bl"
+ },
+ {
+  "group": "Spieltag 10",
+  "date": "2026-11-21",
+  "time": "18:30",
+  "home_team": "Schalke 04",
+  "away_team": "VfB Stuttgart",
+  "match_id": "schalke_04_vs_vfb_stuttgart_bl"
+ },
+ {
+  "group": "Spieltag 10",
+  "date": "2026-11-22",
+  "time": "15:30",
+  "home_team": "Augsburg",
+  "away_team": "1. FSV Mainz 05",
+  "match_id": "augsburg_vs_1_fsv_mainz_05_bl"
+ },
+ {
+  "group": "Spieltag 10",
+  "date": "2026-11-22",
+  "time": "17:30",
+  "home_team": "Werder Bremen",
+  "away_team": "Hamburger SV",
+  "match_id": "werder_bremen_vs_hamburger_sv_bl"
+ },
+ {
+  "group": "Spieltag 11",
+  "date": "2026-11-27",
+  "time": "20:30",
+  "home_team": "Werder Bremen",
+  "away_team": "Borussia Mönchengladbach",
+  "match_id": "werder_bremen_vs_borussia_monchengladbach_bl"
+ },
+ {
+  "group": "Spieltag 11",
+  "date": "2026-11-28",
+  "time": "15:30",
+  "home_team": "1. FC Köln",
+  "away_team": "Elversberg",
+  "match_id": "1_fc_koln_vs_elversberg_bl"
+ },
+ {
+  "group": "Spieltag 11",
+  "date": "2026-11-28",
+  "time": "15:30",
+  "home_team": "1. FSV Mainz 05",
+  "away_team": "Union Berlin",
+  "match_id": "1_fsv_mainz_05_vs_union_berlin_bl"
+ },
+ {
+  "group": "Spieltag 11",
+  "date": "2026-11-28",
+  "time": "15:30",
+  "home_team": "Hamburger SV",
+  "away_team": "Bayern Munich",
+  "match_id": "hamburger_sv_vs_bayern_munich_bl"
+ },
+ {
+  "group": "Spieltag 11",
+  "date": "2026-11-28",
+  "time": "15:30",
+  "home_team": "SC Paderborn",
+  "away_team": "Schalke 04",
+  "match_id": "sc_paderborn_vs_schalke_04_bl"
+ },
+ {
+  "group": "Spieltag 11",
+  "date": "2026-11-28",
+  "time": "18:30",
+  "home_team": "VfB Stuttgart",
+  "away_team": "Eintracht Frankfurt",
+  "match_id": "vfb_stuttgart_vs_eintracht_frankfurt_bl"
+ },
+ {
+  "group": "Spieltag 11",
+  "date": "2026-11-28",
+  "time": "21:00",
+  "home_team": "TSG Hoffenheim",
+  "away_team": "Augsburg",
+  "match_id": "tsg_hoffenheim_vs_augsburg_bl"
+ },
+ {
+  "group": "Spieltag 11",
+  "date": "2026-11-29",
+  "time": "15:30",
+  "home_team": "SC Freiburg",
+  "away_team": "RB Leipzig",
+  "match_id": "sc_freiburg_vs_rb_leipzig_bl"
+ },
+ {
+  "group": "Spieltag 11",
+  "date": "2026-11-29",
+  "time": "19:30",
+  "home_team": "Borussia Dortmund",
+  "away_team": "Bayer Leverkusen",
+  "match_id": "borussia_dortmund_vs_bayer_leverkusen_bl"
+ },
+ {
+  "group": "Spieltag 12",
+  "date": "2026-12-05",
+  "time": "21:00",
+  "home_team": "Augsburg",
+  "away_team": "1. FC Köln",
+  "match_id": "augsburg_vs_1_fc_koln_bl"
+ },
+ {
+  "group": "Spieltag 12",
+  "date": "2026-12-05",
+  "time": "21:00",
+  "home_team": "Bayer Leverkusen",
+  "away_team": "Borussia Mönchengladbach",
+  "match_id": "bayer_leverkusen_vs_borussia_monchengladbach_bl"
+ },
+ {
+  "group": "Spieltag 12",
+  "date": "2026-12-05",
+  "time": "21:00",
+  "home_team": "Bayern Munich",
+  "away_team": "SC Paderborn",
+  "match_id": "bayern_munich_vs_sc_paderborn_bl"
+ },
+ {
+  "group": "Spieltag 12",
+  "date": "2026-12-05",
+  "time": "21:00",
+  "home_team": "Eintracht Frankfurt",
+  "away_team": "Werder Bremen",
+  "match_id": "eintracht_frankfurt_vs_werder_bremen_bl"
+ },
+ {
+  "group": "Spieltag 12",
+  "date": "2026-12-05",
+  "time": "21:00",
+  "home_team": "Elversberg",
+  "away_team": "VfB Stuttgart",
+  "match_id": "elversberg_vs_vfb_stuttgart_bl"
+ },
+ {
+  "group": "Spieltag 12",
+  "date": "2026-12-05",
+  "time": "21:00",
+  "home_team": "RB Leipzig",
+  "away_team": "1. FSV Mainz 05",
+  "match_id": "rb_leipzig_vs_1_fsv_mainz_05_bl"
+ },
+ {
+  "group": "Spieltag 12",
+  "date": "2026-12-05",
+  "time": "21:00",
+  "home_team": "SC Freiburg",
+  "away_team": "TSG Hoffenheim",
+  "match_id": "sc_freiburg_vs_tsg_hoffenheim_bl"
+ },
+ {
+  "group": "Spieltag 12",
+  "date": "2026-12-05",
+  "time": "21:00",
+  "home_team": "Schalke 04",
+  "away_team": "Borussia Dortmund",
+  "match_id": "schalke_04_vs_borussia_dortmund_bl"
+ },
+ {
+  "group": "Spieltag 12",
+  "date": "2026-12-05",
+  "time": "21:00",
+  "home_team": "Union Berlin",
+  "away_team": "Hamburger SV",
+  "match_id": "union_berlin_vs_hamburger_sv_bl"
+ },
+ {
+  "group": "Spieltag 13",
+  "date": "2026-12-12",
+  "time": "21:00",
+  "home_team": "1. FC Köln",
+  "away_team": "RB Leipzig",
+  "match_id": "1_fc_koln_vs_rb_leipzig_bl"
+ },
+ {
+  "group": "Spieltag 13",
+  "date": "2026-12-12",
+  "time": "21:00",
+  "home_team": "1. FSV Mainz 05",
+  "away_team": "SC Freiburg",
+  "match_id": "1_fsv_mainz_05_vs_sc_freiburg_bl"
+ },
+ {
+  "group": "Spieltag 13",
+  "date": "2026-12-12",
+  "time": "21:00",
+  "home_team": "Borussia Dortmund",
+  "away_team": "Augsburg",
+  "match_id": "borussia_dortmund_vs_augsburg_bl"
+ },
+ {
+  "group": "Spieltag 13",
+  "date": "2026-12-12",
+  "time": "21:00",
+  "home_team": "Borussia Mönchengladbach",
+  "away_team": "Eintracht Frankfurt",
+  "match_id": "borussia_monchengladbach_vs_eintracht_frankfurt_bl"
+ },
+ {
+  "group": "Spieltag 13",
+  "date": "2026-12-12",
+  "time": "21:00",
+  "home_team": "Hamburger SV",
+  "away_team": "Schalke 04",
+  "match_id": "hamburger_sv_vs_schalke_04_bl"
+ },
+ {
+  "group": "Spieltag 13",
+  "date": "2026-12-12",
+  "time": "21:00",
+  "home_team": "SC Paderborn",
+  "away_team": "Elversberg",
+  "match_id": "sc_paderborn_vs_elversberg_bl"
+ },
+ {
+  "group": "Spieltag 13",
+  "date": "2026-12-12",
+  "time": "21:00",
+  "home_team": "TSG Hoffenheim",
+  "away_team": "Bayern Munich",
+  "match_id": "tsg_hoffenheim_vs_bayern_munich_bl"
+ },
+ {
+  "group": "Spieltag 13",
+  "date": "2026-12-12",
+  "time": "21:00",
+  "home_team": "VfB Stuttgart",
+  "away_team": "Union Berlin",
+  "match_id": "vfb_stuttgart_vs_union_berlin_bl"
+ },
+ {
+  "group": "Spieltag 13",
+  "date": "2026-12-12",
+  "time": "21:00",
+  "home_team": "Werder Bremen",
+  "away_team": "Bayer Leverkusen",
+  "match_id": "werder_bremen_vs_bayer_leverkusen_bl"
+ },
+ {
+  "group": "Spieltag 14",
+  "date": "2026-12-19",
+  "time": "21:00",
+  "home_team": "1. FSV Mainz 05",
+  "away_team": "1. FC Köln",
+  "match_id": "1_fsv_mainz_05_vs_1_fc_koln_bl"
+ },
+ {
+  "group": "Spieltag 14",
+  "date": "2026-12-19",
+  "time": "21:00",
+  "home_team": "Augsburg",
+  "away_team": "SC Paderborn",
+  "match_id": "augsburg_vs_sc_paderborn_bl"
+ },
+ {
+  "group": "Spieltag 14",
+  "date": "2026-12-19",
+  "time": "21:00",
+  "home_team": "Bayer Leverkusen",
+  "away_team": "Eintracht Frankfurt",
+  "match_id": "bayer_leverkusen_vs_eintracht_frankfurt_bl"
+ },
+ {
+  "group": "Spieltag 14",
+  "date": "2026-12-19",
+  "time": "21:00",
+  "home_team": "Bayern Munich",
+  "away_team": "Werder Bremen",
+  "match_id": "bayern_munich_vs_werder_bremen_bl"
+ },
+ {
+  "group": "Spieltag 14",
+  "date": "2026-12-19",
+  "time": "21:00",
+  "home_team": "Elversberg",
+  "away_team": "Hamburger SV",
+  "match_id": "elversberg_vs_hamburger_sv_bl"
+ },
+ {
+  "group": "Spieltag 14",
+  "date": "2026-12-19",
+  "time": "21:00",
+  "home_team": "RB Leipzig",
+  "away_team": "Borussia Dortmund",
+  "match_id": "rb_leipzig_vs_borussia_dortmund_bl"
+ },
+ {
+  "group": "Spieltag 14",
+  "date": "2026-12-19",
+  "time": "21:00",
+  "home_team": "SC Freiburg",
+  "away_team": "VfB Stuttgart",
+  "match_id": "sc_freiburg_vs_vfb_stuttgart_bl"
+ },
+ {
+  "group": "Spieltag 14",
+  "date": "2026-12-19",
+  "time": "21:00",
+  "home_team": "Schalke 04",
+  "away_team": "Borussia Mönchengladbach",
+  "match_id": "schalke_04_vs_borussia_monchengladbach_bl"
+ },
+ {
+  "group": "Spieltag 14",
+  "date": "2026-12-19",
+  "time": "21:00",
+  "home_team": "Union Berlin",
+  "away_team": "TSG Hoffenheim",
+  "match_id": "union_berlin_vs_tsg_hoffenheim_bl"
+ },
+ {
+  "group": "Spieltag 15",
+  "date": "2027-01-09",
+  "time": "21:00",
+  "home_team": "1. FC Köln",
+  "away_team": "SC Freiburg",
+  "match_id": "1_fc_koln_vs_sc_freiburg_bl"
+ },
+ {
+  "group": "Spieltag 15",
+  "date": "2027-01-09",
+  "time": "21:00",
+  "home_team": "Borussia Dortmund",
+  "away_team": "1. FSV Mainz 05",
+  "match_id": "borussia_dortmund_vs_1_fsv_mainz_05_bl"
+ },
+ {
+  "group": "Spieltag 15",
+  "date": "2027-01-09",
+  "time": "21:00",
+  "home_team": "Borussia Mönchengladbach",
+  "away_team": "Bayern Munich",
+  "match_id": "borussia_monchengladbach_vs_bayern_munich_bl"
+ },
+ {
+  "group": "Spieltag 15",
+  "date": "2027-01-09",
+  "time": "21:00",
+  "home_team": "Eintracht Frankfurt",
+  "away_team": "Schalke 04",
+  "match_id": "eintracht_frankfurt_vs_schalke_04_bl"
+ },
+ {
+  "group": "Spieltag 15",
+  "date": "2027-01-09",
+  "time": "21:00",
+  "home_team": "Hamburger SV",
+  "away_team": "Bayer Leverkusen",
+  "match_id": "hamburger_sv_vs_bayer_leverkusen_bl"
+ },
+ {
+  "group": "Spieltag 15",
+  "date": "2027-01-09",
+  "time": "21:00",
+  "home_team": "SC Paderborn",
+  "away_team": "RB Leipzig",
+  "match_id": "sc_paderborn_vs_rb_leipzig_bl"
+ },
+ {
+  "group": "Spieltag 15",
+  "date": "2027-01-09",
+  "time": "21:00",
+  "home_team": "TSG Hoffenheim",
+  "away_team": "Elversberg",
+  "match_id": "tsg_hoffenheim_vs_elversberg_bl"
+ },
+ {
+  "group": "Spieltag 15",
+  "date": "2027-01-09",
+  "time": "21:00",
+  "home_team": "VfB Stuttgart",
+  "away_team": "Augsburg",
+  "match_id": "vfb_stuttgart_vs_augsburg_bl"
+ },
+ {
+  "group": "Spieltag 15",
+  "date": "2027-01-09",
+  "time": "21:00",
+  "home_team": "Werder Bremen",
+  "away_team": "Union Berlin",
+  "match_id": "werder_bremen_vs_union_berlin_bl"
+ },
+ {
+  "group": "Spieltag 16",
+  "date": "2027-01-13",
+  "time": "21:00",
+  "home_team": "1. FC Köln",
+  "away_team": "Borussia Dortmund",
+  "match_id": "1_fc_koln_vs_borussia_dortmund_bl"
+ },
+ {
+  "group": "Spieltag 16",
+  "date": "2027-01-13",
+  "time": "21:00",
+  "home_team": "1. FSV Mainz 05",
+  "away_team": "TSG Hoffenheim",
+  "match_id": "1_fsv_mainz_05_vs_tsg_hoffenheim_bl"
+ },
+ {
+  "group": "Spieltag 16",
+  "date": "2027-01-13",
+  "time": "21:00",
+  "home_team": "Augsburg",
+  "away_team": "Borussia Mönchengladbach",
+  "match_id": "augsburg_vs_borussia_monchengladbach_bl"
+ },
+ {
+  "group": "Spieltag 16",
+  "date": "2027-01-13",
+  "time": "21:00",
+  "home_team": "Bayern Munich",
+  "away_team": "Bayer Leverkusen",
+  "match_id": "bayern_munich_vs_bayer_leverkusen_bl"
+ },
+ {
+  "group": "Spieltag 16",
+  "date": "2027-01-13",
+  "time": "21:00",
+  "home_team": "Elversberg",
+  "away_team": "Eintracht Frankfurt",
+  "match_id": "elversberg_vs_eintracht_frankfurt_bl"
+ },
+ {
+  "group": "Spieltag 16",
+  "date": "2027-01-13",
+  "time": "21:00",
+  "home_team": "RB Leipzig",
+  "away_team": "VfB Stuttgart",
+  "match_id": "rb_leipzig_vs_vfb_stuttgart_bl"
+ },
+ {
+  "group": "Spieltag 16",
+  "date": "2027-01-13",
+  "time": "21:00",
+  "home_team": "SC Freiburg",
+  "away_team": "Hamburger SV",
+  "match_id": "sc_freiburg_vs_hamburger_sv_bl"
+ },
+ {
+  "group": "Spieltag 16",
+  "date": "2027-01-13",
+  "time": "21:00",
+  "home_team": "Schalke 04",
+  "away_team": "Werder Bremen",
+  "match_id": "schalke_04_vs_werder_bremen_bl"
+ },
+ {
+  "group": "Spieltag 16",
+  "date": "2027-01-13",
+  "time": "21:00",
+  "home_team": "Union Berlin",
+  "away_team": "SC Paderborn",
+  "match_id": "union_berlin_vs_sc_paderborn_bl"
+ },
+ {
+  "group": "Spieltag 17",
+  "date": "2027-01-16",
+  "time": "21:00",
+  "home_team": "Bayer Leverkusen",
+  "away_team": "Schalke 04",
+  "match_id": "bayer_leverkusen_vs_schalke_04_bl"
+ },
+ {
+  "group": "Spieltag 17",
+  "date": "2027-01-16",
+  "time": "21:00",
+  "home_team": "Borussia Dortmund",
+  "away_team": "SC Freiburg",
+  "match_id": "borussia_dortmund_vs_sc_freiburg_bl"
+ },
+ {
+  "group": "Spieltag 17",
+  "date": "2027-01-16",
+  "time": "21:00",
+  "home_team": "Borussia Mönchengladbach",
+  "away_team": "Union Berlin",
+  "match_id": "borussia_monchengladbach_vs_union_berlin_bl"
+ },
+ {
+  "group": "Spieltag 17",
+  "date": "2027-01-16",
+  "time": "21:00",
+  "home_team": "Eintracht Frankfurt",
+  "away_team": "Bayern Munich",
+  "match_id": "eintracht_frankfurt_vs_bayern_munich_bl"
+ },
+ {
+  "group": "Spieltag 17",
+  "date": "2027-01-16",
+  "time": "21:00",
+  "home_team": "Hamburger SV",
+  "away_team": "Augsburg",
+  "match_id": "hamburger_sv_vs_augsburg_bl"
+ },
+ {
+  "group": "Spieltag 17",
+  "date": "2027-01-16",
+  "time": "21:00",
+  "home_team": "SC Paderborn",
+  "away_team": "1. FC Köln",
+  "match_id": "sc_paderborn_vs_1_fc_koln_bl"
+ },
+ {
+  "group": "Spieltag 17",
+  "date": "2027-01-16",
+  "time": "21:00",
+  "home_team": "TSG Hoffenheim",
+  "away_team": "RB Leipzig",
+  "match_id": "tsg_hoffenheim_vs_rb_leipzig_bl"
+ },
+ {
+  "group": "Spieltag 17",
+  "date": "2027-01-16",
+  "time": "21:00",
+  "home_team": "VfB Stuttgart",
+  "away_team": "1. FSV Mainz 05",
+  "match_id": "vfb_stuttgart_vs_1_fsv_mainz_05_bl"
+ },
+ {
+  "group": "Spieltag 17",
+  "date": "2027-01-16",
+  "time": "21:00",
+  "home_team": "Werder Bremen",
+  "away_team": "Elversberg",
+  "match_id": "werder_bremen_vs_elversberg_bl"
+ },
+ {
+  "group": "Spieltag 18",
+  "date": "2027-01-23",
+  "time": "21:00",
+  "home_team": "Bayer Leverkusen",
+  "away_team": "Elversberg",
+  "match_id": "bayer_leverkusen_vs_elversberg_bl"
+ },
+ {
+  "group": "Spieltag 18",
+  "date": "2027-01-23",
+  "time": "21:00",
+  "home_team": "Borussia Mönchengladbach",
+  "away_team": "RB Leipzig",
+  "match_id": "borussia_monchengladbach_vs_rb_leipzig_bl"
+ },
+ {
+  "group": "Spieltag 18",
+  "date": "2027-01-23",
+  "time": "21:00",
+  "home_team": "Eintracht Frankfurt",
+  "away_team": "Union Berlin",
+  "match_id": "eintracht_frankfurt_vs_union_berlin_bl"
+ },
+ {
+  "group": "Spieltag 18",
+  "date": "2027-01-23",
+  "time": "21:00",
+  "home_team": "Hamburger SV",
+  "away_team": "Borussia Dortmund",
+  "match_id": "hamburger_sv_vs_borussia_dortmund_bl"
+ },
+ {
+  "group": "Spieltag 18",
+  "date": "2027-01-23",
+  "time": "21:00",
+  "home_team": "SC Paderborn",
+  "away_team": "1. FSV Mainz 05",
+  "match_id": "sc_paderborn_vs_1_fsv_mainz_05_bl"
+ },
+ {
+  "group": "Spieltag 18",
+  "date": "2027-01-23",
+  "time": "21:00",
+  "home_team": "Schalke 04",
+  "away_team": "Augsburg",
+  "match_id": "schalke_04_vs_augsburg_bl"
+ },
+ {
+  "group": "Spieltag 18",
+  "date": "2027-01-23",
+  "time": "21:00",
+  "home_team": "TSG Hoffenheim",
+  "away_team": "1. FC Köln",
+  "match_id": "tsg_hoffenheim_vs_1_fc_koln_bl"
+ },
+ {
+  "group": "Spieltag 18",
+  "date": "2027-01-23",
+  "time": "21:00",
+  "home_team": "VfB Stuttgart",
+  "away_team": "Bayern Munich",
+  "match_id": "vfb_stuttgart_vs_bayern_munich_bl"
+ },
+ {
+  "group": "Spieltag 18",
+  "date": "2027-01-23",
+  "time": "21:00",
+  "home_team": "Werder Bremen",
+  "away_team": "SC Freiburg",
+  "match_id": "werder_bremen_vs_sc_freiburg_bl"
+ },
+ {
+  "group": "Spieltag 19",
+  "date": "2027-01-30",
+  "time": "21:00",
+  "home_team": "1. FC Köln",
+  "away_team": "VfB Stuttgart",
+  "match_id": "1_fc_koln_vs_vfb_stuttgart_bl"
+ },
+ {
+  "group": "Spieltag 19",
+  "date": "2027-01-30",
+  "time": "21:00",
+  "home_team": "1. FSV Mainz 05",
+  "away_team": "Hamburger SV",
+  "match_id": "1_fsv_mainz_05_vs_hamburger_sv_bl"
+ },
+ {
+  "group": "Spieltag 19",
+  "date": "2027-01-30",
+  "time": "21:00",
+  "home_team": "Augsburg",
+  "away_team": "Eintracht Frankfurt",
+  "match_id": "augsburg_vs_eintracht_frankfurt_bl"
+ },
+ {
+  "group": "Spieltag 19",
+  "date": "2027-01-30",
+  "time": "21:00",
+  "home_team": "Bayern Munich",
+  "away_team": "Schalke 04",
+  "match_id": "bayern_munich_vs_schalke_04_bl"
+ },
+ {
+  "group": "Spieltag 19",
+  "date": "2027-01-30",
+  "time": "21:00",
+  "home_team": "Borussia Dortmund",
+  "away_team": "TSG Hoffenheim",
+  "match_id": "borussia_dortmund_vs_tsg_hoffenheim_bl"
+ },
+ {
+  "group": "Spieltag 19",
+  "date": "2027-01-30",
+  "time": "21:00",
+  "home_team": "Elversberg",
+  "away_team": "Borussia Mönchengladbach",
+  "match_id": "elversberg_vs_borussia_monchengladbach_bl"
+ },
+ {
+  "group": "Spieltag 19",
+  "date": "2027-01-30",
+  "time": "21:00",
+  "home_team": "RB Leipzig",
+  "away_team": "Werder Bremen",
+  "match_id": "rb_leipzig_vs_werder_bremen_bl"
+ },
+ {
+  "group": "Spieltag 19",
+  "date": "2027-01-30",
+  "time": "21:00",
+  "home_team": "SC Freiburg",
+  "away_team": "SC Paderborn",
+  "match_id": "sc_freiburg_vs_sc_paderborn_bl"
+ },
+ {
+  "group": "Spieltag 19",
+  "date": "2027-01-30",
+  "time": "21:00",
+  "home_team": "Union Berlin",
+  "away_team": "Bayer Leverkusen",
+  "match_id": "union_berlin_vs_bayer_leverkusen_bl"
+ },
+ {
+  "group": "Spieltag 20",
+  "date": "2027-02-06",
+  "time": "21:00",
+  "home_team": "Bayer Leverkusen",
+  "away_team": "Augsburg",
+  "match_id": "bayer_leverkusen_vs_augsburg_bl"
+ },
+ {
+  "group": "Spieltag 20",
+  "date": "2027-02-06",
+  "time": "21:00",
+  "home_team": "Bayern Munich",
+  "away_team": "Elversberg",
+  "match_id": "bayern_munich_vs_elversberg_bl"
+ },
+ {
+  "group": "Spieltag 20",
+  "date": "2027-02-06",
+  "time": "21:00",
+  "home_team": "Borussia Mönchengladbach",
+  "away_team": "SC Freiburg",
+  "match_id": "borussia_monchengladbach_vs_sc_freiburg_bl"
+ },
+ {
+  "group": "Spieltag 20",
+  "date": "2027-02-06",
+  "time": "21:00",
+  "home_team": "Eintracht Frankfurt",
+  "away_team": "1. FSV Mainz 05",
+  "match_id": "eintracht_frankfurt_vs_1_fsv_mainz_05_bl"
+ },
+ {
+  "group": "Spieltag 20",
+  "date": "2027-02-06",
+  "time": "21:00",
+  "home_team": "Hamburger SV",
+  "away_team": "RB Leipzig",
+  "match_id": "hamburger_sv_vs_rb_leipzig_bl"
+ },
+ {
+  "group": "Spieltag 20",
+  "date": "2027-02-06",
+  "time": "21:00",
+  "home_team": "SC Paderborn",
+  "away_team": "Borussia Dortmund",
+  "match_id": "sc_paderborn_vs_borussia_dortmund_bl"
+ },
+ {
+  "group": "Spieltag 20",
+  "date": "2027-02-06",
+  "time": "21:00",
+  "home_team": "Schalke 04",
+  "away_team": "Union Berlin",
+  "match_id": "schalke_04_vs_union_berlin_bl"
+ },
+ {
+  "group": "Spieltag 20",
+  "date": "2027-02-06",
+  "time": "21:00",
+  "home_team": "VfB Stuttgart",
+  "away_team": "TSG Hoffenheim",
+  "match_id": "vfb_stuttgart_vs_tsg_hoffenheim_bl"
+ },
+ {
+  "group": "Spieltag 20",
+  "date": "2027-02-06",
+  "time": "21:00",
+  "home_team": "Werder Bremen",
+  "away_team": "1. FC Köln",
+  "match_id": "werder_bremen_vs_1_fc_koln_bl"
+ },
+ {
+  "group": "Spieltag 21",
+  "date": "2027-02-13",
+  "time": "21:00",
+  "home_team": "1. FC Köln",
+  "away_team": "Hamburger SV",
+  "match_id": "1_fc_koln_vs_hamburger_sv_bl"
+ },
+ {
+  "group": "Spieltag 21",
+  "date": "2027-02-13",
+  "time": "21:00",
+  "home_team": "1. FSV Mainz 05",
+  "away_team": "Borussia Mönchengladbach",
+  "match_id": "1_fsv_mainz_05_vs_borussia_monchengladbach_bl"
+ },
+ {
+  "group": "Spieltag 21",
+  "date": "2027-02-13",
+  "time": "21:00",
+  "home_team": "Augsburg",
+  "away_team": "Werder Bremen",
+  "match_id": "augsburg_vs_werder_bremen_bl"
+ },
+ {
+  "group": "Spieltag 21",
+  "date": "2027-02-13",
+  "time": "21:00",
+  "home_team": "Borussia Dortmund",
+  "away_team": "VfB Stuttgart",
+  "match_id": "borussia_dortmund_vs_vfb_stuttgart_bl"
+ },
+ {
+  "group": "Spieltag 21",
+  "date": "2027-02-13",
+  "time": "21:00",
+  "home_team": "Elversberg",
+  "away_team": "Schalke 04",
+  "match_id": "elversberg_vs_schalke_04_bl"
+ },
+ {
+  "group": "Spieltag 21",
+  "date": "2027-02-13",
+  "time": "21:00",
+  "home_team": "RB Leipzig",
+  "away_team": "Bayer Leverkusen",
+  "match_id": "rb_leipzig_vs_bayer_leverkusen_bl"
+ },
+ {
+  "group": "Spieltag 21",
+  "date": "2027-02-13",
+  "time": "21:00",
+  "home_team": "SC Freiburg",
+  "away_team": "Eintracht Frankfurt",
+  "match_id": "sc_freiburg_vs_eintracht_frankfurt_bl"
+ },
+ {
+  "group": "Spieltag 21",
+  "date": "2027-02-13",
+  "time": "21:00",
+  "home_team": "TSG Hoffenheim",
+  "away_team": "SC Paderborn",
+  "match_id": "tsg_hoffenheim_vs_sc_paderborn_bl"
+ },
+ {
+  "group": "Spieltag 21",
+  "date": "2027-02-13",
+  "time": "21:00",
+  "home_team": "Union Berlin",
+  "away_team": "Bayern Munich",
+  "match_id": "union_berlin_vs_bayern_munich_bl"
+ },
+ {
+  "group": "Spieltag 22",
+  "date": "2027-02-20",
+  "time": "21:00",
+  "home_team": "Bayer Leverkusen",
+  "away_team": "1. FSV Mainz 05",
+  "match_id": "bayer_leverkusen_vs_1_fsv_mainz_05_bl"
+ },
+ {
+  "group": "Spieltag 22",
+  "date": "2027-02-20",
+  "time": "21:00",
+  "home_team": "Bayern Munich",
+  "away_team": "Augsburg",
+  "match_id": "bayern_munich_vs_augsburg_bl"
+ },
+ {
+  "group": "Spieltag 22",
+  "date": "2027-02-20",
+  "time": "21:00",
+  "home_team": "Borussia Mönchengladbach",
+  "away_team": "1. FC Köln",
+  "match_id": "borussia_monchengladbach_vs_1_fc_koln_bl"
+ },
+ {
+  "group": "Spieltag 22",
+  "date": "2027-02-20",
+  "time": "21:00",
+  "home_team": "Eintracht Frankfurt",
+  "away_team": "RB Leipzig",
+  "match_id": "eintracht_frankfurt_vs_rb_leipzig_bl"
+ },
+ {
+  "group": "Spieltag 22",
+  "date": "2027-02-20",
+  "time": "21:00",
+  "home_team": "Elversberg",
+  "away_team": "Union Berlin",
+  "match_id": "elversberg_vs_union_berlin_bl"
+ },
+ {
+  "group": "Spieltag 22",
+  "date": "2027-02-20",
+  "time": "21:00",
+  "home_team": "Hamburger SV",
+  "away_team": "TSG Hoffenheim",
+  "match_id": "hamburger_sv_vs_tsg_hoffenheim_bl"
+ },
+ {
+  "group": "Spieltag 22",
+  "date": "2027-02-20",
+  "time": "21:00",
+  "home_team": "Schalke 04",
+  "away_team": "SC Freiburg",
+  "match_id": "schalke_04_vs_sc_freiburg_bl"
+ },
+ {
+  "group": "Spieltag 22",
+  "date": "2027-02-20",
+  "time": "21:00",
+  "home_team": "VfB Stuttgart",
+  "away_team": "SC Paderborn",
+  "match_id": "vfb_stuttgart_vs_sc_paderborn_bl"
+ },
+ {
+  "group": "Spieltag 22",
+  "date": "2027-02-20",
+  "time": "21:00",
+  "home_team": "Werder Bremen",
+  "away_team": "Borussia Dortmund",
+  "match_id": "werder_bremen_vs_borussia_dortmund_bl"
+ },
+ {
+  "group": "Spieltag 23",
+  "date": "2027-02-27",
+  "time": "21:00",
+  "home_team": "1. FC Köln",
+  "away_team": "Eintracht Frankfurt",
+  "match_id": "1_fc_koln_vs_eintracht_frankfurt_bl"
+ },
+ {
+  "group": "Spieltag 23",
+  "date": "2027-02-27",
+  "time": "21:00",
+  "home_team": "1. FSV Mainz 05",
+  "away_team": "Schalke 04",
+  "match_id": "1_fsv_mainz_05_vs_schalke_04_bl"
+ },
+ {
+  "group": "Spieltag 23",
+  "date": "2027-02-27",
+  "time": "21:00",
+  "home_team": "Augsburg",
+  "away_team": "Elversberg",
+  "match_id": "augsburg_vs_elversberg_bl"
+ },
+ {
+  "group": "Spieltag 23",
+  "date": "2027-02-27",
+  "time": "21:00",
+  "home_team": "Borussia Dortmund",
+  "away_team": "Union Berlin",
+  "match_id": "borussia_dortmund_vs_union_berlin_bl"
+ },
+ {
+  "group": "Spieltag 23",
+  "date": "2027-02-27",
+  "time": "21:00",
+  "home_team": "RB Leipzig",
+  "away_team": "Bayern Munich",
+  "match_id": "rb_leipzig_vs_bayern_munich_bl"
+ },
+ {
+  "group": "Spieltag 23",
+  "date": "2027-02-27",
+  "time": "21:00",
+  "home_team": "SC Freiburg",
+  "away_team": "Bayer Leverkusen",
+  "match_id": "sc_freiburg_vs_bayer_leverkusen_bl"
+ },
+ {
+  "group": "Spieltag 23",
+  "date": "2027-02-27",
+  "time": "21:00",
+  "home_team": "SC Paderborn",
+  "away_team": "Werder Bremen",
+  "match_id": "sc_paderborn_vs_werder_bremen_bl"
+ },
+ {
+  "group": "Spieltag 23",
+  "date": "2027-02-27",
+  "time": "21:00",
+  "home_team": "TSG Hoffenheim",
+  "away_team": "Borussia Mönchengladbach",
+  "match_id": "tsg_hoffenheim_vs_borussia_monchengladbach_bl"
+ },
+ {
+  "group": "Spieltag 23",
+  "date": "2027-02-27",
+  "time": "21:00",
+  "home_team": "VfB Stuttgart",
+  "away_team": "Hamburger SV",
+  "match_id": "vfb_stuttgart_vs_hamburger_sv_bl"
+ },
+ {
+  "group": "Spieltag 24",
+  "date": "2027-03-03",
+  "time": "21:00",
+  "home_team": "Bayer Leverkusen",
+  "away_team": "TSG Hoffenheim",
+  "match_id": "bayer_leverkusen_vs_tsg_hoffenheim_bl"
+ },
+ {
+  "group": "Spieltag 24",
+  "date": "2027-03-03",
+  "time": "21:00",
+  "home_team": "Bayern Munich",
+  "away_team": "SC Freiburg",
+  "match_id": "bayern_munich_vs_sc_freiburg_bl"
+ },
+ {
+  "group": "Spieltag 24",
+  "date": "2027-03-03",
+  "time": "21:00",
+  "home_team": "Borussia Mönchengladbach",
+  "away_team": "VfB Stuttgart",
+  "match_id": "borussia_monchengladbach_vs_vfb_stuttgart_bl"
+ },
+ {
+  "group": "Spieltag 24",
+  "date": "2027-03-03",
+  "time": "21:00",
+  "home_team": "Eintracht Frankfurt",
+  "away_team": "Borussia Dortmund",
+  "match_id": "eintracht_frankfurt_vs_borussia_dortmund_bl"
+ },
+ {
+  "group": "Spieltag 24",
+  "date": "2027-03-03",
+  "time": "21:00",
+  "home_team": "Elversberg",
+  "away_team": "RB Leipzig",
+  "match_id": "elversberg_vs_rb_leipzig_bl"
+ },
+ {
+  "group": "Spieltag 24",
+  "date": "2027-03-03",
+  "time": "21:00",
+  "home_team": "Hamburger SV",
+  "away_team": "SC Paderborn",
+  "match_id": "hamburger_sv_vs_sc_paderborn_bl"
+ },
+ {
+  "group": "Spieltag 24",
+  "date": "2027-03-03",
+  "time": "21:00",
+  "home_team": "Schalke 04",
+  "away_team": "1. FC Köln",
+  "match_id": "schalke_04_vs_1_fc_koln_bl"
+ },
+ {
+  "group": "Spieltag 24",
+  "date": "2027-03-03",
+  "time": "21:00",
+  "home_team": "Union Berlin",
+  "away_team": "Augsburg",
+  "match_id": "union_berlin_vs_augsburg_bl"
+ },
+ {
+  "group": "Spieltag 24",
+  "date": "2027-03-03",
+  "time": "21:00",
+  "home_team": "Werder Bremen",
+  "away_team": "1. FSV Mainz 05",
+  "match_id": "werder_bremen_vs_1_fsv_mainz_05_bl"
+ },
+ {
+  "group": "Spieltag 25",
+  "date": "2027-03-06",
+  "time": "21:00",
+  "home_team": "1. FC Köln",
+  "away_team": "Union Berlin",
+  "match_id": "1_fc_koln_vs_union_berlin_bl"
+ },
+ {
+  "group": "Spieltag 25",
+  "date": "2027-03-06",
+  "time": "21:00",
+  "home_team": "1. FSV Mainz 05",
+  "away_team": "Elversberg",
+  "match_id": "1_fsv_mainz_05_vs_elversberg_bl"
+ },
+ {
+  "group": "Spieltag 25",
+  "date": "2027-03-06",
+  "time": "21:00",
+  "home_team": "Borussia Dortmund",
+  "away_team": "Bayern Munich",
+  "match_id": "borussia_dortmund_vs_bayern_munich_bl"
+ },
+ {
+  "group": "Spieltag 25",
+  "date": "2027-03-06",
+  "time": "21:00",
+  "home_team": "Hamburger SV",
+  "away_team": "Eintracht Frankfurt",
+  "match_id": "hamburger_sv_vs_eintracht_frankfurt_bl"
+ },
+ {
+  "group": "Spieltag 25",
+  "date": "2027-03-06",
+  "time": "21:00",
+  "home_team": "RB Leipzig",
+  "away_team": "Schalke 04",
+  "match_id": "rb_leipzig_vs_schalke_04_bl"
+ },
+ {
+  "group": "Spieltag 25",
+  "date": "2027-03-06",
+  "time": "21:00",
+  "home_team": "SC Freiburg",
+  "away_team": "Augsburg",
+  "match_id": "sc_freiburg_vs_augsburg_bl"
+ },
+ {
+  "group": "Spieltag 25",
+  "date": "2027-03-06",
+  "time": "21:00",
+  "home_team": "SC Paderborn",
+  "away_team": "Borussia Mönchengladbach",
+  "match_id": "sc_paderborn_vs_borussia_monchengladbach_bl"
+ },
+ {
+  "group": "Spieltag 25",
+  "date": "2027-03-06",
+  "time": "21:00",
+  "home_team": "TSG Hoffenheim",
+  "away_team": "Werder Bremen",
+  "match_id": "tsg_hoffenheim_vs_werder_bremen_bl"
+ },
+ {
+  "group": "Spieltag 25",
+  "date": "2027-03-06",
+  "time": "21:00",
+  "home_team": "VfB Stuttgart",
+  "away_team": "Bayer Leverkusen",
+  "match_id": "vfb_stuttgart_vs_bayer_leverkusen_bl"
+ },
+ {
+  "group": "Spieltag 26",
+  "date": "2027-03-13",
+  "time": "21:00",
+  "home_team": "Augsburg",
+  "away_team": "RB Leipzig",
+  "match_id": "augsburg_vs_rb_leipzig_bl"
+ },
+ {
+  "group": "Spieltag 26",
+  "date": "2027-03-13",
+  "time": "21:00",
+  "home_team": "Bayer Leverkusen",
+  "away_team": "1. FC Köln",
+  "match_id": "bayer_leverkusen_vs_1_fc_koln_bl"
+ },
+ {
+  "group": "Spieltag 26",
+  "date": "2027-03-13",
+  "time": "21:00",
+  "home_team": "Bayern Munich",
+  "away_team": "1. FSV Mainz 05",
+  "match_id": "bayern_munich_vs_1_fsv_mainz_05_bl"
+ },
+ {
+  "group": "Spieltag 26",
+  "date": "2027-03-13",
+  "time": "21:00",
+  "home_team": "Borussia Mönchengladbach",
+  "away_team": "Hamburger SV",
+  "match_id": "borussia_monchengladbach_vs_hamburger_sv_bl"
+ },
+ {
+  "group": "Spieltag 26",
+  "date": "2027-03-13",
+  "time": "21:00",
+  "home_team": "Eintracht Frankfurt",
+  "away_team": "SC Paderborn",
+  "match_id": "eintracht_frankfurt_vs_sc_paderborn_bl"
+ },
+ {
+  "group": "Spieltag 26",
+  "date": "2027-03-13",
+  "time": "21:00",
+  "home_team": "Elversberg",
+  "away_team": "Borussia Dortmund",
+  "match_id": "elversberg_vs_borussia_dortmund_bl"
+ },
+ {
+  "group": "Spieltag 26",
+  "date": "2027-03-13",
+  "time": "21:00",
+  "home_team": "Schalke 04",
+  "away_team": "TSG Hoffenheim",
+  "match_id": "schalke_04_vs_tsg_hoffenheim_bl"
+ },
+ {
+  "group": "Spieltag 26",
+  "date": "2027-03-13",
+  "time": "21:00",
+  "home_team": "Union Berlin",
+  "away_team": "SC Freiburg",
+  "match_id": "union_berlin_vs_sc_freiburg_bl"
+ },
+ {
+  "group": "Spieltag 26",
+  "date": "2027-03-13",
+  "time": "21:00",
+  "home_team": "Werder Bremen",
+  "away_team": "VfB Stuttgart",
+  "match_id": "werder_bremen_vs_vfb_stuttgart_bl"
+ },
+ {
+  "group": "Spieltag 27",
+  "date": "2027-03-20",
+  "time": "19:00",
+  "home_team": "1. FC Köln",
+  "away_team": "Bayern Munich",
+  "match_id": "1_fc_koln_vs_bayern_munich_bl"
+ },
+ {
+  "group": "Spieltag 27",
+  "date": "2027-03-20",
+  "time": "19:00",
+  "home_team": "1. FSV Mainz 05",
+  "away_team": "Augsburg",
+  "match_id": "1_fsv_mainz_05_vs_augsburg_bl"
+ },
+ {
+  "group": "Spieltag 27",
+  "date": "2027-03-20",
+  "time": "19:00",
+  "home_team": "Borussia Dortmund",
+  "away_team": "Borussia Mönchengladbach",
+  "match_id": "borussia_dortmund_vs_borussia_monchengladbach_bl"
+ },
+ {
+  "group": "Spieltag 27",
+  "date": "2027-03-20",
+  "time": "19:00",
+  "home_team": "Hamburger SV",
+  "away_team": "Werder Bremen",
+  "match_id": "hamburger_sv_vs_werder_bremen_bl"
+ },
+ {
+  "group": "Spieltag 27",
+  "date": "2027-03-20",
+  "time": "19:00",
+  "home_team": "RB Leipzig",
+  "away_team": "Union Berlin",
+  "match_id": "rb_leipzig_vs_union_berlin_bl"
+ },
+ {
+  "group": "Spieltag 27",
+  "date": "2027-03-20",
+  "time": "19:00",
+  "home_team": "SC Freiburg",
+  "away_team": "Elversberg",
+  "match_id": "sc_freiburg_vs_elversberg_bl"
+ },
+ {
+  "group": "Spieltag 27",
+  "date": "2027-03-20",
+  "time": "19:00",
+  "home_team": "SC Paderborn",
+  "away_team": "Bayer Leverkusen",
+  "match_id": "sc_paderborn_vs_bayer_leverkusen_bl"
+ },
+ {
+  "group": "Spieltag 27",
+  "date": "2027-03-20",
+  "time": "19:00",
+  "home_team": "TSG Hoffenheim",
+  "away_team": "Eintracht Frankfurt",
+  "match_id": "tsg_hoffenheim_vs_eintracht_frankfurt_bl"
+ },
+ {
+  "group": "Spieltag 27",
+  "date": "2027-03-20",
+  "time": "19:00",
+  "home_team": "VfB Stuttgart",
+  "away_team": "Schalke 04",
+  "match_id": "vfb_stuttgart_vs_schalke_04_bl"
+ },
+ {
+  "group": "Spieltag 28",
+  "date": "2027-04-03",
+  "time": "20:00",
+  "home_team": "Augsburg",
+  "away_team": "TSG Hoffenheim",
+  "match_id": "augsburg_vs_tsg_hoffenheim_bl"
+ },
+ {
+  "group": "Spieltag 28",
+  "date": "2027-04-03",
+  "time": "20:00",
+  "home_team": "Bayer Leverkusen",
+  "away_team": "Borussia Dortmund",
+  "match_id": "bayer_leverkusen_vs_borussia_dortmund_bl"
+ },
+ {
+  "group": "Spieltag 28",
+  "date": "2027-04-03",
+  "time": "20:00",
+  "home_team": "Bayern Munich",
+  "away_team": "Hamburger SV",
+  "match_id": "bayern_munich_vs_hamburger_sv_bl"
+ },
+ {
+  "group": "Spieltag 28",
+  "date": "2027-04-03",
+  "time": "20:00",
+  "home_team": "Borussia Mönchengladbach",
+  "away_team": "Werder Bremen",
+  "match_id": "borussia_monchengladbach_vs_werder_bremen_bl"
+ },
+ {
+  "group": "Spieltag 28",
+  "date": "2027-04-03",
+  "time": "20:00",
+  "home_team": "Eintracht Frankfurt",
+  "away_team": "VfB Stuttgart",
+  "match_id": "eintracht_frankfurt_vs_vfb_stuttgart_bl"
+ },
+ {
+  "group": "Spieltag 28",
+  "date": "2027-04-03",
+  "time": "20:00",
+  "home_team": "Elversberg",
+  "away_team": "1. FC Köln",
+  "match_id": "elversberg_vs_1_fc_koln_bl"
+ },
+ {
+  "group": "Spieltag 28",
+  "date": "2027-04-03",
+  "time": "20:00",
+  "home_team": "RB Leipzig",
+  "away_team": "SC Freiburg",
+  "match_id": "rb_leipzig_vs_sc_freiburg_bl"
+ },
+ {
+  "group": "Spieltag 28",
+  "date": "2027-04-03",
+  "time": "20:00",
+  "home_team": "Schalke 04",
+  "away_team": "SC Paderborn",
+  "match_id": "schalke_04_vs_sc_paderborn_bl"
+ },
+ {
+  "group": "Spieltag 28",
+  "date": "2027-04-03",
+  "time": "20:00",
+  "home_team": "Union Berlin",
+  "away_team": "1. FSV Mainz 05",
+  "match_id": "union_berlin_vs_1_fsv_mainz_05_bl"
+ },
+ {
+  "group": "Spieltag 29",
+  "date": "2027-04-10",
+  "time": "20:00",
+  "home_team": "1. FC Köln",
+  "away_team": "Augsburg",
+  "match_id": "1_fc_koln_vs_augsburg_bl"
+ },
+ {
+  "group": "Spieltag 29",
+  "date": "2027-04-10",
+  "time": "20:00",
+  "home_team": "1. FSV Mainz 05",
+  "away_team": "RB Leipzig",
+  "match_id": "1_fsv_mainz_05_vs_rb_leipzig_bl"
+ },
+ {
+  "group": "Spieltag 29",
+  "date": "2027-04-10",
+  "time": "20:00",
+  "home_team": "Borussia Dortmund",
+  "away_team": "Schalke 04",
+  "match_id": "borussia_dortmund_vs_schalke_04_bl"
+ },
+ {
+  "group": "Spieltag 29",
+  "date": "2027-04-10",
+  "time": "20:00",
+  "home_team": "Borussia Mönchengladbach",
+  "away_team": "Bayer Leverkusen",
+  "match_id": "borussia_monchengladbach_vs_bayer_leverkusen_bl"
+ },
+ {
+  "group": "Spieltag 29",
+  "date": "2027-04-10",
+  "time": "20:00",
+  "home_team": "Hamburger SV",
+  "away_team": "Union Berlin",
+  "match_id": "hamburger_sv_vs_union_berlin_bl"
+ },
+ {
+  "group": "Spieltag 29",
+  "date": "2027-04-10",
+  "time": "20:00",
+  "home_team": "SC Paderborn",
+  "away_team": "Bayern Munich",
+  "match_id": "sc_paderborn_vs_bayern_munich_bl"
+ },
+ {
+  "group": "Spieltag 29",
+  "date": "2027-04-10",
+  "time": "20:00",
+  "home_team": "TSG Hoffenheim",
+  "away_team": "SC Freiburg",
+  "match_id": "tsg_hoffenheim_vs_sc_freiburg_bl"
+ },
+ {
+  "group": "Spieltag 29",
+  "date": "2027-04-10",
+  "time": "20:00",
+  "home_team": "VfB Stuttgart",
+  "away_team": "Elversberg",
+  "match_id": "vfb_stuttgart_vs_elversberg_bl"
+ },
+ {
+  "group": "Spieltag 29",
+  "date": "2027-04-10",
+  "time": "20:00",
+  "home_team": "Werder Bremen",
+  "away_team": "Eintracht Frankfurt",
+  "match_id": "werder_bremen_vs_eintracht_frankfurt_bl"
+ },
+ {
+  "group": "Spieltag 30",
+  "date": "2027-04-17",
+  "time": "20:00",
+  "home_team": "Augsburg",
+  "away_team": "Borussia Dortmund",
+  "match_id": "augsburg_vs_borussia_dortmund_bl"
+ },
+ {
+  "group": "Spieltag 30",
+  "date": "2027-04-17",
+  "time": "20:00",
+  "home_team": "Bayer Leverkusen",
+  "away_team": "Werder Bremen",
+  "match_id": "bayer_leverkusen_vs_werder_bremen_bl"
+ },
+ {
+  "group": "Spieltag 30",
+  "date": "2027-04-17",
+  "time": "20:00",
+  "home_team": "Bayern Munich",
+  "away_team": "TSG Hoffenheim",
+  "match_id": "bayern_munich_vs_tsg_hoffenheim_bl"
+ },
+ {
+  "group": "Spieltag 30",
+  "date": "2027-04-17",
+  "time": "20:00",
+  "home_team": "Eintracht Frankfurt",
+  "away_team": "Borussia Mönchengladbach",
+  "match_id": "eintracht_frankfurt_vs_borussia_monchengladbach_bl"
+ },
+ {
+  "group": "Spieltag 30",
+  "date": "2027-04-17",
+  "time": "20:00",
+  "home_team": "Elversberg",
+  "away_team": "SC Paderborn",
+  "match_id": "elversberg_vs_sc_paderborn_bl"
+ },
+ {
+  "group": "Spieltag 30",
+  "date": "2027-04-17",
+  "time": "20:00",
+  "home_team": "RB Leipzig",
+  "away_team": "1. FC Köln",
+  "match_id": "rb_leipzig_vs_1_fc_koln_bl"
+ },
+ {
+  "group": "Spieltag 30",
+  "date": "2027-04-17",
+  "time": "20:00",
+  "home_team": "SC Freiburg",
+  "away_team": "1. FSV Mainz 05",
+  "match_id": "sc_freiburg_vs_1_fsv_mainz_05_bl"
+ },
+ {
+  "group": "Spieltag 30",
+  "date": "2027-04-17",
+  "time": "20:00",
+  "home_team": "Schalke 04",
+  "away_team": "Hamburger SV",
+  "match_id": "schalke_04_vs_hamburger_sv_bl"
+ },
+ {
+  "group": "Spieltag 30",
+  "date": "2027-04-17",
+  "time": "20:00",
+  "home_team": "Union Berlin",
+  "away_team": "VfB Stuttgart",
+  "match_id": "union_berlin_vs_vfb_stuttgart_bl"
+ },
+ {
+  "group": "Spieltag 31",
+  "date": "2027-04-24",
+  "time": "20:00",
+  "home_team": "1. FC Köln",
+  "away_team": "1. FSV Mainz 05",
+  "match_id": "1_fc_koln_vs_1_fsv_mainz_05_bl"
+ },
+ {
+  "group": "Spieltag 31",
+  "date": "2027-04-24",
+  "time": "20:00",
+  "home_team": "Borussia Dortmund",
+  "away_team": "RB Leipzig",
+  "match_id": "borussia_dortmund_vs_rb_leipzig_bl"
+ },
+ {
+  "group": "Spieltag 31",
+  "date": "2027-04-24",
+  "time": "20:00",
+  "home_team": "Borussia Mönchengladbach",
+  "away_team": "Schalke 04",
+  "match_id": "borussia_monchengladbach_vs_schalke_04_bl"
+ },
+ {
+  "group": "Spieltag 31",
+  "date": "2027-04-24",
+  "time": "20:00",
+  "home_team": "Eintracht Frankfurt",
+  "away_team": "Bayer Leverkusen",
+  "match_id": "eintracht_frankfurt_vs_bayer_leverkusen_bl"
+ },
+ {
+  "group": "Spieltag 31",
+  "date": "2027-04-24",
+  "time": "20:00",
+  "home_team": "Hamburger SV",
+  "away_team": "Elversberg",
+  "match_id": "hamburger_sv_vs_elversberg_bl"
+ },
+ {
+  "group": "Spieltag 31",
+  "date": "2027-04-24",
+  "time": "20:00",
+  "home_team": "SC Paderborn",
+  "away_team": "Augsburg",
+  "match_id": "sc_paderborn_vs_augsburg_bl"
+ },
+ {
+  "group": "Spieltag 31",
+  "date": "2027-04-24",
+  "time": "20:00",
+  "home_team": "TSG Hoffenheim",
+  "away_team": "Union Berlin",
+  "match_id": "tsg_hoffenheim_vs_union_berlin_bl"
+ },
+ {
+  "group": "Spieltag 31",
+  "date": "2027-04-24",
+  "time": "20:00",
+  "home_team": "VfB Stuttgart",
+  "away_team": "SC Freiburg",
+  "match_id": "vfb_stuttgart_vs_sc_freiburg_bl"
+ },
+ {
+  "group": "Spieltag 31",
+  "date": "2027-04-24",
+  "time": "20:00",
+  "home_team": "Werder Bremen",
+  "away_team": "Bayern Munich",
+  "match_id": "werder_bremen_vs_bayern_munich_bl"
+ },
+ {
+  "group": "Spieltag 32",
+  "date": "2027-05-08",
+  "time": "20:00",
+  "home_team": "1. FSV Mainz 05",
+  "away_team": "Borussia Dortmund",
+  "match_id": "1_fsv_mainz_05_vs_borussia_dortmund_bl"
+ },
+ {
+  "group": "Spieltag 32",
+  "date": "2027-05-08",
+  "time": "20:00",
+  "home_team": "Augsburg",
+  "away_team": "VfB Stuttgart",
+  "match_id": "augsburg_vs_vfb_stuttgart_bl"
+ },
+ {
+  "group": "Spieltag 32",
+  "date": "2027-05-08",
+  "time": "20:00",
+  "home_team": "Bayer Leverkusen",
+  "away_team": "Hamburger SV",
+  "match_id": "bayer_leverkusen_vs_hamburger_sv_bl"
+ },
+ {
+  "group": "Spieltag 32",
+  "date": "2027-05-08",
+  "time": "20:00",
+  "home_team": "Bayern Munich",
+  "away_team": "Borussia Mönchengladbach",
+  "match_id": "bayern_munich_vs_borussia_monchengladbach_bl"
+ },
+ {
+  "group": "Spieltag 32",
+  "date": "2027-05-08",
+  "time": "20:00",
+  "home_team": "Elversberg",
+  "away_team": "TSG Hoffenheim",
+  "match_id": "elversberg_vs_tsg_hoffenheim_bl"
+ },
+ {
+  "group": "Spieltag 32",
+  "date": "2027-05-08",
+  "time": "20:00",
+  "home_team": "RB Leipzig",
+  "away_team": "SC Paderborn",
+  "match_id": "rb_leipzig_vs_sc_paderborn_bl"
+ },
+ {
+  "group": "Spieltag 32",
+  "date": "2027-05-08",
+  "time": "20:00",
+  "home_team": "SC Freiburg",
+  "away_team": "1. FC Köln",
+  "match_id": "sc_freiburg_vs_1_fc_koln_bl"
+ },
+ {
+  "group": "Spieltag 32",
+  "date": "2027-05-08",
+  "time": "20:00",
+  "home_team": "Schalke 04",
+  "away_team": "Eintracht Frankfurt",
+  "match_id": "schalke_04_vs_eintracht_frankfurt_bl"
+ },
+ {
+  "group": "Spieltag 32",
+  "date": "2027-05-08",
+  "time": "20:00",
+  "home_team": "Union Berlin",
+  "away_team": "Werder Bremen",
+  "match_id": "union_berlin_vs_werder_bremen_bl"
+ },
+ {
+  "group": "Spieltag 33",
+  "date": "2027-05-15",
+  "time": "20:00",
+  "home_team": "Bayer Leverkusen",
+  "away_team": "Bayern Munich",
+  "match_id": "bayer_leverkusen_vs_bayern_munich_bl"
+ },
+ {
+  "group": "Spieltag 33",
+  "date": "2027-05-15",
+  "time": "20:00",
+  "home_team": "Borussia Dortmund",
+  "away_team": "1. FC Köln",
+  "match_id": "borussia_dortmund_vs_1_fc_koln_bl"
+ },
+ {
+  "group": "Spieltag 33",
+  "date": "2027-05-15",
+  "time": "20:00",
+  "home_team": "Borussia Mönchengladbach",
+  "away_team": "Augsburg",
+  "match_id": "borussia_monchengladbach_vs_augsburg_bl"
+ },
+ {
+  "group": "Spieltag 33",
+  "date": "2027-05-15",
+  "time": "20:00",
+  "home_team": "Eintracht Frankfurt",
+  "away_team": "Elversberg",
+  "match_id": "eintracht_frankfurt_vs_elversberg_bl"
+ },
+ {
+  "group": "Spieltag 33",
+  "date": "2027-05-15",
+  "time": "20:00",
+  "home_team": "Hamburger SV",
+  "away_team": "SC Freiburg",
+  "match_id": "hamburger_sv_vs_sc_freiburg_bl"
+ },
+ {
+  "group": "Spieltag 33",
+  "date": "2027-05-15",
+  "time": "20:00",
+  "home_team": "SC Paderborn",
+  "away_team": "Union Berlin",
+  "match_id": "sc_paderborn_vs_union_berlin_bl"
+ },
+ {
+  "group": "Spieltag 33",
+  "date": "2027-05-15",
+  "time": "20:00",
+  "home_team": "TSG Hoffenheim",
+  "away_team": "1. FSV Mainz 05",
+  "match_id": "tsg_hoffenheim_vs_1_fsv_mainz_05_bl"
+ },
+ {
+  "group": "Spieltag 33",
+  "date": "2027-05-15",
+  "time": "20:00",
+  "home_team": "VfB Stuttgart",
+  "away_team": "RB Leipzig",
+  "match_id": "vfb_stuttgart_vs_rb_leipzig_bl"
+ },
+ {
+  "group": "Spieltag 33",
+  "date": "2027-05-15",
+  "time": "20:00",
+  "home_team": "Werder Bremen",
+  "away_team": "Schalke 04",
+  "match_id": "werder_bremen_vs_schalke_04_bl"
+ },
+ {
+  "group": "Spieltag 34",
+  "date": "2027-05-22",
+  "time": "15:30",
+  "home_team": "1. FC Köln",
+  "away_team": "SC Paderborn",
+  "match_id": "1_fc_koln_vs_sc_paderborn_bl"
+ },
+ {
+  "group": "Spieltag 34",
+  "date": "2027-05-22",
+  "time": "15:30",
+  "home_team": "1. FSV Mainz 05",
+  "away_team": "VfB Stuttgart",
+  "match_id": "1_fsv_mainz_05_vs_vfb_stuttgart_bl"
+ },
+ {
+  "group": "Spieltag 34",
+  "date": "2027-05-22",
+  "time": "15:30",
+  "home_team": "Augsburg",
+  "away_team": "Hamburger SV",
+  "match_id": "augsburg_vs_hamburger_sv_bl"
+ },
+ {
+  "group": "Spieltag 34",
+  "date": "2027-05-22",
+  "time": "15:30",
+  "home_team": "Bayern Munich",
+  "away_team": "Eintracht Frankfurt",
+  "match_id": "bayern_munich_vs_eintracht_frankfurt_bl"
+ },
+ {
+  "group": "Spieltag 34",
+  "date": "2027-05-22",
+  "time": "15:30",
+  "home_team": "Elversberg",
+  "away_team": "Werder Bremen",
+  "match_id": "elversberg_vs_werder_bremen_bl"
+ },
+ {
+  "group": "Spieltag 34",
+  "date": "2027-05-22",
+  "time": "15:30",
+  "home_team": "RB Leipzig",
+  "away_team": "TSG Hoffenheim",
+  "match_id": "rb_leipzig_vs_tsg_hoffenheim_bl"
+ },
+ {
+  "group": "Spieltag 34",
+  "date": "2027-05-22",
+  "time": "15:30",
+  "home_team": "SC Freiburg",
+  "away_team": "Borussia Dortmund",
+  "match_id": "sc_freiburg_vs_borussia_dortmund_bl"
+ },
+ {
+  "group": "Spieltag 34",
+  "date": "2027-05-22",
+  "time": "15:30",
+  "home_team": "Schalke 04",
+  "away_team": "Bayer Leverkusen",
+  "match_id": "schalke_04_vs_bayer_leverkusen_bl"
+ },
+ {
+  "group": "Spieltag 34",
+  "date": "2027-05-22",
+  "time": "15:30",
+  "home_team": "Union Berlin",
+  "away_team": "Borussia Mönchengladbach",
+  "match_id": "union_berlin_vs_borussia_monchengladbach_bl"
+ }
+]

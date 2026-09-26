@@ -59,6 +59,53 @@ const COMPETITIONS = {
         sportKey: 'soccer_uefa_nations_league', emoji: '\u{1F3C6}' },
 }
 
+// Fixtures come from the server (GET /fixtures, rebuilt daily from ESPN), so
+// a new matchday appears without a redeploy; the bundled files above are only
+// the fallback. The whole season is listed, but a prediction is shown from
+// PREDICTION_LEAD_HOURS before kickoff - the window the daily job predicts in
+// with every result up to then. Tabs cover the matchdays around today.
+const PREDICTION_LEAD_HOURS = 48
+const TAB_PAST_DAYS = 14
+const TAB_AHEAD_DAYS = 21
+const MAX_TABS = 8
+
+function groupsAroundToday(fixtures, now = new Date()) {
+  const byGroup = new Map()
+  for (const f of fixtures) {
+    const t = fixtureDateTime(f)
+    const g = byGroup.get(f.group) || { first: t, last: t }
+    byGroup.set(f.group, { first: t < g.first ? t : g.first, last: t > g.last ? t : g.last })
+  }
+  const from = new Date(now.getTime() - TAB_PAST_DAYS * 86400000)
+  const to = new Date(now.getTime() + TAB_AHEAD_DAYS * 86400000)
+  const ordered = [...byGroup.entries()].sort((a, b) => a[1].first - b[1].first)
+  const distance = g => Math.min(Math.abs(g.first - now), Math.abs(g.last - now))
+  const inWindow = ordered.filter(([, g]) => g.last >= from && g.first <= to)
+  // The Nations League has a tab per day; keep the ones closest to today.
+  const kept = new Set([...inWindow].sort((a, b) => distance(a[1]) - distance(b[1])).slice(0, MAX_TABS).map(([n]) => n))
+  // The last matchday already played always stays, for its results - in the
+  // Champions League that can be four weeks back.
+  const lastPlayed = [...ordered].reverse().find(([, g]) => g.last < now)
+  if (lastPlayed) kept.add(lastPlayed[0])
+  const near = ordered.map(([name]) => name).filter(name => kept.has(name))
+  // Between seasons nothing is near: show the next groups instead.
+  return near.length ? near : ordered.filter(([, g]) => g.last >= now).slice(0, 2).map(([name]) => name)
+}
+
+function applyServerFixtures(data) {
+  for (const [key, competition] of Object.entries(COMPETITIONS)) {
+    const fixtures = data?.[key]
+    if (Array.isArray(fixtures) && fixtures.length) {
+      competition.fixtures = fixtures
+      competition.groups = groupsAroundToday(fixtures)
+    }
+  }
+}
+
+function predictionOpensAt(fixture) {
+  return new Date(fixtureDateTime(fixture).getTime() - PREDICTION_LEAD_HOURS * 3600000)
+}
+
 // "Next games" follows whichever competition is on screen: showing Champions
 // League kickoffs while the Nations League tab is open would just look broken.
 function nextGamesFor(fixtures) {
@@ -671,11 +718,15 @@ function ComboTicketView({ combo, loading }) {
 }
 
 function FixtureRow({ fixture }) {
+  const opens = predictionOpensAt(fixture)
+  const label = opens > new Date()
+    ? `Analysis from ${opens.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' })}`
+    : 'Analysis pending'
   return (
     <div className="fixture-row fixture-pending">
       <div className="fixture-meta">
         <span className="fixture-date">{fixture.date} · {fixture.time}</span>
-        <span className="fixture-pending-badge">Analysis pending</span>
+        <span className="fixture-pending-badge">{label}</span>
       </div>
       <div className="fixture-teams">
         <span><TeamLabel name={fixture.home_team} /></span>
@@ -2055,7 +2106,8 @@ export default function App() {
   const [tickerCompetition, setTickerCompetition] = useState(null)
   const [wmLoading, setWmLoading] = useState(true)
   const [activeCompetition, setActiveCompetition] = useState('cl')
-  const [activeGroup, setActiveGroup] = useState(GROUPS[0])
+  const [activeGroup, setActiveGroup] = useState('next')
+  const [, setFixturesVersion] = useState(0)
   const [analysisStep, setAnalysisStep] = useState({})
   const [combo, setCombo] = useState(null)
   const [comboLoading, setComboLoading] = useState(false)
@@ -2070,7 +2122,7 @@ export default function App() {
   function switchCompetition(key) {
     setActiveCompetition(key)
     setTickerCompetition(key)
-    setActiveGroup(COMPETITIONS[key].groups[0])
+    setActiveGroup('next')
     setCombo(null)
     setComboLoading(false)
   }
@@ -2151,6 +2203,13 @@ export default function App() {
   useEffect(() => {
     async function loadAll() {
       try {
+        try {
+          const served = await axios.get(`${API_BASE}/fixtures`)
+          applyServerFixtures(served.data)
+          setFixturesVersion(v => v + 1)
+        } catch (e) {
+          // keep the bundled fixtures
+        }
         const [listResp, resultsResp] = await Promise.allSettled([
           axios.get(`${API_BASE}/predictions`),
           axios.get(`${API_BASE}/real-results`),
@@ -2328,7 +2387,10 @@ export default function App() {
                   return fixtures.map(fixture => {
                     const realKey = `${fixture.home_team}__${fixture.away_team}`
                     const realResult = realResultsMap[realKey]
-                    const aiData = predictionsById[fixture.match_id]
+                    // Too far ahead: an older cached forecast would not know
+                    // the matches still to come, so none is shown yet.
+                    const aiData = new Date() >= predictionOpensAt(fixture)
+                      ? predictionsById[fixture.match_id] : undefined
 
                     if (realResult?.completed) {
                       return (
