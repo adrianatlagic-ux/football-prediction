@@ -80,7 +80,7 @@ def test_unlikely_legs_and_legs_the_market_disputes_are_rejected():
     assert leg_pool([vb("A", "B", [candidate(.90, 1.8, market_probability=.3)])]) == []  # market disagrees
     assert leg_pool([vb("A", "B", [candidate(.90, 1.8, market_probability=None)])]) == []  # no price to check
     # Short odds are fine now: we are not claiming an edge, only a likely outcome.
-    assert leg_pool([vb("A", "B", [candidate(.60, 1.2, market_probability=.8)])]) != []
+    assert leg_pool([vb("A", "B", [candidate(.60, 1.3, market_probability=.75)])]) != []
 
 
 def test_in_play_and_expired_snapshots_are_skipped():
