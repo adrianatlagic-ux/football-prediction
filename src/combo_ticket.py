@@ -67,7 +67,18 @@ def book_key(leg):
     return leg.get("bookmaker_key") or leg.get("bookmaker")
 
 
-def leg_pool(value_bet_results, book=None):
+# The combo's leg rules. "market" is the one shown; "legacy_v3" is the rule
+# before 26 September (the lower of model and market, the model had to rate
+# a leg 55%, legs from 1.20, the model's ⚠ warnings excluded), still computed
+# and logged beside it so the two can be compared on the same matches
+# (scripts/log_combos.py, scripts/grade_combos.py).
+POLICIES = {
+    "market": {"min_odds": MIN_LEG_ODDS, "model_filters": False},
+    "legacy_v3": {"min_odds": 1.20, "model_filters": True},
+}
+
+
+def leg_pool(value_bet_results, book=None, policy="market"):
     """Every qualifying leg, per bookmaker at that bookmaker's price.
 
     A match may contribute several legs (Over 1.5 and Team +0.5, say); the
@@ -93,6 +104,9 @@ def leg_pool(value_bet_results, book=None):
             # (the ⚠ warnings) used to exclude legs here, which let the model
             # veto bets the market rates likely. Selection is the market's; the
             # model is shown beside each leg for comparison only.
+            rules = POLICIES[policy]
+            if rules["model_filters"] and (candidate.get("high_deviation") or candidate.get("contradicts_favorite")):
+                continue
             for offered in candidate.get("bookmaker_offers", [candidate]):
                 if not book_key(offered) or not offered.get("quote_fresh"):
                     continue
@@ -109,17 +123,24 @@ def leg_pool(value_bet_results, book=None):
                 # choose another leg of a match than its 🎯 when a different mix
                 # reaches the minimum combined odds more likely. The model has
                 # not been shown to be better calibrated than the market.
-                if offered["best_odds"] < MIN_LEG_ODDS:
+                if offered["best_odds"] < rules["min_odds"]:
                     continue
                 market_probability = offered.get("market_probability")
-                if not isinstance(market_probability, (int, float)) or market_probability < MIN_LEG_PROBABILITY:
-                    continue
+                if rules["model_filters"]:
+                    if (offered["probability"] < MIN_LEG_PROBABILITY or not isinstance(market_probability, (int, float))
+                            or market_probability < MIN_MARKET_AGREEMENT):
+                        continue
+                    ranking = min(offered["probability"], market_probability)
+                else:
+                    if not isinstance(market_probability, (int, float)) or market_probability < MIN_LEG_PROBABILITY:
+                        continue
+                    ranking = market_probability
                 leg = {**{k: offered.get(k) for k in ("market", "outcome", "team", "best_odds", "bookmaker", "bookmaker_key",
                        "probability", "market_probability", "expected_value", "quote_last_update")},
                        **{k: vb.get(k) for k in ("home_team", "away_team", "commence_time", "sport_key", "event_id", "odds_fetched_at", "odds_stage")},
-                       # Named for its history (it was the lower of model and
-                       # market); it is now the market's estimate.
-                       "conservative_probability": market_probability,
+                       # The ranking probability: the market's estimate, or
+                       # under legacy_v3 the lower of model and market.
+                       "conservative_probability": ranking, "policy": policy,
                        "market_agrees": True, "quote_fresh": True}
                 key = (identity, book_key(leg), leg["market"], leg["outcome"], leg.get("team"))
                 old = selected.get(key)
@@ -257,9 +278,9 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None):
     return days
 
 
-def combo_report(value_bet_results, max_legs=MAX_LEGS, book=None):
+def combo_report(value_bet_results, max_legs=MAX_LEGS, book=None, policy="market"):
     pairs = list(value_bet_results)
-    legs = leg_pool(pairs, book=book)
+    legs = leg_pool(pairs, book=book, policy=policy)
     days, started = set(), defaultdict(int)
     for _, vb in pairs:
         date = match_day(vb.get("commence_time"))

@@ -1,4 +1,4 @@
-name: Log Champions League bets
+name: Log bets and combos
 
 # Runs independently of any chat session, so the bet log stays complete even
 # when nobody is actively working on the repo. log_bets.py only logs a match
@@ -26,10 +26,15 @@ jobs:
       - name: Log current bets
         run: python3 scripts/log_bets.py --api https://football-prediction.fly.dev
 
+      # Both combo rules, shown and old, in the hour before each ticket's
+      # first kickoff (scripts/log_combos.py).
+      - name: Log combo tickets
+        run: python3 scripts/log_combos.py --api https://football-prediction.fly.dev
+
       - name: Commit if the log changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/bet_log.jsonl
+          git add data/bet_log.jsonl data/combo_log.jsonl
           git diff --cached --quiet || git commit -m "Log Champions League bets [skip ci]"
           git push

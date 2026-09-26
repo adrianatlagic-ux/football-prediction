@@ -1895,6 +1895,10 @@ def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
     # Only bet-at-home: the one bookmaker the user bets with.
     report = combo_report(pairs, max_legs=max_legs, book=USER_BOOK_KEY)
     report["competition"] = competition
+    # The rule before 26 September, computed on the same matches for the log
+    # only (scripts/log_combos.py); the page shows the market rule.
+    legacy = combo_report(pairs, max_legs=max_legs, book=USER_BOOK_KEY, policy="legacy_v3")
+    report["legacy_v3_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in legacy["days"]]
 
     from src.combo_ticket import price_tip_combos
     tips = []
