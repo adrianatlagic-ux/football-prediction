@@ -89,13 +89,10 @@ def leg_pool(value_bet_results, book=None):
         for candidate in vb.get("bets", []):
             if not binary_market(candidate.get("market")):
                 continue
-            # The single-bet UI marks a large model/market gap with an
-            # exclamation point.  A combo must not turn that warning into a
-            # leg merely because the market still puts it fractionally above
-            # 50%; those are precisely the unsupported model departures the
-            # warning is for.
-            if candidate.get("high_deviation") or candidate.get("contradicts_favorite"):
-                continue
+            # No model-based admission: high_deviation and contradicts_favorite
+            # (the ⚠ warnings) used to exclude legs here, which let the model
+            # veto bets the market rates likely. Selection is the market's; the
+            # model is shown beside each leg for comparison only.
             for offered in candidate.get("bookmaker_offers", [candidate]):
                 if not book_key(offered) or not offered.get("quote_fresh"):
                     continue
@@ -107,11 +104,11 @@ def leg_pool(value_bet_results, book=None):
                 # Andorra or Liechtenstein completely - a rule that can only
                 # ever produce tickets for the biggest fixtures is a rule
                 # against small leagues, not against bad prices.
-                # Legs are chosen and ranked by the market's estimate alone, the
-                # rule the page's 🎯 uses, so every leg is a bet that could stand
-                # as its match's most likely tip. The model is not better
-                # calibrated than the market, and mixing it in only made the
-                # combo pick different legs than the match pages showed.
+                # Legs are admitted and ranked by the market's estimate alone -
+                # the same source as the page's 🎯, though the search may still
+                # choose another leg of a match than its 🎯 when a different mix
+                # reaches the minimum combined odds more likely. The model has
+                # not been shown to be better calibrated than the market.
                 if offered["best_odds"] < MIN_LEG_ODDS:
                     continue
                 market_probability = offered.get("market_probability")
@@ -152,8 +149,11 @@ def score_ticket(legs):
     odds = _product(l["best_odds"] for l in legs)
     probability = _product(l["probability"] for l in legs)
     cautious = [l["conservative_probability"] for l in legs]
-    if any(not math.isfinite(p) or not 0 <= p <= l["probability"] for l, p in zip(legs, cautious)):
-        raise ValueError("Invalid conservative probability")
+    # Once the lower of model and market, the ranking probability is now the
+    # market's; it may exceed the model's (market 65%, model 60%) and must not
+    # be rejected for it - that check left two valid legs with no ticket.
+    if any(not math.isfinite(p) or not 0 <= p <= 1 for p in cautious):
+        raise ValueError("Invalid market probability")
     conservative_probability = _product(cautious)
     market_probs = [l.get("market_probability") for l in legs]
     market_probability = _product(market_probs) if all(isinstance(p, (int, float)) and 0 <= p <= 1 for p in market_probs) else None

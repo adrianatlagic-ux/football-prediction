@@ -208,9 +208,16 @@ def test_a_leg_the_market_calls_an_underdog_cannot_qualify():
 
 
 @pytest.mark.parametrize("warning", ["high_deviation", "contradicts_favorite"])
-def test_warning_candidates_can_never_become_combo_legs(warning):
-    """The ! warning has the same exclusion meaning in singles and combos."""
-    assert leg_pool([vb("A", "B", [candidate(.80, 1.6, market_probability=.70, **{warning: True})])]) == []
+def test_model_warnings_no_longer_veto_a_leg_the_market_rates_likely(warning):
+    """Selection is the market's; the model's ⚠ warnings are shown, not applied."""
+    assert leg_pool([vb("A", "B", [candidate(.80, 1.6, market_probability=.70, **{warning: True})])]) != []
+
+
+def test_market_above_model_still_makes_a_ticket():
+    """Market 65%, model 60%: both legs valid, the ticket must exist."""
+    rows = [vb(h, a, [candidate(.60, 1.5, market_probability=.65)]) for h, a in [("A", "B"), ("C", "D")]]
+    tickets = build_tickets(leg_pool(rows))
+    assert tickets and tickets[0]["conservative_probability"] == pytest.approx(.65 * .65)
 
 
 def test_combined_quote_never_uses_mixed_best_prices():
