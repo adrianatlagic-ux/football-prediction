@@ -319,6 +319,16 @@ def fixtures():
     return load_all()
 
 
+@app.get("/model-track-record")
+def model_track_record():
+    """How often the model was right when it rated a bet above the market,
+    by size of the disagreement (scripts/build_model_track_record.py)."""
+    try:
+        return json.loads((Path(__file__).parent.parent / "data" / "model_track_record.json").read_text())
+    except (OSError, ValueError):
+        return {"combined": []}
+
+
 @app.get("/jobs/status")
 def job_status():
     from src import jobs
@@ -1001,7 +1011,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
             return
         raw_prob = priced["probability"]
         prob = raw_prob
-        binary_market = market == "1X2" or (market.startswith(("Handicap ", "Over/Under ")) and float(market.split()[-1]) % 1 == 0.5)
+        binary_market = market in ("1X2", "BTTS") or (market.startswith(("Handicap ", "Over/Under ")) and float(market.split()[-1]) % 1 == 0.5)
         market_prob = float(market_prob) if market_prob is not None and binary_market else None
         # Shrink the model toward the market before anything is priced off it.
         # The model is measurably overconfident - it rated bets 60% that won
@@ -1124,7 +1134,8 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
     for side in ("Yes", "No"):
         best = _user_price(event, "btts", side)
         if best:
-            _add_candidate("BTTS", side, None, 0.0, best, None)
+            _add_candidate("BTTS", side, None, 0.0, best,
+                           market_consensus(event, "btts", side, now=quote_as_of))
 
     candidates.sort(key=lambda c: c["expected_value"], reverse=True)
 

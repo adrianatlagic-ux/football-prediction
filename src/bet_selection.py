@@ -42,6 +42,9 @@ def market_evidence(event, key, name, point=None, now=None, exclude_book=None):
             elif key == "totals":
                 required = {"Over", "Under"}
                 group = [o for o in outcomes if o.get("name") in required and o.get("point") == point]
+            elif key == "btts":
+                required = {"Yes", "No"}
+                group = [o for o in outcomes if o.get("name") in required]
             else:
                 required = {event["home_team"], event["away_team"]}
                 group = [o for o in outcomes if o.get("name") in required and o.get("point") == (point if o.get("name") == name else -point)]

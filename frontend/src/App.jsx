@@ -975,6 +975,61 @@ function impliesBet(pick, tip, home, away, sameBet) {
   return true
 }
 
+// How often the model was right when it rated a bet above the market by
+// about this much (GET /model-track-record, scripts/build_model_track_record.py).
+// Loaded once; the ★ box reads it.
+let MODEL_TRACK_RECORD = null
+
+const TRACK_VERDICTS = {
+  better: ['is-better', 'The model has been right here more often than the market expected.'],
+  worse: ['is-worse', 'The model has done worse here than the market expected - follow the market.'],
+  same: ['is-same', 'The model has been no better than the market here.'],
+  too_few: ['is-same', 'Too few past cases to judge the model here.'],
+}
+
+function ModelTrackRecord({ bet, bets = [] }) {
+  const rows = MODEL_TRACK_RECORD?.combined
+  if (!rows?.length) return null
+  // A handicap on a team (Draw No Bet, +/-0.5) has no margin-free market
+  // price of its own here; it is judged on the same team's win in 1X2, which
+  // is what the past cases measure.
+  let basis = bet
+  let viaWin = false
+  if ((bet.model_probability_raw == null || bet.market_probability == null) && bet.team
+      && String(bet.market).startsWith('Handicap')) {
+    const win = bets.find(b => b.market === '1X2' && b.team === bet.team)
+    if (win && win.model_probability_raw != null && win.market_probability != null) {
+      basis = win
+      viaWin = true
+    }
+  }
+  if (basis.model_probability_raw == null || basis.market_probability == null) {
+    return (
+      <div className="model-track is-same">
+        <span className="model-track-label">Track record</span>
+        <p>No track record for this kind of bet: without a comparable market price (Draw No Bet refunds on a
+          draw) the past cases do not apply.</p>
+      </div>
+    )
+  }
+  const gap = basis.model_probability_raw - basis.market_probability
+  const row = rows.find(r => gap >= r.from && gap < r.to)
+  if (!row || !row.n) return null
+  const [cls, text] = TRACK_VERDICTS[row.verdict] || TRACK_VERDICTS.same
+  const band = `${Math.round(row.from * 100)}–${row.to >= 1 ? '100' : Math.round(row.to * 100)}`
+  return (
+    <div className={`model-track ${cls}`}>
+      <span className="model-track-label">Track record</span>
+      <p>
+        {viaWin && <>Judged on {bet.team}'s win: the model gives {pct(basis.model_probability_raw)}, the market {pct(basis.market_probability)}. </>}
+        When the model rated a bet {band} points above the market ({row.n} past cases), it landed
+        {' '}<strong>{pct(row.hit_rate)}</strong> of the time - the market expected {pct(row.market_expected)},
+        the model {pct(row.model_expected)}. {text}
+      </p>
+    </div>
+  )
+}
+
 // The second headline: what the market thinks will most likely land, at
 // odds still worth taking. No edge is claimed - that is the price tip's job.
 function LikelyTipBox({ pick, agentPick, sameBet, home, away }) {
@@ -1168,14 +1223,13 @@ function SmartBetCard({ betStep, betInfo, data }) {
             {best.market_probability != null ? (
               <>We rate this at <strong className="smart-bet-highlight-green">{(best.probability * 100).toFixed(0)}%</strong> (our model pulled partway toward the market to correct for its
               overconfidence), while {best.bookmaker}'s odds of <strong className="smart-bet-highlight-green">{best.best_odds.toFixed(2)}</strong> imply {(best.market_probability * 100).toFixed(0)}% —
-              a gap of {Math.round((best.probability - best.market_probability) * 100)} percentage points. Treat that as a disagreement, not
-              a profit: sorted by the size of this gap, our past bets did <em>worse</em> where the
-              gap was widest, not better.</>
+              a gap of {Math.round((best.probability - best.market_probability) * 100)} percentage points.</>
             ) : (
               <>We rate this at <strong className="smart-bet-highlight-green">{(best.probability * 100).toFixed(0)}%</strong> at odds of <strong className="smart-bet-highlight-green">{best.best_odds.toFixed(2)}</strong> from {best.bookmaker}, with no
               reliable market comparison available for this one.</>
             )}
           </p>
+          <ModelTrackRecord bet={best} bets={betInfo.bets || []} />
         </div>
       ) : (
         <div className="smart-bet-signal-box is-green">
@@ -2287,6 +2341,9 @@ export default function App() {
         } catch (e) {
           // keep the bundled fixtures
         }
+        axios.get(`${API_BASE}/model-track-record`)
+          .then(r => { MODEL_TRACK_RECORD = r.data; setFixturesVersion(v => v + 1) })
+          .catch(() => {})
         const [listResp, resultsResp] = await Promise.allSettled([
           axios.get(`${API_BASE}/predictions`),
           axios.get(`${API_BASE}/real-results`),

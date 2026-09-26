@@ -111,7 +111,7 @@ def losses(rows, w, key="pre"):
                      for r in rows])
 
 
-def test_segment(dev, hold, rng):
+def evaluate_segment(dev, hold, rng):
     grid = np.round(np.arange(0, 1.0001, 0.05), 2)
     best = min((losses(dev, w).mean(), w) for w in grid)[1]
     diff = losses(hold, best) - losses(hold, 0.0)
@@ -129,7 +129,7 @@ def main():
     hold = [r for r in rows if r["season"] in HOLD]
     rng = np.random.default_rng(0)
     print(f"{len(dev)} Entwicklungs-, {len(hold)} Pruefspiele (Bundesliga)\n")
-    report = {"all": test_segment(dev, hold, rng)}
+    report = {"all": evaluate_segment(dev, hold, rng)}
     a = report["all"]
     print(f"  alle Spiele            Beimischung {a['best_weight']:.0%}  Verbesserung {a['improvement']:+.4f} "
           f"[{a['ci95'][0]:+.4f}, {a['ci95'][1]:+.4f}]\n")
@@ -155,7 +155,7 @@ def main():
         for i, name in enumerate(("unteres Drittel", "mittleres Drittel", "oberes Drittel")):
             def part(rs):
                 return [r for r in rs if r[f"{feature}_third"] == i]
-            res = test_segment(part(d), part(h), rng)
+            res = evaluate_segment(part(d), part(h), rng)
             quiet = (i == 2) == quiet_is_high
             report[feature][name] = {**res, "quietest": quiet and i in (0, 2)}
             mark = "  <- ruhigster Markt" if (quiet and i in (0, 2)) else ""
