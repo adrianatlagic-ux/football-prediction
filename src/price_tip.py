@@ -280,12 +280,17 @@ def _same(a: dict, b: dict) -> bool:
                 and (a.get("team") or None) == (b.get("team") or None))
 
 
+# How far below the market the model may sit and still count as agreeing:
+# 69% against a market's 73% is noise, not a contrary view.
+MODEL_TOLERANCE = 0.05
+
+
 def model_and_ai_view(tip: Optional[dict], prediction: dict, agent_eval: Optional[dict],
                       candidates: Optional[list] = None) -> dict:
     """Whether the model and the AI side with the tipped bet - display only.
 
-    The model "agrees" when it rates the bet at least as likely as Pinnacle
-    does. Neither view changes the tip: among bet-at-home's archived
+    The model "agrees" unless it rates the bet more than MODEL_TOLERANCE
+    below Pinnacle. Neither view changes the tip: among bet-at-home's archived
     opportunities, the ones the model liked did worse, not better.
     """
     if not tip:
@@ -309,7 +314,7 @@ def model_and_ai_view(tip: Optional[dict], prediction: dict, agent_eval: Optiona
     else:
         match = next((c for c in candidates or [] if _same(c, tip)), None)
         model_p = match.get("model_probability_raw") if match else None
-    model_agrees = None if model_p is None else float(model_p) >= tip["probability"]
+    model_agrees = None if model_p is None else float(model_p) >= tip["probability"] - MODEL_TOLERANCE
     pick = (agent_eval or {}).get("pick")
     ai_agrees = None if not agent_eval else _same(pick, tip)
     return {"model_agrees": model_agrees, "ai_agrees": ai_agrees,

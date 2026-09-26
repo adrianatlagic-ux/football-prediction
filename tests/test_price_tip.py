@@ -143,3 +143,9 @@ def test_quarter_lines_never_become_a_price_tip():
     book = _full_book(totals=[{"point": 2.25, "over": 3.00, "under": 1.40}], spreads=[])
     result = build_price_tip(event, book, now=NOW)
     assert not any(r["market"] == "Over/Under 2.25" for r in result["outcomes"])
+
+
+def test_model_a_few_points_below_the_market_still_agrees():
+    tip = {"market": "1X2", "outcome": "away_win", "probability": 0.30}
+    assert model_and_ai_view(tip, {"probability_away_win": 0.26}, None)["model_agrees"] is True
+    assert model_and_ai_view(tip, {"probability_away_win": 0.24}, None)["model_agrees"] is False

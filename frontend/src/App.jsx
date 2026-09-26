@@ -813,6 +813,8 @@ function priceTipRows(outcomes) {
   return [...main, ...others]
 }
 
+// Must match src/price_tip.py MODEL_TOLERANCE.
+const MODEL_TOLERANCE = 0.05
 const pct = (x, digits = 0) => `${(x * 100).toFixed(digits)}%`
 const signedPct = (x) => `${x >= 0 ? '+' : ''}${(x * 100).toFixed(1)}%`
 const bookName = (b) => (b || 'bet-at-home').replace(/\.de$/, '')
@@ -896,6 +898,7 @@ function PriceTipBox({ priceTip }) {
         {priceTip.model_agrees != null && (
           <span className={`smart-bet-agree-chip ${priceTip.model_agrees ? 'yes' : 'no'}`}>
             {priceTip.model_agrees ? '◆ Model agrees ✓' : '◆ Model differs ✕'}
+            {priceTip.model_probability != null ? ` ${pct(priceTip.model_probability)}` : ''}
           </span>
         )}
         {priceTip.ai_agrees != null && (
@@ -941,7 +944,10 @@ function AgentFactors({ research }) {
 // odds still worth taking. No edge is claimed - that is the price tip's job.
 function LikelyTipBox({ pick, agentPick, sameBet }) {
   if (!pick) return null
-  const modelAgrees = pick.model_probability_raw != null && pick.model_probability_raw >= pick.market_probability
+  // Within five points of the market counts as agreeing: 69% against 73% is
+  // noise, not a contrary view. The model's own number is shown either way.
+  const modelP = pick.model_probability_raw
+  const modelAgrees = modelP != null && modelP >= pick.market_probability - MODEL_TOLERANCE
   const aiAgrees = agentPick ? sameBet(agentPick, pick) : null
   return (
     <div className="likely-tip">
@@ -953,7 +959,7 @@ function LikelyTipBox({ pick, agentPick, sameBet }) {
       </div>
       <div className="smart-bet-agree-row">
         <span className={`smart-bet-agree-chip ${modelAgrees ? 'yes' : 'no'}`}>
-          {modelAgrees ? '◆ Model agrees ✓' : '◆ Model differs ✕'}
+          {modelAgrees ? '◆ Model agrees ✓' : '◆ Model differs ✕'}{modelP != null ? ` ${pct(modelP)}` : ''}
         </span>
         {aiAgrees != null && (
           <span className={`smart-bet-agree-chip ${aiAgrees ? 'yes' : 'no'}`}>
@@ -1021,11 +1027,10 @@ function SmartBetCard({ betStep, betInfo, data }) {
   // TABLE_ROWS are shown; the others sit behind "Show all markets".
   const TABLE_ROWS = 10
   const allBets = (betInfo.bets && betInfo.bets.length) ? betInfo.bets : [...greens, ...reds]
-  // One line for the page: the price tip, the market's likeliest bet and the
-  // AI's pick. The model's own favourite and its biggest gap to the market
-  // are no longer headlined - both rest on the model, which has shown no
-  // advantage over the market, and they mostly contradicted the other two.
-  const signals = [priceTipPick, likelyPick, agentPick].filter(Boolean)
+  // Table order: the price tip, the market's likeliest bet, the model's
+  // biggest gap to the market (★, explained in its box below), the AI's pick.
+  // The model's favourite is no longer marked.
+  const signals = [priceTipPick, likelyPick, best, agentPick].filter(Boolean)
   const signalRank = b => { const i = signals.findIndex(x => sameBet(x, b)); return i === -1 ? signals.length : i }
   const ordered = [...allBets].sort((a, b) =>
     signalRank(a) - signalRank(b)
@@ -1040,6 +1045,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
   const dimmed = b => b.expected_value <= 0 || (b.kelly_stake_pct || 0) < 1
 
   const renderRow = (b, i, kind) => {
+    const isRec = best && sameBet(b, best)
     const isPriceTip = priceTipPick && sameBet(b, priceTipPick)
     const isAgentPick = agentPick && sameBet(b, agentPick)
     const isLikelyPick = likelyPick && sameBet(b, likelyPick)
@@ -1049,12 +1055,12 @@ function SmartBetCard({ betStep, betInfo, data }) {
     // buries it, even though we deliberately show these regardless of edge.
     // The price tip especially is chosen against Pinnacle, not the model, so
     // the model's edge column may well be negative on it.
-    const keepFullOpacity = isPriceTip || isAgentPick || isLikelyPick
+    const keepFullOpacity = isPriceTip || isAgentPick || isLikelyPick || isRec
     return (
       <div className={`smart-bet-table-row ${dimmed(b) && !keepFullOpacity ? 'is-red' : ''} ${isPriceTip ? 'is-rec' : ''}`} key={`${kind}-${i}`}>
         <span className="smart-bet-col-market">{marketGroupLabel(b.market)}{b.suspicious ? ' ⚠' : ''}</span>
         <span className="smart-bet-col-pick">
-          {isPriceTip ? '💰 ' : ''}{isLikelyPick ? '🎯 ' : ''}{isAgentPick ? '✨ ' : ''}{betOutcomeLabel(b)}
+          {isPriceTip ? '💰 ' : ''}{isLikelyPick ? '🎯 ' : ''}{isRec ? '★ ' : ''}{isAgentPick ? '✨ ' : ''}{betOutcomeLabel(b)}
         </span>
         <span className="smart-bet-col-odds" title={b.bookmaker}>
           {b.best_odds.toFixed(2)}{b.bookmaker_key !== USER_BOOK_KEY && hasUserBook ? '*' : ''}
@@ -1109,11 +1115,42 @@ function SmartBetCard({ betStep, betInfo, data }) {
         </div>
       )}
 
+      {best ? (
+        <div className="smart-bet-signal-box is-green">
+          <div className="smart-bet-agent-headtitle">
+            <span className="smart-bet-signal-headline">★ Biggest gap to the market: {betOutcomeLabel(best)}</span>
+          </div>
+          <p className="smart-bet-agent-text">
+            {best.market_probability != null ? (
+              <>We rate this at <strong className="smart-bet-highlight-green">{(best.probability * 100).toFixed(0)}%</strong> (our model pulled partway toward the market to correct for its
+              overconfidence), while {best.bookmaker}'s odds of <strong className="smart-bet-highlight-green">{best.best_odds.toFixed(2)}</strong> imply {(best.market_probability * 100).toFixed(0)}% —
+              a gap of {Math.round((best.probability - best.market_probability) * 100)} percentage points. Treat that as a disagreement, not
+              a profit: sorted by the size of this gap, our past bets did <em>worse</em> where the
+              gap was widest, not better.</>
+            ) : (
+              <>We rate this at <strong className="smart-bet-highlight-green">{(best.probability * 100).toFixed(0)}%</strong> at odds of <strong className="smart-bet-highlight-green">{best.best_odds.toFixed(2)}</strong> from {best.bookmaker}, with no
+              reliable market comparison available for this one.</>
+            )}
+          </p>
+        </div>
+      ) : (
+        <div className="smart-bet-signal-box is-green">
+          <div className="smart-bet-agent-headtitle">
+            <span className="smart-bet-signal-headline">★ Biggest gap to the market: none worth showing</span>
+          </div>
+          <p className="smart-bet-agent-text">
+            {recWarning
+              ? 'The widest gap in this match is too small to be worth naming.'
+              : 'Our model and the bookmakers agree closely on every market in this match.'}
+          </p>
+        </div>
+      )}
+
       <div className="smart-bet-finePrint">
         <p><strong>💰</strong> price tip: bet-at-home pays more than Pinnacle's fair price. <strong>🎯</strong> the bet
         the market rates most likely to land at odds between 1.30 and 2.00 (no edge claimed). <strong>✨</strong> the AI
-        agent's own pick after live research. The Edge and Stake columns are our model's view, which has shown no
-        advantage over the market.</p>
+        agent's own pick after live research. <strong>★</strong> where our model sees the biggest gap to the
+        market. The Edge and Stake columns are the model's view, which has shown no advantage over the market.</p>
 
       {[...greens, ...reds].some(b => b.market.startsWith('Handicap')) && (
         <p>
