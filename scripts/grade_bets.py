@@ -147,6 +147,7 @@ def main():
     agent_disagrees = Bucket("Top-Tipp, KI widerspricht")
     price_tip = Bucket("💰 Preistipp (bet-at-home über Pinnacle fair)")
     price_tip_edges, no_tip = [], 0
+    likely = Bucket("🎯 Wahrscheinlichster Tipp (Markt, Quote 1.30-2.00)")
 
     pending = 0
     match_rows = []
@@ -206,6 +207,11 @@ def main():
                     price_tip_edges.append(tip["edge"])
             elif pt:
                 no_tip += 1
+            lp = entry.get("likely_pick")
+            if lp:
+                g = grade(lp, home, away, hs, as_)
+                if g is not None:
+                    likely.add(g, lp["best_odds"])
 
             rec_desc = f"{rec['market']} {rec.get('team') or rec['outcome']}" if rec else "-"
             match_rows.append(f"  {home} {hs}-{as_} {away:18} | {len(entry.get('green_bets', [])):2} grüne Tipps | Top: {rec_desc}")
@@ -234,6 +240,8 @@ def main():
             print(f"  erwarteter Edge im Schnitt {sum(price_tip_edges) / len(price_tip_edges):+.1%} "
                   f"- einzelne Ergebnisse schwanken weit mehr; erst viele Tipps sagen etwas.")
         print(f"  Spiele ohne Preistipp: {no_tip}")
+    if likely.decided:
+        print(likely.report())
 
     if agent_pick.decided or agent_agrees.decided or agent_disagrees.decided:
         print("\n  -- KI-Agent --")

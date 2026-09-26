@@ -886,6 +886,38 @@ function AgentFactors({ research }) {
   )
 }
 
+// The second headline: what the market thinks will most likely land, at
+// odds still worth taking. No edge is claimed - that is the price tip's job.
+function LikelyTipBox({ pick, agentPick, sameBet }) {
+  if (!pick) return null
+  const modelAgrees = pick.model_probability_raw != null && pick.model_probability_raw >= pick.market_probability
+  const aiAgrees = agentPick ? sameBet(agentPick, pick) : null
+  return (
+    <div className="likely-tip">
+      <span className="smart-bet-label likely-tip-label">🎯 Most likely</span>
+      <div className="likely-tip-row">
+        <span className="likely-tip-pick">{betOutcomeLabel(pick)}</span>
+        <span className="likely-tip-odds">{pick.best_odds.toFixed(2)}</span>
+        <span className="likely-tip-chance">{pct(pick.market_probability)} chance</span>
+      </div>
+      <div className="smart-bet-agree-row">
+        <span className={`smart-bet-agree-chip ${modelAgrees ? 'yes' : 'no'}`}>
+          {modelAgrees ? '◆ Model agrees ✓' : '◆ Model differs ✕'}
+        </span>
+        {aiAgrees != null && (
+          <span className={`smart-bet-agree-chip ${aiAgrees ? 'yes' : 'no'}`}>
+            {aiAgrees ? '✨ AI agrees ✓' : '✨ AI differs ✕'}
+          </span>
+        )}
+      </div>
+      <div className="smart-bet-best-meta">
+        The market's likeliest bet between odds 1.30 and 2.00. Likely is not the same as good value:
+        this pick carries the bookmaker's margin.
+      </div>
+    </div>
+  )
+}
+
 function SmartBetCard({ betStep, betInfo, data }) {
   const [showAllMarkets, setShowAllMarkets] = useState(false)
   const analyzing = betStep < BET_STEPS.length
@@ -928,7 +960,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
   const combined = betInfo.combined
   const priceTipPick = betInfo.price_tip && betInfo.price_tip.tip
   const modelFavorite = betInfo.model_favorite
-  const safestPick = betInfo.safest_pick
+  const likelyPick = betInfo.likely_pick
   const scenarioText = data?.score_prediction?.betting_markets?.scenario
   const sameBet = (a, b) => a.market === b.market && a.outcome === b.outcome && a.team === b.team
   const greens = betInfo.green_bets || []
@@ -938,7 +970,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
   // TABLE_ROWS are shown; the others sit behind "Show all markets".
   const TABLE_ROWS = 10
   const allBets = (betInfo.bets && betInfo.bets.length) ? betInfo.bets : [...greens, ...reds]
-  const signals = [priceTipPick, best, agentPick, modelFavorite, safestPick].filter(Boolean)
+  const signals = [priceTipPick, likelyPick, best, agentPick, modelFavorite].filter(Boolean)
   const signalRank = b => { const i = signals.findIndex(x => sameBet(x, b)); return i === -1 ? signals.length : i }
   const ordered = [...allBets].sort((a, b) =>
     signalRank(a) - signalRank(b)
@@ -957,19 +989,19 @@ function SmartBetCard({ betStep, betInfo, data }) {
     const isPriceTip = priceTipPick && sameBet(b, priceTipPick)
     const isAgentPick = agentPick && sameBet(b, agentPick)
     const isModelFavorite = modelFavorite && sameBet(b, modelFavorite)
-    const isSafestPick = safestPick && sameBet(b, safestPick)
+    const isLikelyPick = likelyPick && sameBet(b, likelyPick)
     // Any marked signal (price tip 💰, value bet ★, AI pick ✨, model
-    // favorite ◆, safest pick 🛡) is a headline in its own right - dimming its
+    // favorite ◆, most likely 🎯) is a headline in its own right - dimming its
     // row to 40% opacity just because the model rates its edge negative
     // buries it, even though we deliberately show these regardless of edge.
     // The price tip especially is chosen against Pinnacle, not the model, so
     // the model's edge column may well be negative on it.
-    const keepFullOpacity = isRec || isPriceTip || isAgentPick || isModelFavorite || isSafestPick
+    const keepFullOpacity = isRec || isPriceTip || isAgentPick || isModelFavorite || isLikelyPick
     return (
       <div className={`smart-bet-table-row ${dimmed(b) && !keepFullOpacity ? 'is-red' : ''} ${isRec ? 'is-rec' : ''}`} key={`${kind}-${i}`}>
         <span className="smart-bet-col-market">{marketGroupLabel(b.market)}{b.suspicious ? ' ⚠' : ''}</span>
         <span className="smart-bet-col-pick">
-          {isPriceTip ? '💰 ' : ''}{isRec ? '★ ' : ''}{isAgentPick ? '✨ ' : ''}{isModelFavorite ? '◆ ' : ''}{isSafestPick ? '🛡 ' : ''}{betOutcomeLabel(b)}
+          {isPriceTip ? '💰 ' : ''}{isRec ? '★ ' : ''}{isAgentPick ? '✨ ' : ''}{isModelFavorite ? '◆ ' : ''}{isLikelyPick ? '🎯 ' : ''}{betOutcomeLabel(b)}
         </span>
         <span className="smart-bet-col-odds" title={b.bookmaker}>
           {b.best_odds.toFixed(2)}{b.bookmaker_key !== USER_BOOK_KEY && hasUserBook ? '*' : ''}
@@ -985,6 +1017,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
   return (
     <div className="wm-reveal smart-bet-card">
       <PriceTipBox priceTip={betInfo.price_tip} />
+      <LikelyTipBox pick={likelyPick} agentPick={agentPick} sameBet={sameBet} />
 
       {(greens.length > 0 || reds.length > 0) && (
         <div className="smart-bet-table">
@@ -1068,35 +1101,10 @@ function SmartBetCard({ betStep, betInfo, data }) {
         </div>
       )}
 
-      {safestPick ? (
-        <div className="smart-bet-signal-box is-red">
-          <div className="smart-bet-agent-headtitle">
-            <span className="smart-bet-signal-headline">🛡 Safest Bet: {betOutcomeLabel(safestPick)}</span>
-          </div>
-          <p className="smart-bet-agent-text">
-            At odds of <strong className="smart-bet-highlight-red">{safestPick.best_odds.toFixed(2)}</strong> from {safestPick.bookmaker}, this is the <strong className="smart-bet-highlight-red">lowest-risk pick</strong> across every market
-            we checked for this match — the model gives it a <strong className="smart-bet-highlight-red">{(safestPick.probability * 100).toFixed(0)}%</strong> chance, and the bookmaker's own
-            short odds mean they rate it as <strong className="smart-bet-highlight-red">close to a sure thing</strong> too.
-          </p>
-        </div>
-      ) : (
-        <div className="smart-bet-signal-box is-red">
-          <div className="smart-bet-agent-headtitle">
-            <span className="smart-bet-signal-headline">🛡 Safest Bet: No Bet Available</span>
-          </div>
-          <p className="smart-bet-agent-text">
-            No outcome in this match is priced at 1.50 odds or below
-            {modelFavorite && <> — even the model's favorite, {betOutcomeLabel(modelFavorite)}, sits at {modelFavorite.best_odds.toFixed(2)}</>} —
-            so nothing here is safe enough to clear our bar today.
-          </p>
-        </div>
-      )}
-
       <div className="smart-bet-finePrint">
         <p><strong>💰</strong> price tip: bet-at-home pays more than Pinnacle's fair price. <strong>★</strong> top pick by edge. <strong>✨</strong> AI agent's own pick after live research. <strong>◆</strong> model's
-        most likely outcome (no proven market edge required). <strong>🛡</strong> safest pick across all markets (highest
-        model probability among bets priced at odds 1.50 or below, confirming the market also sees it
-        as near-certain).</p>
+        most likely outcome (no proven market edge required). <strong>🎯</strong> the bet the market rates most
+        likely to land at odds between 1.30 and 2.00 (no edge claimed).</p>
 
       {[...greens, ...reds].some(b => b.market.startsWith('Handicap')) && (
         <p>

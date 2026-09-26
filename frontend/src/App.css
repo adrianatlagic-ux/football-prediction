@@ -3007,3 +3007,19 @@ body {
 }
 .agent-factors-toggle + .agent-factors-row { margin-top: 0.6rem; }
 .agent-factors-chevron { font-size: 0.7rem; opacity: 0.7; }
+
+/* 🎯 Most likely: the second headline tip, under the price tip. */
+.likely-tip {
+  margin-top: 0.8rem;
+  padding: 0.8rem 0.9rem;
+  border-radius: 10px;
+  background: rgba(34,211,238,0.06);
+  border: 1px solid rgba(34,211,238,0.22);
+  text-align: center;
+}
+.likely-tip-label { color: var(--cyan-light); }
+.likely-tip-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 0.6rem; }
+.likely-tip-pick { font-size: 1.05rem; font-weight: 800; color: #f1f5f9; }
+.likely-tip-odds { font-size: 1.15rem; font-weight: 800; color: var(--gold-light); }
+.likely-tip-chance { font-size: 0.8rem; font-weight: 700; padding: 0.1rem 0.5rem; border-radius: 50px;
+  background: rgba(34,211,238,0.12); color: var(--cyan-light); }

@@ -61,3 +61,16 @@ def test_window_refresh_respects_the_monthly_budget(tmp_path, monkeypatch):
     assert book_odds.refresh_if_due("soccer_germany_bundesliga", [soon])
     assert calls == [(1, False)]
     assert book_odds.spent_this_month() == book_odds.PRICE_PER_MATCH
+
+
+def test_most_likely_pick_is_the_markets_likeliest_in_the_odds_range():
+    e = _snapshot_event()
+    e["bookmakers"][0]["markets"] = [
+        {"key": "h2h", "outcomes": [{"name": "Aachen", "price": 1.5}, {"name": "Draw", "price": 4.0},
+                                    {"name": "Bochum", "price": 6.0}]},
+        {"key": "totals", "outcomes": [{"name": "Over", "point": 0.5, "price": 1.05},
+                                       {"name": "Under", "point": 0.5, "price": 9.0}]}]
+    vb = api._compute_value_bets(_renamed(prediction()), [e], "Aachen", "Bochum")
+    pick = vb["likely_pick"]
+    # Over 0.5 is likelier but priced at 1.05, below the 1.30 floor.
+    assert pick["market"] == "1X2" and pick["team"] == "Aachen"

@@ -1139,6 +1139,20 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
     safest_candidates = [c for c in candidates if c["best_odds"] is not None and c["best_odds"] <= SAFEST_PICK_MAX_ODDS]
     safest_pick = max(safest_candidates, key=lambda c: c["probability"], default=None)
 
+    # The most likely bet by the MARKET's estimate, at a price still worth
+    # taking. Separate from the price tip on purpose: the price tip answers
+    # "where does bet-at-home pay too much", this one "what will most likely
+    # land". It claims no edge. It replaces the model-based safest pick,
+    # because the model has shown no advantage over the market, and the
+    # odds floor keeps it off near-certainties like Under 6.5 at 1.02.
+    LIKELY_MIN_ODDS, LIKELY_MAX_ODDS = 1.30, 2.00
+    likely_pick = max(
+        (c for c in candidates if c.get("market_probability") is not None
+         and LIKELY_MIN_ODDS <= c["best_odds"] <= LIKELY_MAX_ODDS),
+        key=lambda c: (c["market_probability"], c["best_odds"]),
+        default=None,
+    )
+
     # model_favorite and safest_pick must always be visible in the table, even
     # with negative edge - "reds" above is capped to the 3 least-bad
     # candidates, which can silently cut one of them if its edge is worse
@@ -1159,7 +1173,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
         default=None,
     )
 
-    for extra in (model_favorite, safest_pick, market_favorite):
+    for extra in (model_favorite, safest_pick, market_favorite, likely_pick):
         if extra is None or extra["expected_value"] > 0:
             continue
         if not any(_candidate_id(c) == _candidate_id(extra) for c in reds):
@@ -1183,6 +1197,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
         "model_favorite": model_favorite,
         "market_favorite": market_favorite,
         "safest_pick": safest_pick,
+        "likely_pick": likely_pick,
         "green_bets": greens,
         "red_bets": reds,
         "bets": candidates,
@@ -1886,6 +1901,7 @@ def all_bets():
             "model_favorite": vb.get("model_favorite"),
             "market_favorite": vb.get("market_favorite"),
             "safest_pick": vb.get("safest_pick"),
+            "likely_pick": vb.get("likely_pick"),
             "odds_refreshed": vb.get("odds_refreshed", False),
             "green_bets": vb.get("green_bets", []),
             "red_bets": vb.get("red_bets", []),
