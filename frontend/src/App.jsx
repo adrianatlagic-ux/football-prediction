@@ -583,7 +583,7 @@ function ComboTicketCard({ ticket, primary }) {
       </div>
       <dl className="bet-metrics probability-metrics">
         <BetMetric label="Chance all of them land" value={betPercent(ticket.conservative_probability)}
-                   detail="The more cautious of our figure and the price" emphasis />
+                   detail="By the market's prices, margin removed" emphasis />
         <BetMetric label="Our model on its own" value={betPercent(ticket.probability)} detail="Before checking against the price" />
       </dl>
       <dl className="bet-metrics decision-metrics">
@@ -940,15 +940,47 @@ function AgentFactors({ research }) {
   )
 }
 
+// Whether a bet wins at a final score (null for a market we cannot settle).
+function betWins(b, home, away, hs, as) {
+  const margin = team => team === home ? hs - as : team === away ? as - hs : null
+  const line = () => parseFloat(String(b.market).split(' ').pop())
+  if (b.market === '1X2') {
+    if (b.outcome === 'draw') return hs === as
+    const m = margin(b.team)
+    return m == null ? null : m > 0
+  }
+  if (b.market === 'BTTS') return (hs > 0 && as > 0) === (String(b.outcome).toLowerCase() === 'yes')
+  if (String(b.market).startsWith('Over/Under ')) return b.outcome === 'Over' ? hs + as > line() : hs + as < line()
+  if (String(b.market).startsWith('Handicap ')) {
+    const m = margin(b.team)
+    return m == null ? null : m + line() > 0
+  }
+  return null
+}
+
+// The AI "agrees" when our tip wins in every result its own pick wins: its
+// "Spain to win" backs our "Spain or draw". Mirrors src/price_tip.py implies.
+function impliesBet(pick, tip, home, away, sameBet) {
+  for (let hs = 0; hs <= 8; hs++) {
+    for (let as = 0; as <= 8; as++) {
+      const a = betWins(pick, home, away, hs, as)
+      const b = betWins(tip, home, away, hs, as)
+      if (a === null || b === null) return sameBet(pick, tip)
+      if (a && !b) return false
+    }
+  }
+  return true
+}
+
 // The second headline: what the market thinks will most likely land, at
 // odds still worth taking. No edge is claimed - that is the price tip's job.
-function LikelyTipBox({ pick, agentPick, sameBet }) {
+function LikelyTipBox({ pick, agentPick, sameBet, home, away }) {
   if (!pick) return null
   // Within five points of the market counts as agreeing: 69% against 73% is
   // noise, not a contrary view. The model's own number is shown either way.
   const modelP = pick.model_probability_raw
   const modelAgrees = modelP != null && modelP >= pick.market_probability - MODEL_TOLERANCE
-  const aiAgrees = agentPick ? sameBet(agentPick, pick) : null
+  const aiAgrees = agentPick ? impliesBet(agentPick, pick, home, away, sameBet) : null
   return (
     <div className="likely-tip">
       <span className="smart-bet-label likely-tip-label">🎯 Most likely</span>
@@ -1076,7 +1108,8 @@ function SmartBetCard({ betStep, betInfo, data }) {
   return (
     <div className="wm-reveal smart-bet-card">
       <PriceTipBox priceTip={betInfo.price_tip} />
-      <LikelyTipBox pick={likelyPick} agentPick={agentPick} sameBet={sameBet} />
+      <LikelyTipBox pick={likelyPick} agentPick={agentPick} sameBet={sameBet}
+                    home={betInfo.home_team} away={betInfo.away_team} />
 
       {(greens.length > 0 || reds.length > 0) && (
         <div className="smart-bet-table">

@@ -149,3 +149,13 @@ def test_model_a_few_points_below_the_market_still_agrees():
     tip = {"market": "1X2", "outcome": "away_win", "probability": 0.30}
     assert model_and_ai_view(tip, {"probability_away_win": 0.26}, None)["model_agrees"] is True
     assert model_and_ai_view(tip, {"probability_away_win": 0.24}, None)["model_agrees"] is False
+
+
+def test_ai_agrees_when_its_pick_can_only_win_if_the_tip_wins():
+    from src.price_tip import implies
+    win = {"market": "1X2", "outcome": "away_win", "team": "Spain"}
+    or_draw = {"market": "Handicap +0.5", "outcome": "handicap", "team": "Spain"}
+    assert implies(win, or_draw, "England", "Spain")
+    assert not implies(or_draw, win, "England", "Spain")
+    assert implies({"market": "Over/Under 2.5", "outcome": "Over"},
+                   {"market": "Over/Under 1.5", "outcome": "Over"}, "England", "Spain")

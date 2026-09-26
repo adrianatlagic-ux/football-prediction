@@ -107,17 +107,22 @@ def leg_pool(value_bet_results, book=None):
                 # Andorra or Liechtenstein completely - a rule that can only
                 # ever produce tickets for the biggest fixtures is a rule
                 # against small leagues, not against bad prices.
-                if offered["probability"] < MIN_LEG_PROBABILITY or offered["best_odds"] < MIN_LEG_ODDS:
+                # Legs are chosen and ranked by the market's estimate alone, the
+                # rule the page's 🎯 uses, so every leg is a bet that could stand
+                # as its match's most likely tip. The model is not better
+                # calibrated than the market, and mixing it in only made the
+                # combo pick different legs than the match pages showed.
+                if offered["best_odds"] < MIN_LEG_ODDS:
                     continue
                 market_probability = offered.get("market_probability")
-                if not isinstance(market_probability, (int, float)) or market_probability < MIN_MARKET_AGREEMENT:
+                if not isinstance(market_probability, (int, float)) or market_probability < MIN_LEG_PROBABILITY:
                     continue
                 leg = {**{k: offered.get(k) for k in ("market", "outcome", "team", "best_odds", "bookmaker", "bookmaker_key",
                        "probability", "market_probability", "expected_value", "quote_last_update")},
                        **{k: vb.get(k) for k in ("home_team", "away_team", "commence_time", "sport_key", "event_id", "odds_fetched_at", "odds_stage")},
-                       # The more cautious of our number and the market's, so a
-                       # ticket is never advertised on model confidence alone.
-                       "conservative_probability": min(offered["probability"], market_probability),
+                       # Named for its history (it was the lower of model and
+                       # market); it is now the market's estimate.
+                       "conservative_probability": market_probability,
                        "market_agrees": True, "quote_fresh": True}
                 key = (identity, book_key(leg), leg["market"], leg["outcome"], leg.get("team"))
                 old = selected.get(key)

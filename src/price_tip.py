@@ -275,6 +275,27 @@ def build_price_tip(event: dict, book: dict, now: Optional[datetime] = None) -> 
     return {**base, "outcomes": rows, "tip": tip, "reason": reason}
 
 
+def implies(pick: dict, tip: dict, home: str, away: str) -> bool:
+    """Whether `tip` wins in every result in which `pick` wins.
+
+    The AI backing "Spain to win" agrees with a tip of "Spain or draw": every
+    score that wins the first wins the second. Checked over every score up
+    to 8-8 with the same settlement the bet audit uses.
+    """
+    from src.bet_audit import settlement
+    if not pick or not tip:
+        return False
+    a, b = {**pick, "best_odds": 2.0}, {**tip, "best_odds": 2.0}
+    try:
+        for hs in range(9):
+            for aws in range(9):
+                if settlement(a, home, away, hs, aws)[1] > 0 and settlement(b, home, away, hs, aws)[1] <= 0:
+                    return False
+    except (ValueError, KeyError, TypeError):
+        return _same(pick, tip)
+    return True
+
+
 def _same(a: dict, b: dict) -> bool:
     return bool(a and b and a.get("market") == b.get("market") and a.get("outcome") == b.get("outcome")
                 and (a.get("team") or None) == (b.get("team") or None))
@@ -286,7 +307,8 @@ MODEL_TOLERANCE = 0.05
 
 
 def model_and_ai_view(tip: Optional[dict], prediction: dict, agent_eval: Optional[dict],
-                      candidates: Optional[list] = None) -> dict:
+                      candidates: Optional[list] = None, home: Optional[str] = None,
+                      away: Optional[str] = None) -> dict:
     """Whether the model and the AI side with the tipped bet - display only.
 
     The model "agrees" unless it rates the bet more than MODEL_TOLERANCE
@@ -316,6 +338,11 @@ def model_and_ai_view(tip: Optional[dict], prediction: dict, agent_eval: Optiona
         model_p = match.get("model_probability_raw") if match else None
     model_agrees = None if model_p is None else float(model_p) >= tip["probability"] - MODEL_TOLERANCE
     pick = (agent_eval or {}).get("pick")
-    ai_agrees = None if not agent_eval else _same(pick, tip)
+    if not agent_eval:
+        ai_agrees = None
+    elif home and away:
+        ai_agrees = implies(pick, tip, home, away)
+    else:
+        ai_agrees = _same(pick, tip)
     return {"model_agrees": model_agrees, "ai_agrees": ai_agrees,
             "model_probability": None if model_p is None else round(float(model_p), 4)}
