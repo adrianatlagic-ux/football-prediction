@@ -1,8 +1,9 @@
-from scripts.log_bets import _fixture_key
+from scripts.log_bets import _price_tip_upgrade
 
 
-def test_log_identity_keeps_return_fixtures_separate():
-    first = {"home_team": "Alpha", "away_team": "Bravo", "commence_time": "2026-09-01T18:00:00Z",
-             "sport_key": "soccer_test", "event_id": "match-1"}
-    return_leg = {**first, "commence_time": "2027-02-01T18:00:00Z", "event_id": "match-2"}
-    assert _fixture_key(first) != _fixture_key(return_leg)
+def test_a_tip_after_no_tip_is_logged_and_a_logged_tip_stands():
+    no_tip, tip = {"tip": None, "reason": "..."}, {"tip": {"market": "1X2"}}
+    assert _price_tip_upgrade(None, no_tip)
+    assert _price_tip_upgrade(no_tip, tip)
+    assert not _price_tip_upgrade(tip, {"tip": {"market": "BTTS"}})
+    assert not _price_tip_upgrade(no_tip, no_tip)

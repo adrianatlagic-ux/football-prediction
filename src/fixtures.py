@@ -47,6 +47,49 @@ def _events(league: str, years) -> list:
     return out
 
 
+# A matchday is a run of kickoffs with no gap longer than this: Friday to
+# Sunday, or Tuesday to Thursday. Sunday evening to a Tuesday midweek round
+# is longer, so an English week splits into two matchdays.
+MATCHDAY_GAP_HOURS = 36
+# Fewer games than this in a block are rescheduled matches, not a matchday.
+MIN_MATCHDAY_GAMES = 6
+
+
+def _matchdays(rows: list, key: str) -> dict:
+    """Matchday number per row index, for the Bundesliga and the league phase.
+
+    ESPN gives no matchday number. Blocks of kickoffs close together are
+    numbered in order. A game played on its own later - a postponed match -
+    belongs to the earliest matchday both teams are still missing, which
+    keeps it from pushing every later matchday out of step, as counting each
+    team's games did.
+    """
+    idx = [i for i, r in enumerate(rows)
+           if key == "bl" or (key == "cl" and r["stage"] in ("league-phase", ""))]
+    blocks, current = [], []
+    for i in idx:
+        if current and (rows[i]["kickoff"] - rows[current[-1]]["kickoff"]).total_seconds() > MATCHDAY_GAP_HOURS * 3600:
+            blocks.append(current)
+            current = []
+        current.append(i)
+    if current:
+        blocks.append(current)
+    result, played, number = {}, defaultdict(set), 0
+    for block in blocks:
+        if len(block) >= MIN_MATCHDAY_GAMES:
+            number += 1
+        for i in block:
+            home, away = rows[i]["home_team"], rows[i]["away_team"]
+            if len(block) >= MIN_MATCHDAY_GAMES and number not in played[home] | played[away]:
+                md = number
+            else:
+                md = next(n for n in range(1, number + 60) if n not in played[home] | played[away])
+            played[home].add(md)
+            played[away].add(md)
+            result[i] = md
+    return result
+
+
 def build(key: str, today: date | None = None, events=None) -> list:
     from scripts.build_club_training_data import _canon
     from scripts.fetch_national_fixtures import slug
@@ -69,27 +112,27 @@ def build(key: str, today: date | None = None, events=None) -> list:
                      "match_id": f"{slug(home)}_vs_{slug(away)}_{key}"})
     rows.sort(key=lambda r: (r["kickoff"], r["home_team"]))
 
-    # ESPN gives no matchday number. A team plays once per matchday (the
-    # Bundesliga, the Champions League's league phase), so a match belongs to
-    # the one after both teams' previous games.
-    played = defaultdict(int)
-    out, seen = [], set()
-    for r in rows:
-        if r["match_id"] in seen:
-            continue
-        seen.add(r["match_id"])
-        league_phase = key == "cl" and r["stage"] in ("league-phase", "")
-        if key == "bl" or league_phase:
-            matchday = max(played[r["home_team"]], played[r["away_team"]]) + 1
-            played[r["home_team"]] = played[r["away_team"]] = matchday
-            group = f"Spieltag {matchday}" if key == "bl" else f"Matchday {matchday}"
+    matchdays = _matchdays(rows, key)
+    out, ids = [], {}
+    for i, r in enumerate(rows):
+        # The same pairing with the same home side can meet twice in a season
+        # (league phase, then a knockout round). The first keeps the plain id,
+        # which cached predictions already use; a later one gets its date.
+        match_id = r["match_id"]
+        if match_id in ids and ids[match_id] != r["kickoff"].date():
+            match_id = f"{match_id}_{r['kickoff'].strftime('%Y%m%d')}"
+        elif match_id in ids:
+            continue                      # the same match listed twice
+        ids.setdefault(r["match_id"], r["kickoff"].date())
+        if i in matchdays:
+            group = f"Spieltag {matchdays[i]}" if key == "bl" else f"Matchday {matchdays[i]}"
         elif key == "cl":
             group = CL_STAGES.get(r["stage"], r["stage"] or "Knockout")
         else:
             group = r["kickoff"].strftime("%a %d %b")
         out.append({"group": group, "date": r["kickoff"].date().isoformat(),
                     "time": r["kickoff"].strftime("%H:%M"), "home_team": r["home_team"],
-                    "away_team": r["away_team"], "match_id": r["match_id"]})
+                    "away_team": r["away_team"], "match_id": match_id})
     return out
 
 

@@ -26,6 +26,29 @@ jobs:
           TOKEN: ${{ secrets.PREDICTION_WRITE_TOKEN }}
           API: ${{ vars.API_BASE_URL || 'https://football-prediction.fly.dev' }}
           JOB: ${{ github.event.inputs.job || (github.event.schedule == '5 6 * * *' && 'daily' || 'hourly') }}
+        # A started job is not a job that worked: wait for its report and
+        # fail the run if the job recorded any error (an unreachable results
+        # feed, a prediction that could not be made).
         run: |
+          set -euo pipefail
           if [ -z "$TOKEN" ]; then echo "PREDICTION_WRITE_TOKEN is not set" >&2; exit 1; fi
-          curl -fsS -X POST -H "X-Prediction-Token: $TOKEN" "$API/jobs/$JOB"
+          resp=$(curl -fsS -X POST -H "X-Prediction-Token: $TOKEN" "$API/jobs/$JOB")
+          echo "$resp"
+          if [ "$(echo "$resp" | jq -r .started)" != "true" ]; then
+            echo "Not started: $(echo "$resp" | jq -r .reason) - the running job covers it."
+            exit 0
+          fi
+          requested=$(echo "$resp" | jq -r .requested_at)
+          for i in $(seq 1 60); do
+            sleep 10
+            report=$(curl -fsS "$API/jobs/status" | jq -c --arg j "$JOB" '.[$j]')
+            started=$(echo "$report" | jq -r '.started_at // ""')
+            finished=$(echo "$report" | jq -r '.finished_at // ""')
+            if [[ ! "$started" < "$requested" ]] && [ -n "$finished" ]; then
+              echo "$report" | jq .
+              [ "$(echo "$report" | jq '.errors | length')" -eq 0 ] || { echo "Job reported errors" >&2; exit 1; }
+              exit 0
+            fi
+          done
+          echo "Job did not finish within 10 minutes" >&2
+          exit 1

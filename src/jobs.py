@@ -83,6 +83,7 @@ def run_daily(club: Callable, national: Callable, morning_odds: Callable) -> dic
     now = datetime.now(timezone.utc)
     report = {"started_at": now.isoformat(), "errors": []}
     with _lock:
+        _report("daily", {**report, "running": True})
         for label, step in (("club_results", update_club_results), ("national_results", update_national_results)):
             try:
                 report[label] = len(step())
@@ -124,6 +125,7 @@ def run_hourly(club: Callable, national: Callable) -> dict:
     now = datetime.now(timezone.utc)
     report = {"started_at": now.isoformat(), "errors": [], "refreshed": []}
     with _lock:
+        _report("hourly", {**report, "running": True})
         due = [f for f in upcoming(SQUAD_WINDOW_MINUTES, now)
                if not refreshed_in_window(f, SQUAD_WINDOW_MINUTES, None)]
         values = {}

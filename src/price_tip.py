@@ -34,6 +34,9 @@ MAX_BOOK_AGE = timedelta(hours=30)
 # A tip needs both prices read together. Numbers from a morning read are
 # still shown, for orientation, but never tipped: the gap may have closed.
 ALIGNMENT = timedelta(minutes=30)
+# Pinnacle is read in each match's last hour and moves constantly then; a
+# price it has not touched for this long is a stale feed, not a quiet market.
+MAX_PINNACLE_AGE = timedelta(hours=6)
 
 OUTCOMES = (("home_win", "home"), ("draw", "draw"), ("away_win", "away"))
 _GENERIC = {"fc", "sc", "cf", "ac", "afc", "vfl", "vfb", "tsg", "sv", "fk", "sk", "cd", "rb", "1", "04", "05",
@@ -164,7 +167,14 @@ def market_rows(event: dict, fixture: dict, fair: dict) -> list:
     h, d, a = fair["home"], fair["draw"], fair["away"]
     exact = {("home", 0.5): h + d, ("home", -0.5): h, ("away", 0.5): a + d, ("away", -0.5): a}
     rows = []
+    # Win-or-lose lines only (x.5), plus Draw No Bet at 0: a quarter line
+    # splits the stake across two bets, and whole lines refund on the number.
+    def usable(point):
+        return point is not None and (point % 1 == 0.5 or point == 0)
+
     for line in markets.get("spreads", []):
+        if not usable(line.get("point")):
+            continue
         # "+ 0.0" turns the away side of Draw No Bet from -0.0 into 0.0.
         for side, team, point in (("home", home, line["point"] + 0.0), ("away", away, -line["point"] + 0.0)):
             offered = line.get(side)
@@ -182,6 +192,8 @@ def market_rows(event: dict, fixture: dict, fair: dict) -> list:
                 if pair:
                     rows.append(_row(label, "handicap", team, offered, pair[1], pinnacle_odds=pair[0], side=side))
     for line in markets.get("totals", []):
+        if not usable(line.get("point")) or line.get("point") == 0:
+            continue
         for side, other in (("Over", "Under"), ("Under", "Over")):
             offered = line.get(side.lower())
             pair = _pinnacle_two_way(event, "totals", (side, line["point"]), (other, line["point"]))
@@ -232,6 +244,10 @@ def build_price_tip(event: dict, book: dict, now: Optional[datetime] = None) -> 
         t = _time(value)
         return t is not None and (snapshot is None or abs(snapshot - t) <= ALIGNMENT)
 
+    pinnacle_time = _time(pinnacle.get("last_update"))
+    reference = snapshot or now
+    pinnacle_fresh = pinnacle_time is not None and reference - pinnacle_time <= MAX_PINNACLE_AGE
+
     fair = fair_probabilities(pinnacle)
     rows = []
     for outcome, key in OUTCOMES:
@@ -245,7 +261,10 @@ def build_price_tip(event: dict, book: dict, now: Optional[datetime] = None) -> 
         rows += market_rows(event, fixture, fair)
     base["full_book"] = full_book
     best = max(rows, key=lambda r: r["edge"])
-    if not aligned(stamp):
+    if not pinnacle_fresh:
+        tip, reason = None, ("Pinnacle's price has no recent update time, so it may be stale. "
+                             "No tip is given on it.")
+    elif not aligned(stamp):
         tip, reason = None, (f"{bookmaker}'s odds were read at a different time than Pinnacle's. "
                              "A tip is only given when both are read together, in the hour before kickoff.")
     elif best["edge"] >= THRESHOLD:

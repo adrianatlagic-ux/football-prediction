@@ -62,6 +62,14 @@ def _fixture_key(entry) -> tuple:
             entry.get("commence_time"))
 
 
+def _price_tip_upgrade(old, new) -> bool:
+    """Whether a logged price tip should take a newer one: only when none was
+    logged, or "no tip" was and a tip is now given."""
+    if new is None:
+        return False
+    return old is None or (not old.get("tip") and bool(new.get("tip")))
+
+
 def _build_entry(m, now):
     return {
         "logged_at": now,
@@ -137,9 +145,10 @@ def main():
             by_key[key] = new_entry
             added += 1
             tag = "+"
-        elif old.get("price_tip") is None and new_entry.get("price_tip") is not None:
-            # An entry logged before the price tip existed, or before the
-            # bet-at-home read in the last hour: fill it in once.
+        elif _price_tip_upgrade(old.get("price_tip"), new_entry.get("price_tip")):
+            # The first log can precede the last-hour read that decides the
+            # tip: "no tip" then may become a tip. A tip once logged stands -
+            # it is what the page showed - so only the empty side is filled.
             old["price_tip"] = new_entry["price_tip"]
             updated += 1
             tag = "$"

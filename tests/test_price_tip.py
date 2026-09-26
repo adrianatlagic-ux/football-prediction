@@ -8,7 +8,8 @@ NOW = datetime(2026, 9, 26, 12, 0, tzinfo=timezone.utc)
 def _event(home=1.80, draw=3.80, away=4.50):
     return {"sport_key": "soccer_germany_bundesliga", "home_team": "Bayern Munich",
             "away_team": "Borussia Dortmund", "commence_time": "2026-09-26T13:30:00Z",
-            "bookmakers": [{"key": "pinnacle", "markets": [{"key": "h2h", "outcomes": [
+            "bookmakers": [{"key": "pinnacle", "markets": [{"key": "h2h",
+                "last_update": (NOW - timedelta(minutes=10)).isoformat(), "outcomes": [
                 {"name": "Bayern Munich", "price": home}, {"name": "Draw", "price": draw},
                 {"name": "Borussia Dortmund", "price": away}]}]}]}
 
@@ -126,3 +127,19 @@ def test_draw_no_bet_reports_win_refund_and_loss_separately():
                if r["market"] == "Handicap 0.0" and r["side"] == "home")
     assert dnb["win_probability"] < dnb["probability"]
     assert abs(dnb["win_probability"] + dnb["refund_probability"] + dnb["loss_probability"] - 1) < 1e-3
+
+
+def test_no_tip_on_a_pinnacle_price_untouched_for_days():
+    event = _event()
+    event["bookmakers"][0]["markets"][0]["last_update"] = (NOW - timedelta(days=2)).isoformat()
+    result = build_price_tip(event, _book({"home": 1.70, "draw": 3.60, "away": 5.00}), now=NOW)
+    assert result["tip"] is None and "stale" in result["reason"]
+
+
+def test_quarter_lines_never_become_a_price_tip():
+    event = _event()
+    event["bookmakers"][0]["markets"].append({"key": "totals", "outcomes": [
+        {"name": "Over", "price": 1.95, "point": 2.25}, {"name": "Under", "price": 1.95, "point": 2.25}]})
+    book = _full_book(totals=[{"point": 2.25, "over": 3.00, "under": 1.40}], spreads=[])
+    result = build_price_tip(event, book, now=NOW)
+    assert not any(r["market"] == "Over/Under 2.25" for r in result["outcomes"])

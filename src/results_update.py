@@ -53,15 +53,20 @@ def update_club_results(today: Optional[date] = None, days: int = LOOKBACK_DAYS)
     from scripts.build_club_training_data import _canon
     from scripts.fetch_national_results import parse_event
     today = today or date.today()
-    added = []
+    added, failed = [], []
     for league, prefix in CLUB_LEAGUES.items():
-        rows = []
+        rows, errors = [], 0
         for offset in range(days, -1, -1):
             try:
                 events = _fetch_day(league, today - timedelta(days=offset))
             except Exception:
+                errors += 1
                 continue
             rows += [r for r in (parse_event(e, prefix) for e in events) if r]
+        # One missing day is tolerated (ESPN has gaps); a competition whose
+        # every day failed must not pass as "no new results".
+        if errors == days + 1:
+            failed.append(league)
         for row in rows:
             path = CLUB_RAW / f"{prefix}_{season_label(date.fromisoformat(row['date']))}.csv"
             have = set()
@@ -80,6 +85,8 @@ def update_club_results(today: Optional[date] = None, days: int = LOOKBACK_DAYS)
                 writer.writerow([row["date"], row["home_team"], row["away_team"],
                                  row["home_score"], row["away_score"]])
             added.append({**row, "file": path.name})
+    if failed:
+        raise RuntimeError(f"ESPN unreachable for {', '.join(failed)}; added {len(added)} other results")
     return added
 
 
@@ -89,12 +96,13 @@ def update_national_results(seasons=None) -> list:
     seasons = seasons or [date.today().year]
     existing = pd.read_csv(CSV_PATH)
     have = {(r.date, r.home_team, r.away_team) for r in existing.itertuples()}
-    new = []
+    new, failed = [], []
     for league in NATIONAL_LEAGUES:
         for season in seasons:
             try:
                 events = fetch_season(league, season)
-            except Exception:
+            except Exception as exc:
+                failed.append(f"{league} {season}: {type(exc).__name__}")
                 continue
             for row in (parse_event(e, LEAGUES[league]) for e in events):
                 if row and (row["date"], row["home_team"], row["away_team"]) not in have:
@@ -104,4 +112,6 @@ def update_national_results(seasons=None) -> list:
         combined = pd.concat([existing, pd.DataFrame(new)], ignore_index=True)
         combined = combined.sort_values("date", kind="stable")
         combined.to_csv(CSV_PATH, index=False)
+    if failed:
+        raise RuntimeError(f"ESPN unreachable: {'; '.join(failed)}; added {len(new)} results")
     return new

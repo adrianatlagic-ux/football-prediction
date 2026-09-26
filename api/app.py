@@ -281,8 +281,11 @@ def _start_job(name: str, work) -> dict:
             work()
         finally:
             _prediction_index_ts = 0     # the cache changed: re-read it
+    requested_at = datetime.now(timezone.utc).isoformat()
     threading.Thread(target=run, daemon=True, name=f"job-{name}").start()
-    return {"started": True, "job": name}
+    # The workflow waits for a report started after this moment and fails on
+    # its errors - a job that only started is not a job that worked.
+    return {"started": True, "job": name, "requested_at": requested_at}
 
 
 @app.post("/jobs/daily")
