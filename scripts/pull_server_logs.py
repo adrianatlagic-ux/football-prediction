@@ -35,6 +35,9 @@ def merge_bets(repo, server):
             repo.append(e)
             by_key[key] = e
             added += 1
+        elif not log_bets.has_bets(old) and log_bets.has_bets(e):
+            old.clear()
+            old.update(e)
         elif log_bets._price_tip_upgrade(old.get("price_tip"), e.get("price_tip")):
             old["price_tip"] = e["price_tip"]
     return added

@@ -110,6 +110,10 @@ def _build_entry(m, now):
 FIRST_LOG_WINDOW_HOURS = 0.5
 
 
+def has_bets(entry):
+    return bool(entry.get("bets") or entry.get("green_bets") or entry.get("red_bets"))
+
+
 def apply(matches, entries, now_dt):
     """Merge one /all-bets snapshot into the log entries. Returns (added, updated)."""
     now = now_dt.isoformat()
@@ -133,6 +137,12 @@ def apply(matches, entries, now_dt):
             entries.append(new_entry)
             by_key[key] = new_entry
             added += 1
+        elif not has_bets(old) and has_bets(new_entry):
+            # Logged while the odds were missing (e.g. a restart during the
+            # morning read): the first entry with bets replaces the empty one.
+            old.clear()
+            old.update(new_entry)
+            updated += 1
         elif _price_tip_upgrade(old.get("price_tip"), new_entry.get("price_tip")):
             # The first log can precede the last-hour read that decides the
             # tip: "no tip" then may become a tip. A tip once logged stands -

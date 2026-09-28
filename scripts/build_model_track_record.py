@@ -118,6 +118,7 @@ def live_cases(api: str | None) -> list:
 def _logged_entries(paths: list) -> list:
     """One entry per match (teams + kickoff date); a later file overrides."""
     from grade_bets import _norm
+    from log_bets import has_bets
     entries = {}
     for path in paths:
         if not path.exists():
@@ -125,7 +126,10 @@ def _logged_entries(paths: list) -> list:
         for line in path.read_text(encoding="utf-8").splitlines():
             if line.strip():
                 e = json.loads(line)
-                entries[(_norm(e["home_team"]), _norm(e["away_team"]), str(e.get("commence_time"))[:10])] = e
+                key = (_norm(e["home_team"]), _norm(e["away_team"]), str(e.get("commence_time"))[:10])
+                # An entry logged without odds never replaces one with bets.
+                if key not in entries or has_bets(e):
+                    entries[key] = e
     return list(entries.values())
 
 
