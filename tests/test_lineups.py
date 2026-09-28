@@ -34,3 +34,41 @@ def test_a_weaker_home_eleven_moves_the_prediction_toward_the_away_side():
     assert abs(sum(out[k] for k in ("probability_home_win", "probability_draw", "probability_away_win")) - 1) < 1e-3
     assert abs(sum(map(sum, out["score_prediction"]["score_matrix"])) - 1) < 1e-9
     assert adjust(p, 1.0, 1.0)["probability_home_win"] == .64
+
+
+def _poisson_prediction(home_xg=2.0, away_xg=0.8):
+    import math
+    pois = lambda lam, k: math.exp(-lam) * lam ** k / math.factorial(k)
+    m = [[pois(home_xg, i) * pois(away_xg, j) for j in range(8)] for i in range(8)]
+    total = sum(map(sum, m))
+    m = [[x / total for x in row] for row in m]
+    h = sum(m[i][j] for i in range(8) for j in range(8) if i > j)
+    d = sum(m[i][i] for i in range(8))
+    return {"home_team": "Germany", "away_team": "Greece", "probability_home_win": h, "probability_draw": d,
+            "probability_away_win": 1 - h - d, "prediction": "H", "prediction_label": "Home Win",
+            "score_prediction": {"score_matrix": m, "most_likely_score": "2:0", "result": "H",
+                                 "betting_markets": {"scenario": "Germany control the game."}}}
+
+
+def test_a_flipped_favourite_rebuilds_every_derived_field():
+    out = adjust(_poisson_prediction(), 0.2, 1.0)
+    h, d, a = out["probability_home_win"], out["probability_draw"], out["probability_away_win"]
+    assert a > h and out["prediction"] == "A" and out["prediction_label"] == "Away Win"
+    sp = out["score_prediction"]
+    assert sp["result"] == "A"
+    home_goals, away_goals = map(int, sp["most_likely_score"].split(":"))
+    assert away_goals > home_goals
+    assert all(int(s["score"].split(":")[1]) > int(s["score"].split(":")[0]) for s in sp["top_scorelines"])
+    markets = sp["betting_markets"]
+    # The written scenario described a home win; it must not survive the flip.
+    assert "scenario" not in markets or markets["scenario"] != "Germany control the game."
+    # Double chance and the result probabilities agree.
+    dc = markets["double_chance"]
+    assert abs(dc["draw_or_away"] - (a + d)) < 0.01
+    assert sp["away_xg"] > 0.8
+
+
+def test_an_unchanged_favourite_keeps_its_scenario():
+    out = adjust(_poisson_prediction(), 0.9, 1.0)
+    assert out["prediction"] == "H"
+    assert out["score_prediction"]["betting_markets"]["scenario"] == "Germany control the game."

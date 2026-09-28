@@ -74,13 +74,13 @@ def log_bets_and_combos(all_bets, combo_ticket, now: datetime) -> dict:
     return {"bets_added": added, "bets_updated": updated, "combos_added": len(new)}
 
 
-def _loop(club, national, odds, all_bets, combo_ticket):
+def _loop(club, national, odds, all_bets, combo_ticket, real_results=None):
     from src import jobs
     while True:
         now = datetime.now(timezone.utc)
         try:
             if (now.hour, now.minute) >= DAILY_AFTER and not _daily_done_today(now):
-                jobs.run_daily(club, national, odds)
+                jobs.run_daily(club, national, odds, real_results)
         except Exception:
             pass
         try:
@@ -96,11 +96,11 @@ def _loop(club, national, odds, all_bets, combo_ticket):
         time.sleep(TICK_SECONDS)
 
 
-def start(club, national, odds, all_bets, combo_ticket) -> bool:
+def start(club, national, odds, all_bets, combo_ticket, real_results=None) -> bool:
     global _started
     if _started or os.getenv("ENABLE_SCHEDULER") != "1":
         return False
     _started = True
-    threading.Thread(target=_loop, args=(club, national, odds, all_bets, combo_ticket),
+    threading.Thread(target=_loop, args=(club, national, odds, all_bets, combo_ticket, real_results),
                      daemon=True, name="scheduler").start()
     return True

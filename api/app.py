@@ -302,7 +302,8 @@ def _start_job(name: str, work) -> dict:
 def job_daily(x_prediction_token: str = Header(default="")):
     _require_job_token(x_prediction_token)
     from src import jobs
-    return _start_job("daily", lambda: jobs.run_daily(_get_predictor, _get_national_predictor, _get_odds))
+    return _start_job("daily", lambda: jobs.run_daily(_get_predictor, _get_national_predictor, _get_odds,
+                                                     _get_espn_results))
 
 
 @app.post("/jobs/hourly")
@@ -332,7 +333,7 @@ def model_track_record():
 @app.on_event("startup")
 def _start_scheduler():
     from src import scheduler
-    scheduler.start(_get_predictor, _get_national_predictor, _get_odds, all_bets, combo_ticket)
+    scheduler.start(_get_predictor, _get_national_predictor, _get_odds, all_bets, combo_ticket, _get_espn_results)
 
 
 @app.get("/logs/{name}")

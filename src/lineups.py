@@ -132,29 +132,69 @@ def lineup_share(starters: list, squad: list, bench: Optional[list] = None) -> O
             "best_value": best, "matched": len(found), "starters": starters[:11]}
 
 
+RESULT_LABELS = {"H": "Home Win", "D": "Draw", "A": "Away Win"}
+
+
 def adjust(prediction: dict, share_home: float, share_away: float) -> dict:
     """The prediction moved from full strength to the actual line-ups.
 
     Win chances shift by exp(+/-delta), the draw keeps its weight, then all
-    three are renormalised; the score matrix is shifted the same way so the
-    goals markets stay consistent with the result markets.
+    three are renormalised. Everything derived from them is rebuilt the way
+    the model builds it - the predicted result, the score matrix (rescaled to
+    the new result chances), the most likely and top scores, every betting
+    market, the expected goals and the game flow - so the page never shows a
+    home win next to a 47% away chance.
     """
     delta = BETA * (math.log(share_home) - math.log(share_away))
     up, down = math.exp(delta), math.exp(-delta)
     h, d, a = (prediction["probability_home_win"] * up, prediction["probability_draw"],
                prediction["probability_away_win"] * down)
     total = h + d + a
-    out = {**prediction, "probability_home_win": round(h / total, 4), "probability_draw": round(d / total, 4),
-           "probability_away_win": round(a / total, 4)}
+    h, d, a = h / total, d / total, a / total
+    result = max((("H", h), ("D", d), ("A", a)), key=lambda t: t[1])[0]
+    out = {**prediction, "probability_home_win": round(h, 4), "probability_draw": round(d, 4),
+           "probability_away_win": round(a, 4), "prediction": result, "prediction_label": RESULT_LABELS[result],
+           "lineup_delta": round(delta, 4)}
     sp = prediction.get("score_prediction") or {}
-    matrix = sp.get("score_matrix")
-    if matrix:
-        scaled = [[p * (up if i > j else down if j > i else 1.0) for j, p in enumerate(row)]
-                  for i, row in enumerate(matrix)]
-        s = sum(map(sum, scaled))
-        out["score_prediction"] = {**sp, "score_matrix": [[p / s for p in row] for row in scaled]}
-    out["lineup_delta"] = round(delta, 4)
+    if sp.get("score_matrix"):
+        out["score_prediction"] = _rebuild_scores(sp, prediction.get("home_team", "Home"), prediction.get("away_team", "Away"),
+                                                  h, d, a, result,
+                                                  keep_scenario=result == prediction.get("prediction"))
+        try:
+            from src.game_flow import predict_game_flow
+            new = out["score_prediction"]
+            out["game_flow"] = predict_game_flow(new["home_xg"], new["away_xg"], prediction.get("home_team", "Home"),
+                                                 prediction.get("away_team", "Away"), final_score=new["most_likely_score"])
+        except Exception:
+            pass
     return out
+
+
+def _rebuild_scores(sp: dict, home: str, away: str, h: float, d: float, a: float, result: str,
+                    keep_scenario: bool, top_n: int = 5) -> dict:
+    """The score prediction for new result chances, built as the model builds it."""
+    import numpy as np
+
+    from src.poisson_model import _rescale_to_target_result_probs, compute_betting_markets
+    matrix = _rescale_to_target_result_probs(np.array(sp["score_matrix"], dtype=float), h, d, a)
+    rows, cols = matrix.shape
+    flat = sorted(((float(matrix[i, j]), i, j) for i in range(rows) for j in range(cols)), reverse=True)
+    all_scorelines = [{"score": f"{i}:{j}", "probability": round(p, 4),
+                       "result": "H" if i > j else "A" if j > i else "D"} for p, i, j in flat]
+    markets = compute_betting_markets(all_scorelines, home, away, h, d, a)
+    old_markets = sp.get("betting_markets") or {}
+    # The written scenario stays when the predicted result did not change;
+    # otherwise it would describe the other team winning.
+    if keep_scenario and old_markets.get("scenario"):
+        markets["scenario"] = old_markets["scenario"]
+    matching = [s for s in all_scorelines if s["result"] == result] or all_scorelines
+    return {**sp,
+            "home_xg": round(float((matrix.sum(axis=1) * np.arange(rows)).sum()), 2),
+            "away_xg": round(float((matrix.sum(axis=0) * np.arange(cols)).sum()), 2),
+            "most_likely_score": matching[0]["score"], "result": result,
+            "probability_home_win": round(h, 4), "probability_draw": round(d, 4), "probability_away_win": round(a, 4),
+            "top_scorelines": [{"score": s["score"], "probability": s["probability"]} for s in matching[:top_n]],
+            "betting_markets": markets, "score_matrix": matrix.tolist()}
 
 
 def fit_value_effect() -> float:

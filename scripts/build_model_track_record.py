@@ -103,20 +103,43 @@ def nations_league_cases() -> list:
     return cases
 
 
+# The committed log, and the server's own (src/scheduler.py) - on the server
+# the second is newer than the copy baked into the image.
+LOG_PATHS = [ROOT / "data" / "bet_log.jsonl", ROOT / "data" / "logs" / "bet_log.jsonl"]
+
+
 def live_cases(api: str | None) -> list:
-    path = ROOT / "data" / "bet_log.jsonl"
-    if not api or not path.exists():
+    if not api:
         return []
-    from grade_bets import _norm, grade
     results = json.load(urllib.request.urlopen(f"{api}/real-results", timeout=60))["results"]
-    finished = {(_norm(r["home_team"]), _norm(r["away_team"])): r
+    return grade_live(LOG_PATHS, results)
+
+
+def _logged_entries(paths: list) -> list:
+    """One entry per match (teams + kickoff date); a later file overrides."""
+    from grade_bets import _norm
+    entries = {}
+    for path in paths:
+        if not path.exists():
+            continue
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                e = json.loads(line)
+                entries[(_norm(e["home_team"]), _norm(e["away_team"]), str(e.get("commence_time"))[:10])] = e
+    return list(entries.values())
+
+
+def grade_live(paths: list, results: list) -> list:
+    """Logged bets with a model and a market probability, graded against
+    results matched on teams AND kickoff date - the same pairing can meet
+    twice in a season."""
+    from grade_bets import _norm, grade
+    finished = {(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
                 for r in results if r.get("completed") and r.get("home_score") is not None}
     cases = []
-    for line in path.read_text(encoding="utf-8").splitlines():
-        if not line.strip():
-            continue
-        entry = json.loads(line)
-        res = finished.get((_norm(entry["home_team"]), _norm(entry["away_team"])))
+    for entry in _logged_entries(paths):
+        res = finished.get((_norm(entry["home_team"]), _norm(entry["away_team"]),
+                            str(entry.get("commence_time"))[:10]))
         if not res:
             continue
         for b in entry.get("bets") or (entry.get("green_bets", []) + entry.get("red_bets", [])):
@@ -130,12 +153,9 @@ def live_cases(api: str | None) -> list:
     return cases
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--api", default=None, help="to grade the live log against real results")
-    args = parser.parse_args()
+def build(live: list) -> dict:
+    """The report for the given live cases, written to data/model_track_record.json."""
     archive = archive_cases()
-    live = live_cases(args.api)
     # Per competition: a Nations League tip is a different model and a
     # different market from the Bundesliga, so its record is its own. The
     # archive is Bundesliga only.
@@ -151,6 +171,19 @@ def main():
               "sources": {"archive": "Bundesliga 1X2, model vs Pinnacle pre-closing, 2021-22..2025-26",
                           "live": "data/bet_log.jsonl, graded against /real-results"}}
     OUT.write_text(json.dumps(report, indent=1) + "\n")
+    return report
+
+
+def refresh(results: list) -> dict:
+    """The server's daily update: every log it has, graded against ESPN."""
+    return build(grade_live(LOG_PATHS, results))
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--api", default=None, help="to grade the live log against real results")
+    args = parser.parse_args()
+    report = build(live_cases(args.api))
     for label in ("archive", "live"):
         print(label)
         for b in report[label]:

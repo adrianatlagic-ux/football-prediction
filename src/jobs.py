@@ -21,7 +21,7 @@ import json
 import threading
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Callable
+from typing import Callable, Optional
 
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / "data" / "predictions_cache"
@@ -76,8 +76,10 @@ def repredict(fixture: dict, predictor, now: datetime) -> dict:
     return result
 
 
-def run_daily(club: Callable, national: Callable, morning_odds: Callable) -> dict:
-    """Results, history, predictions for the next 48 hours, morning odds."""
+def run_daily(club: Callable, national: Callable, morning_odds: Callable,
+              real_results: Optional[Callable] = None) -> dict:
+    """Results, history, predictions for the next 48 hours, morning odds and
+    the model's track record."""
     from scripts.refresh_squad_predictions import upcoming
     from src.results_update import update_club_results, update_national_results
     now = datetime.now(timezone.utc)
@@ -113,6 +115,14 @@ def run_daily(club: Callable, national: Callable, morning_odds: Callable) -> dic
             report["morning_odds"] = True
         except Exception as exc:
             report["errors"].append(f"morning_odds: {type(exc).__name__}: {exc}")
+        if real_results is not None:
+            # Graded here, on the server's own logs, so the page shows today's
+            # record and not the one baked into the last deploy.
+            try:
+                from scripts.build_model_track_record import refresh
+                report["track_record_live"] = sum(b["n"] for b in refresh(real_results())["live"])
+            except Exception as exc:
+                report["errors"].append(f"track_record: {type(exc).__name__}: {exc}")
     report["finished_at"] = datetime.now(timezone.utc).isoformat()
     return _report("daily", report)
 
@@ -163,6 +173,11 @@ def run_hourly(club: Callable, national: Callable) -> dict:
                 info = (lineups.lineup_share(starters[side], squads.get(str(team_id), []),
                                              starters.get("bench", {}).get(side)) if team_id else None)
                 shares[side] = info
+            if not shares["home"] and not shares["away"]:
+                # Neither eleven could be valued (squad missing or names not
+                # found): leave the match unmarked so the next tick retries.
+                report["waiting_for_lineup"].append(f"{f['match_id']} (not valued)")
+                continue
             try:
                 predictor = national() if comp == "nations_league" else club()
                 kwargs = {"is_knockout": False} if comp == "nations_league" else {}
@@ -174,11 +189,13 @@ def run_hourly(club: Callable, national: Callable) -> dict:
             # gains nor loses from a missing squad.
             share_h = shares["home"]["share"] if shares["home"] else 1.0
             share_a = shares["away"]["share"] if shares["away"] else 1.0
-            fresh = lineups.adjust(baseline, share_h, share_a)
             before = _cached(f["match_id"])
+            # The written scenario of the cached prediction; adjust() keeps it
+            # only if the predicted result survives the line-ups.
             scenario = ((before.get("score_prediction") or {}).get("betting_markets") or {}).get("scenario")
             if scenario:
-                fresh.setdefault("score_prediction", {}).setdefault("betting_markets", {})["scenario"] = scenario
+                baseline.setdefault("score_prediction", {}).setdefault("betting_markets", {})["scenario"] = scenario
+            fresh = lineups.adjust(baseline, share_h, share_a)
             fresh.update(lineup_refreshed_at=now.isoformat(),
                          lineup={side: ({k: v for k, v in info.items()} if info else None)
                                  for side, info in shares.items()},

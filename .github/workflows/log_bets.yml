@@ -29,19 +29,13 @@ jobs:
       - name: Fetch the server's bet and combo logs
         run: python3 scripts/pull_server_logs.py --api https://football-prediction.fly.dev
 
-      # The ★ box's track record: archive plus every logged bet since graded.
-      - name: Update the model's track record
-        # Once a day is enough (the first run after 05:00 UTC); the rest skip.
-        run: |
-          if [ "$(date -u +%H)" = "05" ] && [ "$(date -u +%M)" -lt 15 ]; then
-            pip install -q -r requirements.txt
-            python3 scripts/build_model_track_record.py --api https://football-prediction.fly.dev
-          fi
+      # The track record is rebuilt on the server in its daily job
+      # (src/jobs.run_daily) from the server's own logs; nothing to do here.
 
       - name: Commit if the log changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/bet_log.jsonl data/combo_log.jsonl data/model_track_record.json
+          git add data/bet_log.jsonl data/combo_log.jsonl
           git diff --cached --quiet || git commit -m "Log Champions League bets [skip ci]"
           git push
