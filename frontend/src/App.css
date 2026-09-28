@@ -3039,3 +3039,9 @@ body {
 .model-track.is-same { background: rgba(148,163,184,0.08); border: 1px solid rgba(148,163,184,0.2); }
 .model-track.is-same .model-track-label { color: #94a3b8; }
 .model-track-advice { font-weight: 700; color: #e2e8f0 !important; }
+
+.lineup-box { margin: 0.8rem 0; padding: 0.7rem 0.9rem; border-radius: 10px;
+  background: rgba(148,163,184,0.06); border: 1px solid rgba(148,163,184,0.18); }
+.lineup-box h4 { margin: 0 0 0.4rem; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8; }
+.lineup-box p { margin: 0.2rem 0; font-size: 0.85rem; color: #e2e8f0; }
+.lineup-box .lineup-effect { margin-top: 0.4rem; font-size: 0.78rem; color: #94a3b8; }

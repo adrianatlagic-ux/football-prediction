@@ -361,6 +361,29 @@ function computeFormRating(explanation, team) {
   return Math.round((formPtsScore + winRate + goalDiffScore) / 3)
 }
 
+// Set an hour before kickoff (src/lineups.py): how much of each squad's best
+// eleven actually starts, and how far that moved the prediction.
+function LineupStrength({ data }) {
+  const l = data.lineup
+  const before = data.probabilities_before_lineup
+  if (!l || !before) return null
+  const side = (info, team) => info
+    ? <><TeamLabel name={team} /> starts with <strong>{Math.round(info.share * 100)}%</strong> of its best eleven</>
+    : <><TeamLabel name={team} />: line-up not valued</>
+  const moved = k => `${Math.round(before[k] * 100)}% → ${Math.round(data[k] * 100)}%`
+  return (
+    <div className="lineup-box">
+      <h4>Line-ups</h4>
+      <p>{side(l.home, data.home_team)}</p>
+      <p>{side(l.away, data.away_team)}</p>
+      <p className="lineup-effect">
+        Win chances adjusted: {data.home_team} {moved('probability_home_win')}, draw {moved('probability_draw')},
+        {' '}{data.away_team} {moved('probability_away_win')}.
+      </p>
+    </div>
+  )
+}
+
 function FormRating({ data }) {
   const explanation = data.explanation
   if (!explanation) return null
@@ -433,6 +456,7 @@ function MatchScenario({ data }) {
         <p>{renderScenario(bm.scenario, home, away)}</p>
       </div>
 
+      <LineupStrength data={data} />
       <FormRating data={data} />
     </div>
   )

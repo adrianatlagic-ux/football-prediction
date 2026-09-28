@@ -117,47 +117,72 @@ def run_daily(club: Callable, national: Callable, morning_odds: Callable) -> dic
     return _report("daily", report)
 
 
+def _lineup_done(fixture: dict) -> bool:
+    return bool(_cached(fixture["match_id"]).get("lineup_refreshed_at"))
+
+
 def run_hourly(club: Callable, national: Callable) -> dict:
-    """Squad values for matches in the next 75 minutes, each match once."""
-    from scripts.refresh_squad_predictions import (load_registry, refreshed_in_window, upcoming)
-    from src.competitions import get as get_competition
-    from src.squad_data import available_squad_values
+    """Line-up strength for matches kicking off within 75 minutes.
+
+    ESPN lists the starters about an hour before kickoff; until it does, the
+    match is simply tried again on the next tick. Once both elevens are
+    known, each is valued against its squad's best eleven (src/lineups.py)
+    and the prediction is moved accordingly - once per match. The squads come
+    from Apify, cached a week, so this costs nothing per match.
+    """
+    from scripts.refresh_squad_predictions import load_registry, upcoming
+    from src import lineups
+    from src.squad_data import CLUB_SQUAD_TTL, NATIONAL_SQUAD_TTL, cached_squads
     now = datetime.now(timezone.utc)
-    report = {"started_at": now.isoformat(), "errors": [], "refreshed": []}
+    report = {"started_at": now.isoformat(), "errors": [], "refreshed": [], "waiting_for_lineup": []}
     with _lock:
         _report("hourly", {**report, "running": True})
-        due = [f for f in upcoming(SQUAD_WINDOW_MINUTES, now)
-               if not refreshed_in_window(f, SQUAD_WINDOW_MINUTES, None)]
-        values = {}
-        for key in {f["competition"] for f in due}:
-            teams = sorted({t for f in due if f["competition"] == key for t in (f["home_team"], f["away_team"])})
-            try:
-                values.update(available_squad_values(teams, load_registry(key), get_competition(key),
-                                                     as_of=now.date()))
-            except Exception as exc:
-                report["errors"].append(f"squads {key}: {type(exc).__name__}: {exc}")
         keys = ("probability_home_win", "probability_draw", "probability_away_win")
-        for f in due:
-            home, away = f["home_team"], f["away_team"]
-            override = {t: values[t] for t in (home, away) if t in values}
-            if not override:
+        for f in upcoming(SQUAD_WINDOW_MINUTES, now):
+            if _lineup_done(f):
                 continue
+            home, away, comp = f["home_team"], f["away_team"], f["competition"]
             try:
-                predictor = national() if f["competition"] == "nations_league" else club()
-                kwargs = {"is_knockout": False} if f["competition"] == "nations_league" else {}
+                starters = lineups.fetch_starters(comp, home, away, f["kickoff"])
+            except Exception as exc:
+                report["errors"].append(f"{f['match_id']} line-up: {type(exc).__name__}: {exc}")
+                continue
+            if not starters:
+                report["waiting_for_lineup"].append(f["match_id"])
+                continue
+            registry = load_registry(comp)
+            ids = [registry.get(home), registry.get(away)]
+            try:
+                ttl = NATIONAL_SQUAD_TTL if comp == "nations_league" else CLUB_SQUAD_TTL
+                squads = cached_squads([i for i in ids if i], ttl)
+            except Exception as exc:
+                report["errors"].append(f"{f['match_id']} squads: {type(exc).__name__}: {exc}")
+                continue
+            shares = {}
+            for side, team_id in (("home", ids[0]), ("away", ids[1])):
+                info = lineups.lineup_share(starters[side], squads.get(str(team_id), [])) if team_id else None
+                shares[side] = info
+            try:
+                predictor = national() if comp == "nations_league" else club()
+                kwargs = {"is_knockout": False} if comp == "nations_league" else {}
                 baseline = predictor.predict_match(home, away, **kwargs)
-                fresh = predictor.predict_match(home, away, market_values=override, **kwargs)
             except Exception as exc:
                 report["errors"].append(f"{f['match_id']}: {type(exc).__name__}: {exc}")
                 continue
+            # A side we could not value counts as full strength, so it neither
+            # gains nor loses from a missing squad.
+            share_h = shares["home"]["share"] if shares["home"] else 1.0
+            share_a = shares["away"]["share"] if shares["away"] else 1.0
+            fresh = lineups.adjust(baseline, share_h, share_a)
             before = _cached(f["match_id"])
             scenario = ((before.get("score_prediction") or {}).get("betting_markets") or {}).get("scenario")
             if scenario:
                 fresh.setdefault("score_prediction", {}).setdefault("betting_markets", {})["scenario"] = scenario
-            fresh.update(squad_adjusted=True, squad_values_used={k: int(v) for k, v in override.items()},
-                         squad_refreshed_at=now.isoformat(),
-                         probabilities_cached_before={k: before.get(k) for k in keys},
-                         probabilities_without_squad_data={k: baseline[k] for k in keys})
+            fresh.update(lineup_refreshed_at=now.isoformat(),
+                         lineup={side: ({k: v for k, v in info.items()} if info else None)
+                                 for side, info in shares.items()},
+                         probabilities_before_lineup={k: baseline[k] for k in keys},
+                         probabilities_cached_before={k: before.get(k) for k in keys})
             _write(f, fresh)
             report["refreshed"].append(f["match_id"])
     report["finished_at"] = datetime.now(timezone.utc).isoformat()
