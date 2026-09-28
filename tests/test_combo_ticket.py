@@ -315,3 +315,10 @@ def test_no_near_miss_when_the_chosen_ticket_is_already_likelier():
     from src.combo_ticket import day_reports
     legs = [leg("A", "B", .75, 1.30, .75), leg("C", "D", .70, 1.60, .70), leg("E", "F", .60, 1.50, .60)]
     assert day_reports(legs, 2)[0]["by_size"][0]["near_miss"] is None
+
+
+def test_rounding_does_not_lift_a_ticket_over_the_target():
+    from src.combo_ticket import day_reports
+    legs = [leg("A", "B", .75, 1.33, .75), leg("C", "D", .66, 1.50, .66)]   # 1.995
+    two = day_reports(legs, 2)[0]["by_size"][0]
+    assert two["ticket"] is None and two["near_miss"]["legs"][1]["best_odds"] == 1.50

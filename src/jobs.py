@@ -177,10 +177,13 @@ def run_hourly(club: Callable, national: Callable) -> dict:
                 info = (lineups.lineup_share(starters[side], squads.get(str(team_id), []),
                                              starters.get("bench", {}).get(side)) if team_id else None)
                 shares[side] = info
-            if not shares["home"] and not shares["away"]:
-                # Neither eleven could be valued (squad missing or names not
-                # found): leave the match unmarked so the next tick retries.
-                report["waiting_for_lineup"].append(f"{f['match_id']} (not valued)")
+            if not shares["home"] or not shares["away"]:
+                # Both elevens or neither: counting an unvalued side as full
+                # strength would move the prediction toward it. The match stays
+                # unmarked, so every tick until kickoff tries again; if one side
+                # never gets valued, the prediction stays as it was.
+                missing = [s for s in ("home", "away") if not shares[s]]
+                report["waiting_for_lineup"].append(f"{f['match_id']} (not valued: {', '.join(missing)})")
                 continue
             try:
                 predictor = national() if comp == "nations_league" else club()
@@ -189,10 +192,7 @@ def run_hourly(club: Callable, national: Callable) -> dict:
             except Exception as exc:
                 report["errors"].append(f"{f['match_id']}: {type(exc).__name__}: {exc}")
                 continue
-            # A side we could not value counts as full strength, so it neither
-            # gains nor loses from a missing squad.
-            share_h = shares["home"]["share"] if shares["home"] else 1.0
-            share_a = shares["away"]["share"] if shares["away"] else 1.0
+            share_h, share_a = shares["home"]["share"], shares["away"]["share"]
             before = _cached(f["match_id"])
             # The written scenario of the cached prediction; adjust() keeps it
             # only if the predicted result survives the line-ups.

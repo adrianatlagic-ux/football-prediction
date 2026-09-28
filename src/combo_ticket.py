@@ -253,8 +253,11 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None):
     for date in sorted(d for d in by_day if d):
         day_legs = by_day[date]
         with_near = build_tickets(day_legs, max_legs=max_legs, min_odds=NEAR_MISS_MIN_ODDS)
-        tickets = [t for t in with_near if t["combined_odds"] >= MIN_COMBINED_ODDS]
-        near = [t for t in with_near if t["combined_odds"] < MIN_COMBINED_ODDS]
+        # The exact product, not the rounded combined_odds: 1.33 x 1.50 is
+        # 1.995 and must stay below 2.00.
+        reaches = lambda t: _product(l["best_odds"] for l in t["legs"]) >= MIN_COMBINED_ODDS
+        tickets = [t for t in with_near if reaches(t)]
+        near = [t for t in with_near if not reaches(t)]
         top = tickets[0] if tickets else None
         all_in = None
         # Comparison uses only the recommended bookmaker, never mixed best prices.
