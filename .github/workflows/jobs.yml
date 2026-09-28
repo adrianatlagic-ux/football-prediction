@@ -7,10 +7,10 @@ name: Scheduled server jobs
 #   hourly xx:15     - squad values for matches kicking off within 75 min
 # Needs the repository secret PREDICTION_WRITE_TOKEN, equal to the
 # PREDICTIONS_WRITE_TOKEN secret on the Fly app.
+# The server now keeps its own schedule (src/scheduler.py): GitHub's cron ran
+# every three to four hours instead of hourly and skipped the daily run. This
+# workflow stays for starting a job by hand.
 on:
-  schedule:
-    - cron: "5 6 * * *"
-    - cron: "15 * * * *"
   workflow_dispatch:
     inputs:
       job:
@@ -25,7 +25,7 @@ jobs:
         env:
           TOKEN: ${{ secrets.PREDICTION_WRITE_TOKEN }}
           API: ${{ vars.API_BASE_URL || 'https://football-prediction.fly.dev' }}
-          JOB: ${{ github.event.inputs.job || (github.event.schedule == '5 6 * * *' && 'daily' || 'hourly') }}
+          JOB: ${{ github.event.inputs.job || 'daily' }}
         # A started job is not a job that worked: wait for its report and
         # fail the run if the job recorded any error (an unreachable results
         # feed, a prediction that could not be made).

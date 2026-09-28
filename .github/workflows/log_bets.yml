@@ -23,13 +23,11 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Log current bets
-        run: python3 scripts/log_bets.py --api https://football-prediction.fly.dev
-
-      # Both combo rules, shown and old, in the hour before each ticket's
-      # first kickoff (scripts/log_combos.py).
-      - name: Log combo tickets
-        run: python3 scripts/log_combos.py --api https://football-prediction.fly.dev
+      # The server logs every match on time itself (src/scheduler.py); this
+      # only fetches its logs and commits them. GitHub's own schedule runs
+      # every few hours at best, too rarely to log anything before kickoff.
+      - name: Fetch the server's bet and combo logs
+        run: python3 scripts/pull_server_logs.py --api https://football-prediction.fly.dev
 
       # The ★ box's track record: archive plus every logged bet since graded.
       - name: Update the model's track record

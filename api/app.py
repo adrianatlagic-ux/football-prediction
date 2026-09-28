@@ -329,11 +329,29 @@ def model_track_record():
         return {"combined": []}
 
 
+@app.on_event("startup")
+def _start_scheduler():
+    from src import scheduler
+    scheduler.start(_get_predictor, _get_national_predictor, _get_odds, all_bets, combo_ticket)
+
+
+@app.get("/logs/{name}")
+def server_log(name: str):
+    """The server's bet and combo logs, fetched and committed by GitHub
+    (scripts/pull_server_logs.py)."""
+    from fastapi.responses import PlainTextResponse
+    from src.scheduler import LOGS
+    if name not in ("bet_log", "combo_log"):
+        raise HTTPException(status_code=404, detail="Unknown log")
+    path = LOGS / f"{name}.jsonl"
+    return PlainTextResponse(path.read_text(encoding="utf-8") if path.exists() else "")
+
+
 @app.get("/jobs/status")
 def job_status():
     from src import jobs
     out = {}
-    for name in ("daily", "hourly"):
+    for name in ("daily", "hourly", "logging"):
         try:
             out[name] = json.loads((jobs.REPORTS / f"last_{name}.json").read_text(encoding="utf-8"))
         except (OSError, ValueError):

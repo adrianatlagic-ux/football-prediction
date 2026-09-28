@@ -36,10 +36,11 @@ def _norm(name: str) -> str:
     return {"usa": "unitedstates"}.get(n, n)
 
 
-def _load_log() -> list:
+def _load_log(path=None) -> list:
+    path = path or LOG_PATH
     entries = []
-    if LOG_PATH.exists():
-        for line in LOG_PATH.read_text(encoding="utf-8").splitlines():
+    if path.exists():
+        for line in path.read_text(encoding="utf-8").splitlines():
             if not line.strip():
                 continue
             try:
@@ -109,22 +110,11 @@ def _build_entry(m, now):
 FIRST_LOG_WINDOW_HOURS = 0.5
 
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--api", default=DEFAULT_API)
-    args = parser.parse_args()
-
-    data = json.load(urllib.request.urlopen(f"{args.api}/all-bets", timeout=60))
-    matches = data.get("all_bets", [])
-
-    LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
-    now_dt = datetime.now(timezone.utc)
+def apply(matches, entries, now_dt):
+    """Merge one /all-bets snapshot into the log entries. Returns (added, updated)."""
     now = now_dt.isoformat()
-
-    entries = _load_log()
     by_key = {_fixture_key(e): e for e in entries}
-
-    added = updated = skipped_early = 0
+    added = updated = 0
     for m in matches:
         new_entry = _build_entry(m, now)
         key = _fixture_key(new_entry)
@@ -139,42 +129,39 @@ def main():
                 except ValueError:
                     pass
             if hours_away is None or hours_away > FIRST_LOG_WINDOW_HOURS:
-                skipped_early += 1
                 continue
             entries.append(new_entry)
             by_key[key] = new_entry
             added += 1
-            tag = "+"
         elif _price_tip_upgrade(old.get("price_tip"), new_entry.get("price_tip")):
             # The first log can precede the last-hour read that decides the
             # tip: "no tip" then may become a tip. A tip once logged stands -
             # it is what the page showed - so only the empty side is filled.
             old["price_tip"] = new_entry["price_tip"]
             updated += 1
-            tag = "$"
         elif not _has_movement(old) and _has_movement(new_entry):
-            # The first (early-afternoon) snapshot had no movement ranking yet;
-            # this later run near kickoff does. Upgrade the stored entry so the
-            # log captures the movement-ranked pick the site actually showed at
-            # kickoff - the whole reason a single 15:30 run kept missing it.
             old.update(new_entry)
             updated += 1
-            tag = "~"
-        else:
-            continue
-        rec = new_entry["recommendation"]
-        rec_desc = f"{rec['market']} {rec.get('team') or rec['outcome']}" if rec else "no clean rec"
-        mv = "  +movement" if _has_movement(new_entry) else ""
-        print(f"  {tag} {m['home_team']} vs {m['away_team']}: {len(new_entry['green_bets'])} green bets, top={rec_desc}{mv}")
+    return added, updated
 
+
+def write_log(entries, path=LOG_PATH):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as f:
+        for e in entries:
+            f.write(json.dumps(e, ensure_ascii=False) + "\n")
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--api", default=DEFAULT_API)
+    args = parser.parse_args()
+    data = json.load(urllib.request.urlopen(f"{args.api}/all-bets", timeout=60))
+    entries = _load_log()
+    added, updated = apply(data.get("all_bets", []), entries, datetime.now(timezone.utc))
     if added or updated:
-        with LOG_PATH.open("w", encoding="utf-8") as f:
-            for e in entries:
-                f.write(json.dumps(e, ensure_ascii=False) + "\n")
-
-    print(f"\n{added} neu, {updated} mit Movement-Ranking aktualisiert, "
-          f"{skipped_early} noch zu früh (>{FIRST_LOG_WINDOW_HOURS}h vor Anpfiff, noch nicht geloggt). "
-          f"Log: {LOG_PATH} ({len(entries)} insgesamt).")
+        write_log(entries)
+    print(f"{added} neu, {updated} aktualisiert. Log: {LOG_PATH} ({len(entries)} insgesamt).")
 
 
 if __name__ == "__main__":

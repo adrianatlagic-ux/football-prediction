@@ -3,6 +3,10 @@ primary_region = "iad"
 
 [build]
 
+[env]
+  # The server keeps its own schedule (src/scheduler.py).
+  ENABLE_SCHEDULER = "1"
+
 [http_service]
   internal_port = 8080
   force_https = true
