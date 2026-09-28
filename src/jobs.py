@@ -160,7 +160,8 @@ def run_hourly(club: Callable, national: Callable) -> dict:
                 continue
             shares = {}
             for side, team_id in (("home", ids[0]), ("away", ids[1])):
-                info = lineups.lineup_share(starters[side], squads.get(str(team_id), [])) if team_id else None
+                info = (lineups.lineup_share(starters[side], squads.get(str(team_id), []),
+                                             starters.get("bench", {}).get(side)) if team_id else None)
                 shares[side] = info
             try:
                 predictor = national() if comp == "nations_league" else club()

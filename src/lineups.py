@@ -38,6 +38,11 @@ from typing import Optional
 BETA = 0.492
 # A side whose starters cannot mostly be found in the squad is left alone.
 MIN_MATCHED = 8
+# The bench counts too, by playing time: up to five substitutes come on, for
+# about 25 of 90 minutes each, so each of the five most valuable substitutes
+# counts at 25/90 of a starter. Players not in the matchday squad count zero.
+BENCH_PLAYERS = 5
+BENCH_WEIGHT = 25 / 90
 ESPN_LEAGUE = {"nations_league": "uefa.nations", "bundesliga": "ger.1", "champions_league": "uefa.champions"}
 
 
@@ -52,7 +57,8 @@ def _get(url: str) -> dict:
 
 
 def fetch_starters(competition: str, home: str, away: str, kickoff: datetime) -> Optional[dict]:
-    """{"home": [names], "away": [names]} once ESPN lists both elevens, else None."""
+    """{"home": [starters], "away": [...], "bench": {"home": [...], "away": [...]}}
+    once ESPN lists both elevens, else None."""
     league = ESPN_LEAGUE.get(competition)
     if not league:
         return None
@@ -68,44 +74,62 @@ def fetch_starters(competition: str, home: str, away: str, kickoff: datetime) ->
     if not event:
         return None
     summary = _get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{league}/summary?event={event['id']}")
-    out = {}
+    out, bench = {}, {}
     for roster in summary.get("rosters", []):
-        starters = [p["athlete"]["displayName"] for p in roster.get("roster", []) if p.get("starter")]
+        players = roster.get("roster", [])
+        starters = [p["athlete"]["displayName"] for p in players if p.get("starter")]
         if len(starters) >= 11:
             out[roster.get("homeAway")] = starters
-    return out if "home" in out and "away" in out else None
+            bench[roster.get("homeAway")] = [p["athlete"]["displayName"] for p in players if not p.get("starter")]
+    if "home" not in out or "away" not in out:
+        return None
+    return {**out, "bench": bench}
 
 
-def lineup_share(starters: list, squad: list) -> Optional[dict]:
-    """Value of the starters against the squad's best eleven, or None when too
-    few starters could be matched to the squad."""
+def _matcher(squad: list):
     by_name = {_norm(p.get("name")): p for p in squad}
     by_last = {}
     for p in squad:
         by_last.setdefault(_norm(p.get("name")).split()[-1] if p.get("name") else "", []).append(p)
-    found = []
-    for name in starters:
+
+    def find(name):
         n = _norm(name)
         p = by_name.get(n)
         if p is None:
             same = by_last.get(n.split()[-1] if n else "", [])
             p = same[0] if len(same) == 1 else None
-        if p is not None:
-            found.append(p)
+        return p
+    return find
+
+
+def lineup_share(starters: list, squad: list, bench: Optional[list] = None) -> Optional[dict]:
+    """Strength of the matchday squad against the squad's best possible one,
+    or None when too few starters could be matched to the squad.
+
+    Both sides of the ratio are counted the same way: the eleven in full,
+    plus the BENCH_PLAYERS most valuable substitutes at BENCH_WEIGHT.
+    """
+    find = _matcher(squad)
+    value = lambda p: float(p.get("marketValueEur") or 0)
+    found = [p for p in (find(n) for n in starters) if p is not None]
     if len(found) < MIN_MATCHED:
         return None
-    value = lambda p: float(p.get("marketValueEur") or 0)
     keepers = sorted((p for p in squad if "Goalkeeper" in (p.get("positionName") or "")), key=value, reverse=True)
     outfield = sorted((p for p in squad if "Goalkeeper" not in (p.get("positionName") or "")), key=value, reverse=True)
-    best = sum(value(p) for p in keepers[:1] + outfield[:10])
+    best_eleven = keepers[:1] + outfield[:10]
+    rest = sorted((p for p in squad if p not in best_eleven), key=value, reverse=True)
+    best = sum(value(p) for p in best_eleven) + BENCH_WEIGHT * sum(value(p) for p in rest[:BENCH_PLAYERS])
     # Unmatched starters are counted at the squad's median value, so a missed
-    # name neither inflates nor sinks the share.
+    # name neither inflates nor sinks the share. An unmatched substitute
+    # counts nothing: a name the squad does not know is rarely a strong one.
     median = sorted(value(p) for p in squad)[len(squad) // 2] if squad else 0.0
     xi = sum(value(p) for p in found) + median * (len(starters[:11]) - len(found[:11]))
+    subs = sorted((value(p) for p in (find(n) for n in (bench or [])) if p is not None), reverse=True)
+    bench_value = BENCH_WEIGHT * sum(subs[:BENCH_PLAYERS])
     if best <= 0:
         return None
-    return {"share": min(xi / best, 1.5), "xi_value": xi, "best_xi_value": best,
-            "matched": len(found), "starters": starters[:11]}
+    return {"share": min((xi + bench_value) / best, 1.5), "xi_value": xi, "bench_value": bench_value,
+            "best_value": best, "matched": len(found), "starters": starters[:11]}
 
 
 def adjust(prediction: dict, share_home: float, share_away: float) -> dict:

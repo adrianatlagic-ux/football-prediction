@@ -9,8 +9,17 @@ SQUAD = ([{"name": "Keeper One", "marketValueEur": 30e6, "positionName": "Goalke
 def test_a_reserve_eleven_is_valued_against_the_best_eleven():
     best = lineup_share(["Keeper One"] + [f"Star {i}" for i in range(10)], SQUAD)
     b_team = lineup_share(["Keeper Two"] + [f"Reserve {i}" for i in range(10)], SQUAD)
-    assert best["share"] == 1.0
-    assert abs(b_team["share"] - (5e6 + 100e6) / 530e6) < 1e-9
+    full = 530e6 + 25 / 90 * 50e6          # best eleven + next five best (5 reserves)
+    assert abs(best["share"] - 530e6 / full) < 1e-9
+    assert abs(b_team["share"] - (5e6 + 100e6) / full) < 1e-9
+
+
+def test_the_bench_counts_by_playing_time():
+    b_team = ["Keeper Two"] + [f"Reserve {i}" for i in range(10)]
+    with_stars = lineup_share(b_team, SQUAD, bench=[f"Star {i}" for i in range(6)])
+    without = lineup_share(b_team, SQUAD, bench=[])
+    assert abs(with_stars["bench_value"] - 25 / 90 * 5 * 50e6) < 1e-6
+    assert with_stars["share"] > without["share"]
 
 
 def test_too_few_known_starters_are_not_valued():

@@ -368,7 +368,7 @@ function LineupStrength({ data }) {
   const before = data.probabilities_before_lineup
   if (!l || !before) return null
   const side = (info, team) => info
-    ? <><TeamLabel name={team} /> starts with <strong>{Math.round(info.share * 100)}%</strong> of its best eleven</>
+    ? <><TeamLabel name={team} />: <strong>{Math.round(info.share * 100)}%</strong> of its strongest possible line-up (bench counted by playing time)</>
     : <><TeamLabel name={team} />: line-up not valued</>
   const moved = k => `${Math.round(before[k] * 100)}% → ${Math.round(data[k] * 100)}%`
   return (
