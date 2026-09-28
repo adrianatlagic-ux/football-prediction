@@ -7,6 +7,12 @@ primary_region = "iad"
   # The server keeps its own schedule (src/scheduler.py).
   ENABLE_SCHEDULER = "1"
 
+# Runtime state (logs, job reports, Apify spend, caches) survives deploys;
+# start.sh links it into data/.
+[mounts]
+  source = "state"
+  destination = "/app/state"
+
 [http_service]
   internal_port = 8080
   force_https = true
