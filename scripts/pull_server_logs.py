@@ -52,8 +52,10 @@ def main():
     path = log_combos.LOG_PATH
     repo_combos = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()
                    if line.strip()] if path.exists() else []
-    have = {log_combos._key(e) for e in repo_combos}
-    new = [e for e in fetch(args.api, "combo_log") if log_combos._key(e) not in have]
+    # One line per version: the slot, its legs and when it was logged.
+    ident = lambda e: (log_combos._key(e), log_combos.signature(e), e.get("logged_at"))
+    have = {ident(e) for e in repo_combos}
+    new = [e for e in fetch(args.api, "combo_log") if ident(e) not in have]
     if new:
         with path.open("a", encoding="utf-8") as fh:
             for e in new:

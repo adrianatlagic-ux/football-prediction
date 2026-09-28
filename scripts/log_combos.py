@@ -11,20 +11,22 @@ compared once enough tickets have settled (scripts/grade_combos.py):
     legacy_v3  the rule before: lower of model and market, model >= 55%,
                legs from 1.20, the model's warnings excluded
 
-A ticket is logged once, in the hour before its first leg kicks off - the
-version someone could still have placed. Runs every 15 minutes with the bet
-logger, so every ticket's hour is caught.
+Every version the page shows is logged: whenever a rule's ticket of a size
+changes its legs, the new version is appended with its time. A ticket
+exists until its first leg kicks off - a started match leaves the combos -
+so the last version logged is the one still placeable at kickoff, and each
+earlier one is what the page showed in between. Odds moving on the same legs
+do not make a new version.
 """
 import argparse
 import json
 import urllib.request
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 
 LOG_PATH = Path(__file__).resolve().parents[1] / "data" / "combo_log.jsonl"
 DEFAULT_API = "https://football-prediction.fly.dev"
 COMPETITIONS = ("soccer_uefa_champs_league", "soccer_germany_bundesliga", "soccer_uefa_nations_league")
-LOG_WINDOW = timedelta(minutes=60)
 LEG_FIELDS = ("market", "outcome", "team", "best_odds", "home_team", "away_team", "commence_time",
               "market_probability", "probability", "conservative_probability")
 
@@ -34,7 +36,8 @@ def _kickoff(value):
 
 
 def entries_due(report: dict, competition: str, now: datetime) -> list:
-    """Tickets of both rules whose first leg kicks off within the next hour."""
+    """Tickets of both rules shown now: every one whose first leg has not yet
+    kicked off."""
     out = []
     for policy, days in (("market", report.get("days") or []), ("legacy_v3", report.get("legacy_v3_days") or [])):
         for day in days:
@@ -43,10 +46,11 @@ def entries_due(report: dict, competition: str, now: datetime) -> list:
                 if not ticket:
                     continue
                 first = min(_kickoff(l["commence_time"]) for l in ticket["legs"])
-                if not (first - LOG_WINDOW <= now < first):
+                if not now < first:
                     continue
                 out.append({
-                    "logged_at": now.isoformat(), "date": day["date"], "competition": competition,
+                    "logged_at": now.isoformat(), "first_kickoff": first.isoformat(),
+                    "date": day["date"], "competition": competition,
                     "policy": policy, "leg_count": ticket["leg_count"],
                     "combined_odds": ticket["combined_odds"],
                     "estimated_probability": ticket["conservative_probability"],
@@ -57,7 +61,27 @@ def entries_due(report: dict, competition: str, now: datetime) -> list:
 
 
 def _key(e):
+    """The slot a ticket fills: one rule's ticket of one size on one day."""
     return (e["date"], e["competition"], e["policy"], e["leg_count"])
+
+
+def signature(e):
+    """What makes a version: its legs, not their moving odds."""
+    return tuple(sorted((l["home_team"], l["away_team"], l["market"], l.get("outcome"), l.get("team"))
+                        for l in e["legs"]))
+
+
+def new_versions(due: list, logged: list) -> list:
+    """The tickets in `due` that differ from their slot's latest logged version."""
+    latest = {}
+    for e in logged:
+        latest[_key(e)] = signature(e)
+    out = []
+    for e in due:
+        if latest.get(_key(e)) != signature(e):
+            latest[_key(e)] = signature(e)
+            out.append(e)
+    return out
 
 
 def main():
@@ -69,8 +93,6 @@ def main():
     logged = []
     if LOG_PATH.exists():
         logged = [json.loads(line) for line in LOG_PATH.read_text(encoding="utf-8").splitlines() if line.strip()]
-    have = {_key(e) for e in logged}
-
     new = []
     for competition in COMPETITIONS:
         try:
@@ -79,11 +101,9 @@ def main():
         except Exception as exc:
             print(f"  {competition}: {type(exc).__name__}: {exc}")
             continue
-        for entry in entries_due(report, competition, now):
-            if _key(entry) not in have:
-                have.add(_key(entry))
-                new.append(entry)
-                print(f"  + {entry['date']} {entry['policy']:9} {entry['leg_count']}-fold @ {entry['combined_odds']}")
+        for entry in new_versions(entries_due(report, competition, now), logged + new):
+            new.append(entry)
+            print(f"  + {entry['date']} {entry['policy']:9} {entry['leg_count']}-fold @ {entry['combined_odds']}")
 
     if new:
         LOG_PATH.parent.mkdir(parents=True, exist_ok=True)

@@ -60,13 +60,10 @@ def log_bets_and_combos(all_bets, combo_ticket, now: datetime) -> dict:
     combo_path = LOGS / "combo_log.jsonl"
     logged = [json.loads(line) for line in combo_path.read_text(encoding="utf-8").splitlines()
               if line.strip()] if combo_path.exists() else []
-    have = {log_combos._key(e) for e in logged}
     new = []
     for competition in COMBO_COMPETITIONS:
-        for entry in log_combos.entries_due(combo_ticket(competition=competition), competition, now):
-            if log_combos._key(entry) not in have:
-                have.add(log_combos._key(entry))
-                new.append(entry)
+        due = log_combos.entries_due(combo_ticket(competition=competition), competition, now)
+        new += log_combos.new_versions(due, logged + new)
     if new:
         with combo_path.open("a", encoding="utf-8") as fh:
             for entry in new:

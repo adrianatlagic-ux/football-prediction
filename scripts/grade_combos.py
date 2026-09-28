@@ -18,6 +18,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from grade_bets import DEFAULT_API, _norm, grade  # noqa: E402
+from log_combos import _key  # noqa: E402
 
 LOG_PATH = Path(__file__).resolve().parents[1] / "data" / "combo_log.jsonl"
 
@@ -47,11 +48,27 @@ def main():
     finished = {(_norm(r["home_team"]), _norm(r["away_team"])): r
                 for r in results if r.get("completed") and r.get("home_score") is not None}
 
+    tickets = [json.loads(line) for line in LOG_PATH.read_text(encoding="utf-8").splitlines() if line.strip()]
+    # When a match kicks off, the day's combos are rebuilt from the matches
+    # left - a new ticket, not the old one minus a leg. So a slot can hold
+    # several tickets on a day with staggered kickoffs; for each first
+    # kickoff, its last version is the one still placeable then. The earlier
+    # versions are what the page showed before the odds moved.
+    first = lambda t: t.get("first_kickoff") or min(l["commence_time"] for l in t["legs"])
+    final = {}
+    for t in tickets:
+        final[(_key(t), first(t)[:16])] = t
+    print("Letzte Version vor Anpfiff (je Regel, Groesse und Anstosszeit eine):")
+    report(list(final.values()), finished)
+    if len(tickets) > len(final):
+        print(f"\nAlle {len(tickets)} gezeigten Versionen:")
+        report(tickets, finished)
+    print("\nEin Unterschied zwischen den Regeln sagt erst bei Dutzenden abgerechneter Tickets je Regel etwas.")
+
+
+def report(tickets: list, finished: dict):
     stats = defaultdict(lambda: {"n": 0, "won": 0, "units": 0.0, "expected": 0.0, "pending": 0})
-    for line in LOG_PATH.read_text(encoding="utf-8").splitlines():
-        if not line.strip():
-            continue
-        ticket = json.loads(line)
+    for ticket in tickets:
         s = stats[(ticket["policy"], ticket["leg_count"])]
         outcome = settle(ticket, finished)
         if outcome is None:
@@ -72,7 +89,6 @@ def main():
                   f"{s['units'] / s['n']:+8.1%}  {s['pending']}")
         else:
             print(f"{policy:10} {size}er    {0:7} {'-':>8} {'-':>9} {'-':>8}  {s['pending']}")
-    print("\nEin Unterschied zwischen den Regeln sagt erst bei Dutzenden abgerechneter Tickets je Regel etwas.")
 
 
 if __name__ == "__main__":
