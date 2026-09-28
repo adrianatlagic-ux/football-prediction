@@ -585,6 +585,12 @@ function ComboLegRow({ leg, index, onOpenLeg }) {
         <div className="combo-leg-meta">
           {marketGroupLabel(leg.market)} · {leg.bookmaker}
         </div>
+        {leg.likely_pick && (
+          <div className="combo-leg-offlikely">
+            Not this match's 🎯 ({plainBetPhrase(leg.likely_pick)}, {betPercent(leg.likely_pick.market_probability)}
+            {' '}at {leg.likely_pick.best_odds?.toFixed(2)}) — chosen to reach the combined odds
+          </div>
+        )}
       </div>
       <div className="combo-leg-numbers">
         <span className="combo-leg-odds">{leg.best_odds.toFixed(2)}</span>
@@ -720,7 +726,19 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
                        aria-label={`${option.leg_count}-fold combo`}>
                 <h3 className="combo-size-title">{option.leg_count}-fold combo</h3>
                 {option.ticket ? (
-                  <ComboTicketCard ticket={option.ticket} onOpenLeg={onOpenLeg} />
+                  <>
+                    <ComboTicketCard ticket={option.ticket} onOpenLeg={onOpenLeg} />
+                    {option.near_miss && (
+                      <details className="combo-near-miss">
+                        <summary>
+                          Likelier, just under 2.00: {betPercent(option.near_miss.conservative_probability)} at
+                          {' '}{option.near_miss.combined_odds.toFixed(2)}
+                          {' '}(vs {betPercent(option.ticket.conservative_probability)} at {option.ticket.combined_odds.toFixed(2)})
+                        </summary>
+                        <ComboTicketCard ticket={option.near_miss} onOpenLeg={onOpenLeg} />
+                      </details>
+                    )}
+                  </>
                 ) : (
                   <div className="combo-size-empty">
                     <strong>Not available</strong>

@@ -16,9 +16,13 @@ from .evaluation import evaluate
 RESULT_LABELS = {"H": "Home Win", "D": "Draw", "A": "Away Win"}
 
 # Share of the pure-Poisson H/D/A blended into the classifier's prediction.
-# 20% maximises test-set accuracy while improving probability calibration and
-# correcting the classifier's draw overestimation in mismatched games.
-POISSON_BLEND = 0.20
+# 40% since 28 Sep 2026 (was 20%): point-in-time models for 2020-21 and
+# 2024-25 scored better log-loss at 40% on every international of both years
+# (1,436 matches) and on the Nations League alone (349), in both seasons
+# (scripts/nl_blend_test.py). The classifier gives the home side too much and
+# separates two strong teams too little - Belgium 41%, France 30% at home in
+# Brussels although France led on every measure.
+POISSON_BLEND = 0.40
 
 
 def wc2026_neutral(home_team: str) -> bool:
@@ -160,8 +164,7 @@ class FootballPredictor:
         ]
 
         # Blend: classifier carries strength/form/ranking signal, Poisson carries
-        # the goal-expectation shape. 20% Poisson maximises accuracy AND improves
-        # calibration (log-loss) on the test set - see scripts/tune_blend.py.
+        # the goal-expectation shape; the share is POISSON_BLEND above.
         blended = [(1 - POISSON_BLEND) * c + POISSON_BLEND * p for c, p in zip(clf_proba, poi_proba)]
         total = sum(blended) or 1.0
         blended = [b / total for b in blended]

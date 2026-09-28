@@ -298,3 +298,20 @@ def test_price_tip_combos_need_two_binary_tips_on_one_day():
 def test_near_certain_legs_are_left_out():
     rows = [vb(h, a, [candidate(.95, 1.02, bookmaker="X", bookmaker_key="X")]) for h, a in [("A", "B"), ("C", "D")]]
     assert leg_pool(rows) == []
+
+
+def test_a_likelier_ticket_just_under_the_target_is_shown_beside_it():
+    from src.combo_ticket import day_reports
+    legs = [leg("A", "B", .75, 1.30, .75),
+            leg("C", "D", .64, 1.53, .64),                         # with A: 1.99, 48.0%
+            leg("C", "D", .62, 1.58, .62, team="D", outcome="away_win")]  # with A: 2.05, 46.5%
+    two = day_reports(legs, 2)[0]["by_size"][0]
+    assert two["ticket"]["combined_odds"] >= 2.0 and two["ticket"]["legs"][1]["team"] == "D"
+    assert two["near_miss"]["combined_odds"] == 1.99
+    assert two["near_miss"]["ranking_score"] > two["ticket"]["ranking_score"]
+
+
+def test_no_near_miss_when_the_chosen_ticket_is_already_likelier():
+    from src.combo_ticket import day_reports
+    legs = [leg("A", "B", .75, 1.30, .75), leg("C", "D", .70, 1.60, .70), leg("E", "F", .60, 1.50, .60)]
+    assert day_reports(legs, 2)[0]["by_size"][0]["near_miss"] is None

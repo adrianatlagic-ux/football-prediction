@@ -63,6 +63,10 @@ def repredict(fixture: dict, predictor, now: datetime) -> dict:
               if national else predictor.predict_match(fixture["home_team"], fixture["away_team"]))
     previous = _cached(fixture["match_id"])
     scenario = ((previous.get("score_prediction") or {}).get("betting_markets") or {}).get("scenario")
+    # The written scenario describes the predicted winner; once the winner
+    # changes it has to be written again.
+    if previous.get("prediction") and previous.get("prediction") != result.get("prediction"):
+        scenario = None
     if not scenario:
         try:
             from src.scenario_agent import generate_ai_scenario

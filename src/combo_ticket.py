@@ -40,6 +40,9 @@ MIN_LEG_ODDS = 1.30
 # simply backing one of its legs. So a ticket has to at least double the
 # stake before it competes, and among those the likeliest one wins.
 MIN_COMBINED_ODDS = 2.0
+# A ticket just under the target is shown next to the chosen one when it is
+# likelier: the user sees what the last bit of odds costs in hit chance.
+NEAR_MISS_MIN_ODDS = 1.90
 MAX_STAKE_FRACTION = 0.01
 
 
@@ -212,7 +215,8 @@ def _by_fixture(group):
     return fixtures
 
 
-def build_tickets(legs, min_legs=MIN_LEGS, max_legs=MAX_LEGS, pool_size=FIXTURES_PER_DAY):
+def build_tickets(legs, min_legs=MIN_LEGS, max_legs=MAX_LEGS, pool_size=FIXTURES_PER_DAY,
+                  min_odds=MIN_COMBINED_ODDS):
     """Every ticket of one leg per match, same book and day, best first.
 
     All legs of a match stay candidates until the ticket is put together, so
@@ -230,7 +234,7 @@ def build_tickets(legs, min_legs=MIN_LEGS, max_legs=MAX_LEGS, pool_size=FIXTURES
         for size in range(max(MIN_LEGS, min_legs), min(MAX_LEGS, max_legs, len(ranked))+1):
             for chosen in combinations(ranked, size):
                 for picks in product(*(ls[:LEGS_PER_FIXTURE] for ls in chosen)):
-                    if _product(l["best_odds"] for l in picks) < MIN_COMBINED_ODDS:
+                    if _product(l["best_odds"] for l in picks) < min_odds:
                         continue
                     try:
                         tickets.append(score_ticket(list(picks)))
@@ -248,7 +252,9 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None):
     days = []
     for date in sorted(d for d in by_day if d):
         day_legs = by_day[date]
-        tickets = build_tickets(day_legs, max_legs=max_legs)
+        with_near = build_tickets(day_legs, max_legs=max_legs, min_odds=NEAR_MISS_MIN_ODDS)
+        tickets = [t for t in with_near if t["combined_odds"] >= MIN_COMBINED_ODDS]
+        near = [t for t in with_near if t["combined_odds"] < MIN_COMBINED_ODDS]
         top = tickets[0] if tickets else None
         all_in = None
         # Comparison uses only the recommended bookmaker, never mixed best prices.
@@ -265,7 +271,10 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None):
         by_size = []
         for size in range(MIN_LEGS, min(max_legs, MAX_LEGS) + 1):
             ticket = next((t for t in tickets if t["leg_count"] == size), None)
-            by_size.append({"leg_count": size, "ticket": ticket,
+            near_miss = next((t for t in near if t["leg_count"] == size), None)
+            if ticket and near_miss and near_miss["ranking_score"] <= ticket["ranking_score"]:
+                near_miss = None
+            by_size.append({"leg_count": size, "ticket": ticket, "near_miss": near_miss,
                             "reason": None if ticket else (
                                 f"No {size}-fold available. It needs {size} qualifying matches "
                                 f"at one bookmaker and combined odds of at least {MIN_COMBINED_ODDS:.2f}.")})

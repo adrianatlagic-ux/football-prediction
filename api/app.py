@@ -808,7 +808,7 @@ _ODDS_TEAM_ALIASES = {
 }
 
 
-def _norm_team(name: str) -> str:
+def _norm(name: str) -> str:
     # The Odds API writes "Bosnia & Herzegovina", we write "...and...".
     # Strip "and"/"&" as a standalone joiner so both normalize the same way,
     # without cutting "and" out of names like "Iceland".
@@ -821,10 +821,10 @@ def _norm_team(name: str) -> str:
 
 
 def _find_odds_match(odds: list[dict], home_team: str, away_team: str) -> Optional[dict]:
-    h, a = _norm_team(home_team), _norm_team(away_team)
+    h, a = _norm(home_team), _norm(away_team)
     matches = [event for event in odds if h and a
-               and _norm_team(event.get("home_team", "")) == h
-               and _norm_team(event.get("away_team", "")) == a]
+               and _norm(event.get("home_team", "")) == h
+               and _norm(event.get("away_team", "")) == a]
     # Never reuse a home prediction for the reverse leg or choose arbitrarily
     # between two events with the same teams. An exact event API can be added.
     return matches[0] if len(matches) == 1 else None
@@ -1558,7 +1558,7 @@ def _refresh_agent_picks(odds: list[dict]) -> None:
 
     def _eval_one(data):
         home, away = data["home_team"], data["away_team"]
-        key = (_norm_team(home), _norm_team(away))
+        key = (_norm(home), _norm(away))
         if key in _agent_picks_cache:
             return None
         vb = _compute_value_bets(data, odds, home, away)
@@ -1600,7 +1600,7 @@ def _refresh_agent_picks(odds: list[dict]) -> None:
 
 def _agent_key(vb):
     return (vb.get("sport_key"), vb.get("event_id"), vb.get("commence_time"),
-            _norm_team(vb.get("home_team", "")), _norm_team(vb.get("away_team", "")))
+            _norm(vb.get("home_team", "")), _norm(vb.get("away_team", "")))
 
 
 def _get_agent_pick(vb) -> Optional[dict]:
@@ -1799,7 +1799,7 @@ _PREDICTION_INDEX_TTL = 300  # seconds - cache files only change when we (re)gen
 
 def _match_key(home_team: str, away_team: str) -> tuple[str, str]:
     """The cache identity shared by prediction and pre-kickoff readers."""
-    return (_norm_team(home_team), _norm_team(away_team))
+    return (_norm(home_team), _norm(away_team))
 
 
 def _get_prediction_index() -> dict[tuple[str, str], dict]:
@@ -1907,6 +1907,26 @@ def best_bets():
     return {"best_bets": out}
 
 
+def _mark_legs_off_likely(report: dict, pairs: list) -> None:
+    """A combo leg that is not its match's 🎯 pick carries that pick, so the
+    page can say the ticket chose another bet to reach its target odds."""
+    from src.bet_audit import norm
+    likely = {}
+    for _, vb in pairs:
+        pick = vb.get("likely_pick")
+        if pick:
+            likely[(norm(vb["home_team"]), norm(vb["away_team"]))] = pick
+    same = lambda a, b: (a.get("market"), a.get("outcome"), a.get("team")) == (b.get("market"), b.get("outcome"), b.get("team"))
+    for day in report.get("days", []):
+        for option in day.get("by_size", []):
+            for ticket in (option.get("ticket"), option.get("near_miss")):
+                for leg in (ticket or {}).get("legs", []):
+                    pick = likely.get((norm(leg["home_team"]), norm(leg["away_team"])))
+                    if pick and not same(leg, pick):
+                        leg["likely_pick"] = {k: pick.get(k) for k in ("market", "outcome", "team", "best_odds",
+                                                                         "market_probability")}
+
+
 @app.get("/combo-ticket")
 def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
     """Same-book, same-day combos ranked by model/market win estimates.
@@ -1939,6 +1959,7 @@ def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
     # only (scripts/log_combos.py); the page shows the market rule.
     legacy = combo_report(pairs, max_legs=max_legs, book=USER_BOOK_KEY, policy="legacy_v3")
     report["legacy_v3_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in legacy["days"]]
+    _mark_legs_off_likely(report, pairs)
 
     from src.combo_ticket import price_tip_combos
     tips = []

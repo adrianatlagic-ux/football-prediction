@@ -1,0 +1,305 @@
+{
+ "2020-2021": {
+  "nations": {
+   "matches": 167,
+   "by_weight": {
+    "0.0": {
+     "logloss": 1.0216,
+     "share_better_than_current": 0.005
+    },
+    "0.1": {
+     "logloss": 1.0142,
+     "share_better_than_current": 0.013
+    },
+    "0.2": {
+     "logloss": 1.0084,
+     "share_better_than_current": 0.0
+    },
+    "0.3": {
+     "logloss": 1.0038,
+     "share_better_than_current": 0.965
+    },
+    "0.4": {
+     "logloss": 1.0005,
+     "share_better_than_current": 0.942
+    },
+    "0.5": {
+     "logloss": 0.9983,
+     "share_better_than_current": 0.912
+    },
+    "0.6": {
+     "logloss": 0.9972,
+     "share_better_than_current": 0.868
+    },
+    "0.7": {
+     "logloss": 0.9972,
+     "share_better_than_current": 0.808
+    },
+    "0.8": {
+     "logloss": 0.9982,
+     "share_better_than_current": 0.755
+    },
+    "0.9": {
+     "logloss": 1.0003,
+     "share_better_than_current": 0.677
+    },
+    "1.0": {
+     "logloss": 1.0035,
+     "share_better_than_current": 0.602
+    }
+   },
+   "market_logloss": 0.9569
+  },
+  "all": {
+   "matches": 649,
+   "by_weight": {
+    "0.0": {
+     "logloss": 0.8645,
+     "share_better_than_current": 0.003
+    },
+    "0.1": {
+     "logloss": 0.8596,
+     "share_better_than_current": 0.015
+    },
+    "0.2": {
+     "logloss": 0.8563,
+     "share_better_than_current": 0.0
+    },
+    "0.3": {
+     "logloss": 0.8544,
+     "share_better_than_current": 0.907
+    },
+    "0.4": {
+     "logloss": 0.8539,
+     "share_better_than_current": 0.799
+    },
+    "0.5": {
+     "logloss": 0.8547,
+     "share_better_than_current": 0.646
+    },
+    "0.6": {
+     "logloss": 0.8567,
+     "share_better_than_current": 0.475
+    },
+    "0.7": {
+     "logloss": 0.8599,
+     "share_better_than_current": 0.309
+    },
+    "0.8": {
+     "logloss": 0.8644,
+     "share_better_than_current": 0.165
+    },
+    "0.9": {
+     "logloss": 0.8703,
+     "share_better_than_current": 0.071
+    },
+    "1.0": {
+     "logloss": 0.8776,
+     "share_better_than_current": 0.025
+    }
+   }
+  }
+ },
+ "2024-2025": {
+  "nations": {
+   "matches": 182,
+   "by_weight": {
+    "0.0": {
+     "logloss": 0.9052,
+     "share_better_than_current": 0.037
+    },
+    "0.1": {
+     "logloss": 0.9006,
+     "share_better_than_current": 0.054
+    },
+    "0.2": {
+     "logloss": 0.897,
+     "share_better_than_current": 0.0
+    },
+    "0.3": {
+     "logloss": 0.8943,
+     "share_better_than_current": 0.892
+    },
+    "0.4": {
+     "logloss": 0.8925,
+     "share_better_than_current": 0.856
+    },
+    "0.5": {
+     "logloss": 0.8915,
+     "share_better_than_current": 0.803
+    },
+    "0.6": {
+     "logloss": 0.8914,
+     "share_better_than_current": 0.75
+    },
+    "0.7": {
+     "logloss": 0.8922,
+     "share_better_than_current": 0.689
+    },
+    "0.8": {
+     "logloss": 0.8939,
+     "share_better_than_current": 0.616
+    },
+    "0.9": {
+     "logloss": 0.8966,
+     "share_better_than_current": 0.522
+    },
+    "1.0": {
+     "logloss": 0.9005,
+     "share_better_than_current": 0.445
+    }
+   },
+   "market_logloss": 0.8899
+  },
+  "all": {
+   "matches": 787,
+   "by_weight": {
+    "0.0": {
+     "logloss": 0.8682,
+     "share_better_than_current": 0.001
+    },
+    "0.1": {
+     "logloss": 0.8623,
+     "share_better_than_current": 0.004
+    },
+    "0.2": {
+     "logloss": 0.8584,
+     "share_better_than_current": 0.0
+    },
+    "0.3": {
+     "logloss": 0.8561,
+     "share_better_than_current": 0.954
+    },
+    "0.4": {
+     "logloss": 0.8553,
+     "share_better_than_current": 0.869
+    },
+    "0.5": {
+     "logloss": 0.8559,
+     "share_better_than_current": 0.721
+    },
+    "0.6": {
+     "logloss": 0.8578,
+     "share_better_than_current": 0.535
+    },
+    "0.7": {
+     "logloss": 0.8611,
+     "share_better_than_current": 0.341
+    },
+    "0.8": {
+     "logloss": 0.8659,
+     "share_better_than_current": 0.174
+    },
+    "0.9": {
+     "logloss": 0.8721,
+     "share_better_than_current": 0.072
+    },
+    "1.0": {
+     "logloss": 0.8801,
+     "share_better_than_current": 0.019
+    }
+   }
+  }
+ },
+ "pooled": {
+  "nations": {
+   "matches": 349,
+   "by_weight": {
+    "0.0": {
+     "logloss": 0.9609,
+     "share_better_than_current": 0.001
+    },
+    "0.1": {
+     "logloss": 0.955,
+     "share_better_than_current": 0.004
+    },
+    "0.2": {
+     "logloss": 0.9503,
+     "share_better_than_current": 0.0
+    },
+    "0.3": {
+     "logloss": 0.9467,
+     "share_better_than_current": 0.985
+    },
+    "0.4": {
+     "logloss": 0.9442,
+     "share_better_than_current": 0.965
+    },
+    "0.5": {
+     "logloss": 0.9426,
+     "share_better_than_current": 0.93
+    },
+    "0.6": {
+     "logloss": 0.942,
+     "share_better_than_current": 0.885
+    },
+    "0.7": {
+     "logloss": 0.9424,
+     "share_better_than_current": 0.822
+    },
+    "0.8": {
+     "logloss": 0.9438,
+     "share_better_than_current": 0.738
+    },
+    "0.9": {
+     "logloss": 0.9462,
+     "share_better_than_current": 0.63
+    },
+    "1.0": {
+     "logloss": 0.9498,
+     "share_better_than_current": 0.518
+    }
+   },
+   "market_logloss": 0.922
+  },
+  "all": {
+   "matches": 1436,
+   "by_weight": {
+    "0.0": {
+     "logloss": 0.8665,
+     "share_better_than_current": 0.0
+    },
+    "0.1": {
+     "logloss": 0.8611,
+     "share_better_than_current": 0.0
+    },
+    "0.2": {
+     "logloss": 0.8574,
+     "share_better_than_current": 0.0
+    },
+    "0.3": {
+     "logloss": 0.8553,
+     "share_better_than_current": 0.983
+    },
+    "0.4": {
+     "logloss": 0.8547,
+     "share_better_than_current": 0.928
+    },
+    "0.5": {
+     "logloss": 0.8553,
+     "share_better_than_current": 0.772
+    },
+    "0.6": {
+     "logloss": 0.8573,
+     "share_better_than_current": 0.5
+    },
+    "0.7": {
+     "logloss": 0.8606,
+     "share_better_than_current": 0.248
+    },
+    "0.8": {
+     "logloss": 0.8652,
+     "share_better_than_current": 0.088
+    },
+    "0.9": {
+     "logloss": 0.8713,
+     "share_better_than_current": 0.018
+    },
+    "1.0": {
+     "logloss": 0.879,
+     "share_better_than_current": 0.002
+    }
+   }
+  }
+ }
+}
