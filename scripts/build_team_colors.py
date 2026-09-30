@@ -74,7 +74,9 @@ CLUB_PRIMARY = {
     "SC Paderborn": "#1f6fc0", "Schalke 04": "#1f5fbf", "Sevilla": "#d81e05",
     "Sheffield United": "#ee2737", "Tottenham": "#f5f5f5", "Tottenham Hotspur FC": "#f5f5f5",
     "Union Berlin": "#e30613", "Valencia": "#ee7814", "VfB Stuttgart": "#e32219",
-    "Villarreal": "#ffe667", "Watford": "#fbee23", "Barcelona": "#a50044",
+    "Villarreal": "#ffe667", "Watford": "#fbee23",
+    # Barcelona's blue: its garnet reads as pink on the dark page.
+    "Barcelona": "#004d98", "FC Barcelona": "#004d98",
 }
 PLACEHOLDERS = {"#ffffff", "#000000"}
 

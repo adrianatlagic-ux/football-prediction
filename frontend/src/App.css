@@ -1556,8 +1556,11 @@ body {
 }
 
 @media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
-  .hero-content { max-width: 100%; margin: 0 auto; }
+  /* minmax(0, 1fr): a plain 1fr column never shrinks below its widest
+     content, which pushed the whole hero past a phone's edge. */
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; text-align: center; }
+  .hero-content { max-width: 100%; margin: 0 auto; min-width: 0; }
+  .hero-eyebrow { max-width: 100%; white-space: normal; }
   .hero-stats { justify-content: center; }
   .hero-preview { max-width: 420px; margin: 0 auto; width: 100%; }
   .hero-top { flex-direction: column; justify-content: center; }
@@ -1566,8 +1569,16 @@ body {
 @media (max-width: 700px) {
   .navbar { flex-direction: column; gap: 0.75rem; padding: 1rem; justify-content: center; }
   .nav-links { gap: 1.25rem; }
-  .hero h1 { font-size: 2rem; }
-  .hero-stats { gap: 1.5rem; }
+  .hero h1 { font-size: 2rem; overflow-wrap: anywhere; }
+  .hero-eyebrow { letter-spacing: 0.1em; font-size: 0.62rem; }
+  /* The sample card: beside the donut the bars had no room left, so on a
+     phone the donut sits above them and they take the card's full width. */
+  .hero-preview-body { flex-direction: column; gap: 1rem; }
+  .hero-preview-body .hero-preview-bars { width: 100%; min-width: 0; }
+  .hero-preview .prob-row { gap: 0.6rem; }
+  .hero-preview .prob-label { width: 6rem; font-size: 0.8rem; text-align: left; }
+  .hero-preview .prob-value { width: 3rem; font-size: 0.85rem; }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem 1rem; }
   .how-grid { grid-template-columns: 1fr; }
   .explanation-grid { grid-template-columns: 1fr; }
   .result-header { flex-direction: column; }
