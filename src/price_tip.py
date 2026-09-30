@@ -221,12 +221,12 @@ def build_price_tip(event: dict, book: dict, now: Optional[datetime] = None) -> 
 
     pinnacle = pinnacle_prices(event)
     if pinnacle is None:
-        return {**base, "reason": "Pinnacle does not price this match, so there is no fair reference."}
+        return {**base, "reason": "Pinnacle bietet für dieses Spiel keine Quote an, es gibt also keinen fairen Vergleichspreis."}
     base["pinnacle_updated_at"] = pinnacle.get("last_update")
 
     fixture = match_fixture(event, book.get("fixtures", []))
     if fixture is None:
-        return {**base, "reason": f"{bookmaker} has no listing for this match that we could match safely."}
+        return {**base, "reason": f"{bookmaker} führt dieses Spiel nicht so, dass wir es sicher zuordnen können."}
 
     # Each fixture carries the time of the fetch that produced it; older files
     # stamped the whole book once.
@@ -236,7 +236,7 @@ def build_price_tip(event: dict, book: dict, now: Optional[datetime] = None) -> 
     base["book_markets_fetched_at"] = fixture.get("markets_fetched_at")
     fetched = _time(stamp)
     if fetched is None or now - fetched > MAX_BOOK_AGE:
-        return {**base, "reason": f"{bookmaker} odds are too old to compare against current prices."}
+        return {**base, "reason": f"Die Quoten von {bookmaker} sind zu alt für einen Vergleich mit aktuellen Preisen."}
 
     snapshot = _time(event.get("odds_fetched_at"))
 
@@ -262,16 +262,17 @@ def build_price_tip(event: dict, book: dict, now: Optional[datetime] = None) -> 
     base["full_book"] = full_book
     best = max(rows, key=lambda r: r["edge"])
     if not pinnacle_fresh:
-        tip, reason = None, ("Pinnacle's price has no recent update time, so it may be stale. "
-                             "No tip is given on it.")
+        tip, reason = None, ("Pinnacles Preis hat keinen aktuellen Zeitstempel und könnte veraltet sein. "
+                             "Darauf gibt es keinen Tipp.")
     elif not aligned(stamp):
-        tip, reason = None, (f"{bookmaker}'s odds were read at a different time than Pinnacle's. "
-                             "A tip is only given when both are read together, in the hour before kickoff.")
+        tip, reason = None, (f"Die Quoten von {bookmaker} wurden zu einem anderen Zeitpunkt gelesen als die von Pinnacle. "
+                             "Ein Tipp kommt nur, wenn beide gemeinsam gelesen wurden, in der Stunde vor Anpfiff.")
     elif best["edge"] >= THRESHOLD:
         tip, reason = best, None
     else:
-        tip, reason = None, (f"{bookmaker} pays less than the fair price on every comparable bet here "
-                             f"(closest: {best['edge']:+.1%}).")
+        closest = f"{best['edge'] * 100:+.1f}".replace(".", ",")
+        tip, reason = None, (f"{bookmaker} zahlt bei jeder vergleichbaren Wette hier weniger als den fairen Preis "
+                             f"(am nächsten dran: {closest} %).")
     return {**base, "outcomes": rows, "tip": tip, "reason": reason}
 
 

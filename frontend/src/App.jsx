@@ -2680,7 +2680,7 @@ export default function App() {
       )}
 
       <footer className="footer">
-        <p>GoalIQ – KI-Prognosen, nur zur Unterhaltung. Keine Wettberatung. · <a href="mailto:hallo@goaliq.de">hallo@goaliq.de</a></p>
+        <p>GoalIQ – KI-Prognosen, nur zur Unterhaltung. Keine Wettberatung. · <a href="mailto:kontakt@goaliq.de">kontakt@goaliq.de</a></p>
       </footer>
     </div>
   )

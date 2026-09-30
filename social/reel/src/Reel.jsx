@@ -3,10 +3,10 @@ import { loadFont } from '@remotion/google-fonts/Inter'
 
 const { fontFamily } = loadFont('normal', { weights: ['500', '700', '900'] })
 
-const BG = '#0a0e1a'
+const BG = '#050505'
 const INK = '#f1f5f9'
 const MUTED = '#94a3b8'
-const ACCENT = '#4ade80'
+const ACCENT = '#f4cf6e'
 
 // Scene lengths in frames at 30 fps: hook, probabilities, stats, score, call to action.
 const SCENES = [75, 120, 105, 90, 75]
@@ -69,7 +69,7 @@ function Hook({ home, away, homeIso, awayIso, homeCrest, awayCrest }) {
         </div>
       </div>
       <div style={{
-        position: 'absolute', bottom: 430, width: 900, textAlign: 'center',
+        position: 'absolute', bottom: 520, width: 900, textAlign: 'center',
         fontSize: 64, fontWeight: 900, lineHeight: 1.15, opacity: q, transform: `translateY(${(1 - q) * 40}px)`,
       }}>
         Wer gewinnt? <span style={{ color: ACCENT }}>Die KI</span> hat es durchgerechnet.
@@ -192,7 +192,7 @@ export function Reel(props) {
   let start = 0
   const at = i => { const from = start; start += SCENES[i]; return from }
   return (
-    <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 30%, #16213d 0%, ${BG} 65%)`, color: INK, fontFamily }}>
+    <AbsoluteFill style={{ background: `radial-gradient(ellipse 1400px 900px at 50% -5%, rgba(212,175,55,0.16), ${BG} 60%)`, color: INK, fontFamily }}>
       <Header competition={props.competition} kickoff={props.kickoff} />
       <Sequence from={at(0)} durationInFrames={SCENES[0]}><Hook {...props} /></Sequence>
       <Sequence from={at(1)} durationInFrames={SCENES[1]}><Probabilities {...props} /></Sequence>

@@ -77,7 +77,7 @@ body {
 }
 
 .nav-title span {
-  color: #4ade80;
+  color: var(--gold-light);
 }
 
 .nav-links {
@@ -2755,6 +2755,15 @@ body {
   border-top: 1px solid var(--border);
   max-width: 860px;
   margin: 0 auto;
+}
+
+.footer a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #c4c6cc;
 }
 
 

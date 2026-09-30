@@ -1432,13 +1432,15 @@ conceded", "erratic form", "unbeaten in 8") in double asterisks like **this** - 
 filler words, only the specific evidence a reader would want to see highlighted.
 
 Keep everything SHORT - this renders in a small card, not an article. Respond with ONLY raw JSON, no \
-markdown formatting, no code fences, exactly this shape - everything in English:
+markdown formatting, no code fences, exactly this shape. Write every text value (the research \
+sentences, bet_headline, bet_reasoning, bet_points) in German for German football fans; copy \
+pick_market and pick_outcome exactly as the strings above:
 {{"research": {{"lineups_injuries": "<one short sentence, or empty string if nothing found>", \
 "form": "<one short sentence, or empty string>", "table_situation": "<one short sentence, or empty \
 string>", "other": "<one short sentence on anything else notable, or empty string>"}}, \
 "pick_market": "<one of the market strings above, or null>", "pick_outcome": "<matching outcome \
-string, or null>", "bet_headline": "<2-5 words naming the pick in plain language, e.g. 'Over 2.5 \
-goals' or 'Croatia to win' - or 'No good bet' if pick is null>", "bet_reasoning": "<exactly ONE \
+string, or null>", "bet_headline": "<2-5 words naming the pick in plain language, e.g. 'Über 2,5 \
+Tore' or 'Sieg Kroatien' - or 'Keine gute Wette' if pick is null>", "bet_reasoning": "<exactly ONE \
 sentence with your verdict>", "bet_points": ["<short supporting fact, max 8 words>", "<short \
 supporting fact, max 8 words>"]}}"""
 

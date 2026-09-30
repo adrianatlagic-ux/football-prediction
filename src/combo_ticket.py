@@ -279,14 +279,14 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None):
                 near_miss = None
             by_size.append({"leg_count": size, "ticket": ticket, "near_miss": near_miss,
                             "reason": None if ticket else (
-                                f"No {size}-fold available. It needs {size} qualifying matches "
-                                f"at one bookmaker and combined odds of at least {MIN_COMBINED_ODDS:.2f}.")})
+                                f"Keine {size}er-Kombi möglich. Dafür braucht es {size} passende Spiele "
+                                f"bei einem Buchmacher und eine Gesamtquote von mindestens {MIN_COMBINED_ODDS:.2f}.")})
         days.append({"date": date, "eligible_legs": len({fixture_key(l) for l in day_legs}),
                      "by_size": by_size,
                      "already_started": started, "recommended": top, "alternatives": tickets[1:3],
                      "all_in": all_in, "all_in_is_worse": bool(all_in and top and all_in["ranking_score"] < top["ranking_score"]),
                      "legs": day_legs,
-                     "reason": None if top else f"No qualifying same-book ticket for this day. {started} matches have already started."})
+                     "reason": None if top else f"Für diesen Tag gibt es keinen passenden Schein bei einem Buchmacher. {started} Spiele haben schon begonnen."})
     return days
 
 
@@ -308,7 +308,7 @@ def combo_report(value_bet_results, max_legs=MAX_LEGS, book=None, policy="market
                            "same_bookmaker": True, "binary_settlement_only": True,
                            "single_bet_stress_required": False,
                            "ranking": "model_market_win_probability"},
-            "reason": None if tickets else "No same-day ticket at one bookmaker passes all leg and ticket checks. Push/quarter markets are currently excluded.",
+            "reason": None if tickets else "Kein Schein mit Spielen eines Tages bei einem Buchmacher besteht alle Prüfungen. Märkte mit Rückerstattung und Viertel-Linien sind derzeit ausgeschlossen.",
             "interpretation": "Model estimate assuming independence between different fixtures; not guaranteed. Same-book singles prices multiplied, not a verified offered accumulator price. Experimental, no proven profitability."}
 
 

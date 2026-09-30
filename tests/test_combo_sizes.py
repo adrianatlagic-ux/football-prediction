@@ -23,7 +23,7 @@ def test_missing_size_has_an_explanation_not_a_shorter_ticket():
     assert day["by_size"][0]["ticket"] is not None
     for option in day["by_size"][1:]:
         assert option["ticket"] is None
-        assert f'{option["leg_count"]}-fold' in option["reason"]
+        assert f'{option["leg_count"]}er-Kombi' in option["reason"]
 
 
 def test_three_fold_is_visible_even_when_two_fold_misses_minimum_odds():

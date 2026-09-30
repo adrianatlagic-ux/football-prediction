@@ -36,7 +36,7 @@ def test_no_tip_below_threshold_but_numbers_still_shown():
     result = build_price_tip(_event(), _book({"home": 1.75, "draw": 3.70, "away": 4.40}), now=NOW)
     assert result["tip"] is None
     assert len(result["outcomes"]) == 3
-    assert "pays less" in result["reason"]
+    assert "weniger als den fairen Preis" in result["reason"]
 
 
 def test_no_tip_without_pinnacle():
@@ -111,7 +111,7 @@ def test_other_lines_only_when_pinnacle_quotes_the_same_line():
 def test_no_tip_when_book_and_pinnacle_were_read_apart():
     event = {**_event(), "odds_fetched_at": (NOW - timedelta(hours=3)).isoformat()}
     result = build_price_tip(event, _book({"home": 1.70, "draw": 3.60, "away": 5.00}), now=NOW)
-    assert result["tip"] is None and "different time" in result["reason"]
+    assert result["tip"] is None and "anderen Zeitpunkt" in result["reason"]
     assert len(result["outcomes"]) == 3
 
 
@@ -133,7 +133,7 @@ def test_no_tip_on_a_pinnacle_price_untouched_for_days():
     event = _event()
     event["bookmakers"][0]["markets"][0]["last_update"] = (NOW - timedelta(days=2)).isoformat()
     result = build_price_tip(event, _book({"home": 1.70, "draw": 3.60, "away": 5.00}), now=NOW)
-    assert result["tip"] is None and "stale" in result["reason"]
+    assert result["tip"] is None and "veraltet" in result["reason"]
 
 
 def test_quarter_lines_never_become_a_price_tip():
