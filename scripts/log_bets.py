@@ -71,6 +71,20 @@ def _price_tip_upgrade(old, new) -> bool:
     return old is None or (not old.get("tip") and bool(new.get("tip")))
 
 
+# One category per competition, so club and national results and the old
+# World Cup / Champions League entries are never pooled (scripts/grade_bets.py).
+COMPETITIONS = {
+    "soccer_uefa_nations_league": "Nations League",
+    "soccer_uefa_champs_league": "Champions League",
+    "soccer_germany_bundesliga": "Bundesliga",
+    "soccer_fifa_world_cup": "WM 2026",
+}
+
+
+def _competition(sport_key):
+    return COMPETITIONS.get(sport_key, sport_key)
+
+
 def _build_entry(m, now):
     return {
         "logged_at": now,
@@ -79,6 +93,8 @@ def _build_entry(m, now):
         "commence_time": m.get("commence_time"),
         "event_id": m.get("event_id"),
         "sport_key": m.get("sport_key"),
+        # A fixed category, so the grading never pools competitions.
+        "competition": _competition(m.get("sport_key")),
         "recommendation": m.get("recommendation"),
         "recommendation_warning": m.get("recommendation_warning"),
         "green_bets": m.get("green_bets", []),

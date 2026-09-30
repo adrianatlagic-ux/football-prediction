@@ -17,10 +17,14 @@ stake - neither win nor loss.
 import argparse
 import json
 import re
+import sys
 import urllib.request
 from pathlib import Path
 
 LOG_PATH = Path(__file__).parent.parent / "data" / "bet_log.jsonl"
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from log_bets import COMPETITIONS  # noqa: E402
 DEFAULT_API = "https://football-prediction.fly.dev"
 
 
@@ -121,9 +125,141 @@ def _same_bet(a, b):
         and a["outcome"] == b["outcome"] and a.get("team") == b.get("team")
 
 
+# The price range both market picks are compared in: the same matches, the
+# same odds, only the choice of market differs.
+FAIR_MIN_ODDS, FAIR_MAX_ODDS = 1.30, 2.00
+
+
+def competition_of(entry) -> str:
+    return entry.get("competition") or COMPETITIONS.get(entry.get("sport_key"), "ohne Wettbewerb (alte Einträge)")
+
+
+def _game_pick(entry):
+    """The Game Pick with its odds: the market favourite's 1X2 bet."""
+    pick = (entry.get("combined") or {}).get("consensus_pick")
+    for b in entry.get("green_bets", []) + entry.get("red_bets", []):
+        if _same_bet(b, pick):
+            return b
+    return None
+
+
+def grade_entries(entries, finished):
+    """Every bucket for one group of entries, plus the per-match rows."""
+    buckets = {k: Bucket(label) for k, label in (
+        ("all_green", "Alle grünen Wetten"), ("clean_green", "...davon saubere (nicht ⚠)"),
+        ("suspicious_green", "...davon verdächtige (⚠)"), ("all_red", "Alle roten Wetten (zur Kontrolle)"),
+        ("top_rec", "Nur Top-Empfehlung pro Spiel"), ("consensus", "Game Pick (Markt-Favorit, jede Quote)"),
+        ("agent_pick", "KIs eigener Pick"), ("agent_agrees", "Top-Tipp, KI stimmt zu"),
+        ("agent_disagrees", "Top-Tipp, KI widerspricht"),
+        ("price_tip", "💰 Preistipp (bet-at-home über Pinnacle fair)"),
+        ("likely", "🎯 Wahrscheinlichster Tipp (Markt, Quote 1.30-2.00)"),
+        ("fair_game", f"Game Pick, nur Quote {FAIR_MIN_ODDS:.2f}-{FAIR_MAX_ODDS:.2f}"),
+        ("fair_likely", "🎯 auf denselben Spielen"))}
+    out = {"buckets": buckets, "edges": [], "no_tip": 0, "pending": 0, "rows": [], "fair_matches": 0}
+    for entry in entries:
+        home, away = entry["home_team"], entry["away_team"]
+        res = finished.get((_norm(home), _norm(away), str(entry.get("commence_time"))[:10]))
+        if res is None:
+            out["pending"] += 1
+            continue
+        hs, as_ = res["home_score"], res["away_score"]
+        if "green_bets" not in entry:
+            # Legacy flat single-tip format.
+            g = grade(entry, home, away, hs, as_)
+            if g is None:
+                continue
+            buckets["all_green"].add(g, entry["best_odds"])
+            buckets["top_rec"].add(g, entry["best_odds"])
+            tip = f"{entry['market']} {entry.get('team') or entry['outcome']}"
+            out["rows"].append(f"  {home} {hs}-{as_} {away:18} | {tip:28} @ {entry['best_odds']:.2f} | {g.upper()} [legacy]")
+            continue
+        rec = entry.get("recommendation")
+        agent = entry.get("agent_eval")
+        a_pick = agent.get("pick") if agent else None
+        consensus_pick = (entry.get("combined") or {}).get("consensus_pick")
+        for b in entry.get("green_bets", []):
+            g = grade(b, home, away, hs, as_)
+            if g is None:
+                continue
+            buckets["all_green"].add(g, b["best_odds"])
+            buckets["suspicious_green" if b.get("suspicious") else "clean_green"].add(g, b["best_odds"])
+            if _same_bet(b, rec):
+                buckets["top_rec"].add(g, b["best_odds"])
+            if _same_bet(b, a_pick):
+                buckets["agent_pick"].add(g, b["best_odds"])
+                buckets["agent_agrees" if agent.get("agrees_with_model") else "agent_disagrees"].add(g, b["best_odds"])
+            if _same_bet(b, consensus_pick):
+                buckets["consensus"].add(g, b["best_odds"])
+        for b in entry.get("red_bets", []):
+            g = grade(b, home, away, hs, as_)
+            if g is not None:
+                buckets["all_red"].add(g, b["best_odds"])
+                if _same_bet(b, consensus_pick):
+                    buckets["consensus"].add(g, b["best_odds"])
+        # The price tip is graded at bet-at-home's odds, the ones it was
+        # given at. Its expected edge is kept to set against the result.
+        pt = entry.get("price_tip") or {}
+        tip = pt.get("tip")
+        if tip:
+            g = grade(tip, home, away, hs, as_)
+            if g is not None:
+                buckets["price_tip"].add(g, tip["book_odds"])
+                out["edges"].append(tip["edge"])
+        elif pt:
+            out["no_tip"] += 1
+        lp = entry.get("likely_pick")
+        g_lp = grade(lp, home, away, hs, as_) if lp else None
+        if g_lp is not None:
+            buckets["likely"].add(g_lp, lp["best_odds"])
+        # Fair comparison: only matches where both picks exist and the Game
+        # Pick's odds lie in 🎯's range - same matches, same prices.
+        gp = _game_pick(entry)
+        g_gp = grade(gp, home, away, hs, as_) if gp else None
+        if (g_gp is not None and g_lp is not None
+                and FAIR_MIN_ODDS <= gp["best_odds"] <= FAIR_MAX_ODDS):
+            buckets["fair_game"].add(g_gp, gp["best_odds"])
+            buckets["fair_likely"].add(g_lp, lp["best_odds"])
+            out["fair_matches"] += 1
+        rec_desc = f"{rec['market']} {rec.get('team') or rec['outcome']}" if rec else "-"
+        out["rows"].append(f"  {home} {hs}-{as_} {away:18} | {len(entry.get('green_bets', [])):2} grüne Tipps | Top: {rec_desc}")
+    return out
+
+
+def print_report(name, r):
+    b = r["buckets"]
+    print("\n" + "=" * 60)
+    print(f"{name}: {len(r['rows'])} Spiele ausgewertet (noch offen: {r['pending']})")
+    print("=" * 60)
+    for row in r["rows"]:
+        print(row)
+    print()
+    for key in ("all_green", "clean_green", "suspicious_green", "all_red", "top_rec", "consensus"):
+        print(b[key].report())
+    if b["price_tip"].decided or r["no_tip"]:
+        print("\n  -- Preistipp --")
+        print(b["price_tip"].report())
+        if r["edges"]:
+            print(f"  erwarteter Edge im Schnitt {sum(r['edges']) / len(r['edges']):+.1%} "
+                  f"- einzelne Ergebnisse schwanken weit mehr; erst viele Tipps sagen etwas.")
+        print(f"  Spiele ohne Preistipp: {r['no_tip']}")
+    if b["likely"].decided:
+        print(b["likely"].report())
+    if r["fair_matches"]:
+        print(f"\n  -- Fairer Vergleich: {r['fair_matches']} Spiele mit beiden Tipps, Game Pick "
+              f"zu Quote {FAIR_MIN_ODDS:.2f}-{FAIR_MAX_ODDS:.2f} --")
+        print(b["fair_game"].report())
+        print(b["fair_likely"].report())
+    if b["agent_pick"].decided or b["agent_agrees"].decided or b["agent_disagrees"].decided:
+        print("\n  -- KI-Agent --")
+        for key in ("agent_pick", "agent_agrees", "agent_disagrees"):
+            print(b[key].report())
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--api", default=DEFAULT_API)
+    parser.add_argument("--competition", default=None,
+                        help="nur diesen Wettbewerb, z.B. 'Nations League' (Standard: jeder getrennt)")
     args = parser.parse_args()
 
     if not LOG_PATH.exists():
@@ -131,126 +267,18 @@ def main():
         return
 
     results = json.load(urllib.request.urlopen(f"{args.api}/real-results", timeout=30))["results"]
-    finished = {}
-    for r in results:
-        if r.get("completed") and r.get("home_score") is not None:
-            finished[(_norm(r["home_team"]), _norm(r["away_team"]))] = r
-
-    all_green = Bucket("Alle grünen Wetten")
-    clean_green = Bucket("...davon saubere (nicht ⚠)")
-    suspicious_green = Bucket("...davon verdächtige (⚠)")
-    all_red = Bucket("Alle roten Wetten (zur Kontrolle)")
-    top_rec = Bucket("Nur Top-Empfehlung pro Spiel")
-    consensus = Bucket("Game Pick (Markt-Favorit)")
-    agent_pick = Bucket("KIs eigener Pick")
-    agent_agrees = Bucket("Top-Tipp, KI stimmt zu")
-    agent_disagrees = Bucket("Top-Tipp, KI widerspricht")
-    price_tip = Bucket("💰 Preistipp (bet-at-home über Pinnacle fair)")
-    price_tip_edges, no_tip = [], 0
-    likely = Bucket("🎯 Wahrscheinlichster Tipp (Markt, Quote 1.30-2.00)")
-
-    pending = 0
-    match_rows = []
-
+    # Teams AND date: the same pairing can meet twice in a season.
+    finished = {(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
+                for r in results if r.get("completed") and r.get("home_score") is not None}
+    groups = {}
     for line in LOG_PATH.read_text(encoding="utf-8").splitlines():
-        if not line.strip():
+        if line.strip():
+            entry = json.loads(line)
+            groups.setdefault(competition_of(entry), []).append(entry)
+    for name in sorted(groups):
+        if args.competition and name != args.competition:
             continue
-        entry = json.loads(line)
-        home, away = entry["home_team"], entry["away_team"]
-        res = finished.get((_norm(home), _norm(away)))
-        if res is None:
-            pending += 1
-            continue
-        hs, as_ = res["home_score"], res["away_score"]
-
-        if "green_bets" in entry:
-            # New full-breakdown format.
-            rec = entry.get("recommendation")
-            agent = entry.get("agent_eval")
-            a_pick = agent.get("pick") if agent else None
-
-            combined = entry.get("combined") or {}
-            consensus_pick = combined.get("consensus_pick")
-
-            for b in entry.get("green_bets", []):
-                g = grade(b, home, away, hs, as_)
-                if g is None:
-                    continue
-                all_green.add(g, b["best_odds"])
-                (suspicious_green if b.get("suspicious") else clean_green).add(g, b["best_odds"])
-                if _same_bet(b, rec):
-                    top_rec.add(g, b["best_odds"])
-                if _same_bet(b, a_pick):
-                    agent_pick.add(g, b["best_odds"])
-                    if agent.get("agrees_with_model"):
-                        agent_agrees.add(g, b["best_odds"])
-                    else:
-                        agent_disagrees.add(g, b["best_odds"])
-                if _same_bet(b, consensus_pick):
-                    consensus.add(g, b["best_odds"])
-
-            for b in entry.get("red_bets", []):
-                g = grade(b, home, away, hs, as_)
-                if g is not None:
-                    all_red.add(g, b["best_odds"])
-                    if _same_bet(b, consensus_pick):
-                        consensus.add(g, b["best_odds"])
-
-            # The price tip is graded at bet-at-home's odds, the ones it was
-            # given at. Its expected edge is kept to set against the result.
-            pt = entry.get("price_tip") or {}
-            tip = pt.get("tip")
-            if tip:
-                g = grade(tip, home, away, hs, as_)
-                if g is not None:
-                    price_tip.add(g, tip["book_odds"])
-                    price_tip_edges.append(tip["edge"])
-            elif pt:
-                no_tip += 1
-            lp = entry.get("likely_pick")
-            if lp:
-                g = grade(lp, home, away, hs, as_)
-                if g is not None:
-                    likely.add(g, lp["best_odds"])
-
-            rec_desc = f"{rec['market']} {rec.get('team') or rec['outcome']}" if rec else "-"
-            match_rows.append(f"  {home} {hs}-{as_} {away:18} | {len(entry.get('green_bets', [])):2} grüne Tipps | Top: {rec_desc}")
-        else:
-            # Legacy flat single-tip format.
-            g = grade(entry, home, away, hs, as_)
-            if g is None:
-                continue
-            all_green.add(g, entry["best_odds"])
-            top_rec.add(g, entry["best_odds"])
-            tip = f"{entry['market']} {entry.get('team') or entry['outcome']}"
-            match_rows.append(f"  {home} {hs}-{as_} {away:18} | {tip:28} @ {entry['best_odds']:.2f} | {g.upper()} [legacy]")
-
-    for row in match_rows:
-        print(row)
-
-    print("\n" + "=" * 60)
-    print(f"Spiele ausgewertet: {len(match_rows)}  (noch offen: {pending})\n")
-    for bucket in [all_green, clean_green, suspicious_green, all_red, top_rec, consensus]:
-        print(bucket.report())
-
-    if price_tip.decided or no_tip:
-        print("\n  -- Preistipp --")
-        print(price_tip.report())
-        if price_tip_edges:
-            print(f"  erwarteter Edge im Schnitt {sum(price_tip_edges) / len(price_tip_edges):+.1%} "
-                  f"- einzelne Ergebnisse schwanken weit mehr; erst viele Tipps sagen etwas.")
-        print(f"  Spiele ohne Preistipp: {no_tip}")
-    if likely.decided:
-        print(likely.report())
-
-    if agent_pick.decided or agent_agrees.decided or agent_disagrees.decided:
-        print("\n  -- KI-Agent --")
-        print(agent_pick.report())
-        print(agent_agrees.report())
-        print(agent_disagrees.report())
-
-    if not match_rows:
-        print(f"Noch keine Tipps auswertbar (offen: {pending}). Ergebnisse fehlen noch.")
+        print_report(name, grade_entries(groups[name], finished))
 
 
 if __name__ == "__main__":
