@@ -62,10 +62,14 @@ def repredict(fixture: dict, predictor, now: datetime) -> dict:
     result = (predictor.predict_match(fixture["home_team"], fixture["away_team"], is_knockout=False)
               if national else predictor.predict_match(fixture["home_team"], fixture["away_team"]))
     previous = _cached(fixture["match_id"])
-    scenario = ((previous.get("score_prediction") or {}).get("betting_markets") or {}).get("scenario")
+    from src.poisson_model import SCENARIO_LANG
+    previous_markets = (previous.get("score_prediction") or {}).get("betting_markets") or {}
+    scenario = previous_markets.get("scenario")
     # The written scenario describes the predicted winner; once the winner
-    # changes it has to be written again.
+    # changes it has to be written again. So is one in another language.
     if previous.get("prediction") and previous.get("prediction") != result.get("prediction"):
+        scenario = None
+    if previous_markets.get("scenario_lang") != SCENARIO_LANG:
         scenario = None
     if not scenario:
         try:
@@ -196,8 +200,10 @@ def run_hourly(club: Callable, national: Callable) -> dict:
             before = _cached(f["match_id"])
             # The written scenario of the cached prediction; adjust() keeps it
             # only if the predicted result survives the line-ups.
-            scenario = ((before.get("score_prediction") or {}).get("betting_markets") or {}).get("scenario")
-            if scenario:
+            from src.poisson_model import SCENARIO_LANG
+            before_markets = (before.get("score_prediction") or {}).get("betting_markets") or {}
+            scenario = before_markets.get("scenario")
+            if scenario and before_markets.get("scenario_lang") == SCENARIO_LANG:
                 baseline.setdefault("score_prediction", {}).setdefault("betting_markets", {})["scenario"] = scenario
             fresh = lineups.adjust(baseline, share_h, share_a)
             fresh.update(lineup_refreshed_at=now.isoformat(),

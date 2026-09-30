@@ -6,8 +6,10 @@ from scipy.stats import poisson
 from scipy.optimize import minimize_scalar
 
 from .fifa_rankings import get_points, has_ranking
+from .team_names import de_name
 
 MAX_GOALS = 8
+SCENARIO_LANG = "de"
 
 # How strongly the FIFA-points gap between two teams shifts the xG
 # towards the stronger side. 0 = no effect, 1 = very strong effect.
@@ -134,26 +136,27 @@ def compute_betting_markets(
 
     if draw_prob >= home_win_prob and draw_prob >= away_win_prob:
         if top_gap < CLOSE_GAP_THRESHOLD:
-            scenario = "A tight three-way contest, with a draw the slightly more likely outcome."
+            scenario = "Ein offenes Duell, in dem ein Remis knapp am wahrscheinlichsten ist."
         else:
-            scenario = "A close match — a draw is the single most likely outcome."
+            scenario = "Ein enges Spiel – ein Remis ist der wahrscheinlichste Ausgang."
     else:
         if home_win_prob >= away_win_prob:
             favorite, fav_prob, margin_2plus = home_team, home_win_prob, home_2plus
         else:
             favorite, fav_prob, margin_2plus = away_team, away_win_prob, away_2plus
+        favorite = de_name(favorite)
 
         margin_share = margin_2plus / fav_prob if fav_prob > 0 else 0.0
 
         if top_gap < CLOSE_GAP_THRESHOLD:
-            sentence = f"A tight three-way contest, with {favorite} holding a slight edge"
+            sentence = f"Ein offenes Duell, in dem {favorite} leicht vorne liegt"
         else:
-            sentence = f"{favorite} are favored to win"
+            sentence = f"{favorite} geht als Favorit ins Spiel"
             if margin_share > 0.55:
-                sentence += ", likely by 2+ goals"
+                sentence += ", wohl mit 2+ Toren Vorsprung"
 
-        sentence += ", in a high-scoring game." if over_2_5 > 0.55 \
-            else ", in a low-scoring game." if over_2_5 < 0.45 \
+        sentence += ", in einem torreichen Spiel." if over_2_5 > 0.55 \
+            else ", in einem torarmen Spiel." if over_2_5 < 0.45 \
             else "."
         scenario = sentence
 
@@ -174,6 +177,8 @@ def compute_betting_markets(
             "away_3plus": round(away_3plus, 4),
         },
         "scenario": scenario,
+        # The site is German; a cached English sentence is written again.
+        "scenario_lang": SCENARIO_LANG,
     }
 
 

@@ -47,7 +47,8 @@ def _poisson_prediction(home_xg=2.0, away_xg=0.8):
     return {"home_team": "Germany", "away_team": "Greece", "probability_home_win": h, "probability_draw": d,
             "probability_away_win": 1 - h - d, "prediction": "H", "prediction_label": "Home Win",
             "score_prediction": {"score_matrix": m, "most_likely_score": "2:0", "result": "H",
-                                 "betting_markets": {"scenario": "Germany control the game."}}}
+                                 "betting_markets": {"scenario": "Deutschland kontrolliert das Spiel.",
+                                                     "scenario_lang": "de"}}}
 
 
 def test_a_flipped_favourite_rebuilds_every_derived_field():
@@ -61,7 +62,7 @@ def test_a_flipped_favourite_rebuilds_every_derived_field():
     assert all(int(s["score"].split(":")[1]) > int(s["score"].split(":")[0]) for s in sp["top_scorelines"])
     markets = sp["betting_markets"]
     # The written scenario described a home win; it must not survive the flip.
-    assert "scenario" not in markets or markets["scenario"] != "Germany control the game."
+    assert "scenario" not in markets or markets["scenario"] != "Deutschland kontrolliert das Spiel."
     # Double chance and the result probabilities agree.
     dc = markets["double_chance"]
     assert abs(dc["draw_or_away"] - (a + d)) < 0.01
@@ -71,4 +72,14 @@ def test_a_flipped_favourite_rebuilds_every_derived_field():
 def test_an_unchanged_favourite_keeps_its_scenario():
     out = adjust(_poisson_prediction(), 0.9, 1.0)
     assert out["prediction"] == "H"
-    assert out["score_prediction"]["betting_markets"]["scenario"] == "Germany control the game."
+    assert out["score_prediction"]["betting_markets"]["scenario"] == "Deutschland kontrolliert das Spiel."
+
+
+def test_an_english_scenario_is_not_kept():
+    # Written before the site went German: replaced by the German template.
+    before = _poisson_prediction()
+    before["score_prediction"]["betting_markets"] = {"scenario": "Germany control the game."}
+    out = adjust(before, 0.9, 1.0)
+    markets = out["score_prediction"]["betting_markets"]
+    assert markets["scenario"] != "Germany control the game."
+    assert markets["scenario_lang"] == "de" and "Deutschland" in markets["scenario"]

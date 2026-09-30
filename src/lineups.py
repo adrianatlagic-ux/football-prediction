@@ -185,7 +185,7 @@ def _rebuild_scores(sp: dict, home: str, away: str, h: float, d: float, a: float
     old_markets = sp.get("betting_markets") or {}
     # The written scenario stays when the predicted result did not change;
     # otherwise it would describe the other team winning.
-    if keep_scenario and old_markets.get("scenario"):
+    if keep_scenario and old_markets.get("scenario") and old_markets.get("scenario_lang") == markets.get("scenario_lang"):
         markets["scenario"] = old_markets["scenario"]
     matching = [s for s in all_scorelines if s["result"] == result] or all_scorelines
     return {**sp,

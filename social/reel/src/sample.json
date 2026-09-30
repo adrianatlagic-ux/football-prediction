@@ -1,0 +1,42 @@
+{
+  "matchId": "germany_vs_serbia_nl",
+  "home": "Deutschland",
+  "away": "Serbien",
+  "homeIso": "de",
+  "awayIso": "rs",
+  "homeCrest": "https://a.espncdn.com/i/teamlogos/countries/500/ger.png",
+  "awayCrest": "https://a.espncdn.com/i/teamlogos/countries/500/sba.png",
+  "homeColor": "#fccc0c",
+  "awayColor": "#c93e3d",
+  "competition": "Nations League",
+  "kickoff": "Do 01.10. · 20:45",
+  "pHome": 0.7122,
+  "pDraw": 0.1996,
+  "pAway": 0.0882,
+  "score": "2:0",
+  "scoreProb": 0.1205,
+  "stats": [
+    {
+      "label": "Erwartete Tore",
+      "home": 2.34,
+      "away": 0.79
+    },
+    {
+      "label": "Ballbesitz",
+      "home": 59,
+      "away": 41,
+      "suffix": "%"
+    },
+    {
+      "label": "Schüsse",
+      "home": 19,
+      "away": 9
+    },
+    {
+      "label": "Ecken",
+      "home": 8,
+      "away": 4
+    }
+  ],
+  "site": "goaliq.de"
+}

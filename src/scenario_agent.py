@@ -31,6 +31,9 @@ def generate_ai_scenario(
     except ImportError:
         return None
 
+    from src.team_names import de_name
+    home_team, away_team = de_name(home_team), de_name(away_team)
+
     sp = result["score_prediction"]
     bm = sp["betting_markets"]
     flow = result["game_flow"]
@@ -59,18 +62,19 @@ def generate_ai_scenario(
         "is_knockout_match": is_knockout,
     }
 
-    prompt = f"""You are summarizing a football match prediction for {home_team} vs {away_team}.
+    prompt = f"""Du fasst eine Fußball-Prognose für {home_team} gegen {away_team} zusammen.
 
-Below is the ONLY data you may use. Do not invent any fact, statistic, player name, or piece of \
-context that is not explicitly given here - this must be a strict, accurate summary of these \
-numbers, nothing more.
+Die folgenden Daten sind das EINZIGE, was du verwenden darfst. Erfinde keine Fakten, Statistiken, \
+Spielernamen oder Hintergründe, die hier nicht ausdrücklich stehen - das muss eine strikte, \
+genaue Zusammenfassung dieser Zahlen sein, nichts weiter.
 
-{json.dumps(stats, indent=2)}
+{json.dumps(stats, indent=2, ensure_ascii=False)}
 
-Pick the 2-3 most decision-relevant numbers above (not all of them) and write ONE sentence (max 30 \
-words) giving a realistic, natural-sounding prognosis a football fan would find useful. Plain \
-English, no jargon, don't spell out percentages woodenly - paraphrase naturally. Respond with ONLY \
-the sentence, no quotes, no markdown."""
+Wähle die 2-3 aussagekräftigsten Zahlen (nicht alle) und schreibe EINEN Satz (höchstens 30 \
+Wörter) mit einer realistischen, natürlich klingenden Einschätzung, die ein Fußballfan nützlich \
+findet. Schlichtes Deutsch, kein Fachjargon, Prozentzahlen nicht hölzern aufzählen, sondern \
+natürlich umschreiben. Verwende die Teamnamen genau so wie oben. Antworte NUR mit dem Satz, \
+ohne Anführungszeichen, ohne Markdown."""
 
     try:
         client = genai.Client(api_key=api_key)

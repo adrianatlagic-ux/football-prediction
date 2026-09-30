@@ -43,6 +43,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# One address for visitors and search engines: www.goaliq.de sends them to
+# goaliq.de. The fly.dev address stays as it is - the GitHub jobs call it.
+CANONICAL_HOST = "goaliq.de"
+
+
+@app.middleware("http")
+async def _redirect_www(request, call_next):
+    if request.headers.get("host", "").split(":")[0] == f"www.{CANONICAL_HOST}":
+        from fastapi.responses import RedirectResponse
+        return RedirectResponse(request.url.replace(netloc=CANONICAL_HOST, scheme="https"), status_code=308)
+    return await call_next(request)
+
 _predictor: FootballPredictor | None = None
 _national_predictor = None
 

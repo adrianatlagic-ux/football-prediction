@@ -6,6 +6,7 @@ import BL_FIXTURES from './bl_fixtures.json'
 import NL_FIXTURES from './nl_fixtures.json'
 import CLUB_CRESTS from './club_crests.json'
 import TEAM_COLORS from './team_colors.json'
+import TEAM_NAMES_DE from './team_names_de.json'
 
 const API_BASE = import.meta.env.DEV ? 'http://127.0.0.1:8000' : ''
 // The one bookmaker the user bets with (api/app.py USER_BOOK_KEY).
@@ -26,6 +27,52 @@ const GROUPS = [...new Set(CL_FIXTURES.map(f => f.group))].sort((a, b) => {
 
 function fixtureDateTime(f) {
   return new Date(`${f.date}T${f.time}:00`)
+}
+
+// Teams keep their English key everywhere (fixtures, odds, colours); only
+// the name a visitor reads is German.
+const teamName = name => TEAM_NAMES_DE[name] || name
+// 1.79 -> "1,79"
+const deNum = v => String(v ?? '').replace('.', ',')
+
+// "Do, 01.10. · 20:45"
+function fixtureWhen(f) {
+  const d = new Date(`${f.date}T12:00:00`)
+  const weekday = d.toLocaleDateString('de-DE', { weekday: 'short' }).replace('.', '')
+  return `${weekday} ${f.date.slice(8, 10)}.${f.date.slice(5, 7)}. · ${f.time}`
+}
+
+const STAGE_NAMES_DE = {
+  'League Phase': 'Ligaphase', 'Knockout Playoffs': 'K.-o.-Playoffs', 'Round of 16': 'Achtelfinale',
+  'Quarter-finals': 'Viertelfinale', 'Semi-finals': 'Halbfinale', 'Final': 'Finale',
+}
+const WEEKDAYS_DE = { Mon: 'Mo', Tue: 'Di', Wed: 'Mi', Thu: 'Do', Fri: 'Fr', Sat: 'Sa', Sun: 'So' }
+const MONTHS_DE = { Jan: 'Jan', Feb: 'Feb', Mar: 'März', Apr: 'Apr', May: 'Mai', Jun: 'Juni', Jul: 'Juli',
+                    Aug: 'Aug', Sep: 'Sep', Oct: 'Okt', Nov: 'Nov', Dec: 'Dez' }
+
+// Tab names come from the fixture feed: "Matchday 3", "Fri 02 Oct", "League Phase".
+function groupLabel(g) {
+  if (g.length === 1) return `Gruppe ${g}`
+  if (STAGE_NAMES_DE[g]) return STAGE_NAMES_DE[g]
+  const md = g.match(/^Matchday (\d+)$/)
+  if (md) return `Spieltag ${md[1]}`
+  const day = g.match(/^(\w{3}) (\d{2}) (\w{3})$/)
+  if (day && WEEKDAYS_DE[day[1]]) return `${WEEKDAYS_DE[day[1]]} ${day[2]}. ${MONTHS_DE[day[3]] || day[3]}`
+  return g
+}
+
+// The game-flow engine labels matches in English (src/game_flow.py).
+const MATCH_TYPES_DE = {
+  'Goal Fest': 'Torfestival', 'One-Sided': 'Einseitig', 'Balanced & Open': 'Offen & ausgeglichen',
+  'Controlled': 'Kontrolliert', 'Tactically Balanced': 'Taktisch ausgeglichen', 'Defensive Battle': 'Abwehrschlacht',
+}
+const MATCH_DESCRIPTIONS_DE = {
+  'A very open game with plenty of chances expected': 'Ein sehr offenes Spiel mit vielen Chancen erwartet',
+  'One team is expected to dominate clearly': 'Ein Team dürfte das Spiel klar dominieren',
+  'Both teams play attacking football at an even level': 'Beide Teams spielen offensiv auf Augenhöhe',
+  'The favorite controls the game against little resistance': 'Der Favorit kontrolliert das Spiel gegen wenig Widerstand',
+  'A tight game where goals will make the difference': 'Ein enges Spiel, in dem einzelne Tore entscheiden',
+  'Few chances expected, a single goal could be decisive': 'Wenige Chancen erwartet, ein Tor könnte entscheiden',
 }
 
 // "Next Games" = the current matchday window: 15:00 until 06:00 the next morning.
@@ -197,7 +244,7 @@ function TeamLabel({ name }) {
       <>
         <img src={`https://flagcdn.com/w40/${iso}.png`} alt="" className="team-crest team-flag"
              onError={(e) => { e.currentTarget.style.display = 'none' }} />
-        {name}
+        {teamName(name)}
       </>
     )
   }
@@ -211,12 +258,12 @@ function TeamLabel({ name }) {
           className="team-crest"
           onError={(e) => { e.currentTarget.style.display = 'none' }}
         />
-        {name}
+        {teamName(name)}
       </>
     )
   }
   const flag = TEAM_FLAGS[name]
-  return <>{flag && <span style={{ marginRight: '0.4em' }}>{flag}</span>}{name}</>
+  return <>{flag && <span style={{ marginRight: '0.4em' }}>{flag}</span>}{teamName(name)}</>
 }
 
 
@@ -288,7 +335,7 @@ function AnimatedNumber({ value, decimals = 0, suffix = '', duration = 1500 }) {
     return () => cancelAnimationFrame(raf)
   }, [value, duration])
 
-  return <>{display.toFixed(decimals)}{suffix}</>
+  return <>{display.toFixed(decimals).replace('.', ',')}{suffix}</>
 }
 
 function AnimatedBarFill({ className, targetPct, style }) {
@@ -318,7 +365,7 @@ function ProbabilityBar({ label, value, color, animate, valueColor }) {
         <div className="prob-bar-fill" style={{ width: `${width}%`, background: color }} />
       </div>
       <span className="prob-value" style={valueColor ? { color: valueColor } : undefined}>
-        {animate ? <AnimatedNumber value={value * 100} decimals={1} suffix="%" /> : `${(value * 100).toFixed(1)}%`}
+        {animate ? <AnimatedNumber value={value * 100} decimals={1} suffix="%" /> : `${(value * 100).toFixed(1).replace('.', ',')}%`}
       </span>
     </div>
   )
@@ -335,17 +382,17 @@ function renderBoldMarkdown(text, highlightClass) {
 }
 
 function renderScenario(text, home, away, highlightClass = 'smart-bet-highlight-gold') {
-  const terms = [home, away, '2+ goals', '3+ goals', 'high-scoring game', 'low-scoring game']
+  const terms = [teamName(home), teamName(away), '2+ Toren', '3+ Toren', 'torreichen Spiel', 'torarmen Spiel']
   const escaped = terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
   // Also highlight standalone numbers - win rates, probabilities, scorelines
   // (e.g. "94%", "55%", "0:1") - these are the figures a reader actually
   // scans for, same treatment as the highlighted numbers in the other boxes.
-  const numberPattern = String.raw`\d+(?:\.\d+)?%|\d+:\d+`
+  const numberPattern = String.raw`\d+(?:[.,]\d+)?\s?%|\d+:\d+`
   const parts = text.split(new RegExp(`(${escaped.join('|')}|${numberPattern})`, 'g'))
   return parts.map((part, i) =>
     terms.includes(part)
       ? <span className="scenario-highlight" key={i}>{part}</span>
-      : /^(\d+(?:\.\d+)?%|\d+:\d+)$/.test(part)
+      : /^(\d+(?:[.,]\d+)?\s?%|\d+:\d+)$/.test(part)
         ? <strong className={highlightClass} key={i}>{part}</strong>
         : <span key={i}>{part}</span>
   )
@@ -368,17 +415,17 @@ function LineupStrength({ data }) {
   const before = data.probabilities_before_lineup
   if (!l || !before) return null
   const side = (info, team) => info
-    ? <><TeamLabel name={team} />: <strong>{Math.round(info.share * 100)}%</strong> of its strongest possible line-up (bench counted by playing time)</>
-    : <><TeamLabel name={team} />: line-up not valued</>
+    ? <><TeamLabel name={team} />: <strong>{Math.round(info.share * 100)}%</strong> der stärkstmöglichen Aufstellung (Bank nach Spielzeit gewichtet)</>
+    : <><TeamLabel name={team} />: Aufstellung nicht bewertet</>
   const moved = k => `${Math.round(before[k] * 100)}% → ${Math.round(data[k] * 100)}%`
   return (
     <div className="lineup-box">
-      <h4>Line-ups</h4>
+      <h4>Aufstellungen</h4>
       <p>{side(l.home, data.home_team)}</p>
       <p>{side(l.away, data.away_team)}</p>
       <p className="lineup-effect">
-        Win chances adjusted: {data.home_team} {moved('probability_home_win')}, draw {moved('probability_draw')},
-        {' '}{data.away_team} {moved('probability_away_win')}.
+        Siegchancen angepasst: {teamName(data.home_team)} {moved('probability_home_win')}, Remis {moved('probability_draw')},
+        {' '}{teamName(data.away_team)} {moved('probability_away_win')}.
       </p>
     </div>
   )
@@ -412,7 +459,7 @@ function FormRating({ data }) {
 
   return (
     <div className="form-rating-box">
-      <h4>Form Rating</h4>
+      <h4>Formkurve</h4>
 
       <div className="form-tug">
         <div className="form-tug-header">
@@ -435,10 +482,10 @@ function FormRating({ data }) {
       </div>
 
       <p className="form-rating-detail">
-        <strong><TeamLabel name={home} /></strong> — {explanation.form_last_10_avg_pts[home]} pts/game &middot; {explanation.avg_goals_scored[home]} scored &middot; {explanation.avg_goals_conceded[home]} conceded &middot; {explanation.clean_sheet_rate[home]} clean sheets
+        <strong><TeamLabel name={home} /></strong> — {deNum(explanation.form_last_10_avg_pts[home])} Pkt./Spiel &middot; {deNum(explanation.avg_goals_scored[home])} Tore &middot; {deNum(explanation.avg_goals_conceded[home])} Gegentore &middot; {explanation.clean_sheet_rate[home]} zu null
       </p>
       <p className="form-rating-detail">
-        <strong><TeamLabel name={away} /></strong> — {explanation.form_last_10_avg_pts[away]} pts/game &middot; {explanation.avg_goals_scored[away]} scored &middot; {explanation.avg_goals_conceded[away]} conceded &middot; {explanation.clean_sheet_rate[away]} clean sheets
+        <strong><TeamLabel name={away} /></strong> — {deNum(explanation.form_last_10_avg_pts[away])} Pkt./Spiel &middot; {deNum(explanation.avg_goals_scored[away])} Tore &middot; {deNum(explanation.avg_goals_conceded[away])} Gegentore &middot; {explanation.clean_sheet_rate[away]} zu null
       </p>
     </div>
   )
@@ -452,7 +499,7 @@ function MatchScenario({ data }) {
   return (
     <div className="betting-markets">
       <div className="scenario-box">
-        <h4>Most Likely Scenario</h4>
+        <h4>Wahrscheinlichstes Szenario</h4>
         <p>{renderScenario(bm.scenario, home, away)}</p>
       </div>
 
@@ -482,26 +529,26 @@ function BettingMarkets({ data }) {
         const dcMax = Math.max(dc.home_or_draw, dc.home_or_away, dc.draw_or_away)
         return (
           <div>
-            <h4>Double Chance</h4>
+            <h4>Doppelte Chance</h4>
             <div className="market-grid">
               <div className={`market-card market-card-fillable${dc.home_or_draw === dcMax ? ' is-leader' : ''}`}>
                 <AnimatedBarFill className="market-card-fill" targetPct={dc.home_or_draw * 100} />
                 <div className="market-card-content">
-                  <div className="market-card-label"><TeamLabel name={home} /> or Draw</div>
+                  <div className="market-card-label"><TeamLabel name={home} /> oder Remis</div>
                   <div className="market-card-value"><AnimatedNumber value={dc.home_or_draw * 100} decimals={1} suffix="%" /></div>
                 </div>
               </div>
               <div className={`market-card market-card-fillable${dc.home_or_away === dcMax ? ' is-leader' : ''}`}>
                 <AnimatedBarFill className="market-card-fill" targetPct={dc.home_or_away * 100} />
                 <div className="market-card-content">
-                  <div className="market-card-label"><TeamLabel name={home} /> or <TeamLabel name={away} /></div>
+                  <div className="market-card-label"><TeamLabel name={home} /> oder <TeamLabel name={away} /></div>
                   <div className="market-card-value"><AnimatedNumber value={dc.home_or_away * 100} decimals={1} suffix="%" /></div>
                 </div>
               </div>
               <div className={`market-card market-card-fillable${dc.draw_or_away === dcMax ? ' is-leader' : ''}`}>
                 <AnimatedBarFill className="market-card-fill" targetPct={dc.draw_or_away * 100} />
                 <div className="market-card-content">
-                  <div className="market-card-label">Draw or <TeamLabel name={away} /></div>
+                  <div className="market-card-label">Remis oder <TeamLabel name={away} /></div>
                   <div className="market-card-value"><AnimatedNumber value={dc.draw_or_away * 100} decimals={1} suffix="%" /></div>
                 </div>
               </div>
@@ -511,45 +558,45 @@ function BettingMarkets({ data }) {
       })()}
 
       <div>
-        <h4>Total Goals (Over / Under)</h4>
+        <h4>Tore gesamt (Über / Unter)</h4>
         {ou.map(o => (
           <div className="over-under-row" key={o.line}>
-            <span className="over-under-line">{o.line}</span>
+            <span className="over-under-line">{deNum(o.line)}</span>
             <div className="over-under-track">
               <AnimatedBarFill className="over-under-fill" targetPct={o.over * 100} />
             </div>
-            <span className="over-under-value">over <AnimatedNumber value={o.over * 100} decimals={1} suffix="%" /></span>
+            <span className="over-under-value">über <AnimatedNumber value={o.over * 100} decimals={1} suffix="%" /></span>
           </div>
         ))}
       </div>
 
       <div className="market-card btts-card">
-        <div className="market-card-label">Both Teams to Score</div>
+        <div className="market-card-label">Beide Teams treffen</div>
         <div className="btts-split">
           <div className="btts-half">
             <div className="market-card-value"><AnimatedNumber value={btts.yes * 100} decimals={1} suffix="%" /></div>
-            <div className="market-card-sub">Yes</div>
+            <div className="market-card-sub">Ja</div>
           </div>
           <div className="btts-half">
             <div className="market-card-value"><AnimatedNumber value={btts.no * 100} decimals={1} suffix="%" /></div>
-            <div className="market-card-sub">No</div>
+            <div className="market-card-sub">Nein</div>
           </div>
         </div>
       </div>
 
       <div>
-        <h4>If <TeamLabel name={favorite} /> win (<AnimatedNumber value={margin1 * 100} decimals={1} suffix="%" />) — by how much?</h4>
+        <h4>Wenn <TeamLabel name={favorite} /> gewinnt (<AnimatedNumber value={margin1 * 100} decimals={1} suffix="%" />) – wie hoch?</h4>
         <div className="market-grid">
           <div className="market-card">
-            <div className="market-card-label">1+ goal</div>
+            <div className="market-card-label">1+ Tor</div>
             <div className="market-card-value"><AnimatedNumber value={margin1 * 100} decimals={1} suffix="%" /></div>
           </div>
           <div className="market-card">
-            <div className="market-card-label">2+ goals</div>
+            <div className="market-card-label">2+ Tore</div>
             <div className="market-card-value"><AnimatedNumber value={margin2 * 100} decimals={1} suffix="%" /></div>
           </div>
           <div className="market-card">
-            <div className="market-card-label">3+ goals</div>
+            <div className="market-card-label">3+ Tore</div>
             <div className="market-card-value"><AnimatedNumber value={margin3 * 100} decimals={1} suffix="%" /></div>
           </div>
         </div>
@@ -559,7 +606,7 @@ function BettingMarkets({ data }) {
 }
 
 function betPercent(value, signed = false) {
-  return Number.isFinite(value) ? `${signed && value > 0 ? '+' : ''}${(value * 100).toFixed(1)}%` : '—'
+  return Number.isFinite(value) ? `${signed && value > 0 ? '+' : ''}${(value * 100).toFixed(1).replace('.', ',')}%` : '—'
 }
 
 function BetMetric({ label, value, detail, emphasis = false }) {
@@ -575,7 +622,7 @@ function ComboLegRow({ leg, index, onOpenLeg }) {
   return (
     <div className={`combo-leg ${onOpenLeg ? 'is-clickable' : ''}`} role={onOpenLeg ? 'button' : undefined}
          tabIndex={onOpenLeg ? 0 : undefined} onClick={onOpenLeg ? () => onOpenLeg(leg) : undefined}
-         title={onOpenLeg ? 'Open this match with the bet' : undefined}>
+         title={onOpenLeg ? 'Dieses Spiel mit der Wette öffnen' : undefined}>
       <span className="combo-leg-num">{index + 1}</span>
       <div className="combo-leg-body">
         <div className="combo-leg-match">
@@ -587,14 +634,14 @@ function ComboLegRow({ leg, index, onOpenLeg }) {
         </div>
         {leg.likely_pick && (
           <div className="combo-leg-offlikely">
-            Not this match's 🎯 ({plainBetPhrase(leg.likely_pick)}, {betPercent(leg.likely_pick.market_probability)}
-            {' '}at {leg.likely_pick.best_odds?.toFixed(2)}) — chosen to reach the combined odds
+            Nicht das 🎯 dieses Spiels ({plainBetPhrase(leg.likely_pick)}, {betPercent(leg.likely_pick.market_probability)}
+            {' '}zu {leg.likely_pick.best_odds?.toFixed(2)}) – gewählt, um die Gesamtquote zu erreichen
           </div>
         )}
       </div>
       <div className="combo-leg-numbers">
         <span className="combo-leg-odds">{leg.best_odds.toFixed(2)}</span>
-        <span className="combo-leg-prob">{betPercent(leg.probability)} model</span>
+        <span className="combo-leg-prob">{betPercent(leg.probability)} Modell</span>
       </div>
     </div>
   )
@@ -604,9 +651,9 @@ function ComboTicketCard({ ticket, primary, onOpenLeg }) {
   return (
     <div className={`combo-ticket ${primary ? 'is-primary' : ''}`}>
       <div className="combo-ticket-head">
-        <span className="combo-ticket-legs">{ticket.leg_count}-fold · {ticket.bookmaker}</span>
+        <span className="combo-ticket-legs">{ticket.leg_count}er-Kombi · {ticket.bookmaker}</span>
         <div className="combo-quote">
-          <span className="combo-quote-label">Estimated combined odds</span>
+          <span className="combo-quote-label">Geschätzte Gesamtquote</span>
           <span className="combo-ticket-odds">{ticket.combined_odds.toFixed(2)}</span>
         </div>
       </div>
@@ -614,19 +661,19 @@ function ComboTicketCard({ ticket, primary, onOpenLeg }) {
         {ticket.legs.map((leg, i) => <ComboLegRow key={i} leg={leg} index={i} onOpenLeg={onOpenLeg} />)}
       </div>
       <dl className="bet-metrics probability-metrics">
-        <BetMetric label="Chance all of them land" value={betPercent(ticket.conservative_probability)}
-                   detail="By the market's prices, margin removed" emphasis />
-        <BetMetric label="Our model on its own" value={betPercent(ticket.probability)} detail="Before checking against the price" />
+        <BetMetric label="Chance, dass alle treffen" value={betPercent(ticket.conservative_probability)}
+                   detail="Nach Marktpreisen, ohne Marge" emphasis />
+        <BetMetric label="Unser Modell allein" value={betPercent(ticket.probability)} detail="Vor dem Abgleich mit dem Preis" />
       </dl>
       <dl className="bet-metrics decision-metrics">
-        <BetMetric label="Profit per 1 staked" value={ticket.returns_per_unit.toFixed(2)} detail="If every selection wins" />
+        <BetMetric label="Gewinn pro 1 € Einsatz" value={ticket.returns_per_unit.toFixed(2)} detail="Wenn jeder Tipp trifft" />
       </dl>
       {primary && (
         <p className="combo-ticket-note">
-          Probabilities assume the results are independent of one another. Prices come
-          from {ticket.bookmaker}'s individual markets; the combined offer itself has
-          not been checked. This is not a bet we expect to profit from — it is the
-          likeliest ticket that at least doubles a stake.
+          Die Wahrscheinlichkeiten nehmen an, dass die Ergebnisse unabhängig voneinander sind. Die Quoten
+          stammen aus den Einzelmärkten von {ticket.bookmaker}; das Kombi-Angebot selbst wurde nicht
+          geprüft. Wir erwarten mit dieser Wette keinen Gewinn – es ist nur der wahrscheinlichste Schein,
+          der den Einsatz mindestens verdoppelt.
         </p>
       )}
     </div>
@@ -639,9 +686,9 @@ function PriceTipComboCard({ ticket, onOpenLeg }) {
   return (
     <div className="combo-ticket is-primary price-tip-combo">
       <div className="combo-ticket-head">
-        <span className="combo-ticket-legs">💰 {ticket.leg_count}-fold · bet-at-home</span>
+        <span className="combo-ticket-legs">💰 {ticket.leg_count}er-Kombi · bet-at-home</span>
         <div className="combo-quote">
-          <span className="combo-quote-label">Combined odds</span>
+          <span className="combo-quote-label">Gesamtquote</span>
           <span className="combo-ticket-odds">{ticket.combined_odds.toFixed(2)}</span>
         </div>
       </div>
@@ -655,7 +702,7 @@ function PriceTipComboCard({ ticket, onOpenLeg }) {
                 <TeamLabel name={leg.home_team} /> <span className="combo-leg-vs">vs</span> <TeamLabel name={leg.away_team} />
               </div>
               <div className="combo-leg-pick">{betOutcomeLabel(leg)}</div>
-              <div className="combo-leg-meta">{marketGroupLabel(leg.market)} · fair {leg.fair_odds.toFixed(2)} · edge {(leg.edge * 100).toFixed(1)}%</div>
+              <div className="combo-leg-meta">{marketGroupLabel(leg.market)} · fair {leg.fair_odds.toFixed(2)} · Vorteil {(leg.edge * 100).toFixed(1)}%</div>
             </div>
             <div className="combo-leg-numbers">
               <span className="combo-leg-odds">{leg.book_odds.toFixed(2)}</span>
@@ -665,12 +712,12 @@ function PriceTipComboCard({ ticket, onOpenLeg }) {
         ))}
       </div>
       <dl className="bet-metrics probability-metrics">
-        <BetMetric label="Chance all of them land" value={betPercent(ticket.probability)} detail="By Pinnacle's fair prices" emphasis />
-        <BetMetric label="Edge" value={`${ticket.edge >= 0 ? '+' : ''}${(ticket.edge * 100).toFixed(1)}%`} detail="Per 1 staked, on average over many tickets" />
+        <BetMetric label="Chance, dass alle treffen" value={betPercent(ticket.probability)} detail="Nach Pinnacles fairen Preisen" emphasis />
+        <BetMetric label="Vorteil" value={`${ticket.edge >= 0 ? '+' : ''}${(ticket.edge * 100).toFixed(1)}%`} detail="Pro 1 € Einsatz, im Schnitt über viele Scheine" />
       </dl>
       <p className="combo-ticket-note">
-        Only price tips, all read in the hour before kickoff. Results are assumed independent;
-        the combined offer at bet-at-home has not been checked. An edge is an average, not a promise for this ticket.
+        Nur Preis-Tipps, alle in der Stunde vor Anpfiff gelesen. Ergebnisse gelten als unabhängig;
+        das Kombi-Angebot bei bet-at-home wurde nicht geprüft. Ein Vorteil ist ein Durchschnitt, kein Versprechen für diesen Schein.
       </p>
     </div>
   )
@@ -681,34 +728,34 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
     return (
       <div className="analyzing-status loading-inline">
         <span className="analyzing-spinner" />
-        <span>Building combinations…</span>
+        <span>Kombinationen werden gebaut…</span>
       </div>
     )
   }
   if (!combo) return null
   if (combo.error) {
-    return <p className="wm-subtle">Combo suggestion unavailable right now (no current odds).</p>
+    return <p className="wm-subtle">Kombi-Vorschlag gerade nicht verfügbar (keine aktuellen Quoten).</p>
   }
 
   return (
     <div className="combo-view">
       {combo.price_tip_combos?.length > 0 && (
         <div className="combo-day">
-          <span className="combo-section-label">💰 Price tip combo</span>
+          <span className="combo-section-label">💰 Preis-Tipp-Kombi</span>
           {combo.price_tip_combos.map(t => <PriceTipComboCard key={t.date} ticket={t} onOpenLeg={onOpenLeg} />)}
         </div>
       )}
 
       <p className="best-bets-intro">
-        Every selection must win. All prices are <strong>bet-at-home's</strong>; each ticket uses <strong>one matchday</strong>
-        {' '}and at most one selection per match. Selections favour outcomes rated likely by
-        both the model and the market. Only win-or-lose markets are combined;
-        quarter lines are excluded. Compare the best available 2-, 3- and 4-fold for each day.
+        Jeder Tipp muss treffen. Alle Quoten sind von <strong>bet-at-home</strong>; jeder Schein nutzt <strong>einen Spieltag</strong>
+        {' '}und höchstens einen Tipp pro Spiel. Bevorzugt werden Ausgänge, die Modell und Markt
+        beide für wahrscheinlich halten. Kombiniert werden nur Märkte mit Sieg oder Niederlage;
+        Viertel-Linien sind ausgeschlossen. Vergleiche die besten 2er-, 3er- und 4er-Kombis pro Tag.
       </p>
 
       {!combo.recommended && (
         <p className="smart-bet-notip">
-          <strong>No combo ticket today.</strong><br />
+          <strong>Heute kein Kombi-Schein.</strong><br />
           {combo.reason}
         </p>
       )}
@@ -716,24 +763,24 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
       {combo.days?.map(day => (
         <div className="combo-day" key={day.date}>
           <span className="combo-section-label">
-            {new Date(day.date + 'T12:00:00').toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'short' })}
-            {' · '}{day.eligible_legs} eligible {day.eligible_legs === 1 ? 'match' : 'matches'}
+            {new Date(day.date + 'T12:00:00').toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'short' })}
+            {' · '}{day.eligible_legs} {day.eligible_legs === 1 ? 'passendes Spiel' : 'passende Spiele'}
           </span>
 
           <div className="combo-size-grid">
             {(day.by_size || []).map(option => (
               <section className="combo-size-option" key={option.leg_count}
-                       aria-label={`${option.leg_count}-fold combo`}>
-                <h3 className="combo-size-title">{option.leg_count}-fold combo</h3>
+                       aria-label={`${option.leg_count}er-Kombi`}>
+                <h3 className="combo-size-title">{option.leg_count}er-Kombi</h3>
                 {option.ticket ? (
                   <>
                     <ComboTicketCard ticket={option.ticket} onOpenLeg={onOpenLeg} />
                     {option.near_miss && (
                       <details className="combo-near-miss">
                         <summary>
-                          Likelier, just under 2.00: {betPercent(option.near_miss.conservative_probability)} at
+                          Wahrscheinlicher, knapp unter 2,00: {betPercent(option.near_miss.conservative_probability)} zu
                           {' '}{option.near_miss.combined_odds.toFixed(2)}
-                          {' '}(vs {betPercent(option.ticket.conservative_probability)} at {option.ticket.combined_odds.toFixed(2)})
+                          {' '}(statt {betPercent(option.ticket.conservative_probability)} zu {option.ticket.combined_odds.toFixed(2)})
                         </summary>
                         <ComboTicketCard ticket={option.near_miss} onOpenLeg={onOpenLeg} />
                       </details>
@@ -741,7 +788,7 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
                   </>
                 ) : (
                   <div className="combo-size-empty">
-                    <strong>Not available</strong>
+                    <strong>Nicht verfügbar</strong>
                     <p>{option.reason}</p>
                   </div>
                 )}
@@ -752,11 +799,11 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
       ))}
 
       <p className="smart-bet-finePrint">
-        Ranked by the lower of the model and market estimates for each selection.
-        Probabilities assume independent results; combined odds are calculated from individual
-        prices and have not been verified as a bookmaker ticket. A higher estimated hit rate
-        does not establish profitability.
-        Tickets can overlap and should not be treated as independent bets.
+        Sortiert nach der niedrigeren Schätzung von Modell und Markt je Tipp.
+        Die Wahrscheinlichkeiten nehmen unabhängige Ergebnisse an; die Gesamtquoten sind aus Einzelquoten
+        berechnet und nicht als Buchmacher-Schein geprüft. Eine höhere geschätzte Trefferquote
+        heißt nicht, dass sich die Wette lohnt.
+        Scheine können sich überschneiden und sind keine unabhängigen Wetten.
       </p>
     </div>
   )
@@ -765,12 +812,12 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
 function FixtureRow({ fixture }) {
   const opens = predictionOpensAt(fixture)
   const label = opens > new Date()
-    ? `Analysis from ${opens.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' })}`
-    : 'Analysis pending'
+    ? `Analyse ab ${opens.toLocaleDateString('de-DE', { weekday: 'short', day: 'numeric', month: 'short' })}`
+    : 'Analyse folgt'
   return (
     <div className="fixture-row fixture-pending">
       <div className="fixture-meta">
-        <span className="fixture-date">{fixture.date} · {fixture.time}</span>
+        <span className="fixture-date">{fixtureWhen(fixture)}</span>
         <span className="fixture-pending-badge">{label}</span>
       </div>
       <div className="fixture-teams">
@@ -786,8 +833,8 @@ function FixtureReadyRow({ fixture, onGenerate }) {
   return (
     <div className="fixture-row fixture-ready">
       <div className="fixture-meta">
-        <span className="fixture-date">{fixture.date} · {fixture.time}</span>
-        <span className="fixture-ready-badge">Analysis ready</span>
+        <span className="fixture-date">{fixtureWhen(fixture)}</span>
+        <span className="fixture-ready-badge">Analyse bereit</span>
       </div>
       <div className="fixture-teams">
         <span><TeamLabel name={fixture.home_team} /></span>
@@ -795,59 +842,59 @@ function FixtureReadyRow({ fixture, onGenerate }) {
         <span><TeamLabel name={fixture.away_team} /></span>
       </div>
       <button className="fixture-generate-btn" onClick={onGenerate}>
-        Generate AI Analysis
+        KI-Analyse starten
       </button>
     </div>
   )
 }
 
 const ANALYZING_STEPS = [
-  'Reading current match data…',
-  'Analyzing FIFA ranking, form & head-to-head…',
-  'Calculating win/draw/loss probabilities…',
-  'Computing betting markets & odds…',
-  'Simulating most likely scorelines…',
-  'Generating match flow & ticker…',
+  'Aktuelle Spieldaten werden gelesen…',
+  'Stärke, Form & direkte Duelle werden analysiert…',
+  'Sieg-, Remis- und Niederlagen-Chancen werden berechnet…',
+  'Märkte & Quoten werden berechnet…',
+  'Wahrscheinlichste Ergebnisse werden ermittelt…',
+  'Spielverlauf wird erstellt…',
 ]
 
 const BET_STEPS = [
-  'Loading current odds…',
-  'Comparing with model probabilities…',
-  'Calculating expected value…',
-  'Finding the best bet…',
+  'Aktuelle Quoten werden geladen…',
+  'Abgleich mit den Modell-Wahrscheinlichkeiten…',
+  'Erwartungswert wird berechnet…',
+  'Beste Wette wird gesucht…',
 ]
 
 function betOutcomeLabel(b) {
-  if (b.market === 'Handicap +0.5') return <><TeamLabel name={b.team} /> or Draw</>
-  if (b.market === 'Handicap 0.0') return <><TeamLabel name={b.team} /> (Draw No Bet)</>
+  if (b.market === 'Handicap +0.5') return <><TeamLabel name={b.team} /> oder Remis</>
+  if (b.market === 'Handicap 0.0') return <><TeamLabel name={b.team} /> (Remis = Einsatz zurück)</>
   if (b.outcome === 'handicap') return <>{b.market.replace('Handicap ', '')} <TeamLabel name={b.team} /></>
-  if (b.outcome === 'home_win' || b.outcome === 'away_win') return <>Win <TeamLabel name={b.team} /></>
+  if (b.outcome === 'home_win' || b.outcome === 'away_win') return <>Sieg <TeamLabel name={b.team} /></>
   if (b.team) return <TeamLabel name={b.team} />
-  if (b.outcome === 'draw') return 'Draw'
-  if (b.market === 'BTTS') return `Both score: ${b.outcome}`
-  if (b.outcome === 'Over') return `Over ${b.market.replace('Over/Under ', '')}`
-  if (b.outcome === 'Under') return `Under ${b.market.replace('Over/Under ', '')}`
+  if (b.outcome === 'draw') return 'Remis'
+  if (b.market === 'BTTS') return `Beide treffen: ${String(b.outcome).toLowerCase() === 'yes' ? 'Ja' : 'Nein'}`
+  if (b.outcome === 'Over') return `Über ${b.market.replace('Over/Under ', '')}`
+  if (b.outcome === 'Under') return `Unter ${b.market.replace('Over/Under ', '')}`
   return b.outcome
 }
 
 function marketGroupLabel(market) {
-  if (market === '1X2') return 'Match Result'
-  if (market === 'Handicap +0.5') return 'Double Chance'
-  if (market === 'Handicap 0.0') return 'Draw No Bet'
+  if (market === '1X2') return 'Ergebnis'
+  if (market === 'Handicap +0.5') return 'Doppelte Chance'
+  if (market === 'Handicap 0.0') return 'Remis = Einsatz zurück'
   if (market.startsWith('Handicap')) return 'Asian Handicap'
-  if (market === 'BTTS') return 'Both Teams Score'
-  return 'Goals'
+  if (market === 'BTTS') return 'Beide treffen'
+  return 'Tore'
 }
 
 // Plain-language phrasing of a bet for the Best Bets overview.
 function plainBetPhrase(b) {
-  if (b.outcome === 'home_win' || b.outcome === 'away_win') return <><TeamLabel name={b.team} /> to win</>
-  if (b.outcome === 'draw') return 'Draw'
-  if (b.outcome === 'Over') return `Over ${b.market.replace('Over/Under ', '')} goals`
-  if (b.outcome === 'Under') return `Under ${b.market.replace('Over/Under ', '')} goals`
-  if (b.market === 'Handicap +0.5') return <><TeamLabel name={b.team} /> or Draw (double chance)</>
-  if (b.market === 'Handicap 0.0') return <><TeamLabel name={b.team} /> to win (draw no bet)</>
-  if (b.outcome === 'handicap') return <><TeamLabel name={b.team} /> {b.market.replace('Handicap ', '')} handicap</>
+  if (b.outcome === 'home_win' || b.outcome === 'away_win') return <><TeamLabel name={b.team} /> gewinnt</>
+  if (b.outcome === 'draw') return 'Remis'
+  if (b.outcome === 'Over') return `Über ${b.market.replace('Over/Under ', '')} Tore`
+  if (b.outcome === 'Under') return `Unter ${b.market.replace('Over/Under ', '')} Tore`
+  if (b.market === 'Handicap +0.5') return <><TeamLabel name={b.team} /> oder Remis (Doppelte Chance)</>
+  if (b.market === 'Handicap 0.0') return <><TeamLabel name={b.team} /> gewinnt (Remis = Einsatz zurück)</>
+  if (b.outcome === 'handicap') return <><TeamLabel name={b.team} /> {b.market.replace('Handicap ', '')} Handicap</>
   return b.market
 }
 
@@ -861,7 +908,7 @@ function priceTipRows(outcomes) {
 // Must match src/price_tip.py MODEL_TOLERANCE.
 const MODEL_TOLERANCE = 0.05
 const pct = (x, digits = 0) => `${(x * 100).toFixed(digits)}%`
-const signedPct = (x) => `${x >= 0 ? '+' : ''}${(x * 100).toFixed(1)}%`
+const signedPct = (x) => `${x >= 0 ? '+' : ''}${(x * 100).toFixed(1).replace('.', ',')}%`
 const bookName = (b) => (b || 'bet-at-home').replace(/\.de$/, '')
 
 // The headline tip: where bet-at-home pays more than Pinnacle's margin-free
@@ -870,8 +917,8 @@ function PriceTipBox({ priceTip }) {
   if (!priceTip) {
     return (
       <p className="smart-bet-notip">
-        <strong>No price tip for this match.</strong><br />
-        No sharp reference price is available here.
+        <strong>Kein Preis-Tipp für dieses Spiel.</strong><br />
+        Hier gibt es keinen verlässlichen Referenzpreis.
       </p>
     )
   }
@@ -880,20 +927,20 @@ function PriceTipBox({ priceTip }) {
   if (!tip) {
     return (
       <div className="price-tip is-empty">
-        <span className="smart-bet-label price-tip-label-muted">Price Tip</span>
-        <div className="price-tip-none">No tip for this match</div>
+        <span className="smart-bet-label price-tip-label-muted">Preis-Tipp</span>
+        <div className="price-tip-none">Kein Tipp für dieses Spiel</div>
         <p className="price-tip-reason">{priceTip.reason}</p>
         {priceTip.outcomes.length > 0 && (
           <div className="price-tip-table">
             <div className="price-tip-table-head">
-              <span>Outcome</span><span>Pinnacle</span><span>{book}</span><span>Chance</span><span>Edge</span>
+              <span>Ausgang</span><span>Pinnacle</span><span>{book}</span><span>Chance</span><span>Vorteil</span>
             </div>
             {priceTipRows(priceTip.outcomes).map((o) => (
               <div className="price-tip-table-row" key={`${o.market}-${o.outcome}-${o.side}`}>
                 <span>{betOutcomeLabel(o)}</span>
-                <span>{o.pinnacle_odds ? o.pinnacle_odds.toFixed(2) : <em title="fair odds from Pinnacle's 1X2">{o.fair_odds.toFixed(2)}</em>}</span>
+                <span>{o.pinnacle_odds ? o.pinnacle_odds.toFixed(2) : <em title="faire Quote aus Pinnacles 1X2">{o.fair_odds.toFixed(2)}</em>}</span>
                 <span>{o.book_odds.toFixed(2)}</span>
-                <span title={o.refund_probability > 0 ? `win ${pct(o.win_probability)} · draw refunds ${pct(o.refund_probability)} · lose ${pct(o.loss_probability)}` : undefined}>
+                <span title={o.refund_probability > 0 ? `Sieg ${pct(o.win_probability)} · Remis erstattet ${pct(o.refund_probability)} · Niederlage ${pct(o.loss_probability)}` : undefined}>
                   {pct(o.win_probability ?? o.probability)}{o.refund_probability > 0 ? '*' : ''}
                 </span>
                 <span className={o.edge >= priceTip.threshold ? 'positive' : 'negative'}>{signedPct(o.edge)}</span>
@@ -902,58 +949,58 @@ function PriceTipBox({ priceTip }) {
           </div>
         )}
         <p className="price-tip-footnote">
-          {priceTip.outcomes.some(o => o.refund_probability > 0) && <>* Draw No Bet: chance to win; a draw returns the stake. </>}
-          A tip appears when {book} pays at least {pct(priceTip.threshold)} above Pinnacle's fair price.
-          That usually happens in the last hour before kickoff, when Pinnacle moves first.
+          {priceTip.outcomes.some(o => o.refund_probability > 0) && <>* Remis = Einsatz zurück: Chance auf Sieg; bei Remis gibt es den Einsatz zurück. </>}
+          Ein Tipp erscheint, wenn {book} mindestens {pct(priceTip.threshold)} über Pinnacles fairem Preis zahlt.
+          Das passiert meist in der letzten Stunde vor Anpfiff, wenn Pinnacle zuerst reagiert.
         </p>
       </div>
     )
   }
   return (
     <div className="smart-bet-best price-tip">
-      <span className="smart-bet-label">Price Tip</span>
+      <span className="smart-bet-label">Preis-Tipp</span>
       <div className="smart-bet-pick">{betOutcomeLabel(tip)}</div>
       <div className="price-tip-kpis">
         <div className="price-tip-kpi">
           <span className="price-tip-kpi-label">Pinnacle</span>
           <span className="price-tip-kpi-value">{(tip.pinnacle_odds || tip.fair_odds).toFixed(2)}</span>
-          <span className="price-tip-kpi-sub">{tip.pinnacle_odds ? `fair ${tip.fair_odds.toFixed(2)}` : 'fair, from 1X2'}</span>
+          <span className="price-tip-kpi-sub">{tip.pinnacle_odds ? `fair ${tip.fair_odds.toFixed(2)}` : 'fair, aus 1X2'}</span>
         </div>
         <div className="price-tip-kpi is-book">
           <span className="price-tip-kpi-label">{book}</span>
           <span className="price-tip-kpi-value">{tip.book_odds.toFixed(2)}</span>
-          <span className="price-tip-kpi-sub">your odds</span>
+          <span className="price-tip-kpi-sub">deine Quote</span>
         </div>
         <div className="price-tip-kpi">
           <span className="price-tip-kpi-label">Chance</span>
           <span className="price-tip-kpi-value">{pct(tip.win_probability ?? tip.probability)}</span>
           <span className="price-tip-kpi-sub">
             {tip.refund_probability > 0
-              ? `win · ${pct(tip.refund_probability)} refund · ${pct(tip.loss_probability)} lose`
-              : 'per Pinnacle'}
+              ? `Sieg · ${pct(tip.refund_probability)} zurück · ${pct(tip.loss_probability)} Niederlage`
+              : 'laut Pinnacle'}
           </span>
         </div>
         <div className="price-tip-kpi is-edge">
-          <span className="price-tip-kpi-label">Edge</span>
+          <span className="price-tip-kpi-label">Vorteil</span>
           <span className="price-tip-kpi-value">{signedPct(tip.edge)}</span>
-          <span className="price-tip-kpi-sub">per € staked</span>
+          <span className="price-tip-kpi-sub">pro € Einsatz</span>
         </div>
       </div>
       <div className="smart-bet-agree-row">
         {priceTip.model_agrees != null && (
           <span className={`smart-bet-agree-chip ${priceTip.model_agrees ? 'yes' : 'no'}`}>
-            {priceTip.model_agrees ? '◆ Model agrees ✓' : '◆ Model differs ✕'}
+            {priceTip.model_agrees ? '◆ Modell stimmt zu ✓' : '◆ Modell sieht es anders ✕'}
             {priceTip.model_probability != null ? ` ${pct(priceTip.model_probability)}` : ''}
           </span>
         )}
         {priceTip.ai_agrees != null && (
           <span className={`smart-bet-agree-chip ${priceTip.ai_agrees ? 'yes' : 'no'}`}>
-            {priceTip.ai_agrees ? '✨ AI agrees ✓' : '✨ AI differs ✕'}
+            {priceTip.ai_agrees ? '✨ KI stimmt zu ✓' : '✨ KI sieht es anders ✕'}
           </span>
         )}
       </div>
       <div className="smart-bet-best-meta">
-        Chosen on price alone. Edge is an average over many bets, not a promise for this one.
+        Nur nach Preis gewählt. Der Vorteil ist ein Durchschnitt über viele Wetten, kein Versprechen für diese.
       </div>
     </div>
   )
@@ -963,16 +1010,16 @@ function PriceTipBox({ priceTip }) {
 function AgentFactors({ research }) {
   const [open, setOpen] = useState(false)
   const rows = [
-    ['⚕', 'Lineups & injuries', research.lineups_injuries],
+    ['⚕', 'Aufstellung & Verletzungen', research.lineups_injuries],
     ['📈', 'Form', research.form],
-    ['🏆', 'Table situation', research.table_situation],
-    ['💬', 'Other', research.other],
+    ['🏆', 'Tabellensituation', research.table_situation],
+    ['💬', 'Sonstiges', research.other],
   ].filter(([, , text]) => text)
   if (rows.length === 0) return null
   return (
     <div className="wm-reveal agent-factors">
       <button className="agent-factors-toggle" onClick={() => setOpen(v => !v)} aria-expanded={open}>
-        <span>✨ External Factors (AI Agent)</span>
+        <span>✨ Äußere Faktoren (KI-Agent)</span>
         <span className="agent-factors-chevron">{open ? '▲' : '▼'}</span>
       </button>
       {open && rows.map(([icon, label, text]) => (
@@ -1023,9 +1070,9 @@ function impliesBet(pick, tip, home, away, sameBet) {
 let MODEL_TRACK_RECORD = null
 
 const TRACK_VERDICTS = {
-  better: ['is-better', 'Here the model has been right more often than the market.'],
-  worse: ['is-worse', 'Better to trust the market.'],
-  same: ['is-same', 'Better to trust the market.'],
+  better: ['is-better', 'Hier lag das Modell öfter richtig als der Markt.'],
+  worse: ['is-worse', 'Besser dem Markt vertrauen.'],
+  same: ['is-same', 'Besser dem Markt vertrauen.'],
 }
 
 const COMPETITION_NAMES = {
@@ -1049,29 +1096,29 @@ function ModelTrackRecord({ bet, bets = [], competition }) {
     if (win && win.model_probability_raw != null && win.market_probability != null) basis = win
   }
   if (basis.model_probability_raw == null || basis.market_probability == null) return null
-  const name = COMPETITION_NAMES[competition] || 'this competition'
+  const name = COMPETITION_NAMES[competition] || 'diesem Wettbewerb'
   const rows = record.by_competition?.[competition] || []
   const gap = basis.model_probability_raw - basis.market_probability
   const row = rows.find(r => gap >= r.from && gap < r.to)
   const minCases = record.min_cases || 30
-  const optimism = `The model is ${gap >= 0.1 ? 'much ' : ''}more optimistic than the market here `
-    + `(${pct(basis.model_probability_raw)} vs ${pct(basis.market_probability)}).`
+  const optimism = `Das Modell ist hier ${gap >= 0.1 ? 'deutlich ' : ''}optimistischer als der Markt `
+    + `(${pct(basis.model_probability_raw)} gegenüber ${pct(basis.market_probability)}).`
   if (!row || row.n < minCases) {
     return (
       <div className="model-track is-same">
-        <span className="model-track-label">Is the model worth trusting here?</span>
-        <p>{optimism} There are too few past {name} cases like this to tell yet
-          ({row ? row.n : 0} of {minCases}); the record builds with every match.</p>
+        <span className="model-track-label">Kann man dem Modell hier trauen?</span>
+        <p>{optimism} Es gibt noch zu wenige vergleichbare Fälle ({name}), um das zu sagen
+          ({row ? row.n : 0} von {minCases}); die Bilanz wächst mit jedem Spiel.</p>
       </div>
     )
   }
   const [cls, advice] = TRACK_VERDICTS[row.verdict] || TRACK_VERDICTS.same
   return (
     <div className={`model-track ${cls}`}>
-      <span className="model-track-label">Is the model worth trusting here?</span>
+      <span className="model-track-label">Kann man dem Modell hier trauen?</span>
       <p>
-        {optimism} In {row.n} similar {name} bets, {pct(row.hit_rate)} came in: the market had
-        expected {pct(row.market_expected)}, the model {pct(row.model_expected)}.
+        {optimism} Bei {row.n} ähnlichen Wetten ({name}) trafen {pct(row.hit_rate)}: Der Markt hatte
+        {pct(row.market_expected)} erwartet, das Modell {pct(row.model_expected)}.
       </p>
       <p className="model-track-advice">→ {advice}</p>
     </div>
@@ -1089,25 +1136,25 @@ function LikelyTipBox({ pick, agentPick, sameBet, home, away }) {
   const aiAgrees = agentPick ? impliesBet(agentPick, pick, home, away, sameBet) : null
   return (
     <div className="likely-tip">
-      <span className="smart-bet-label likely-tip-label">🎯 Most likely</span>
+      <span className="smart-bet-label likely-tip-label">🎯 Am wahrscheinlichsten</span>
       <div className="likely-tip-row">
         <span className="likely-tip-pick">{betOutcomeLabel(pick)}</span>
         <span className="likely-tip-odds">{pick.best_odds.toFixed(2)}</span>
-        <span className="likely-tip-chance">{pct(pick.market_probability)} chance</span>
+        <span className="likely-tip-chance">{pct(pick.market_probability)} Chance</span>
       </div>
       <div className="smart-bet-agree-row">
         <span className={`smart-bet-agree-chip ${modelAgrees ? 'yes' : 'no'}`}>
-          {modelAgrees ? '◆ Model agrees ✓' : '◆ Model differs ✕'}{modelP != null ? ` ${pct(modelP)}` : ''}
+          {modelAgrees ? '◆ Modell stimmt zu ✓' : '◆ Modell sieht es anders ✕'}{modelP != null ? ` ${pct(modelP)}` : ''}
         </span>
         {aiAgrees != null && (
           <span className={`smart-bet-agree-chip ${aiAgrees ? 'yes' : 'no'}`}>
-            {aiAgrees ? '✨ AI agrees ✓' : '✨ AI differs ✕'}
+            {aiAgrees ? '✨ KI stimmt zu ✓' : '✨ KI sieht es anders ✕'}
           </span>
         )}
       </div>
       <div className="smart-bet-best-meta">
-        The market's likeliest bet between odds 1.30 and 2.00. Likely is not the same as good value:
-        this pick carries the bookmaker's margin.
+        Die laut Markt wahrscheinlichste Wette mit Quote zwischen 1,30 und 2,00. Wahrscheinlich heißt nicht lohnend:
+        In diesem Tipp steckt die Marge des Buchmachers.
       </div>
     </div>
   )
@@ -1128,7 +1175,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
   if (!betInfo || !betInfo.odds_found) {
     return (
       <div className="wm-reveal">
-        <p className="wm-subtle">No current betting odds available for this match.</p>
+        <p className="wm-subtle">Für dieses Spiel gibt es gerade keine Quoten.</p>
       </div>
     )
   }
@@ -1137,9 +1184,9 @@ function SmartBetCard({ betStep, betInfo, data }) {
     return (
       <div className="wm-reveal">
         <p className="smart-bet-notip">
-          <strong>This match has already kicked off.</strong><br />
-          Odds are now live/in-play and move with the score — our pre-match model can't be
-          meaningfully compared against them anymore. No tip for this one.
+          <strong>Dieses Spiel läuft bereits.</strong><br />
+          Die Quoten sind jetzt live und bewegen sich mit dem Spielstand – unser Vorab-Modell lässt sich
+          nicht mehr sinnvoll damit vergleichen. Kein Tipp für dieses Spiel.
         </p>
       </div>
     )
@@ -1228,22 +1275,22 @@ function SmartBetCard({ betStep, betInfo, data }) {
       {(greens.length > 0 || reds.length > 0) && (
         <div className="smart-bet-table">
           <div className="smart-bet-table-head">
-            <span>Market</span>
-            <span>Tip</span>
-            <span>Odds</span>
-            <span>Edge</span>
-            <span>Stake</span>
+            <span>Markt</span>
+            <span>Tipp</span>
+            <span>Quote</span>
+            <span>Vorteil</span>
+            <span>Einsatz</span>
           </div>
           {visibleRows.map((b, i) => renderRow(b, i, 'row'))}
           {hiddenCount > 0 && (
             <button className="smart-bet-more" onClick={() => setShowAllMarkets(v => !v)}>
-              {showAllMarkets ? 'Show fewer markets ▲' : `Show all markets (${hiddenCount} more) ▼`}
+              {showAllMarkets ? 'Weniger Märkte ▲' : `Alle Märkte zeigen (${hiddenCount} weitere) ▼`}
             </button>
           )}
           <p className="smart-bet-table-note">
             {hasUserBook
-              ? 'Odds are bet-at-home\'s. * = not offered at bet-at-home, best other bookmaker shown.'
-              : 'bet-at-home\'s full market list is read in the hour before kickoff; until then, best available odds are shown.'}
+              ? 'Quoten von bet-at-home. * = bei bet-at-home nicht im Angebot, beste andere Quote gezeigt.'
+              : 'Die vollen Märkte von bet-at-home werden in der Stunde vor Anpfiff gelesen; bis dahin zeigen wir die besten verfügbaren Quoten.'}
           </p>
         </div>
       )}
@@ -1251,12 +1298,12 @@ function SmartBetCard({ betStep, betInfo, data }) {
       {agentEval && (
         <div className="smart-bet-agent">
           <div className="smart-bet-agent-headtitle">
-            <span className="smart-bet-agent-headline">✨ AI predicts: {agentEval.bet_headline}</span>
+            <span className="smart-bet-agent-headline">✨ KI-Tipp: {agentEval.bet_headline}</span>
           </div>
           <p className="smart-bet-agent-text">
             {renderBoldMarkdown(agentEval.bet_reasoning, 'smart-bet-highlight-purple')}
             {agentPick && (
-              <> Our model rates this at <strong className="smart-bet-highlight-purple">{(agentPick.probability * 100).toFixed(0)}%</strong>.</>
+              <> Unser Modell sieht das bei <strong className="smart-bet-highlight-purple">{(agentPick.probability * 100).toFixed(0)}%</strong>.</>
             )}
           </p>
         </div>
@@ -1265,16 +1312,16 @@ function SmartBetCard({ betStep, betInfo, data }) {
       {best ? (
         <div className="smart-bet-signal-box is-green">
           <div className="smart-bet-agent-headtitle">
-            <span className="smart-bet-signal-headline">★ Biggest gap to the market: {betOutcomeLabel(best)}</span>
+            <span className="smart-bet-signal-headline">★ Größte Abweichung vom Markt: {betOutcomeLabel(best)}</span>
           </div>
           <p className="smart-bet-agent-text">
             {best.market_probability != null ? (
-              <>We rate this at <strong className="smart-bet-highlight-green">{(best.probability * 100).toFixed(0)}%</strong> (our model pulled partway toward the market to correct for its
-              overconfidence), while {best.bookmaker}'s odds of <strong className="smart-bet-highlight-green">{best.best_odds.toFixed(2)}</strong> imply {(best.market_probability * 100).toFixed(0)}% —
-              a gap of {Math.round((best.probability - best.market_probability) * 100)} percentage points.</>
+              <>Wir sehen das bei <strong className="smart-bet-highlight-green">{(best.probability * 100).toFixed(0)}%</strong> (unser Modell ein Stück Richtung Markt gezogen, weil es sonst
+              zu selbstsicher ist), während die Quote <strong className="smart-bet-highlight-green">{best.best_odds.toFixed(2)}</strong> von {best.bookmaker} {(best.market_probability * 100).toFixed(0)}% bedeutet –
+              eine Abweichung von {Math.round((best.probability - best.market_probability) * 100)} Prozentpunkten.</>
             ) : (
-              <>We rate this at <strong className="smart-bet-highlight-green">{(best.probability * 100).toFixed(0)}%</strong> at odds of <strong className="smart-bet-highlight-green">{best.best_odds.toFixed(2)}</strong> from {best.bookmaker}, with no
-              reliable market comparison available for this one.</>
+              <>Wir sehen das bei <strong className="smart-bet-highlight-green">{(best.probability * 100).toFixed(0)}%</strong> zur Quote <strong className="smart-bet-highlight-green">{best.best_odds.toFixed(2)}</strong> von {best.bookmaker}; ein
+              verlässlicher Marktvergleich fehlt hier.</>
             )}
           </p>
           <ModelTrackRecord bet={best} bets={betInfo.bets || []} competition={betInfo.sport_key} />
@@ -1282,39 +1329,40 @@ function SmartBetCard({ betStep, betInfo, data }) {
       ) : (
         <div className="smart-bet-signal-box is-green">
           <div className="smart-bet-agent-headtitle">
-            <span className="smart-bet-signal-headline">★ Biggest gap to the market: none worth showing</span>
+            <span className="smart-bet-signal-headline">★ Größte Abweichung vom Markt: keine nennenswerte</span>
           </div>
           <p className="smart-bet-agent-text">
             {recWarning
-              ? 'The widest gap in this match is too small to be worth naming.'
-              : 'Our model and the bookmakers agree closely on every market in this match.'}
+              ? 'Die größte Abweichung in diesem Spiel ist zu klein, um sie zu nennen.'
+              : 'Unser Modell und die Buchmacher liegen bei allen Märkten dieses Spiels nah beieinander.'}
           </p>
         </div>
       )}
 
       <div className="smart-bet-finePrint">
-        <p><strong>💰</strong> price tip: bet-at-home pays more than Pinnacle's fair price. <strong>🎯</strong> the bet
-        the market rates most likely to land at odds between 1.30 and 2.00 (no edge claimed). <strong>✨</strong> the AI
-        agent's own pick after live research. <strong>★</strong> where our model sees the biggest gap to the
-        market. The Edge and Stake columns are the model's view, which has shown no advantage over the market.</p>
+        <p><strong>💰</strong> Preis-Tipp: bet-at-home zahlt mehr als Pinnacles fairer Preis. <strong>🎯</strong> die Wette,
+        die der Markt bei Quoten zwischen 1,30 und 2,00 für am wahrscheinlichsten hält (kein Vorteil behauptet). <strong>✨</strong> der eigene
+        Tipp des KI-Agenten nach Live-Recherche. <strong>★</strong> wo unser Modell am stärksten vom Markt abweicht.
+        Die Spalten Vorteil und Einsatz sind die Sicht des Modells – und das hat bisher keinen Vorteil gegenüber dem Markt gezeigt.</p>
 
       {[...greens, ...reds].some(b => b.market.startsWith('Handicap')) && (
         <p>
-          <strong>+0.5</strong> = Double Chance (win/draw). <strong>0.0</strong> = Draw No Bet (stake back on
-          a draw; some books call this "Head-to-Head"). Other numbers = Asian Handicap (win/lose margin).
+          <strong>+0.5</strong> = Doppelte Chance (Sieg/Remis). <strong>0.0</strong> = Remis = Einsatz zurück (bei Remis
+          gibt es den Einsatz zurück; manche Anbieter nennen das „Head-to-Head“). Andere Zahlen = Asian Handicap (Tordifferenz).
         </p>
       )}
 
       {[...greens, ...reds].some(b => b.suspicious) && (
         <p>
-          <strong>⚠</strong> = large edge or model/market gap — likely a model weakness, not a real tip.
+          <strong>⚠</strong> = großer Vorteil oder große Modell/Markt-Lücke – eher eine Schwäche des Modells als ein echter Tipp.
         </p>
       )}
 
       <p className="smart-bet-disclaimer">
-        For entertainment and informational purposes only. This is a statistical model, not betting advice — it
-        does not guarantee profit and has no proven edge over bookmaker odds. Betting involves risk of financial
-        loss; if you choose to bet, do so responsibly and only with money you can afford to lose. 18+.
+        Nur zur Unterhaltung und Information. Das ist ein statistisches Modell, keine Wettberatung – es garantiert
+        keinen Gewinn und hat keinen nachgewiesenen Vorteil gegenüber den Quoten der Buchmacher. Wetten kann zu
+        finanziellen Verlusten führen; wenn du wettest, dann verantwortungsvoll und nur mit Geld, dessen Verlust du
+        verkraften kannst. 18+. Hilfe bei Glücksspielproblemen: check-dein-spiel.de, Tel. 0800 1 37 27 00 (kostenlos).
       </p>
       </div>
     </div>
@@ -1358,13 +1406,13 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
     <div className="card wm-card" id={`match-${matchId}`}>
       <div className="wm-card-header">
         <span className="wm-match-id">
-          {fixture ? `${fixture.date} · ${fixture.time}` : matchId}
+          {fixture ? fixtureWhen(fixture) : matchId}
         </span>
         <div className="wm-card-header-right">
-          {gf.match_type && show(6) && <span className="wm-match-type">{gf.match_type}</span>}
+          {gf.match_type && show(6) && <span className="wm-match-type">{MATCH_TYPES_DE[gf.match_type] || gf.match_type}</span>}
           {onCollapse && !analyzing && (
             <button className="wm-collapse-btn" onClick={onCollapse}>
-              Collapse ▲
+              Einklappen ▲
             </button>
           )}
         </div>
@@ -1373,8 +1421,8 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
       <div className="result-header">
         <span className="team-name"><TeamLabel name={data.home_team} /></span>
         <div className="prediction-badge">
-          {data.prediction === 'H' ? `${data.home_team} to win` :
-           data.prediction === 'A' ? `${data.away_team} to win` : 'Draw'}
+          {data.prediction === 'H' ? `${teamName(data.home_team)} gewinnt` :
+           data.prediction === 'A' ? `${teamName(data.away_team)} gewinnt` : 'Remis'}
         </div>
         <span className="team-name"><TeamLabel name={data.away_team} /></span>
       </div>
@@ -1387,7 +1435,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
       )}
 
       <div className="wm-cluster">
-        <span className="wm-cluster-label">Overview</span>
+        <span className="wm-cluster-label">Überblick</span>
 
         <RevealSection visible={show(1)} className="probabilities-donut">
           <ResultDonut
@@ -1398,7 +1446,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
             colors={matchColors}
           />
           <div className="probabilities-legend">
-            <span className="legend-title">Win Probability</span>
+            <span className="legend-title">Siegwahrscheinlichkeit</span>
             <div className="legend-row">
               <span className="legend-dot" style={{ background: matchColors.home }} />
               <span className="legend-name"><TeamLabel name={data.home_team} /></span>
@@ -1406,7 +1454,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
             </div>
             <div className="legend-row">
               <span className="legend-dot gray" />
-              <span className="legend-name">Draw</span>
+              <span className="legend-name">Remis</span>
               <span className="legend-value"><AnimatedNumber value={data.probability_draw * 100} decimals={1} suffix="%" /></span>
             </div>
             <div className="legend-row">
@@ -1423,7 +1471,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
       </div>
 
       <div className="wm-cluster">
-        <span className="wm-cluster-label">Stats &amp; Odds</span>
+        <span className="wm-cluster-label">Statistiken &amp; Märkte</span>
 
         <RevealSection visible={show(2)}>
           <BettingMarkets data={data} />
@@ -1431,7 +1479,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
 
         <RevealSection visible={show(3)} className="explanation-grid wm-grid">
           <div className="stat-card">
-            <h4>Most Likely Score</h4>
+            <h4>Wahrscheinlichstes Ergebnis</h4>
             <div className="wm-scoreboard">
               <TeamCrest name={data.home_team} className="wm-scoreboard-crest" />
               <div className="wm-score-highlight">{sp.most_likely_score}</div>
@@ -1454,7 +1502,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
           </div>
 
           <div className="stat-card">
-            <h4>Halftime</h4>
+            <h4>Halbzeit</h4>
             {(() => {
               const htScores = (gf.top_halftime_scores || []).slice(0, 3)
               const maxP = Math.max(...htScores.map(h => h.probability), 0)
@@ -1468,7 +1516,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
             })()}
             <div className="score-row is-drama">
               <span className="score-row-rank">⚡</span>
-              <span className="score-row-label score-row-label-wide">Late drama (75'+)</span>
+              <span className="score-row-label score-row-label-wide">Spätes Drama (75'+)</span>
               <span className="score-row-value"><AnimatedNumber value={(gf.late_drama_probability || 0) * 100} decimals={0} suffix="%" /></span>
             </div>
           </div>
@@ -1476,22 +1524,22 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
 
         {ps.possession && (
           <RevealSection visible={show(4)} className="h2h-stats">
-            <h4>Predicted Match Stats</h4>
+            <h4>Erwartete Spielstatistik</h4>
             <div className="h2h-teams">
               <span><TeamLabel name={data.home_team} /></span>
               <span><TeamLabel name={data.away_team} /></span>
             </div>
-            <HeadToHeadStat label="Possession" home={ps.possession.home} away={ps.possession.away} suffix="%" />
-            <HeadToHeadStat label="Shots" home={ps.shots.home} away={ps.shots.away} />
-            <HeadToHeadStat label="Shots on Target" home={ps.shots_on_target.home} away={ps.shots_on_target.away} />
-            <HeadToHeadStat label="Corners" home={ps.corners.home} away={ps.corners.away} />
-            <HeadToHeadStat label="Passes" home={ps.passes.home} away={ps.passes.away} />
+            <HeadToHeadStat label="Ballbesitz" home={ps.possession.home} away={ps.possession.away} suffix="%" />
+            <HeadToHeadStat label="Schüsse" home={ps.shots.home} away={ps.shots.away} />
+            <HeadToHeadStat label="Schüsse aufs Tor" home={ps.shots_on_target.home} away={ps.shots_on_target.away} />
+            <HeadToHeadStat label="Ecken" home={ps.corners.home} away={ps.corners.away} />
+            <HeadToHeadStat label="Pässe" home={ps.passes.home} away={ps.passes.away} />
           </RevealSection>
         )}
 
         {gf.match_description && gf.match_description !== 'Both teams play attacking football at an even level' && (
           <RevealSection visible={show(5)}>
-            <p className="wm-description">{gf.match_description}</p>
+            <p className="wm-description">{MATCH_DESCRIPTIONS_DE[gf.match_description] || gf.match_description}</p>
           </RevealSection>
         )}
       </div>
@@ -1500,7 +1548,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
         (betInfo && betInfo.agent_eval && betInfo.agent_eval.research) || onStartBetCheck
       ) && (
         <div className="wm-cluster wm-cluster-bet">
-          <span className="wm-cluster-label">Smart Bet</span>
+          <span className="wm-cluster-label">Wett-Analyse</span>
 
           {betInfo && betInfo.agent_eval && betInfo.agent_eval.research && (
             <AgentFactors research={betInfo.agent_eval.research} />
@@ -1511,12 +1559,12 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
               {betStep === undefined ? (
                 <div className="smart-bet-cta">
                   <span className="smart-bet-cta-icon">🎯</span>
-                  <h4 className="smart-bet-cta-title">Want the full betting breakdown?</h4>
+                  <h4 className="smart-bet-cta-title">Modell gegen Buchmacher-Quoten?</h4>
                   <p className="smart-bet-cta-sub">
-                    Value bets, model favorite, and the safest pick — all in one tap.
+                    Wo Modell und Markt übereinstimmen, wo nicht – mit einem Tipp.
                   </p>
                   <button className="smart-bet-btn" onClick={onStartBetCheck}>
-                    Get Your Bet Tips
+                    Quoten-Vergleich zeigen
                   </button>
                 </div>
               ) : (
@@ -1777,7 +1825,7 @@ function HeroPreviewCard() {
     <div className="hero-preview card">
       <div className="hero-preview-badge">
         <span className="hero-preview-badge-dot" />
-        AI Prediction
+        KI-Prognose
       </div>
       <div className="hero-preview-teams">
         <span className="hero-preview-team"><TeamLabel name="Real Madrid" /></span>
@@ -1788,12 +1836,12 @@ function HeroPreviewCard() {
         <ResultDonut home={0.48} draw={0.24} away={0.28} score="2–1" colors={colors} />
         <div className="hero-preview-bars">
           <ProbabilityBar label="Real Madrid" value={0.48} color={colors.home} />
-          <ProbabilityBar label="Draw" value={0.24} color={colors.draw} />
-          <ProbabilityBar label="Barcelona" value={0.28} color={colors.away} />
+          <ProbabilityBar label="Remis" value={0.24} color={colors.draw} />
+          <ProbabilityBar label="FC Barcelona" value={0.28} color={colors.away} />
         </div>
       </div>
       <p className="hero-preview-note">
-        "Expect a tight first half — Real Madrid's pace on the counter breaks the deadlock after 60'."
+        „Enge erste Hälfte erwartet – Real Madrids Tempo im Konter bricht nach 60 Minuten den Bann.“
       </p>
     </div>
   )
@@ -1802,66 +1850,66 @@ function HeroPreviewCard() {
 const FLOW_STEPS = [
   {
     icon: <IconDataPoints />,
-    title: 'Data Ingestion',
+    title: 'Daten sammeln',
     description:
-      'Every analysis starts with real club football history — multiple seasons of match ' +
-      'results, full league and cup data, and rolling form/goal stats for every club ' +
-      'we cover.',
-    tags: ['Historical Results', 'Head-to-Head', 'Goal Stats', 'Recent Form'],
+      'Jede Analyse beginnt mit echter Fußballhistorie – mehrere Spielzeiten an Ergebnissen, ' +
+      'Liga- und Pokaldaten sowie laufende Form- und Torstatistiken für jedes Team, ' +
+      'das wir abdecken.',
+    tags: ['Historische Ergebnisse', 'Direkte Duelle', 'Torstatistik', 'Aktuelle Form'],
   },
   {
     icon: <IconFeatures />,
-    title: 'Feature Engineering',
+    title: 'Merkmale berechnen',
     description:
-      'The raw numbers are transformed into signals the models can actually learn from: Elo-style ' +
-      'strength ratings, attack and defense ratings per team, head-to-head history, home-advantage ' +
-      'adjustments and momentum curves from each team\'s last matches.',
-    tags: ['Elo Ratings', 'Attack & Defense Ratings', 'Head-to-Head', 'Home Advantage'],
+      'Aus den Rohdaten werden Signale, aus denen die Modelle lernen können: Elo-Stärkewerte, ' +
+      'Angriffs- und Abwehrwerte pro Team, die Bilanz der direkten Duelle, der Heimvorteil ' +
+      'und die Formkurve aus den letzten Spielen.',
+    tags: ['Elo-Werte', 'Angriff & Abwehr', 'Direkte Duelle', 'Heimvorteil'],
   },
   {
     icon: <IconNeuralNet />,
-    title: 'Ensemble Model Core',
+    title: 'Modell-Ensemble',
     description:
-      'Three independent models analyze every matchup in parallel — a Dixon-Coles Poisson model ' +
-      'for realistic scorelines, an XGBoost model for non-linear patterns, and a Random Forest for ' +
-      'robustness. Their outputs are combined into a single ensemble verdict.',
-    tags: ['Dixon-Coles Poisson', 'XGBoost', 'Random Forest', 'Ensemble Voting'],
+      'Drei unabhängige Modelle rechnen jedes Spiel parallel durch – ein Dixon-Coles-Poisson-Modell ' +
+      'für realistische Ergebnisse, ein XGBoost-Modell für nichtlineare Muster und ein Random Forest ' +
+      'für Stabilität. Ihre Ergebnisse werden zu einem gemeinsamen Urteil kombiniert.',
+    tags: ['Dixon-Coles-Poisson', 'XGBoost', 'Random Forest', 'Ensemble'],
   },
   {
     icon: <IconTarget />,
-    title: 'Score & Probability Prediction',
+    title: 'Ergebnis & Wahrscheinlichkeiten',
     description:
-      'The ensemble produces a full probability distribution across every realistic scoreline, ' +
-      'then derives the win / draw / loss percentages, the most likely final score and the ' +
-      'expected goals (xG) for both teams.',
-    tags: ['Win/Draw/Loss %', 'Most Likely Score', 'Expected Goals (xG)'],
+      'Das Ensemble liefert eine Wahrscheinlichkeit für jedes realistische Ergebnis und leitet ' +
+      'daraus die Chancen auf Sieg, Remis und Niederlage, das wahrscheinlichste Endergebnis und ' +
+      'die erwarteten Tore (xG) beider Teams ab.',
+    tags: ['Sieg/Remis/Niederlage %', 'Wahrscheinlichstes Ergebnis', 'Erwartete Tore (xG)'],
   },
   {
     icon: <IconTimeline />,
-    title: 'Match Flow Simulation',
+    title: 'Spielverlauf',
     description:
-      'A dedicated game-flow engine simulates the 90 minutes minute by minute — kickoff, key ' +
-      'chances, goals, the halftime score and the final score — and classifies the overall ' +
-      'character of the game, from "Defensive Battle" to "Goal Fest".',
-    tags: ['Match Ticker', 'Momentum', 'Match Type', 'Halftime & Fulltime'],
+      'Eine eigene Spielverlaufs-Berechnung schätzt, wie sich die 90 Minuten entwickeln – wann Tore ' +
+      'fallen, der Halbzeitstand, spätes Drama – und ordnet den Charakter des Spiels ein, ' +
+      'von „Abwehrschlacht“ bis „Torfestival“.',
+    tags: ['Tor-Zeitpunkte', 'Halbzeit & Endstand', 'Spieltyp', 'Spätes Drama'],
   },
   {
     icon: <IconSpark />,
-    title: 'AI Storytelling',
+    title: 'KI-Einordnung',
     description:
-      'A team of AI agents turns the deterministic match ticker into vivid storylines — tactical ' +
-      'breakdowns, dramatic momentum shifts and player-focused moments. Every narrative is locked ' +
-      'to the model\'s predicted ticker, so the story never contradicts the prediction.',
-    tags: ['AI Agents', 'Tactical Analysis', 'Storylines', 'Consistency-Locked'],
+      'Eine KI fasst die berechneten Zahlen in einem Satz zusammen, den Fußballfans verstehen. ' +
+      'Sie darf nur die Zahlen des Modells verwenden – keine erfundenen Fakten –, damit der Text ' +
+      'der Prognose nie widerspricht.',
+    tags: ['KI-Zusammenfassung', 'Nur Modell-Zahlen', 'Keine erfundenen Fakten'],
   },
   {
     icon: <IconBroadcast />,
-    title: 'Live Delivery',
+    title: 'Veröffentlichung',
     description:
-      'Once generated, the full analysis is cached and instantly available on the website — ' +
-      'including probabilities, scoreline and match ticker — and automatically turned into ready-to-post ' +
-      'Instagram carousel content via an automated workflow.',
-    tags: ['Website', 'Instagram Carousel', 'Workflow Automation', 'Cached & Instant'],
+      'Die fertige Analyse wird gespeichert und ist sofort auf der Website abrufbar – ' +
+      'Wahrscheinlichkeiten, Ergebnis und Spielverlauf. Dieselben Zahlen landen automatisch ' +
+      'als Kurzvideo auf TikTok und Instagram.',
+    tags: ['Website', 'TikTok & Instagram', 'Automatisiert', 'Sofort verfügbar'],
   },
 ]
 
@@ -1920,14 +1968,13 @@ function AnalysisFlowPage({ onBack }) {
   return (
     <section className="flow-section-scroll">
       <div className="card flow-scroll-header">
-        <span className="how-eyebrow">Behind the Predictions</span>
-        <h2 className="section-title">How Our AI Analysis Works</h2>
+        <span className="how-eyebrow">Hinter den Prognosen</span>
+        <h2 className="section-title">So funktioniert unsere KI-Analyse</h2>
         <p className="how-intro">
-          From the first raw data point to the final social media post — every prediction passes
-          through the same seven-stage pipeline. Scroll down to follow the data as it moves through
-          each stage.
+          Vom ersten Datenpunkt bis zum fertigen Social-Media-Video – jede Prognose durchläuft
+          dieselben sieben Stufen. Scroll nach unten und folge den Daten durch jede Stufe.
         </p>
-        <button className="flow-back-btn" onClick={onBack}>← Back to Predictions</button>
+        <button className="flow-back-btn" onClick={onBack}>← Zurück zu den Prognosen</button>
       </div>
 
       <div className="flow-scroll-body">
@@ -1958,7 +2005,7 @@ function AnalysisFlowPage({ onBack }) {
             >
               <FlowStepGraphic icon={step.icon} cyan={i % 2 === 1} />
               <div className="flow-scroll-text">
-                <span className="flow-scroll-step-num">Stage {i + 1} / {FLOW_STEPS.length}</span>
+                <span className="flow-scroll-step-num">Stufe {i + 1} / {FLOW_STEPS.length}</span>
                 <h3>{step.title}</h3>
                 <p>{step.description}</p>
                 <div className="flow-step-tags">
@@ -1973,7 +2020,7 @@ function AnalysisFlowPage({ onBack }) {
       </div>
 
       <button className="flow-nav-btn primary flow-scroll-end-btn" onClick={onBack}>
-        Back to Predictions
+        Zurück zu den Prognosen
       </button>
     </section>
   )
@@ -2002,36 +2049,37 @@ function RealTicker({ events, homeTeam, awayTeam, homeScore, awayScore }) {
   if (!events || events.length === 0) return null
   let home = 0, away = 0
   const score = () => `${home}:${away}`
-  const rows = [{ key: 'ko', minute: "1'", type: 'kickoff', head: '🟢 Kickoff', text: `${homeTeam} vs ${awayTeam} is underway.`, score: '0:0' }]
+  const home_ = teamName(homeTeam), away_ = teamName(awayTeam)
+  const rows = [{ key: 'ko', minute: "1'", type: 'kickoff', head: '🟢 Anpfiff', text: `${home_} gegen ${away_} läuft.`, score: '0:0' }]
   let halftimeShown = false
   events.forEach((e, i) => {
     const t = tickerMinute(e.minute)
     if (!halftimeShown && t.base > 45) {
-      rows.push({ key: 'ht', minute: 'HT', type: 'halftime', head: '⏸️ Half-time', text: `${homeTeam} ${score()} ${awayTeam} at the break.`, score: score() })
+      rows.push({ key: 'ht', minute: 'HZ', type: 'halftime', head: '⏸️ Halbzeit', text: `${home_} ${score()} ${away_} zur Pause.`, score: score() })
       halftimeShown = true
     }
     if (e.type === 'goal') {
       if (e.team === homeTeam) home += 1; else away += 1
-      const how = e.own_goal ? ' (own goal)' : e.penalty ? ' (penalty)' : ''
-      rows.push({ key: i, minute: e.minute, type: 'goal', head: `⚽ GOAL! ${e.team}!`,
-                  text: `${e.player || 'Unknown'}${how} makes it ${score()}.`, score: score() })
+      const how = e.own_goal ? ' (Eigentor)' : e.penalty ? ' (Elfmeter)' : ''
+      rows.push({ key: i, minute: e.minute, type: 'goal', head: `⚽ TOR für ${teamName(e.team)}!`,
+                  text: `${e.player || 'Unbekannt'}${how} trifft zum ${score()}.`, score: score() })
     } else if (e.type === 'red_card') {
-      rows.push({ key: i, minute: e.minute, type: 'chance', head: `🟥 Red card — ${e.team}`,
-                  text: `${e.player || 'A player'} is sent off. ${e.team} play on with ten.`, score: score() })
+      rows.push({ key: i, minute: e.minute, type: 'chance', head: `🟥 Rote Karte – ${teamName(e.team)}`,
+                  text: `${e.player || 'Ein Spieler'} fliegt vom Platz. ${teamName(e.team)} spielt zu zehnt weiter.`, score: score() })
     } else if (e.type === 'yellow_card') {
-      rows.push({ key: i, minute: e.minute, type: 'yellow', head: `🟨 Yellow card — ${e.team}`,
-                  text: `${e.player || 'A player'} is booked.`, score: null })
+      rows.push({ key: i, minute: e.minute, type: 'yellow', head: `🟨 Gelbe Karte – ${teamName(e.team)}`,
+                  text: `${e.player || 'Ein Spieler'} sieht Gelb.`, score: null })
     }
   })
   if (!halftimeShown) {
-    rows.push({ key: 'ht', minute: 'HT', type: 'halftime', head: '⏸️ Half-time', text: `${homeTeam} ${score()} ${awayTeam} at the break.`, score: score() })
+    rows.push({ key: 'ht', minute: 'HZ', type: 'halftime', head: '⏸️ Halbzeit', text: `${home_} ${score()} ${away_} zur Pause.`, score: score() })
   }
   const final = homeScore != null ? `${homeScore}:${awayScore}` : score()
-  rows.push({ key: 'ft', minute: 'FT', type: 'fulltime', head: '🏁 Full-time', text: `${homeTeam} ${final} ${awayTeam}.`, score: final })
+  rows.push({ key: 'ft', minute: 'Ende', type: 'fulltime', head: '🏁 Abpfiff', text: `${home_} ${final} ${away_}.`, score: final })
 
   return (
     <div className="wm-stories real-ticker">
-      <h4>Match Ticker</h4>
+      <h4>Liveticker</h4>
       {rows.map(r => (
         <div className={`wm-ticker-event wm-ticker-${r.type}`} key={r.key}>
           <span className="wm-ticker-minute">{r.minute}</span>
@@ -2052,22 +2100,22 @@ function RealStats({ stats, homeTeam, awayTeam }) {
   if (!stats || stats.home.possession == null) return null
   return (
     <div className="h2h-stats wm-reveal">
-      <h4>Match Stats</h4>
+      <h4>Spielstatistik</h4>
       <div className="h2h-teams">
         <span><TeamLabel name={homeTeam} /></span>
         <span><TeamLabel name={awayTeam} /></span>
       </div>
       {stats.home.possession != null && (
-        <HeadToHeadStat label="Possession" home={stats.home.possession} away={stats.away.possession} suffix="%" />
+        <HeadToHeadStat label="Ballbesitz" home={stats.home.possession} away={stats.away.possession} suffix="%" />
       )}
       {stats.home.shots != null && (
-        <HeadToHeadStat label="Shots" home={stats.home.shots} away={stats.away.shots} />
+        <HeadToHeadStat label="Schüsse" home={stats.home.shots} away={stats.away.shots} />
       )}
       {stats.home.shots_on_target != null && (
-        <HeadToHeadStat label="Shots on Target" home={stats.home.shots_on_target} away={stats.away.shots_on_target} />
+        <HeadToHeadStat label="Schüsse aufs Tor" home={stats.home.shots_on_target} away={stats.away.shots_on_target} />
       )}
       {stats.home.corners != null && (
-        <HeadToHeadStat label="Corners" home={stats.home.corners} away={stats.away.corners} />
+        <HeadToHeadStat label="Ecken" home={stats.home.corners} away={stats.away.corners} />
       )}
     </div>
   )
@@ -2092,7 +2140,7 @@ function AiComparisonPanel({ fixture, result, aiData }) {
 
   return (
     <div className="ai-prediction-inner">
-      <p className="wm-subtle" style={{ marginBottom: '0.9rem', fontSize: '0.75rem' }}>Pre-match AI prediction</p>
+      <p className="wm-subtle" style={{ marginBottom: '0.9rem', fontSize: '0.75rem' }}>KI-Prognose vor dem Spiel</p>
 
       {/* Winner probabilities */}
       <div className="probabilities-donut">
@@ -2108,7 +2156,7 @@ function AiComparisonPanel({ fixture, result, aiData }) {
           }}
         />
         <div className="probabilities-legend">
-          <span className="legend-title">Win Probability</span>
+          <span className="legend-title">Siegwahrscheinlichkeit</span>
           <div className="legend-row">
             <span className={`legend-dot ${homeCorrect ? 'hit' : 'gold'}`} />
             <span className="legend-name"><TeamLabel name={aiData.home_team} />{homeCorrect ? ' ✓' : ''}</span>
@@ -2116,7 +2164,7 @@ function AiComparisonPanel({ fixture, result, aiData }) {
           </div>
           <div className="legend-row">
             <span className={`legend-dot ${drawCorrect ? 'hit' : 'gray'}`} />
-            <span className="legend-name">Draw{drawCorrect ? ' ✓' : ''}</span>
+            <span className="legend-name">Remis{drawCorrect ? ' ✓' : ''}</span>
             <span className="legend-value"><AnimatedNumber value={aiData.probability_draw * 100} decimals={1} suffix="%" /></span>
           </div>
           <div className="legend-row">
@@ -2131,7 +2179,7 @@ function AiComparisonPanel({ fixture, result, aiData }) {
       {topScores.length > 0 && (
         <div className="explanation-grid wm-grid" style={{ marginTop: '1rem' }}>
           <div className="stat-card">
-            <h4>Top Scores Predicted</h4>
+            <h4>Vorhergesagte Ergebnisse</h4>
             {topScores.map((s, i) => {
               const hit = s.score === `${actualHome}:${actualAway}`
               return (
@@ -2146,7 +2194,7 @@ function AiComparisonPanel({ fixture, result, aiData }) {
           {/* BTTS + Over/Under */}
           {(btts.yes != null || ou.length > 0) && (
             <div className="stat-card">
-              <h4>Markets</h4>
+              <h4>Märkte</h4>
               {btts.yes != null && (() => {
                 const hit = actualBtts === (btts.yes >= 0.5)
                 return (
@@ -2162,7 +2210,7 @@ function AiComparisonPanel({ fixture, result, aiData }) {
                 const hit = over === (o.over >= 0.5)
                 return (
                   <div className="stat-row" key={o.line} style={hit ? { color: '#4ade80' } : {}}>
-                    <span className="stat-label" style={hit ? { color: '#4ade80', fontWeight: 700 } : {}}>{over ? 'Über' : 'Unter'} {o.line} Tore{hit ? ' ✓' : ''}</span>
+                    <span className="stat-label" style={hit ? { color: '#4ade80', fontWeight: 700 } : {}}>{over ? 'Über' : 'Unter'} {deNum(o.line)} Tore{hit ? ' ✓' : ''}</span>
                     <span className="stat-val" style={hit ? { color: '#4ade80' } : {}}>{((over ? o.over : 1 - o.over) * 100).toFixed(0)}%</span>
                   </div>
                 )
@@ -2183,15 +2231,15 @@ function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive })
     return (
       <div className="fixture-row fixture-final" onClick={() => setExpanded(true)} role="button" tabIndex={0}>
         <div className="fixture-meta">
-          <span className="fixture-date">{fixture.date} · {fixture.time}</span>
-          <span className="fixture-final-badge">Final</span>
+          <span className="fixture-date">{fixtureWhen(fixture)}</span>
+          <span className="fixture-final-badge">Beendet</span>
         </div>
         <div className="fixture-teams">
           <span><TeamLabel name={fixture.home_team} /></span>
           <span className="fixture-final-score">{result.home_score} – {result.away_score}</span>
           <span><TeamLabel name={fixture.away_team} /></span>
         </div>
-        <span className="fixture-expand-hint">Tap to view details ▾</span>
+        <span className="fixture-expand-hint">Tippen für Details ▾</span>
       </div>
     )
   }
@@ -2199,10 +2247,10 @@ function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive })
   return (
     <div className="card wm-card">
       <div className="wm-card-header">
-        <span className="wm-match-id">{fixture.date} · {fixture.time}</span>
+        <span className="wm-match-id">{fixtureWhen(fixture)}</span>
         <div className="wm-card-header-right">
-          <span className="wm-match-type" style={{ background: 'rgba(34,197,94,0.15)', color: '#4ade80' }}>Final</span>
-          <button className="wm-collapse-btn" onClick={() => setExpanded(false)}>Collapse ▲</button>
+          <span className="wm-match-type" style={{ background: 'rgba(34,197,94,0.15)', color: '#4ade80' }}>Beendet</span>
+          <button className="wm-collapse-btn" onClick={() => setExpanded(false)}>Einklappen ▲</button>
         </div>
       </div>
 
@@ -2221,7 +2269,7 @@ function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive })
       {aiData && (
         <div className="ai-prediction-section">
           <button className="ai-toggle-btn" onClick={() => setShowAI(v => !v)}>
-            {showAI ? '▲ Hide AI Prediction' : '▼ AI Prediction as Comparison'}
+            {showAI ? '▲ KI-Prognose ausblenden' : '▼ Mit der KI-Prognose vergleichen'}
           </button>
           {showAI && <AiComparisonPanel fixture={fixture} result={result} aiData={aiData} />}
         </div>
@@ -2230,8 +2278,8 @@ function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive })
       {!aiData && (
         <div style={{ marginTop: '1rem' }}>
           {analysisActive
-            ? <p className="wm-subtle">Loading AI analysis…</p>
-            : <button className="fixture-generate-btn" onClick={onGenerate}>Show AI Pre-Match Analysis</button>
+            ? <p className="wm-subtle">KI-Analyse wird geladen…</p>
+            : <button className="fixture-generate-btn" onClick={onGenerate}>KI-Analyse vor dem Spiel zeigen</button>
           }
         </div>
       )}
@@ -2424,9 +2472,13 @@ export default function App() {
   return (
     <div className="app">
       <nav className="navbar">
+        <a className="nav-brand" href="/" aria-label="GoalIQ Startseite">
+          <img className="nav-logo" src="/favicon.svg" alt="" />
+          <span className="nav-title">Goal<span>IQ</span></span>
+        </a>
         <div className="nav-links">
-          <a href="#predictions" onClick={() => setPage('home')}>Predictions</a>
-          <a href="#how-it-works" onClick={(e) => { e.preventDefault(); setPage('how-it-works') }}>How It Works</a>
+          <a href="#predictions" onClick={() => setPage('home')}>Prognosen</a>
+          <a href="#how-it-works" onClick={(e) => { e.preventDefault(); setPage('how-it-works') }}>So funktioniert's</a>
         </div>
       </nav>
 
@@ -2439,34 +2491,34 @@ export default function App() {
             <div className="hero-grid">
               <div className="hero-content">
                 <div className="hero-top">
-                  <span className="hero-eyebrow">A New Era of Football Intelligence</span>
+                  <span className="hero-eyebrow">Fußball, nachgerechnet</span>
                 </div>
-                <h1>AI-Powered Football Predictions</h1>
+                <h1>KI-Prognosen für jedes Spiel</h1>
                 <p>
-                  A breakthrough AI model — trained on thousands of club football data points — delivers
-                  instant, in-depth analysis for every fixture: match outcomes, scorelines and full
-                  match storylines, generated like never before.
+                  Ein KI-Modell, trainiert auf tausenden Spielen, rechnet jede Partie durch: Siegchancen,
+                  wahrscheinlichstes Ergebnis und Spielverlauf. Nach dem Abpfiff zeigen wir ehrlich,
+                  ob die KI richtig lag.
                 </p>
                 <div className="competition-badge">
                   <img src="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png" alt="" className="competition-badge-logo" />
-                  <span>Now covering <strong>UEFA Champions League</strong></span>
+                  <span>Jetzt mit <strong>Bundesliga, Champions League &amp; Nations League</strong></span>
                 </div>
                 <div className="hero-stats">
                   <div className="hero-stat">
-                    <span className="hero-stat-value">Thousands</span>
-                    <span className="hero-stat-label">Data Points Analyzed</span>
+                    <span className="hero-stat-value">Tausende</span>
+                    <span className="hero-stat-label">Spiele ausgewertet</span>
                   </div>
                   <div className="hero-stat">
                     <span className="hero-stat-value">36</span>
-                    <span className="hero-stat-label">League Phase Clubs</span>
+                    <span className="hero-stat-label">Klubs in der Ligaphase</span>
                   </div>
                   <div className="hero-stat">
                     <span className="hero-stat-value">189</span>
-                    <span className="hero-stat-label">League Phase Matches</span>
+                    <span className="hero-stat-label">Spiele in der Ligaphase</span>
                   </div>
                   <div className="hero-stat">
                     <span className="hero-stat-value">1</span>
-                    <span className="hero-stat-label">Trophy</span>
+                    <span className="hero-stat-label">Pokal</span>
                   </div>
                 </div>
               </div>
@@ -2476,7 +2528,7 @@ export default function App() {
 
           <main className="main">
             <section id="predictions" className="wm-section">
-              <h2 className="section-title">Predictions</h2>
+              <h2 className="section-title">Prognosen</h2>
 
               <div className="competition-select">
                 {Object.entries(COMPETITIONS).map(([key, c]) => (
@@ -2491,15 +2543,15 @@ export default function App() {
                     {c.label}
                   </button>
                 ))}
-                <button className="competition-pill soon" disabled title="Coming soon">
+                <button className="competition-pill soon" disabled title="Bald verfügbar">
                   <span className="competition-pill-emoji">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
                   Premier League
-                  <span className="competition-pill-soon">Soon</span>
+                  <span className="competition-pill-soon">Bald</span>
                 </button>
-                <button className="competition-pill soon" disabled title="Coming soon">
+                <button className="competition-pill soon" disabled title="Bald verfügbar">
                   <span className="competition-pill-emoji">🇪🇸</span>
                   La Liga
-                  <span className="competition-pill-soon">Soon</span>
+                  <span className="competition-pill-soon">Bald</span>
                 </button>
               </div>
 
@@ -2508,19 +2560,19 @@ export default function App() {
                   className={`group-tab special-tab ${activeGroup === 'next' ? 'active' : ''}`}
                   onClick={() => setActiveGroup('next')}
                 >
-                  📅 Next Games
+                  📅 Nächste Spiele
                 </button>
                 <button
                   className={`group-tab special-tab ${activeGroup === 'hot' ? 'active' : ''}`}
                   onClick={() => setActiveGroup('hot')}
                 >
-                  🔥 Hot Game
+                  🔥 Topspiel
                 </button>
                 <button
                   className={`group-tab special-tab ${activeGroup === 'combo' ? 'active' : ''}`}
                   onClick={() => { setActiveGroup('combo'); if (combo === null && !comboLoading) loadCombo() }}
                 >
-                  🎟️ Combo Ticket
+                  🎟️ Kombi-Schein
                 </button>
                 {currentGroups.map(g => (
                   <button
@@ -2528,7 +2580,7 @@ export default function App() {
                     className={`group-tab ${activeGroup === g ? 'active' : ''}`}
                     onClick={() => setActiveGroup(g)}
                   >
-                    {g.length === 1 ? `Group ${g}` : g}
+                    {groupLabel(g)}
                   </button>
                 ))}
               </div>
@@ -2536,7 +2588,7 @@ export default function App() {
               {wmLoading && (
                 <div className="analyzing-status loading-inline">
                   <span className="analyzing-spinner" />
-                  <span>Loading analyses…</span>
+                  <span>Analysen werden geladen…</span>
                 </div>
               )}
 
@@ -2545,13 +2597,13 @@ export default function App() {
               )}
 
               {activeGroup === 'next' && nextGames.length === 0 && (
-                <p className="wm-subtle">No matches scheduled for today.</p>
+                <p className="wm-subtle">Heute stehen keine Spiele an.</p>
               )}
 
               {activeGroup === 'hot' && (
                 nextGames.length === 0
-                  ? <p className="wm-subtle">No matches scheduled for today.</p>
-                  : <p className="wm-subtle hot-game-subtitle">🔥 Today's marquee matchup — the highest-ranked teams in action.</p>
+                  ? <p className="wm-subtle">Heute stehen keine Spiele an.</p>
+                  : <p className="wm-subtle hot-game-subtitle">🔥 Das Topspiel des Tages – das spannendste Duell laut KI.</p>
               )}
 
 
@@ -2628,7 +2680,7 @@ export default function App() {
       )}
 
       <footer className="footer">
-        <p>Football Insights — AI-generated predictions for entertainment purposes only.</p>
+        <p>GoalIQ – KI-Prognosen, nur zur Unterhaltung. Keine Wettberatung. · <a href="mailto:hallo@goaliq.de">hallo@goaliq.de</a></p>
       </footer>
     </div>
   )
