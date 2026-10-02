@@ -369,6 +369,8 @@ def job_status():
             out[name] = json.loads((jobs.REPORTS / f"last_{name}.json").read_text(encoding="utf-8"))
         except (OSError, ValueError):
             out[name] = None
+    from src import gemini_usage
+    out["gemini"] = gemini_usage.load()
     return out
 
 
@@ -1453,6 +1455,8 @@ supporting fact, max 8 words>"]}}"""
                 tools=[types.Tool(google_search=types.GoogleSearch())],
             ),
         )
+        from src import gemini_usage
+        gemini_usage.record("agent_recheck" if previous_eval else "agent_pick", response, grounded=True)
         text = response.text.strip()
         text = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.MULTILINE).strip()
         parsed = json.loads(text)
@@ -1572,11 +1576,13 @@ def _refresh_agent_picks(odds: list[dict]) -> None:
 
     def _eval_one(data):
         home, away = data["home_team"], data["away_team"]
-        key = (_norm(home), _norm(away))
-        if key in _agent_picks_cache:
-            return None
         vb = _compute_value_bets(data, odds, home, away)
         if not vb.get("odds_found") or vb.get("in_play"):
+            return None
+        # The key the pick is stored under (_agent_key), not the team pair:
+        # checked against the pair, a cached match never matched and was
+        # sent to Gemini again on every pass.
+        if _agent_key(vb) in _agent_picks_cache:
             return None
         commence = vb.get("commence_time")
         if commence:
