@@ -902,12 +902,19 @@ def _with_book_odds(event: dict) -> dict:
     if not fixture:
         return event
 
+    # The alignment guards against a stale bet-at-home price beside a fresh
+    # one from another bookmaker. The morning snapshot (the free events list)
+    # carries no other prices, so there bet-at-home's read of the same day
+    # stands alone - a read caught up later in the day included.
+    others = any(b.get("key") != USER_BOOK_KEY for b in event.get("bookmakers", []))
+    allowed_gap = MAX_QUOTE_AGE_SECONDS if others else 18 * 3600
+
     def stamp(value):
         try:
             fetched = timestamp(value)
         except (TypeError, ValueError):
             return None
-        if abs((snapshot - fetched).total_seconds()) > MAX_QUOTE_AGE_SECONDS:
+        if abs((snapshot - fetched).total_seconds()) > allowed_gap:
             return None
         return min(fetched, snapshot).isoformat()
 
