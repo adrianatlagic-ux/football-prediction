@@ -79,6 +79,8 @@ ohne Anführungszeichen, ohne Markdown."""
     try:
         client = genai.Client(api_key=api_key)
         response = client.models.generate_content(model="gemini-2.5-flash", contents=prompt)
+        from src import gemini_usage
+        gemini_usage.record("scenario", response)
         text = response.text.strip()
         text = re.sub(r'^["\']|["\']$', "", text).strip()
         return text or None
