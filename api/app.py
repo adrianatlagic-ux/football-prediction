@@ -631,6 +631,9 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 # Agent picks are cached per match indefinitely once computed (see
 # _refresh_agent_picks) - never recomputed for a match that already has one.
 _agent_picks_cache: dict[tuple[str, str], dict] = {}
+# When a match's Gemini call last failed; it is tried again after two hours.
+_agent_failed_at: dict[tuple, float] = {}
+AGENT_RETRY_SECONDS = 2 * 3600
 # Throttles how often a background pass is even considered, independent of
 # whether it finds anything to do - without this, every request would spawn a
 # pass just to discover every remaining gap is a finished/too-far-out match,
@@ -1595,8 +1598,14 @@ def _refresh_agent_picks(odds: list[dict]) -> None:
                 pass
         if vb.get("odds_stage") == "final":
             return None
+        # A call that gave no usable pick (unreadable answer, error) is not
+        # repeated on every pass: an answered call is billed, search included.
+        failed_at = _agent_failed_at.get(_agent_key(vb))
+        if failed_at and time.time() - failed_at < AGENT_RETRY_SECONDS:
+            return None
         agent = _call_gemini_agent_pick(data, vb, home, away)
         if agent is None:
+            _agent_failed_at[_agent_key(vb)] = time.time()
             return None
         return _agent_key(vb), agent
 
