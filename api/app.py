@@ -1814,8 +1814,8 @@ def _price_tip_for(odds: list[dict], home: str, away: str, prediction: dict,
     except Exception:
         return None
     if not tip.get("outcomes") and event.get("odds_stage") != "final":
-        tip["reason"] = ("Pinnacle's price is read in the hour before kickoff. "
-                         "The price tip is decided then.")
+        tip["reason"] = ("Pinnacles Quote wird in der Stunde vor Anpfiff gelesen. "
+                         "Dann entscheidet sich der Preis-Tipp.")
     tip.update(model_and_ai_view(tip.get("tip"), prediction, agent_eval, candidates,
                                  event.get("home_team"), event.get("away_team")))
     return tip
