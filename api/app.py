@@ -369,8 +369,9 @@ def job_status():
             out[name] = json.loads((jobs.REPORTS / f"last_{name}.json").read_text(encoding="utf-8"))
         except (OSError, ValueError):
             out[name] = None
-    from src import gemini_usage
+    from src import apify_budget, gemini_usage
     out["gemini"] = gemini_usage.load()
+    out["apify"] = apify_budget.usage()
     return out
 
 

@@ -3093,3 +3093,97 @@ body {
 .lineup-box h4 { margin: 0 0 0.4rem; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8; }
 .lineup-box p { margin: 0.2rem 0; font-size: 0.85rem; color: #e2e8f0; }
 .lineup-box .lineup-effect { margin-top: 0.4rem; font-size: 0.78rem; color: #94a3b8; }
+
+/* Collapsed extras: "Mehr Details" under the analysis, "Hintergrund" under
+   the bet tips. */
+.wm-details {
+  margin-top: 1rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.02);
+}
+.wm-details > summary {
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  list-style: none;
+}
+.wm-details > summary::-webkit-details-marker { display: none; }
+.wm-details > summary::after { content: ' ▼'; font-size: 0.7rem; }
+.wm-details[open] > summary::after { content: ' ▲'; }
+.wm-details[open] > summary { border-bottom: 1px solid rgba(255,255,255,0.06); }
+.wm-details > .wm-cluster,
+.smart-bet-background > :not(summary) { margin: 0.9rem 1rem; }
+.legend-likely { margin-top: 0.6rem; font-size: 0.85rem; color: var(--text-muted); }
+.legend-likely strong { color: var(--gold-light); font-size: 1rem; }
+
+/* Form under the predicted result: a tug of war. Both bars start from their
+   edges together; at the weaker side's value it stops while the stronger
+   one pushes on, then the winner's flame lights up. */
+.form-rating-top { margin: 0.4rem 0 1.2rem; }
+.tug-animate { animation: tug-pull 1.8s cubic-bezier(0.4, 0, 0.2, 1) both; transition: none; }
+@keyframes tug-pull {
+  0%   { width: 0; }
+  45%  { width: var(--tug-meet); }
+  60%  { width: var(--tug-meet); }
+  100% { width: var(--tug-end); }
+}
+.form-rating-top .form-rating-flame {
+  display: inline-block;
+  animation: flame-pop 0.5s 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes flame-pop {
+  0%   { opacity: 0; transform: scale(0.2) translateY(4px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* KI-Scout: the AI agent's live research, before the bet analysis. */
+.wm-cluster-scout .agent-factors {
+  margin-top: 0;
+  padding: 0;
+  background: none;
+  border: none;
+}
+.scout-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+  padding: 0.95rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(168, 85, 247, 0.45);
+  background: linear-gradient(135deg, rgba(168,85,247,0.18), rgba(34,211,238,0.10));
+  box-shadow: 0 0 0 0 rgba(168,85,247,0.35), 0 8px 24px -12px rgba(168,85,247,0.6);
+  color: #f3e8ff;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.25s, border-color 0.25s;
+  animation: scout-glow 2.8s ease-in-out infinite;
+}
+.scout-btn:hover { transform: translateY(-1px); border-color: rgba(192,132,252,0.8); }
+.scout-btn.is-open { animation: none; border-radius: 14px 14px 0 0; }
+@keyframes scout-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(168,85,247,0.0), 0 8px 24px -12px rgba(168,85,247,0.6); }
+  50%      { box-shadow: 0 0 0 4px rgba(168,85,247,0.15), 0 8px 28px -10px rgba(168,85,247,0.8); }
+}
+.scout-btn-icon { font-size: 1.6rem; }
+.scout-btn-text { display: flex; flex-direction: column; gap: 0.15rem; flex: 1; min-width: 0; }
+.scout-btn-title { font-size: 1rem; font-weight: 800; letter-spacing: 0.02em;
+                   background: linear-gradient(90deg, #e9d5ff, #67e8f9); -webkit-background-clip: text;
+                   background-clip: text; color: transparent; }
+.scout-btn-sub { font-size: 0.75rem; color: #c4b5fd; }
+.scout-btn-chevron { font-size: 0.75rem; opacity: 0.8; }
+.wm-cluster-scout .agent-factors-row {
+  margin: 0;
+  padding: 0.7rem 1.1rem;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-top: none;
+  background: rgba(168,85,247,0.05);
+}
+.wm-cluster-scout .agent-factors-row:last-child { border-radius: 0 0 14px 14px; }
+
+/* "Wett-Analyse" in the bet card's green. */
+.wm-cluster-bet .wm-cluster-label { color: #4ade80; }

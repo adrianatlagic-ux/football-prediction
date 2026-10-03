@@ -27,6 +27,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional
 
+from src import apify_budget
+
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PATH = ROOT / "data" / "book_odds" / "latest.json"
 ACTOR = "piotrv1001~oddsportal-scraper"
@@ -261,12 +263,16 @@ def refresh_if_due(sport_key: str, events: list) -> bool:
         if not due or all(_has_fresh_book(fixtures, e) for e in due):
             return False
         items = min(len(listed), MAX_WINDOW_ITEMS)
-        full = spent_this_month() + items * PRICE_PER_FULL_BOOK <= MONTHLY_BUDGET
+        full = (spent_this_month() + items * PRICE_PER_FULL_BOOK <= MONTHLY_BUDGET
+                and apify_budget.allows(items * PRICE_PER_FULL_BOOK))
+        if not full and not apify_budget.allows(items * PRICE_PER_MATCH):
+            return False
         try:
             fetched = fetch_league(sport_key, items, full_book=full)
         except Exception:
             return False
         _record_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
+        apify_budget.note_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
         if not full:
             # Past the budget: mark the 1X2 read so the window is not retried.
             fetched = [{**f, "markets": {}} for f in fetched]
@@ -298,8 +304,10 @@ def daily_refresh(sport_key: str, events: list) -> bool:
     if not listed:
         return False
     items = min(listed, 40)
-    full = spent_this_month() + items * PRICE_PER_FULL_BOOK <= MONTHLY_BUDGET
-    if not full and spent_this_month() + items * PRICE_PER_MATCH > MONTHLY_BUDGET + DAILY_RESERVE:
+    full = (spent_this_month() + items * PRICE_PER_FULL_BOOK <= MONTHLY_BUDGET
+            and apify_budget.allows(items * PRICE_PER_FULL_BOOK))
+    if not full and (spent_this_month() + items * PRICE_PER_MATCH > MONTHLY_BUDGET + DAILY_RESERVE
+                     or not apify_budget.allows(items * PRICE_PER_MATCH)):
         return False
     with _refresh_lock:
         try:
@@ -307,5 +315,6 @@ def daily_refresh(sport_key: str, events: list) -> bool:
         except Exception:
             return False
         _record_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
+        apify_budget.note_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
         store(sport_key, fetched)
         return True

@@ -28,6 +28,8 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional
 
+from src import apify_budget
+
 ACTOR = "solidcode~transfermarkt-scraper"
 ENDPOINT = "https://api.apify.com/v2/acts/{}/run-sync-get-dataset-items?token={}"
 SQUAD_URL = "https://www.transfermarkt.com/x/startseite/verein/{}"
@@ -278,6 +280,9 @@ def summarise(players: list, competition, absent_names=(),
     }
 
 
+SQUAD_RUN_COST_USD = 0.05
+
+
 def cached_squads(transfermarkt_ids, ttl: timedelta, token: Optional[str] = None,
                   now: Optional[datetime] = None) -> dict:
     """Squads keyed by Transfermarkt id, from the cache where it is young enough.
@@ -295,8 +300,13 @@ def cached_squads(transfermarkt_ids, ttl: timedelta, token: Optional[str] = None
         except (OSError, ValueError, KeyError):
             pass
         stale.append(team_id)
+    # About 40 player rows a team at $0.001 each; past the account's cap the
+    # stale teams are left out and the line-up job tries again later.
+    if stale and not apify_budget.allows(len(stale) * SQUAD_RUN_COST_USD, token):
+        stale = []
     if stale:
         fetched = fetch_squads(stale, with_injuries=False, token=token)
+        apify_budget.note_spend(len(stale) * SQUAD_RUN_COST_USD)
         SQUAD_CACHE_DIR.mkdir(parents=True, exist_ok=True)
         for team_id, players in fetched.items():
             slim = [{k: p.get(k) for k in _KEPT_FIELDS} for p in players]

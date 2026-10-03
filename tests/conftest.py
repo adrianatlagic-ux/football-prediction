@@ -9,3 +9,6 @@ def _isolated_runtime_files(tmp_path, monkeypatch):
     monkeypatch.setenv("BOOK_ODDS_PATH", str(tmp_path / "book_odds.json"))
     # No real Apify reads from inside a test.
     monkeypatch.setattr(api, "_refresh_book_daily", lambda events: None)
+    # Nor a real question to Apify about the account's spend.
+    from src import apify_budget
+    monkeypatch.setattr(apify_budget, "usage", lambda token=None: None)

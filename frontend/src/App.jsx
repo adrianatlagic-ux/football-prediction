@@ -8,7 +8,7 @@ import CLUB_CRESTS from './club_crests.json'
 import TEAM_COLORS from './team_colors.json'
 import TEAM_NAMES_DE from './team_names_de.json'
 
-const API_BASE = import.meta.env.DEV ? 'http://127.0.0.1:8000' : ''
+const API_BASE = import.meta.env.VITE_API_BASE ?? (import.meta.env.DEV ? 'http://127.0.0.1:8000' : '')
 // The one bookmaker the user bets with (api/app.py USER_BOOK_KEY).
 const USER_BOOK_KEY = 'betathome'
 
@@ -457,9 +457,15 @@ function FormRating({ data }) {
     awayPct = 100 - homePct
   }
 
+  // The tug of war: both bars start together from their edges at the same
+  // speed; the weaker side stops at its value, the stronger one pushes on to
+  // its own, then its flame lights up.
+  const meet = Math.min(homePct, awayPct)
+  const tug = (end) => ({ '--tug-meet': `${meet}%`, '--tug-end': `${end}%`, width: `${end}%` })
+
   return (
-    <div className="form-rating-box">
-      <h4>Formkurve</h4>
+    <div className="form-rating-box form-rating-top">
+      <h4>Formkurve <span className="wm-subtle">· letzte 10 Spiele</span></h4>
 
       <div className="form-tug">
         <div className="form-tug-header">
@@ -472,8 +478,8 @@ function FormRating({ data }) {
         </div>
         <div className="form-tug-track">
           <div className="form-tug-scale-mark" />
-          <div className="form-tug-fill-home" style={{ width: `${homePct}%` }} />
-          <div className="form-tug-fill-away" style={{ width: `${awayPct}%` }} />
+          <div className="form-tug-fill-home tug-animate" style={tug(homePct)} />
+          <div className="form-tug-fill-away tug-animate" style={tug(awayPct)} />
         </div>
         <div className="form-tug-values">
           <span className="form-tug-value home">{homeRating}</span>
@@ -502,9 +508,6 @@ function MatchScenario({ data }) {
         <h4>Wahrscheinlichstes Szenario</h4>
         <p>{renderScenario(bm.scenario, home, away)}</p>
       </div>
-
-      <LineupStrength data={data} />
-      <FormRating data={data} />
     </div>
   )
 }
@@ -1023,9 +1026,13 @@ function AgentFactors({ research }) {
   if (rows.length === 0) return null
   return (
     <div className="wm-reveal agent-factors">
-      <button className="agent-factors-toggle" onClick={() => setOpen(v => !v)} aria-expanded={open}>
-        <span>✨ Äußere Faktoren (KI-Agent)</span>
-        <span className="agent-factors-chevron">{open ? '▲' : '▼'}</span>
+      <button className={`scout-btn${open ? ' is-open' : ''}`} onClick={() => setOpen(v => !v)} aria-expanded={open}>
+        <span className="scout-btn-icon">🛰️</span>
+        <span className="scout-btn-text">
+          <span className="scout-btn-title">KI-Scout</span>
+          <span className="scout-btn-sub">Was die Zahlen nicht sehen: Verletzungen, Aufstellung, Form, Tabelle – live recherchiert</span>
+        </span>
+        <span className="scout-btn-chevron">{open ? '▲' : '▼'}</span>
       </button>
       {open && rows.map(([icon, label, text]) => (
         <div className="agent-factors-row" key={label}>
@@ -1300,6 +1307,11 @@ function SmartBetCard({ betStep, betInfo, data }) {
         </div>
       )}
 
+      <details className="wm-details smart-bet-background">
+        <summary>Hintergrund: KI-Tipp, Modell-Abweichung, Erfolgsbilanz, Aufstellungen</summary>
+
+      <LineupStrength data={data} />
+
       {agentEval && (
         <div className="smart-bet-agent">
           <div className="smart-bet-agent-headtitle">
@@ -1343,6 +1355,8 @@ function SmartBetCard({ betStep, betInfo, data }) {
           </p>
         </div>
       )}
+
+      </details>
 
       <div className="smart-bet-finePrint">
         <p><strong>💰</strong> Preis-Tipp: bet-at-home zahlt mehr als Pinnacles fairer Preis. <strong>🎯</strong> die Wette,
@@ -1432,6 +1446,8 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
         <span className="team-name"><TeamLabel name={data.away_team} /></span>
       </div>
 
+      <FormRating data={data} />
+
       {analyzing && (
         <div className="analyzing-status">
           <span className="analyzing-spinner" />
@@ -1467,6 +1483,12 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
               <span className="legend-name"><TeamLabel name={data.away_team} /></span>
               <span className="legend-value"><AnimatedNumber value={data.probability_away_win * 100} decimals={1} suffix="%" /></span>
             </div>
+            {sp.most_likely_score && (
+              <div className="legend-likely">
+                Wahrscheinlichstes Ergebnis <strong>{sp.most_likely_score}</strong>
+                {sp.top_scorelines?.[0] && <span className="wm-subtle"> ({(sp.top_scorelines[0].probability * 100).toFixed(0)}%)</span>}
+              </div>
+            )}
           </div>
         </RevealSection>
 
@@ -1475,89 +1497,57 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
         </RevealSection>
       </div>
 
-      <div className="wm-cluster">
-        <span className="wm-cluster-label">Statistiken &amp; Märkte</span>
-
-        <RevealSection visible={show(2)}>
-          <BettingMarkets data={data} />
-        </RevealSection>
-
-        <RevealSection visible={show(3)} className="explanation-grid wm-grid">
-          <div className="stat-card">
-            <h4>Wahrscheinlichstes Ergebnis</h4>
-            <div className="wm-scoreboard">
-              <TeamCrest name={data.home_team} className="wm-scoreboard-crest" />
-              <div className="wm-score-highlight">{sp.most_likely_score}</div>
-              <TeamCrest name={data.away_team} className="wm-scoreboard-crest" />
-            </div>
-            <p className="wm-subtle wm-scoreboard-xg">
-              xG: <AnimatedNumber value={sp.home_xg} decimals={2} /> : <AnimatedNumber value={sp.away_xg} decimals={2} />
-            </p>
-            {(() => {
-              const scorelines = (sp.top_scorelines || []).slice(0, 3)
-              const maxP = Math.max(...scorelines.map(s => s.probability), 0)
-              return scorelines.map((s, i) => (
-                <div className={`score-row${s.probability === maxP ? ' is-leader' : ''}`} key={i}>
-                  <span className="score-row-rank">{i === 0 ? '★' : i + 1}</span>
-                  <span className="score-row-label">{s.score}</span>
-                  <span className="score-row-value"><AnimatedNumber value={s.probability * 100} decimals={1} suffix="%" /></span>
-                </div>
-              ))
-            })()}
-          </div>
-
-          <div className="stat-card">
-            <h4>Halbzeit</h4>
-            {(() => {
-              const htScores = (gf.top_halftime_scores || []).slice(0, 3)
-              const maxP = Math.max(...htScores.map(h => h.probability), 0)
-              return htScores.map((h, i) => (
-                <div className={`score-row${h.probability === maxP ? ' is-leader' : ''}`} key={i}>
-                  <span className="score-row-rank">{i === 0 ? '★' : i + 1}</span>
-                  <span className="score-row-label">{h.score}</span>
-                  <span className="score-row-value"><AnimatedNumber value={h.probability * 100} decimals={1} suffix="%" /></span>
-                </div>
-              ))
-            })()}
-            <div className="score-row is-drama">
-              <span className="score-row-rank">⚡</span>
-              <span className="score-row-label score-row-label-wide">Spätes Drama (75'+)</span>
-              <span className="score-row-value"><AnimatedNumber value={(gf.late_drama_probability || 0) * 100} decimals={0} suffix="%" /></span>
-            </div>
-          </div>
-        </RevealSection>
-
-        {ps.possession && (
-          <RevealSection visible={show(4)} className="h2h-stats">
-            <h4>Erwartete Spielstatistik</h4>
-            <div className="h2h-teams">
-              <span><TeamLabel name={data.home_team} /></span>
-              <span><TeamLabel name={data.away_team} /></span>
-            </div>
-            <HeadToHeadStat label="Ballbesitz" home={ps.possession.home} away={ps.possession.away} suffix="%" />
-            <HeadToHeadStat label="Schüsse" home={ps.shots.home} away={ps.shots.away} />
-            <HeadToHeadStat label="Schüsse aufs Tor" home={ps.shots_on_target.home} away={ps.shots_on_target.away} />
-            <HeadToHeadStat label="Ecken" home={ps.corners.home} away={ps.corners.away} />
-            <HeadToHeadStat label="Pässe" home={ps.passes.home} away={ps.passes.away} />
-          </RevealSection>
-        )}
-
-        {gf.match_description && gf.match_description !== 'Both teams play attacking football at an even level' && (
-          <RevealSection visible={show(5)}>
-            <p className="wm-description">{MATCH_DESCRIPTIONS_DE[gf.match_description] || gf.match_description}</p>
-          </RevealSection>
-        )}
-      </div>
-
       {!analyzing && (
-        (betInfo && betInfo.agent_eval && betInfo.agent_eval.research) || onStartBetCheck
-      ) && (
+        <details className="wm-details">
+          <summary>Mehr Details: Märkte, Ergebnisse &amp; Halbzeit</summary>
+          <div className="wm-cluster">
+            <BettingMarkets data={data} />
+            <div className="explanation-grid wm-grid">
+              <div className="stat-card">
+                <h4>Wahrscheinlichste Ergebnisse</h4>
+                <p className="wm-subtle wm-scoreboard-xg">
+                  xG: {Number(sp.home_xg).toFixed(2)} : {Number(sp.away_xg).toFixed(2)}
+                </p>
+                {(sp.top_scorelines || []).slice(0, 3).map((s, i) => (
+                  <div className={`score-row${i === 0 ? ' is-leader' : ''}`} key={i}>
+                    <span className="score-row-rank">{i === 0 ? '★' : i + 1}</span>
+                    <span className="score-row-label">{s.score}</span>
+                    <span className="score-row-value">{(s.probability * 100).toFixed(1)}%</span>
+                  </div>
+                ))}
+              </div>
+              <div className="stat-card">
+                <h4>Halbzeit</h4>
+                {(gf.top_halftime_scores || []).slice(0, 3).map((h, i) => (
+                  <div className={`score-row${i === 0 ? ' is-leader' : ''}`} key={i}>
+                    <span className="score-row-rank">{i === 0 ? '★' : i + 1}</span>
+                    <span className="score-row-label">{h.score}</span>
+                    <span className="score-row-value">{(h.probability * 100).toFixed(1)}%</span>
+                  </div>
+                ))}
+                <div className="score-row is-drama">
+                  <span className="score-row-rank">⚡</span>
+                  <span className="score-row-label score-row-label-wide">Spätes Drama (75'+)</span>
+                  <span className="score-row-value">{((gf.late_drama_probability || 0) * 100).toFixed(0)}%</span>
+                </div>
+              </div>
+            </div>
+            {gf.match_description && gf.match_description !== 'Both teams play attacking football at an even level' && (
+              <p className="wm-description">{MATCH_DESCRIPTIONS_DE[gf.match_description] || gf.match_description}</p>
+            )}
+          </div>
+        </details>
+      )}
+
+      {!analyzing && betInfo && betInfo.agent_eval && betInfo.agent_eval.research && (
+        <div className="wm-cluster wm-cluster-scout">
+          <AgentFactors research={betInfo.agent_eval.research} />
+        </div>
+      )}
+
+      {!analyzing && onStartBetCheck && (
         <div className="wm-cluster wm-cluster-bet">
           <span className="wm-cluster-label">Wett-Analyse</span>
-
-          {betInfo && betInfo.agent_eval && betInfo.agent_eval.research && (
-            <AgentFactors research={betInfo.agent_eval.research} />
-          )}
 
           {onStartBetCheck && (
             <div className="smart-bet-section" id={`bets-${matchId}`}>
@@ -2352,7 +2342,7 @@ export default function App() {
       } else {
         setAnalysisStep(prev => ({ ...prev, [matchId]: step }))
       }
-    }, 4200)
+    }, 800)
   }
 
   function preloadBetInfo(matchId, fixture) {
@@ -2441,7 +2431,7 @@ export default function App() {
       } else {
         setBetStepById(prev => ({ ...prev, [matchId]: step }))
       }
-    }, 1800)
+    }, 700)
   }
 
   // From the Best Bets tab: jump straight to a match's Smart Bet view.
