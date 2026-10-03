@@ -2017,6 +2017,13 @@ body {
   letter-spacing: 0.05em;
 }
 
+/* Same size as the analysis button, in the bet card's green. */
+.fixture-bets-btn {
+  margin-top: 0.5rem;
+  background: linear-gradient(135deg, #16a34a, #4ade80);
+  color: #052e16;
+}
+
 .fixture-generate-btn:hover {
   opacity: 0.9;
   transform: translateY(-1px);

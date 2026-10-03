@@ -829,7 +829,7 @@ function FixtureRow({ fixture }) {
   )
 }
 
-function FixtureReadyRow({ fixture, onGenerate }) {
+function FixtureReadyRow({ fixture, onGenerate, onBets }) {
   return (
     <div className="fixture-row fixture-ready">
       <div className="fixture-meta">
@@ -844,6 +844,11 @@ function FixtureReadyRow({ fixture, onGenerate }) {
       <button className="fixture-generate-btn" onClick={onGenerate}>
         KI-Analyse starten
       </button>
+      {onBets && (
+        <button className="fixture-generate-btn fixture-bets-btn" onClick={onBets}>
+          Wett-Tipps zeigen
+        </button>
+      )}
     </div>
   )
 }
@@ -1555,7 +1560,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
           )}
 
           {onStartBetCheck && (
-            <div className="smart-bet-section">
+            <div className="smart-bet-section" id={`bets-${matchId}`}>
               {betStep === undefined ? (
                 <div className="smart-bet-cta">
                   <span className="smart-bet-cta-icon">🎯</span>
@@ -2408,6 +2413,19 @@ export default function App() {
     setTimeout(() => document.getElementById(`match-${id}`)?.scrollIntoView({ block: 'start', behavior: 'smooth' }), 150)
   }
 
+  // Straight to the bet tips from the fixture list: the analysis opens
+  // without its step-by-step reveal and the page jumps to the tips.
+  function openBets(fixture) {
+    const id = fixture.match_id
+    setAnalysisStep(prev => ({ ...prev, [id]: Infinity }))
+    setBetStepById(prev => ({ ...prev, [id]: Infinity }))
+    axios.get(`${API_BASE}/value-bets`, { params: { home_team: fixture.home_team, away_team: fixture.away_team } })
+      .then(r => setBetInfoById(prev => ({ ...prev, [id]: r.data })))
+      .catch(() => setBetInfoById(prev => ({ ...prev, [id]: { odds_found: false, bets: [] } })))
+    setTimeout(() => (document.getElementById(`bets-${id}`) || document.getElementById(`match-${id}`))
+      ?.scrollIntoView({ block: 'start', behavior: 'smooth' }), 150)
+  }
+
   function startBetCheck(matchId, fixture) {
     setBetStepById(prev => ({ ...prev, [matchId]: 0 }))
     axios.get(`${API_BASE}/value-bets`, { params: { home_team: fixture.home_team, away_team: fixture.away_team } })
@@ -2649,6 +2667,7 @@ export default function App() {
                           key={fixture.match_id}
                           fixture={fixture}
                           onGenerate={() => startAnalysis(fixture.match_id, fixture)}
+                          onBets={() => openBets(fixture)}
                         />
                       )
                     }
