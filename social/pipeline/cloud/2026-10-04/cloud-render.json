@@ -1,0 +1,68 @@
+{
+  "processing": "Higgsfield cloud only",
+  "input_job_ids": {
+    "source": "7ae12b99-589c-4e93-98c9-bbfefd14da59",
+    "english": "6546cf19-bd95-4f2c-ad21-89f043f17818"
+  },
+  "access": "Resolve input IDs through authenticated Higgsfield; do not store resolved private-media URLs in this public repository.",
+  "preprocess": [
+    {
+      "input": "source",
+      "from": 6.5,
+      "duration": 4.5,
+      "output": "action.mp4",
+      "audio": false
+    },
+    {
+      "input": "source",
+      "from": 13,
+      "duration": 2,
+      "output": "outro.mp4",
+      "audio": false
+    }
+  ],
+  "scripts": {
+    "music": "music.cjs",
+    "composition": "edit.js"
+  },
+  "assembly": [
+    {
+      "input": "english",
+      "from": 0,
+      "duration": 4,
+      "at": 0
+    },
+    {
+      "input": "action",
+      "from": 0,
+      "duration": 4.5,
+      "at": 4
+    },
+    {
+      "input": "english",
+      "from": 4,
+      "duration": 4,
+      "at": 8.5
+    },
+    {
+      "input": "outro",
+      "from": 0,
+      "duration": 2,
+      "at": 12.5
+    }
+  ],
+  "music": {
+    "input": "bed.wav",
+    "native_place_after_build": true,
+    "trackIndex": 2,
+    "at": 0,
+    "duration": 14.5,
+    "asset_id_source": "higgsedit read goalfiq-final; find assets[].name == bed.wav"
+  },
+  "render": {
+    "command": "higgsedit render goalfiq-final --out renders/final.mp4 --workers 2 --depth 8 --bitrate 3M",
+    "upload": "Use Higgsfield media_upload before producing; PUT final.mp4 in the same sandbox call, then media_confirm."
+  },
+  "output_media_id": "188a7a40-17d1-436c-9711-c53b9a77abc1",
+  "review": "English audio review pending"
+}
