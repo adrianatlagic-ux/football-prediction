@@ -981,7 +981,10 @@ def _with_book_odds(event: dict) -> dict:
     # carries no other prices, so there bet-at-home's read of the same day
     # stands alone - a read caught up later in the day included.
     others = any(b.get("key") != USER_BOOK_KEY for b in event.get("bookmakers", []))
-    allowed_gap = MAX_QUOTE_AGE_SECONDS if others else 18 * 3600
+    # In the last hour bet-at-home is read once (book_odds.refresh_if_due)
+    # while Pinnacle can be re-read later - after a restart, say - so both
+    # count as that hour's prices.
+    allowed_gap = (3600 if event.get("odds_stage") == "final" else MAX_QUOTE_AGE_SECONDS) if others else 18 * 3600
 
     def stamp(value):
         try:
