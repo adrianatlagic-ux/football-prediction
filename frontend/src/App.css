@@ -3211,3 +3211,8 @@ body {
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .smart-bet-agent .smart-bet-highlight-purple { color: #d8b4fe; }
+
+.price-tip.is-empty .price-tip-none { font-size: 0.88rem; font-weight: 600; color: var(--text-muted); }
+.price-tip-more { margin-top: 0.4rem; }
+.price-tip-more > summary { cursor: pointer; font-size: 0.75rem; color: var(--text-muted); opacity: 0.8; }
+.price-tip-more[open] > summary { margin-bottom: 0.5rem; }

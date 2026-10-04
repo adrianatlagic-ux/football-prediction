@@ -940,9 +940,13 @@ function PriceTipBox({ priceTip }) {
   if (!tip) {
     return (
       <div className="price-tip is-empty">
-        <span className="smart-bet-label price-tip-label-muted">Preis-Tipp</span>
-        <div className="price-tip-none">Kein Tipp für dieses Spiel</div>
-        {priceTip.reason && <p className="price-tip-reason">{priceTip.reason}</p>}
+        <div className="price-tip-none">
+          💰 Kein Preis-Tipp – {priceTip.waiting
+            ? 'entscheidet sich in der Stunde vor Anpfiff.'
+            : (priceTip.reason || `${book} zahlt nirgends mehr als Pinnacles fairer Preis.`)}
+        </div>
+        <details className="price-tip-more">
+          <summary>Vergleich ansehen</summary>
         {priceTip.outcomes.length > 0 && (
           <div className="price-tip-table">
             <div className="price-tip-table-head">
@@ -966,6 +970,7 @@ function PriceTipBox({ priceTip }) {
           Ein Tipp erscheint, wenn {book} mindestens {pct(priceTip.threshold)} über Pinnacles fairem Preis zahlt.
           Das passiert meist in der letzten Stunde vor Anpfiff, wenn Pinnacle zuerst reagiert.
         </p>
+        </details>
       </div>
     )
   }
@@ -1169,10 +1174,6 @@ function LikelyTipBox({ pick, agentPick, sameBet, home, away }) {
           </span>
         )}
       </div>
-      <div className="smart-bet-best-meta">
-        Die laut Markt wahrscheinlichste Wette mit Quote zwischen 1,30 und 2,00. Wahrscheinlich heißt nicht lohnend:
-        In diesem Tipp steckt die Marge des Buchmachers.
-      </div>
     </div>
   )
 }
@@ -1359,23 +1360,13 @@ function SmartBetCard({ betStep, betInfo, data }) {
       )}
 
       <div className="smart-bet-finePrint">
-        <p><strong>💰</strong> Preis-Tipp: bet-at-home zahlt mehr als Pinnacles fairer Preis. <strong>🎯</strong> die Wette,
-        die der Markt bei Quoten zwischen 1,30 und 2,00 für am wahrscheinlichsten hält (kein Vorteil behauptet). <strong>✨</strong> der eigene
-        Tipp des KI-Agenten nach Live-Recherche. <strong>★</strong> wo unser Modell am stärksten vom Markt abweicht.
-        Die Spalten Vorteil und Einsatz sind die Sicht des Modells – und das hat bisher keinen Vorteil gegenüber dem Markt gezeigt.</p>
-
-      {[...greens, ...reds].some(b => b.market.startsWith('Handicap')) && (
         <p>
-          <strong>+0.5</strong> = Doppelte Chance (Sieg/Remis). <strong>0.0</strong> = Remis = Einsatz zurück (bei Remis
-          gibt es den Einsatz zurück; manche Anbieter nennen das „Head-to-Head“). Andere Zahlen = Asian Handicap (Tordifferenz).
+          <strong>💰</strong> bet-at-home zahlt mehr als Pinnacles fairer Preis · <strong>🎯</strong> laut Markt
+          wahrscheinlichste Wette (Quote 1,30–2,00; kein Vorteil, die Marge steckt drin) · <strong>✨</strong> Tipp der KI
+          nach Recherche · <strong>★</strong> größte Abweichung des Modells vom Markt · <strong>⚠</strong> eher ein
+          Modellfehler. <strong>+0,5</strong> = Doppelte Chance, <strong>0,0</strong> = Einsatz zurück bei Remis,
+          andere Zahlen = Asian Handicap.
         </p>
-      )}
-
-      {[...greens, ...reds].some(b => b.suspicious) && (
-        <p>
-          <strong>⚠</strong> = großer Vorteil oder große Modell/Markt-Lücke – eher eine Schwäche des Modells als ein echter Tipp.
-        </p>
-      )}
 
       <p className="smart-bet-disclaimer">
         Nur zur Unterhaltung und Information. Das ist ein statistisches Modell, keine Wettberatung – es garantiert
