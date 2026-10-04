@@ -186,7 +186,6 @@ def grade_entries(entries, finished):
             if _same_bet(b, rec):
                 buckets["top_rec"].add(g, b["best_odds"])
             if _same_bet(b, a_pick):
-                buckets["agent_pick"].add(g, b["best_odds"])
                 buckets["agent_agrees" if agent.get("agrees_with_model") else "agent_disagrees"].add(g, b["best_odds"])
             if _same_bet(b, consensus_pick):
                 buckets["consensus"].add(g, b["best_odds"])
@@ -207,6 +206,12 @@ def grade_entries(entries, finished):
                 out["edges"].append(tip["edge"])
         elif pt:
             out["no_tip"] += 1
+        # The AI's own pick, every one of them - not only those that were also
+        # one of the model's green bets.
+        if a_pick and a_pick.get("best_odds"):
+            g_ai = grade(a_pick, home, away, hs, as_)
+            if g_ai is not None:
+                buckets["agent_pick"].add(g_ai, a_pick["best_odds"])
         lp = entry.get("likely_pick")
         g_lp = grade(lp, home, away, hs, as_) if lp else None
         if g_lp is not None:
