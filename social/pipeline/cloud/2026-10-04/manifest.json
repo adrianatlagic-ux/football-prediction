@@ -1,0 +1,516 @@
+{
+  "post_id": "goalfiq-2026-10-04",
+  "state": "planned",
+  "cloud_only": true,
+  "one_time_exception": {
+    "authorized_by_user": true,
+    "scope": "missing local ledger and historical budget/post verification; no local files, Python or FFmpeg",
+    "user_instruction": "Starte trotzdem dieses eine mal ausnahmsweise",
+    "selected_override": "Portugal Norwegen war schon nehme Deutschland"
+  },
+  "selected": [
+    {
+      "match_id": "greece_vs_germany_nl",
+      "home_team": "Greece",
+      "away_team": "Germany",
+      "date": "2026-10-04",
+      "time": "20:45",
+      "timezone": "Europe/Berlin",
+      "probabilities": {
+        "home": 0.1679,
+        "draw": 0.2283,
+        "away": 0.6037
+      },
+      "freshness_field": "history_refreshed_at",
+      "freshness_timestamp": "2026-10-04T06:10:40.306516+00:00"
+    }
+  ],
+  "packet": {
+    "fetched_at": "2026-10-04T11:55:13.172Z",
+    "source": "https://football-prediction.fly.dev/predictions/greece_vs_germany_nl",
+    "raw_prediction": {
+      "home_team": "Greece",
+      "away_team": "Germany",
+      "prediction": "A",
+      "prediction_label": "Away Win",
+      "probability_home_win": 0.1679,
+      "probability_draw": 0.2283,
+      "probability_away_win": 0.6037,
+      "score_prediction": {
+        "home_xg": 1.22,
+        "away_xg": 2.03,
+        "rho": -0.13,
+        "most_likely_score": "1:2",
+        "result": "A",
+        "probability_home_win": 0.1679,
+        "probability_draw": 0.2283,
+        "probability_away_win": 0.6038,
+        "top_scorelines": [
+          {
+            "score": "1:2",
+            "probability": 0.1072
+          },
+          {
+            "score": "0:2",
+            "probability": 0.0881
+          },
+          {
+            "score": "0:1",
+            "probability": 0.0731
+          },
+          {
+            "score": "1:3",
+            "probability": 0.0726
+          },
+          {
+            "score": "0:3",
+            "probability": 0.0597
+          }
+        ],
+        "betting_markets": {
+          "double_chance": {
+            "home_or_draw": 0.3962,
+            "home_or_away": 0.7717,
+            "draw_or_away": 0.8321
+          },
+          "over_under": [
+            {
+              "line": 1.5,
+              "over": 0.8498,
+              "under": 0.1502
+            },
+            {
+              "line": 2.5,
+              "over": 0.6349,
+              "under": 0.3651
+            },
+            {
+              "line": 3.5,
+              "over": 0.4126,
+              "under": 0.5874
+            }
+          ],
+          "btts": {
+            "yes": 0.6181,
+            "no": 0.3819
+          },
+          "win_margin": {
+            "home_1plus": 0.1679,
+            "home_2plus": 0.0705,
+            "home_3plus": 0.0221,
+            "away_1plus": 0.6038,
+            "away_2plus": 0.3691,
+            "away_3plus": 0.1819
+          },
+          "scenario": "Deutschland ist der klare Favorit mit über 60 Prozent Siegchance; das wahrscheinlichste Ergebnis gegen Griechenland ist ein 1:2, was ihre Stärke unterstreicht.",
+          "scenario_lang": "de"
+        },
+        "score_matrix": [
+          [
+            0.049224367638496684,
+            0.07309386322514469,
+            0.088143556076668,
+            0.059653947521192435,
+            0.030279525922739203,
+            0.01229557778760736,
+            0.004160711144026692,
+            0.0012068113911520807,
+            0.0003062804585502472
+          ],
+          [
+            0.02754671047531783,
+            0.10400087683289602,
+            0.10723592556572972,
+            0.07257531418996002,
+            0.03683823449546478,
+            0.01495886623036443,
+            0.0050619436110934685,
+            0.0014682132452302503,
+            0.00037262245724195266
+          ],
+          [
+            0.022765602170756332,
+            0.046222030207224436,
+            0.056835302736895556,
+            0.044147759273602254,
+            0.022408797353787733,
+            0.009099518654726071,
+            0.003079193944847137,
+            0.0008931180751499432,
+            0.00022666724527293345
+          ],
+          [
+            0.009232251448681386,
+            0.01874465705501105,
+            0.019029061874184516,
+            0.015598946902875386,
+            0.00908755456064623,
+            0.003690174485712146,
+            0.0012487213184548716,
+            0.00036219075521482934,
+            0.00009192153090629781
+          ],
+          [
+            0.0028080017224791838,
+            0.005701212709633285,
+            0.00578771481874065,
+            0.0039170195920445105,
+            0.0024082130679041976,
+            0.0011223715438998813,
+            0.00037980027218805515,
+            0.00011016080640378754,
+            0.000027958057528282955
+          ],
+          [
+            0.0006832460070893964,
+            0.0013872252243439058,
+            0.0014082730108104459,
+            0.000953093431008459,
+            0.00048377715893421243,
+            0.00023794386496613643,
+            0.0000924134117819717,
+            0.000026804446204784628,
+            0.0000068027847060256114
+          ],
+          [
+            0.00013854012934609952,
+            0.000281284281237857,
+            0.00028555208965425077,
+            0.0001932564344917617,
+            0.00009809431665608703,
+            0.00003983306423107946,
+            0.000016326444730372733,
+            0.000005435072295673953,
+            0.000001379384091977787
+          ],
+          [
+            0.00002407838118972742,
+            0.000048887424736003375,
+            0.00004962917312601633,
+            0.00003358811716881968,
+            0.000017048867791154477,
+            0.000006923017244446011,
+            0.0000023426857604274235,
+            8.230290300619233e-7,
+            2.3973801764479357e-7
+          ],
+          [
+            0.000003661736047327967,
+            0.000007434588064966298,
+            0.000007547389951287323,
+            0.000005107935555543662,
+            0.0000025927180596190986,
+            0.000001052822513295715,
+            3.562655158968408e-7,
+            1.0333456661038087e-7,
+            3.17654338751273e-8
+          ]
+        ]
+      },
+      "game_flow": {
+        "match_type": "Balanced & Open",
+        "match_description": "Both teams play attacking football at an even level",
+        "dominance_index": -0.25,
+        "total_xg": 3.25,
+        "first_goal": {
+          "Greece_scores_first": 0.361,
+          "Germany_scores_first": 0.6,
+          "no_goals": 0.039,
+          "expected_minute": 27
+        },
+        "halftime_xg": {
+          "Greece": 0.57,
+          "Germany": 0.95
+        },
+        "top_halftime_scores": [
+          {
+            "score": "0:0",
+            "probability": 0.218
+          },
+          {
+            "score": "0:1",
+            "probability": 0.208
+          },
+          {
+            "score": "1:0",
+            "probability": 0.125
+          },
+          {
+            "score": "1:1",
+            "probability": 0.119
+          },
+          {
+            "score": "0:2",
+            "probability": 0.099
+          }
+        ],
+        "goal_timing": {
+          "1-15'": {
+            "Greece": 0.165,
+            "Germany": 0.274
+          },
+          "16-30'": {
+            "Greece": 0.189,
+            "Germany": 0.315
+          },
+          "31-45'": {
+            "Greece": 0.22,
+            "Germany": 0.365
+          },
+          "46-60'": {
+            "Greece": 0.177,
+            "Germany": 0.294
+          },
+          "61-75'": {
+            "Greece": 0.226,
+            "Germany": 0.376
+          },
+          "76-90'": {
+            "Greece": 0.244,
+            "Germany": 0.406
+          }
+        },
+        "comeback_probability": {
+          "Greece": 0.025,
+          "Germany": 0.04
+        },
+        "late_drama_probability": 0.478,
+        "match_stories": [
+          {
+            "szenario": "Ausgeglichenes Unentschieden",
+            "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+            "wahrscheinlichkeit": 0.215
+          },
+          {
+            "szenario": "Torloser Krimi",
+            "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+            "wahrscheinlichkeit": 0.182
+          },
+          {
+            "szenario": "Germany dominiert früh",
+            "beschreibung": "Germany geht 0:2 in Halbzeit 1, kontrolliert dann",
+            "wahrscheinlichkeit": 0.101
+          },
+          {
+            "szenario": "Knappes 1:0",
+            "beschreibung": "Germany trifft einmal und verteidigt das Ergebnis",
+            "wahrscheinlichkeit": 0.08
+          }
+        ],
+        "predicted_stats": {
+          "possession": {
+            "home": 46,
+            "away": 54
+          },
+          "shots": {
+            "home": 12,
+            "away": 17
+          },
+          "shots_on_target": {
+            "home": 4,
+            "away": 7
+          },
+          "corners": {
+            "home": 5,
+            "away": 7
+          },
+          "passes": {
+            "home": 239,
+            "away": 281
+          }
+        },
+        "match_ticker": [
+          {
+            "minute": 1,
+            "type": "kickoff",
+            "team": null,
+            "headline": "Kickoff!",
+            "description": "The match between Greece and Germany is underway.",
+            "score_after": "0:0"
+          },
+          {
+            "minute": 17,
+            "type": "goal",
+            "team": "Germany",
+            "headline": "GOAL! Germany!",
+            "description": "Germany score to make it 0:1.",
+            "score_after": "0:1"
+          },
+          {
+            "minute": 22,
+            "type": "chance",
+            "team": "Greece",
+            "headline": "Big chance for Greece!",
+            "description": "Greece create a great opportunity but fail to convert.",
+            "score_after": "0:1"
+          },
+          {
+            "minute": 42,
+            "type": "chance",
+            "team": "Germany",
+            "headline": "Big chance for Germany!",
+            "description": "Germany create a great opportunity but fail to convert.",
+            "score_after": "0:1"
+          },
+          {
+            "minute": 45,
+            "type": "halftime",
+            "team": null,
+            "headline": "Half-time",
+            "description": "The teams go into the break at 0:1.",
+            "score_after": "0:1"
+          },
+          {
+            "minute": 48,
+            "type": "chance",
+            "team": "Greece",
+            "headline": "Big chance for Greece!",
+            "description": "Greece create a great opportunity but fail to convert.",
+            "score_after": "0:1"
+          },
+          {
+            "minute": 59,
+            "type": "goal",
+            "team": "Germany",
+            "headline": "GOAL! Germany!",
+            "description": "Germany score to make it 0:2.",
+            "score_after": "0:2"
+          },
+          {
+            "minute": 71,
+            "type": "goal",
+            "team": "Greece",
+            "headline": "GOAL! Greece!",
+            "description": "Greece score to make it 1:2.",
+            "score_after": "1:2"
+          },
+          {
+            "minute": 85,
+            "type": "chance",
+            "team": "Germany",
+            "headline": "Big chance for Germany!",
+            "description": "Germany create a great opportunity but fail to convert.",
+            "score_after": "1:2"
+          },
+          {
+            "minute": 90,
+            "type": "fulltime",
+            "team": null,
+            "headline": "Full-time",
+            "description": "The final score finishes 1:2.",
+            "score_after": "1:2"
+          }
+        ]
+      },
+      "explanation": {
+        "fifa_ranking": {
+          "Greece": 40,
+          "Germany": 12
+        },
+        "fifa_points": {
+          "Greece": 1494.72,
+          "Germany": 1704.27
+        },
+        "form_last_10_avg_pts": {
+          "Greece": 1.44,
+          "Germany": 1.95
+        },
+        "win_rate_last_10": {
+          "Greece": "36%",
+          "Germany": "61%"
+        },
+        "avg_goals_scored": {
+          "Greece": 1.1,
+          "Germany": 2.35
+        },
+        "avg_goals_conceded": {
+          "Greece": 1.24,
+          "Germany": 0.93
+        },
+        "clean_sheet_rate": {
+          "Greece": "35%",
+          "Germany": "30%"
+        },
+        "h2h_last_10": {
+          "Greece wins": "20%",
+          "draws": "0%",
+          "Germany wins": "80%",
+          "total_h2h_games": 5
+        }
+      },
+      "history_refreshed_at": "2026-10-04T06:10:40.306516+00:00",
+      "match_id": "greece_vs_germany_nl",
+      "group": "Sun 04 Oct",
+      "date": "2026-10-04",
+      "time": "20:45"
+    }
+  },
+  "sources": [
+    {
+      "url": "https://www.dfb.de/news/klopp-wir-planen-ein-zweites-spiel-fuer-urbig-ein",
+      "published": "2026-10-03",
+      "retrieved": "2026-10-04",
+      "type": "official federation press conference",
+      "verified_context": "Germany seeks a better result in the quick rematch after losing at home to Greece; Greece can defend in a deep block."
+    }
+  ],
+  "story": {
+    "fictional": true,
+    "hook": "Revanche gegen die griechische Mauer",
+    "dialogues": [
+      {
+        "role": "reporter",
+        "text": "Wieder an Griechenlands Mauer?"
+      },
+      {
+        "role": "captain",
+        "text": "Dann spielen wir zusammen."
+      },
+      {
+        "role": "commentator",
+        "text": "Knackt Deutschland diesmal die Mauer?"
+      }
+    ],
+    "action": "Doppelpass öffnet einen Weg; griechischer Verteidiger schließt ihn erneut. Ausgang bleibt offen.",
+    "outro": {
+      "at": 13,
+      "duration": 2,
+      "brand": "Goalfiq",
+      "domain": "goalfiq.de",
+      "subtitle": "Wer setzt sich durch?"
+    }
+  },
+  "params": {
+    "model": "seedance_2_0_mini",
+    "duration": 15,
+    "resolution": "480p",
+    "aspect_ratio": "9:16",
+    "generate_audio": true,
+    "count": 1,
+    "bitrate_mode": "standard",
+    "genre": "action",
+    "use_unlim": false,
+    "prompt": "Create a polished 15-second vertical 9:16 Japanese anime football micro-story, native German spoken dialogue, three clearly distinct original voices, no real player or coach likeness or voice imitation. A fictional metaphor for Greece versus Germany, NOT match footage, NOT a score prediction. Crisp cinematic cel animation, warm gold light #d4af37 against charcoal shadows, expressive faces, readable football action, coherent spatial layout. No written text anywhere: no titles, numbers, jersey names, subtitles, logos, scoreboards or signs.\n0.0–2.0 seconds: begin mid-action beside a stadium tunnel. A female reporter holds a microphone toward an original adult German-team captain in plain white jersey, black shorts, short dark hair. In clear natural German she asks exactly: \"Wieder an Griechenlands Mauer?\" The background reveals a monumental ancient Greek stone arch leading onto the pitch.\n2.0–4.8: close-up, the captain tightens his wrist tape and taps a football forward; a teammate in the same white kit steps beside him. Captain calmly says exactly: \"Dann spielen wir zusammen.\" Determined visible action, no speech overlap.\n4.8–8.8: match cut on the rolling ball into a floodlit pitch. The captain dribbles toward an athletic Greek defender in plain blue kit; behind the defender an imposing stone arch is a metaphorical defensive wall. Captain passes right to his teammate, who instantly returns the ball into the left channel. Show the complete one-two pass with ball continuity and consistent screen direction, low tracking camera.\n8.8–12.3: twist: the Greek defender pivots rapidly and sprints back to close the newly opened lane, both teams still contesting the moving ball. A third, energetic male commentator asks in clearly articulated German exactly: \"Knackt Deutschland diesmal die Mauer?\" Lower instrumental music underneath the entire sentence. Do NOT show a goal, a shot outcome, a celebration or a winner; maintain suspense with defender and attacker running.\n12.3–13.0: ball continues rolling toward the contested gap, no frozen image.\n13.0–15.0: cut after all speech has finished to a beautiful clean charcoal background with subtle moving gold light particles and a graceful gold light arc, completely blank with no drawn letters, no spoken words. This is space for a separately typeset brand outro.\nAudio: only these three German lines, synchronized to mouths when visible, distinct reporter/captain/commentator voices. Original generated instrumental cinematic percussion builds softly into the duel, is quiet under all voices, then resolves gently over the outro; no sung lyrics, no English or other languages. Ball kicks and running footsteps are subtle."
+  },
+  "charges": [
+    {
+      "asset_id": "goalfiq-2026-10-04-germany-story-v1",
+      "credits": 7.5,
+      "state": "reserved",
+      "job_id": null,
+      "balance_before": 234.72,
+      "balance_expected_after": 227.22
+    }
+  ],
+  "limits": {
+    "per_post": 12,
+    "credit_floor": 50,
+    "monthly": 200,
+    "rolling_30_day": 200,
+    "rolling_7_day": 45,
+    "historical_check": "not available; one-time user exception"
+  },
+  "caption": "Griechenland gegen Deutschland · 04.10.2026, 20:45 Uhr (Europe/Berlin). Knackt Deutschland diesmal die Mauer? Fiktive Anime-Geschichte, inspiriert von der aktuellen DFB-Berichterstattung. Keine Spielsimulation und kein vorhergesagtes Ergebnis. Goalfiq-Prognosen dienen nur der redaktionellen Auswahl. Was ist dein Tipp? goalfiq.de",
+  "review": "pending",
+  "publish_enabled": false
+}
