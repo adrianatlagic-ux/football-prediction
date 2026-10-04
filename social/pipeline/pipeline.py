@@ -136,9 +136,9 @@ def reserve(con, post_id, charge_id, credits, balance, at=None):
                                    (rolling(30), CONFIG['rolling_30_day_credit_limit'], '30_days'),
                                    (rolling(7), CONFIG['rolling_7_day_credit_limit'], '7_days'),
                                    (post_total, CONFIG['post_credit_limit'], 'post')):
-            if spent + credits > limit + 1e-9:
+            if limit is not None and spent + credits > limit + 1e-9:
                 raise ValueError('budget_exceeded:' + label)
-        if balance - outstanding - credits < CONFIG['credit_floor']:
+        if balance - outstanding - credits < (CONFIG['credit_floor'] or 0):
             raise ValueError('credit_floor')
         con.execute('INSERT INTO charges VALUES (?,?,?,?,NULL,?)', (charge_id, post_id, at.isoformat(), credits, 'reserved'))
         con.commit()
@@ -170,7 +170,7 @@ def plan(con, packet_path, chosen=None):
         month = at.astimezone(TZ).strftime('%Y-%m')
         n = sum(datetime.fromisoformat(r['created']).astimezone(TZ).strftime('%Y-%m') == month
                 for r in con.execute("SELECT created FROM posts WHERE state != 'seed'"))
-        if n >= CONFIG['monthly_post_limit']:
+        if CONFIG['monthly_post_limit'] is not None and n >= CONFIG['monthly_post_limit']:
             raise ValueError('monthly_post_limit')
         dest = packet_path.parent / post_id
         dest.mkdir(exist_ok=True)
