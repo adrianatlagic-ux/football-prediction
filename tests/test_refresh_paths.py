@@ -151,3 +151,22 @@ def test_a_failed_gemini_call_is_retried_only_after_two_hours(monkeypatch):
         api._refresh_agent_picks([])
 
     assert len(calls) == 2      # first pass, then again only after two hours
+
+
+def test_agent_picks_survive_a_restart(monkeypatch):
+    """Kept on disk: a deploy must not send every match to Gemini again."""
+    from api import app as api
+
+    kickoff = (datetime.now(timezone.utc) + timedelta(hours=5)).isoformat()
+    old = (datetime.now(timezone.utc) - timedelta(days=5)).isoformat()
+    key = ("soccer_test", "event-3", kickoff, "alpha", "bravo")
+    stale = ("soccer_test", "event-0", old, "x", "y")
+    monkeypatch.setattr(api, "_agent_picks_cache", {key: {"pick": {"market": "1X2"}}, stale: {"pick": None}})
+    monkeypatch.setattr(api, "_agent_prekickoff_done", {key})
+    api._save_agent_cache()
+
+    monkeypatch.setattr(api, "_agent_picks_cache", {})
+    monkeypatch.setattr(api, "_agent_prekickoff_done", set())
+    api._load_agent_cache()
+    assert api._agent_picks_cache == {key: {"pick": {"market": "1X2"}}}   # the finished match is dropped
+    assert api._agent_prekickoff_done == {key}

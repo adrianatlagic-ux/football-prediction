@@ -344,6 +344,7 @@ def model_track_record():
 
 @app.on_event("startup")
 def _start_scheduler():
+    _load_agent_cache()
     from src import scheduler
     scheduler.start(_get_predictor, _get_national_predictor, _get_odds, all_bets, combo_ticket, _get_espn_results)
 
@@ -632,8 +633,40 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 # Agent picks are cached per match indefinitely once computed (see
 # _refresh_agent_picks) - never recomputed for a match that already has one.
 _agent_picks_cache: dict[tuple[str, str], dict] = {}
+# Kept on the Fly volume (data/jobs), so a deploy or restart does not send
+# every upcoming match to Gemini again. Loaded at startup.
+AGENT_CACHE_PATH = Path(__file__).parent.parent / "data" / "jobs" / "agent_picks.json"
+_agent_cache_lock = threading.Lock()
 # When a match's Gemini call last failed; it is tried again after two hours.
 _agent_failed_at: dict[tuple, float] = {}
+
+
+def _save_agent_cache() -> None:
+    """The agent's picks and the pre-kickoff re-checks done, written to disk.
+    Matches more than two days past kickoff are dropped."""
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=2)).isoformat()
+    keep = lambda key: not key[2] or str(key[2]) >= cutoff
+    try:
+        with _agent_cache_lock:
+            data = {"picks": [[list(k), v] for k, v in _agent_picks_cache.items() if keep(k)],
+                    "prekickoff_done": [list(k) for k in _agent_prekickoff_done if keep(k)]}
+            AGENT_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+            tmp = AGENT_CACHE_PATH.with_suffix(".tmp")
+            tmp.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+            tmp.replace(AGENT_CACHE_PATH)
+    except Exception:
+        pass
+
+
+def _load_agent_cache() -> None:
+    try:
+        data = json.loads(AGENT_CACHE_PATH.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return
+    for key, value in data.get("picks", []):
+        _agent_picks_cache.setdefault(tuple(key), value)
+    for key in data.get("prekickoff_done", []):
+        _agent_prekickoff_done.add(tuple(key))
 AGENT_RETRY_SECONDS = 2 * 3600
 # Throttles how often a background pass is even considered, independent of
 # whether it finds anything to do - without this, every request would spawn a
@@ -1629,6 +1662,7 @@ def _refresh_agent_picks(odds: list[dict]) -> None:
                     if result is not None:
                         key, agent = result
                         _agent_picks_cache[key] = agent
+                        _save_agent_cache()
         finally:
             _agent_picks_refresh_in_progress = False
 
@@ -1807,6 +1841,7 @@ def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
             finally:
                 _agent_prekickoff_done.add(key)
                 _agent_prekickoff_in_progress.discard(key)
+                _save_agent_cache()
 
         threading.Thread(target=_run, daemon=True).start()
 

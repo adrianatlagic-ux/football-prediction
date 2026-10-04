@@ -12,3 +12,5 @@ def _isolated_runtime_files(tmp_path, monkeypatch):
     # Nor a real question to Apify about the account's spend.
     from src import apify_budget
     monkeypatch.setattr(apify_budget, "usage", lambda token=None: None)
+    # The agent's cached picks go to a temporary file, never the real one.
+    monkeypatch.setattr(api, "AGENT_CACHE_PATH", tmp_path / "agent_picks.json")
