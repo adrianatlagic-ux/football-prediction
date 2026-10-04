@@ -103,6 +103,7 @@ def _build_entry(m, now):
         "model_favorite": m.get("model_favorite"),
         "safest_pick": m.get("safest_pick"),
         "likely_pick": m.get("likely_pick"),
+        "bet_tip": m.get("bet_tip"),
         "odds_refreshed": m.get("odds_refreshed", False),
         "combined": m.get("combined"),
         # The price tip as shown: the tip or "no tip" with its reason, every

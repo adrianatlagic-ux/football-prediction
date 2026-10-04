@@ -332,6 +332,47 @@ def fixtures():
     return load_all()
 
 
+_site_stats_cache = {"at": 0.0, "data": None}
+
+
+@app.get("/site-stats")
+def site_stats():
+    """The landing page's numbers, all counted rather than claimed: matches
+    the models learned from, and the logged matches whose tips were settled
+    against the real result. Cached for an hour."""
+    if _site_stats_cache["data"] and time.time() - _site_stats_cache["at"] < 3600:
+        return _site_stats_cache["data"]
+    out = {"competitions": 3}
+    try:
+        from src.club_data_loader import load_completed_matches as club_matches
+        from src.data_loader import load_completed_matches as national_matches
+        national = national_matches()
+        out["training_matches"] = int((national["date"].dt.year >= 1990).sum()) + int(len(club_matches()))
+    except Exception:
+        out["training_matches"] = None
+    try:
+        import sys as _sys
+        _sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+        from build_model_track_record import LOG_PATHS, _logged_entries
+        now = datetime.now(timezone.utc)
+        settled = [e for e in _logged_entries(LOG_PATHS)
+                   if e.get("commence_time") and timestamp_or_none(e["commence_time"])
+                   and timestamp_or_none(e["commence_time"]) < now - timedelta(hours=2)]
+        out["settled_matches"] = len(settled)
+        out["settled_bets"] = sum(len(e.get("green_bets", [])) + len(e.get("red_bets", [])) for e in settled)
+    except Exception:
+        out["settled_matches"] = out["settled_bets"] = None
+    _site_stats_cache.update(at=time.time(), data=out)
+    return out
+
+
+def timestamp_or_none(value):
+    try:
+        return datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+
 @app.get("/model-track-record")
 def model_track_record():
     """How often the model was right when it rated a bet above the market,
@@ -1924,6 +1965,7 @@ def value_bets(home_team: str, away_team: str):
         _maybe_prekickoff_refresh(odds)
         agent_eval = _get_agent_pick(result)
         result["agent_eval"] = agent_eval
+        result["bet_tip"] = _bet_tip(result, agent_eval)
         result["combined"] = _combine_recommendation(result, agent_eval)
         result["price_tip"] = _price_tip_for(odds, home_team, away_team, prediction, agent_eval,
                                              result.get("bets", []))
@@ -1979,6 +2021,40 @@ def best_bets():
 
     out.sort(key=lambda x: x.get("commence_time") or "")
     return {"best_bets": out}
+
+
+# The Wett-Tipp: the likeliest bet both the model and the AI agent back.
+# Since 4 October the page's headline tip; the same rule the combo uses
+# (src/combo_ticket "agree"). In the Nations League log, bets of that kind
+# landed 20 of 23 against 60% the market expected; bets only the model
+# backed did worse than the market, so without both there is no Wett-Tipp.
+BET_TIP_MIN_ODDS, BET_TIP_MIN_CHANCE = 1.30, 0.50
+
+
+def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
+    """{"tip": bet or None, "status": "ok" | "no_agreement" | "waiting_for_ai"}."""
+    from src.price_tip import MODEL_TOLERANCE, implies
+    pick = (agent_eval or {}).get("pick")
+    if not pick:
+        return {"tip": None, "status": "waiting_for_ai"}
+    home, away = vb["home_team"], vb["away_team"]
+    candidates = [
+        b for b in vb.get("bets", [])
+        if b.get("market") != "Handicap 0.0" and b.get("market_probability") is not None
+        and b.get("best_odds", 0) >= BET_TIP_MIN_ODDS and b["market_probability"] >= BET_TIP_MIN_CHANCE
+        and (b.get("model_probability_raw") if b.get("model_probability_raw") is not None else b.get("probability", 0))
+        >= b["market_probability"] - MODEL_TOLERANCE
+        and implies(pick, b, home, away)]
+    if not candidates:
+        return {"tip": None, "status": "no_agreement"}
+    # The same bet in two markets ("Portugal -0.5" and "Portugal to win") is
+    # one bet: keep the better price. Each market's own margin makes the
+    # shorter one look a point likelier, which must not decide.
+    same = lambda x, y: implies(x, y, home, away) and implies(y, x, home, away)
+    candidates = [b for b in candidates
+                  if not any(same(b, o) and o["best_odds"] > b["best_odds"] for o in candidates)]
+    tip = max(candidates, key=lambda b: (b["market_probability"], b["best_odds"]))
+    return {"tip": tip, "status": "ok"}
 
 
 def _mark_legs_off_likely(report: dict, pairs: list) -> None:
@@ -2129,6 +2205,7 @@ def all_bets():
             "green_bets": vb.get("green_bets", []),
             "red_bets": vb.get("red_bets", []),
             "agent_eval": agent_eval,
+            "bet_tip": _bet_tip(vb, agent_eval),
             "combined": _combine_recommendation(vb, agent_eval),
             # The price tip exactly as the page shows it, "no tip" included,
             # so the log can later say whether the strategy worked.

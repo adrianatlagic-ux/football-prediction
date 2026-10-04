@@ -170,3 +170,20 @@ def test_agent_picks_survive_a_restart(monkeypatch):
     api._load_agent_cache()
     assert api._agent_picks_cache == {key: {"pick": {"market": "1X2"}}}   # the finished match is dropped
     assert api._agent_prekickoff_done == {key}
+
+
+def test_the_bet_tip_needs_model_and_ai_and_takes_the_better_price_of_one_bet():
+    from api import app as api
+    win = {"market": "1X2", "outcome": "win", "team": "Portugal", "best_odds": 1.65,
+           "market_probability": .58, "model_probability_raw": .60, "probability": .59}
+    minus = {"market": "Handicap -0.5", "outcome": "handicap", "team": "Portugal", "best_odds": 1.55,
+             "market_probability": .59, "model_probability_raw": .60, "probability": .59}
+    under = {"market": "Over/Under 4.5", "outcome": "Under", "team": None, "best_odds": 1.33,
+             "market_probability": .70, "model_probability_raw": .70, "probability": .70}
+    vb = {"home_team": "Portugal", "away_team": "Norway", "bets": [win, minus, under]}
+    tip = api._bet_tip(vb, {"pick": win})
+    assert tip["status"] == "ok" and tip["tip"] is win          # the same bet at 1.65, not 1.55
+    assert api._bet_tip(vb, None)["status"] == "waiting_for_ai"
+    # The model 8 points below the market: no agreement, no tip.
+    doubt = {**win, "model_probability_raw": .50}
+    assert api._bet_tip({**vb, "bets": [doubt]}, {"pick": doubt})["status"] == "no_agreement"

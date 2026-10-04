@@ -161,7 +161,8 @@ def grade_entries(entries, finished):
         ("price_tip", "💰 Preistipp (bet-at-home über Pinnacle fair)"),
         ("likely", "🎯 Wahrscheinlichster Tipp (Markt, Quote 1.30-2.00)"),
         ("fair_game", f"Game Pick, nur Quote {FAIR_MIN_ODDS:.2f}-{FAIR_MAX_ODDS:.2f}"),
-        ("fair_likely", "🎯 auf denselben Spielen"))}
+        ("fair_likely", "🎯 auf denselben Spielen"),
+        ("bet_tip", "Wett-Tipp (Modell und KI stimmen zu)"))}
     for g in LIKELY_GROUPS:
         buckets["likely " + g] = Bucket(f"🎯 bei {g}")
     out = {"buckets": buckets, "edges": [], "no_tip": 0, "pending": 0, "rows": [], "fair_matches": 0,
@@ -222,6 +223,11 @@ def grade_entries(entries, finished):
             g_ai = grade(a_pick, home, away, hs, as_)
             if g_ai is not None:
                 buckets["agent_pick"].add(g_ai, a_pick["best_odds"])
+        bt = (entry.get("bet_tip") or {}).get("tip")
+        if bt:
+            g_bt = grade(bt, home, away, hs, as_)
+            if g_bt is not None:
+                buckets["bet_tip"].add(g_bt, bt["best_odds"])
         lp = entry.get("likely_pick")
         g_lp = grade(lp, home, away, hs, as_) if lp else None
         if g_lp is not None:
@@ -270,6 +276,8 @@ def print_report(name, r):
             print(f"  erwarteter Edge im Schnitt {sum(r['edges']) / len(r['edges']):+.1%} "
                   f"- einzelne Ergebnisse schwanken weit mehr; erst viele Tipps sagen etwas.")
         print(f"  Spiele ohne Preistipp: {r['no_tip']}")
+    if b["bet_tip"].decided:
+        print(b["bet_tip"].report())
     if b["likely"].decided:
         print(b["likely"].report())
     if any(b["likely " + g].decided for g in LIKELY_GROUPS):
