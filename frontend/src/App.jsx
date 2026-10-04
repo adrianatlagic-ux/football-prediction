@@ -392,12 +392,13 @@ function renderScenario(text, home, away, highlightClass = 'smart-bet-highlight-
   // Also highlight standalone numbers - win rates, probabilities, scorelines
   // (e.g. "94%", "55%", "0:1") - these are the figures a reader actually
   // scans for, same treatment as the highlighted numbers in the other boxes.
-  const numberPattern = String.raw`\d+(?:[.,]\d+)?\s?%|\d+:\d+`
+  // Scores as "2:1" (German) or "2-1" / "2–1" (English).
+  const numberPattern = String.raw`\d+(?:[.,]\d+)?\s?%|\d+[:\-–]\d+`
   const parts = text.split(new RegExp(`(${escaped.join('|')}|${numberPattern})`, 'g'))
   return parts.map((part, i) =>
     terms.includes(part)
       ? <span className="scenario-highlight" key={i}>{part}</span>
-      : /^(\d+(?:[.,]\d+)?\s?%|\d+:\d+)$/.test(part)
+      : /^(\d+(?:[.,]\d+)?\s?%|\d+[:\-–]\d+)$/.test(part)
         ? <strong className={highlightClass} key={i}>{part}</strong>
         : <span key={i}>{part}</span>
   )
