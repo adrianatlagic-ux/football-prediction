@@ -1,6 +1,6 @@
 {
   "post_id": "goalfiq-2026-10-04",
-  "state": "english_correction_reserved",
+  "state": "english_correction_generating",
   "cloud_only": true,
   "one_time_exception": {
     "authorized_by_user": true,
@@ -496,19 +496,20 @@
     {
       "asset_id": "goalfiq-2026-10-04-germany-story-v1",
       "credits": 7.5,
-      "state": "submitted",
+      "state": "completed",
       "job_id": "7ae12b99-589c-4e93-98c9-bbfefd14da59",
       "balance_before": 234.72,
       "balance_expected_after": 227.22,
-      "charged_credits_confirmed": 7.5
+      "charged_credits_confirmed": 7.5,
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KBADBsZKhzQG62jC58xaz7NWWU/hf_20261004_115539_7ae12b99-589c-4e93-98c9-bbfefd14da59.mp4"
     },
     {
       "asset_id": "goalfiq-2026-10-04-germany-story-v2-english",
-      "state": "reserved",
+      "state": "submitted",
       "credits": 4,
       "balance_before": 227.22,
       "balance_expected_after": 223.22,
-      "job_id": null,
+      "job_id": "6546cf19-bd95-4f2c-ad21-89f043f17818",
       "reason": "One permitted correction after user made English mandatory; reuse original action and outro"
     }
   ],
