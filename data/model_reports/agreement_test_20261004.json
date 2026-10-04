@@ -1,0 +1,162 @@
+{
+ "live": [
+  {
+   "bucket": "Modell >10 unter Markt",
+   "n": 14,
+   "hit": 0.571,
+   "market_expected": 0.621,
+   "z": -0.39,
+   "roi": -0.114
+  },
+  {
+   "bucket": "5-10 darunter",
+   "n": 15,
+   "hit": 0.533,
+   "market_expected": 0.61,
+   "z": -0.64,
+   "roi": -0.177
+  },
+  {
+   "bucket": "2-5 darunter",
+   "n": 15,
+   "hit": 0.667,
+   "market_expected": 0.59,
+   "z": 0.64,
+   "roi": 0.064
+  },
+  {
+   "bucket": "±2 Punkte (einig)",
+   "n": 59,
+   "hit": 0.441,
+   "market_expected": 0.453,
+   "z": -0.25,
+   "roi": -0.253
+  },
+  {
+   "bucket": "2-5 darüber",
+   "n": 110,
+   "hit": 0.473,
+   "market_expected": 0.472,
+   "z": 0.01,
+   "roi": -0.186
+  },
+  {
+   "bucket": "5-10 darüber",
+   "n": 100,
+   "hit": 0.39,
+   "market_expected": 0.476,
+   "z": -1.99,
+   "roi": -0.255
+  },
+  {
+   "bucket": "Modell >10 über Markt",
+   "n": 78,
+   "hit": 0.5,
+   "market_expected": 0.471,
+   "z": 0.56,
+   "roi": 0.033
+  }
+ ],
+ "archive": [
+  {
+   "bucket": "Modell >10 unter Markt",
+   "n": 328,
+   "hit": 0.622,
+   "market_expected": 0.601,
+   "z": 0.82
+  },
+  {
+   "bucket": "5-10 darunter",
+   "n": 397,
+   "hit": 0.416,
+   "market_expected": 0.427,
+   "z": -0.49
+  },
+  {
+   "bucket": "2-5 darunter",
+   "n": 432,
+   "hit": 0.363,
+   "market_expected": 0.346,
+   "z": 0.77
+  },
+  {
+   "bucket": "±2 Punkte (einig)",
+   "n": 752,
+   "hit": 0.297,
+   "market_expected": 0.298,
+   "z": -0.07
+  },
+  {
+   "bucket": "2-5 darüber",
+   "n": 498,
+   "hit": 0.269,
+   "market_expected": 0.264,
+   "z": 0.28
+  },
+  {
+   "bucket": "5-10 darüber",
+   "n": 502,
+   "hit": 0.241,
+   "market_expected": 0.247,
+   "z": -0.35
+  },
+  {
+   "bucket": "Modell >10 über Markt",
+   "n": 292,
+   "hit": 0.216,
+   "market_expected": 0.244,
+   "z": -1.16
+  }
+ ],
+ "nations": [
+  {
+   "bucket": "Modell >10 unter Markt",
+   "n": 67,
+   "hit": 0.433,
+   "market_expected": 0.456,
+   "z": -0.41
+  },
+  {
+   "bucket": "5-10 darunter",
+   "n": 179,
+   "hit": 0.38,
+   "market_expected": 0.36,
+   "z": 0.58
+  },
+  {
+   "bucket": "2-5 darunter",
+   "n": 177,
+   "hit": 0.333,
+   "market_expected": 0.329,
+   "z": 0.12
+  },
+  {
+   "bucket": "±2 Punkte (einig)",
+   "n": 260,
+   "hit": 0.308,
+   "market_expected": 0.294,
+   "z": 0.51
+  },
+  {
+   "bucket": "2-5 darüber",
+   "n": 130,
+   "hit": 0.292,
+   "market_expected": 0.312,
+   "z": -0.51
+  },
+  {
+   "bucket": "5-10 darüber",
+   "n": 140,
+   "hit": 0.286,
+   "market_expected": 0.322,
+   "z": -0.97
+  },
+  {
+   "bucket": "Modell >10 über Markt",
+   "n": 94,
+   "hit": 0.372,
+   "market_expected": 0.357,
+   "z": 0.32
+  }
+ ]
+}
