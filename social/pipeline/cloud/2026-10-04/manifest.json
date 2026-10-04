@@ -1,6 +1,6 @@
 {
   "post_id": "goalfiq-2026-10-04",
-  "state": "rendered_review_blocked",
+  "state": "append_only_exported",
   "cloud_only": true,
   "one_time_exception": {
     "authorized_by_user": true,
@@ -473,7 +473,7 @@
     ],
     "action": "Doppelpass öffnet einen Weg; griechischer Verteidiger schließt ihn erneut. Ausgang bleibt offen.",
     "outro": {
-      "at": 12.5,
+      "at": 8.096,
       "duration": 2,
       "brand": "Goalfiq",
       "domain": "goalfiq.de",
@@ -547,19 +547,26 @@
   },
   "total_credits": 11.5,
   "final": {
-    "media_id": "188a7a40-17d1-436c-9711-c53b9a77abc1",
-    "duration": 14.5,
-    "width": 486,
+    "media_id": "addf2c2d-0d03-4bf5-a185-8fef039d1e44",
+    "duration": 10.129,
+    "width": 496,
     "height": 864,
     "fps": 24,
     "has_audio": true,
-    "renderer": "Higgsedit in Higgsfield cloud",
-    "source_speech": "English correction only; reused original action/outro stripped of audio"
+    "source_job_id": "6546cf19-bd95-4f2c-ad21-89f043f17818",
+    "assembly": "Complete English source with original audio; append existing Goalfiq outro only.",
+    "source_video_reencoded": false,
+    "source_audio_reencoded": false,
+    "source_frames": 193,
+    "source_frame_hashes_match": true,
+    "source_audio_packets": 254,
+    "source_audio_packet_hashes_match": true
   },
   "review_notes": [
-    "Inspected frames at 0.5, 2.5, 4.8, 6.5, 8, 9.5, 11.7 and 13.5 seconds: reporter, captain, football action, commentator, ongoing contest and clean typeset English outro.",
-    "Verified native export: 14.5 seconds, 486x864 (9:16), audio present; no renderer diagnostics.",
-    "English speech validation awaits Higgsfield final-video analysis; no direct listening was performed."
+    "All 193 decoded source video frames match the corresponding final prefix exactly.",
+    "All 254 encoded source AAC audio packets match the corresponding final prefix exactly.",
+    "Visual inspection at 7.5 and 9 seconds confirms intact source ending followed by readable Goalfiq / goalfiq.de brand outro.",
+    "Automated English-source analysis remains queued at Higgsfield; no audio-validation pass is claimed."
   ],
   "analysis_ids": {
     "english_correction": "d63b408a-7e02-4691-b635-eefc96004caa",
@@ -993,12 +1000,19 @@
       "time": "20:45"
     },
     "status": "passed",
-    "freshness_note": "history_refreshed_at verifies input freshness, not generation time"
+    "freshness_note": "Input freshness only."
   },
   "review_blocker": "Both Higgsfield audio/video analyses remain queued beyond the expected processing window. Mandatory English speech clarity and exact spoken-line verification are not yet available; ready is prohibited.",
   "analysis_status": {
     "english_correction": "queued",
     "final": "queued",
     "last_checked_at": "2026-10-04T12:31:23.827Z"
-  }
+  },
+  "edit_mode": "append_goalfiq_outro_only",
+  "superseded_outputs": [
+    {
+      "media_id": "188a7a40-17d1-436c-9711-c53b9a77abc1",
+      "reason": "User rejected interleaving footage from other versions; replaced by simple append-only output."
+    }
+  ]
 }
