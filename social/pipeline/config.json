@@ -63,5 +63,28 @@
   "daily_video_limit": 1,
   "daily_limit_basis": "editorial_target_date",
   "budget_ledger_required": false,
-  "cloud_daily_manifest_pattern": "social/pipeline/cloud/YYYY-MM-DD/manifest.json"
+  "cloud_daily_manifest_pattern": "social/pipeline/cloud/YYYY-MM-DD/manifest.json",
+  "story_diversity": {
+    "required": true,
+    "repeat_previous_story_type": false,
+    "minimum_changed_elements": 3,
+    "forbidden_template": "interview_question_then_player_answer_then_standard_pitch_duel",
+    "manifest_fields": [
+      "story_type",
+      "hook",
+      "conflict",
+      "turning_point",
+      "ending_image",
+      "previous_story_type"
+    ],
+    "story_types": [
+      "object_mystery",
+      "time_pressure_mission",
+      "rivalry_riddle",
+      "environmental_obstacle",
+      "perspective_shift",
+      "misdirected_expectation",
+      "team_internal_decision"
+    ]
+  }
 }
