@@ -1,25 +1,32 @@
 {
   "processing": "Higgsfield cloud only",
-  "edit_mode": "append_goalfiq_outro_only",
+  "edit_mode": "append_brand_outro_only",
   "source_job_id": "6546cf19-bd95-4f2c-ad21-89f043f17818",
-  "outro_source_media_id": "188a7a40-17d1-436c-9711-c53b9a77abc1",
-  "outro_range": {
+  "background_source_job_id": "7ae12b99-589c-4e93-98c9-bbfefd14da59",
+  "background_range": {
+    "from": 13,
+    "duration": 2,
+    "extend_last_frame_to_seconds": 3
+  },
+  "logo_path": "social/pipeline/assets/goal-logo.png",
+  "native_outro_script": "outro.js",
+  "outro_audio_source_media_id": "188a7a40-17d1-436c-9711-c53b9a77abc1",
+  "outro_audio_range": {
     "from": 12.5,
     "duration": 2
   },
+  "domain": "goaliq.de",
+  "disclaimer_en": "AI predictions, for entertainment only. No betting advice.",
   "instructions": [
-    "Resolve inputs only through authenticated Higgsfield tools; do not publish direct private-media URLs.",
-    "Keep the entire English source and its original audio.",
-    "Normalize ONLY the extracted Goalfiq outro to 496x864, 24fps, H.264 High/yuv420p, video time base 1/12288, AAC stereo 32000Hz.",
-    "Concatenate source.mp4 then outro.mp4 with FFmpeg concat demuxer and -c copy in the Higgsfield cloud.",
-    "Verify all 193 source decoded frame hashes and all 254 source AAC packet hashes match the final prefix.",
+    "Resolve media IDs using authenticated Higgsfield tools; do not publish direct private-media URLs.",
+    "Keep the entire English source and its original audio unchanged.",
+    "Render a three-second outro containing the supplied original logo, domain below it and English disclaimer at the bottom.",
+    "Normalize only the outro to match the source codecs and stream parameters.",
+    "Concatenate source then outro with concat demuxer and -c copy in Higgsfield cloud.",
+    "Verify source frame and audio packet hashes match the final prefix.",
     "Show exactly one final uploaded video in the chat."
   ],
-  "output_media_id": "addf2c2d-0d03-4bf5-a185-8fef039d1e44",
-  "supersedes": [
-    "edit.js",
-    "music.cjs"
-  ],
-  "output_duration": 10.129,
+  "output_media_id": "a9f0eb6c-f48c-4d27-b4e0-cf3066da395c",
+  "output_duration": 11.129,
   "additional_generation_credits": 0
 }
