@@ -474,10 +474,11 @@
     "action": "Doppelpass öffnet einen Weg; griechischer Verteidiger schließt ihn erneut. Ausgang bleibt offen.",
     "outro": {
       "at": 8.096,
-      "duration": 2,
-      "brand": "Goalfiq",
-      "domain": "goalfiq.de",
-      "subtitle": "Who breaks through?"
+      "duration": 3,
+      "brand": "GoalIQ",
+      "logo_path": "social/pipeline/assets/goal-logo.png",
+      "domain": "goaliq.de",
+      "disclaimer_en": "AI predictions, for entertainment only. No betting advice."
     }
   },
   "params": {
@@ -521,7 +522,7 @@
     "rolling_7_day": 45,
     "historical_check": "not available; one-time user exception"
   },
-  "caption": "Greece vs Germany · 4 October 2026, 20:45 Europe/Berlin. Can Germany break through this time? A fictional anime story inspired by current DFB reporting. Not match footage, a simulation, or a predicted score. Goalfiq forecasts inform editorial selection only. What's your call? goalfiq.de",
+  "caption": "Greece vs Germany · 4 October 2026, 20:45 Europe/Berlin. Can Germany break through this time? A fictional anime story inspired by current DFB reporting. Not match footage, a simulation, or a predicted score. Goalfiq forecasts inform editorial selection only. What's your call? goaliq.de",
   "review": "pending",
   "publish_enabled": false,
   "balance_after": 223.22,
@@ -547,25 +548,29 @@
   },
   "total_credits": 11.5,
   "final": {
-    "media_id": "addf2c2d-0d03-4bf5-a185-8fef039d1e44",
-    "duration": 10.129,
+    "media_id": "a9f0eb6c-f48c-4d27-b4e0-cf3066da395c",
+    "duration": 11.129,
     "width": 496,
     "height": 864,
     "fps": 24,
     "has_audio": true,
     "source_job_id": "6546cf19-bd95-4f2c-ad21-89f043f17818",
-    "assembly": "Complete English source with original audio; append existing Goalfiq outro only.",
+    "assembly": "Complete English source unchanged, followed only by a three-second original-logo brand outro.",
     "source_video_reencoded": false,
     "source_audio_reencoded": false,
     "source_frames": 193,
     "source_frame_hashes_match": true,
     "source_audio_packets": 254,
-    "source_audio_packet_hashes_match": true
+    "source_audio_packet_hashes_match": true,
+    "logo_path": "social/pipeline/assets/goal-logo.png",
+    "domain": "goaliq.de",
+    "disclaimer_en": "AI predictions, for entertainment only. No betting advice.",
+    "outro_duration": 3
   },
   "review_notes": [
     "All 193 decoded source video frames match the corresponding final prefix exactly.",
     "All 254 encoded source AAC audio packets match the corresponding final prefix exactly.",
-    "Visual inspection at 7.5 and 9 seconds confirms intact source ending followed by readable Goalfiq / goalfiq.de brand outro.",
+    "Visual inspection confirms original logo, goaliq.de and full English disclaimer fit within the final three-second outro.",
     "Automated English-source analysis remains queued at Higgsfield; no audio-validation pass is claimed."
   ],
   "analysis_ids": {
@@ -1013,6 +1018,10 @@
     {
       "media_id": "188a7a40-17d1-436c-9711-c53b9a77abc1",
       "reason": "User rejected interleaving footage from other versions; replaced by simple append-only output."
+    },
+    {
+      "media_id": "addf2c2d-0d03-4bf5-a185-8fef039d1e44",
+      "reason": "Updated outro with supplied original logo, goaliq.de and exact English disclaimer."
     }
   ]
 }
