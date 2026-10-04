@@ -1,12 +1,21 @@
 # Goalfiq Content-Pipeline
 
-Stand: 03.10.2026. Der Scheduler arbeitet in dieser Codex-Aufgabe täglich um 09:00 Europe/Berlin. Er verwendet Higgsfield MCP, GitHub MCP und lokale Python-/FFmpeg-Werkzeuge. Rechner und App müssen für lokale Arbeit verfügbar sein. Die Einrichtung einer Zeitplanung beweist noch keinen erfolgreichen unbeaufsichtigten Durchlauf.
+Stand: 04.10.2026. Der Scheduler arbeitet in dieser Codex-Aufgabe täglich um 09:00 Europe/Berlin. Diese Cloud-Task verwendet ausschließlich GitHub MCP für das Repository und Higgsfield MCP für Recherche, Medienproduktion, Schnitt und Rendering. Keine Dateien oder Prozesse auf dem lokalen Rechner und keine Python-Prozesse. Der native Higgsfield-Cloud-Editor darf intern FFmpeg verwenden (ausdrückliche Nutzerklarstellung vom 04.10.2026); dies erlaubt keine lokale Verarbeitung. Die Einrichtung einer Zeitplanung beweist noch keinen erfolgreichen unbeaufsichtigten Durchlauf. Die unten dokumentierten lokalen Python-Befehle beschreiben den bisherigen Ablauf und dürfen in dieser Cloud-Task nicht ausgeführt werden. Fehlt ein Cloud-Zugang oder prüfbarer Budget-/Datenzustand, stoppen. Die einmalige Ledger-Ausnahme vom 04.10.2026 ist keine dauerhafte Freigabe.
+
+## Zwingende Sprachvorgabe (Nutzeranweisung 04.10.2026)
+
+- Der gesamte gesprochene Text muss ENGLISCH sein: Figuren-Dialoge, Medienfragen, Kommentare, Erzähler und Voiceover. Deutschsprachige Zielgruppen oder deutschsprachige Quellen ändern diese Vorgabe nicht.
+- Auch sämtliche sichtbaren redaktionellen Texte im Video müssen Englisch sein: Markenunterzeile, CTA und Fiktions-/Prognosehinweise. Eigennamen, Teamnamen, Goalfiq und die Domain goalfiq.de bleiben korrekt erhalten.
+- Bereits das Storyboard und jeder Generierungs-, TTS-, Dubbing- und Schnittauftrag müssen Englisch als Ausgabesprache ausdrücklich festlegen. Eine englische Caption ersetzt keinen englischen Redetext.
+- Vor dem Status ready jede tatsächlich gesprochene Zeile auf verständliches Englisch prüfen. Deutschen oder anderssprachigen Originalton vollständig entfernen oder durch geprüften englischen Dialog ersetzen; Mischsprache ist nicht zulässig.
+- Nichtenglischer oder ungeprüfter Redetext sperrt die Fertigmeldung. Falls die Korrektur im bestehenden Budget nicht möglich ist, stoppen und melden. Kein stiller Rückfall auf Deutsch oder eine stumme Ersatzfassung.
+- Diese verbindliche Nutzeranweisung ersetzt sämtliche älteren Sprachwahl-, Deutschdialog- und bedingten Englischvorgaben in dieser Routine und in der verlinkten Referenzrecherche.
 
 ## Aktuelle kreative Vorgaben (Nutzerkorrektur 04.10.2026)
 
 Diese Vorgaben ersetzen alle untenstehenden älteren Anweisungen zu Stat-Overlays, stummen Clips und dem bisherigen Renderer als Standardausgabe:
 - Vorerst KEINE Statistiken im Video und KEINE separaten Statistik-/Titelbalken über der Animation. Prognosen dienen intern zur Auswahl, nicht als Pflicht-Einblendung.
-- Eine echte kurze Geschichte mit einem klaren Ziel, Hindernis, Handlung und Wendung. Figuren sprechen passende, verständliche Dialoge in der redaktionell gewählten Sprache. Musik allein erfüllt den Auftrag nicht.
+- Eine echte kurze Geschichte mit einem klaren Ziel, Hindernis, Handlung und Wendung. Figuren sprechen passende, verständliche Dialoge ausschließlich auf Englisch. Musik allein erfüllt den Auftrag nicht.
 - Vor jeder Story aktuelle Berichterstattung zur gültigen Paarung recherchieren; bevorzugt Verbandsmeldungen, Pressekonferenzen und seriöse Medien. Ein belegter Auslöser neben dem Platz kann eine fiktive Handlung auf dem Platz motivieren. Quellen und Abrufdatum im Manifest speichern. Keine Gerüchte als Tatsachen und keine erfundenen Dialoge als Originalzitate ausgeben.
 - Gewünschter Spannungsbogen: Auslöser neben dem Platz → sichtbare Reaktion der Mannschaft → Duell auf dem Platz → Frage über die weiterlaufende Aktion → goldener Goalfiq-Abschluss. Kein fiktives Endergebnis vorwegnehmen. Bestehende Logoanimation nur mit korrigierter Domain goalfiq.de und fehlerfreien Texten verwenden.
 - Bevorzugt ein einzelnes Duell, wenn mehrere Spiele den Spannungsbogen verwässern. Qualität geht vor täglichem Ausgabezwang.
@@ -19,7 +28,7 @@ Konkrete Referenzen, Quellenqualität und daraus abgeleitete Produktionsregeln: 
 
 ## Ziel und Grenzen
 
-Vertikale Fußballvideos in einer für den Clip einheitlich gewählten Sprache, mit einer aus Live-Prognosen abgeleiteten Geschichte. Ein besonders relevantes Duell oder zwei bis maximal drei Spiele mit gemeinsamem Erzählmotiv. Maximal ein Beitrag pro Tag und 20 Beiträge pro Kalendermonat. Kein Pflichtbeitrag bei fehlenden guten Daten. Zielkanäle/Zugang fehlen: fertige MP4 + Caption lokal ablegen, NICHT veröffentlichen. Keine Upload-Verbindung vortäuschen. Keine Tokens im Chat oder in versionierten Dateien speichern.
+Vertikale Fußballvideos ausschließlich mit englischem Redetext und englischen sichtbaren redaktionellen Texten, mit einer aus Live-Prognosen abgeleiteten Geschichte. Ein besonders relevantes Duell oder zwei bis maximal drei Spiele mit gemeinsamem Erzählmotiv. Maximal ein Beitrag pro Tag und 20 Beiträge pro Kalendermonat. Kein Pflichtbeitrag bei fehlenden guten Daten. Zielkanäle/Zugang fehlen: fertige MP4 + Caption lokal ablegen, NICHT veröffentlichen. Keine Upload-Verbindung vortäuschen. Keine Tokens im Chat oder in versionierten Dateien speichern.
 
 ## Daten und Auswahl
 
@@ -46,7 +55,7 @@ Dieses Muster ist unabhängig vom jeweiligen Spiel, Verein, Land oder Recherche-
 | 9–12 s | Das Duell bleibt in Bewegung. Kein Standbild, kein vorweggenommener Treffer und kein Ergebnis. | Rolle 3 stellt oder schreit die offene Frage zum Ausgang. Musik wird unter der Stimme abgesenkt. |
 | 12–14 s | Erst nach Ende der Frage in den kurzen Markenabschluss schneiden. | Musik löst sich auf; keine weitere Sprecherzeile. |
 
-Mindestens drei Rollen verwenden, wenn die Story eine Medienfrage, Spielerreaktion und Spielkommentar enthält: eine fragende Stimme, eine klar unterscheidbare Figur-Stimme und eine energische Kommentatorstimme. Keine reale Person imitieren. Sprache konsistent halten: Wenn die Dialoge Englisch sind, müssen auch Markenunterzeile, CTA und Hinweise im Video Englisch sein. Stimmen vor der Abmischung einzeln prüfen.
+Mindestens drei Rollen verwenden, wenn die Story eine Medienfrage, Spielerreaktion und Spielkommentar enthält: eine fragende Stimme, eine klar unterscheidbare Figur-Stimme und eine energische Kommentatorstimme. Keine reale Person imitieren. Sprache zwingend konsistent auf Englisch halten: Dialoge, Markenunterzeile, CTA und Hinweise im Video müssen Englisch sein. Stimmen vor der Abmischung einzeln prüfen.
 
 Die Musik muss original/generiert und instrumental sein. Sie beginnt leise, steigert sich bis zum Duell und wird durch Sidechain-Ducking unter gesprochenen Zeilen abgesenkt. Originalton des KI-Videos entfernen, wenn er andere oder ungewollte Sprache enthält. Für jede Sprecherrolle eigene TTS-Spur erzeugen, auf den sichtbaren Handlungspunkt legen und anschließend mit Musik mischen.
 
