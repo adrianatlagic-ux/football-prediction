@@ -24,7 +24,14 @@ from pathlib import Path
 LOG_PATH = Path(__file__).parent.parent / "data" / "bet_log.jsonl"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from log_bets import COMPETITIONS  # noqa: E402
+
+# Within five points of the market the model counts as agreeing with 🎯, as
+# on the page (LikelyTipBox, src/price_tip.MODEL_TOLERANCE).
+MODEL_TOLERANCE = 0.05
+LIKELY_GROUPS = ("Modell ✓ / KI ✓", "Modell ✓ / KI ✗", "Modell ✗ / KI ✓", "Modell ✗ / KI ✗",
+                 "Modell ✓ / keine KI", "Modell ✗ / keine KI")
 DEFAULT_API = "https://football-prediction.fly.dev"
 
 
@@ -155,7 +162,10 @@ def grade_entries(entries, finished):
         ("likely", "🎯 Wahrscheinlichster Tipp (Markt, Quote 1.30-2.00)"),
         ("fair_game", f"Game Pick, nur Quote {FAIR_MIN_ODDS:.2f}-{FAIR_MAX_ODDS:.2f}"),
         ("fair_likely", "🎯 auf denselben Spielen"))}
-    out = {"buckets": buckets, "edges": [], "no_tip": 0, "pending": 0, "rows": [], "fair_matches": 0}
+    for g in LIKELY_GROUPS:
+        buckets["likely " + g] = Bucket(f"🎯 bei {g}")
+    out = {"buckets": buckets, "edges": [], "no_tip": 0, "pending": 0, "rows": [], "fair_matches": 0,
+           "versus_ai": {}}
     for entry in entries:
         home, away = entry["home_team"], entry["away_team"]
         res = finished.get((_norm(home), _norm(away), str(entry.get("commence_time"))[:10]))
@@ -216,6 +226,19 @@ def grade_entries(entries, finished):
         g_lp = grade(lp, home, away, hs, as_) if lp else None
         if g_lp is not None:
             buckets["likely"].add(g_lp, lp["best_odds"])
+            # 🎯 split by whether the model and the AI side with it, as the
+            # page shows it; and how 🎯 and the AI's own pick did together.
+            from src.price_tip import implies
+            mp = lp.get("model_probability_raw")
+            model_ok = mp is not None and mp >= lp["market_probability"] - MODEL_TOLERANCE
+            ai_ok = implies(a_pick, lp, home, away) if a_pick else None
+            group = ("Modell ✓" if model_ok else "Modell ✗") + " / " + (
+                "keine KI" if ai_ok is None else "KI ✓" if ai_ok else "KI ✗")
+            buckets["likely " + group].add(g_lp, lp["best_odds"])
+            g_ai = grade(a_pick, home, away, hs, as_) if a_pick and a_pick.get("best_odds") else None
+            if g_ai in ("win", "loss") and g_lp in ("win", "loss"):
+                cell = ("🎯 ✅" if g_lp == "win" else "🎯 ❌") + " · " + ("KI ✅" if g_ai == "win" else "KI ❌")
+                out["versus_ai"][cell] = out["versus_ai"].get(cell, 0) + 1
         # Fair comparison: only matches where both picks exist and the Game
         # Pick's odds lie in 🎯's range - same matches, same prices.
         gp = _game_pick(entry)
@@ -249,6 +272,13 @@ def print_report(name, r):
         print(f"  Spiele ohne Preistipp: {r['no_tip']}")
     if b["likely"].decided:
         print(b["likely"].report())
+    if any(b["likely " + g].decided for g in LIKELY_GROUPS):
+        print("\n  -- 🎯 je nachdem, ob Modell und KI zustimmen --")
+        for g in LIKELY_GROUPS:
+            if b["likely " + g].decided:
+                print(b["likely " + g].report())
+    if r["versus_ai"]:
+        print("  🎯 und KI-Tipp im selben Spiel: " + ", ".join(f"{k} {v}x" for k, v in sorted(r["versus_ai"].items())))
     if r["fair_matches"]:
         print(f"\n  -- Fairer Vergleich: {r['fair_matches']} Spiele mit beiden Tipps, Game Pick "
               f"zu Quote {FAIR_MIN_ODDS:.2f}-{FAIR_MAX_ODDS:.2f} --")
