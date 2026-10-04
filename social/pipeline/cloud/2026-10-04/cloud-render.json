@@ -1,68 +1,25 @@
 {
   "processing": "Higgsfield cloud only",
-  "input_job_ids": {
-    "source": "7ae12b99-589c-4e93-98c9-bbfefd14da59",
-    "english": "6546cf19-bd95-4f2c-ad21-89f043f17818"
+  "edit_mode": "append_goalfiq_outro_only",
+  "source_job_id": "6546cf19-bd95-4f2c-ad21-89f043f17818",
+  "outro_source_media_id": "188a7a40-17d1-436c-9711-c53b9a77abc1",
+  "outro_range": {
+    "from": 12.5,
+    "duration": 2
   },
-  "access": "Resolve input IDs through authenticated Higgsfield; do not store resolved private-media URLs in this public repository.",
-  "preprocess": [
-    {
-      "input": "source",
-      "from": 6.5,
-      "duration": 4.5,
-      "output": "action.mp4",
-      "audio": false
-    },
-    {
-      "input": "source",
-      "from": 13,
-      "duration": 2,
-      "output": "outro.mp4",
-      "audio": false
-    }
+  "instructions": [
+    "Resolve inputs only through authenticated Higgsfield tools; do not publish direct private-media URLs.",
+    "Keep the entire English source and its original audio.",
+    "Normalize ONLY the extracted Goalfiq outro to 496x864, 24fps, H.264 High/yuv420p, video time base 1/12288, AAC stereo 32000Hz.",
+    "Concatenate source.mp4 then outro.mp4 with FFmpeg concat demuxer and -c copy in the Higgsfield cloud.",
+    "Verify all 193 source decoded frame hashes and all 254 source AAC packet hashes match the final prefix.",
+    "Show exactly one final uploaded video in the chat."
   ],
-  "scripts": {
-    "music": "music.cjs",
-    "composition": "edit.js"
-  },
-  "assembly": [
-    {
-      "input": "english",
-      "from": 0,
-      "duration": 4,
-      "at": 0
-    },
-    {
-      "input": "action",
-      "from": 0,
-      "duration": 4.5,
-      "at": 4
-    },
-    {
-      "input": "english",
-      "from": 4,
-      "duration": 4,
-      "at": 8.5
-    },
-    {
-      "input": "outro",
-      "from": 0,
-      "duration": 2,
-      "at": 12.5
-    }
+  "output_media_id": "addf2c2d-0d03-4bf5-a185-8fef039d1e44",
+  "supersedes": [
+    "edit.js",
+    "music.cjs"
   ],
-  "music": {
-    "input": "bed.wav",
-    "native_place_after_build": true,
-    "trackIndex": 2,
-    "at": 0,
-    "duration": 14.5,
-    "asset_id_source": "higgsedit read goalfiq-final; find assets[].name == bed.wav"
-  },
-  "render": {
-    "command": "higgsedit render goalfiq-final --out renders/final.mp4 --workers 2 --depth 8 --bitrate 3M",
-    "upload": "Use Higgsfield media_upload before producing; PUT final.mp4 in the same sandbox call, then media_confirm."
-  },
-  "output_media_id": "188a7a40-17d1-436c-9711-c53b9a77abc1",
-  "review": "English audio review pending"
+  "output_duration": 10.129,
+  "additional_generation_credits": 0
 }
