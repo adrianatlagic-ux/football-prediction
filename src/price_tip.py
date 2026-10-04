@@ -98,6 +98,7 @@ def match_fixture(event: dict, fixtures: list) -> Optional[dict]:
     kickoff = _time(event.get("commence_time"))
     if kickoff is None:
         return None
+    from src.foreign_team_names import to_english
     home, away = _tokens(event.get("home_team")), _tokens(event.get("away_team"))
     candidates = []
     for f in fixtures:
@@ -106,7 +107,9 @@ def match_fixture(event: dict, fixtures: list) -> Optional[dict]:
         start = _time(f.get("commence_time"))
         if start is None or abs(start - kickoff) > KICKOFF_TOLERANCE:
             continue
-        if home & _tokens(f.get("home_team")) and away & _tokens(f.get("away_team")):
+        # Names stored before translation existed may still be foreign.
+        f_home, f_away = to_english(f.get("home_team") or ""), to_english(f.get("away_team") or "")
+        if home & _tokens(f_home) and away & _tokens(f_away):
             candidates.append(f)
     return candidates[0] if len(candidates) == 1 else None
 

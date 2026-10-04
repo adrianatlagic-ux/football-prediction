@@ -75,10 +75,24 @@ def book_key(leg):
 # a leg 55%, legs from 1.20, the model's ⚠ warnings excluded), still computed
 # and logged beside it so the two can be compared on the same matches
 # (scripts/log_combos.py, scripts/grade_combos.py).
+#
+# "agree" (shown since 4 October): only legs the model agrees with (rated no
+# more than MODEL_TOLERANCE below the market, as on the page); legs the AI
+# agent also backs come first (its own pick, or a bet that wins whenever its
+# pick does); the rest is filled with the likeliest model-agreed legs. The
+# ticket must pay at least 3.0 - lower combos landed too rarely for what
+# they paid. "market" is now logged beside it.
+MODEL_TOLERANCE = 0.05
 POLICIES = {
+    "agree": {"min_odds": MIN_LEG_ODDS, "model_filters": False, "agreement": True,
+              "min_leg_probability": 0.45, "min_combined": 3.0},
     "market": {"min_odds": MIN_LEG_ODDS, "model_filters": False},
     "legacy_v3": {"min_odds": 1.20, "model_filters": True},
 }
+
+
+def min_combined(policy):
+    return POLICIES[policy].get("min_combined", MIN_COMBINED_ODDS)
 
 
 def leg_pool(value_bet_results, book=None, policy="market"):
@@ -135,16 +149,28 @@ def leg_pool(value_bet_results, book=None, policy="market"):
                         continue
                     ranking = min(offered["probability"], market_probability)
                 else:
-                    if not isinstance(market_probability, (int, float)) or market_probability < MIN_LEG_PROBABILITY:
+                    floor = rules.get("min_leg_probability", MIN_LEG_PROBABILITY)
+                    if not isinstance(market_probability, (int, float)) or market_probability < floor:
                         continue
                     ranking = market_probability
+                ki_agrees = False
+                if rules.get("agreement"):
+                    model_p = candidate.get("model_probability_raw", offered.get("probability"))
+                    if model_p is None or model_p < market_probability - MODEL_TOLERANCE:
+                        continue
+                    pick = vb.get("agent_pick")
+                    if pick:
+                        from src.price_tip import implies
+                        ki_agrees = implies(pick, candidate, vb["home_team"], vb["away_team"])
                 leg = {**{k: offered.get(k) for k in ("market", "outcome", "team", "best_odds", "bookmaker", "bookmaker_key",
                        "probability", "market_probability", "expected_value", "quote_last_update")},
                        **{k: vb.get(k) for k in ("home_team", "away_team", "commence_time", "sport_key", "event_id", "odds_fetched_at", "odds_stage")},
                        # The ranking probability: the market's estimate, or
                        # under legacy_v3 the lower of model and market.
                        "conservative_probability": ranking, "policy": policy,
-                       "market_agrees": True, "quote_fresh": True}
+                       "market_agrees": True, "quote_fresh": True,
+                       "model_probability": candidate.get("model_probability_raw"),
+                       "ki_agrees": ki_agrees}
                 key = (identity, book_key(leg), leg["market"], leg["outcome"], leg.get("team"))
                 old = selected.get(key)
                 if old is None or (leg["conservative_probability"], leg["probability"]) > (old["conservative_probability"], old["probability"]):
@@ -211,8 +237,14 @@ def _by_fixture(group):
     for leg in group:
         fixtures[fixture_key(leg)].append(leg)
     for legs in fixtures.values():
-        legs.sort(key=lambda l: (-l.get("conservative_probability", l["probability"]), -l["best_odds"]))
+        # Legs the AI also backs first (only set under "agree"), then likeliest.
+        legs.sort(key=lambda l: (-bool(l.get("ki_agrees")), -l.get("conservative_probability", l["probability"]),
+                                 -l["best_odds"]))
     return fixtures
+
+
+def _ki_legs(ticket):
+    return sum(bool(l.get("ki_agrees")) for l in ticket["legs"])
 
 
 def build_tickets(legs, min_legs=MIN_LEGS, max_legs=MAX_LEGS, pool_size=FIXTURES_PER_DAY,
@@ -229,7 +261,8 @@ def build_tickets(legs, min_legs=MIN_LEGS, max_legs=MAX_LEGS, pool_size=FIXTURES
     tickets = []
     for group in groups.values():
         fixtures = _by_fixture(group)
-        ranked = sorted(fixtures.values(), key=lambda ls: (-ls[0].get("conservative_probability", ls[0]["probability"]),
+        ranked = sorted(fixtures.values(), key=lambda ls: (-bool(ls[0].get("ki_agrees")),
+                                                           -ls[0].get("conservative_probability", ls[0]["probability"]),
                                                            ls[0]["home_team"]))[:pool_size]
         for size in range(max(MIN_LEGS, min_legs), min(MAX_LEGS, max_legs, len(ranked))+1):
             for chosen in combinations(ranked, size):
@@ -240,10 +273,12 @@ def build_tickets(legs, min_legs=MIN_LEGS, max_legs=MAX_LEGS, pool_size=FIXTURES
                         tickets.append(score_ticket(list(picks)))
                     except (ValueError, KeyError, TypeError):
                         continue
-    return sorted(tickets, key=lambda t: (-t["ranking_score"], -t["conservative_probability"], t["bookmaker_key"]))
+    # Most legs the AI also backs first, then the likeliest ticket.
+    return sorted(tickets, key=lambda t: (-_ki_legs(t), -t["ranking_score"], -t["conservative_probability"],
+                                          t["bookmaker_key"]))
 
 
-def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None):
+def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None, min_odds=MIN_COMBINED_ODDS):
     by_day = defaultdict(list)
     for leg in legs:
         by_day[match_day(leg.get("commence_time"))].append(leg)
@@ -252,10 +287,10 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None):
     days = []
     for date in sorted(d for d in by_day if d):
         day_legs = by_day[date]
-        with_near = build_tickets(day_legs, max_legs=max_legs, min_odds=NEAR_MISS_MIN_ODDS)
+        with_near = build_tickets(day_legs, max_legs=max_legs, min_odds=min_odds * NEAR_MISS_MIN_ODDS / MIN_COMBINED_ODDS)
         # The exact product, not the rounded combined_odds: 1.33 x 1.50 is
         # 1.995 and must stay below 2.00.
-        reaches = lambda t: _product(l["best_odds"] for l in t["legs"]) >= MIN_COMBINED_ODDS
+        reaches = lambda t: _product(l["best_odds"] for l in t["legs"]) >= min_odds
         tickets = [t for t in with_near if reaches(t)]
         near = [t for t in with_near if not reaches(t)]
         top = tickets[0] if tickets else None
@@ -299,10 +334,11 @@ def combo_report(value_bet_results, max_legs=MAX_LEGS, book=None, policy="market
         if date and vb.get("odds_found"):
             days.add(date)
             started[date] += bool(vb.get("in_play"))
-    tickets = build_tickets(legs, max_legs=max_legs)
-    return {"version": "combo_ticket_v3", "experimental": True,
+    tickets = [t for t in build_tickets(legs, max_legs=max_legs, min_odds=min_combined(policy))]
+    return {"version": "combo_ticket_v4", "experimental": True, "policy": policy, "min_combined_odds": min_combined(policy),
             "eligible_legs": len({fixture_key(l) for l in legs}), "recommended": tickets[0] if tickets else None,
-            "alternatives": tickets[1:4], "days": day_reports(legs, max_legs, days, started), "legs_considered": legs,
+            "alternatives": tickets[1:4], "days": day_reports(legs, max_legs, days, started, min_combined(policy)),
+            "legs_considered": legs,
             "parameters": {"min_leg_probability": MIN_LEG_PROBABILITY, "max_legs": max_legs,
                            "max_stake_fraction": MAX_STAKE_FRACTION, "one_leg_per_fixture": True,
                            "same_bookmaker": True, "binary_settlement_only": True,

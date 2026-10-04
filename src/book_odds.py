@@ -28,6 +28,7 @@ from pathlib import Path
 from typing import Optional
 
 from src import apify_budget
+from src.foreign_team_names import to_english
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PATH = ROOT / "data" / "book_odds" / "latest.json"
@@ -154,7 +155,9 @@ def fetch_league(sport_key: str, max_items: int, token: Optional[str] = None,
         offer = next((b for b in m.get("bookmakerOdds", []) if b.get("bookmaker") == BOOKMAKER), None)
         if not offer or not all(offer.get(k) for k in ("home", "draw", "away")):
             continue
-        fixture = {"sport_key": sport_key, "home_team": m["homeTeam"], "away_team": m["awayTeam"],
+        # OddsPortal may answer in another language (it once sent Polish).
+        fixture = {"sport_key": sport_key, "home_team": to_english(m["homeTeam"]),
+                   "away_team": to_english(m["awayTeam"]),
                    "commence_time": m["startTime"], "fetched_at": stamp,
                    "odds": {k: float(offer[k]) for k in ("home", "draw", "away")}}
         if full_book:

@@ -635,6 +635,12 @@ function ComboLegRow({ leg, index, onOpenLeg }) {
         <div className="combo-leg-meta">
           {marketGroupLabel(leg.market)} · {leg.bookmaker}
         </div>
+        {leg.policy === 'agree' && (
+          <div className="smart-bet-agree-row combo-leg-agree">
+            <span className="smart-bet-agree-chip yes">◆ Modell stimmt zu ✓</span>
+            {leg.ki_agrees && <span className="smart-bet-agree-chip yes">✨ KI stimmt zu ✓</span>}
+          </div>
+        )}
         {leg.likely_pick && (
           <div className="combo-leg-offlikely">
             Nicht das 🎯 dieses Spiels ({plainBetPhrase(leg.likely_pick)}, {betPercent(leg.likely_pick.market_probability)}
@@ -751,9 +757,9 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
 
       <p className="best-bets-intro">
         Jeder Tipp muss treffen. Alle Quoten sind von <strong>bet-at-home</strong>; jeder Schein nutzt <strong>einen Spieltag</strong>
-        {' '}und höchstens einen Tipp pro Spiel. Bevorzugt werden Ausgänge, die Modell und Markt
-        beide für wahrscheinlich halten. Kombiniert werden nur Märkte mit Sieg oder Niederlage;
-        Viertel-Linien sind ausgeschlossen. Vergleiche die besten 2er-, 3er- und 4er-Kombis pro Tag.
+        {' '}und höchstens einen Tipp pro Spiel. Genommen werden nur Tipps, denen <strong>unser Modell zustimmt</strong>;
+        {' '}Tipps, die auch die <strong>KI</strong> nach ihrer Recherche stützt, kommen zuerst. Ein Schein zahlt mindestens
+        {' '}<strong>{(combo.min_combined_odds || 3).toFixed(2).replace('.', ',')}</strong>. Vergleiche die besten 2er-, 3er- und 4er-Kombis pro Tag.
       </p>
 
       {!combo.recommended && (
@@ -781,7 +787,7 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
                     {option.near_miss && (
                       <details className="combo-near-miss">
                         <summary>
-                          Wahrscheinlicher, knapp unter 2,00: {betPercent(option.near_miss.conservative_probability)} zu
+                          Wahrscheinlicher, knapp unter {(combo.min_combined_odds || 2).toFixed(2).replace('.', ',')}: {betPercent(option.near_miss.conservative_probability)} zu
                           {' '}{option.near_miss.combined_odds.toFixed(2)}
                           {' '}(statt {betPercent(option.ticket.conservative_probability)} zu {option.ticket.combined_odds.toFixed(2)})
                         </summary>
@@ -802,7 +808,7 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
       ))}
 
       <p className="smart-bet-finePrint">
-        Sortiert nach der niedrigeren Schätzung von Modell und Markt je Tipp.
+        Unter den Scheinen mit den meisten KI-gestützten Tipps gewinnt der laut Markt wahrscheinlichste.
         Die Wahrscheinlichkeiten nehmen unabhängige Ergebnisse an; die Gesamtquoten sind aus Einzelquoten
         berechnet und nicht als Buchmacher-Schein geprüft. Eine höhere geschätzte Trefferquote
         heißt nicht, dass sich die Wette lohnt.

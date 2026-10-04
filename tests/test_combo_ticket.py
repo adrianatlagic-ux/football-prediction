@@ -274,7 +274,10 @@ def test_api_reprices_each_offer_and_excludes_that_book_from_reference(monkeypat
             assert offered["expected_value"] == pytest.approx(.75*offered["best_odds"]-1)
             assert max(x["profit"] for x in offered["payout_distribution"]) == pytest.approx(offered["best_odds"]-1)
     report = api.combo_ticket()
-    ticket = report["recommended"]
+    # 1.65 x 1.70 = 2.81 is under the shown rule's 3.0; the market rule,
+    # logged beside it, still builds the two-fold at bet-at-home's prices.
+    assert report["recommended"] is None
+    ticket = report["market_days"][0]["by_size"][0]["ticket"]
     assert ticket is not None
     assert sorted(l["best_odds"] for l in ticket["legs"]) == [1.65, 1.7]
     assert {l["bookmaker_key"] for l in ticket["legs"]} == {"betathome"}
@@ -322,3 +325,34 @@ def test_rounding_does_not_lift_a_ticket_over_the_target():
     legs = [leg("A", "B", .75, 1.33, .75), leg("C", "D", .66, 1.50, .66)]   # 1.995
     two = day_reports(legs, 2)[0]["by_size"][0]
     assert two["ticket"] is None and two["near_miss"]["legs"][1]["best_odds"] == 1.50
+
+
+def _agree_vb(home, away, bets, agent_pick=None):
+    return ({"home_team": home, "away_team": away},
+            {"odds_found": True, "snapshot_valid": True, "home_team": home, "away_team": away,
+             "sport_key": "soccer_uefa_nations_league", "commence_time": "2026-10-03T18:45:00Z",
+             "bets": bets, "agent_pick": agent_pick})
+
+
+def _bet(team, odds, market_p, model_p, market="1X2", outcome="win"):
+    return {"market": market, "outcome": outcome, "team": team, "best_odds": odds, "probability": model_p,
+            "model_probability_raw": model_p, "market_probability": market_p, "expected_value": model_p * odds - 1,
+            "bookmaker": "bet-at-home", "bookmaker_key": "betathome", "quote_fresh": True}
+
+
+def test_agree_rule_drops_legs_the_model_rejects_and_puts_ai_backed_legs_first():
+    from src.combo_ticket import combo_report
+    pairs = [
+        _agree_vb("A", "B", [_bet("A", 1.80, .53, .60), _bet("B", 1.35, .70, .50, "Handicap +1.5", "handicap")],
+                  agent_pick={"market": "1X2", "outcome": "win", "team": "A"}),
+        _agree_vb("C", "D", [_bet("C", 1.75, .55, .56)]),
+        _agree_vb("E", "F", [_bet("E", 1.70, .57, .58)]),
+    ]
+    report = combo_report(pairs, book="betathome", policy="agree")
+    legs = [l for l in report["legs_considered"]]
+    # B +1.5: model 50% against market 70% - more than five points below, out.
+    assert not any(l["team"] == "B" for l in legs)
+    two = report["days"][0]["by_size"][0]["ticket"]
+    assert two["combined_odds"] >= 3.0
+    # The AI-backed A leg is on the two-fold, though C and E are likelier.
+    assert any(l["team"] == "A" and l["ki_agrees"] for l in two["legs"])

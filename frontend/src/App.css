@@ -3187,3 +3187,6 @@ body {
 
 /* "Wett-Analyse" in the bet card's green. */
 .wm-cluster-bet .wm-cluster-label { color: #4ade80; }
+
+.combo-leg-agree { margin-top: 0.3rem; justify-content: flex-start; }
+.combo-leg-agree .smart-bet-agree-chip { font-size: 0.66rem; padding: 0.1rem 0.45rem; }

@@ -1987,11 +1987,18 @@ def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
             continue
         if competition and vb.get("sport_key") != competition:
             continue
+        # The AI agent's own pick, for the "agree" rule (a leg it backs first).
+        agent = _get_agent_pick(vb) if vb.get("odds_found") else None
+        vb = {**vb, "agent_pick": (agent or {}).get("pick")}
         pairs.append((data, vb))
 
-    # Only bet-at-home: the one bookmaker the user bets with.
-    report = combo_report(pairs, max_legs=max_legs, book=USER_BOOK_KEY)
+    # Only bet-at-home: the one bookmaker the user bets with. Shown: the
+    # "agree" rule (model and AI); the market rule and the rule before
+    # 26 September are computed on the same matches for the log only.
+    report = combo_report(pairs, max_legs=max_legs, book=USER_BOOK_KEY, policy="agree")
     report["competition"] = competition
+    market = combo_report(pairs, max_legs=max_legs, book=USER_BOOK_KEY, policy="market")
+    report["market_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in market["days"]]
     # The rule before 26 September, computed on the same matches for the log
     # only (scripts/log_combos.py); the page shows the market rule.
     legacy = combo_report(pairs, max_legs=max_legs, book=USER_BOOK_KEY, policy="legacy_v3")

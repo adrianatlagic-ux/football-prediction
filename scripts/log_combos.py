@@ -28,7 +28,7 @@ LOG_PATH = Path(__file__).resolve().parents[1] / "data" / "combo_log.jsonl"
 DEFAULT_API = "https://football-prediction.fly.dev"
 COMPETITIONS = ("soccer_uefa_champs_league", "soccer_germany_bundesliga", "soccer_uefa_nations_league")
 LEG_FIELDS = ("market", "outcome", "team", "best_odds", "home_team", "away_team", "commence_time",
-              "market_probability", "probability", "conservative_probability")
+              "market_probability", "probability", "conservative_probability", "model_probability", "ki_agrees")
 
 
 def _kickoff(value):
@@ -39,7 +39,11 @@ def entries_due(report: dict, competition: str, now: datetime) -> list:
     """Tickets of both rules shown now: every one whose first leg has not yet
     kicked off."""
     out = []
-    for policy, days in (("market", report.get("days") or []), ("legacy_v3", report.get("legacy_v3_days") or [])):
+    shown = report.get("policy") or "market"
+    sources = [(shown, report.get("days") or []), ("legacy_v3", report.get("legacy_v3_days") or [])]
+    if report.get("market_days") is not None:
+        sources.append(("market", report["market_days"]))
+    for policy, days in sources:
         for day in days:
             for option in day.get("by_size") or []:
                 ticket = option.get("ticket")
