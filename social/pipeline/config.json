@@ -1,0 +1,24 @@
+{
+  "api_base": "https://football-prediction.fly.dev",
+  "website": "https://goalfiq.de",
+  "repository": "adrianatlagic-ux/football-prediction",
+  "timezone": "Europe/Berlin",
+  "monthly_credit_limit": 200,
+  "rolling_30_day_credit_limit": 200,
+  "rolling_7_day_credit_limit": 45,
+  "credit_floor": 50,
+  "post_credit_limit": 12,
+  "monthly_post_limit": 20,
+  "prediction_max_age_hours": 48,
+  "minimum_lead_hours": 2,
+  "minimum_editorial_score": 45,
+  "publish_enabled": false,
+  "team_relevance": {
+    "Germany": 1.0, "England": 0.95, "Spain": 0.95, "France": 0.95,
+    "Portugal": 0.9, "Italy": 0.9, "Netherlands": 0.85, "Croatia": 0.8,
+    "Switzerland": 0.75, "Austria": 0.75, "Scotland": 0.65,
+    "Bayern Munich": 1.0, "Borussia Dortmund": 0.95, "Real Madrid": 1.0,
+    "Barcelona": 1.0, "Liverpool": 0.9, "Arsenal": 0.9,
+    "Manchester City": 0.9, "Paris Saint-Germain": 0.9
+  }
+}
