@@ -11,7 +11,7 @@ Originalseite im Browser geprüft: 21.670.942 Aufrufe, 83.408 Likes; Beschreibun
 - 0:50–1:10: Argentinischer Spieler dribbelt durch Schattengegner, schießt, jubelt. Ein kleiner abgeschlossener Handlungsbogen.
 - 1:25–1:45: Spanischer Spieler muss einen Stier umspielen. Sofort verständliches Hindernis, Aktion und Reaktion.
 - 3:10–3:17: Nordische Spieler in Wikingerwelt; Fußballaktion bleibt im Bild.
-- Ton: überwiegend Song und aktionsbezogene Geräusche, punktuell Dialog. Diese Referenz beweist nicht, dass Dialog Voraussetzung für Reichweite ist. Deutsche Dialoge sind eine ausdrückliche Goalfiq-Vorgabe.
+- Ton: überwiegend Song und aktionsbezogene Geräusche, punktuell Dialog. Diese Referenz beweist nicht, dass Dialog Voraussetzung für Reichweite ist. Aktualisierte zwingende Goalfiq-Vorgabe vom 04.10.2026: Alle gesprochenen Dialoge müssen Englisch sein; die frühere Deutschvorgabe ist aufgehoben.
 
 ## Ergänzende, nur berichtete Erfolgsreferenz
 
@@ -22,8 +22,8 @@ Quellenkorrektur: https://www.youtube.com/watch?v=FA_Uskon-z4 ist laut abgeschlo
 
 ## Produktionsentscheidung
 
-Ein Duell, ein Konflikt, eine verständliche Wendung. 15–25 Sekunden als Ziel, genaue Länge nach Kostenschätzung. Erste Sekunde beginnt mitten in einer Aktion. Zwei kurze deutsche Dialogzeilen plus Antwort/Pointe, sichtbar sprechende Figuren mit passenden Reaktionen. Ball und Bewegung verbinden die Einstellungen. Keine Statistiken, keine schwarzen Texttafeln, keine künstliche Verlängerung stummer Clips. Zuerst Story und Ton entwerfen; erst danach kostenpflichtig produzieren. Reale Paarung live prüfen, Fantasiehandlung als fiktiv kennzeichnen; kein erfundenes Spielergebnis.
+Ein Duell, ein Konflikt, eine verständliche Wendung. 15–25 Sekunden als Ziel, genaue Länge nach Kostenschätzung. Erste Sekunde beginnt mitten in einer Aktion. Zwei kurze englische Dialogzeilen plus Antwort/Pointe, sichtbar sprechende Figuren mit passenden Reaktionen. Ball und Bewegung verbinden die Einstellungen. Keine Statistiken, keine schwarzen Texttafeln, keine künstliche Verlängerung stummer Clips. Zuerst Story und Ton entwerfen; erst danach kostenpflichtig produzieren. Reale Paarung live prüfen, Fantasiehandlung als fiktiv kennzeichnen; kein erfundenes Spielergebnis.
 
-Beispiel einer noch nicht produzierten fiktiven Portugal–Norwegen-Geschichte: Ein Wikinger hält den Ball auf einem Schiffsdeck fest: „Den holst du dir nicht.“ Der portugiesische Kapitän blickt hinter ihn: „Dein Schiff!“ Der Wikinger dreht sich um; der Kapitän tunnelt ihn. Der Wikinger grinst, weil der Ball zurückrollt: Das Deck kippt bereits. „Welches Schiff?“ Totale: Beide stehen auf einem winzigen Floß, das große Schiff fährt davon. Ein nachvollziehbarer Fußballtrick mit Gegenpointe; keine realen Aussagen der Spieler. Vor Produktion auf räumliche Verständlichkeit und Machbarkeit reduzieren.
+Beispiel einer noch nicht produzierten fiktiven Portugal–Norwegen-Geschichte: Ein Wikinger hält den Ball auf einem Schiffsdeck fest: “You’re not getting this ball.” Der portugiesische Kapitän blickt hinter ihn: “Your ship!” Der Wikinger dreht sich um; der Kapitän tunnelt ihn. Der Wikinger grinst, weil der Ball zurückrollt: Das Deck kippt bereits. “What ship?” Totale: Beide stehen auf einem winzigen Floß, das große Schiff fährt davon. Ein nachvollziehbarer Fußballtrick mit Gegenpointe; keine realen Aussagen der Spieler. Vor Produktion auf räumliche Verständlichkeit und Machbarkeit reduzieren.
 
 Budgetlimits gelten unverändert. Mehrere aufwendige 15-Sekunden-Szenen aus Creator-Tutorials passen nicht automatisch ins bestehende Limit pro Beitrag. Keine weitere Generierung nur für diese Recherche gestartet.
