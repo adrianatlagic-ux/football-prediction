@@ -1,0 +1,171 @@
+{
+ "live": {
+  "Tore over": {
+   "n": 81,
+   "hit": 0.395,
+   "market_expected": 0.444,
+   "roi": -0.278,
+   "z": -0.88
+  },
+  "Tore under": {
+   "n": 72,
+   "hit": 0.694,
+   "market_expected": 0.689,
+   "roi": -0.085,
+   "z": 0.1
+  },
+  "1X2 Favorit": {
+   "n": 44,
+   "hit": 0.591,
+   "market_expected": 0.553,
+   "roi": 0.05,
+   "z": 0.5
+  },
+  "1X2 Remis": {
+   "n": 24,
+   "hit": 0.333,
+   "market_expected": 0.229,
+   "roi": 0.412,
+   "z": 1.22
+  },
+  "1X2 Außenseiter": {
+   "n": 23,
+   "hit": 0.043,
+   "market_expected": 0.183,
+   "roi": -0.707,
+   "z": -1.73
+  },
+  "Außenseiter +1,5": {
+   "n": 22,
+   "hit": 0.455,
+   "market_expected": 0.581,
+   "roi": -0.236,
+   "z": -1.2
+  },
+  "Außenseiter +0,5": {
+   "n": 21,
+   "hit": 0.381,
+   "market_expected": 0.376,
+   "roi": 0.106,
+   "z": 0.05
+  },
+  "Beide treffen": {
+   "n": 20,
+   "hit": 0.45,
+   "market_expected": 0.446,
+   "roi": -0.138,
+   "z": 0.04
+  },
+  "Favorit +0,5": {
+   "n": 17,
+   "hit": 0.824,
+   "market_expected": 0.711,
+   "roi": 0.105,
+   "z": 1.02
+  },
+  "Außenseiter -0,5": {
+   "n": 16,
+   "hit": 0.062,
+   "market_expected": 0.214,
+   "roi": -0.625,
+   "z": -1.48
+  },
+  "Favorit -1,5": {
+   "n": 9,
+   "hit": 0.111,
+   "market_expected": 0.282,
+   "roi": -0.633,
+   "z": -1.14
+  },
+  "Außenseiter -1,5": {
+   "n": 9,
+   "hit": 0.0,
+   "market_expected": 0.084,
+   "roi": -1.0,
+   "z": -0.91
+  },
+  "Außenseiter +2,5": {
+   "n": 9,
+   "hit": 0.778,
+   "market_expected": 0.687,
+   "roi": 0.138,
+   "z": 0.59
+  },
+  "Favorit -0,5": {
+   "n": 7,
+   "hit": 0.143,
+   "market_expected": 0.501,
+   "roi": -0.814,
+   "z": -1.9
+  },
+  "Außenseiter +3,5": {
+   "n": 5,
+   "hit": 0.8,
+   "market_expected": 0.741,
+   "roi": 0.004,
+   "z": 0.3
+  },
+  "Favorit +2,5": {
+   "n": 4,
+   "hit": 1.0,
+   "market_expected": 0.903,
+   "roi": 0.028,
+   "z": 0.66
+  },
+  "Favorit -2,5": {
+   "n": 3,
+   "hit": 0.333,
+   "market_expected": 0.114,
+   "roi": 1.25,
+   "z": 1.19
+  },
+  "Favorit +1,5": {
+   "n": 3,
+   "hit": 1.0,
+   "market_expected": 0.93,
+   "roi": 0.01,
+   "z": 0.47
+  },
+  "Außenseiter +5,5": {
+   "n": 1,
+   "hit": 1.0,
+   "market_expected": 0.871,
+   "roi": 0.04,
+   "z": 0.39
+  },
+  "Außenseiter +4,5": {
+   "n": 1,
+   "hit": 1.0,
+   "market_expected": 0.729,
+   "roi": 0.23,
+   "z": 0.61
+  }
+ },
+ "history": {
+  "45%-55%": {
+   "n": 82,
+   "fav_won_by_2plus": 0.268,
+   "poisson_expected": 0.237
+  },
+  "55%-65%": {
+   "n": 76,
+   "fav_won_by_2plus": 0.382,
+   "poisson_expected": 0.324
+  },
+  "65%-75%": {
+   "n": 39,
+   "fav_won_by_2plus": 0.41,
+   "poisson_expected": 0.448
+  },
+  "75%-85%": {
+   "n": 22,
+   "fav_won_by_2plus": 0.773,
+   "poisson_expected": 0.57
+  },
+  "85%-100%": {
+   "n": 3,
+   "fav_won_by_2plus": 1.0,
+   "poisson_expected": 0.699
+  }
+ }
+}
