@@ -49,6 +49,22 @@ Diese Vorgaben ersetzen alle untenstehenden älteren Anweisungen zu Stat-Overlay
 
 Konkrete Referenzen, Quellenqualität und daraus abgeleitete Produktionsregeln: [Referenzrecherche vom 04.10.2026](reference-research-2026-10-04.md). Diese vor dem nächsten Storyboard lesen.
 
+## Verbindliche Story-Vielfalt (Nutzeranweisung 04.10.2026)
+
+Jeder neue Tagesbeitrag braucht eine eigenständige Storyidee mit einem eigenen Konflikt, einer eigenen visuellen Welt und einer eigenen Wendung. Das wiederholte Muster „Interviewfrage → Spielerantwort → normales Spielduell → offene Kommentatorfrage“ ist ausdrücklich verboten.
+
+Vor dem Storyboard muss ein Storytyp gewählt und im Manifest dokumentiert werden. Der Storytyp darf nicht derselbe wie beim unmittelbar vorherigen Beitrag sein. Geeignete Typen sind zum Beispiel:
+
+- **Objekt-Mysterium:** Ein verschwundener oder veränderter Gegenstand löst die Handlung aus; die Auflösung verändert die Bedeutung des Duells.
+- **Zeitdruck-Mission:** Eine Mannschaft muss vor einem sichtbaren Countdown, Wetterumschwung oder schließenden Tor handeln.
+- **Rivalisierendes Rätsel:** Zwei Figuren verfolgen Hinweise oder lösen eine visuelle Aufgabe; der Ball ist Teil des Rätsels.
+- **Umwelt-Hindernis:** Spielfeld, Architektur, Schatten, Wasser, Wind oder eine surreale Umgebung verändert die Regeln der Bewegung.
+- **Perspektivwechsel:** Die Handlung beginnt aus Sicht des Torwarts, Fans, Kommentators, Balles oder eines unbelebten Gegenstands und wechselt erst später zur Mannschaft.
+- **Fehlgeleitete Erwartung:** Eine scheinbar klare Favoritenhandlung kippt durch eine nachvollziehbare Gegenaktion; kein Ergebnis behaupten.
+- **Teaminterne Entscheidung:** Eine Figur muss zwischen zwei sichtbaren Handlungswegen wählen, deren Folgen die nächste Szene bestimmen.
+
+Mindestens drei dieser Elemente müssen sich von Beitrag zu Beitrag ändern: Eröffnung, zentrale Figur, Schauplatz, Hindernis, Wendung, Dialogfunktion und Schlussbild. Eine Medienfrage ist optional und darf nicht automatisch die Eröffnung bilden. Vor jeder kostenpflichtigen Produktion muss das Manifest die Felder `story_type`, `hook`, `conflict`, `turning_point`, `ending_image` und `previous_story_type` enthalten. Wenn die Story nur das alte Interview-/Spielfeldschema erfüllt oder die Abwechslung nicht belegbar ist, stoppen und das Storyboard neu entwerfen.
+
 ## Ziel und Grenzen
 
 Vertikale Fußballvideos ausschließlich mit englischem Redetext und englischen sichtbaren redaktionellen Texten, mit einer aus Live-Prognosen abgeleiteten Geschichte. Ein besonders relevantes Duell oder zwei bis maximal drei Spiele mit gemeinsamem Erzählmotiv. Maximal ein Beitrag pro redaktionellem Zieldatum (Europe/Berlin). Kein Monatslimit; ein ausdrücklich angeforderter Beitrag für morgen darf heute vorbereitet werden und belegt ausschließlich den morgigen Tag. Kein Pflichtbeitrag bei fehlenden guten Daten. Zielkanäle/Zugang fehlen: fertige MP4 + Caption lokal ablegen, NICHT veröffentlichen. Keine Upload-Verbindung vortäuschen. Keine Tokens im Chat oder in versionierten Dateien speichern.
