@@ -1,6 +1,6 @@
 {
   "api_base": "https://football-prediction.fly.dev",
-  "website": "https://goalfiq.de",
+  "website": "https://goaliq.de",
   "repository": "adrianatlagic-ux/football-prediction",
   "timezone": "Europe/Berlin",
   "monthly_credit_limit": 200,
@@ -47,5 +47,17 @@
   "reuse_scenes_from_other_versions": false,
   "force_target_duration": false,
   "prefer_source_stream_copy": true,
-  "final_output": "single_mp4_inline_chat"
+  "final_output": "single_mp4_inline_chat",
+  "outro": {
+    "logo_path": "social/pipeline/assets/goal-logo.png",
+    "domain": "goaliq.de",
+    "disclaimer_en": "AI predictions, for entertainment only. No betting advice.",
+    "layout": [
+      "original_logo",
+      "domain",
+      "bottom_disclaimer"
+    ],
+    "duration_seconds": 3,
+    "additional_cta": false
+  }
 }
