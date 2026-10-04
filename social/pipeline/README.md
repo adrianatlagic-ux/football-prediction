@@ -82,17 +82,11 @@ Vertikale Fußballvideos ausschließlich mit englischem Redetext und englischen 
 
 Vor bezahlten Aufträgen ein Storyboard im erzeugten `manifest.json` ausarbeiten: Hook → Konflikt → Handlung → offene Frage → Goalfiq. Reine Schiffsmontage ohne Geschichte genügt nicht. Eine sichtbare Aktion muss die Geschichte tragen, etwa ein Favorit verliert seinen Vorsprung oder ein Außenseiter widersetzt sich; ausdrücklich fiktive Metapher, keine behauptete Spielsimulation. Namen und Zahlen nicht vom Videomodell zeichnen lassen.
 
-### Standard-Schnittmuster für Story-Clips
+### Flexible Dramaturgie für Story-Clips
 
-Dieses Muster ist unabhängig vom jeweiligen Spiel, Verein, Land oder Recherche-Aufhänger und ersetzt keine thematische Recherche:
+Es gibt kein festes Schnittmuster und keine Pflicht zu einem Interview. Die Szenenfolge wird aus `story_type`, Konflikt und Wendung des jeweiligen Manifests entwickelt. Ein Video kann zum Beispiel mit einem Gegenstand, einem Ortswechsel, einer Entscheidung, einem Countdown, einer Reaktion aus der Fanperspektive oder einem visuellen Rätsel beginnen. Dialoge müssen die konkrete Handlung voranbringen und dürfen nicht nur die alte Frage-Antwort-Schablone ausfüllen.
 
-| Zeitfenster | Bild und Schnitt | Ton |
-| --- | --- | --- |
-| 0–2 s | Sofort mitten im Auslöser beginnen, keine Titelkarte. | Rolle 1 stellt eine kurze, konfliktauslösende Frage. |
-| 2–5 s | Nahaufnahme der Hauptfigur und eine sichtbare, entschlossene Handlung. | Rolle 2 antwortet ruhig und knapp. |
-| 5–9 s | Match-Cut vom Auslöser in die laufende Spielsituation; Ball und Bewegungsrichtung verbinden die Szenen. | Instrumentale Musik baut auf, Dialog bleibt verständlich. |
-| 9–12 s | Das Duell bleibt in Bewegung. Kein Standbild, kein vorweggenommener Treffer und kein Ergebnis. | Rolle 3 stellt oder schreit die offene Frage zum Ausgang. Musik wird unter der Stimme abgesenkt. |
-| 12–14 s | Erst nach Ende der Frage in den kurzen Markenabschluss schneiden. | Musik löst sich auf; keine weitere Sprecherzeile. |
+Die Länge, Zahl der Szenen und Rollen richten sich nach der Geschichte. Ein offener Schluss ist möglich, aber nicht immer nötig; auch eine überraschende Bildauflösung, eine Entscheidung oder ein Perspektivwechsel kann das Ende bilden. Keine reale Person imitieren. Sprache zwingend konsistent auf Englisch halten: Dialoge, Markenunterzeile, CTA und Hinweise im Video müssen Englisch sein.
 
 Mindestens drei Rollen verwenden, wenn die Story eine Medienfrage, Spielerreaktion und Spielkommentar enthält: eine fragende Stimme, eine klar unterscheidbare Figur-Stimme und eine energische Kommentatorstimme. Keine reale Person imitieren. Sprache zwingend konsistent auf Englisch halten: Dialoge, Markenunterzeile, CTA und Hinweise im Video müssen Englisch sein. Stimmen vor der Abmischung einzeln prüfen.
 
