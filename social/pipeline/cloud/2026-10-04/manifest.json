@@ -500,8 +500,7 @@
       "job_id": "7ae12b99-589c-4e93-98c9-bbfefd14da59",
       "balance_before": 234.72,
       "balance_expected_after": 227.22,
-      "charged_credits_confirmed": 7.5,
-      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KBADBsZKhzQG62jC58xaz7NWWU/hf_20261004_115539_7ae12b99-589c-4e93-98c9-bbfefd14da59.mp4"
+      "charged_credits_confirmed": 7.5
     },
     {
       "asset_id": "goalfiq-2026-10-04-germany-story-v2-english",
@@ -511,7 +510,6 @@
       "balance_expected_after": 223.22,
       "job_id": "6546cf19-bd95-4f2c-ad21-89f043f17818",
       "reason": "One permitted correction after user made English mandatory; reuse original action and outro",
-      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KBADBsZKhzQG62jC58xaz7NWWU/hf_20261004_121738_6546cf19-bd95-4f2c-ad21-89f043f17818.mp4",
       "charged_credits_confirmed": 4
     }
   ],
@@ -549,7 +547,6 @@
   },
   "total_credits": 11.5,
   "final": {
-    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KBADBsZKhzQG62jC58xaz7NWWU/188a7a40-17d1-436c-9711-c53b9a77abc1.mp4",
     "media_id": "188a7a40-17d1-436c-9711-c53b9a77abc1",
     "duration": 14.5,
     "width": 486,
@@ -567,5 +564,6 @@
   "analysis_ids": {
     "english_correction": "d63b408a-7e02-4691-b635-eefc96004caa",
     "final": "36897828-07cf-477f-ac4e-4c0e6001922a"
-  }
+  },
+  "media_access": "Resolve the recorded job/media IDs only through the authenticated Higgsfield connection; direct private-media URLs are not stored in the current public manifest."
 }
