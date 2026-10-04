@@ -991,8 +991,13 @@ def _with_book_odds(event: dict) -> dict:
             fetched = timestamp(value)
         except (TypeError, ValueError):
             return None
-        if abs((snapshot - fetched).total_seconds()) > allowed_gap:
+        gap = abs((snapshot - fetched).total_seconds())
+        if gap > allowed_gap:
             return None
+        # Accepted as this hour's price: stamped with the snapshot time, or
+        # the later freshness check would drop it again as too old.
+        if gap > MAX_QUOTE_AGE_SECONDS:
+            return snapshot.isoformat()
         return min(fetched, snapshot).isoformat()
 
     home, away = event["home_team"], event["away_team"]
