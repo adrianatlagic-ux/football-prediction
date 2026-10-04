@@ -3190,3 +3190,24 @@ body {
 
 .combo-leg-agree { margin-top: 0.3rem; justify-content: flex-start; }
 .combo-leg-agree .smart-bet-agree-chip { font-size: 0.66rem; padding: 0.1rem 0.45rem; }
+
+.smart-bet-agree-chip.muted { opacity: 0.5; filter: grayscale(1); }
+
+/* KI-Tipp in the KI-Scout's colours, glowing on hover. */
+.smart-bet-agent {
+  background: linear-gradient(135deg, rgba(168,85,247,0.16), rgba(34,211,238,0.08));
+  border: 1px solid rgba(168,85,247,0.45);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px -14px rgba(168,85,247,0.6);
+  transition: box-shadow 0.25s, border-color 0.25s, transform 0.15s;
+}
+.smart-bet-agent:hover {
+  border-color: rgba(192,132,252,0.85);
+  box-shadow: 0 0 0 4px rgba(168,85,247,0.15), 0 10px 30px -10px rgba(168,85,247,0.85);
+  transform: translateY(-1px);
+}
+.smart-bet-agent .smart-bet-agent-headline {
+  background: linear-gradient(90deg, #e9d5ff, #67e8f9);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.smart-bet-agent .smart-bet-highlight-purple { color: #d8b4fe; }

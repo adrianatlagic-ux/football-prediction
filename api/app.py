@@ -1857,8 +1857,10 @@ def _price_tip_for(odds: list[dict], home: str, away: str, prediction: dict,
     except Exception:
         return None
     if not tip.get("outcomes") and event.get("odds_stage") != "final":
-        tip["reason"] = ("Pinnacles Quote wird in der Stunde vor Anpfiff gelesen. "
-                         "Dann entscheidet sich der Preis-Tipp.")
+        # Waiting for the last hour: the box's footnote already says when a
+        # tip can appear, so no reason line of its own.
+        tip["reason"] = None
+        tip["waiting"] = True
     tip.update(model_and_ai_view(tip.get("tip"), prediction, agent_eval, candidates,
                                  event.get("home_team"), event.get("away_team")))
     return tip
@@ -1994,7 +1996,9 @@ def _mark_legs_off_likely(report: dict, pairs: list) -> None:
             for ticket in (option.get("ticket"), option.get("near_miss")):
                 for leg in (ticket or {}).get("legs", []):
                     pick = likely.get((norm(leg["home_team"]), norm(leg["away_team"])))
-                    if pick and not same(leg, pick):
+                    if pick and same(leg, pick):
+                        leg["is_likely"] = True
+                    elif pick:
                         leg["likely_pick"] = {k: pick.get(k) for k in ("market", "outcome", "team", "best_odds",
                                                                          "market_probability")}
 

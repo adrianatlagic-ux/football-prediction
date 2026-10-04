@@ -635,18 +635,17 @@ function ComboLegRow({ leg, index, onOpenLeg }) {
         <div className="combo-leg-meta">
           {marketGroupLabel(leg.market)} · {leg.bookmaker}
         </div>
-        {leg.policy === 'agree' && (
-          <div className="smart-bet-agree-row combo-leg-agree">
-            <span className="smart-bet-agree-chip yes">◆ Modell stimmt zu ✓</span>
-            {leg.ki_agrees && <span className="smart-bet-agree-chip yes">✨ KI stimmt zu ✓</span>}
-          </div>
-        )}
-        {leg.likely_pick && (
-          <div className="combo-leg-offlikely">
-            Nicht das 🎯 dieses Spiels ({plainBetPhrase(leg.likely_pick)}, {betPercent(leg.likely_pick.market_probability)}
-            {' '}zu {leg.likely_pick.best_odds?.toFixed(2)}) – gewählt, um die Gesamtquote zu erreichen
-          </div>
-        )}
+        <div className="smart-bet-agree-row combo-leg-agree">
+          {leg.policy === 'agree' && <span className="smart-bet-agree-chip yes">◆ Modell stimmt zu ✓</span>}
+          {leg.ki_agrees && <span className="smart-bet-agree-chip yes">✨ KI stimmt zu ✓</span>}
+          {leg.is_likely && <span className="smart-bet-agree-chip yes">🎯 Wahrscheinlichster Tipp</span>}
+          {leg.likely_pick && (
+            <span className="smart-bet-agree-chip muted"
+                  title={`🎯 dieses Spiels: ${plainBetPhrase(leg.likely_pick)} zu ${leg.likely_pick.best_odds?.toFixed(2)}`}>
+              🎯 Nicht der wahrscheinlichste
+            </span>
+          )}
+        </div>
       </div>
       <div className="combo-leg-numbers">
         <span className="combo-leg-odds">{leg.best_odds.toFixed(2)}</span>
@@ -943,7 +942,7 @@ function PriceTipBox({ priceTip }) {
       <div className="price-tip is-empty">
         <span className="smart-bet-label price-tip-label-muted">Preis-Tipp</span>
         <div className="price-tip-none">Kein Tipp für dieses Spiel</div>
-        <p className="price-tip-reason">{priceTip.reason}</p>
+        {priceTip.reason && <p className="price-tip-reason">{priceTip.reason}</p>}
         {priceTip.outcomes.length > 0 && (
           <div className="price-tip-table">
             <div className="price-tip-table-head">
@@ -1313,9 +1312,6 @@ function SmartBetCard({ betStep, betInfo, data }) {
         </div>
       )}
 
-      <details className="wm-details smart-bet-background">
-        <summary>Hintergrund: KI-Tipp, Modell-Abweichung, Erfolgsbilanz, Aufstellungen</summary>
-
       <LineupStrength data={data} />
 
       {agentEval && (
@@ -1361,8 +1357,6 @@ function SmartBetCard({ betStep, betInfo, data }) {
           </p>
         </div>
       )}
-
-      </details>
 
       <div className="smart-bet-finePrint">
         <p><strong>💰</strong> Preis-Tipp: bet-at-home zahlt mehr als Pinnacles fairer Preis. <strong>🎯</strong> die Wette,
