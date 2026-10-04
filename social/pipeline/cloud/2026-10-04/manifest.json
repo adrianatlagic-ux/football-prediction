@@ -1,6 +1,6 @@
 {
   "post_id": "goalfiq-2026-10-04",
-  "state": "english_correction_generating",
+  "state": "rendered_awaiting_audio_review",
   "cloud_only": true,
   "one_time_exception": {
     "authorized_by_user": true,
@@ -505,12 +505,14 @@
     },
     {
       "asset_id": "goalfiq-2026-10-04-germany-story-v2-english",
-      "state": "submitted",
+      "state": "completed",
       "credits": 4,
       "balance_before": 227.22,
       "balance_expected_after": 223.22,
       "job_id": "6546cf19-bd95-4f2c-ad21-89f043f17818",
-      "reason": "One permitted correction after user made English mandatory; reuse original action and outro"
+      "reason": "One permitted correction after user made English mandatory; reuse original action and outro",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KBADBsZKhzQG62jC58xaz7NWWU/hf_20261004_121738_6546cf19-bd95-4f2c-ad21-89f043f17818.mp4",
+      "charged_credits_confirmed": 4
     }
   ],
   "limits": {
@@ -524,7 +526,7 @@
   "caption": "Greece vs Germany · 4 October 2026, 20:45 Europe/Berlin. Can Germany break through this time? A fictional anime story inspired by current DFB reporting. Not match footage, a simulation, or a predicted score. Goalfiq forecasts inform editorial selection only. What's your call? goalfiq.de",
   "review": "pending",
   "publish_enabled": false,
-  "balance_after": 227.22,
+  "balance_after": 223.22,
   "language": "en",
   "cloud_ffmpeg_authorized": true,
   "correction_params": {
@@ -544,5 +546,26 @@
       }
     ],
     "prompt": "Create an 8-second cinematic vertical anime dialogue correction. Match the exact original young adult football captain, reporter, white-and-black German kit, cel shading and warm golden ancient Greek stadium in the reference image. Original fictional characters, no real person voice imitation. Native speech must be ENGLISH ONLY. No German and no extra words. Three clearly distinct original voices. No captions, title cards, graphics, drawn writing or score.\n0.0–2.0s: close shot of the female reporter and captain in the stadium tunnel, she asks clearly in English: \"Back at the Greek wall?\" Reporter lips synchronized.\n2.0–4.0s: same captain faces the reporter, makes a determined nod, steps forward and answers calmly in English: \"Then we play together.\" Captain lips synchronized, exactly those words.\n4.0–4.4s: match cut on the captain touching a rolling football, ball movement left to right.\n4.4–7.6s: a distinct energetic male commentator in a stadium commentary position watching the pitch asks clearly in English: \"Can Germany break through this time?\" He speaks exactly this line, lips synchronized. Cut briefly to white-kit attacker and blue-kit defender running side by side, a ball rolls toward a gap in a monumental Greek stone defensive arch. No shot outcome, no goal, no winner, no celebration. The question finishes by 7.6 seconds.\n7.6–8.0s: forward ball motion continues without speech, for a cut to a brand outro.\nAudio: clean intelligible English, native separate female reporter, calm male captain, energetic male commentator. Original instrumental cinematic percussion and stadium ambience, quiet underneath the voices. No singing, no German speech, no improvised speech. Stable faces, clear actions, consistent screen direction. Keep opening atmosphere and character identity faithful to the reference."
+  },
+  "total_credits": 11.5,
+  "final": {
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KBADBsZKhzQG62jC58xaz7NWWU/188a7a40-17d1-436c-9711-c53b9a77abc1.mp4",
+    "media_id": "188a7a40-17d1-436c-9711-c53b9a77abc1",
+    "duration": 14.5,
+    "width": 486,
+    "height": 864,
+    "fps": 24,
+    "has_audio": true,
+    "renderer": "Higgsedit in Higgsfield cloud",
+    "source_speech": "English correction only; reused original action/outro stripped of audio"
+  },
+  "review_notes": [
+    "Inspected frames at 0.5, 2.5, 4.8, 6.5, 8, 9.5, 11.7 and 13.5 seconds: reporter, captain, football action, commentator, ongoing contest and clean typeset English outro.",
+    "Verified native export: 14.5 seconds, 486x864 (9:16), audio present; no renderer diagnostics.",
+    "English speech validation awaits Higgsfield final-video analysis; no direct listening was performed."
+  ],
+  "analysis_ids": {
+    "english_correction": "d63b408a-7e02-4691-b635-eefc96004caa",
+    "final": "36897828-07cf-477f-ac4e-4c0e6001922a"
   }
 }
