@@ -1,7 +1,7 @@
 {
   "post_id": "goaliq-2026-10-05",
   "target_date": "2026-10-05",
-  "state": "exported_review_pending",
+  "state": "exceptional_exported_review_pending",
   "cloud_only": true,
   "daily_limit": 1,
   "daily_limit_basis": "editorial_target_date",
@@ -460,12 +460,16 @@
   ],
   "story": {
     "fictional": true,
+    "story_type": "object_mystery",
+    "hook": "The ball vanishes at a line of light in the stadium tunnel.",
+    "conflict": "Italy and Turkey follow an impossible shadow trail to find it.",
+    "turning_point": "The shadow moves independently and sends the ball into open space.",
+    "ending_image": "Both teams chase the rolling ball back toward the tunnel.",
     "dialogues": [
-      "Confidence is back. What comes next?",
-      "We prove it together.",
-      "Can Italy keep the momentum?"
-    ],
-    "action": "One-two pass challenged by a defender reading the return pass; no outcome."
+      "It vanished at the line.",
+      "Then the shadow is showing us the way.",
+      "Who is controlling the game now?"
+    ]
   },
   "params": {
     "model": "seedance_2_0_mini",
@@ -475,9 +479,8 @@
     "generate_audio": true,
     "count": 1,
     "bitrate_mode": "high",
-    "genre": "action",
-    "use_unlim": false,
-    "prompt": "Create a coherent 12-second vertical cinematic Japanese anime football micro-story with native ENGLISH speech only. Original adult fictional characters, no real player/coach likeness or voice imitation. Inspired by Italy facing Turkey after renewed confidence, NOT actual match footage, NOT a simulation or result prediction. Crisp cel animation, charcoal shadows and warm gold stadium lights. Italy wears plain blue jerseys and white shorts; Turkey plain red jerseys and white shorts. No writing, numbers, logos, subtitles, title cards, scoreboards, or drawn letters anywhere. No brand outro inside this source; a separate logo card will be appended.\n0–2.2 seconds: stadium tunnel, original female reporter places microphone in front of determined Italian captain, plain blue kit, short brown hair. Reporter asks exactly in clear English: \"Confidence is back. What comes next?\"\n2.2–4.5: captain calmly tightens wrist tape, looks toward pitch and answers exactly: \"We prove it together.\" Distinct calm male voice, mouth synchronized. He steps onto pitch and nudges football ahead.\n4.5–8.2: continuous clear action, captain dribbles toward red-kit Turkish defender. Captain passes to a teammate on his right; teammate returns ball ahead into left channel. Ball is always a single ball, physically consistent. Follow camera links tunnel to pitch through ball motion.\n8.2–11.5: twist: Turkish defender reads return pass and runs across to close the lane. Neither team gives up; ball rolls into contested gap. Distinct energetic male off-screen commentator asks exactly in English: \"Can Italy keep the momentum?\" Keep both players and the moving ball on screen. No goal, no shot outcome, no winner, no celebration.\n11.5–12: continue forward action after the entire question ends. Do not fade or freeze.\nAudio: ONLY those three exact English lines, three clearly distinct voices, intelligible native English, no German, Italian, Turkish or improvised words. Original generated instrumental rhythmic music softly builds; quiet under all dialogue and commentary. No singing. Subtle ball kicks and footsteps. Keep identity, kit and spatial direction stable. Finish the question fully before the video ends."
+    "genre": "auto",
+    "prompt": "Create a coherent 12-second vertical cinematic anime football short with a completely different story structure: an OBJECT MYSTERY, not an interview. Native ENGLISH speech only. Original fictional adult characters, no real player or coach likeness or voice imitation. Inspired by Italy versus Turkey, but NOT match footage, NOT a simulation and NOT a score prediction. Charcoal stadium at dusk, warm gold light, blue Italy kits and red Turkey kits. No subtitles, logos, title cards, scoreboards, numbers, written signs or drawn text anywhere.\n0–2.5 seconds: begin on a close-up of a football rolling into a stadium tunnel where a sharp beam of light cuts across the floor. The ball suddenly disappears when it crosses the shadow line. A young Italian kit assistant whispers in clear English: \"It vanished at the line.\"\n2.5–5.0: no reporter. A Turkish defender follows a trail of moving shadow and finds a second ball-shaped reflection on a wall. He says in a distinct calm male voice: \"Then the shadow is showing us the way.\"\n5.0–8.5: the two teams enter the pitch from opposite sides, following the golden shadow trail rather than playing normally. The real ball reappears behind an ancient stadium arch. An Italian midfielder reaches for it, but the Turkish defender blocks the path; the players circle the ball without a shot or goal.\n8.5–11.5: twist: the shadow moves independently and rolls the ball into the open space between both teams. A distinct energetic male commentator reacts in English: \"Who is controlling the game now?\" Keep the ball moving and both teams chasing it. No winner, no celebration, no final score.\n11.5–12.0: the ball continues toward the dark tunnel as the players turn after it; end on motion, not a freeze.\nAudio: exactly the three English lines above, clearly intelligible, three distinct voices, no German, Italian, Turkish or improvised speech. Instrumental mystery percussion and stadium ambience only underneath, ducked under voices. No singing. Stable faces and spatial continuity."
   },
   "charges": [
     {
@@ -486,6 +489,13 @@
       "state": "completed",
       "balance_before": 223.22,
       "job_id": "82b86aa9-cf07-4a5b-ba4b-88e3aabb582c",
+      "charged_credits_confirmed": 12
+    },
+    {
+      "asset_id": "goaliq-2026-10-04-object-mystery-v2",
+      "credits": 12,
+      "state": "completed",
+      "job_id": "fa95b0cd-de16-46e9-93f1-10dba245eb54",
       "charged_credits_confirmed": 12
     }
   ],
@@ -499,16 +509,17 @@
   },
   "review": "pending",
   "publish_enabled": false,
-  "total_credits": 12,
-  "balance_after": 211.22,
+  "total_credits": 24,
+  "balance_after": 199.22,
   "final": {
-    "media_id": "f18c7bb8-bc20-448c-b573-0a1ac9ada781",
+    "media_id": "fb6bc599-47df-4e51-beab-91374ab4be36",
     "duration": 15.129,
     "width": 720,
     "height": 1280,
     "fps": 24,
     "has_audio": true,
-    "assembly": "Complete source with original audio; append three-second original-logo outro only.",
+    "assembly": "Object-mystery source with original audio; append three-second original-logo outro only.",
+    "source_job_id": "fa95b0cd-de16-46e9-93f1-10dba245eb54",
     "source_video_reencoded": false,
     "source_audio_reencoded": false,
     "source_frames": 289,
@@ -547,7 +558,18 @@
     "Original source contains generated jersey emblems and a number despite no-writing prompt; no redaction performed because source must remain unchanged.",
     "Outro inspected: complete original logo, exact goaliq.de and exact two-line English disclaimer fit inside frame.",
     "All source decoded frame hashes and all encoded audio packet hashes match final prefix.",
-    "Current fixture and probability values rechecked unchanged before export delivery."
+    "Current fixture and probability values rechecked unchanged before export delivery.",
+    "Exceptional second version uses an object-mystery narrative and does not use the interview template.",
+    "Contact sheet inspected: tunnel light, shadow clue, arch and two-team pursuit are visibly distinct scenes.",
+    "Exact original logo, goaliq.de and English disclaimer inspected in the appended three-second outro.",
+    "All source decoded frame hashes and encoded audio packet hashes match final prefix."
   ],
-  "media_access": "Resolve recorded IDs via authenticated Higgsfield connection; no direct private media URLs stored."
+  "media_access": "Resolve recorded media IDs through authenticated Higgsfield; direct private URLs are not stored.",
+  "exceptional_override": {
+    "authorized_by_user": true,
+    "reason": "User explicitly requested one exceptional additional video after reviewing the repeated story template.",
+    "daily_limit_override": true
+  },
+  "story_type": "object_mystery",
+  "previous_story_type": "interview_then_pitch_duel"
 }
