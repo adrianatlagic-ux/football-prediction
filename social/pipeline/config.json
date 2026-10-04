@@ -40,5 +40,12 @@
   "processing_environment": "higgsfield_cloud_only",
   "local_processing_enabled": false,
   "python_enabled": false,
-  "cloud_editor_internal_ffmpeg_enabled": true
+  "cloud_editor_internal_ffmpeg_enabled": true,
+  "edit_mode": "append_goalfiq_outro_only",
+  "preserve_source_video": true,
+  "preserve_source_audio": true,
+  "reuse_scenes_from_other_versions": false,
+  "force_target_duration": false,
+  "prefer_source_stream_copy": true,
+  "final_output": "single_mp4_inline_chat"
 }
