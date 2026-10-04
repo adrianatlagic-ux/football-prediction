@@ -16,3 +16,12 @@ def test_a_fixture_stored_in_polish_still_pairs_with_the_english_event():
     event = {"sport_key": "soccer_uefa_nations_league", "home_team": "Greece", "away_team": "Germany",
              "commence_time": "2026-10-04T18:45:00Z"}
     assert match_fixture(event, [other, fixture]) is fixture
+
+
+def test_the_same_match_read_twice_under_two_languages_takes_the_newer_read():
+    old = {"sport_key": "soccer_uefa_nations_league", "home_team": "Walia", "away_team": "Dania",
+           "commence_time": "2026-10-04T18:45:00.000Z", "fetched_at": "2026-10-04T06:01:00+00:00"}
+    new = {**old, "home_team": "Wales", "away_team": "Denmark", "fetched_at": "2026-10-04T17:52:00+00:00"}
+    event = {"sport_key": "soccer_uefa_nations_league", "home_team": "Wales", "away_team": "Denmark",
+             "commence_time": "2026-10-04T18:45:00Z"}
+    assert match_fixture(event, [old, new]) is new

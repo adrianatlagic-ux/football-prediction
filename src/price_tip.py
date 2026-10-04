@@ -111,6 +111,12 @@ def match_fixture(event: dict, fixtures: list) -> Optional[dict]:
         f_home, f_away = to_english(f.get("home_team") or ""), to_english(f.get("away_team") or "")
         if home & _tokens(f_home) and away & _tokens(f_away):
             candidates.append(f)
+    # The same match stored twice - once with the foreign names of a morning
+    # read, once with English names - is one match: the newest read wins.
+    # Different matches stay ambiguous.
+    same_match = {(to_english(f.get("home_team") or ""), to_english(f.get("away_team") or "")) for f in candidates}
+    if len(candidates) > 1 and len(same_match) == 1:
+        return max(candidates, key=lambda f: str(f.get("markets_fetched_at") or f.get("fetched_at") or ""))
     return candidates[0] if len(candidates) == 1 else None
 
 

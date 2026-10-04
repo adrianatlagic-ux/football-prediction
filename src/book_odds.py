@@ -167,7 +167,10 @@ def fetch_league(sport_key: str, max_items: int, token: Optional[str] = None,
 
 
 def _identity(f: dict) -> tuple:
-    return (f.get("sport_key"), f.get("home_team"), f.get("away_team"), str(f.get("commence_time"))[:10])
+    # Names in English, so a newer read replaces an older one stored with
+    # the foreign names OddsPortal sometimes sends.
+    return (f.get("sport_key"), to_english(f.get("home_team") or ""), to_english(f.get("away_team") or ""),
+            str(f.get("commence_time"))[:10])
 
 
 def store(sport_key: str, fixtures: list, replace: bool = False) -> None:
