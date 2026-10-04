@@ -2,6 +2,16 @@
 
 Stand: 04.10.2026. Der Scheduler arbeitet in dieser Codex-Aufgabe täglich um 09:00 Europe/Berlin. Diese Cloud-Task verwendet ausschließlich GitHub MCP für das Repository und Higgsfield MCP für Recherche, Medienproduktion, Schnitt und Rendering. Keine Dateien oder Prozesse auf dem lokalen Rechner und keine Python-Prozesse. Der native Higgsfield-Cloud-Editor darf intern FFmpeg verwenden (ausdrückliche Nutzerklarstellung vom 04.10.2026); dies erlaubt keine lokale Verarbeitung. Die Einrichtung einer Zeitplanung beweist noch keinen erfolgreichen unbeaufsichtigten Durchlauf. Die unten dokumentierten lokalen Python-Befehle beschreiben den bisherigen Ablauf und dürfen in dieser Cloud-Task nicht ausgeführt werden. Fehlt ein Cloud-Zugang oder prüfbarer Budget-/Datenzustand, stoppen. Die einmalige Ledger-Ausnahme vom 04.10.2026 ist keine dauerhafte Freigabe.
 
+## Zwingende Montage und Ausgabe (Nutzeranweisung 04.10.2026)
+
+- Der freigegebene Ausgangsclip wird VOLLSTÄNDIG und UNVERÄNDERT übernommen. Aktuell ist dies die englische Fassung. Anschließend ausschließlich den vorhandenen Goalfiq-Abschluss mit korrekter Domain goalfiq.de anhängen.
+- Keine Szenen aus anderen Versionen einfügen, keine Umordnung, Kürzung, Wiederholung, Tempoänderung, zusätzlichen Overlays oder neue Musik im Ausgangsclip. Sein Originalton bleibt erhalten, sofern die zwingende Englischprüfung bestanden ist.
+- Das gewünschte einfache Anhängen hat Vorrang vor älteren Schnittmustern, Mischungen mehrerer Assets und Zieldauern. Die Gesamtdauer ergibt sich aus Ausgangsclip plus Abschluss; nicht durch zusätzliche Szenen auf 14–18 Sekunden verlängern.
+- Die codierten Bild- und Tonpakete des Ausgangsclips nach Möglichkeit ohne Neucodierung übernehmen (Stream Copy). Nur den anzuhängenden Abschluss bei Bedarf an Auflösung, Bildrate und Audioformat des Ausgangsclips anpassen. Keine zusätzliche Skalierung oder Qualitätsminderung des Ausgangsclips.
+- Vor der Ausgabe prüfen: Ausgangsclip komplett enthalten, Übergang erst nach seinem Ende, Goalfiq-Abschluss und goalfiq.de sichtbar, keine versehentlich eingefügte Szene. Bei Stream Copy die Paket-Hashes des Ausgangsclips mit dem entsprechenden Anfang des fertigen Videos vergleichen.
+- Genau EINE zusammengesetzte MP4 als Endausgabe zurückgeben und direkt im Chat anzeigen. Den Higgsfield-Medien-Player für den tatsächlich exportierten Clip verwenden; einen Rohclip oder separaten externen Link nicht als fertige Endausgabe ausgeben.
+- Alle bisherigen Budget-, Daten- und Englischprüfungen bleiben verbindlich. Nicht bestandene oder fehlende Prüfung sperrt ready. Kein neuer bezahlter Generierungsauftrag allein für dieses Anhängen.
+
 ## Zwingende Sprachvorgabe (Nutzeranweisung 04.10.2026)
 
 - Der gesamte gesprochene Text muss ENGLISCH sein: Figuren-Dialoge, Medienfragen, Kommentare, Erzähler und Voiceover. Deutschsprachige Zielgruppen oder deutschsprachige Quellen ändern diese Vorgabe nicht.
