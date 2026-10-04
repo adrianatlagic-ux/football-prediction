@@ -242,6 +242,15 @@ def _has_fresh_book(fixtures: list, event: dict) -> bool:
 WINDOW = timedelta(minutes=75)
 
 
+# What the last reads did, per competition - shown in /jobs/status so a
+# missing price says why (budget, failure) instead of failing silently.
+REFRESH_LOG: dict = {}
+
+
+def _log_refresh(sport_key: str, kind: str, items: int, outcome: str) -> None:
+    REFRESH_LOG[sport_key] = {"at": _now().isoformat(), "kind": kind, "items": items, "outcome": outcome}
+
+
 def refresh_if_due(sport_key: str, events: list) -> bool:
     """Fetch the full market book when a match in the window lacks one.
 
@@ -272,13 +281,16 @@ def refresh_if_due(sport_key: str, events: list) -> bool:
         full = (spent_this_month() + items * PRICE_PER_FULL_BOOK <= MONTHLY_BUDGET
                 and apify_budget.allows(items * PRICE_PER_FULL_BOOK))
         if not full and not apify_budget.allows(items * PRICE_PER_MATCH):
+            _log_refresh(sport_key, "last_hour", items, "skipped: Apify budget")
             return False
         try:
             fetched = fetch_league(sport_key, items, full_book=full)
-        except Exception:
+        except Exception as exc:
+            _log_refresh(sport_key, "last_hour", items, f"failed: {type(exc).__name__}")
             return False
         _record_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
         apify_budget.note_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
+        _log_refresh(sport_key, "last_hour", items, "full book" if full else "1X2 only: Apify budget")
         if not full:
             # Past the budget: mark the 1X2 read so the window is not retried.
             fetched = [{**f, "markets": {}} for f in fetched]
@@ -314,13 +326,16 @@ def daily_refresh(sport_key: str, events: list) -> bool:
             and apify_budget.allows(items * PRICE_PER_FULL_BOOK))
     if not full and (spent_this_month() + items * PRICE_PER_MATCH > MONTHLY_BUDGET + DAILY_RESERVE
                      or not apify_budget.allows(items * PRICE_PER_MATCH)):
+        _log_refresh(sport_key, "morning", items, "skipped: Apify budget")
         return False
     with _refresh_lock:
         try:
             fetched = fetch_league(sport_key, items, full_book=full)
-        except Exception:
+        except Exception as exc:
+            _log_refresh(sport_key, "morning", items, f"failed: {type(exc).__name__}")
             return False
         _record_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
         apify_budget.note_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
+        _log_refresh(sport_key, "morning", items, "full book" if full else "1X2 only: Apify budget")
         store(sport_key, fetched)
         return True

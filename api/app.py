@@ -414,6 +414,8 @@ def job_status():
     from src import apify_budget, gemini_usage
     out["gemini"] = gemini_usage.load()
     out["apify"] = apify_budget.usage()
+    out["book_coverage"] = _book_coverage()
+    out["book_refreshes"] = book_odds.REFRESH_LOG
     return out
 
 
@@ -957,7 +959,49 @@ def _best_price(event, market_key, outcome_name, point=None):
 USER_BOOK_KEY = "betathome"
 
 
-def _with_book_odds(event: dict) -> dict:
+def _book_coverage(now: Optional[datetime] = None) -> dict:
+    """For every match of the next 24 hours: does bet-at-home's price reach
+    the page, and if not, why. Reads only what is already loaded - no fetch."""
+    from src.bet_audit import timestamp
+    from src.price_tip import match_fixture
+    now = now or datetime.now(timezone.utc)
+    events = list(_odds_cache)
+    finals = {(e.get("sport_key"), e.get("id")): e for e in _final_odds_cache.values()}
+    events = [finals.get((e.get("sport_key"), e.get("id")), e) for e in events]
+    fixtures = book_odds.load().get("fixtures", [])
+    rows, warnings = [], 0
+    for e in events:
+        try:
+            kickoff = timestamp(e["commence_time"])
+        except (KeyError, ValueError, TypeError):
+            continue
+        if not (now < kickoff <= now + timedelta(hours=24)):
+            continue
+        fixture = match_fixture(e, fixtures, events)
+        last_hour = kickoff - now <= timedelta(minutes=75)
+        if fixture is None:
+            status, note = "missing", "no bet-at-home listing (not in the read, or names not matched)"
+        else:
+            read = fixture.get("markets_fetched_at") or fixture.get("fetched_at")
+            try:
+                read_at = timestamp(read)
+            except (ValueError, TypeError):
+                read_at = None
+            full = bool(fixture.get("markets"))
+            if last_hour and (read_at is None or kickoff - read_at > timedelta(minutes=75)):
+                status, note = "stale", f"last read {str(read)[11:16]} UTC, not yet read in the last hour"
+            elif not full:
+                status, note = "1x2_only", "1X2 only, no full market book"
+            else:
+                status, note = "ok", f"read {str(read)[11:16]} UTC"
+        warnings += status != "ok"
+        rows.append({"match": f"{e.get('home_team')} - {e.get('away_team')}", "kickoff": e.get("commence_time"),
+                     "status": status, "note": note})
+    rows.sort(key=lambda r: r["kickoff"])
+    return {"checked_at": now.isoformat(), "warnings": warnings, "matches": rows}
+
+
+def _with_book_odds(event: dict, events: Optional[list] = None) -> dict:
     """The event with bet-at-home added, when its odds match the snapshot.
 
     bet-at-home is only added if it was fetched within the quote-freshness
@@ -970,7 +1014,7 @@ def _with_book_odds(event: dict) -> dict:
     from src.bet_audit import timestamp
     try:
         snapshot = timestamp(event["odds_fetched_at"])
-        fixture = match_fixture(event, book_odds.load().get("fixtures", []))
+        fixture = match_fixture(event, book_odds.load().get("fixtures", []), events)
     except Exception:
         return event
     if not fixture:
@@ -1062,7 +1106,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
     if event is None:
         return {"home_team": home_team, "away_team": away_team, "odds_found": False, "bets": []}
     if event.get("odds_fetched_at"):
-        event = _with_book_odds(event)
+        event = _with_book_odds(event, odds)
 
     # Once a match has kicked off, bookmaker odds become live/in-play odds that
     # react to the score and game state - but our model's probabilities are
@@ -1904,7 +1948,7 @@ def _price_tip_for(odds: list[dict], home: str, away: str, prediction: dict,
     if not event:
         return None
     try:
-        tip = build_price_tip(event, book_odds.load())
+        tip = build_price_tip(event, book_odds.load(), events=odds)
     except Exception:
         return None
     if not tip.get("outcomes") and event.get("odds_stage") != "final":

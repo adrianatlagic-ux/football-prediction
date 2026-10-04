@@ -86,7 +86,79 @@ def fair_probabilities(prices: dict) -> dict:
     return {k: v / total for k, v in implied.items()}
 
 
-def match_fixture(event: dict, fixtures: list) -> Optional[dict]:
+# The language-free fallback: kickoffs within this of each other, and the
+# bookmaker's 1X2 within this distance of the event's own prices (sum of the
+# three probability gaps), clearly closer than any other listing.
+FALLBACK_KICKOFF = timedelta(minutes=10)
+FALLBACK_MAX_DISTANCE = 0.10
+FALLBACK_MARGIN = 0.06
+
+
+def _event_probs(event: dict) -> Optional[tuple]:
+    """(home, draw, away), margin removed, from the event's own 1X2 prices:
+    Pinnacle's if it quotes them, else the average over its bookmakers."""
+    home, away = event.get("home_team"), event.get("away_team")
+    rows = []
+    for b in event.get("bookmakers", []):
+        for m in b.get("markets", []):
+            if m.get("key") != "h2h":
+                continue
+            price = {o.get("name"): o.get("price") for o in m.get("outcomes", [])}
+            if all(price.get(k) for k in (home, "Draw", away)):
+                inv = [1 / price[home], 1 / price["Draw"], 1 / price[away]]
+                row = [x / sum(inv) for x in inv]
+                if b.get("key") == "pinnacle":
+                    return tuple(row)
+                rows.append(row)
+    if not rows:
+        return None
+    return tuple(sum(r[i] for r in rows) / len(rows) for i in range(3))
+
+
+def _fixture_probs(f: dict) -> Optional[tuple]:
+    o = f.get("odds") or {}
+    try:
+        inv = [1 / float(o["home"]), 1 / float(o["draw"]), 1 / float(o["away"])]
+    except (KeyError, TypeError, ValueError, ZeroDivisionError):
+        return None
+    return tuple(x / sum(inv) for x in inv)
+
+
+def _names_match(event: dict, f: dict) -> bool:
+    from src.foreign_team_names import to_english
+    return bool(_tokens(event.get("home_team")) & _tokens(to_english(f.get("home_team") or ""))
+                and _tokens(event.get("away_team")) & _tokens(to_english(f.get("away_team") or "")))
+
+
+def match_fixture_by_odds(event: dict, fixtures: list, events: list) -> Optional[dict]:
+    """The listing of this match when its names cannot be read - another
+    language, another spelling: same competition and kickoff, 1X2 prices
+    close to the event's own and clearly closer than any other listing.
+    Listings whose names already belong to another event never count."""
+    kickoff = _time(event.get("commence_time"))
+    ref = _event_probs(event)
+    if kickoff is None or ref is None:
+        return None
+    others = [e for e in events if e is not event and e.get("id") != event.get("id")]
+    scored = []
+    for f in fixtures:
+        start = _time(f.get("commence_time"))
+        if f.get("sport_key") != event.get("sport_key") or start is None or abs(start - kickoff) > FALLBACK_KICKOFF:
+            continue
+        if any(_names_match(e, f) for e in others):
+            continue
+        probs = _fixture_probs(f)
+        if probs:
+            scored.append((sum(abs(a - b) for a, b in zip(ref, probs)), f))
+    scored.sort(key=lambda x: x[0])
+    if not scored or scored[0][0] > FALLBACK_MAX_DISTANCE:
+        return None
+    if len(scored) > 1 and scored[1][0] - scored[0][0] < FALLBACK_MARGIN:
+        return None
+    return scored[0][1]
+
+
+def match_fixture(event: dict, fixtures: list, events: Optional[list] = None) -> Optional[dict]:
     """The bookmaker's listing of the same match, or None when unsure.
 
     The two sources spell teams differently ("Bayern Munich" / "Bayern
@@ -117,7 +189,12 @@ def match_fixture(event: dict, fixtures: list) -> Optional[dict]:
     same_match = {(to_english(f.get("home_team") or ""), to_english(f.get("away_team") or "")) for f in candidates}
     if len(candidates) > 1 and len(same_match) == 1:
         return max(candidates, key=lambda f: str(f.get("markets_fetched_at") or f.get("fetched_at") or ""))
-    return candidates[0] if len(candidates) == 1 else None
+    if len(candidates) == 1:
+        return candidates[0]
+    # No listing under these names: try the prices, if the other events are known.
+    if not candidates and events:
+        return match_fixture_by_odds(event, fixtures, events)
+    return None
 
 
 def _pinnacle_two_way(event: dict, key: str, first: tuple, second: tuple) -> Optional[tuple]:
@@ -212,7 +289,8 @@ def market_rows(event: dict, fixture: dict, fair: dict) -> list:
     return rows
 
 
-def build_price_tip(event: dict, book: dict, now: Optional[datetime] = None) -> dict:
+def build_price_tip(event: dict, book: dict, now: Optional[datetime] = None,
+                    events: Optional[list] = None) -> dict:
     """Compare the bookmaker against Pinnacle's fair price for one event.
 
     Always returns every comparable bet's numbers, so the page can show why
@@ -233,7 +311,7 @@ def build_price_tip(event: dict, book: dict, now: Optional[datetime] = None) -> 
         return {**base, "reason": "Pinnacle bietet für dieses Spiel keine Quote an, es gibt also keinen fairen Vergleichspreis."}
     base["pinnacle_updated_at"] = pinnacle.get("last_update")
 
-    fixture = match_fixture(event, book.get("fixtures", []))
+    fixture = match_fixture(event, book.get("fixtures", []), events)
     if fixture is None:
         return {**base, "reason": f"{bookmaker} führt dieses Spiel nicht so, dass wir es sicher zuordnen können."}
 
