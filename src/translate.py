@@ -17,7 +17,8 @@ from typing import Optional
 from src.jobs import REPORTS
 
 PATH = REPORTS / "translations_en.json"
-MODEL = "gemini-2.5-flash-lite"
+# The small model first; gemini-2.5-flash-lite is closed to new accounts.
+MODELS = ("gemini-3.5-flash-lite", "gemini-2.5-flash")
 MAX_KEPT = 5000
 _lock = threading.Lock()
 
@@ -66,16 +67,20 @@ def _ask_model(texts: list) -> Optional[list]:
         "football fans. Keep team and player names, numbers, scores and percentages exactly as they are; "
         "keep any **double asterisks** around the same words in English. Respond with ONLY a JSON array "
         "of the same length and order, no code fences.\n" + json.dumps(texts, ensure_ascii=False))
-    try:
-        from google import genai
-        client = genai.Client(api_key=api_key)
-        response = client.models.generate_content(model=MODEL, contents=prompt)
-        from src import gemini_usage
-        gemini_usage.record("translation", response)
-        text = response.text.strip()
-        if text.startswith("```"):
-            text = text.strip("`").split("\n", 1)[1].rsplit("```", 1)[0]
-        out = json.loads(text)
-        return out if isinstance(out, list) else None
-    except Exception:
-        return None
+    from google import genai
+    client = genai.Client(api_key=api_key)
+    for model in MODELS:
+        try:
+            response = client.models.generate_content(model=model, contents=prompt)
+            from src import gemini_usage
+            gemini_usage.record("translation", response)
+            text = response.text.strip()
+            if text.startswith("```"):
+                text = text.strip("`").split("\n", 1)[1].rsplit("```", 1)[0]
+            out = json.loads(text)
+            # An echo of the German is no translation.
+            if isinstance(out, list) and len(out) == len(texts) and out != texts:
+                return out
+        except Exception:
+            continue
+    return None
