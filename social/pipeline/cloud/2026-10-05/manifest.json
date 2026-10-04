@@ -1,0 +1,500 @@
+{
+  "post_id": "goaliq-2026-10-05",
+  "target_date": "2026-10-05",
+  "state": "reserved",
+  "cloud_only": true,
+  "daily_limit": 1,
+  "daily_limit_basis": "editorial_target_date",
+  "created_at": "2026-10-04T17:43:04.301Z",
+  "selected": [
+    {
+      "group": "Mon 05 Oct",
+      "date": "2026-10-05",
+      "time": "20:45",
+      "home_team": "Italy",
+      "away_team": "Turkey",
+      "match_id": "italy_vs_turkey_nl",
+      "competition": "nl",
+      "probabilities": {
+        "home": 0.5885,
+        "draw": 0.2455,
+        "away": 0.166
+      },
+      "freshness_field": "history_refreshed_at",
+      "freshness_timestamp": "2026-10-04T06:10:40.306516+00:00"
+    }
+  ],
+  "packet": {
+    "fetched_at": "2026-10-04T17:39:21.525Z",
+    "source": "https://football-prediction.fly.dev/predictions/italy_vs_turkey_nl",
+    "raw_prediction": {
+      "home_team": "Italy",
+      "away_team": "Turkey",
+      "prediction": "H",
+      "prediction_label": "Home Win",
+      "probability_home_win": 0.5885,
+      "probability_draw": 0.2455,
+      "probability_away_win": 0.166,
+      "score_prediction": {
+        "home_xg": 1.79,
+        "away_xg": 1.34,
+        "rho": -0.13,
+        "most_likely_score": "2:1",
+        "result": "H",
+        "probability_home_win": 0.5885,
+        "probability_draw": 0.2455,
+        "probability_away_win": 0.166,
+        "top_scorelines": [
+          {
+            "score": "2:1",
+            "probability": 0.1184
+          },
+          {
+            "score": "2:0",
+            "probability": 0.0885
+          },
+          {
+            "score": "1:0",
+            "probability": 0.0819
+          },
+          {
+            "score": "3:1",
+            "probability": 0.0705
+          },
+          {
+            "score": "3:0",
+            "probability": 0.0527
+          }
+        ],
+        "betting_markets": {
+          "double_chance": {
+            "home_or_draw": 0.834,
+            "home_or_away": 0.7545,
+            "draw_or_away": 0.4115
+          },
+          "over_under": [
+            {
+              "line": 1.5,
+              "over": 0.8356,
+              "under": 0.1644
+            },
+            {
+              "line": 2.5,
+              "over": 0.6105,
+              "under": 0.3895
+            },
+            {
+              "line": 3.5,
+              "over": 0.3863,
+              "under": 0.6137
+            }
+          ],
+          "btts": {
+            "yes": 0.6203,
+            "no": 0.3797
+          },
+          "win_margin": {
+            "home_1plus": 0.5885,
+            "home_2plus": 0.3303,
+            "home_3plus": 0.1467,
+            "away_1plus": 0.166,
+            "away_2plus": 0.0752,
+            "away_3plus": 0.0258
+          },
+          "scenario": "Italien ist der klare Favorit mit einer Siegchance von fast 60%, wobei ein 2:1 das wahrscheinlichste Ergebnis in einem Spiel mit voraussichtlich über 2,5 Toren ist.",
+          "scenario_lang": "de"
+        },
+        "score_matrix": [
+          [
+            0.05477746730268821,
+            0.027344898302485876,
+            0.02380657533858975,
+            0.010610328062368017,
+            0.0035466796459564754,
+            0.000948429600826845,
+            0.0002113523063630555,
+            0.000040370310819400384,
+            0.000006747225855905763
+          ],
+          [
+            0.08193683408799345,
+            0.1127687989183927,
+            0.042504584342396505,
+            0.01894382445241422,
+            0.006332290218268248,
+            0.0016933391463418322,
+            0.0003773512907254084,
+            0.00007207770360697388,
+            0.000012046589078466489
+          ],
+          [
+            0.08853452686234825,
+            0.11837658648869259,
+            0.05955832979573596,
+            0.016911281290005395,
+            0.005652878665555662,
+            0.001511655404910325,
+            0.0003368640708550654,
+            0.00006434425759682495,
+            0.000010754072230915916
+          ],
+          [
+            0.05269025063753345,
+            0.07045039074306557,
+            0.047098443220491,
+            0.015797631932672165,
+            0.0033642422258017735,
+            0.0008996433932057335,
+            0.00020048056902963657,
+            0.000038293705066430384,
+            0.000006400155750559222
+          ],
+          [
+            0.023518473052009752,
+            0.03144577215227889,
+            0.021022550742692422,
+            0.009369519005372334,
+            0.0023570239669087143,
+            0.00040155889644707363,
+            0.00008948518564867863,
+            0.000017092525842435653,
+            0.0000028567313445453476
+          ],
+          [
+            0.00839804051801719,
+            0.011228742107158518,
+            0.007506789770695449,
+            0.0033456934073670657,
+            0.0011183539886580336,
+            0.000225069154840799,
+            0.00003195361421542947,
+            0.000006103445757834357,
+            0.000001020089421941933
+          ],
+          [
+            0.0024989960156813693,
+            0.0033413248872402406,
+            0.002233787475456806,
+            0.0009955744410573236,
+            0.0003327874110373603,
+            0.0000889918072443344,
+            0.000014924695167606505,
+            0.0000018161958849844397,
+            3.0354692807239253e-7
+          ],
+          [
+            0.0006373916534111252,
+            0.0008522352901315496,
+            0.0005697478040845406,
+            0.0002539303124524446,
+            0.00008488045472040333,
+            0.000022698169506302558,
+            0.000005058161903840101,
+            7.271121131660906e-7,
+            7.742240370046243e-8
+          ],
+          [
+            0.00014225096904024902,
+            0.0001901990639863542,
+            0.00012715443763005078,
+            0.00005667133044767759,
+            0.00001894334020838875,
+            0.000005065702681281789,
+            0.0000011288639073527703,
+            2.156237970469588e-7,
+            2.7121480685621716e-8
+          ]
+        ]
+      },
+      "game_flow": {
+        "match_type": "Balanced & Open",
+        "match_description": "Both teams play attacking football at an even level",
+        "dominance_index": 0.14,
+        "total_xg": 3.13,
+        "first_goal": {
+          "Italy_scores_first": 0.547,
+          "Turkey_scores_first": 0.409,
+          "no_goals": 0.044,
+          "expected_minute": 28
+        },
+        "halftime_xg": {
+          "Italy": 0.84,
+          "Turkey": 0.63
+        },
+        "top_halftime_scores": [
+          {
+            "score": "0:0",
+            "probability": 0.23
+          },
+          {
+            "score": "1:0",
+            "probability": 0.194
+          },
+          {
+            "score": "0:1",
+            "probability": 0.145
+          },
+          {
+            "score": "1:1",
+            "probability": 0.122
+          },
+          {
+            "score": "2:0",
+            "probability": 0.081
+          }
+        ],
+        "goal_timing": {
+          "1-15'": {
+            "Italy": 0.242,
+            "Turkey": 0.181
+          },
+          "16-30'": {
+            "Italy": 0.277,
+            "Turkey": 0.208
+          },
+          "31-45'": {
+            "Italy": 0.322,
+            "Turkey": 0.241
+          },
+          "46-60'": {
+            "Italy": 0.26,
+            "Turkey": 0.194
+          },
+          "61-75'": {
+            "Italy": 0.331,
+            "Turkey": 0.248
+          },
+          "76-90'": {
+            "Italy": 0.358,
+            "Turkey": 0.268
+          }
+        },
+        "comeback_probability": {
+          "Italy": 0.037,
+          "Turkey": 0.028
+        },
+        "late_drama_probability": 0.465,
+        "match_stories": [
+          {
+            "szenario": "Ausgeglichenes Unentschieden",
+            "beschreibung": "Beide Teams auf Augenhöhe, wahrscheinlichstes Draw: 1:1",
+            "wahrscheinlichkeit": 0.231
+          },
+          {
+            "szenario": "Torloser Krimi",
+            "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+            "wahrscheinlichkeit": 0.189
+          },
+          {
+            "szenario": "Italy dominiert früh",
+            "beschreibung": "Italy geht 2:0 in Halbzeit 1, kontrolliert dann",
+            "wahrscheinlichkeit": 0.082
+          },
+          {
+            "szenario": "Turkey dominiert früh",
+            "beschreibung": "Turkey geht 0:2 in Halbzeit 1, kontrolliert dann",
+            "wahrscheinlichkeit": 0.046
+          }
+        ],
+        "predicted_stats": {
+          "possession": {
+            "home": 53,
+            "away": 47
+          },
+          "shots": {
+            "home": 16,
+            "away": 13
+          },
+          "shots_on_target": {
+            "home": 6,
+            "away": 5
+          },
+          "corners": {
+            "home": 6,
+            "away": 5
+          },
+          "passes": {
+            "home": 276,
+            "away": 244
+          }
+        },
+        "match_ticker": [
+          {
+            "minute": 1,
+            "type": "kickoff",
+            "team": null,
+            "headline": "Kickoff!",
+            "description": "The match between Italy and Turkey is underway.",
+            "score_after": "0:0"
+          },
+          {
+            "minute": 2,
+            "type": "goal",
+            "team": "Italy",
+            "headline": "GOAL! Italy!",
+            "description": "Italy score to make it 1:0.",
+            "score_after": "1:0"
+          },
+          {
+            "minute": 8,
+            "type": "chance",
+            "team": "Italy",
+            "headline": "Big chance for Italy!",
+            "description": "Italy create a great opportunity but fail to convert.",
+            "score_after": "1:0"
+          },
+          {
+            "minute": 41,
+            "type": "chance",
+            "team": "Italy",
+            "headline": "Big chance for Italy!",
+            "description": "Italy create a great opportunity but fail to convert.",
+            "score_after": "1:0"
+          },
+          {
+            "minute": 45,
+            "type": "halftime",
+            "team": null,
+            "headline": "Half-time",
+            "description": "The teams go into the break at 1:0.",
+            "score_after": "1:0"
+          },
+          {
+            "minute": 52,
+            "type": "goal",
+            "team": "Italy",
+            "headline": "GOAL! Italy!",
+            "description": "Italy score to make it 2:0.",
+            "score_after": "2:0"
+          },
+          {
+            "minute": 53,
+            "type": "chance",
+            "team": "Turkey",
+            "headline": "Big chance for Turkey!",
+            "description": "Turkey create a great opportunity but fail to convert.",
+            "score_after": "2:0"
+          },
+          {
+            "minute": 81,
+            "type": "chance",
+            "team": "Turkey",
+            "headline": "Big chance for Turkey!",
+            "description": "Turkey create a great opportunity but fail to convert.",
+            "score_after": "2:0"
+          },
+          {
+            "minute": 84,
+            "type": "goal",
+            "team": "Turkey",
+            "headline": "GOAL! Turkey!",
+            "description": "Turkey score to make it 2:1.",
+            "score_after": "2:1"
+          },
+          {
+            "minute": 90,
+            "type": "fulltime",
+            "team": null,
+            "headline": "Full-time",
+            "description": "The final score finishes 2:1.",
+            "score_after": "2:1"
+          }
+        ]
+      },
+      "explanation": {
+        "fifa_ranking": {
+          "Italy": 10,
+          "Turkey": 27
+        },
+        "fifa_points": {
+          "Italy": 1710.06,
+          "Turkey": 1555.72
+        },
+        "form_last_10_avg_pts": {
+          "Italy": 1.78,
+          "Turkey": 0.87
+        },
+        "win_rate_last_10": {
+          "Italy": "50%",
+          "Turkey": "27%"
+        },
+        "avg_goals_scored": {
+          "Italy": 1.94,
+          "Turkey": 0.75
+        },
+        "avg_goals_conceded": {
+          "Italy": 1.3,
+          "Turkey": 1.74
+        },
+        "clean_sheet_rate": {
+          "Italy": "24%",
+          "Turkey": "22%"
+        },
+        "h2h_last_10": {
+          "Italy wins": "62%",
+          "draws": "38%",
+          "Turkey wins": "0%",
+          "total_h2h_games": 8
+        }
+      },
+      "history_refreshed_at": "2026-10-04T06:10:40.306516+00:00",
+      "match_id": "italy_vs_turkey_nl",
+      "group": "Mon 05 Oct",
+      "date": "2026-10-05",
+      "time": "20:45"
+    }
+  },
+  "sources": [
+    {
+      "url": "https://www.figc.it/it/nazionali/news/boom-di-ascolti-per-gli-azzurri-quasi-8-milioni-di-telespettatori-e-il-40-8-di-share-per-il-match-con-la-francia-m93ykuft",
+      "published": "2026-10-03",
+      "retrieved": "2026-10-04",
+      "verified_context": "FIGC confirms Italy–Turkey on Monday 5 October at20:45 and renewed fan interest after a comeback draw in France."
+    },
+    {
+      "url": "https://www.figc.it/it/nazionali/news/bastoni-risponde-a-olise-donnarumma-para-tutto-finisce-1-1-con-la-francia-di-zidane-superato-lesame-di-maturita-wia8hyj5",
+      "published": "2026-10-02",
+      "retrieved": "2026-10-04",
+      "verified_context": "FIGC reports team courage and collective response, then next Turkey match in Bologna."
+    }
+  ],
+  "story": {
+    "fictional": true,
+    "dialogues": [
+      "Confidence is back. What comes next?",
+      "We prove it together.",
+      "Can Italy keep the momentum?"
+    ],
+    "action": "One-two pass challenged by a defender reading the return pass; no outcome."
+  },
+  "params": {
+    "model": "seedance_2_0_mini",
+    "duration": 12,
+    "resolution": "720p",
+    "aspect_ratio": "9:16",
+    "generate_audio": true,
+    "count": 1,
+    "bitrate_mode": "high",
+    "genre": "action",
+    "use_unlim": false,
+    "prompt": "Create a coherent 12-second vertical cinematic Japanese anime football micro-story with native ENGLISH speech only. Original adult fictional characters, no real player/coach likeness or voice imitation. Inspired by Italy facing Turkey after renewed confidence, NOT actual match footage, NOT a simulation or result prediction. Crisp cel animation, charcoal shadows and warm gold stadium lights. Italy wears plain blue jerseys and white shorts; Turkey plain red jerseys and white shorts. No writing, numbers, logos, subtitles, title cards, scoreboards, or drawn letters anywhere. No brand outro inside this source; a separate logo card will be appended.\n0–2.2 seconds: stadium tunnel, original female reporter places microphone in front of determined Italian captain, plain blue kit, short brown hair. Reporter asks exactly in clear English: \"Confidence is back. What comes next?\"\n2.2–4.5: captain calmly tightens wrist tape, looks toward pitch and answers exactly: \"We prove it together.\" Distinct calm male voice, mouth synchronized. He steps onto pitch and nudges football ahead.\n4.5–8.2: continuous clear action, captain dribbles toward red-kit Turkish defender. Captain passes to a teammate on his right; teammate returns ball ahead into left channel. Ball is always a single ball, physically consistent. Follow camera links tunnel to pitch through ball motion.\n8.2–11.5: twist: Turkish defender reads return pass and runs across to close the lane. Neither team gives up; ball rolls into contested gap. Distinct energetic male off-screen commentator asks exactly in English: \"Can Italy keep the momentum?\" Keep both players and the moving ball on screen. No goal, no shot outcome, no winner, no celebration.\n11.5–12: continue forward action after the entire question ends. Do not fade or freeze.\nAudio: ONLY those three exact English lines, three clearly distinct voices, intelligible native English, no German, Italian, Turkish or improvised words. Original generated instrumental rhythmic music softly builds; quiet under all dialogue and commentary. No singing. Subtle ball kicks and footsteps. Keep identity, kit and spatial direction stable. Finish the question fully before the video ends."
+  },
+  "charges": [
+    {
+      "asset_id": "goaliq-2026-10-05-story-v1",
+      "credits": 12,
+      "state": "reserved",
+      "balance_before": 223.22
+    }
+  ],
+  "caption": "Italy vs Turkey · 5 October 2026, 20:45 Europe/Berlin. Can Italy keep the momentum? A fictional anime story inspired by current FIGC reporting. Not match footage or a predicted score. AI predictions, for entertainment only. No betting advice. goaliq.de",
+  "outro": {
+    "source_final_media_id": "a9f0eb6c-f48c-4d27-b4e0-cf3066da395c",
+    "logo_path": "social/pipeline/assets/goal-logo.png",
+    "domain": "goaliq.de",
+    "disclaimer_en": "AI predictions, for entertainment only. No betting advice.",
+    "duration": 3
+  },
+  "review": "pending",
+  "publish_enabled": false
+}
