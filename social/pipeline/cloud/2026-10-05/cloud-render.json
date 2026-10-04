@@ -1,0 +1,39 @@
+{
+  "processing": "Higgsfield cloud only",
+  "edit_mode": "append_brand_outro_only",
+  "source_job_id": "82b86aa9-cf07-4a5b-ba4b-88e3aabb582c",
+  "native_outro_script": "outro.js",
+  "logo_path": "social/pipeline/assets/goal-logo.png",
+  "background_source_job_id": "7ae12b99-589c-4e93-98c9-bbfefd14da59",
+  "background_range": {
+    "from": 13,
+    "duration": 2,
+    "extend_last_frame_to": 3
+  },
+  "outro_audio_source_media_id": "188a7a40-17d1-436c-9711-c53b9a77abc1",
+  "outro_audio_range": {
+    "from": 12.5,
+    "duration": 2,
+    "pad_to": 3,
+    "fade_out": {
+      "start": 1.4,
+      "duration": 0.6
+    }
+  },
+  "normalize_outro": {
+    "width": 720,
+    "height": 1280,
+    "fps": 24,
+    "video_codec": "h264",
+    "profile": "High",
+    "pixel_format": "yuv420p",
+    "video_time_base": "1/12288",
+    "audio_codec": "aac",
+    "sample_rate": 32000,
+    "channels": 2
+  },
+  "concat": "Source then outro via concat demuxer -c copy; no source reencoding.",
+  "output_media_id": "f18c7bb8-bc20-448c-b573-0a1ac9ada781",
+  "output_duration": 15.129,
+  "additional_generation_credits": 0
+}

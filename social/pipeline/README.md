@@ -1,6 +1,6 @@
 # Goalfiq Content-Pipeline
 
-Stand: 04.10.2026. Der Scheduler arbeitet in dieser Codex-Aufgabe täglich um 09:00 Europe/Berlin. Diese Cloud-Task verwendet ausschließlich GitHub MCP für das Repository und Higgsfield MCP für Recherche, Medienproduktion, Schnitt und Rendering. Keine Dateien oder Prozesse auf dem lokalen Rechner und keine Python-Prozesse. Der native Higgsfield-Cloud-Editor darf intern FFmpeg verwenden (ausdrückliche Nutzerklarstellung vom 04.10.2026); dies erlaubt keine lokale Verarbeitung. Die Einrichtung einer Zeitplanung beweist noch keinen erfolgreichen unbeaufsichtigten Durchlauf. Die unten dokumentierten lokalen Python-Befehle beschreiben den bisherigen Ablauf und dürfen in dieser Cloud-Task nicht ausgeführt werden. Fehlt ein Cloud-Zugang oder prüfbarer Budget-/Datenzustand, stoppen. Die einmalige Ledger-Ausnahme vom 04.10.2026 ist keine dauerhafte Freigabe.
+Stand: 04.10.2026. Der Scheduler arbeitet in dieser Codex-Aufgabe täglich um 09:00 Europe/Berlin. Diese Cloud-Task verwendet ausschließlich GitHub MCP für das Repository und Higgsfield MCP für Recherche, Medienproduktion, Schnitt und Rendering. Keine Dateien oder Prozesse auf dem lokalen Rechner und keine Python-Prozesse. Der native Higgsfield-Cloud-Editor darf intern FFmpeg verwenden (ausdrückliche Nutzerklarstellung vom 04.10.2026); dies erlaubt keine lokale Verarbeitung. Die Einrichtung einer Zeitplanung beweist noch keinen erfolgreichen unbeaufsichtigten Durchlauf. Die unten dokumentierten lokalen Python-Befehle beschreiben den bisherigen Ablauf und dürfen in dieser Cloud-Task nicht ausgeführt werden. Fehlt ein Cloud-Zugang, ausreichendes aktuelles Credit-Guthaben oder ein gültiger Datenzustand, stoppen. Ein lokaler Budget-Ledger ist für Cloud-Durchläufe nicht erforderlich.
 
 ## Verbindlicher Markenabschluss mit Original-Logo (Nutzeranweisung 04.10.2026)
 
@@ -23,7 +23,7 @@ Der englische Hinweis ist verpflichtend und darf weder gekürzt noch durch „Fi
 - Die codierten Bild- und Tonpakete des Ausgangsclips nach Möglichkeit ohne Neucodierung übernehmen (Stream Copy). Nur den anzuhängenden Abschluss bei Bedarf an Auflösung, Bildrate und Audioformat des Ausgangsclips anpassen. Keine zusätzliche Skalierung oder Qualitätsminderung des Ausgangsclips.
 - Vor der Ausgabe prüfen: Ausgangsclip komplett enthalten, Übergang erst nach seinem Ende, Goalfiq-Abschluss und goaliq.de sichtbar, keine versehentlich eingefügte Szene. Bei Stream Copy die Paket-Hashes des Ausgangsclips mit dem entsprechenden Anfang des fertigen Videos vergleichen.
 - Genau EINE zusammengesetzte MP4 als Endausgabe zurückgeben und direkt im Chat anzeigen. Den Higgsfield-Medien-Player für den tatsächlich exportierten Clip verwenden; einen Rohclip oder separaten externen Link nicht als fertige Endausgabe ausgeben.
-- Alle bisherigen Budget-, Daten- und Englischprüfungen bleiben verbindlich. Nicht bestandene oder fehlende Prüfung sperrt ready. Kein neuer bezahlter Generierungsauftrag allein für dieses Anhängen.
+- Aktuelle Credit-Verfügbarkeit, Tageslimit, Daten- und Englischprüfungen bleiben verbindlich. Nicht bestandene oder fehlende Prüfung sperrt ready. Kein neuer bezahlter Generierungsauftrag allein für dieses Anhängen.
 
 ## Zwingende Sprachvorgabe (Nutzeranweisung 04.10.2026)
 
@@ -31,7 +31,7 @@ Der englische Hinweis ist verpflichtend und darf weder gekürzt noch durch „Fi
 - Auch sämtliche sichtbaren redaktionellen Texte im Video müssen Englisch sein: Markenunterzeile, CTA und Fiktions-/Prognosehinweise. Eigennamen, Teamnamen, Goalfiq und die Domain goaliq.de bleiben korrekt erhalten.
 - Bereits das Storyboard und jeder Generierungs-, TTS-, Dubbing- und Schnittauftrag müssen Englisch als Ausgabesprache ausdrücklich festlegen. Eine englische Caption ersetzt keinen englischen Redetext.
 - Vor dem Status ready jede tatsächlich gesprochene Zeile auf verständliches Englisch prüfen. Deutschen oder anderssprachigen Originalton vollständig entfernen oder durch geprüften englischen Dialog ersetzen; Mischsprache ist nicht zulässig.
-- Nichtenglischer oder ungeprüfter Redetext sperrt die Fertigmeldung. Falls die Korrektur im bestehenden Budget nicht möglich ist, stoppen und melden. Kein stiller Rückfall auf Deutsch oder eine stumme Ersatzfassung.
+- Nichtenglischer oder ungeprüfter Redetext sperrt die Fertigmeldung. Falls für die Korrektur nicht genügend Credits verfügbar sind, stoppen und melden. Kein stiller Rückfall auf Deutsch oder eine stumme Ersatzfassung.
 - Diese verbindliche Nutzeranweisung ersetzt sämtliche älteren Sprachwahl-, Deutschdialog- und bedingten Englischvorgaben in dieser Routine und in der verlinkten Referenzrecherche.
 
 ## Aktuelle kreative Vorgaben (Nutzerkorrektur 04.10.2026)
@@ -45,13 +45,29 @@ Diese Vorgaben ersetzen alle untenstehenden älteren Anweisungen zu Stat-Overlay
 - Zuerst vergleichbare erfolgreiche Referenzen analysieren, Erfolgszahlen als belegt oder berichtet unterscheiden. Vorherige stille Goalfiq-Montagen sind KEINE akzeptierte Stilvorlage.
 - Spätere Stats nur nach neuer Nutzeranweisung als Teil der Szene (z.B. Anzeige im Stadion oder Gegenstand), nicht als aufgesetzte Grafik.
 - Storyboard und gesprochene Dialoge zuerst festlegen. Native Sprachgenerierung nutzen, Sprachverständlichkeit und Handlungslogik vor Fertigmeldung prüfen. Bisheriger render.py mit großen Balken ist für dieses neue Format ungeeignet; nicht automatisch anwenden.
-- Bestehende Budget- und Datenprüfungen bleiben verbindlich. Wenn gute Dialogproduktion im Kostenlimit nicht machbar ist, melden und keine stumme Ersatzmontage ausgeben.
+- Aktuelle Credit-Verfügbarkeit, Datenprüfung und das Tageslimit bleiben verbindlich. Wenn für gute Dialogproduktion nicht genügend Credits verfügbar sind, melden und keine stumme Ersatzmontage ausgeben.
 
 Konkrete Referenzen, Quellenqualität und daraus abgeleitete Produktionsregeln: [Referenzrecherche vom 04.10.2026](reference-research-2026-10-04.md). Diese vor dem nächsten Storyboard lesen.
 
+## Verbindliche Story-Vielfalt (Nutzeranweisung 04.10.2026)
+
+Jeder neue Tagesbeitrag braucht eine eigenständige Storyidee mit einem eigenen Konflikt, einer eigenen visuellen Welt und einer eigenen Wendung. Das wiederholte Muster „Interviewfrage → Spielerantwort → normales Spielduell → offene Kommentatorfrage“ ist ausdrücklich verboten.
+
+Vor dem Storyboard muss ein Storytyp gewählt und im Manifest dokumentiert werden. Der Storytyp darf nicht derselbe wie beim unmittelbar vorherigen Beitrag sein. Geeignete Typen sind zum Beispiel:
+
+- **Objekt-Mysterium:** Ein verschwundener oder veränderter Gegenstand löst die Handlung aus; die Auflösung verändert die Bedeutung des Duells.
+- **Zeitdruck-Mission:** Eine Mannschaft muss vor einem sichtbaren Countdown, Wetterumschwung oder schließenden Tor handeln.
+- **Rivalisierendes Rätsel:** Zwei Figuren verfolgen Hinweise oder lösen eine visuelle Aufgabe; der Ball ist Teil des Rätsels.
+- **Umwelt-Hindernis:** Spielfeld, Architektur, Schatten, Wasser, Wind oder eine surreale Umgebung verändert die Regeln der Bewegung.
+- **Perspektivwechsel:** Die Handlung beginnt aus Sicht des Torwarts, Fans, Kommentators, Balles oder eines unbelebten Gegenstands und wechselt erst später zur Mannschaft.
+- **Fehlgeleitete Erwartung:** Eine scheinbar klare Favoritenhandlung kippt durch eine nachvollziehbare Gegenaktion; kein Ergebnis behaupten.
+- **Teaminterne Entscheidung:** Eine Figur muss zwischen zwei sichtbaren Handlungswegen wählen, deren Folgen die nächste Szene bestimmen.
+
+Mindestens drei dieser Elemente müssen sich von Beitrag zu Beitrag ändern: Eröffnung, zentrale Figur, Schauplatz, Hindernis, Wendung, Dialogfunktion und Schlussbild. Eine Medienfrage ist optional und darf nicht automatisch die Eröffnung bilden. Vor jeder kostenpflichtigen Produktion muss das Manifest die Felder `story_type`, `hook`, `conflict`, `turning_point`, `ending_image` und `previous_story_type` enthalten. Wenn die Story nur das alte Interview-/Spielfeldschema erfüllt oder die Abwechslung nicht belegbar ist, stoppen und das Storyboard neu entwerfen.
+
 ## Ziel und Grenzen
 
-Vertikale Fußballvideos ausschließlich mit englischem Redetext und englischen sichtbaren redaktionellen Texten, mit einer aus Live-Prognosen abgeleiteten Geschichte. Ein besonders relevantes Duell oder zwei bis maximal drei Spiele mit gemeinsamem Erzählmotiv. Maximal ein Beitrag pro Tag und 20 Beiträge pro Kalendermonat. Kein Pflichtbeitrag bei fehlenden guten Daten. Zielkanäle/Zugang fehlen: fertige MP4 + Caption lokal ablegen, NICHT veröffentlichen. Keine Upload-Verbindung vortäuschen. Keine Tokens im Chat oder in versionierten Dateien speichern.
+Vertikale Fußballvideos ausschließlich mit englischem Redetext und englischen sichtbaren redaktionellen Texten, mit einer aus Live-Prognosen abgeleiteten Geschichte. Ein besonders relevantes Duell oder zwei bis maximal drei Spiele mit gemeinsamem Erzählmotiv. Maximal ein Beitrag pro redaktionellem Zieldatum (Europe/Berlin). Kein Monatslimit; ein ausdrücklich angeforderter Beitrag für morgen darf heute vorbereitet werden und belegt ausschließlich den morgigen Tag. Kein Pflichtbeitrag bei fehlenden guten Daten. Zielkanäle/Zugang fehlen: fertige MP4 + Caption lokal ablegen, NICHT veröffentlichen. Keine Upload-Verbindung vortäuschen. Keine Tokens im Chat oder in versionierten Dateien speichern.
 
 ## Daten und Auswahl
 
@@ -60,23 +76,17 @@ Vertikale Fußballvideos ausschließlich mit englischem Redetext und englischen 
 3. `python3 social/pipeline/pipeline.py collect --out social/pipeline/runtime/YYYY-MM-DD/packet.json` aus dem Projektverzeichnis ausführen. Aktuelles Datum Europe/Berlin verwenden. Das Skript lädt alle heutigen Spiele und Analysen, verwirft falsche Paarungen, alte Daten, fehlende Zeitstempel und Spiele mit weniger als zwei Stunden Vorlauf. Störungen stehen unter `excluded`; bei Ausfall der Spielplanquelle stoppen.
 4. `history_refreshed_at` ist nur ein Frische-Indikator der Eingabedaten, kein belegter Generierungszeitpunkt. Alle Rohanalysen und Abrufzeitpunkte werden im Paket archiviert. Widersprüchliche Statistiken nicht übernehmen. Insbesondere `most_likely_score` nur verwenden, wenn mit der vollständigen Score-Matrix konsistent; zunächst ausschließlich geprüfte 1/X/2-Werte nutzen. Simulierte Ticker niemals als reale Ereignisse ausgeben.
 5. Ranking ist eine transparente redaktionelle Heuristik für deutschsprachige Fans, keine gemessene Viralitätsvorhersage. Prüfe die besten Kandidaten: Relevanz, ausgeglichenes Duell, Favorit unter Druck, nachvollziehbarer Spannungsbogen. Wähle das vorgeschlagene Einzelspiel oder ändere auf bis zu drei gültige Kandidaten, falls ein klarer gemeinsamer Hook besser ist. Keine erfundenen Rivalitäten, Spieleraufstellungen oder Nachrichten. Keine finanziellen Gewinnversprechen.
-6. `python3 social/pipeline/pipeline.py plan PACKET [--matches ID ID]` erstellt höchstens einen Tagesbeitrag. Bei bereits vorhandenem Beitrag diesen fortsetzen; niemals neuen Ersatzschlüssel erfinden. Das Monatslimit zählt geplante Beiträge konservativ mit.
+6. `python3 social/pipeline/pipeline.py plan PACKET [--matches ID ID]` erstellt höchstens einen Tagesbeitrag. Bei bereits vorhandenem Beitrag diesen fortsetzen; niemals neuen Ersatzschlüssel erfinden. Das Zieldatum ist der einzige Mengenlimit-Schlüssel. Bereits vorhandene Tages-Manifeste fortsetzen.
 
 ## Story und Produktion
 
 Vor bezahlten Aufträgen ein Storyboard im erzeugten `manifest.json` ausarbeiten: Hook → Konflikt → Handlung → offene Frage → Goalfiq. Reine Schiffsmontage ohne Geschichte genügt nicht. Eine sichtbare Aktion muss die Geschichte tragen, etwa ein Favorit verliert seinen Vorsprung oder ein Außenseiter widersetzt sich; ausdrücklich fiktive Metapher, keine behauptete Spielsimulation. Namen und Zahlen nicht vom Videomodell zeichnen lassen.
 
-### Standard-Schnittmuster für Story-Clips
+### Flexible Dramaturgie für Story-Clips
 
-Dieses Muster ist unabhängig vom jeweiligen Spiel, Verein, Land oder Recherche-Aufhänger und ersetzt keine thematische Recherche:
+Es gibt kein festes Schnittmuster und keine Pflicht zu einem Interview. Die Szenenfolge wird aus `story_type`, Konflikt und Wendung des jeweiligen Manifests entwickelt. Ein Video kann zum Beispiel mit einem Gegenstand, einem Ortswechsel, einer Entscheidung, einem Countdown, einer Reaktion aus der Fanperspektive oder einem visuellen Rätsel beginnen. Dialoge müssen die konkrete Handlung voranbringen und dürfen nicht nur die alte Frage-Antwort-Schablone ausfüllen.
 
-| Zeitfenster | Bild und Schnitt | Ton |
-| --- | --- | --- |
-| 0–2 s | Sofort mitten im Auslöser beginnen, keine Titelkarte. | Rolle 1 stellt eine kurze, konfliktauslösende Frage. |
-| 2–5 s | Nahaufnahme der Hauptfigur und eine sichtbare, entschlossene Handlung. | Rolle 2 antwortet ruhig und knapp. |
-| 5–9 s | Match-Cut vom Auslöser in die laufende Spielsituation; Ball und Bewegungsrichtung verbinden die Szenen. | Instrumentale Musik baut auf, Dialog bleibt verständlich. |
-| 9–12 s | Das Duell bleibt in Bewegung. Kein Standbild, kein vorweggenommener Treffer und kein Ergebnis. | Rolle 3 stellt oder schreit die offene Frage zum Ausgang. Musik wird unter der Stimme abgesenkt. |
-| 12–14 s | Erst nach Ende der Frage in den kurzen Markenabschluss schneiden. | Musik löst sich auf; keine weitere Sprecherzeile. |
+Die Länge, Zahl der Szenen und Rollen richten sich nach der Geschichte. Ein offener Schluss ist möglich, aber nicht immer nötig; auch eine überraschende Bildauflösung, eine Entscheidung oder ein Perspektivwechsel kann das Ende bilden. Keine reale Person imitieren. Sprache zwingend konsistent auf Englisch halten: Dialoge, Markenunterzeile, CTA und Hinweise im Video müssen Englisch sein.
 
 Mindestens drei Rollen verwenden, wenn die Story eine Medienfrage, Spielerreaktion und Spielkommentar enthält: eine fragende Stimme, eine klar unterscheidbare Figur-Stimme und eine energische Kommentatorstimme. Keine reale Person imitieren. Sprache zwingend konsistent auf Englisch halten: Dialoge, Markenunterzeile, CTA und Hinweise im Video müssen Englisch sein. Stimmen vor der Abmischung einzeln prüfen.
 
@@ -92,27 +102,15 @@ Ziel 14–18 Sekunden; schwarze/goldene Goalfiq-Optik (#d4af37). Bei Sammelclips
 
 Für Hook/Outro `match_index` weglassen und `body` setzen. Relative lokale Asset-Pfade verwenden. `audio_asset` optional auf eine lokale Datei mit Original-/lizenziertem Ton setzen. `render.py` setzt Teamnamen und Prozentwerte selbst aus den geprüften Daten; Titel als echte Schrift, keine KI-Buchstaben. Nutzerzahlen nicht manuell umschreiben. Caption mit explizitem Prognosecharakter, Datum, offenem CTA und goaliq.de speichern.
 
-### Credits und Wiederaufnahme
+### Tageslimit, Credits und Wiederaufnahme (Nutzeranweisung 04.10.2026)
 
-`python3 social/pipeline/pipeline.py status` zuerst lesen. Maximal 200 Credits pro Kalendermonat UND rollierenden 30 Tagen, maximal 45 in 7 Tagen, 12 pro Beitrag, Kontostand nie unter 50. Bereits erzeugter Stiltest ist konservativ mit 15 Credits eingetragen. Diese Grenzen sind unabhängig vom noch unbekannten Abo-Reset. Kosten für andere externe Werkzeuge sind nicht erlaubt, solange kein Budget vorliegt.
+Einzige Mengen-/Budgetbegrenzung: maximal EIN fertiger Beitrag pro redaktionellem Zieldatum in Europe/Berlin. Keine Monats-, rollierenden oder Pro-Beitrag-Creditlimits; keine Guthaben-Untergrenze und kein Monats-Beitragslimit. Die früheren Zahlen 200/45/12/50 und 20 gelten nicht mehr. Ein fehlender lokaler Budget-Ledger blockiert die Cloud-Routine nicht.
 
-Higgsfield balance live lesen und vor JEDEM bezahlten Bild/Video exakt passende estimate_*_cost-Abfrage (inklusive Auflösung, Dauer, Ton, Anzahl, Referenzen). Konto-Plan und Entitlements prüfen. Bevorzugt kurze Seedance 2.0 Mini oder Hailuo-Clips bzw. Seedream-Bilder; kein stiller Wechsel zu teuren Defaults. Null, Fehler oder unbekannte Kostenschätzung => nicht generieren.
+Vor Beginn über GitHub `social/pipeline/cloud/YYYY-MM-DD/manifest.json` für das angeforderte Zieldatum prüfen. Ein vorhandener Beitrag wird fortgesetzt oder korrigiert, niemals durch einen zweiten Tagesbeitrag ersetzt. Ein neuer Durchlauf legt genau dieses Tagesmanifest an; konkurrierendes Anlegen desselben Pfads darf nicht durch einen neuen Schlüssel umgangen werden. Für ausdrücklich angefragte morgige Spiele Zieldatum morgen verwenden und echte aktuelle Abrufzeit und Datenfrische erhalten.
 
-Vor Generierung:
+Higgsfield balance live lesen und vor jedem bezahlten Auftrag eine exakt passende estimate_*_cost-Abfrage ausführen. Fehler oder unbekannte Kosten => stoppen. Ausreichendes aktuelles Guthaben muss vorliegen. Kosten und Job-ID im Tagesmanifest dokumentieren; keine historischen Ausgaben-Summen als Startbedingung verlangen. Keine Credits kaufen. Bevorzugte günstige Modelle beibehalten.
 
-```
-python3 social/pipeline/pipeline.py reserve POST_ID EINDEUTIGE_ASSET_ID EXAKTE_CREDITS AKTUELLER_KONTOSTAND
-```
-
-Nur nach Erfolg genau EINEN entsprechenden MCP-Auftrag absenden. Anschließend sofort:
-
-```
-python3 social/pipeline/pipeline.py submitted EINDEUTIGE_ASSET_ID HIGGSFIELD_JOB_ID
-```
-
-Reservierungen sind atomar. Derselbe Schlüssel darf nicht nochmals generiert werden. Unklarer Timeout nach Absenden: Betrag reserviert lassen, Originalauftrag klären, niemals automatisch erneut absenden. Auch fehlgeschlagene Aufträge konservativ mitzählen, bis eine Erstattung zweifelsfrei bestätigt ist. Maximal ein bewusster Korrekturversuch pro Asset, unter denselben Budgetgrenzen, mit neuem nachvollziehbarem Versuchsschlüssel. Kein automatischer Credit-Kauf. Das Skript kontrolliert den lokalen Ledger, NICHT den Provider: der Agent muss das Reservierungsprotokoll strikt befolgen. Fremdverbrauch wird über den zusätzlich frisch geprüften Kontostand berücksichtigt.
-
-Bei knappem Budget vorhandene passende Assets wiederverwenden oder einen bildbasierten Clip mit echter lokaler Kamerabewegung herstellen. Falls kein brauchbares Asset vorliegt: Beitrag auslassen, nicht lediglich leere Titelkarten als fertigen Anime-Clip deklarieren.
+Jeden Auftrag mit eindeutigem Asset-Schlüssel vor Absenden im Tagesmanifest als reserviert erfassen. Danach genau einmal absenden und Job-ID speichern. Bei unklarem Timeout nicht neu generieren, sondern Originalauftrag klären. Korrekturen gehören zum selben Tagesbeitrag. Bestehende Daten-, Englisch-, Qualitäts- und Ausgabeprüfungen bleiben erhalten. Keine stumme Ersatzmontage.
 
 ## Rendern und Prüfung
 
