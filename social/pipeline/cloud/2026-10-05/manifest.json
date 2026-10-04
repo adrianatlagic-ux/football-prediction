@@ -1,7 +1,7 @@
 {
   "post_id": "goaliq-2026-10-05",
   "target_date": "2026-10-05",
-  "state": "submitted",
+  "state": "exported_review_pending",
   "cloud_only": true,
   "daily_limit": 1,
   "daily_limit_basis": "editorial_target_date",
@@ -483,9 +483,10 @@
     {
       "asset_id": "goaliq-2026-10-05-story-v1",
       "credits": 12,
-      "state": "submitted",
+      "state": "completed",
       "balance_before": 223.22,
-      "job_id": "82b86aa9-cf07-4a5b-ba4b-88e3aabb582c"
+      "job_id": "82b86aa9-cf07-4a5b-ba4b-88e3aabb582c",
+      "charged_credits_confirmed": 12
     }
   ],
   "caption": "Italy vs Turkey · 5 October 2026, 20:45 Europe/Berlin. Can Italy keep the momentum? A fictional anime story inspired by current FIGC reporting. Not match footage or a predicted score. AI predictions, for entertainment only. No betting advice. goaliq.de",
@@ -497,5 +498,56 @@
     "duration": 3
   },
   "review": "pending",
-  "publish_enabled": false
+  "publish_enabled": false,
+  "total_credits": 12,
+  "balance_after": 211.22,
+  "final": {
+    "media_id": "f18c7bb8-bc20-448c-b573-0a1ac9ada781",
+    "duration": 15.129,
+    "width": 720,
+    "height": 1280,
+    "fps": 24,
+    "has_audio": true,
+    "assembly": "Complete source with original audio; append three-second original-logo outro only.",
+    "source_video_reencoded": false,
+    "source_audio_reencoded": false,
+    "source_frames": 289,
+    "source_frame_hashes_match": true,
+    "source_audio_packets": 379,
+    "source_audio_packet_hashes_match": true
+  },
+  "final_live_check": {
+    "fetched_at": "2026-10-04T17:50:11.332Z",
+    "fixture": {
+      "group": "Mon 05 Oct",
+      "date": "2026-10-05",
+      "time": "20:45",
+      "home_team": "Italy",
+      "away_team": "Turkey",
+      "match_id": "italy_vs_turkey_nl"
+    },
+    "prediction": {
+      "match_id": "italy_vs_turkey_nl",
+      "home_team": "Italy",
+      "away_team": "Turkey",
+      "date": "2026-10-05",
+      "time": "20:45",
+      "probability_home_win": 0.5885,
+      "probability_draw": 0.2455,
+      "probability_away_win": 0.166,
+      "history_refreshed_at": "2026-10-04T06:10:40.306516+00:00"
+    }
+  },
+  "review_blocker": "Higgsfield English speech analysis remains queued; no ready status or audio-validation pass claimed.",
+  "analysis_ids": {
+    "source": "9c71e729-d5dc-4473-9dd5-6cbf5785d9dd"
+  },
+  "review_notes": [
+    "Contact sheet inspected at opening, response and two action points; intended story sequence is present.",
+    "Original source contains generated jersey emblems and a number despite no-writing prompt; no redaction performed because source must remain unchanged.",
+    "Outro inspected: complete original logo, exact goaliq.de and exact two-line English disclaimer fit inside frame.",
+    "All source decoded frame hashes and all encoded audio packet hashes match final prefix.",
+    "Current fixture and probability values rechecked unchanged before export delivery."
+  ],
+  "media_access": "Resolve recorded IDs via authenticated Higgsfield connection; no direct private media URLs stored."
 }
