@@ -14,11 +14,31 @@
   "minimum_editorial_score": 45,
   "publish_enabled": false,
   "team_relevance": {
-    "Germany": 1.0, "England": 0.95, "Spain": 0.95, "France": 0.95,
-    "Portugal": 0.9, "Italy": 0.9, "Netherlands": 0.85, "Croatia": 0.8,
-    "Switzerland": 0.75, "Austria": 0.75, "Scotland": 0.65,
-    "Bayern Munich": 1.0, "Borussia Dortmund": 0.95, "Real Madrid": 1.0,
-    "Barcelona": 1.0, "Liverpool": 0.9, "Arsenal": 0.9,
-    "Manchester City": 0.9, "Paris Saint-Germain": 0.9
-  }
+    "Germany": 1,
+    "England": 0.95,
+    "Spain": 0.95,
+    "France": 0.95,
+    "Portugal": 0.9,
+    "Italy": 0.9,
+    "Netherlands": 0.85,
+    "Croatia": 0.8,
+    "Switzerland": 0.75,
+    "Austria": 0.75,
+    "Scotland": 0.65,
+    "Bayern Munich": 1,
+    "Borussia Dortmund": 0.95,
+    "Real Madrid": 1,
+    "Barcelona": 1,
+    "Liverpool": 0.9,
+    "Arsenal": 0.9,
+    "Manchester City": 0.9,
+    "Paris Saint-Germain": 0.9
+  },
+  "spoken_language": "en",
+  "on_screen_language": "en",
+  "language_validation_required": true,
+  "processing_environment": "higgsfield_cloud_only",
+  "local_processing_enabled": false,
+  "python_enabled": false,
+  "cloud_editor_internal_ffmpeg_enabled": true
 }
