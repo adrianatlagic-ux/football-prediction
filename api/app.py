@@ -1499,7 +1499,9 @@ which, if any, is worth backing):
 
 STEP 1 - RESEARCH (use Google Search). Our stats model only sees historical results, so dig up CURRENT \
 context across as many of these angles as you can actually find information on - don't limit yourself \
-to just one or two:
+to just one or two. Search in English AND in the local languages of both teams (e.g. Croatian sports \
+media for Croatia, Georgian for Georgia, German for a Bundesliga club): team news, line-ups and \
+injuries often appear there first.
 - Confirmed/expected lineups, key injuries or suspensions (incl. accumulated yellow cards)
 - Recent form (last 2-3 matches, goals for/against, performance trend)
 - Table situation: what does each team need from this result, is it a dead rubber, must-win, or \
@@ -1937,6 +1939,28 @@ def _get_prediction_index() -> dict[tuple[str, str], dict]:
 
 def _find_cached_prediction(home_team: str, away_team: str) -> Optional[dict]:
     return _get_prediction_index().get(_match_key(home_team, away_team))
+
+
+@app.get("/ai-texts-en")
+def ai_texts_en(home_team: str, away_team: str):
+    """The match's AI texts in English (scenario, AI tip, KI-Scout research),
+    translated once and kept (src/translate.py). Only texts the server itself
+    wrote for this match are translated - nothing sent by the visitor."""
+    from src.translate import to_english
+    key = _match_key(home_team, away_team)
+    prediction = _get_prediction_index().get(key) or {}
+    scenario = ((prediction.get("score_prediction") or {}).get("betting_markets") or {}).get("scenario") or ""
+    agent = None
+    for k, v in _agent_picks_cache.items():
+        if (k[3], k[4]) == key and v:
+            agent = v
+    research = (agent or {}).get("research") or {}
+    fields = ["lineups_injuries", "form", "table_situation", "other"]
+    texts = [scenario, (agent or {}).get("bet_headline") or "", (agent or {}).get("bet_reasoning") or ""] \
+        + [research.get(f) or "" for f in fields]
+    en = to_english(texts)
+    return {"scenario": en[0], "bet_headline": en[1], "bet_reasoning": en[2],
+            "research": {f: en[3 + i] for i, f in enumerate(fields)}}
 
 
 @app.get("/value-bets")

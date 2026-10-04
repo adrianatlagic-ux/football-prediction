@@ -505,16 +505,34 @@ function FormRating({ data, compact = false }) {
   )
 }
 
+// In English, the AI's German texts (scenario, AI tip, KI-Scout) come from
+// GET /ai-texts-en, translated once on the server and kept; fetched once per
+// match here too. Until they arrive the German text shows.
+const AI_TEXTS_EN = {}
+function useAiTextsEn(home, away) {
+  const key = `${home}__${away}`
+  const [, redraw] = useState(0)
+  useEffect(() => {
+    if (LANG !== 'en' || !home || !away || AI_TEXTS_EN[key] !== undefined) return
+    AI_TEXTS_EN[key] = null
+    axios.get(`${API_BASE}/ai-texts-en`, { params: { home_team: home, away_team: away } })
+      .then(r => { AI_TEXTS_EN[key] = r.data; redraw(x => x + 1) })
+      .catch(() => { delete AI_TEXTS_EN[key] })
+  })
+  return LANG === 'en' ? AI_TEXTS_EN[key] || null : null
+}
+
 function MatchScenario({ data }) {
   const bm = (data.score_prediction || {}).betting_markets
   if (!bm) return null
   const home = data.home_team
   const away = data.away_team
+  const en = useAiTextsEn(home, away)
   return (
     <div className="betting-markets">
       <div className="scenario-box">
         <h4>{tr('Wahrscheinlichstes Szenario', 'Most likely scenario')}</h4>
-        <p>{renderScenario(bm.scenario, home, away)}</p>
+        <p>{renderScenario(en?.scenario || bm.scenario, home, away)}</p>
       </div>
     </div>
   )
@@ -1028,8 +1046,10 @@ function PriceTipBox({ priceTip }) {
 }
 
 // The AI's research, closed until the reader asks for it.
-function AgentFactors({ research }) {
+function AgentFactors({ research: researchDe, home, away }) {
   const [open, setOpen] = useState(false)
+  const en = useAiTextsEn(home, away)
+  const research = en ? Object.fromEntries(Object.entries(researchDe).map(([k, v]) => [k, en.research?.[k] || v])) : researchDe
   const rows = [
     ['⚕', tr('Aufstellung & Verletzungen', 'Line-ups & injuries'), research.lineups_injuries],
     ['📈', tr('Form', 'Form'), research.form],
@@ -1221,6 +1241,7 @@ function LikelyTipBox({ pick }) {
 
 function SmartBetCard({ betStep, betInfo, data }) {
   const [showAllMarkets, setShowAllMarkets] = useState(false)
+  const aiEn = useAiTextsEn(data?.home_team, data?.away_team)
 
   const analyzing = betStep < BET_STEPS.length
   if (analyzing) {
@@ -1357,10 +1378,10 @@ function SmartBetCard({ betStep, betInfo, data }) {
       {agentEval && (
         <div className="smart-bet-agent">
           <div className="smart-bet-agent-headtitle">
-            <span className="smart-bet-agent-headline">✨ {tr('KI-Tipp', 'AI tip')}: {agentEval.bet_headline}</span>
+            <span className="smart-bet-agent-headline">✨ {tr('KI-Tipp', 'AI tip')}: {aiEn?.bet_headline || agentEval.bet_headline}</span>
           </div>
           <p className="smart-bet-agent-text">
-            {renderBoldMarkdown(agentEval.bet_reasoning, 'smart-bet-highlight-purple')}
+            {renderBoldMarkdown(aiEn?.bet_reasoning || agentEval.bet_reasoning, 'smart-bet-highlight-purple')}
             {agentPick && (
               <> {tr('Unser Modell sieht das bei', 'Our model puts this at')} <strong className="smart-bet-highlight-purple">{(agentPick.probability * 100).toFixed(0)}%</strong>.</>
             )}
@@ -1545,7 +1566,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
 
       {!analyzing && betInfo && betInfo.agent_eval && betInfo.agent_eval.research && (
         <div className="wm-cluster wm-cluster-scout">
-          <AgentFactors research={betInfo.agent_eval.research} />
+          <AgentFactors research={betInfo.agent_eval.research} home={data.home_team} away={data.away_team} />
         </div>
       )}
 
