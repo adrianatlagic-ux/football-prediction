@@ -86,5 +86,18 @@
       "misdirected_expectation",
       "team_internal_decision"
     ]
+  },
+  "caption_language": "de",
+  "caption_required": true,
+  "caption_output": "inline_chat_and_caption_txt_and_manifest",
+  "caption_style": {
+    "attention_hook": true,
+    "controversial_discussion": true,
+    "story_specific": true,
+    "avoid_repeated_template": true,
+    "virality_guarantee": false,
+    "fiction_label_required": true,
+    "domain": "goaliq.de",
+    "disclaimer_de": "KI-Prognosen, nur zur Unterhaltung. Keine Wettberatung."
   }
 }
