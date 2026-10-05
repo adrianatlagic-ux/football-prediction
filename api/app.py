@@ -416,6 +416,7 @@ def job_status():
     out["apify"] = apify_budget.usage()
     out["book_coverage"] = _book_coverage()
     out["book_refreshes"] = book_odds.REFRESH_LOG
+    out["lineups"] = jobs.load_lineup_status()
     return out
 
 

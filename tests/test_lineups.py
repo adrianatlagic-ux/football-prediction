@@ -83,3 +83,12 @@ def test_an_english_scenario_is_not_kept():
     markets = out["score_prediction"]["betting_markets"]
     assert markets["scenario"] != "Germany control the game."
     assert markets["scenario_lang"] == "de" and "Deutschland" in markets["scenario"]
+
+
+def test_espn_names_and_nordic_letters_match_ours():
+    from src.lineups import _norm, _team_words, matched_count
+    assert _team_words("Türkiye") & _team_words("Turkey")
+    assert _team_words("Czechia") & _team_words("Czech Republic")
+    assert _team_words("Bosnia-Herzegovina") & _team_words("Bosnia and Herzegovina")
+    assert _norm("Odmar Færø") == "odmar faero"
+    assert matched_count(["Odmar Færø"], [{"name": "Odmar Faero"}]) == 1
