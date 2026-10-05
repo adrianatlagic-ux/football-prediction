@@ -25,11 +25,19 @@ Der englische Hinweis ist verpflichtend und darf weder gekürzt noch durch „Fi
 - Genau EINE zusammengesetzte MP4 als Endausgabe zurückgeben und direkt im Chat anzeigen. Den Higgsfield-Medien-Player für den tatsächlich exportierten Clip verwenden; einen Rohclip oder separaten externen Link nicht als fertige Endausgabe ausgeben.
 - Aktuelle Credit-Verfügbarkeit, Tageslimit, Daten- und Englischprüfungen bleiben verbindlich. Nicht bestandene oder fehlende Prüfung sperrt ready. Kein neuer bezahlter Generierungsauftrag allein für dieses Anhängen.
 
+## Verpflichtende deutsche Caption (Nutzeranweisung 05.10.2026)
+
+Zu JEDEM Video automatisch eine fertige deutsche Social-Media-Caption ausgeben, direkt im Chat als kopierbaren Text zusätzlich zum Video. Im Tagesordner als `caption.txt` speichern und im Manifest als `caption` mit `caption_language: "de"` dokumentieren. Eine gespeicherte Caption oder ein Verweis darauf allein erfüllt die Ausgabe nicht.
+
+Die Caption muss individuell zur tatsächlich exportierten Story passen. Ziel ist hohe Aufmerksamkeit und kontroverse, sachbezogene Diskussion: ein starker kurzer Hook, ein konkreter Bezug zur Handlung und eine zugespitzte Frage oder begründbare Meinung, die Fans zum Widerspruch und zur Diskussion einlädt. Keine wiederkehrende Textschablone, keine garantierte Viralität und keine erfundenen Tatsachen, Originalzitate oder Ergebnisse. Fiktion/erzeugte KI-Story klar kennzeichnen; keine Andeutung von Spielmanipulation als Tatsachenbehauptung. Wenige relevante Hashtags verwenden.
+
+Domain `goaliq.de` und den deutschen Hinweis „KI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.“ aufnehmen. Bei Spielbezug Datum aus dem geprüften Manifest verwenden. Diese Caption-Regel ersetzt alle älteren Englischvorgaben für begleitende Captions. Redetext und redaktionelle Texte INNERHALB des Videos bleiben Englisch.
+
 ## Zwingende Sprachvorgabe (Nutzeranweisung 04.10.2026)
 
 - Der gesamte gesprochene Text muss ENGLISCH sein: Figuren-Dialoge, Medienfragen, Kommentare, Erzähler und Voiceover. Deutschsprachige Zielgruppen oder deutschsprachige Quellen ändern diese Vorgabe nicht.
 - Auch sämtliche sichtbaren redaktionellen Texte im Video müssen Englisch sein: Markenunterzeile, CTA und Fiktions-/Prognosehinweise. Eigennamen, Teamnamen, Goalfiq und die Domain goaliq.de bleiben korrekt erhalten.
-- Bereits das Storyboard und jeder Generierungs-, TTS-, Dubbing- und Schnittauftrag müssen Englisch als Ausgabesprache ausdrücklich festlegen. Eine englische Caption ersetzt keinen englischen Redetext.
+- Bereits das Storyboard und jeder Generierungs-, TTS-, Dubbing- und Schnittauftrag müssen Englisch als Ausgabesprache ausdrücklich festlegen. Die verpflichtende deutsche Caption ersetzt keinen englischen Redetext.
 - Vor dem Status ready jede tatsächlich gesprochene Zeile auf verständliches Englisch prüfen. Deutschen oder anderssprachigen Originalton vollständig entfernen oder durch geprüften englischen Dialog ersetzen; Mischsprache ist nicht zulässig.
 - Nichtenglischer oder ungeprüfter Redetext sperrt die Fertigmeldung. Falls für die Korrektur nicht genügend Credits verfügbar sind, stoppen und melden. Kein stiller Rückfall auf Deutsch oder eine stumme Ersatzfassung.
 - Diese verbindliche Nutzeranweisung ersetzt sämtliche älteren Sprachwahl-, Deutschdialog- und bedingten Englischvorgaben in dieser Routine und in der verlinkten Referenzrecherche.
@@ -100,7 +108,7 @@ Ziel 14–18 Sekunden; schwarze/goldene Goalfiq-Optik (#d4af37). Bei Sammelclips
 {"duration": 5, "headline": "Favorit – aber wie deutlich?", "match_index": 0, "asset": "duell.mp4"}
 ```
 
-Für Hook/Outro `match_index` weglassen und `body` setzen. Relative lokale Asset-Pfade verwenden. `audio_asset` optional auf eine lokale Datei mit Original-/lizenziertem Ton setzen. `render.py` setzt Teamnamen und Prozentwerte selbst aus den geprüften Daten; Titel als echte Schrift, keine KI-Buchstaben. Nutzerzahlen nicht manuell umschreiben. Caption mit explizitem Prognosecharakter, Datum, offenem CTA und goaliq.de speichern.
+Für Hook/Outro `match_index` weglassen und `body` setzen. Relative lokale Asset-Pfade verwenden. `audio_asset` optional auf eine lokale Datei mit Original-/lizenziertem Ton setzen. `render.py` setzt Teamnamen und Prozentwerte selbst aus den geprüften Daten; Titel als echte Schrift, keine KI-Buchstaben. Nutzerzahlen nicht manuell umschreiben. Die verpflichtende individuelle deutsche Caption mit Datum, Diskussionsfrage, Fiktionskennzeichnung, goaliq.de und Unterhaltungshinweis speichern und direkt im Chat ausgeben.
 
 ### Tageslimit, Credits und Wiederaufnahme (Nutzeranweisung 04.10.2026)
 
