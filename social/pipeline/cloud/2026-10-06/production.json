@@ -4,7 +4,7 @@
   "final_media_id": "5fc99cf9-dce0-4bb9-b992-9775b757d4e9",
   "brand_outro_media_id": "9c29b762-d478-4bb4-b4bc-fadfaad35efd",
   "analysis_id": "92f941e0-b69f-4fd3-a2f7-6a519474bfea",
-  "analysis_status": "queued",
+  "analysis_status": "completed",
   "cloud_environment": "Higgsfield native cloud editor and remote sandbox only; no local processing, no Python",
   "logo": {
     "repo_blob_sha": "111446b99b4f0e0dcd233544d351bd9acd9e7d52",
@@ -65,15 +65,30 @@
       "format": {
         "duration": "15.129000"
       }
+    },
+    "encoded_payload": {
+      "source_video_packets": 289,
+      "packet_header_differences_at": [
+        0,
+        43,
+        74,
+        98,
+        150,
+        194
+      ],
+      "video_nal_payload_excluding_sps_pps_identical": true
     }
   },
   "review": {
     "source_contact_sheet": "12 sampled frames inspected; broken bridge/shield action and linked hands visible; Spanish rival with ball waits; no score, winner, stat overlay or interview",
     "transition": "7 frames covering 11.5–13.2 seconds visually inspected; intact source ending directly followed by branded card",
     "outro": "Original logo above exact domain; exact English disclaimer below; all legible",
-    "source_language": "pending actual audio analysis; prompt not accepted as proof",
+    "source_language": "passed: completed Higgsfield audio analysis transcribes all3 intended English lines; no other spoken language reported",
     "source_audio": "379 source AAC packets match final prefix exactly",
-    "outro_duration": "72 frames at24fps =3.000 seconds; final container15.129s includes AAC padding"
+    "outro_duration": "72 frames at24fps =3.000 seconds; final container15.129s includes AAC padding",
+    "actual_story": "Ten additional frames at4fps from5.5–8s show the captain lowers the heavy slab across the gap then steps across; teammates clasp hands. Automated description of shattered stone is less precise than these inspected frames.",
+    "source_video_packets": "Direct whole-packet hashes differ only at6 keyframes because concat inserts SPS/PPS metadata. All289 encoded NAL payloads excluding SPS/PPS match; all decoded frames match. No source re-encoding.",
+    "status": "passed"
   },
   "credits": {
     "before": 199.22,
@@ -81,5 +96,31 @@
     "consumed": 12
   },
   "assembly_recipe_file": "assembly.sh",
-  "native_outro_file": "outro.js"
+  "native_outro_file": "outro.js",
+  "final_live_check": {
+    "fetched_at": "2026-10-06T06:11:58.806Z",
+    "matches": [
+      {
+        "group": "Tue 06 Oct",
+        "date": "2026-10-06",
+        "time": "20:45",
+        "home_team": "Croatia",
+        "away_team": "Spain",
+        "match_id": "croatia_vs_spain_nl"
+      }
+    ],
+    "prediction": {
+      "match_id": "croatia_vs_spain_nl",
+      "date": "2026-10-06",
+      "time": "20:45",
+      "home_team": "Croatia",
+      "away_team": "Spain",
+      "home": 0.2134,
+      "draw": 0.2343,
+      "away": 0.5523,
+      "history_refreshed_at": "2026-10-06T06:07:32.700019+00:00"
+    },
+    "freshness_age_hours": 0.07391833333333334,
+    "lead_hours": 12.550331666666667
+  }
 }
