@@ -3553,3 +3553,44 @@ body {
 @media (max-width: 700px) { .hero-preview-probs { flex-direction: row; } }
 
 .hero-preview.is-clickable { cursor: pointer; }
+
+/* Combo signals: the words go on a phone, the signs stay; the legend under
+   the combos says what each one means. */
+.smart-bet-agree-chip .chip-x { display: none; }
+.combo-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 1.25rem 0 0.5rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(212,175,55,0.25);
+  border-radius: 10px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.combo-legend-title {
+  font-size: 0.66rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-light);
+}
+.combo-legend > span:not(.combo-legend-title) { display: grid; grid-template-columns: 2.6rem 1fr; }
+.combo-legend b { color: #e5e5e6; }
+.combo-legend b.combo-legend-muted { opacity: 0.5; filter: grayscale(1); }
+@media (max-width: 600px) {
+  .combo-leg-agree .chip-text { display: none; }
+  .combo-leg-agree .chip-x { display: inline; }
+  .combo-leg-agree .smart-bet-agree-chip { padding: 0.1rem 0.4rem; }
+}
+
+/* Win probabilities on a phone: donut above, the three rows below at full
+   width, so a long team name stays on one line instead of three. */
+@media (max-width: 520px) {
+  .probabilities-donut { flex-direction: column; align-items: stretch; gap: 0.9rem; }
+  .probabilities-donut .result-donut { align-self: center; }
+  .probabilities-legend { width: 100%; gap: 0.55rem; }
+  .legend-title { text-align: center; }
+  .legend-row { font-size: 0.98rem; }
+  .legend-value { font-size: 1.02rem; }
+}

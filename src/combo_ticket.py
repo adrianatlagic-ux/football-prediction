@@ -315,7 +315,7 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None, min_o
             by_size.append({"leg_count": size, "ticket": ticket, "near_miss": near_miss,
                             "reason": None if ticket else (
                                 f"Keine {size}er-Kombi möglich. Dafür braucht es {size} passende Spiele "
-                                f"bei einem Buchmacher und eine Gesamtquote von mindestens {MIN_COMBINED_ODDS:.2f}.")})
+                                f"und eine Gesamtquote von mindestens {min_odds:.2f}.".replace(f"{min_odds:.2f}", f"{min_odds:.2f}".replace(".", ",")))})
         days.append({"date": date, "eligible_legs": len({fixture_key(l) for l in day_legs}),
                      "by_size": by_size,
                      "already_started": started, "recommended": top, "alternatives": tickets[1:3],

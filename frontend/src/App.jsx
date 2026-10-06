@@ -663,13 +663,14 @@ function ComboLegRow({ leg, index, onOpenLeg }) {
           {marketGroupLabel(leg.market)} · {leg.bookmaker}
         </div>
         <div className="smart-bet-agree-row combo-leg-agree">
-          {leg.policy === 'agree' && <span className="smart-bet-agree-chip yes">◆ {tr('Modell stimmt zu', 'Model agrees')} ✓</span>}
-          {leg.ki_agrees && <span className="smart-bet-agree-chip yes">✨ {tr('KI stimmt zu', 'AI agrees')} ✓</span>}
-          {leg.is_likely && <span className="smart-bet-agree-chip yes">🎯 {tr('Wahrscheinlichster Tipp', 'Most likely bet')}</span>}
+          {/* On a phone only the signs show; the legend below the combos explains them. */}
+          {leg.policy === 'agree' && <span className="smart-bet-agree-chip yes" title={tr('Modell stimmt zu', 'Model agrees')}>◆<span className="chip-text"> {tr('Modell stimmt zu', 'Model agrees')}</span> ✓</span>}
+          {leg.ki_agrees && <span className="smart-bet-agree-chip yes" title={tr('KI stimmt zu', 'AI agrees')}>✨<span className="chip-text"> {tr('KI stimmt zu', 'AI agrees')}</span> ✓</span>}
+          {leg.is_likely && <span className="smart-bet-agree-chip yes" title={tr('Wahrscheinlichster Tipp', 'Most likely bet')}>🎯<span className="chip-text"> {tr('Wahrscheinlichster Tipp', 'Most likely bet')}</span></span>}
           {leg.likely_pick && (
             <span className="smart-bet-agree-chip muted"
                   title={`${tr('🎯 dieses Spiels', "🎯 of this match")}: ${plainBetPhrase(leg.likely_pick)} ${tr('zu', 'at')} ${leg.likely_pick.best_odds?.toFixed(2)}`}>
-              🎯 {tr('Nicht der wahrscheinlichste', 'Not the most likely')}
+              🎯<span className="chip-text"> {tr('Nicht der wahrscheinlichste', 'Not the most likely')}</span><span className="chip-x"> ✕</span>
             </span>
           )}
         </div>
@@ -783,20 +784,6 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
         </div>
       )}
 
-      <p className="best-bets-intro">
-        {LANG === 'en' ? <>
-          Every selection must win. All prices are <strong>bet-at-home's</strong>; each ticket uses <strong>one matchday</strong>
-          {' '}and at most one selection per match. Only selections <strong>our model agrees with</strong> are used;
-          {' '}those the <strong>AI</strong> also backs after its research come first. A ticket pays at least
-          {' '}<strong>{(combo.min_combined_odds || 3).toFixed(2)}</strong>. Compare the best 2-, 3- and 4-folds for each day.
-        </> : <>
-          Jeder Tipp muss treffen. Alle Quoten sind von <strong>bet-at-home</strong>; jeder Schein nutzt <strong>einen Spieltag</strong>
-          {' '}und höchstens einen Tipp pro Spiel. Genommen werden nur Tipps, denen <strong>unser Modell zustimmt</strong>;
-          {' '}Tipps, die auch die <strong>KI</strong> nach ihrer Recherche stützt, kommen zuerst. Ein Schein zahlt mindestens
-          {' '}<strong>{(combo.min_combined_odds || 3).toFixed(2).replace('.', DEC())}</strong>. Vergleiche die besten 2er-, 3er- und 4er-Kombis pro Tag.
-        </>}
-      </p>
-
       {!combo.recommended && (
         <p className="smart-bet-notip">
           <strong>{tr('Heute kein Kombi-Schein.', 'No combo ticket today.')}</strong><br />
@@ -844,9 +831,18 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
         </div>
       ))}
 
+      <div className="combo-legend">
+        <span className="combo-legend-title">{tr('Signale', 'Signals')}</span>
+        <span><b>◆ ✓</b> {tr('Unser Modell stimmt dem Tipp zu', 'Our model agrees with the selection')}</span>
+        <span><b>✨ ✓</b> {tr('Die KI stützt den Tipp nach ihrer Recherche', 'The AI backs the selection after its research')}</span>
+        <span><b>🎯</b> {tr('Der wahrscheinlichste Tipp dieses Spiels', "This match's most likely selection")}</span>
+        <span><b className="combo-legend-muted">🎯 ✕</b> {tr('Nicht der wahrscheinlichste Tipp – gewählt, um die Zielquote zu erreichen', 'Not the most likely selection – chosen to reach the target odds')}</span>
+      </div>
+
       <p className="smart-bet-finePrint">
-        {tr('Unter den Scheinen mit den meisten KI-gestützten Tipps gewinnt der laut Markt wahrscheinlichste. Die Wahrscheinlichkeiten nehmen unabhängige Ergebnisse an; die Gesamtquoten sind aus Einzelquoten berechnet und nicht als Buchmacher-Schein geprüft. Eine höhere geschätzte Trefferquote heißt nicht, dass sich die Wette lohnt. Scheine können sich überschneiden und sind keine unabhängigen Wetten.',
-            "Among the tickets with the most AI-backed selections, the market's likeliest wins. Probabilities assume independent results; combined odds are calculated from individual prices and have not been verified as a bookmaker ticket. A higher estimated hit rate does not mean the bet is worth it. Tickets can overlap and are not independent bets.")}
+        {LANG === 'en'
+          ? `How the combos are built: per day the best 2-, 3- and 4-fold, at most one selection per match. Only selections our model agrees with are used; those the AI also backs come first, then the likeliest by the market. A combo pays at least ${(combo.min_combined_odds || 3).toFixed(2)}. Probabilities assume independent results; combined odds are calculated from individual prices. Combos can share selections and are not independent bets.`
+          : `So entstehen die Kombis: pro Tag die beste 2er-, 3er- und 4er-Kombi, höchstens ein Tipp pro Spiel. Genommen werden nur Tipps, denen unser Modell zustimmt; Tipps, die auch die KI stützt, kommen zuerst, danach die laut Markt wahrscheinlichsten. Eine Kombi zahlt mindestens ${(combo.min_combined_odds || 3).toFixed(2).replace('.', DEC())}. Die Wahrscheinlichkeiten nehmen unabhängige Ergebnisse an; die Gesamtquoten sind aus den Einzelquoten berechnet. Kombis können sich Tipps teilen und sind keine unabhängigen Wetten.`}
       </p>
     </div>
   )
