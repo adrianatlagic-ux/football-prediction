@@ -1,0 +1,85 @@
+{
+  "source_job_id": "c61b532f-9fcd-47a2-83b0-32fed9c15387",
+  "source_review_media_id": "9a4094af-f29b-4ce6-ae47-575613649871",
+  "final_media_id": "5fc99cf9-dce0-4bb9-b992-9775b757d4e9",
+  "brand_outro_media_id": "9c29b762-d478-4bb4-b4bc-fadfaad35efd",
+  "analysis_id": "92f941e0-b69f-4fd3-a2f7-6a519474bfea",
+  "analysis_status": "queued",
+  "cloud_environment": "Higgsfield native cloud editor and remote sandbox only; no local processing, no Python",
+  "logo": {
+    "repo_blob_sha": "111446b99b4f0e0dcd233544d351bd9acd9e7d52",
+    "cloud_download_git_blob_sha": "111446b99b4f0e0dcd233544d351bd9acd9e7d52",
+    "match": true
+  },
+  "integrity": {
+    "source_video_frames": 289,
+    "final_video_frames": 361,
+    "video_prefix_identical": true,
+    "source_audio_packets": 379,
+    "final_audio_packets": 474,
+    "audio_prefix_identical": true,
+    "source_probe": {
+      "programs": [],
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "duration": "12.041667"
+        },
+        {
+          "index": 1,
+          "codec_name": "aac",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "duration": "12.096000"
+        }
+      ],
+      "format": {
+        "duration": "12.096000"
+      }
+    },
+    "final_probe": {
+      "programs": [],
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "duration": "15.096029"
+        },
+        {
+          "index": 1,
+          "codec_name": "aac",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "duration": "15.128000"
+        }
+      ],
+      "format": {
+        "duration": "15.129000"
+      }
+    }
+  },
+  "review": {
+    "source_contact_sheet": "12 sampled frames inspected; broken bridge/shield action and linked hands visible; Spanish rival with ball waits; no score, winner, stat overlay or interview",
+    "transition": "7 frames covering 11.5–13.2 seconds visually inspected; intact source ending directly followed by branded card",
+    "outro": "Original logo above exact domain; exact English disclaimer below; all legible",
+    "source_language": "pending actual audio analysis; prompt not accepted as proof",
+    "source_audio": "379 source AAC packets match final prefix exactly",
+    "outro_duration": "72 frames at24fps =3.000 seconds; final container15.129s includes AAC padding"
+  },
+  "credits": {
+    "before": 199.22,
+    "after": 187.22,
+    "consumed": 12
+  },
+  "assembly_recipe_file": "assembly.sh",
+  "native_outro_file": "outro.js"
+}
