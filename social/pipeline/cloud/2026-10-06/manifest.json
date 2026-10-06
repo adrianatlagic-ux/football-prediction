@@ -1,7 +1,7 @@
 {
   "post_id": "goaliq-2026-10-06",
   "target_date": "2026-10-06",
-  "state": "reserved",
+  "state": "generating",
   "cloud_only": true,
   "daily_limit": 1,
   "daily_limit_basis": "editorial_target_date",
@@ -475,9 +475,10 @@
       "asset_id": "goaliq-2026-10-06-story-v1",
       "credits": 12,
       "exact_quote": 12,
-      "state": "reserved",
+      "state": "submitted",
       "balance_before": 199.22,
-      "job_id": null
+      "job_id": "c61b532f-9fcd-47a2-83b0-32fed9c15387",
+      "submitted_at": "2026-10-06T06:05:53.680Z"
     }
   ],
   "quality": {
