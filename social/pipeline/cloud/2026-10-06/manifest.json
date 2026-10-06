@@ -1,7 +1,7 @@
 {
   "post_id": "goaliq-2026-10-06",
   "target_date": "2026-10-06",
-  "state": "generating",
+  "state": "ready",
   "cloud_only": true,
   "daily_limit": 1,
   "daily_limit_basis": "editorial_target_date",
@@ -15,16 +15,525 @@
       "away_team": "Spain",
       "match_id": "croatia_vs_spain_nl",
       "competition": "nl",
-      "probabilities": [
-        0.2135,
-        0.2344,
-        0.552
-      ],
-      "freshness_timestamp": "2026-10-05T06:11:38.471441+00:00",
+      "probabilities": {
+        "home": 0.2134,
+        "draw": 0.2343,
+        "away": 0.5523
+      },
+      "freshness_timestamp": "2026-10-06T06:07:32.700019+00:00",
       "editorial_score": 72.6
     }
   ],
   "packet": {
+    "source": "https://football-prediction.fly.dev/predictions/croatia_vs_spain_nl",
+    "fetched_at": "2026-10-06T06:14:05.703Z",
+    "raw_prediction": {
+      "home_team": "Croatia",
+      "away_team": "Spain",
+      "prediction": "A",
+      "prediction_label": "Away Win",
+      "probability_home_win": 0.2134,
+      "probability_draw": 0.2343,
+      "probability_away_win": 0.5523,
+      "score_prediction": {
+        "home_xg": 0.99,
+        "away_xg": 2.72,
+        "rho": -0.13,
+        "most_likely_score": "0:2",
+        "result": "A",
+        "probability_home_win": 0.2134,
+        "probability_draw": 0.2343,
+        "probability_away_win": 0.5523,
+        "top_scorelines": [
+          {
+            "score": "0:2",
+            "probability": 0.0688
+          },
+          {
+            "score": "1:2",
+            "probability": 0.0681
+          },
+          {
+            "score": "0:3",
+            "probability": 0.0624
+          },
+          {
+            "score": "1:3",
+            "probability": 0.0617
+          },
+          {
+            "score": "0:1",
+            "probability": 0.0441
+          }
+        ],
+        "betting_markets": {
+          "double_chance": {
+            "home_or_draw": 0.4477,
+            "home_or_away": 0.7657,
+            "draw_or_away": 0.7866
+          },
+          "over_under": [
+            {
+              "line": 1.5,
+              "over": 0.877,
+              "under": 0.123
+            },
+            {
+              "line": 2.5,
+              "over": 0.6793,
+              "under": 0.3207
+            },
+            {
+              "line": 3.5,
+              "over": 0.4732,
+              "under": 0.5268
+            }
+          ],
+          "btts": {
+            "yes": 0.6288,
+            "no": 0.3712
+          },
+          "win_margin": {
+            "home_1plus": 0.2134,
+            "home_2plus": 0.0754,
+            "home_3plus": 0.0194,
+            "away_1plus": 0.5523,
+            "away_2plus": 0.4018,
+            "away_3plus": 0.2464
+          },
+          "scenario": "Spanien ist mit über 55% Siegchance und einer beträchtlichen Wahrscheinlichkeit für einen Sieg mit mindestens zwei Toren klarer Favorit gegen Kroatien.",
+          "scenario_lang": "de"
+        },
+        "score_matrix": [
+          [
+            0.04621947120784068,
+            0.04411410239741336,
+            0.06883473209489865,
+            0.062395488606481204,
+            0.04241896002160132,
+            0.023070490633225756,
+            0.01045616429120997,
+            0.00406201176173826,
+            0.0013807593976477934
+          ],
+          [
+            0.03240622204126062,
+            0.10410755145210539,
+            0.06810502866174364,
+            0.06173404632489051,
+            0.04196928498377369,
+            0.022825924907358953,
+            0.010345320553626887,
+            0.004018951175347511,
+            0.0013661222393098254
+          ],
+          [
+            0.02479777868336412,
+            0.06743410500257717,
+            0.06197009603527852,
+            0.03053980793130497,
+            0.020762188431213673,
+            0.011291975887283931,
+            0.005117825924333774,
+            0.0019881735328746582,
+            0.0006758201233017964
+          ],
+          [
+            0.008178300772395735,
+            0.022239749780425682,
+            0.03023895085672272,
+            0.018525845228469666,
+            0.0068473641874033046,
+            0.0037240906252140114,
+            0.001687857620007102,
+            0.0006556990989871888,
+            0.00022288529577480076
+          ],
+          [
+            0.0020229010542980293,
+            0.005500997643666822,
+            0.00747959842408823,
+            0.006779908689233332,
+            0.003115275219906541,
+            0.0009211530685536272,
+            0.00041749124347955854,
+            0.00016218704050608,
+            0.000055130633166759185
+          ],
+          [
+            0.000400291335754465,
+            0.0010885365302899985,
+            0.0014800617349642092,
+            0.0013416072425985676,
+            0.0009120785053451453,
+            0.00033527006885190707,
+            0.00008261310021226771,
+            0.00003209354552873621,
+            0.000010909240837273388
+          ],
+          [
+            0.00006600798769488703,
+            0.0001794995281658823,
+            0.00024406198201880748,
+            0.00022123085475708994,
+            0.00015040162346786882,
+            0.00008179925306208456,
+            0.00002505709125314607,
+            0.000005292221362606614,
+            0.0000017989323540817324
+          ],
+          [
+            0.000009329750003170407,
+            0.00002537095557609989,
+            0.000034496389861770074,
+            0.00003126937572179967,
+            0.00002125817792707648,
+            0.00001156173075663137,
+            0.000005240086056426003,
+            0.0000013758558866463925,
+            2.542660323744037e-7
+          ],
+          [
+            0.0000011538558951911587,
+            0.0000031377503843262583,
+            0.00000426633755366327,
+            0.000003867236903806117,
+            0.0000026291030213933314,
+            0.0000014298958908458094,
+            6.480671170676061e-7,
+            2.517611792057829e-7,
+            5.784040750871188e-8
+          ]
+        ]
+      },
+      "game_flow": {
+        "match_type": "Goal Fest",
+        "match_description": "A very open game with plenty of chances expected",
+        "dominance_index": -0.47,
+        "total_xg": 3.71,
+        "first_goal": {
+          "Croatia_scores_first": 0.26,
+          "Spain_scores_first": 0.715,
+          "no_goals": 0.024,
+          "expected_minute": 24
+        },
+        "halftime_xg": {
+          "Croatia": 0.47,
+          "Spain": 1.28
+        },
+        "top_halftime_scores": [
+          {
+            "score": "0:1",
+            "probability": 0.226
+          },
+          {
+            "score": "0:0",
+            "probability": 0.177
+          },
+          {
+            "score": "0:2",
+            "probability": 0.144
+          },
+          {
+            "score": "1:1",
+            "probability": 0.105
+          },
+          {
+            "score": "1:0",
+            "probability": 0.082
+          }
+        ],
+        "goal_timing": {
+          "1-15'": {
+            "Croatia": 0.134,
+            "Spain": 0.367
+          },
+          "16-30'": {
+            "Croatia": 0.153,
+            "Spain": 0.422
+          },
+          "31-45'": {
+            "Croatia": 0.178,
+            "Spain": 0.49
+          },
+          "46-60'": {
+            "Croatia": 0.144,
+            "Spain": 0.394
+          },
+          "61-75'": {
+            "Croatia": 0.183,
+            "Spain": 0.503
+          },
+          "76-90'": {
+            "Croatia": 0.198,
+            "Spain": 0.544
+          }
+        },
+        "comeback_probability": {
+          "Croatia": 0.016,
+          "Spain": 0.041
+        },
+        "late_drama_probability": 0.524,
+        "match_stories": [
+          {
+            "szenario": "Torloser Krimi",
+            "beschreibung": "0:0 zur Halbzeit — Entscheidung fällt in der 2. Hälfte",
+            "wahrscheinlichkeit": 0.157
+          },
+          {
+            "szenario": "Spain dominiert früh",
+            "beschreibung": "Spain geht 0:2 in Halbzeit 1, kontrolliert dann",
+            "wahrscheinlichkeit": 0.149
+          },
+          {
+            "szenario": "Spain dreht es noch",
+            "beschreibung": "Spain liegt zur Halbzeit zurück, dreht das Spiel in H2",
+            "wahrscheinlichkeit": 0.041
+          }
+        ],
+        "predicted_stats": {
+          "possession": {
+            "home": 42,
+            "away": 58
+          },
+          "shots": {
+            "home": 10,
+            "away": 22
+          },
+          "shots_on_target": {
+            "home": 4,
+            "away": 9
+          },
+          "corners": {
+            "home": 4,
+            "away": 9
+          },
+          "passes": {
+            "home": 218,
+            "away": 302
+          }
+        },
+        "match_ticker": [
+          {
+            "minute": 1,
+            "type": "kickoff",
+            "team": null,
+            "headline": "Kickoff!",
+            "description": "The match between Croatia and Spain is underway.",
+            "score_after": "0:0"
+          },
+          {
+            "minute": 8,
+            "type": "chance",
+            "team": "Spain",
+            "headline": "Big chance for Spain!",
+            "description": "Spain create a great opportunity but fail to convert.",
+            "score_after": "0:0"
+          },
+          {
+            "minute": 14,
+            "type": "goal",
+            "team": "Spain",
+            "headline": "GOAL! Spain!",
+            "description": "Spain score to make it 0:1.",
+            "score_after": "0:1"
+          },
+          {
+            "minute": 16,
+            "type": "chance",
+            "team": "Spain",
+            "headline": "Big chance for Spain!",
+            "description": "Spain create a great opportunity but fail to convert.",
+            "score_after": "0:1"
+          },
+          {
+            "minute": 45,
+            "type": "halftime",
+            "team": null,
+            "headline": "Half-time",
+            "description": "The teams go into the break at 0:1.",
+            "score_after": "0:1"
+          },
+          {
+            "minute": 63,
+            "type": "chance",
+            "team": "Spain",
+            "headline": "Big chance for Spain!",
+            "description": "Spain create a great opportunity but fail to convert.",
+            "score_after": "0:1"
+          },
+          {
+            "minute": 77,
+            "type": "goal",
+            "team": "Spain",
+            "headline": "GOAL! Spain!",
+            "description": "Spain score to make it 0:2.",
+            "score_after": "0:2"
+          },
+          {
+            "minute": 79,
+            "type": "chance",
+            "team": "Spain",
+            "headline": "Big chance for Spain!",
+            "description": "Spain create a great opportunity but fail to convert.",
+            "score_after": "0:2"
+          },
+          {
+            "minute": 90,
+            "type": "fulltime",
+            "team": null,
+            "headline": "Full-time",
+            "description": "The final score finishes 0:2.",
+            "score_after": "0:2"
+          }
+        ]
+      },
+      "explanation": {
+        "fifa_ranking": {
+          "Croatia": 9,
+          "Spain": 1
+        },
+        "fifa_points": {
+          "Croatia": 1714.2,
+          "Spain": 1875.37
+        },
+        "form_last_10_avg_pts": {
+          "Croatia": 1.55,
+          "Spain": 2.56
+        },
+        "win_rate_last_10": {
+          "Croatia": "52%",
+          "Spain": "78%"
+        },
+        "avg_goals_scored": {
+          "Croatia": 1.44,
+          "Spain": 2.53
+        },
+        "avg_goals_conceded": {
+          "Croatia": 2.85,
+          "Spain": 0.7
+        },
+        "clean_sheet_rate": {
+          "Croatia": "10%",
+          "Spain": "49%"
+        },
+        "h2h_last_10": {
+          "Croatia wins": "20%",
+          "draws": "20%",
+          "Spain wins": "60%",
+          "total_h2h_games": 10
+        }
+      },
+      "history_refreshed_at": "2026-10-06T06:07:32.700019+00:00",
+      "match_id": "croatia_vs_spain_nl",
+      "group": "Tue 06 Oct",
+      "date": "2026-10-06",
+      "time": "20:45"
+    }
+  },
+  "sources": [
+    {
+      "url": "https://hns.team/vijesti/31830/modric-prikazat-cemo-hrvatsku-koja-ce-navijace-uciniti-ponosnima/",
+      "published": "2026-10-05",
+      "retrieved": "2026-10-06T06:02:44.779Z",
+      "verified_context": "Official HNS pre-match report: Croatia face Spain in Split on 6 October; collective responsibility and restoring supporter pride after a setback."
+    }
+  ],
+  "story": {
+    "fictional": true,
+    "story_type": "team_internal_decision",
+    "previous_story_type": "object_mystery",
+    "hook": "A captain's cracked stone shield weighs him down at a broken seaside bridge.",
+    "conflict": "Keep carrying the burden or use it to help stranded teammates.",
+    "turning_point": "He turns the shield into a crossing.",
+    "ending_image": "Linked Croatian hands facing a waiting Spanish rival with the ball; outcome unresolved.",
+    "changed_elements": [
+      "seaside bridge instead of stadium tunnel",
+      "visible burden and choice instead of vanishing-ball mystery",
+      "shield becomes bridge instead of independent shadow clue",
+      "solidarity ending instead of ball pursuit"
+    ],
+    "dialogues": [
+      "You cannot carry us both!",
+      "Then I stop carrying the past.",
+      "We face them together."
+    ],
+    "rendered_story": {
+      "turning_point": "Captain lowers the stone burden into the crossing and reaches the teammates; linked hands replace carrying alone.",
+      "ending_image": "Croatian team linked together on the bridge facing a waiting Spanish rival; no sporting result"
+    }
+  },
+  "params": {
+    "model": "seedance_2_0_mini",
+    "duration": 12,
+    "resolution": "720p",
+    "aspect_ratio": "9:16",
+    "generate_audio": true,
+    "count": 1,
+    "bitrate_mode": "high",
+    "genre": "epic",
+    "prompt": "Create a coherent 12-second vertical cinematic anime football fantasy about a TEAM INTERNAL DECISION, inspired by Croatia versus Spain. Entirely fictional adult players, original faces and voices, no likeness or voice imitation of any real person. Not actual match footage and no predicted result. Dusk on an ancient stone footbridge above the Adriatic in Split. Croatian characters wear unnumbered red-white checkered football jerseys; Spanish characters wear unnumbered red-gold football jerseys. No interviews, reporter, commentator, stadium-pitch duel, goals, scoreboards, subtitles, logos, visible writing or title cards.\n0–3 seconds: immediate action hook, close-up of a fictional Croatian captain straining under a large cracked stone shield as a section of the bridge breaks away. Two Croatian teammates are stranded beyond the narrow gap. A teammate calls in clear English, \"You cannot carry us both!\"\n3–6 seconds: the captain looks at his stone shield, then at his teammates. Across the far side, an adult Spanish rival holding a football silently watches. The captain says in clear English, \"Then I stop carrying the past.\"\n6–9 seconds: decisive twist: the captain lowers the shield flat across the gap, creating a short strong stepping stone. It is the same shield with the same crack. No magic teleporting, no fight. A teammate steps across it and offers his hand to the captain.\n9–12 seconds: all three Croatian players clasp hands, standing upright together. Pull back to reveal the Spanish rival still waiting with the football on the next intact section of the bridge. A Croatian teammate says in clear English, \"We face them together.\" End on the linked hands and the waiting rival, unresolved sporting challenge, no win or loss.\nAudio: exactly those three English lines, intelligible adult male voices with pauses, no extra or improvised dialogue, no other language, no singing. Cinematic instrumental percussion and sea wind kept quieter than speech. Stable anatomy, coherent bridge geography, shield size large enough to span the narrow gap. No safety disclaimer or outro inside this source clip; it will be appended separately."
+  },
+  "charges": [
+    {
+      "asset_id": "goaliq-2026-10-06-story-v1",
+      "credits": 12,
+      "exact_quote": 12,
+      "state": "completed",
+      "balance_before": 199.22,
+      "job_id": "c61b532f-9fcd-47a2-83b0-32fed9c15387",
+      "submitted_at": "2026-10-06T06:05:53.680Z",
+      "balance_after": 187.22,
+      "charged_credits_confirmed": 12
+    }
+  ],
+  "quality": {
+    "state": "passed",
+    "review": "passed",
+    "spoken_english": "passed via completed Higgsfield analysis",
+    "dialogue_transcription": [
+      "You cannot carry us both!",
+      "Then I stop carrying the past.",
+      "We face them together."
+    ],
+    "analysis_id": "92f941e0-b69f-4fd3-a2f7-6a519474bfea",
+    "visuals": "passed:source, action sequence, complete transition and outro inspected",
+    "source_integrity": "passed:decoded frames, encoded image payloads and audio packets preserved; SPS/PPS added at6 keyframes during remux",
+    "live_recheck": {
+      "fetched_at": "2026-10-06T06:11:58.806Z",
+      "matches": [
+        {
+          "group": "Tue 06 Oct",
+          "date": "2026-10-06",
+          "time": "20:45",
+          "home_team": "Croatia",
+          "away_team": "Spain",
+          "match_id": "croatia_vs_spain_nl"
+        }
+      ],
+      "prediction": {
+        "match_id": "croatia_vs_spain_nl",
+        "date": "2026-10-06",
+        "time": "20:45",
+        "home_team": "Croatia",
+        "away_team": "Spain",
+        "home": 0.2134,
+        "draw": 0.2343,
+        "away": 0.5523,
+        "history_refreshed_at": "2026-10-06T06:07:32.700019+00:00"
+      },
+      "freshness_age_hours": 0.07391833333333334,
+      "lead_hours": 12.550331666666667
+    }
+  },
+  "outro": {
+    "duration_seconds": 3,
+    "logo_path": "social/pipeline/assets/goal-logo.png",
+    "domain": "goaliq.de",
+    "disclaimer": "AI predictions, for entertainment only. No betting advice."
+  },
+  "completed_at": "2026-10-06T06:14:06.043Z",
+  "packet_at_production": {
     "url": "https://football-prediction.fly.dev/predictions/croatia_vs_spain_nl",
     "status": 200,
     "data": {
@@ -431,66 +940,19 @@
       "time": "20:45"
     }
   },
-  "sources": [
-    {
-      "url": "https://hns.team/vijesti/31830/modric-prikazat-cemo-hrvatsku-koja-ce-navijace-uciniti-ponosnima/",
-      "published": "2026-10-05",
-      "retrieved": "2026-10-06T06:02:44.779Z",
-      "verified_context": "Official HNS pre-match report: Croatia face Spain in Split on 6 October; collective responsibility and restoring supporter pride after a setback."
-    }
-  ],
-  "story": {
-    "fictional": true,
-    "story_type": "team_internal_decision",
-    "previous_story_type": "object_mystery",
-    "hook": "A captain's cracked stone shield weighs him down at a broken seaside bridge.",
-    "conflict": "Keep carrying the burden or use it to help stranded teammates.",
-    "turning_point": "He turns the shield into a crossing.",
-    "ending_image": "Linked Croatian hands facing a waiting Spanish rival with the ball; outcome unresolved.",
-    "changed_elements": [
-      "seaside bridge instead of stadium tunnel",
-      "visible burden and choice instead of vanishing-ball mystery",
-      "shield becomes bridge instead of independent shadow clue",
-      "solidarity ending instead of ball pursuit"
-    ],
-    "dialogues": [
-      "You cannot carry us both!",
-      "Then I stop carrying the past.",
-      "We face them together."
-    ]
+  "caption": "Ein Team braucht keinen Helden, der alles allein trägt. 🛡️\n\nIn dieser fiktiven Fußballgeschichte legt Kroatiens Kapitän seine schwere Last ab. Erst dann steht das Team zusammen – während Spanien mit dem Ball wartet.\n\nKroatien gegen Spanien · 06.10.2026 · 20:45 Uhr\n\nBraucht Kroatien gegen Spanien mehr individuelle Klasse – oder ist der Glaube an den einen Retter genau das Problem?\n\nFiktive KI-Geschichte, kein reales Spielgeschehen und kein vorweggenommenes Ergebnis.\ngoaliq.de\nKI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.\n\n#Kroatien #Spanien #NationsLeague #GoalIQ",
+  "caption_language": "de",
+  "output": {
+    "media_id": "5fc99cf9-dce0-4bb9-b992-9775b757d4e9",
+    "type": "video",
+    "container": "MP4",
+    "duration_seconds": 15.129,
+    "width": 720,
+    "height": 1280,
+    "source_seconds": 12.096,
+    "outro_video_seconds": 3,
+    "delivery": "Higgsfield inline media player",
+    "published": false
   },
-  "params": {
-    "model": "seedance_2_0_mini",
-    "duration": 12,
-    "resolution": "720p",
-    "aspect_ratio": "9:16",
-    "generate_audio": true,
-    "count": 1,
-    "bitrate_mode": "high",
-    "genre": "epic",
-    "prompt": "Create a coherent 12-second vertical cinematic anime football fantasy about a TEAM INTERNAL DECISION, inspired by Croatia versus Spain. Entirely fictional adult players, original faces and voices, no likeness or voice imitation of any real person. Not actual match footage and no predicted result. Dusk on an ancient stone footbridge above the Adriatic in Split. Croatian characters wear unnumbered red-white checkered football jerseys; Spanish characters wear unnumbered red-gold football jerseys. No interviews, reporter, commentator, stadium-pitch duel, goals, scoreboards, subtitles, logos, visible writing or title cards.\n0–3 seconds: immediate action hook, close-up of a fictional Croatian captain straining under a large cracked stone shield as a section of the bridge breaks away. Two Croatian teammates are stranded beyond the narrow gap. A teammate calls in clear English, \"You cannot carry us both!\"\n3–6 seconds: the captain looks at his stone shield, then at his teammates. Across the far side, an adult Spanish rival holding a football silently watches. The captain says in clear English, \"Then I stop carrying the past.\"\n6–9 seconds: decisive twist: the captain lowers the shield flat across the gap, creating a short strong stepping stone. It is the same shield with the same crack. No magic teleporting, no fight. A teammate steps across it and offers his hand to the captain.\n9–12 seconds: all three Croatian players clasp hands, standing upright together. Pull back to reveal the Spanish rival still waiting with the football on the next intact section of the bridge. A Croatian teammate says in clear English, \"We face them together.\" End on the linked hands and the waiting rival, unresolved sporting challenge, no win or loss.\nAudio: exactly those three English lines, intelligible adult male voices with pauses, no extra or improvised dialogue, no other language, no singing. Cinematic instrumental percussion and sea wind kept quieter than speech. Stable anatomy, coherent bridge geography, shield size large enough to span the narrow gap. No safety disclaimer or outro inside this source clip; it will be appended separately."
-  },
-  "charges": [
-    {
-      "asset_id": "goaliq-2026-10-06-story-v1",
-      "credits": 12,
-      "exact_quote": 12,
-      "state": "submitted",
-      "balance_before": 199.22,
-      "job_id": "c61b532f-9fcd-47a2-83b0-32fed9c15387",
-      "submitted_at": "2026-10-06T06:05:53.680Z"
-    }
-  ],
-  "quality": {
-    "state": "pending",
-    "spoken_english": "pending",
-    "visuals": "pending",
-    "source_integrity": "pending"
-  },
-  "outro": {
-    "duration_seconds": 3,
-    "logo_path": "social/pipeline/assets/goal-logo.png",
-    "domain": "goaliq.de",
-    "disclaimer": "AI predictions, for entertainment only. No betting advice."
-  }
+  "production_evidence": "production.json"
 }
