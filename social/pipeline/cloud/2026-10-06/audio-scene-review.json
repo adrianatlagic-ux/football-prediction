@@ -1,0 +1,98 @@
+{
+  "analysis_id": "92f941e0-b69f-4fd3-a2f7-6a519474bfea",
+  "status": "completed",
+  "video_input_id": "9a4094af-f29b-4ce6-ae47-575613649871",
+  "scenes": [
+    {
+      "audio": "Heavy, strained breathing and a low-pitched guttural grunt.",
+      "label": "Opening Hook",
+      "visual": "Static close-up shot of a man's face. He is approximately in his late 20s, with light skin, short brown hair, and intense blue eyes. He is sweating and grimacing, showing his teeth. The lighting is warm and comes from the right side, creating a hard shadow on the left side of his face. The background is blurred and warm-toned.",
+      "shot_type": "Extreme Close-Up",
+      "scene_number": 1,
+      "timestamp_end": "0:01",
+      "timestamp_start": "0:00"
+    },
+    {
+      "audio": "The sound of heavy breathing and a loud, resonant cracking sound as if stone is breaking.",
+      "label": "Problem Solving",
+      "visual": "A low-angle tracking shot of the man from the previous scene. He is wearing a white and red checkered soccer jersey with the number 18 and white shorts. He is carrying a massive, circular stone slab on his back, similar to a turtle shell. He is struggling, with his body bent forward and his hands gripping the edges of the stone. Dust and debris are flying in the air behind him. The environment is an outdoor, coastal setting at sunset with a warm, golden lighting. The sky is filled with soft, orange-tinted clouds.",
+      "shot_type": "Medium Shot",
+      "scene_number": 2,
+      "timestamp_end": "0:02",
+      "timestamp_start": "0:01"
+    },
+    {
+      "audio": "A male voice says, \"You cannot carry us both!\"",
+      "label": "Usage Scenarios",
+      "visual": "A static shot of two other men in similar soccer jerseys (numbers 17 and 9). They are standing on a stone ledge overlooking the ocean. The man on the left (number 17) is in his late 20s, with light skin and short brown hair. The man on the right (number 9) is in his early 20s, with light skin and short, wavy brown hair. They both have expressions of concern and surprise. The background shows a calm ocean and a town on the coast at sunset.",
+      "shot_type": "Medium Shot",
+      "scene_number": 3,
+      "timestamp_end": "0:03",
+      "timestamp_start": "0:02"
+    },
+    {
+      "audio": "The man responds in a deep, determined voice, \"Then I stop carrying the past.\"",
+      "label": "Product Selling Points",
+      "visual": "A static close-up shot of the man with the stone slab. He is still grimacing and sweating, looking down. The lighting is warm and dramatic, highlighting the texture of the stone and the sweat on his skin.",
+      "shot_type": "Close-Up",
+      "scene_number": 4,
+      "timestamp_end": "0:04",
+      "timestamp_start": "0:03"
+    },
+    {
+      "audio": "Silence.",
+      "label": "Product Selling Points",
+      "visual": "A static shot of a new man in his late 20s, with light skin and short dark hair. He is wearing a red soccer jersey with yellow accents and the number 2, and blue shorts. He is holding a soccer ball in his right hand. He has a neutral expression and is looking directly at the camera. The background is a coastal setting at sunset, with a soft, warm glow.",
+      "shot_type": "Medium Shot",
+      "scene_number": 5,
+      "timestamp_end": "0:05",
+      "timestamp_start": "0:04"
+    },
+    {
+      "audio": "The sound of his heavy footsteps on the stone.",
+      "label": "Product Selling Points",
+      "visual": "A low-angle static shot of the man with the stone slab. He is stepping onto a narrow stone bridge between two large rock formations. He is still carrying the massive circular stone. The background is a golden sunset sky with soft, orange-tinted clouds.",
+      "shot_type": "Medium Shot",
+      "scene_number": 6,
+      "timestamp_end": "0:06",
+      "timestamp_start": "0:05"
+    },
+    {
+      "audio": "A loud, echoing crash of the stone shattering.",
+      "label": "Product Selling Points",
+      "visual": "A static shot focusing on the stone bridge. The man drops the circular stone slab, which shatters upon impact with the bridge. The pieces of the stone fall into the ocean below. The lighting is warm and highlights the texture of the breaking stone.",
+      "shot_type": "Close-Up",
+      "scene_number": 7,
+      "timestamp_end": "0:07",
+      "timestamp_start": "0:06"
+    },
+    {
+      "audio": "A rhythmic, tribal-like drum beat starts, followed by a loud 'clap' sound accompanying the handshake.",
+      "label": "Real Experience",
+      "visual": "A static close-up shot of two hands clasping in a firm handshake. The lighting is warm and comes from behind, creating a bright rim light around the hands and arms. The background is a blurry sunset sky.",
+      "shot_type": "Close-Up",
+      "scene_number": 8,
+      "timestamp_end": "0:08",
+      "timestamp_start": "0:07"
+    },
+    {
+      "audio": "A deep, resonant voiceover says, \"We face them...\"",
+      "label": "Real Experience",
+      "visual": "A static shot of four men in the checkered soccer jerseys standing in a circle on the stone bridge, holding hands. They are looking at each other with expressions of solidarity. The lighting is warm and golden from the setting sun, which is visible in the background over the ocean.",
+      "shot_type": "Medium Shot",
+      "scene_number": 9,
+      "timestamp_end": "0:09",
+      "timestamp_start": "0:08"
+    },
+    {
+      "audio": "The voiceover continues, \"...together.\" The tribal drum beat builds in intensity and then fades out.",
+      "label": "Call to Action",
+      "visual": "A wide, static shot showing the four men in the circle on the stone arch bridge. A fifth man, in a red goalkeeper jersey, is standing to the right, holding a soccer ball. The bridge spans over the ocean, with a coastal town in the distance. The sun is setting on the horizon, creating a dramatic, golden glow across the entire scene.",
+      "shot_type": "Wide Shot",
+      "scene_number": 10,
+      "timestamp_end": "0:12",
+      "timestamp_start": "0:09"
+    }
+  ],
+  "manual_review_note": "Ten additional frames at4fps from5.5–8s show the captain lowers the heavy slab across the gap then steps across; teammates clasp hands. Automated description of shattered stone is less precise than these inspected frames."
+}
