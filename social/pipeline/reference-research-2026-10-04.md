@@ -45,3 +45,7 @@ Ganz am Anfang korrekte Referenzwappen beider Mannschaften sowie Paarung und tat
 ## Nutzeranweisung 07.10.2026: Prognosen sind optional
 
 Die Produktion basiert verpflichtend auf verifiziertem Spieltermin und aktueller seriöser Recherche. Fehlende Prognosen oder fehlende Prognose-Zeitstempel sind kein Produktionsblocker. Nur belegbar frische Prognosen optional intern nutzen; keine Ersatzwerte erfinden. Ohne Prognose anhand Mannschaftsrelevanz, belegtem Kontext und Storypotenzial auswählen. Alle Termin-, Quellen-, Wappen-, Credit- und Qualitätsprüfungen bleiben verbindlich.
+
+## Neueste Nutzerkorrektur 07.10.2026: Vereinswappen entfallen
+
+Alle vorherigen Wappenpflichten sind aufgehoben. Im generierten Anime-Auftakt nur korrekte Mannschaftsnamen und den tatsächlichen Spieltermin zeigen. Keine Wappenreferenzen benötigen und keine Wappen oder Ersatzsymbole in der Eröffnung erzeugen. Namen/Datum bleiben in der generierten Szene, ohne nachträgliches Textoverlay. Das originale GoalIQ-Markenlogo im dreisekündigen Abschluss bleibt verpflichtend. Nutzerautorisierte Korrekturversuchslimits im Tagesmanifest einhalten.
