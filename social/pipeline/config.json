@@ -226,6 +226,10 @@
     "verify_link_reachable": true,
     "caption_inline_required": true,
     "private_media_urls_in_public_repository": false,
-    "repeat_download_request_action": "reuse_existing_final_without_generation"
+    "repeat_download_request_action": "reuse_existing_final_without_generation",
+    "zip_download_fallback_required": true,
+    "zip_contains": "same_final_mp4_byte_identical",
+    "download_archive_renderer": "higgsfield_cloud_only",
+    "zip_label": "Video herunterladen (ZIP mit MP4)"
   }
 }
