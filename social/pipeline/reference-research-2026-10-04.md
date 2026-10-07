@@ -41,3 +41,7 @@ Auch an spielfreien Tagen täglich einen neuen Beitrag anstreben: nächste chron
 ## Nutzerklarstellung 07.10.2026: Wappen und Schrift im generierten Clip
 
 Ganz am Anfang korrekte Referenzwappen beider Mannschaften sowie Paarung und tatsächlichen Termin innerhalb der generierten Anime-Szene zeigen. Kein nachträgliches Textoverlay und keine separate native Hookkarte. Diese Klarstellung ersetzt die zuvor geplante native Hook-Schrift. Der vollständige Ausgangsclip einschließlich Eröffnung bleibt unverändert, danach nur den Markenabschluss anhängen. Generative Schrift und Wappen sind fehleranfällig; exakte Inhalte und Zuordnung über mehrere Frames prüfen, bei Fehlern nicht ready setzen. Zukunftsauswahl und täglicher Beitragsrhythmus gemäß README bleiben verbindlich.
+
+## Nutzeranweisung 07.10.2026: Prognosen sind optional
+
+Die Produktion basiert verpflichtend auf verifiziertem Spieltermin und aktueller seriöser Recherche. Fehlende Prognosen oder fehlende Prognose-Zeitstempel sind kein Produktionsblocker. Nur belegbar frische Prognosen optional intern nutzen; keine Ersatzwerte erfinden. Ohne Prognose anhand Mannschaftsrelevanz, belegtem Kontext und Storypotenzial auswählen. Alle Termin-, Quellen-, Wappen-, Credit- und Qualitätsprüfungen bleiben verbindlich.
