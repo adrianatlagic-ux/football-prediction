@@ -136,13 +136,15 @@
     "post_generation_text_overlay": false,
     "separate_intro": false,
     "team_crests": {
-      "required": true,
-      "placement": "very_beginning",
-      "source": "authorized_assets_or_official_team_sources",
-      "reference_media_required": true,
-      "team_assignment_validation_required": true,
-      "shape_and_legibility_validation_required": true
-    }
+      "required": false,
+      "enabled": false,
+      "reference_media_required": false,
+      "policy": "names_and_verified_date_only_no_club_crests"
+    },
+    "opening_content": [
+      "team_names",
+      "verified_match_date_and_kickoff"
+    ]
   },
   "source_hash_comparison_offset": 0,
   "fixture_selection": {
@@ -187,5 +189,10 @@
     "stale_action": "omit_prediction_and_continue",
     "max_age_hours": 48,
     "impute_probabilities": false
+  },
+  "correction_policy": {
+    "obey_user_authorized_run_cap": true,
+    "store_in_daily_manifest": true,
+    "do_not_retry_when_cap_exhausted": true
   }
 }
