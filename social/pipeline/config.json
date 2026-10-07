@@ -98,7 +98,13 @@
     "virality_guarantee": false,
     "fiction_label_required": true,
     "domain": "goaliq.de",
-    "disclaimer_de": "KI-Prognosen, nur zur Unterhaltung. Keine Wettberatung."
+    "disclaimer_de": "KI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.",
+    "explanatory_story_summary": false,
+    "fiction_label_format": "KI-Fiktion",
+    "avoid_phrases": [
+      "In unserer fiktiven KI-Anime-Story"
+    ],
+    "story_reference": "implicit_in_hook_or_question_without_explanatory_summary"
   },
   "visual_style": {
     "required": true,
