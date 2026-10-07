@@ -1,7 +1,7 @@
 {
   "post_id": "goaliq-2026-10-07",
   "target_date": "2026-10-07",
-  "state": "blocked_quality",
+  "state": "correcting",
   "created_at": "2026-10-07T06:16:13.112Z",
   "cloud_only": true,
   "daily_limit": 1,
@@ -557,12 +557,7 @@
       "prediction_status": 200
     }
   ],
-  "blockers": [
-    {
-      "code": "correction_limit_exhausted",
-      "detail": "Two authorized correction runs completed. Latest result corrected DORTMUND and BVB09 but distorted Werder W crest. Mandatory quality gate still fails. No further automatic generation permitted for this contribution."
-    }
-  ],
+  "blockers": [],
   "credits": {
     "balance_before": 187.22,
     "balance_after": 165.42,
@@ -619,6 +614,24 @@
       },
       "job_id": "e1040807-bcd4-4a1e-884c-a31d1fd19785",
       "credits_actual": 3.38
+    },
+    {
+      "asset_id": "goaliq-2026-10-07-opening-correction-3",
+      "state": "reserved",
+      "credits_exact": 4,
+      "balance_before": 165.42,
+      "params": {
+        "model": "flux_3_video_edit",
+        "duration": 4,
+        "count": 1,
+        "medias": [
+          {
+            "role": "video",
+            "value": "e1040807-bcd4-4a1e-884c-a31d1fd19785"
+          }
+        ],
+        "prompt": "Remove both football club crests from the big physical stadium announcement board: remove the yellow circular BVB emblem on the left and the green diamond emblem on the right, replacing their areas with the board's plain yellow/black painted background. No club crests or logo-like substitutes on this announcement board. Preserve the existing correct text exactly: DORTMUND vs BREMEN and 9 OCT 2026 · 20:30 CEST. Preserve each letter and numeral without alteration throughout the video. Keep the existing physical board, perspective, hand-drawn 2D anime style, camera movement, stadium, lighting and all timing unchanged. No floating text overlays, no separate title cards, no extra text. Only erase the two emblems on the board, preserve the two correct text lines on the board."
+      }
     }
   ],
   "jobs": [
@@ -717,7 +730,8 @@
     ],
     "duration_planned_seconds": 2.5,
     "timezone": "Europe/Berlin",
-    "review": "failed"
+    "review": "failed",
+    "team_crests": false
   },
   "team_crests": [
     {
@@ -757,14 +771,19 @@
   "updated_at": "2026-10-07T06:36:20.638Z",
   "final_media_id": null,
   "correction_policy": {
-    "max_runs": 2,
+    "max_runs": 3,
     "runs_submitted": 2,
     "scope": "opening_only",
     "authorized_at": "2026-10-07T08:30:12+02:00",
     "preserve_remaining_story": true,
     "preserve_entire_original_audio": true,
-    "runs_remaining": 0,
-    "automatic_retry_allowed": false
+    "runs_remaining": 1,
+    "automatic_retry_allowed": false,
+    "additional_authorization": {
+      "at": "2026-10-07T08:41:35+02:00",
+      "runs": 1,
+      "scope": "remove_opening_club_crests_preserve_names_and_date"
+    }
   },
   "correction_reviews": [
     {
@@ -794,5 +813,6 @@
       "duration": 3.375
     }
   ],
-  "audio_analysis_id": "4b24f76e-0999-4f60-b6c6-22f954a1fc66"
+  "audio_analysis_id": "4b24f76e-0999-4f60-b6c6-22f954a1fc66",
+  "team_crests_required": false
 }
