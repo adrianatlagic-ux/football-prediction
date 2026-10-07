@@ -2,6 +2,16 @@
 
 Stand: 07.10.2026. Diese Pipeline arbeitet ausschließlich über GitHub MCP und Higgsfield MCP in der Cloud. Keine lokalen Dateien oder Prozesse, kein Python und kein lokales FFmpeg. Der native Higgsfield-Cloud-Editor darf intern FFmpeg verwenden. Bei fehlendem Pluginzugriff, Credits oder erforderlicher Qualitätsprüfung stoppen. Keine Veröffentlichung auf externen sozialen Plattformen.
 
+## Neueste Nutzeranweisung 07.10.2026: Spielbezogene Story und passende Sprache
+
+Für neue Videos mit deutschen Vereinen oder der deutschen Nationalmannschaft deutschen Redetext verwenden, auch bei internationalen Begegnungen mit deutscher Beteiligung. Bei anderen Paarungen bleibt Englisch die Standardsprache. Diese Regel ersetzt alle früheren pauschalen Englischpflichten für gesprochenen Text. Im Manifest Sprache und Auswahlgrund festhalten. Natürlich klingende Stimmen mit glaubwürdiger Emotion, menschlicher Intonation, natürlichen Pausen und klarer Aussprache; keine realen Personen imitieren. Tatsächlich erzeugten Ton auf richtige Sprache, Verständlichkeit und Natürlichkeit prüfen. Redaktionelle Schrift im Video und der feste Markenabschluss bleiben Englisch; die begleitende Caption bleibt Deutsch.
+
+Jede Story muss erkennbar zum konkreten recherchierten Duell gehören. Vor dem Storyboard mindestens zwei aktuelle belegte Kontextpunkte zur Paarung herausarbeiten, beispielsweise sportliche Ausgangslage, dokumentierte Spielweisen/taktischer Konflikt, Rivalität, Heim-/Auswärtssituation oder offiziell bestätigte Personalthemen. Zu jedem Punkt Quelle, Veröffentlichungs-/Abrufdatum und Bedeutung für dieses Duell dokumentieren. Allgemeine Rückkehr aus einer Länderspielpause oder bloße Teamfarben allein reichen nicht als Storygrundlage. Keine ungeprüften Taktik- oder Formbehauptungen, keine erfundenen Nachrichten, Resultate oder Wahrscheinlichkeiten.
+
+Hook, Konflikt und Wendung aus diesem Kontext entwickeln. Mindestens ein konkreter Spielbezug muss im tatsächlich erzeugten Inhalt für Zuschauer verständlich werden, durch Handlung und passenden Dialog. Fantasie darf diesen belegten Konflikt in Anime übersetzen, muss aber als Fiktion gekennzeichnet bleiben. Keine beliebige Rettungsmission, zufälligen Hindernisse oder magischen Gegenstände ohne erklärbaren Bezug zur Paarung. Keine Stat-Overlays. Fiktive Figuren und Dialoge nicht als echte Spieler oder Originalzitate ausgeben.
+
+Vor Produktion den Austauschbarkeitstest anwenden: Könnte dieselbe Handlung unverändert mit beliebigen anderen Teamnamen funktionieren, Story neu entwickeln. Vor ready tatsächlich erzeugtes Video darauf prüfen, ob der geplante Spielbezug noch erkennbar ist. Teamnamen, Wappen und Trikotfarben allein erfüllen diese Prüfung nicht. Im Manifest match_context, story_connection mit Zuordnung Kontext→Hook/Konflikt/Wendung, spoken_language und match_relevance_review speichern. Fehlende Recherche oder fehlender erkennbarer Spielbezug sperrt automatische Freigabe. Kein neuer Beitrag oder Auftrag allein durch diese Regeländerung; die nächste Produktion folgt dieser Vorgabe.
+
 ## Neueste Nutzeranweisung 07.10.2026: Wappen wieder verwenden, natürliche Stimmen
 
 Die zwischenzeitliche Regel ohne Vereinswappen ist aufgehoben. Korrekte offizielle Vereinswappen zusammen mit englischen Teamnamen und verifiziertem Spieltermin direkt in der generierten Anime-Eröffnung zeigen. Kein nachträgliches Overlay. Wappenreferenzen und tatsächliche Text-/Wappenprüfung bleiben bei neuen Beiträgen verpflichtend.
@@ -92,14 +102,9 @@ Die Caption muss individuell zur tatsächlich exportierten Story passen. Ziel is
 
 Domain `goaliq.de` und den deutschen Hinweis „KI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.“ aufnehmen. Bei Spielbezug Datum aus dem geprüften Manifest verwenden. Diese Caption-Regel ersetzt alle älteren Englischvorgaben für begleitende Captions. Redetext und redaktionelle Texte INNERHALB des Videos bleiben Englisch.
 
-## Zwingende Sprachvorgabe (Nutzeranweisung 04.10.2026)
+## Verbindliche Sprachvorgabe (aktualisiert07.10.2026)
 
-- Der gesamte gesprochene Text muss ENGLISCH sein: Figuren-Dialoge, Medienfragen, Kommentare, Erzähler und Voiceover. Deutschsprachige Zielgruppen oder deutschsprachige Quellen ändern diese Vorgabe nicht.
-- Auch sämtliche sichtbaren redaktionellen Texte im Video müssen Englisch sein: Markenunterzeile, CTA und Fiktions-/Prognosehinweise. Eigennamen, Teamnamen, Goalfiq und die Domain goaliq.de bleiben korrekt erhalten.
-- Bereits das Storyboard und jeder Generierungs-, TTS-, Dubbing- und Schnittauftrag müssen Englisch als Ausgabesprache ausdrücklich festlegen. Die verpflichtende deutsche Caption ersetzt keinen englischen Redetext.
-- Vor dem Status ready jede tatsächlich gesprochene Zeile auf verständliches Englisch prüfen. Deutschen oder anderssprachigen Originalton vollständig entfernen oder durch geprüften englischen Dialog ersetzen; Mischsprache ist nicht zulässig.
-- Nichtenglischer oder ungeprüfter Redetext sperrt die Fertigmeldung. Falls für die Korrektur nicht genügend Credits verfügbar sind, stoppen und melden. Kein stiller Rückfall auf Deutsch oder eine stumme Ersatzfassung.
-- Diese verbindliche Nutzeranweisung ersetzt sämtliche älteren Sprachwahl-, Deutschdialog- und bedingten Englischvorgaben in dieser Routine und in der verlinkten Referenzrecherche.
+Redetext bei deutscher Beteiligung Deutsch, sonst Englisch gemäß neuester Nutzeranweisung oben. Alle tatsächlich gesprochenen Zeilen auf richtige Sprache, Verständlichkeit und natürliche Stimmqualität prüfen. Die redaktionellen Texte innerhalb des Videos und der feste Abschluss bleiben Englisch; Eigennamen und goaliq.de korrekt erhalten. Deutsche Caption immer zusätzlich ausgeben. Frühere pauschale Englischpflicht für Dialoge ist aufgehoben.
 
 ## Aktuelle kreative Vorgaben (Nutzerkorrektur 04.10.2026)
 
