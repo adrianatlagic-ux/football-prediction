@@ -584,7 +584,7 @@
     },
     {
       "asset_id": "goaliq-2026-10-07-opening-correction-1",
-      "state": "submitted",
+      "state": "completed",
       "credits_exact": 4,
       "balance_before": 172.22,
       "params": {
@@ -599,7 +599,26 @@
         "prompt": "Make a precise local correction to the physical yellow-and-black stadium announcement board in this hand-drawn 2D anime video. Preserve the entire scene, camera movement, stadium, timing, cel shading, ink outlines and all other objects. Replace ALL misspelled team-name lettering on that board with the exact word DORTMUND. The board must contain ONLY these correct readable text lines: DORTMUND vs BREMEN ; 9 OCT 2026 · 20:30 CEST. In the left yellow circular crest the letters are BVB and the number beneath is exactly 09 (zero nine), NOT 08. Keep the right official Werder Bremen green diamond white W crest unchanged. Keep these letters and numerals stable and correctly spelled throughout every visible frame. The writing and crests must be on the actual physical board in the anime scene, with matching perspective; no floating overlays, no subtitles, no new title cards. Correct only the board lettering and the BVB crest numeral, leave everything else unchanged. Original 720x1280 resolution and original 24fps, same duration.",
         "duration": 4
       },
-      "job_id": "e540a633-4b9f-41fe-aebf-c6be1206360e"
+      "job_id": "e540a633-4b9f-41fe-aebf-c6be1206360e",
+      "credits_actual": 3.42
+    },
+    {
+      "asset_id": "goaliq-2026-10-07-opening-correction-2",
+      "state": "reserved",
+      "credits_exact": 4,
+      "balance_before": 168.8,
+      "params": {
+        "model": "flux_3_video_edit",
+        "duration": 4,
+        "count": 1,
+        "medias": [
+          {
+            "role": "video",
+            "value": "e540a633-4b9f-41fe-aebf-c6be1206360e"
+          }
+        ],
+        "prompt": "Correct exactly ONE letter on the physical stadium sign. It currently reads DORTMAND vs BREMEN. Change the letter A in DORTMAND to U, so the sign reads exactly DORTMUND vs BREMEN. Spelling letter by letter: D O R T M U N D. Do NOT write DORTMAND. Do NOT change any other text, image, crest, camera, timing, motion, lighting or anime drawing. Preserve the existing correct BVB 09 crest and Werder W crest. Preserve the correct date line 9 OCT 2026 · 20:30 CEST. Only replace that A with U on the sign in the existing perspective for every frame where it is visible. Preserve the source video exactly otherwise."
+      }
     }
   ],
   "jobs": [
@@ -612,7 +631,7 @@
     {
       "asset_id": "goaliq-2026-10-07-opening-correction-1",
       "job_id": "e540a633-4b9f-41fe-aebf-c6be1206360e",
-      "state": "pending"
+      "state": "completed_quality_failed"
     }
   ],
   "quality": {
@@ -739,5 +758,19 @@
     "authorized_at": "2026-10-07T08:30:12+02:00",
     "preserve_remaining_story": true,
     "preserve_entire_original_audio": true
-  }
+  },
+  "correction_reviews": [
+    {
+      "run": 1,
+      "job_id": "e540a633-4b9f-41fe-aebf-c6be1206360e",
+      "crest": "passed_09",
+      "team_name": "failed_DORTMAND",
+      "resolution": [
+        704,
+        1248
+      ],
+      "frames": 81,
+      "duration": 3.375
+    }
+  ]
 }
