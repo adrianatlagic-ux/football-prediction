@@ -49,3 +49,7 @@ Die Produktion basiert verpflichtend auf verifiziertem Spieltermin und aktueller
 ## Neueste Nutzerkorrektur 07.10.2026: Vereinswappen entfallen
 
 Alle vorherigen Wappenpflichten sind aufgehoben. Im generierten Anime-Auftakt nur korrekte Mannschaftsnamen und den tatsächlichen Spieltermin zeigen. Keine Wappenreferenzen benötigen und keine Wappen oder Ersatzsymbole in der Eröffnung erzeugen. Namen/Datum bleiben in der generierten Szene, ohne nachträgliches Textoverlay. Das originale GoalIQ-Markenlogo im dreisekündigen Abschluss bleibt verpflichtend. Nutzerautorisierte Korrekturversuchslimits im Tagesmanifest einhalten.
+
+## Letzte Nutzeranweisung 07.10.2026 um08:54: Vereinswappen wieder erwünscht
+
+Die zuvor eingeführte Regel ohne Vereinswappen ist zurückgenommen. Für neue Beiträge korrekte offizielle Wappen plus Namen und Spieltermin direkt im Anime-Auftakt generieren und prüfen. Natürlich klingende englische Stimmen verwenden: menschliche Sprechmelodie, glaubwürdige Emotion, natürliche Pausen, keine robotische/monotone/metallische Stimme. Tatsächlichen Ton prüfen. Der heute vom Nutzer ausdrücklich akzeptierte Originalclip wird einschließlich Originalton unverändert übernommen und nur mit dem verpflichtenden dreisekündigen GoalIQ-Abschluss versehen; die heutige Freigabe ist keine allgemeine Freigabe für zukünftige Fehler.
