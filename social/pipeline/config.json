@@ -34,7 +34,7 @@
     "Manchester City": 0.9,
     "Paris Saint-Germain": 0.9
   },
-  "spoken_language": "en",
+  "spoken_language": "fixture_based",
   "on_screen_language": "en",
   "language_validation_required": true,
   "processing_environment": "higgsfield_cloud_only",
@@ -201,7 +201,7 @@
   },
   "voice_quality": {
     "required": true,
-    "spoken_language": "en",
+    "spoken_language": "fixture_based",
     "style": "natural_human_conversational",
     "traits": [
       "credible emotion",
@@ -231,5 +231,43 @@
     "zip_contains": "same_final_mp4_byte_identical",
     "download_archive_renderer": "higgsfield_cloud_only",
     "zip_label": "Video herunterladen (ZIP mit MP4)"
+  },
+  "spoken_language_policy": {
+    "german_participation": "de",
+    "other_matches": "en",
+    "german_participation_definition": [
+      "German club in domestic or international competition",
+      "German national team"
+    ],
+    "on_screen_language": "en",
+    "outro_language": "en",
+    "caption_language": "de",
+    "manifest_language_and_reason_required": true
+  },
+  "story_relevance": {
+    "required": true,
+    "basis": "current_verified_context_of_selected_fixture",
+    "minimum_verified_context_points": 2,
+    "acceptable_context": [
+      "sporting stakes",
+      "verified tactical contrast",
+      "rivalry",
+      "home_away_context",
+      "official squad news"
+    ],
+    "generic_context_alone_sufficient": false,
+    "minimum_visible_or_spoken_specific_match_connection": 1,
+    "team_names_colors_crests_alone_sufficient": false,
+    "exchangeability_test_required": true,
+    "actual_video_review_required": true,
+    "unrelated_fantasy_obstacle_allowed": false,
+    "fiction_label_required": true,
+    "source_attribution_required": true,
+    "manifest_fields": [
+      "match_context",
+      "story_connection",
+      "spoken_language",
+      "match_relevance_review"
+    ]
   }
 }
