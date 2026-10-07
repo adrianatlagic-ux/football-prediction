@@ -1,0 +1,44 @@
+{
+  "generation_basis": "verified_fixture_and_current_research",
+  "prediction_used": false,
+  "retrieved": "2026-10-07T06:24:14.892Z",
+  "sources": [
+    {
+      "url": "https://football-prediction.fly.dev/fixtures",
+      "retrieved": "2026-10-07T06:14:23.944Z",
+      "context": "Nearest future match Dortmund–Bremen2026-10-09at20:30"
+    },
+    {
+      "url": "https://www.bundesliga.com/de/bundesliga/spieltag/2026-2027/5",
+      "retrieved": "2026-10-07T06:19:07.453Z",
+      "context": "Official matchday confirms date; embedded kickoff2026-10-09T18:30:00+0000 equals20:30CEST"
+    },
+    {
+      "url": "https://www.bvb.de/de/de/aktuelles/news/news.html/2026/10/6/Zurueck-von-den-Laenderspielen-rein-ins-Training.html",
+      "published": "2026-10-06",
+      "retrieved": "2026-10-07T06:21:31.536Z",
+      "context": "BVB players returned from national teams and resumed training for Friday home game with Bremen; this is factual context only, fictional blackout not reported news"
+    }
+  ],
+  "source_article_summary": "Official BVB article published6Oct: national-team players returned to Dortmund and resumed training for the Bremen home game on Friday.",
+  "factual_vs_fiction": "Return from international break and forthcoming Friday match are verified. Extinguishing lights, a closing gate and a glowing ball power socket are an invented anime metaphor, not actual news.",
+  "crests": [
+    {
+      "team": "Borussia Dortmund",
+      "source": "https://assets.bundesliga.com/clublogos/DFL-SEA-0001KA/DFL-CLU-000007.svg",
+      "media_id": "021cdb73-a2ac-44b6-bfbb-0a0d9f2ea5e9",
+      "reference_review": "visually verified yellow BVB09 circular crest"
+    },
+    {
+      "team": "Werder Bremen",
+      "source": "https://assets.bundesliga.com/clublogos/DFL-SEA-0001KA/DFL-CLU-00000E.svg",
+      "media_id": "3dff4ce6-99f4-44c2-9272-4592a320e81e",
+      "reference_review": "visually verified green diamond white W"
+    }
+  ],
+  "fixture_timezone_evidence": {
+    "official_embedded": "2026-10-09T18:30:00+0000",
+    "europe_berlin": "2026-10-09T20:30:00+02:00",
+    "zone": "CEST"
+  }
+}
