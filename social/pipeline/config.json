@@ -163,12 +163,29 @@
     "invalid_candidate_action": "record_reason_then_check_next_candidate_or_matchday",
     "no_today_matches_action": "look_ahead",
     "no_valid_available_fixture_action": "report_blocker",
-    "preserve_data_credit_and_quality_checks": true
+    "preserve_data_credit_and_quality_checks": true,
+    "research_only_ranking": [
+      "team_relevance",
+      "verified_current_context",
+      "story_potential"
+    ],
+    "prediction_absence_is_blocker": false,
+    "minimum_editorial_score_without_prediction": null
   },
   "editorial_date_policy": {
     "target_date": "intended_content_day_europe_berlin",
     "match_date": "actual_fixture_date_separate",
     "upcoming_preview_consumes": "editorial_day_only",
     "historical_manifests": "do_not_redate"
+  },
+  "prediction_required": false,
+  "generation_basis": "verified_fixture_and_current_research",
+  "prediction_policy": {
+    "role": "optional_internal_selection_aid",
+    "missing_action": "continue_fixture_and_research",
+    "missing_freshness_action": "omit_prediction_and_continue",
+    "stale_action": "omit_prediction_and_continue",
+    "max_age_hours": 48,
+    "impute_probabilities": false
   }
 }
