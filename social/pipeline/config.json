@@ -41,7 +41,7 @@
   "local_processing_enabled": false,
   "python_enabled": false,
   "cloud_editor_internal_ffmpeg_enabled": true,
-  "edit_mode": "append_goalfiq_outro_only",
+  "edit_mode": "prepend_fixture_hook_preserve_story_append_goalfiq_outro",
   "preserve_source_video": true,
   "preserve_source_audio": true,
   "reuse_scenes_from_other_versions": false,
@@ -99,5 +99,37 @@
     "fiction_label_required": true,
     "domain": "goaliq.de",
     "disclaimer_de": "KI-Prognosen, nur zur Unterhaltung. Keine Wettberatung."
-  }
+  },
+  "visual_style": {
+    "required": true,
+    "type": "2d_anime",
+    "traits": [
+      "drawn outlines",
+      "cel shading",
+      "expressive illustrated characters",
+      "dynamic anime motion"
+    ],
+    "photorealistic": false,
+    "realistic_3d_humans": false,
+    "validation_required": true
+  },
+  "fixture_hook": {
+    "required": true,
+    "duration_seconds": 2,
+    "placement": "before_full_story_source",
+    "text_renderer": "higgsfield_native_cloud_editor",
+    "language": "en",
+    "line_templates": [
+      "{HOME_EN} vs {AWAY_EN}",
+      "{RELATIVE_DAY_EN} · {HH:MM} {CET_OR_CEST}"
+    ],
+    "timezone": "Europe/Berlin",
+    "source": "live_verified_fixture",
+    "relative_day_must_match_delivery_date": true,
+    "background": "same_story_anime_opening",
+    "source_video_overlay": false,
+    "speech": false,
+    "validation_required": true
+  },
+  "source_hash_comparison_offset": "fixture_hook_duration"
 }
