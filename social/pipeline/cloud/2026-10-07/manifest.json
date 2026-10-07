@@ -604,7 +604,7 @@
     },
     {
       "asset_id": "goaliq-2026-10-07-opening-correction-2",
-      "state": "reserved",
+      "state": "submitted",
       "credits_exact": 4,
       "balance_before": 168.8,
       "params": {
@@ -618,7 +618,8 @@
           }
         ],
         "prompt": "Correct exactly ONE letter on the physical stadium sign. It currently reads DORTMAND vs BREMEN. Change the letter A in DORTMAND to U, so the sign reads exactly DORTMUND vs BREMEN. Spelling letter by letter: D O R T M U N D. Do NOT write DORTMAND. Do NOT change any other text, image, crest, camera, timing, motion, lighting or anime drawing. Preserve the existing correct BVB 09 crest and Werder W crest. Preserve the correct date line 9 OCT 2026 · 20:30 CEST. Only replace that A with U on the sign in the existing perspective for every frame where it is visible. Preserve the source video exactly otherwise."
-      }
+      },
+      "job_id": "e1040807-bcd4-4a1e-884c-a31d1fd19785"
     }
   ],
   "jobs": [
@@ -632,6 +633,11 @@
       "asset_id": "goaliq-2026-10-07-opening-correction-1",
       "job_id": "e540a633-4b9f-41fe-aebf-c6be1206360e",
       "state": "completed_quality_failed"
+    },
+    {
+      "asset_id": "goaliq-2026-10-07-opening-correction-2",
+      "job_id": "e1040807-bcd4-4a1e-884c-a31d1fd19785",
+      "state": "pending"
     }
   ],
   "quality": {
@@ -753,7 +759,7 @@
   "final_media_id": null,
   "correction_policy": {
     "max_runs": 2,
-    "runs_submitted": 1,
+    "runs_submitted": 2,
     "scope": "opening_only",
     "authorized_at": "2026-10-07T08:30:12+02:00",
     "preserve_remaining_story": true,
