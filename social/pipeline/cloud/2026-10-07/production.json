@@ -1,41 +1,133 @@
 {
   "post_id": "goaliq-2026-10-07",
   "status": "blocked_quality",
-  "provider": "Higgsfield",
   "cloud_only": true,
-  "job_id": "8f620b34-b15e-4b77-bdc5-d93127a9ae2f",
+  "source_job_id": "8f620b34-b15e-4b77-bdc5-d93127a9ae2f",
   "source_media_id": "da02a9e8-a940-4c5c-a683-1d96d6190abf",
+  "correction_input_media_id": "c7ccbd1d-569a-4fb8-b077-590941ce53e8",
+  "correction_policy": {
+    "max_runs": 2,
+    "runs_submitted": 2,
+    "scope": "opening_only",
+    "authorized_at": "2026-10-07T08:30:12+02:00",
+    "preserve_remaining_story": true,
+    "preserve_entire_original_audio": true,
+    "runs_remaining": 0,
+    "automatic_retry_allowed": false
+  },
+  "correction_reviews": [
+    {
+      "run": 1,
+      "job_id": "e540a633-4b9f-41fe-aebf-c6be1206360e",
+      "crest": "passed_09",
+      "team_name": "failed_DORTMAND",
+      "resolution": [
+        704,
+        1248
+      ],
+      "frames": 81,
+      "duration": 3.375
+    },
+    {
+      "run": 2,
+      "job_id": "e1040807-bcd4-4a1e-884c-a31d1fd19785",
+      "team_name": "passed_DORTMUND",
+      "bvb_crest": "passed_09",
+      "werder_crest": "failed: generated white emblem resembles U instead of official W",
+      "date_time": "passed",
+      "resolution": [
+        704,
+        1248
+      ],
+      "frames": 81,
+      "duration": 3.375
+    }
+  ],
   "credits": {
     "balance_before": 187.22,
-    "balance_after": 172.22,
-    "consumed": 15
+    "balance_after": 165.42,
+    "consumed": 21.8,
+    "original_generation": 15,
+    "corrections": 6.8
   },
-  "probe": {
-    "width": 720,
-    "height": 1280,
-    "fps": 24,
-    "video_frames": 361,
-    "video_duration": 15.041667,
-    "audio_duration": 15.104,
-    "video_codec": "h264",
-    "audio_codec": "aac",
-    "sample_rate": 32000,
-    "channels": 2
+  "source_audio_analysis": {
+    "id": "4b24f76e-0999-4f60-b6c6-22f954a1fc66",
+    "status": "completed",
+    "scenes": [
+      {
+        "audio": "A rhythmic, energetic drum beat begins, paired with a low bass synth hum. No dialogue.",
+        "label": "Opening Hook",
+        "visual": "Static low-angle shot of a large yellow and black billboard at a soccer stadium against a blue sky with soft white clouds. The billboard announces a match. The lighting is bright and natural. The background shows the top edge of stadium seating and floodlights.",
+        "shot_type": "Close-Up",
+        "scene_number": 1,
+        "timestamp_end": "0:02",
+        "timestamp_start": "0:00"
+      },
+      {
+        "audio": "The drum beat intensifies. A faint sound of wind whistling through the stadium is audible.",
+        "label": "Opening Hook",
+        "visual": "A slow tilt down from the bottom of the billboard to reveal a vast, empty soccer stadium at dusk. The stadium has yellow and black seats, a green grass pitch, and bright floodlights shining down. The overall color palette is dark with high contrast from the artificial lights.",
+        "shot_type": "Wide Shot",
+        "scene_number": 2,
+        "timestamp_end": "0:03",
+        "timestamp_start": "0:02"
+      },
+      {
+        "audio": "Sound of heavy metal doors creaking open and slamming against the walls. A male voice says, \"One light left. Keep it alive.\"",
+        "label": "Opening Hook",
+        "visual": "Static shot focusing on large dark gray metal doors at the end of a stadium tunnel. The doors slowly creak open to reveal a single character standing in the center. The character is a young male, roughly 17-20 years old, with tan skin, messy dark brown hair, and a determined expression. He wears a yellow and black soccer jersey with the number 08, black shorts, and yellow and black striped socks. A single spotlight shines directly on a soccer ball at his feet.",
+        "shot_type": "Medium Shot",
+        "scene_number": 3,
+        "timestamp_end": "0:05",
+        "timestamp_start": "0:03"
+      },
+      {
+        "audio": "Sound of a soccer ball being kicked. The male voice continues, \"Then pass it through the dark.\"",
+        "label": "Usage Scenarios",
+        "visual": "The dark-haired character begins to dribble the soccer ball, which is glowing with a bright internal light. A second character appears from the right side of the frame, attempting to steal the ball. This second character is a male of similar age, with fair skin, short spiky green hair, and a green and white soccer jersey with the number 10. The camera follows their movement with a slight lateral tracking shot. The lighting is dominated by the glowing ball and the stadium floodlights.",
+        "shot_type": "Medium Close-Up",
+        "scene_number": 4,
+        "timestamp_end": "0:08",
+        "timestamp_start": "0:05"
+      },
+      {
+        "audio": "A sharp 'woosh' sound as the ball is intercepted, followed by the sound of rapid footsteps on grass.",
+        "label": "Usage Scenarios",
+        "visual": "A tracking shot from behind the green-haired character as he intercepts the glowing ball. He is now running toward the stadium doors, which are glowing with a bright yellow light. His body language is intense and focused. The background is a dark stadium wall with a single door frame emitting a powerful light.",
+        "shot_type": "Medium Shot",
+        "scene_number": 5,
+        "timestamp_end": "0:10",
+        "timestamp_start": "0:08"
+      },
+      {
+        "audio": "The drum beat reaches a crescendo. A high-pitched chime sound as the ball floats in the air.",
+        "label": "Usage Scenarios",
+        "visual": "A static wide shot from behind the two characters as they stand on the pitch, facing each other. The glowing soccer ball is suspended in the air between them, level with their chests. The stadium floodlights are extremely bright, creating a lens flare effect. The background is the vast, dark stadium seating.",
+        "shot_type": "Wide Shot",
+        "scene_number": 6,
+        "timestamp_end": "0:12",
+        "timestamp_start": "0:10"
+      },
+      {
+        "audio": "The male voice says, \"Now the real game begins.\"",
+        "label": "Opening Hook",
+        "visual": "A static shot of both characters from the waist up, facing each other with intense, competitive expressions. The dark-haired character on the left and the green-haired character on the right. The lighting is dramatic, with strong highlights and deep shadows. The background is the blurred stadium pitch and lights.",
+        "shot_type": "Medium Close-Up",
+        "scene_number": 7,
+        "timestamp_end": "0:13",
+        "timestamp_start": "0:12"
+      },
+      {
+        "audio": "The drum beat ends with a final, heavy strike. A low, resonant hum fades out.",
+        "label": "Call to Action",
+        "visual": "A static low-angle shot focusing on the soccer ball resting on the grass between the feet of the two characters. The character on the left wears yellow and black shoes, and the character on the right wears green and white shoes. The ball is black and white with a subtle glow. The background is the brightly lit, out-of-focus stadium.",
+        "shot_type": "Close-Up",
+        "scene_number": 8,
+        "timestamp_end": "0:15",
+        "timestamp_start": "0:13"
+      }
+    ]
   },
-  "review": {
-    "method": "Cloud-extracted 15-frame contact sheet and 1-second opening full-size frame",
-    "anime": "passed",
-    "fixture_text": "failed: Dortmund misspelled",
-    "crest": "failed: BVB 08 instead of 09",
-    "date_and_time": "9 OCT 2026 - 20:30 CEST visible and correct",
-    "speech": "not yet reviewed",
-    "final_assembly": "not performed due to mandatory QA failure"
-  },
-  "fixture_check": {
-    "exit_code": 0,
-    "stdout": "{\"retrieved_at\":\"2026-10-07T06:24:48.384Z\",\"fixture_status\":200,\"fixture\":{\"group\":\"Spieltag 5\",\"date\":\"2026-10-09\",\"time\":\"20:30\",\"home_team\":\"Borussia Dortmund\",\"away_team\":\"Werder Bremen\",\"match_id\":\"borussia_dortmund_vs_werder_bremen_bl\"},\"official_kickoff\":\"2026-10-09T18:30:00+0000\",\"europe_berlin\":\"9 Oct 2026, 20:30\"}\n",
-    "stderr": ""
-  },
-  "prediction_used": false,
-  "retry_submitted": false
+  "final_assembly": "Not performed: latest generated crest fails mandatory QA",
+  "private_urls_omitted": true
 }
