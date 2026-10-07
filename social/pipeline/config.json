@@ -47,7 +47,7 @@
   "reuse_scenes_from_other_versions": false,
   "force_target_duration": false,
   "prefer_source_stream_copy": true,
-  "final_output": "single_mp4_inline_chat",
+  "final_output": "single_mp4_inline_chat_with_direct_download_link",
   "outro": {
     "logo_path": "social/pipeline/assets/goal-logo.png",
     "domain": "goaliq.de",
@@ -217,5 +217,15 @@
     ],
     "real_person_imitation": false,
     "actual_audio_review_required": true
+  },
+  "delivery": {
+    "inline_media_player": true,
+    "direct_mp4_download_link_required": true,
+    "download_link_label": "Video herunterladen (MP4)",
+    "link_target": "confirmed_final_composite_mp4",
+    "verify_link_reachable": true,
+    "caption_inline_required": true,
+    "private_media_urls_in_public_repository": false,
+    "repeat_download_request_action": "reuse_existing_final_without_generation"
   }
 }
