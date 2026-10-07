@@ -637,7 +637,7 @@
     },
     {
       "asset_id": "goaliq-2026-10-07-opening-correction-4",
-      "state": "reserved",
+      "state": "submitted",
       "credits_exact": 4,
       "balance_before": 165.42,
       "params": {
@@ -651,7 +651,8 @@
           }
         ],
         "prompt": "Remove both football club crests from the big physical stadium announcement board: remove the yellow circular BVB emblem on the left and the green diamond emblem on the right, replacing their areas with the board's plain yellow/black painted background. No club crests or logo-like substitutes on this announcement board. Preserve the existing correct text exactly: DORTMUND vs BREMEN and 9 OCT 2026 · 20:30 CEST. Preserve each letter and numeral without alteration throughout the video. Keep the existing physical board, perspective, hand-drawn 2D anime style, camera movement, stadium, lighting and all timing unchanged. No floating text overlays, no separate title cards, no extra text. Only erase the two emblems on the board, preserve the two correct text lines on the board."
-      }
+      },
+      "job_id": "a7d48a69-0a33-41c1-b3bd-a5994832cda5"
     }
   ],
   "jobs": [
@@ -675,6 +676,11 @@
       "asset_id": "goaliq-2026-10-07-opening-correction-3",
       "job_id": "ead3f126-c5ef-49e7-a838-3adc3c6aafbc",
       "state": "nsfw"
+    },
+    {
+      "asset_id": "goaliq-2026-10-07-opening-correction-4",
+      "job_id": "a7d48a69-0a33-41c1-b3bd-a5994832cda5",
+      "state": "pending"
     }
   ],
   "quality": {
@@ -688,7 +694,7 @@
     "transition": "not_created_after_block",
     "outro": "not_appended_after_block"
   },
-  "resume_policy": "No further generation authorized. Preserve this existing daily contribution and provider rejection. User authorization required for any new paid attempt; never bypass provider filtering.",
+  "resume_policy": "Wait on recorded fourth correction job. Do not generate another correction or second daily post; authorized run cap is 4 including rejected attempt.",
   "schedule_action": "Routine remains enabled; missing data may change at next scheduled check.",
   "required_data": "Verified upcoming fixture and current research; predictions optional and not used.",
   "rules_read": {
@@ -797,12 +803,12 @@
   "final_media_id": null,
   "correction_policy": {
     "max_runs": 4,
-    "runs_submitted": 3,
+    "runs_submitted": 4,
     "scope": "opening_only",
     "authorized_at": "2026-10-07T08:30:12+02:00",
     "preserve_remaining_story": true,
     "preserve_entire_original_audio": true,
-    "runs_remaining": 1,
+    "runs_remaining": 0,
     "automatic_retry_allowed": false,
     "additional_authorization": {
       "at": "2026-10-07T08:41:35+02:00",
