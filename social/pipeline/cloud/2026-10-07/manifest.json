@@ -617,7 +617,7 @@
     },
     {
       "asset_id": "goaliq-2026-10-07-opening-correction-3",
-      "state": "reserved",
+      "state": "submitted",
       "credits_exact": 4,
       "balance_before": 165.42,
       "params": {
@@ -631,7 +631,8 @@
           }
         ],
         "prompt": "Remove both football club crests from the big physical stadium announcement board: remove the yellow circular BVB emblem on the left and the green diamond emblem on the right, replacing their areas with the board's plain yellow/black painted background. No club crests or logo-like substitutes on this announcement board. Preserve the existing correct text exactly: DORTMUND vs BREMEN and 9 OCT 2026 · 20:30 CEST. Preserve each letter and numeral without alteration throughout the video. Keep the existing physical board, perspective, hand-drawn 2D anime style, camera movement, stadium, lighting and all timing unchanged. No floating text overlays, no separate title cards, no extra text. Only erase the two emblems on the board, preserve the two correct text lines on the board."
-      }
+      },
+      "job_id": "ead3f126-c5ef-49e7-a838-3adc3c6aafbc"
     }
   ],
   "jobs": [
@@ -650,6 +651,11 @@
       "asset_id": "goaliq-2026-10-07-opening-correction-2",
       "job_id": "e1040807-bcd4-4a1e-884c-a31d1fd19785",
       "state": "completed_quality_failed"
+    },
+    {
+      "asset_id": "goaliq-2026-10-07-opening-correction-3",
+      "job_id": "ead3f126-c5ef-49e7-a838-3adc3c6aafbc",
+      "state": "pending"
     }
   ],
   "quality": {
@@ -772,12 +778,12 @@
   "final_media_id": null,
   "correction_policy": {
     "max_runs": 3,
-    "runs_submitted": 2,
+    "runs_submitted": 3,
     "scope": "opening_only",
     "authorized_at": "2026-10-07T08:30:12+02:00",
     "preserve_remaining_story": true,
     "preserve_entire_original_audio": true,
-    "runs_remaining": 1,
+    "runs_remaining": 0,
     "automatic_retry_allowed": false,
     "additional_authorization": {
       "at": "2026-10-07T08:41:35+02:00",
