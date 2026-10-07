@@ -1,6 +1,6 @@
 {
   "post_id": "goaliq-2026-10-07",
-  "status": "blocked_provider",
+  "status": "ready",
   "cloud_only": true,
   "source_job_id": "8f620b34-b15e-4b77-bdc5-d93127a9ae2f",
   "source_media_id": "da02a9e8-a940-4c5c-a683-1d96d6190abf",
@@ -73,11 +73,12 @@
     "additional_cost_observed": 0
   },
   "credits": {
-    "balance_before": 187.22,
-    "balance_after": 165.42,
+    "before": 187.22,
+    "after": 165.42,
     "consumed": 21.8,
     "original_generation": 15,
-    "corrections": 6.8
+    "corrections": 6.8,
+    "assembly_additional": 0
   },
   "source_audio_analysis": [
     {
@@ -153,7 +154,7 @@
       "timestamp_start": "0:13"
     }
   ],
-  "final_assembly": "Not performed: provider returned no corrected opening",
+  "final_assembly": "Cloud stream-copy concatenation of entire original source plus72-frame brand outro; source untouched",
   "private_urls_omitted": true,
   "fourth_correction": {
     "job_id": "a7d48a69-0a33-41c1-b3bd-a5994832cda5",
@@ -176,5 +177,101 @@
     "balance_before": 165.42,
     "balance_after": 165.42,
     "additional_cost_observed": 0
+  },
+  "final_media_id": "2b609874-cb6a-4712-930d-db852a994e28",
+  "brand_outro_media_id": "9c29b762-d478-4bb4-b4bc-fadfaad35efd",
+  "integrity": {
+    "source_frames": 361,
+    "final_frames": 433,
+    "video_frame_hash_prefix_identical": true,
+    "source_audio_packets": 473,
+    "audio_packet_hash_prefix_identical": true,
+    "source": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "duration": "15.041667",
+          "nb_frames": "361"
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "duration": "15.104000",
+          "nb_frames": "473"
+        }
+      ],
+      "format": {
+        "duration": "15.104000"
+      }
+    },
+    "final": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "duration": "18.104004",
+          "nb_frames": "433"
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "duration": "18.136000",
+          "nb_frames": "568"
+        }
+      ],
+      "format": {
+        "duration": "18.136000"
+      }
+    }
+  },
+  "review": {
+    "source_opening": "Known name and crest defects accepted explicitly by user after preview; not claimed accurate",
+    "style": "2D anime verified across source contact sheet",
+    "speech": "Completed Higgsfield analysis confirms all3 intended English sentences",
+    "voice_naturalness": "Original voice preserved under explicit source approval; user's preference for more natural voices mandatory on future productions",
+    "transition": "8 extracted frames at14–16.5s inspected; source ending then brand only",
+    "outro": "Original logo above goaliq.de and exact English disclaimer visually verified at17s; silent",
+    "source_integrity": "All361 decoded source frame hashes and473 encoded audio packet hashes match final prefix",
+    "duration": "18.136s including codec/container padding; outro72frames24fps =3.000s",
+    "status": "passed_with_explicit_user_acceptance_of_source_defects"
+  },
+  "user_approval": {
+    "at": "2026-10-07T08:54:27+02:00",
+    "source_job_id": "8f620b34-b15e-4b77-bdc5-d93127a9ae2f",
+    "instruction": "Ich finde es sehr gut mit den Wappen kann man so lassen",
+    "scope": "Displayed original 15-second clip accepted including observed opening name/crest defects; append brand outro only",
+    "automatic_quality_gate_override": false,
+    "editorial_exception": true
+  },
+  "final_live_check": {
+    "retrieved_at": "2026-10-07T06:57:34.975Z",
+    "fixture_status": 200,
+    "fixture": {
+      "group": "Spieltag 5",
+      "date": "2026-10-09",
+      "time": "20:30",
+      "home_team": "Borussia Dortmund",
+      "away_team": "Werder Bremen",
+      "match_id": "borussia_dortmund_vs_werder_bremen_bl"
+    },
+    "official_source": "https://www.bundesliga.com/de/bundesliga/spieltag/2026-2027/5",
+    "official_kickoff_confirmed": true,
+    "kickoff_berlin": "2026-10-09T20:30:00+02:00"
+  },
+  "logo": {
+    "repo_blob_sha": "111446b99b4f0e0dcd233544d351bd9acd9e7d52",
+    "cloud_download_git_blob_sha": "111446b99b4f0e0dcd233544d351bd9acd9e7d52",
+    "match": true
   }
 }
