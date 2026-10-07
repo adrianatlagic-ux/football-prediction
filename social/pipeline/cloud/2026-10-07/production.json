@@ -5,8 +5,8 @@
   "source_job_id": "8f620b34-b15e-4b77-bdc5-d93127a9ae2f",
   "source_media_id": "da02a9e8-a940-4c5c-a683-1d96d6190abf",
   "correction_policy": {
-    "max_runs": 4,
-    "runs_submitted": 4,
+    "max_runs": 5,
+    "runs_submitted": 5,
     "scope": "opening_only",
     "authorized_at": "2026-10-07T08:30:12+02:00",
     "preserve_remaining_story": true,
@@ -24,6 +24,12 @@
         "runs": 1,
         "scope": "same_opening_crest_removal_request",
         "user_instruction": "Nochmal"
+      },
+      {
+        "at": "2026-10-07T08:49:34+02:00",
+        "runs": 1,
+        "scope": "same_opening_crest_removal",
+        "user_instruction": "Ok nochmal"
       }
     ]
   },
@@ -156,6 +162,16 @@
     "output": null,
     "user_authorized": true,
     "same_prompt_as_third": true,
+    "estimated_credits": 4,
+    "balance_before": 165.42,
+    "balance_after": 165.42,
+    "additional_cost_observed": 0
+  },
+  "fifth_correction": {
+    "job_id": "1f237d06-9331-41cf-8f18-a3c41d92419b",
+    "provider_status": "nsfw",
+    "reason": null,
+    "result": null,
     "estimated_credits": 4,
     "balance_before": 165.42,
     "balance_after": 165.42,
