@@ -902,7 +902,7 @@
   "ready_at": "2026-10-07T06:59:19.763Z",
   "final_duration_seconds": 18.136,
   "brand_outro_media_id": "9c29b762-d478-4bb4-b4bc-fadfaad35efd",
-  "caption": "Ein Ball hält das ganze Stadion am Leben. Dann kommt Bremen. ⚡\n\nIn unserer fiktiven KI-Anime-Story kämpfen zwei Rivalen um das letzte Licht – bevor das eigentliche Duell beginnt.\n\nDortmund gegen Bremen: Freitag, 9. Oktober 2026, 20:30 Uhr MESZ.\n\nIst Dortmunds Heimkulisse ein echter Vorteil – oder wird sie zur Ausrede, wenn Bremen mutiger spielt?\n\nMehr auf goaliq.de\nKI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.\n\n#BVB #WerderBremen #Bundesliga #FootballAnime",
+  "caption": "Ein Ball hält das ganze Stadion am Leben. Dann kommt Bremen. ⚡\n\nDortmund gegen Bremen: Freitag, 9. Oktober 2026, 20:30 Uhr MESZ.\n\nIst Dortmunds Heimkulisse ein echter Vorteil – oder wird sie zur Ausrede, wenn Bremen mutiger spielt?\n\nKI-Fiktion.\nMehr auf goaliq.de\nKI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.\n\n#BVB #WerderBremen #Bundesliga #FootballAnime",
   "caption_language": "de",
   "final_live_check": {
     "retrieved_at": "2026-10-07T06:57:34.975Z",
@@ -973,5 +973,6 @@
         "duration": "18.136000"
       }
     }
-  }
+  },
+  "caption_updated_at": "2026-10-07T16:00:44.627Z"
 }
