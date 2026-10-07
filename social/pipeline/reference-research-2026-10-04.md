@@ -64,3 +64,16 @@ Hook, Konflikt und Wendung aus diesem Kontext entwickeln. Mindestens ein konkret
 
 Vor Produktion den Austauschbarkeitstest anwenden: Könnte dieselbe Handlung unverändert mit beliebigen anderen Teamnamen funktionieren, Story neu entwickeln. Vor ready tatsächlich erzeugtes Video darauf prüfen, ob der geplante Spielbezug noch erkennbar ist. Teamnamen, Wappen und Trikotfarben allein erfüllen diese Prüfung nicht. Im Manifest match_context, story_connection mit Zuordnung Kontext→Hook/Konflikt/Wendung, spoken_language und match_relevance_review speichern. Fehlende Recherche oder fehlender erkennbarer Spielbezug sperrt automatische Freigabe. Kein neuer Beitrag oder Auftrag allein durch diese Regeländerung; die nächste Produktion folgt dieser Vorgabe.
 
+
+## Neueste Nutzeranweisung 07.10.2026: Spiel- oder vereinsbezogene Story
+
+Jedes Video braucht einen erkennbaren, recherchierten Bezug zum konkreten Spiel ODER zu mindestens einem beteiligten Verein beziehungsweise einer beteiligten Nationalmannschaft. Zulässig sind aktueller sportlicher Kontext, ein belegter taktischer Konflikt, Rivalität, Fans, Stadiontraditionen, Vereinsidentität, belegte Vereinsgeschichte oder offiziell bestätigte Personalthemen. Eine vereinsbezogene Story muss nicht künstlich mit Formwerten oder Taktikbehauptungen angereichert werden. Mindestens einen substanziellen belegten Kontextpunkt recherchieren, weitere relevante Punkte nach Bedarf; Quellen und Veröffentlichungs-/Abrufdatum dokumentieren. Auch historische oder dauerhafte Vereinseigenschaften anhand verlässlicher Quellen prüfen.
+
+Der konkrete Kontext prägt Hook, Konflikt, Handlung oder Wendung und muss im tatsächlich generierten Video durch Handlung und passenden Dialog verständlich werden. Namen, Wappen und Trikotfarben allein sind kein ausreichender Bezug. Keine beliebige Rettungsmission oder zufällige Fantasiehandlung. Anime und Fiktion bleiben erlaubt, wenn die Handlung die dokumentierte Vereinseigenschaft oder das konkrete Duell nachvollziehbar übersetzt. Keine erfundenen Nachrichten, Taktik-/Formbehauptungen, Originalzitate oder Spielergebnisse. Fiktion klar kennzeichnen, eigene Figuren und keine realen Personenimitationen verwenden. Keine Stat-Overlays.
+
+Vor Produktion Austauschbarkeitstest: Würde die Geschichte ohne inhaltliche Änderung mit beliebigen anderen Mannschaften funktionieren, muss sie vereins- oder spielbezogener entwickelt werden. Vor ready den tatsächlichen Inhalt prüfen; ein guter Prompt genügt nicht. Im Manifest context_type match/club, verified_context mit Quellen, story_connection, spoken_language und relevance_review speichern. Die bisherige starre Pflicht zu mindestens zwei aktuellen Spiel-Kontextpunkten ist durch diese flexiblere Regel ersetzt.
+
+Bei deutschen Vereinen oder der deutschen Nationalmannschaft Deutsch sprechen, auch mit deutscher Beteiligung an internationalen Duellen; bei anderen Paarungen Englisch. Natürlich klingende Stimmen mit glaubwürdiger Emotion, menschlicher Intonation, natürlichen Pausen und klarer Aussprache tatsächlich prüfen. Diese Regel ersetzt alte pauschale Englischpflichten für gesprochenen Text. Redaktionelle Texte im Bild und der feste Markenabschluss bleiben Englisch, die Caption bleibt Deutsch.
+
+Diese Änderungen gelten für kommende Produktionen und lösen keine neue Generierung des bereits erledigten heutigen Beitrags aus.
+
