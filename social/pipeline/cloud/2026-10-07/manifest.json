@@ -1,7 +1,7 @@
 {
   "post_id": "goaliq-2026-10-07",
   "target_date": "2026-10-07",
-  "state": "correcting",
+  "state": "blocked_provider",
   "created_at": "2026-10-07T06:16:13.112Z",
   "cloud_only": true,
   "daily_limit": 1,
@@ -557,7 +557,14 @@
       "prediction_status": 200
     }
   ],
-  "blockers": [],
+  "blockers": [
+    {
+      "code": "provider_rejected_correction_again",
+      "provider_status": "nsfw",
+      "job_id": "a7d48a69-0a33-41c1-b3bd-a5994832cda5",
+      "detail": "Explicitly authorized unchanged benign board edit again returned nsfw, with no reason or output. No further retry authorized."
+    }
+  ],
   "credits": {
     "balance_before": 187.22,
     "balance_after": 165.42,
@@ -637,7 +644,7 @@
     },
     {
       "asset_id": "goaliq-2026-10-07-opening-correction-4",
-      "state": "submitted",
+      "state": "rejected_nsfw",
       "credits_exact": 4,
       "balance_before": 165.42,
       "params": {
@@ -652,7 +659,8 @@
         ],
         "prompt": "Remove both football club crests from the big physical stadium announcement board: remove the yellow circular BVB emblem on the left and the green diamond emblem on the right, replacing their areas with the board's plain yellow/black painted background. No club crests or logo-like substitutes on this announcement board. Preserve the existing correct text exactly: DORTMUND vs BREMEN and 9 OCT 2026 · 20:30 CEST. Preserve each letter and numeral without alteration throughout the video. Keep the existing physical board, perspective, hand-drawn 2D anime style, camera movement, stadium, lighting and all timing unchanged. No floating text overlays, no separate title cards, no extra text. Only erase the two emblems on the board, preserve the two correct text lines on the board."
       },
-      "job_id": "a7d48a69-0a33-41c1-b3bd-a5994832cda5"
+      "job_id": "a7d48a69-0a33-41c1-b3bd-a5994832cda5",
+      "credits_actual_observed": 0
     }
   ],
   "jobs": [
@@ -680,7 +688,7 @@
     {
       "asset_id": "goaliq-2026-10-07-opening-correction-4",
       "job_id": "a7d48a69-0a33-41c1-b3bd-a5994832cda5",
-      "state": "pending"
+      "state": "nsfw"
     }
   ],
   "quality": {
@@ -694,7 +702,7 @@
     "transition": "not_created_after_block",
     "outro": "not_appended_after_block"
   },
-  "resume_policy": "Wait on recorded fourth correction job. Do not generate another correction or second daily post; authorized run cap is 4 including rejected attempt.",
+  "resume_policy": "Four correction submissions exhausted, including two rejected provider jobs. Do not retry automatically or create another daily post. Preserve all assets and evidence.",
   "schedule_action": "Routine remains enabled; missing data may change at next scheduled check.",
   "required_data": "Verified upcoming fixture and current research; predictions optional and not used.",
   "rules_read": {
@@ -799,7 +807,7 @@
     ],
     "prompt": "Create a 15-second vertical HAND-DRAWN 2D ANIME football fantasy. Bold clean ink outlines, flat cel shading, expressive illustrated adult characters, dynamic anime motion, painted stadium backgrounds. Entire film must look drawn, never photorealistic, never live-action, never realistic 3D humans. Original fictional players and voices, no real player likeness or voice imitation. This is a fictitious time-pressure mission, not match footage or a result prediction.\nUse the two supplied reference images ONLY to reproduce the official crests accurately: reference1 is Borussia Dortmund's yellow circular BVB09 crest, reference2 is Werder Bremen's green diamond with white W.\n0–2.5sec: begin immediately inside a painted anime stadium, close on a large physical match-announcement board above the entrance tunnel. It is a real object in the scene, not a floating text overlay or separate black title card. Left official BVB09 crest and right official Werder green diamond crest, equal size, fully visible and unobscured. Between/below them spell EXACTLY these two readable lines in large clean English block lettering:\n\"DORTMUND vs BREMEN\"\n\"9 OCT 2026 · 20:30 CEST\"\nNo TODAY, no other dates, no score or odds. Hold steady long enough to read, then camera sweeps under this board into the SAME stadium. All crests and text must be generated in the scene itself.\n2.5–5sec: floodlights shut off rapidly one by one in a dramatic fictional stadium; the last light glows inside a football at a yellow-black Dortmund player's feet. A gate at the tunnel is slowly closing. The Dortmund player says clearly in English, \"One light left. Keep it alive.\"\n5–8sec: he dribbles the glowing ball along a narrow path of light while shadows close around him. A green-white Bremen defender steps into the path, poised to take the ball. No ordinary match montage, no shot at goal. The Bremen defender says in clear English, \"Then pass it through the dark.\"\n8–11.5sec: twist: instead of tackling, the defender opens a tiny gap between two closing shadow walls. Dortmund makes one precise low pass THROUGH that gap. The Bremen defender receives it beside an unlit circular power socket in the pitch, taps the glowing ball INTO THE SOCKET with his foot. The same ball visibly stays there.\n11.5–15sec: the whole stadium erupts in golden floodlight as the gate reopens. The ball pops out of the socket between the two rivals; they turn to face each other, now ready to compete. Dortmund says in clear English, \"Now the real game begins.\" End on the ball between yellow-black and green-white boots under the restored lights. No winner, scored goal, victory celebration or final score.\nAudio exactly the three English sentences above, natural intelligible adult male voices, no extra dialogue and no other language. Original instrumental suspense percussion ducked below speech; wind and switch-click effects, no singing. No subtitles or other writing after the announcement board, no news claim about a real blackout. No brand outro inside this source; it will be appended separately."
   },
-  "updated_at": "2026-10-07T06:44:14.759Z",
+  "updated_at": "2026-10-07T06:47:49.019Z",
   "final_media_id": null,
   "correction_policy": {
     "max_runs": 4,
