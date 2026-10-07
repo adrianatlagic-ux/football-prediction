@@ -1,7 +1,7 @@
 {
   "post_id": "goaliq-2026-10-07",
   "target_date": "2026-10-07",
-  "state": "blocked_provider",
+  "state": "assembling",
   "created_at": "2026-10-07T06:16:13.112Z",
   "cloud_only": true,
   "daily_limit": 1,
@@ -557,14 +557,7 @@
       "prediction_status": 200
     }
   ],
-  "blockers": [
-    {
-      "code": "provider_rejected_correction_three_times",
-      "provider_status": "nsfw",
-      "job_id": "1f237d06-9331-41cf-8f18-a3c41d92419b",
-      "detail": "Fifth correction submission, same benign crest-removal edit, again returned nsfw with no reason or output. User authorized only this repeat; do not submit additional jobs."
-    }
-  ],
+  "blockers": [],
   "credits": {
     "balance_before": 187.22,
     "balance_after": 165.42,
@@ -727,7 +720,7 @@
     "transition": "not_created_after_block",
     "outro": "not_appended_after_block"
   },
-  "resume_policy": "Five correction submissions exhausted including three provider rejections. No automatic retries; retain original story and all evidence. No second daily post.",
+  "resume_policy": "User approved original source. Append brand outro without new generation; await final media checks. No duplicate daily contribution.",
   "schedule_action": "Routine remains enabled; missing data may change at next scheduled check.",
   "required_data": "Verified upcoming fixture and current research; predictions optional and not used.",
   "rules_read": {
@@ -795,7 +788,7 @@
     "duration_planned_seconds": 2.5,
     "timezone": "Europe/Berlin",
     "review": "failed",
-    "team_crests": false
+    "team_crests": true
   },
   "team_crests": [
     {
@@ -892,5 +885,15 @@
     }
   ],
   "audio_analysis_id": "4b24f76e-0999-4f60-b6c6-22f954a1fc66",
-  "team_crests_required": false
+  "team_crests_required": true,
+  "user_approval": {
+    "at": "2026-10-07T08:54:27+02:00",
+    "source_job_id": "8f620b34-b15e-4b77-bdc5-d93127a9ae2f",
+    "instruction": "Ich finde es sehr gut mit den Wappen kann man so lassen",
+    "scope": "Displayed original 15-second clip accepted including observed opening name/crest defects; append brand outro only",
+    "automatic_quality_gate_override": false,
+    "editorial_exception": true
+  },
+  "source_job_id": "8f620b34-b15e-4b77-bdc5-d93127a9ae2f",
+  "source_media_id": "da02a9e8-a940-4c5c-a683-1d96d6190abf"
 }
