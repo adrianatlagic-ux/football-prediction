@@ -41,7 +41,7 @@
   "local_processing_enabled": false,
   "python_enabled": false,
   "cloud_editor_internal_ffmpeg_enabled": true,
-  "edit_mode": "prepend_fixture_hook_preserve_story_append_goalfiq_outro",
+  "edit_mode": "generated_fixture_hook_in_source_append_goalfiq_outro_only",
   "preserve_source_video": true,
   "preserve_source_audio": true,
   "reuse_scenes_from_other_versions": false,
@@ -116,8 +116,8 @@
   "fixture_hook": {
     "required": true,
     "duration_seconds": 2,
-    "placement": "before_full_story_source",
-    "text_renderer": "higgsfield_native_cloud_editor",
+    "placement": "opening_inside_generated_story_video",
+    "text_renderer": "higgsfield_video_generation",
     "language": "en",
     "line_templates": [
       "{HOME_EN} vs {AWAY_EN}",
@@ -126,10 +126,49 @@
     "timezone": "Europe/Berlin",
     "source": "live_verified_fixture",
     "relative_day_must_match_delivery_date": true,
-    "background": "same_story_anime_opening",
+    "background": "generated_anime_scene",
     "source_video_overlay": false,
     "speech": false,
-    "validation_required": true
+    "validation_required": true,
+    "future_day_template": "{D} {MON_EN} {YYYY} · {HH:MM} {CET_OR_CEST}",
+    "future_date_required": true,
+    "render_mode": "inside_generated_story_video",
+    "post_generation_text_overlay": false,
+    "separate_intro": false,
+    "team_crests": {
+      "required": true,
+      "placement": "very_beginning",
+      "source": "authorized_assets_or_official_team_sources",
+      "reference_media_required": true,
+      "team_assignment_validation_required": true,
+      "shape_and_legibility_validation_required": true
+    }
   },
-  "source_hash_comparison_offset": "fixture_hook_duration"
+  "source_hash_comparison_offset": 0,
+  "fixture_selection": {
+    "mode": "today_then_nearest_upcoming_uncovered_matchday",
+    "daily_production_goal": 1,
+    "upcoming_preview_enabled": true,
+    "explicit_preview_request_required": false,
+    "chronological_matchdays": true,
+    "rank_within_nearest_valid_matchday": true,
+    "skip_previously_reserved_or_covered_fixture": true,
+    "coverage_source": "repository_cloud_manifests",
+    "coverage_fields": [
+      "match_id",
+      "home_team",
+      "away_team",
+      "match_date"
+    ],
+    "invalid_candidate_action": "record_reason_then_check_next_candidate_or_matchday",
+    "no_today_matches_action": "look_ahead",
+    "no_valid_available_fixture_action": "report_blocker",
+    "preserve_data_credit_and_quality_checks": true
+  },
+  "editorial_date_policy": {
+    "target_date": "intended_content_day_europe_berlin",
+    "match_date": "actual_fixture_date_separate",
+    "upcoming_preview_consumes": "editorial_day_only",
+    "historical_manifests": "do_not_redate"
+  }
 }
