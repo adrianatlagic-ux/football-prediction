@@ -1,0 +1,41 @@
+{
+  "post_id": "goaliq-2026-10-07",
+  "status": "blocked_quality",
+  "provider": "Higgsfield",
+  "cloud_only": true,
+  "job_id": "8f620b34-b15e-4b77-bdc5-d93127a9ae2f",
+  "source_media_id": "da02a9e8-a940-4c5c-a683-1d96d6190abf",
+  "credits": {
+    "balance_before": 187.22,
+    "balance_after": 172.22,
+    "consumed": 15
+  },
+  "probe": {
+    "width": 720,
+    "height": 1280,
+    "fps": 24,
+    "video_frames": 361,
+    "video_duration": 15.041667,
+    "audio_duration": 15.104,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "sample_rate": 32000,
+    "channels": 2
+  },
+  "review": {
+    "method": "Cloud-extracted 15-frame contact sheet and 1-second opening full-size frame",
+    "anime": "passed",
+    "fixture_text": "failed: Dortmund misspelled",
+    "crest": "failed: BVB 08 instead of 09",
+    "date_and_time": "9 OCT 2026 - 20:30 CEST visible and correct",
+    "speech": "not yet reviewed",
+    "final_assembly": "not performed due to mandatory QA failure"
+  },
+  "fixture_check": {
+    "exit_code": 0,
+    "stdout": "{\"retrieved_at\":\"2026-10-07T06:24:48.384Z\",\"fixture_status\":200,\"fixture\":{\"group\":\"Spieltag 5\",\"date\":\"2026-10-09\",\"time\":\"20:30\",\"home_team\":\"Borussia Dortmund\",\"away_team\":\"Werder Bremen\",\"match_id\":\"borussia_dortmund_vs_werder_bremen_bl\"},\"official_kickoff\":\"2026-10-09T18:30:00+0000\",\"europe_berlin\":\"9 Oct 2026, 20:30\"}\n",
+    "stderr": ""
+  },
+  "prediction_used": false,
+  "retry_submitted": false
+}
