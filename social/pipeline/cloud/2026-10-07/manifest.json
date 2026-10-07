@@ -1,0 +1,583 @@
+{
+  "post_id": "goaliq-2026-10-07",
+  "target_date": "2026-10-07",
+  "state": "blocked_data",
+  "created_at": "2026-10-07T06:16:13.112Z",
+  "cloud_only": true,
+  "daily_limit": 1,
+  "daily_limit_basis": "editorial_target_date",
+  "selected": [],
+  "previously_covered_matches": [
+    {
+      "post_id": "goalfiq-2026-10-04",
+      "match_id": "greece_vs_germany_nl",
+      "match_date": "2026-10-04",
+      "home": "Greece",
+      "away": "Germany",
+      "state": "append_only_exported"
+    },
+    {
+      "post_id": "goaliq-2026-10-05",
+      "match_id": "italy_vs_turkey_nl",
+      "match_date": "2026-10-05",
+      "home": "Italy",
+      "away": "Turkey",
+      "state": "exceptional_exported_review_pending"
+    },
+    {
+      "post_id": "goaliq-2026-10-06",
+      "match_id": "croatia_vs_spain_nl",
+      "match_date": "2026-10-06",
+      "home": "Croatia",
+      "away": "Spain",
+      "state": "ready"
+    }
+  ],
+  "selection_policy": "today_then_nearest_upcoming_uncovered_matchday",
+  "today_matches": [],
+  "data_check": {
+    "fetched_at": "2026-10-07T06:15:12.190Z",
+    "future_fixture_count": 448,
+    "missing_prediction_count": 433,
+    "nearest_missing": [
+      {
+        "group": "Spieltag 5",
+        "date": "2026-10-09",
+        "time": "20:30",
+        "home_team": "Borussia Dortmund",
+        "away_team": "Werder Bremen",
+        "match_id": "borussia_dortmund_vs_werder_bremen_bl",
+        "competition": "bl"
+      },
+      {
+        "group": "Spieltag 5",
+        "date": "2026-10-10",
+        "time": "15:30",
+        "home_team": "1. FSV Mainz 05",
+        "away_team": "Bayer Leverkusen",
+        "match_id": "1_fsv_mainz_05_vs_bayer_leverkusen_bl",
+        "competition": "bl"
+      },
+      {
+        "group": "Spieltag 5",
+        "date": "2026-10-10",
+        "time": "15:30",
+        "home_team": "Augsburg",
+        "away_team": "Bayern Munich",
+        "match_id": "augsburg_vs_bayern_munich_bl",
+        "competition": "bl"
+      },
+      {
+        "group": "Spieltag 5",
+        "date": "2026-10-10",
+        "time": "15:30",
+        "home_team": "SC Paderborn",
+        "away_team": "VfB Stuttgart",
+        "match_id": "sc_paderborn_vs_vfb_stuttgart_bl",
+        "competition": "bl"
+      },
+      {
+        "group": "Spieltag 5",
+        "date": "2026-10-10",
+        "time": "15:30",
+        "home_team": "TSG Hoffenheim",
+        "away_team": "Hamburger SV",
+        "match_id": "tsg_hoffenheim_vs_hamburger_sv_bl",
+        "competition": "bl"
+      },
+      {
+        "group": "Spieltag 5",
+        "date": "2026-10-10",
+        "time": "15:30",
+        "home_team": "Union Berlin",
+        "away_team": "Elversberg",
+        "match_id": "union_berlin_vs_elversberg_bl",
+        "competition": "bl"
+      },
+      {
+        "group": "Spieltag 5",
+        "date": "2026-10-10",
+        "time": "18:30",
+        "home_team": "RB Leipzig",
+        "away_team": "Eintracht Frankfurt",
+        "match_id": "rb_leipzig_vs_eintracht_frankfurt_bl",
+        "competition": "bl"
+      },
+      {
+        "group": "Spieltag 5",
+        "date": "2026-10-11",
+        "time": "15:30",
+        "home_team": "1. FC Köln",
+        "away_team": "Borussia Mönchengladbach",
+        "match_id": "1_fc_koln_vs_borussia_monchengladbach_bl",
+        "competition": "bl"
+      },
+      {
+        "group": "Spieltag 5",
+        "date": "2026-10-11",
+        "time": "17:30",
+        "home_team": "SC Freiburg",
+        "away_team": "Schalke 04",
+        "match_id": "sc_freiburg_vs_schalke_04_bl",
+        "competition": "bl"
+      }
+    ],
+    "cached_future_candidates": [
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-13",
+          "time": "18:45",
+          "home_team": "RC Lens",
+          "away_team": "Sporting Lisbon",
+          "match_id": "rc_lens_vs_sporting_lisbon_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "RC Lens",
+          "away": "Sporting Lisbon",
+          "probabilities": [
+            0.2158,
+            0.2002,
+            0.5839
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-13",
+          "time": "18:45",
+          "home_team": "Sabah FK",
+          "away_team": "Slavia Praha",
+          "match_id": "sabah_fk_vs_slavia_praha_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Sabah FK",
+          "away": "Slavia Praha",
+          "probabilities": [
+            0.4478,
+            0.2351,
+            0.3171
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-13",
+          "time": "21:00",
+          "home_team": "Arsenal",
+          "away_team": "Lille",
+          "match_id": "arsenal_vs_lille_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Arsenal",
+          "away": "Lille",
+          "probabilities": [
+            0.7672,
+            0.1385,
+            0.0943
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-13",
+          "time": "21:00",
+          "home_team": "Atlético Madrid",
+          "away_team": "Manchester United",
+          "match_id": "atletico_madrid_vs_manchester_united_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Atlético Madrid",
+          "away": "Manchester United",
+          "probabilities": [
+            0.3723,
+            0.3151,
+            0.3125
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-13",
+          "time": "21:00",
+          "home_team": "Galatasaray",
+          "away_team": "Barcelona",
+          "match_id": "galatasaray_vs_barcelona_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Galatasaray",
+          "away": "Barcelona",
+          "probabilities": [
+            0.1789,
+            0.2396,
+            0.5815
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-13",
+          "time": "21:00",
+          "home_team": "Inter Milan",
+          "away_team": "Club Brugge",
+          "match_id": "inter_milan_vs_club_brugge_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Inter Milan",
+          "away": "Club Brugge",
+          "probabilities": [
+            0.6954,
+            0.1358,
+            0.1688
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-13",
+          "time": "21:00",
+          "home_team": "RB Leipzig",
+          "away_team": "PSV Eindhoven",
+          "match_id": "rb_leipzig_vs_psv_eindhoven_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "RB Leipzig",
+          "away": "PSV Eindhoven",
+          "probabilities": [
+            0.6109,
+            0.1751,
+            0.214
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-13",
+          "time": "21:00",
+          "home_team": "Viking FK",
+          "away_team": "Bayern Munich",
+          "match_id": "viking_fk_vs_bayern_munich_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Viking FK",
+          "away": "Bayern Munich",
+          "probabilities": [
+            0.1419,
+            0.142,
+            0.7161
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-13",
+          "time": "21:00",
+          "home_team": "Villarreal",
+          "away_team": "Napoli",
+          "match_id": "villarreal_vs_napoli_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Villarreal",
+          "away": "Napoli",
+          "probabilities": [
+            0.2986,
+            0.2074,
+            0.494
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-14",
+          "time": "18:45",
+          "home_team": "Feyenoord",
+          "away_team": "Como",
+          "match_id": "feyenoord_vs_como_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Feyenoord",
+          "away": "Como",
+          "probabilities": [
+            0.4919,
+            0.3021,
+            0.206
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-14",
+          "time": "21:00",
+          "home_team": "AS Roma",
+          "away_team": "Real Madrid",
+          "match_id": "as_roma_vs_real_madrid_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "AS Roma",
+          "away": "Real Madrid",
+          "probabilities": [
+            0.2423,
+            0.177,
+            0.5807
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-14",
+          "time": "21:00",
+          "home_team": "Aston Villa",
+          "away_team": "Fenerbahce",
+          "match_id": "aston_villa_vs_fenerbahce_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Aston Villa",
+          "away": "Fenerbahce",
+          "probabilities": [
+            0.7108,
+            0.1493,
+            0.1399
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-14",
+          "time": "21:00",
+          "home_team": "Manchester City",
+          "away_team": "Paris Saint Germain",
+          "match_id": "manchester_city_vs_paris_saint_germain_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Manchester City",
+          "away": "Paris Saint Germain",
+          "probabilities": [
+            0.5866,
+            0.2398,
+            0.1736
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-14",
+          "time": "21:00",
+          "home_team": "Real Betis",
+          "away_team": "Porto",
+          "match_id": "real_betis_vs_porto_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Real Betis",
+          "away": "Porto",
+          "probabilities": [
+            0.1595,
+            0.126,
+            0.7146
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-14",
+          "time": "21:00",
+          "home_team": "Shakhtar Donetsk",
+          "away_team": "AEK Athens",
+          "match_id": "shakhtar_donetsk_vs_aek_athens_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Shakhtar Donetsk",
+          "away": "AEK Athens",
+          "probabilities": [
+            0.4526,
+            0.2969,
+            0.2505
+          ]
+        },
+        "age_hours": null
+      }
+    ]
+  },
+  "excluded": [
+    {
+      "match_id": "rc_lens_vs_sporting_lisbon_cl",
+      "match_date": "2026-10-13",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "sabah_fk_vs_slavia_praha_cl",
+      "match_date": "2026-10-13",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "arsenal_vs_lille_cl",
+      "match_date": "2026-10-13",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "atletico_madrid_vs_manchester_united_cl",
+      "match_date": "2026-10-13",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "galatasaray_vs_barcelona_cl",
+      "match_date": "2026-10-13",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "inter_milan_vs_club_brugge_cl",
+      "match_date": "2026-10-13",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "rb_leipzig_vs_psv_eindhoven_cl",
+      "match_date": "2026-10-13",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "viking_fk_vs_bayern_munich_cl",
+      "match_date": "2026-10-13",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "villarreal_vs_napoli_cl",
+      "match_date": "2026-10-13",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "feyenoord_vs_como_cl",
+      "match_date": "2026-10-14",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "as_roma_vs_real_madrid_cl",
+      "match_date": "2026-10-14",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "aston_villa_vs_fenerbahce_cl",
+      "match_date": "2026-10-14",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "manchester_city_vs_paris_saint_germain_cl",
+      "match_date": "2026-10-14",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "real_betis_vs_porto_cl",
+      "match_date": "2026-10-14",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "shakhtar_donetsk_vs_aek_athens_cl",
+      "match_date": "2026-10-14",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    }
+  ],
+  "blockers": [
+    {
+      "code": "MISSING_PREDICTION",
+      "match_id": "borussia_dortmund_vs_werder_bremen_bl",
+      "match_date": "2026-10-09",
+      "response_status": 404,
+      "detail": "Keine gespeicherte Vorhersage für diese match_id."
+    },
+    {
+      "code": "NO_VALID_FRESH_FUTURE_PREDICTION",
+      "missing_prediction_count": 433,
+      "cached_without_freshness_count": 15,
+      "future_fixture_count": 448
+    }
+  ],
+  "credits": {
+    "available": 187.22,
+    "consumed": 0
+  },
+  "charges": [],
+  "jobs": [],
+  "quality": {
+    "state": "not_started",
+    "reason": "Preflight failed before media production"
+  },
+  "resume_policy": "Recheck live fixtures and predictions; resume this editorial day once valid fresh data exists. No new daily contribution key. Do not treat blocked_data as ready.",
+  "schedule_action": "Routine remains enabled; missing data may change at next scheduled check.",
+  "required_data": "Valid cached prediction for an upcoming live fixture with correct pairing and verifiable freshness <=48h; no product jobs triggered.",
+  "rules_read": {
+    "readme_sha": "449821d08148e60552b639b764ab289543db1cec",
+    "config_sha": "9016522ba070d20a50adff03adc8efb69b659ebe",
+    "reference_sha": "315eb06677418c10dd35fa810d111e7fb59f3d62"
+  }
+}
