@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "target_date": "2026-10-08",
-  "status": "quoted",
+  "status": "generating",
   "coverage_key": "bundesliga-2026-10-10-mainz05-bayer04",
   "fixture": {
     "competition": "Bundesliga",
@@ -79,7 +79,7 @@
     "provider": "Higgsfield",
     "model": "seedance_2_0_mini",
     "charge_key": "goaliq-2026-10-08-story-v1",
-    "job_id": null,
+    "job_id": "4a33030e-61cf-442e-8b62-09ad76a3b967",
     "attempt": 1,
     "cost_quote": {
       "credits": 15,
@@ -91,7 +91,8 @@
     "source_media_id": null,
     "final_media_id": null,
     "outro_media_id": "9c29b762-d478-4bb4-b4bc-fadfaad35efd",
-    "zip_media_id": null
+    "zip_media_id": null,
+    "submitted_at": "2026-10-08T06:12:05Z"
   },
   "qa": {
     "fixture_recheck": "pending",
