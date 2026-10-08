@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "target_date": "2026-10-08",
-  "status": "correction_required",
+  "status": "blocked_budget_mismatch",
   "coverage_key": "bundesliga-2026-10-10-mainz05-bayer04",
   "fixture": {
     "competition": "Bundesliga",
@@ -100,6 +100,16 @@
       "media_id": "958d5ad8-0184-4433-85d7-0ee0848c4d59",
       "credits": 15,
       "review": "rejected_audio"
+    },
+    "credits_after_attempt_1_and_qa": 116.18,
+    "credits_used_observed": 31,
+    "billing_issue": {
+      "quoted_generation_credits": 15,
+      "observed_balance_delta": 31,
+      "unexplained_delta": 16,
+      "detected_at": "2026-10-08T06:20:00Z",
+      "correction_quote_credits": 15,
+      "correction_submitted": false
     }
   },
   "qa": {
@@ -113,7 +123,12 @@
     "story_relevance": "fail — club-specific Fastnacht phrase is not understandable in actual audio",
     "source_preservation": "pending",
     "outro": "pending",
-    "overall": "fail_attempt_1"
+    "overall": "blocked — attempt 1 rejected for German mispronunciation; correction withheld due to credit discrepancy"
   },
-  "created_at": "2026-10-08T06:10:00Z"
+  "created_at": "2026-10-08T06:10:00Z",
+  "blocker": {
+    "type": "budget_problem",
+    "message": "Observed credit decrease exceeded the exact preflight quote; no further paid job submitted.",
+    "required_user_action": "Resolve or approve the 16-credit discrepancy before resuming the automation."
+  }
 }
