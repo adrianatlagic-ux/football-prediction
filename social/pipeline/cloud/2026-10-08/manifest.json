@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "target_date": "2026-10-08",
-  "status": "reserved",
+  "status": "quoted",
   "coverage_key": "bundesliga-2026-10-10-mainz05-bayer04",
   "fixture": {
     "competition": "Bundesliga",
@@ -81,8 +81,12 @@
     "charge_key": "goaliq-2026-10-08-story-v1",
     "job_id": null,
     "attempt": 1,
-    "cost_quote": null,
-    "credits_before": null,
+    "cost_quote": {
+      "credits": 15,
+      "credits_exact": 15,
+      "quoted_at": "2026-10-08T06:11:30Z"
+    },
+    "credits_before": 147.18,
     "credits_used": null,
     "source_media_id": null,
     "final_media_id": null,
