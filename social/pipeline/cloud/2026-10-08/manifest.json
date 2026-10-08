@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "target_date": "2026-10-08",
+  "status": "reserved",
+  "coverage_key": "bundesliga-2026-10-10-mainz05-bayer04",
+  "fixture": {
+    "competition": "Bundesliga",
+    "home_team": "1. FSV Mainz 05",
+    "away_team": "Bayer 04 Leverkusen",
+    "match_date": "2026-10-10",
+    "kickoff_at": "2026-10-10T15:30:00+02:00",
+    "timezone": "Europe/Berlin",
+    "fixture_source": "https://www.bundesliga.com/de/bundesliga/spieltag/2026-2027/5",
+    "fixture_retrieved_at": "2026-10-08T06:05:33Z"
+  },
+  "selection": {
+    "reason": "Nearest valid uncovered fixture with strong verified club-identity story potential.",
+    "rejected_candidates": [
+      {
+        "fixture": "Borussia Dortmund vs Werder Bremen",
+        "reason": "already covered by 2026-10-07 manifest"
+      }
+    ]
+  },
+  "generation_basis": "verified_fixture_and_current_research",
+  "prediction_status": "not_available_not_required",
+  "prediction_used": false,
+  "story": {
+    "story_type": "club_identity_rhythm_clash",
+    "previous_story_type": "time_pressure_mission",
+    "hook": "Mainz Fastnacht rhythm meets Werkself precision.",
+    "conflict": "A carnival drummer breaks the mechanical match rhythm.",
+    "twist": "Both sides discover the next move only works when precision adapts to unpredictability.",
+    "closing_image": "The ball rests between red-white carnival ribbons and black-red geometric light, result unresolved.",
+    "spoken_language": "de",
+    "exchangeability_test": "pass — Mainz Fastnacht identity and Bayer Werkself identity drive hook, conflict and twist."
+  },
+  "context": {
+    "context_type": "club",
+    "verified_context": [
+      {
+        "claim": "Mainz 05 explicitly presents responsibility for Fastnacht as part of club life.",
+        "source": "https://www.mainz05.de/News/verantwortung-fuer-die-fastnacht",
+        "retrieved_at": "2026-10-08T06:06:38Z"
+      },
+      {
+        "claim": "Bayer 04 uses Werkself as its established team identity.",
+        "source": "https://www.bayer04.de/de-de",
+        "retrieved_at": "2026-10-08T06:06:38Z"
+      }
+    ],
+    "story_connection": "Fastnacht's irregular celebratory beat collides with Werkself precision and becomes the turning point.",
+    "relevance_review": "pending_render"
+  },
+  "visual_style": "hand-drawn 2D anime, clean outlines, cel shading, expressive characters",
+  "style_review": "pending_render",
+  "fixture_hook": {
+    "render_mode": "inside_generated_story_video",
+    "exact_text": "MAINZ 05 vs LEVERKUSEN\n10 OCT 2026 · 15:30 CEST",
+    "duration_seconds": 2.2,
+    "timezone": "Europe/Berlin",
+    "team_crests": [
+      {
+        "team": "1. FSV Mainz 05",
+        "source": "https://www.mainz05.de",
+        "media_id": "d480cf54-13a4-48a3-b94d-09df0c6491b8",
+        "status": "verified"
+      },
+      {
+        "team": "Bayer 04 Leverkusen",
+        "source": "https://b04-ep-media-prod.azureedge.net/pickerimages/B04_Standard_Logo_865_XL.svg",
+        "media_id": "03fae20e-58ad-4571-8fbd-33bf5aad315c",
+        "status": "verified"
+      }
+    ],
+    "review_status": "pending_render"
+  },
+  "production": {
+    "provider": "Higgsfield",
+    "model": "seedance_2_0_mini",
+    "charge_key": "goaliq-2026-10-08-story-v1",
+    "job_id": null,
+    "attempt": 1,
+    "cost_quote": null,
+    "credits_before": null,
+    "credits_used": null,
+    "source_media_id": null,
+    "final_media_id": null,
+    "outro_media_id": "9c29b762-d478-4bb4-b4bc-fadfaad35efd",
+    "zip_media_id": null
+  },
+  "qa": {
+    "fixture_recheck": "pending",
+    "opening_text": "pending",
+    "crest_accuracy": "pending",
+    "anime_style_start_middle_end": "pending",
+    "german_speech": "pending",
+    "natural_voice": "pending",
+    "audio": "pending",
+    "story_relevance": "pending",
+    "source_preservation": "pending",
+    "outro": "pending",
+    "overall": "pending"
+  },
+  "created_at": "2026-10-08T06:10:00Z"
+}
