@@ -1,3 +1,7 @@
+## Vorrangige Nutzeranweisung 08.10.2026: Realistische Spielerabbildungen
+
+Ab sofort fotorealistischer Live-Action-Stil statt Anime. Aktuelle Spieler der beteiligten Mannschaften anhand offizieller Kader und Bildreferenzen visuell erkennbar darstellen. Diese Nutzeranweisung ersetzt die ältere Animepflicht und das Verbot visueller Spielerähnlichkeiten. Keine echten Stimmen klonen und keine erfundenen Dialoge als Originalzitate darstellen; klare KI-Fiktionskennzeichnung, keine behauptete Unterstützung von GoalIQ durch Spieler. Alle übrigen Recherche-, Hook-, Wappen-, Montage- und Qualitätsregeln bleiben bestehen. Die am 08.10.2026 beobachtete Kostenabweichung wurde vom Nutzer für die Fortsetzung des bestehenden Tagesbeitrags akzeptiert; dies ist keine pauschale Freigabe beliebiger künftiger Mehrkosten.
+
 # Goalfiq Content-Pipeline
 
 Stand: 07.10.2026. Diese Pipeline arbeitet ausschließlich über GitHub MCP und Higgsfield MCP in der Cloud. Keine lokalen Dateien oder Prozesse, kein Python und kein lokales FFmpeg. Der native Higgsfield-Cloud-Editor darf intern FFmpeg verwenden. Bei fehlendem Pluginzugriff, Credits oder erforderlicher Qualitätsprüfung stoppen. Keine Veröffentlichung auf externen sozialen Plattformen.
