@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "target_date": "2026-10-08",
-  "status": "generating",
+  "status": "correction_required",
   "coverage_key": "bundesliga-2026-10-10-mainz05-bayer04",
   "fixture": {
     "competition": "Bundesliga",
@@ -88,24 +88,32 @@
     },
     "credits_before": 147.18,
     "credits_used": null,
-    "source_media_id": null,
+    "source_media_id": "958d5ad8-0184-4433-85d7-0ee0848c4d59",
     "final_media_id": null,
     "outro_media_id": "9c29b762-d478-4bb4-b4bc-fadfaad35efd",
     "zip_media_id": null,
-    "submitted_at": "2026-10-08T06:12:05Z"
+    "submitted_at": "2026-10-08T06:12:05Z",
+    "source_sha256": "dabc70ccd6577f4b20fc1489f4ffa140f98ebe00612cfe69b820bf55d4678321",
+    "max_attempts": 2,
+    "attempt_1": {
+      "job_id": "4a33030e-61cf-442e-8b62-09ad76a3b967",
+      "media_id": "958d5ad8-0184-4433-85d7-0ee0848c4d59",
+      "credits": 15,
+      "review": "rejected_audio"
+    }
   },
   "qa": {
     "fixture_recheck": "pending",
-    "opening_text": "pending",
-    "crest_accuracy": "pending",
-    "anime_style_start_middle_end": "pending",
-    "german_speech": "pending",
-    "natural_voice": "pending",
-    "audio": "pending",
-    "story_relevance": "pending",
+    "opening_text": "pass",
+    "crest_accuracy": "pass",
+    "anime_style_start_middle_end": "pass",
+    "german_speech": "fail — Fastnacht line was pronounced/transcribed as nonsensical wording",
+    "natural_voice": "not_releasable_due_to_mispronunciation",
+    "audio": "fail",
+    "story_relevance": "fail — club-specific Fastnacht phrase is not understandable in actual audio",
     "source_preservation": "pending",
     "outro": "pending",
-    "overall": "pending"
+    "overall": "fail_attempt_1"
   },
   "created_at": "2026-10-08T06:10:00Z"
 }
