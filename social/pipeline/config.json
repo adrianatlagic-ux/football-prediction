@@ -108,15 +108,13 @@
   },
   "visual_style": {
     "required": true,
-    "type": "2d_anime",
+    "type": "photorealistic_live_action",
     "traits": [
-      "drawn outlines",
-      "cel shading",
-      "expressive illustrated characters",
-      "dynamic anime motion"
+      "natural human appearance",
+      "cinematic live action",
+      "verified current player likenesses"
     ],
-    "photorealistic": false,
-    "realistic_3d_humans": false,
+    "photorealistic": true,
     "validation_required": true
   },
   "fixture_hook": {
@@ -132,7 +130,7 @@
     "timezone": "Europe/Berlin",
     "source": "live_verified_fixture",
     "relative_day_must_match_delivery_date": true,
-    "background": "generated_anime_scene",
+    "background": "generated_photorealistic_scene",
     "source_video_overlay": false,
     "speech": false,
     "validation_required": true,
@@ -282,5 +280,13 @@
       "spoken_language",
       "relevance_review"
     ]
+  },
+  "player_likeness": {
+    "allowed": true,
+    "current_team_verification_required": true,
+    "official_visual_references_required": true,
+    "fiction_label_required": true,
+    "real_voice_cloning": false,
+    "authentic_quote_claims": false
   }
 }
