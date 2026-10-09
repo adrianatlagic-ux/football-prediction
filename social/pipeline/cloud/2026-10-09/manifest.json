@@ -1,0 +1,137 @@
+{
+  "post_id": "goaliq-2026-10-09",
+  "target_date": "2026-10-09",
+  "state": "reserved",
+  "coverage_key": "augsburg_vs_bayern_munich_bl:2026-10-10",
+  "match_date": "2026-10-10",
+  "kickoff_at": "2026-10-10T15:30:00+02:00",
+  "selected": {
+    "home": "Augsburg",
+    "away": "Bayern Munich",
+    "match_id": "augsburg_vs_bayern_munich_bl"
+  },
+  "generation_basis": "verified_fixture_and_current_research",
+  "prediction_status": "omitted_optional",
+  "prediction_used": false,
+  "selection_reason": "Highest team relevance among uncovered fixtures on nearest valid matchday; official match-specific KidsClub tradition supplies concrete club story.",
+  "excluded": [
+    {
+      "match": "Dortmund-Bremen",
+      "reason": "ready 2026-10-07"
+    },
+    {
+      "match": "Mainz-Leverkusen",
+      "reason": "reserved 2026-10-08"
+    },
+    {
+      "match": "Paderborn-Stuttgart; Hoffenheim-HSV; Union-Elversberg; Leipzig-Frankfurt",
+      "reason": "Same nearest date, Augsburg-Bayern ranked higher for team relevance and verified story context"
+    }
+  ],
+  "context_type": "club",
+  "verified_context": [
+    {
+      "source": "https://fcaugsburg.de/article/alles-wichtige-zum-stadionbesuch-gegen-bayern-muenchen-23533",
+      "published": "2026-10-08T13:00:00+02:00",
+      "retrieved": "2026-10-09T09:26:00Z",
+      "fact": "Confirms Augsburg-Bayern on 10 October 15:30 and traditional KidsClub lap before this match."
+    }
+  ],
+  "story": {
+    "story_type": "object_mystery",
+    "previous_story_type": "club_identity_rhythm_clash",
+    "hook": "Lost scarf before Augsburg KidsClub lap",
+    "conflict": "Find scarf owner before group leaves",
+    "turning_point": "Child receives scarf and confidently leads lap",
+    "ending_image": "Scarf held high with players and arena behind",
+    "changed_elements": [
+      "central figures",
+      "object obstacle",
+      "sideline setting",
+      "child-led ending",
+      "dialogue function"
+    ],
+    "exchangeability_test": "pass: explicit Augsburg pre-match KidsClub lap defines action"
+  },
+  "story_connection": "Lost scarf incident connects recognizable Augsburg players to verified KidsClub lap; incident fictional.",
+  "spoken_language": "de",
+  "visual_style": "photorealistic_live_action",
+  "fixture_hook": {
+    "render_mode": "inside_generated_story_video",
+    "text": [
+      "AUGSBURG vs BAYERN",
+      "TOMORROW · 15:30 CEST"
+    ],
+    "duration_seconds": 2.5,
+    "timezone": "Europe/Berlin",
+    "review": "pending"
+  },
+  "references": [
+    {
+      "media_id": "cf8fd23a-982a-4683-a454-fdcdf13819db",
+      "role": "FCA crest",
+      "source": "https://logos.fantv.media/FCA.svg",
+      "review": "visually checked against official club source"
+    },
+    {
+      "media_id": "13f1a1a9-17c9-49ff-9d94-587abfefde8b",
+      "role": "FC Bayern crest",
+      "source": "https://logos.fantv.media/FCB.svg",
+      "review": "visually checked against official club source"
+    },
+    {
+      "media_id": "3549867d-63e8-4220-a3ff-9c50300dfe5f",
+      "role": "Jeffrey Gouweleeuw",
+      "source": "https://www.fcaugsburg.de/media/fca/kicker/0002/26/thumb_125295_kicker_small.jpeg",
+      "review": "visually checked against official club source"
+    },
+    {
+      "media_id": "168888dc-142c-4744-a88d-71d963d21246",
+      "role": "Fabian Rieder",
+      "source": "https://www.fcaugsburg.de/media/fca/kicker/0002/26/thumb_125280_kicker_small.jpeg",
+      "review": "visually checked against official club source"
+    }
+  ],
+  "roster_source": "https://fcaugsburg.de/team/",
+  "production": {
+    "charge_key": "goaliq-2026-10-09-story-v1",
+    "attempt": 1,
+    "max_attempts": 2,
+    "job_id": null,
+    "cost_quote": 15,
+    "credits_before": 95.18
+  },
+  "params": {
+    "model": "seedance_2_0_mini",
+    "duration": 15,
+    "resolution": "720p",
+    "aspect_ratio": "9:16",
+    "count": 1,
+    "bitrate_mode": "high",
+    "generate_audio": true,
+    "genre": "drama",
+    "medias": [
+      {
+        "role": "image",
+        "value": "cf8fd23a-982a-4683-a454-fdcdf13819db"
+      },
+      {
+        "role": "image",
+        "value": "13f1a1a9-17c9-49ff-9d94-587abfefde8b"
+      },
+      {
+        "role": "image",
+        "value": "3549867d-63e8-4220-a3ff-9c50300dfe5f"
+      },
+      {
+        "role": "image",
+        "value": "168888dc-142c-4744-a88d-71d963d21246"
+      }
+    ],
+    "prompt": "Create a 15-second photorealistic live-action fictional football short. Natural humans, cinematic practical lighting, real skin texture, no anime or cartoon. Reference1 official Augsburg crest; reference2 official Bayern crest; reference3 Jeffrey Gouweleeuw; reference4 Fabian Rieder. Preserve the recognizable faces and white Augsburg kits of the two players. This is clearly AI fiction, not actual footage, no real quotes, no product endorsements. Use original natural German voices, not clones of the players' real voices.\n0-2.5 seconds: camera inside Augsburg stadium corridor, a physical announcement board shows left Augsburg crest and right Bayern crest accurately. Exact English text in clear large lettering: \"AUGSBURG vs BAYERN\" then \"TOMORROW · 15:30 CEST\". Small clear label \"AI FICTION\". Steady readable view, no spoken intro, no score.\n2.5-6 seconds: Gouweleeuw finds a small red-green-white fan scarf on the floor beside a football and lifts it. Looking toward Rieder he says naturally in German, \"Wem fehlt hier der Schal?\"\n6-10 seconds: Rieder points toward a child with a parent waiting beside the pitch for Augsburg's traditional pre-match KidsClub lap of honour. He replies with warm natural German delivery, \"Der Ehrenrunde fehlt noch jemand.\" Gouweleeuw hands the scarf to the child. Clear spatial continuity, no magical movement.\n10-15 seconds: twist: the delighted child gives a confident thumbs-up and leads the little pre-match group along the sideline as the two players smile. A warm independent adult narrator says clearly in German, \"Große Gegner. Kleine Fans. Unser Augsburg.\" End on the scarf held aloft in the foreground, players and stadium behind. The coming Bayern match remains unresolved. No match action, no goals, no predicted result, no statistics. Club connection is the actual Augsburg KidsClub lap tradition, the scarf incident is fictional. Exactly the three German lines specified, natural breath and expressive human delivery, no robotic timbre, soft stadium ambience under clear speech. No further writing after the opening. No brand outro inside source; it is appended separately."
+  },
+  "qa": {
+    "overall": "pending"
+  },
+  "cloud_only": true
+}
