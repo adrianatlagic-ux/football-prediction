@@ -1,7 +1,7 @@
 {
   "post_id": "goaliq-2026-10-09",
   "target_date": "2026-10-09",
-  "state": "generating",
+  "state": "review_required",
   "coverage_key": "augsburg_vs_bayern_munich_bl:2026-10-10",
   "match_date": "2026-10-10",
   "kickoff_at": "2026-10-10T15:30:00+02:00",
@@ -62,9 +62,9 @@
       "AUGSBURG vs BAYERN",
       "TOMORROW · 15:30 CEST"
     ],
-    "duration_seconds": 2.5,
+    "duration_seconds": 1.1,
     "timezone": "Europe/Berlin",
-    "review": "pending"
+    "review": "Visual frames 0,0.5,0.8,1 show correct English names, crests and TOMORROW 15:30 CEST; opening is about 1.1 seconds, shorter than requested about 2 seconds."
   },
   "references": [
     {
@@ -110,6 +110,17 @@
           "Opening AUGESBURG instead of AUGSBURG",
           "Scarf fuses Augsburg and Bayern crests"
         ]
+      },
+      {
+        "attempt": 2,
+        "job_id": "b420e820-a298-4ab0-90b5-97ae2a4a555c",
+        "cost": 15,
+        "qa": "review_required",
+        "notes": [
+          "Intro approximately 1.1s instead of ~2s",
+          "Video analysis confirms German first line and final narration, second line paraphrased; naturalness not human-auditioned",
+          "KidsClub lap not clearly shown"
+        ]
       }
     ],
     "params": {
@@ -140,7 +151,19 @@
         }
       ],
       "prompt": "Create a 15-second photorealistic live-action fictional football short. Natural humans, cinematic practical lighting, real skin texture, no anime or cartoon. Reference1 official Augsburg crest; reference2 official Bayern crest; reference3 Jeffrey Gouweleeuw; reference4 Fabian Rieder. Preserve the recognizable faces and white Augsburg kits of the two players. This is clearly AI fiction, not actual footage, no real quotes, no product endorsements. Use original natural German voices, not clones of the players' real voices.\n0-2.5 seconds: camera inside Augsburg stadium corridor, a physical announcement board shows left Augsburg crest and right Bayern crest accurately. Exact English text in clear large lettering: \"AUGSBURG vs BAYERN\" then \"TOMORROW · 15:30 CEST\". Small clear label \"AI FICTION\". Steady readable view, no spoken intro, no score.\n2.5-6 seconds: Gouweleeuw finds a small red-green-white fan scarf on the floor beside a football and lifts it. Looking toward Rieder he says naturally in German, \"Wem fehlt hier der Schal?\"\n6-10 seconds: Rieder points toward a child with a parent waiting beside the pitch for Augsburg's traditional pre-match KidsClub lap of honour. He replies with warm natural German delivery, \"Der Ehrenrunde fehlt noch jemand.\" Gouweleeuw hands the scarf to the child. Clear spatial continuity, no magical movement.\n10-15 seconds: twist: the delighted child gives a confident thumbs-up and leads the little pre-match group along the sideline as the two players smile. A warm independent adult narrator says clearly in German, \"Große Gegner. Kleine Fans. Unser Augsburg.\" End on the scarf held aloft in the foreground, players and stadium behind. The coming Bayern match remains unresolved. No match action, no goals, no predicted result, no statistics. Club connection is the actual Augsburg KidsClub lap tradition, the scarf incident is fictional. Exactly the three German lines specified, natural breath and expressive human delivery, no robotic timbre, soft stadium ambience under clear speech. No further writing after the opening. No brand outro inside source; it is appended separately.\nCRITICAL CORRECTIONS: The opening name must read AUGSBURG exactly, spelled A U G S B U R G, never AUGESBURG. Use a straight-on static board, large simple sans-serif letters, no perspective distortion. On the fan scarf use ONLY plain red-green-white stripes, absolutely no crests, badges, symbols or lettering. Keep both team crests only on the opening board, matching each respective reference. Show the child clearly leading a small group along the sideline for the lap of honour."
-    }
+    },
+    "final_media_id": "bc519293-0080-402c-aadc-3e712a2d1562",
+    "zip_media_id": "03041131-f7f3-4151-bbc3-5abdfda782e4",
+    "source_media_id": "9d93eb37-4a2e-4919-bb34-23340b601947",
+    "outro_media_id": "9c29b762-d478-4bb4-b4bc-fadfaad35efd",
+    "credits_after": 65.18,
+    "credits_spent": 30,
+    "final_sha256": "c564501da96b201e3a82551aba50992c5e59c4c12582ba0d2f5909a449f7e222",
+    "final_duration_seconds": 18.136,
+    "source_video_prefix_frames": 361,
+    "source_audio_prefix_packets": 473,
+    "byte_identity_zip": true,
+    "link_check": "MP4 and ZIP HTTP 200 at 2026-10-09T13:54Z"
   },
   "params": {
     "model": "seedance_2_0_mini",
@@ -172,7 +195,20 @@
     "prompt": "Create a 15-second photorealistic live-action fictional football short. Natural humans, cinematic practical lighting, real skin texture, no anime or cartoon. Reference1 official Augsburg crest; reference2 official Bayern crest; reference3 Jeffrey Gouweleeuw; reference4 Fabian Rieder. Preserve the recognizable faces and white Augsburg kits of the two players. This is clearly AI fiction, not actual footage, no real quotes, no product endorsements. Use original natural German voices, not clones of the players' real voices.\n0-2.5 seconds: camera inside Augsburg stadium corridor, a physical announcement board shows left Augsburg crest and right Bayern crest accurately. Exact English text in clear large lettering: \"AUGSBURG vs BAYERN\" then \"TOMORROW · 15:30 CEST\". Small clear label \"AI FICTION\". Steady readable view, no spoken intro, no score.\n2.5-6 seconds: Gouweleeuw finds a small red-green-white fan scarf on the floor beside a football and lifts it. Looking toward Rieder he says naturally in German, \"Wem fehlt hier der Schal?\"\n6-10 seconds: Rieder points toward a child with a parent waiting beside the pitch for Augsburg's traditional pre-match KidsClub lap of honour. He replies with warm natural German delivery, \"Der Ehrenrunde fehlt noch jemand.\" Gouweleeuw hands the scarf to the child. Clear spatial continuity, no magical movement.\n10-15 seconds: twist: the delighted child gives a confident thumbs-up and leads the little pre-match group along the sideline as the two players smile. A warm independent adult narrator says clearly in German, \"Große Gegner. Kleine Fans. Unser Augsburg.\" End on the scarf held aloft in the foreground, players and stadium behind. The coming Bayern match remains unresolved. No match action, no goals, no predicted result, no statistics. Club connection is the actual Augsburg KidsClub lap tradition, the scarf incident is fictional. Exactly the three German lines specified, natural breath and expressive human delivery, no robotic timbre, soft stadium ambience under clear speech. No further writing after the opening. No brand outro inside source; it is appended separately."
   },
   "qa": {
-    "overall": "pending"
+    "overall": "review_required",
+    "visual": "opening letters and crests correct; photorealistic; original content + 3s outro checked",
+    "audio": "Higgsfield scene analysis identifies German opening speech and voiceover, but voice naturalness and exact second line require human audition",
+    "outro": "original GoalIQ logo, goaliq.de, exact English disclaimer visually checked",
+    "continuity": "original 361 decoded frames and 473 source audio packets identical at final prefix",
+    "live_fixture_check": "2026-10-09T13:54:37Z; Augsburg-Bayern Oct 10 15:30 CEST confirmed",
+    "analysis_id": "9d5bf186-af37-436a-94e1-dfe1fe9c3a5a",
+    "issues": [
+      "Generated intro shorter than approx 2 seconds",
+      "Verified KidsClub lap not made explicit in final footage",
+      "No independent human listening of naturalness"
+    ]
   },
-  "cloud_only": true
+  "cloud_only": true,
+  "style_review": "Photorealistic live action at opening, middle, and end; visually checked.",
+  "relevance_review": "Augsburg players, stadium, child group and scarf action are visible; verified KidsClub lap context is implicit rather than named or visibly completed in the clip, so editorial review is required."
 }
