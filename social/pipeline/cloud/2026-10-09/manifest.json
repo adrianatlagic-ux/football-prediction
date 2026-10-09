@@ -1,7 +1,7 @@
 {
   "post_id": "goaliq-2026-10-09",
   "target_date": "2026-10-09",
-  "state": "correction_reserved",
+  "state": "generating",
   "coverage_key": "augsburg_vs_bayern_munich_bl:2026-10-10",
   "match_date": "2026-10-10",
   "kickoff_at": "2026-10-10T15:30:00+02:00",
@@ -97,7 +97,7 @@
     "charge_key": "goaliq-2026-10-09-story-v2",
     "attempt": 2,
     "max_attempts": 2,
-    "job_id": null,
+    "job_id": "b420e820-a298-4ab0-90b5-97ae2a4a555c",
     "cost_quote": 15,
     "credits_before": 80.18,
     "attempts": [
