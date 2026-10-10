@@ -156,7 +156,7 @@
   },
   "source_hash_comparison_offset": 0,
   "fixture_selection": {
-    "mode": "today_then_nearest_upcoming_uncovered_matchday",
+    "mode": "today_then_next_upcoming_uncovered_top_match",
     "daily_production_goal": 1,
     "upcoming_preview_enabled": true,
     "explicit_preview_request_required": false,
@@ -180,7 +180,20 @@
       "story_potential"
     ],
     "prediction_absence_is_blocker": false,
-    "minimum_editorial_score_without_prediction": null
+    "minimum_editorial_score_without_prediction": null,
+    "top_match_only": true,
+    "top_match_policy": {
+      "priority": [
+        "recognized_derby_or_major_rivalry",
+        "fixture_involving_Bayern_Munich",
+        "fixture_involving_Borussia_Dortmund"
+      ],
+      "other_match_requires": "documented_current_marquee_reason",
+      "generic_fixture_fallback": false,
+      "lookahead_to_next_uncovered_top_match": true,
+      "avoid_repeat_coverage": true,
+      "zero_valid_top_matches_action": "report_specific_blocker_without_generation"
+    }
   },
   "editorial_date_policy": {
     "target_date": "intended_content_day_europe_berlin",
@@ -200,7 +213,10 @@
   },
   "correction_policy": {
     "obey_user_authorized_run_cap": true,
+    "max_video_generation_attempts_per_editorial_date": 1,
+    "automatic_retry": false,
     "store_in_daily_manifest": true,
+    "generated_name_error_action": "record_and_deliver_single_existing_clip_without_regeneration",
     "do_not_retry_when_cap_exhausted": true
   },
   "voice_quality": {
@@ -234,7 +250,9 @@
     "zip_download_fallback_required": true,
     "zip_contains": "same_final_mp4_byte_identical",
     "download_archive_renderer": "higgsfield_cloud_only",
-    "zip_label": "Video herunterladen (ZIP mit MP4)"
+    "zip_label": "Video herunterladen (ZIP mit MP4)",
+    "name_typo_waiver": "disclose_actual_error; still deliver the one composite for the editorial day, no second generation",
+    "max_single_composite_per_day": 1
   },
   "spoken_language_policy": {
     "german_participation": "de",
@@ -288,5 +306,6 @@
     "fiction_label_required": true,
     "real_voice_cloning": false,
     "authentic_quote_claims": false
-  }
+  },
+  "video_generation_attempt_limit_per_editorial_date": 1
 }
