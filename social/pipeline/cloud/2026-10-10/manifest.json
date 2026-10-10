@@ -1,7 +1,7 @@
 {
   "post_id": "goaliq-2026-10-10",
   "target_date": "2026-10-10",
-  "state": "reserved",
+  "state": "generating",
   "coverage_key": "union_berlin_vs_elversberg_bl:2026-10-10",
   "selected": {
     "home_team": "Union Berlin",
@@ -118,7 +118,7 @@
     "charge_key": "goaliq-2026-10-10-story-v1",
     "attempt": 1,
     "max_attempts": 2,
-    "job_id": null,
+    "job_id": "7e47e03e-bf55-4c16-8d5e-94155fe495e6",
     "cost_quote": 15,
     "credits_before": 65.18,
     "params": {
