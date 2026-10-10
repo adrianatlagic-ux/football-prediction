@@ -63,5 +63,22 @@
     }
   ],
   "original_logo_git_sha": "111446b99b4f0e0dcd233544d351bd9acd9e7d52",
-  "source_only_no_final_export": true
+  "source_only_no_final_export": false,
+  "technical_final_export": {
+    "final_media_id": "630bc08a-868b-46ba-93c2-8f7385003c70",
+    "zip_media_id": "d23cf299-b590-41d6-acfd-fccdd26012a3",
+    "sha256": "b9d2eaa260a92c189b1567c99ff2963cc07fe85a6f1bd2c2e91479b7e2337ebe",
+    "duration_seconds": 18.136,
+    "source_frames_equal": 361,
+    "source_audio_packets_equal": 473,
+    "zip_byte_identity": true,
+    "links_http_status": 200,
+    "release_status": "not_delivered_non_top_match"
+  },
+  "new_policy": {
+    "max_future_generations_per_day": 1,
+    "top_match_only": true,
+    "today_prior_attempts": 2,
+    "additional_today": 0
+  }
 }
