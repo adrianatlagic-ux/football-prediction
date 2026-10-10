@@ -1,7 +1,7 @@
 {
   "post_id": "goaliq-2026-10-10",
   "target_date": "2026-10-10",
-  "state": "generating",
+  "state": "blocked_quality",
   "coverage_key": "union_berlin_vs_elversberg_bl:2026-10-10",
   "selected": {
     "home_team": "Union Berlin",
@@ -82,7 +82,11 @@
     "duration_seconds_planned": 2.2,
     "timezone": "Europe/Berlin",
     "source": "https://www.fc-union-berlin.de/de/meldungen/union-fordert-die-elf-aus-elversberg-RgeVbv",
-    "review": "pending"
+    "review": "failed: UNIÖN rather than UNION in both attempts",
+    "reviewed_frames_seconds": [
+      0.5,
+      1.8
+    ]
   },
   "references": [
     {
@@ -151,7 +155,7 @@
       "prompt": "15-second photorealistic live-action AI-fiction football short in a stadium corridor at Union Berlin's Alte Foersterei. No anime. Reference 1 is the official Union crest. Reference 2 is the official Elversberg crest. Reference 3 is Christopher Trimmel: tied-back brown hair, beard, tattoos, red Union jersey. Reference 4 is Frederik Schmahl: young adult, short dark hair, clean shaven, black-and-white Elversberg jersey. Preserve recognizable reference faces and respective kits. Two adult characters only. No real voice cloning. All voices original, naturally conversational German, warm human breath and intonation. This fictional encounter is not real footage, not real quotes, not a product endorsement.\n0.0-2.2s HOLD a straight-on steady shot of a physical match announcement board within the corridor, BOTH official crests large and exact, Union left, Elversberg right. Exact clean English text in four lines: \"UNION BERLIN\" / \"vs ELVERSBERG\" / \"TODAY · 15:30 CEST\" / small but clearly legible \"AI FICTION\". Keep every letter stable and readable for the whole 2.2 seconds. No dialogue or voice in this opening.\n2.2-6s: Cut to Schmahl walking toward the red home-team door, touching the old corridor wall with a nostalgic smile. He says in natural German: \"Hier habe ich als Jugendspieler angefangen.\"\n6-9s: Trimmel, standing at the red door, smiles and gently points across the corridor toward the black-and-white away-team door. He says: \"Heute ist deine Kabine dort.\"\n9-12.5s: Schmahl stops, looks at his black-and-white Elversberg shirt, smiles, turns toward the away door and replies: \"Heimat bleibt. Heute zählt Elversberg.\"\n12.5-15s: They exchange a brief respectful fist bump, then step sideways toward their opposite dressing-room doors, always facing the camera. End on a wide symmetrical FRONT VIEW with both men at their different doors and a football between them. Never show the backs of their jerseys. No playing result, goal or scoreboard. Clear continuity, believable human movement, no supernatural objects. This exact story is grounded in Schmahl's verified history as a Union youth player returning with Elversberg. The nostalgic wrong-door incident and dialogue are invented and must remain clearly AI-fiction. No additional screen text after the opening. Soft footsteps and faint distant stadium ambience, very low music, each specified German line clearly audible with natural pauses, no robotic or metallic sound. No brand outro in this source; it will be appended separately.\nMANDATORY TEXT ACCURACY: The English team name is UNION BERLIN, plain ASCII U N I O N B E R L I N. No accent marks, dots, or umlauts above any letters. Spell ELVERSBERG exactly E L V E R S B E R G. Use a straight-on front-facing board with large widely spaced plain sans-serif letters and white background. Only one AI FICTION label. Trimmel's actual number is 28 and Schmahl's is 17, but keep both men filmed from the FRONT throughout so no back lettering or numbers appear. The verified dialogue about being a youth player must be clearly spoken in full; no omitted lines."
     },
     "credits_after_first_attempt": 50.18,
-    "source_media_id": "6604ff90-e98f-4aac-96b7-f065c12699d6",
+    "source_media_id": "79752422-404c-4db6-a680-a77a415907eb",
     "analysis_id": "83e918ee-3c91-4dab-bf11-deff3164c8dc",
     "attempts": [
       {
@@ -164,15 +168,38 @@
           "Trimmel jersey incorrectly shows number 9 rather than official 28"
         ],
         "analysis_id": "83e918ee-3c91-4dab-bf11-deff3164c8dc"
+      },
+      {
+        "attempt": 2,
+        "job_id": "989157be-72d0-4783-99b1-126e090b7700",
+        "source_media_id": "79752422-404c-4db6-a680-a77a415907eb",
+        "cost": 15,
+        "qa": "failed",
+        "failures": [
+          "Opening persistently spells UNIÖN BERLIN instead of UNION BERLIN at 0.5s and 1.8s",
+          "Trimmel visible shorts number does not match official roster number 28"
+        ]
       }
-    ]
+    ],
+    "credits_spent": 30,
+    "credits_after": 35.18,
+    "attempts_exhausted": true,
+    "final_media_id": null,
+    "outro_appended": false
   },
   "qa": {
-    "overall": "failed_first_attempt",
-    "visual_style": "pass photorealistic",
-    "source_duration_seconds": 15.104,
-    "opening": "Text error in UNION",
-    "audio": "analysis_pending"
+    "overall": "failed",
+    "ready": false,
+    "reason": "Mandatory correct opening text failed on both allowed generations.",
+    "audio": "First attempt analysis still queued at last check; second attempt audio not approved.",
+    "next_action": "User decision required before accepting a known text error, changing the no-overlay rule, or authorizing any additional attempt.",
+    "source_video_inspection": "Actual frames inspected in Higgsfield cloud",
+    "outro_reference": "Verified original reusable 3s outro, not appended to failed source"
   },
-  "cloud_only": true
+  "cloud_only": true,
+  "style_review": "pass: photorealistic frames inspected at 0.5,1.8,7,14 seconds",
+  "relevance_review": "not fully approved: visual opposite-door narrative present; final audio not reviewed because hard visual gate failed",
+  "caption": "Zurück nach Köpenick. Aber diesmal durch die Gästetür. 🔴⚪\n\nFrederik Schmahl trifft mit Elversberg auf seinen früheren Jugendverein Union. Verdient so eine Rückkehr Applaus – oder gibt es ab Anpfiff keinen Heimatbonus?\n\n⚽ Union Berlin – SV Elversberg\n📅 10.10.2026 · 15:30 Uhr CEST\nKI-Fiktion · goaliq.de\nKI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.\n\n#UnionBerlin #SVElversberg #Bundesliga",
+  "caption_language": "de",
+  "automation_pause_reason": "Run instruction requires pause when fully blocked; two-attempt cap exhausted with failed required text validation."
 }
