@@ -1,7 +1,7 @@
 {
   "post_id": "goaliq-2026-10-10",
   "target_date": "2026-10-10",
-  "state": "not_delivered_non_top_match",
+  "state": "delivered_user_exception",
   "coverage_key": "union_berlin_vs_elversberg_bl:2026-10-10",
   "selected": {
     "home_team": "Union Berlin",
@@ -195,16 +195,16 @@
     "final_export_status": "technical_export_only_not_editorial_release"
   },
   "qa": {
-    "overall": "not_delivered_non_top_match",
+    "overall": "delivered_with_disclosed_limits",
     "ready": false,
-    "reason": "Mandatory correct opening text failed on both allowed generations.",
+    "reason": "Opening spells UNIÖN BERLIN; user accepts generated name error. German voice naturalness/content could not be independently confirmed because cloud analysis remained queued.",
     "audio": "Content/naturalness review unavailable; Higgsfield video analysis remains queued",
-    "next_action": "User decision required before accepting a known text error, changing the no-overlay rule, or authorizing any additional attempt.",
+    "next_action": "No further generation for this editorial day.",
     "source_video_inspection": "Actual frames inspected in Higgsfield cloud",
     "outro_reference": "Verified original reusable 3s outro, not appended to failed source",
     "visual_text": "UNIÖN BERLIN retained and disclosed; new instruction accepts generative naming error",
     "technical_export": "MP4 and ZIP HTTP 200; intro/outro transition inspected; source decoded video frames and source audio packet hashes preserved; ZIP MP4 SHA256 identical",
-    "editorial_blocker": "not a top match"
+    "editorial_blocker": null
   },
   "cloud_only": true,
   "style_review": "pass: photorealistic frames inspected at 0.5,1.8,7,14 seconds",
@@ -217,11 +217,20 @@
     "reason": "Union Berlin vs Elversberg lacks the requested derby/Bayern/Dortmund marquee criterion. Current user directive supersedes prior pick.",
     "selection_made_before_rule_change": true,
     "explicit_user_correction": "2026-10-10: only top games; Elversberg is not relevant",
-    "output_released": false
+    "output_released": true,
+    "one_time_exception": "User explicitly requested delivery of existing Union–Elversberg video on 2026-10-10 despite top-match preference; future selections remain top games only."
   },
   "daily_video_count": 0,
   "video_generation_jobs_count": 2,
   "new_policy_effective_date": "2026-10-10",
   "new_policy_note": "Historical two submissions happened before the single-generation correction. No further generation for this date. Text typo accepted as nonblocking, but fixture fails top-match selection.",
-  "caption_output_status": "stored_not_released"
+  "caption_output_status": "delivered_in_chat",
+  "delivery": {
+    "final_media_id": "630bc08a-868b-46ba-93c2-8f7385003c70",
+    "zip_media_id": "d23cf299-b590-41d6-acfd-fccdd26012a3",
+    "sha256_mp4": "b9d2eaa260a92c189b1567c99ff2963cc07fe85a6f1bd2c2e91479b7e2337ebe",
+    "mp4_zip_byte_identical": true,
+    "availability_checked": "2026-10-10T13:18:31+02:00",
+    "social_published": false
+  }
 }
