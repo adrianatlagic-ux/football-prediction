@@ -1,0 +1,67 @@
+{
+  "target_date": "2026-10-10",
+  "attempts": [
+    {
+      "attempt": 1,
+      "job_id": "7e47e03e-bf55-4c16-8d5e-94155fe495e6",
+      "cost": 15,
+      "qa": "failed",
+      "failures": [
+        "Opening uses UNIÖN rather than UNION",
+        "Trimmel jersey incorrectly shows number 9 rather than official 28"
+      ],
+      "analysis_id": "83e918ee-3c91-4dab-bf11-deff3164c8dc"
+    },
+    {
+      "attempt": 2,
+      "job_id": "989157be-72d0-4783-99b1-126e090b7700",
+      "source_media_id": "79752422-404c-4db6-a680-a77a415907eb",
+      "cost": 15,
+      "qa": "failed",
+      "failures": [
+        "Opening persistently spells UNIÖN BERLIN instead of UNION BERLIN at 0.5s and 1.8s",
+        "Trimmel visible shorts number does not match official roster number 28"
+      ]
+    }
+  ],
+  "qa": {
+    "overall": "failed",
+    "ready": false,
+    "reason": "Mandatory correct opening text failed on both allowed generations.",
+    "audio": "First attempt analysis still queued at last check; second attempt audio not approved.",
+    "next_action": "User decision required before accepting a known text error, changing the no-overlay rule, or authorizing any additional attempt.",
+    "source_video_inspection": "Actual frames inspected in Higgsfield cloud",
+    "outro_reference": "Verified original reusable 3s outro, not appended to failed source"
+  },
+  "credits_before": 65.18,
+  "credits_after": 35.18,
+  "credits_spent": 30,
+  "source_reference_media": [
+    {
+      "media_id": "5106ab11-2f0f-4190-acbd-3054a2106fc8",
+      "source": "https://www.fc-union-berlin.de/assets/favicon-NRH2K-Nk.svg",
+      "role": "Union crest",
+      "review": "visually inspected official reference"
+    },
+    {
+      "media_id": "05116d26-9a93-441f-a32f-5456d08b095f",
+      "source": "https://sv07elversberg.de/wp-content/uploads/2021/05/logo_sve.png",
+      "role": "Elversberg crest",
+      "review": "visually inspected official reference"
+    },
+    {
+      "media_id": "6431693c-fbb4-4b79-9d22-34bdee98d83f",
+      "source": "https://www.fc-union-berlin.de/image/ed2425ed-9f0d-400a-a2fb-bca4dd086604?ts=0&s=2xF9qgfXHVmwkLEvCrn-As&format=jpg",
+      "role": "Christopher Trimmel",
+      "review": "visually inspected official reference"
+    },
+    {
+      "media_id": "85358ef9-e80f-4de9-81ab-5102524a07d3",
+      "source": "https://sv07elversberg.de/wp-content/uploads/2024/06/sveg_portrait_webseite_spieler_1311x1819px_rgb_frederik_schmahl-738x1024.jpg",
+      "role": "Frederik Schmahl",
+      "review": "visually inspected official reference"
+    }
+  ],
+  "original_logo_git_sha": "111446b99b4f0e0dcd233544d351bd9acd9e7d52",
+  "source_only_no_final_export": true
+}
