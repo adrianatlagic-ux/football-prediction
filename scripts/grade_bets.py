@@ -162,7 +162,10 @@ def grade_entries(entries, finished):
         ("likely", "🎯 Wahrscheinlichster Tipp (Markt, Quote 1.30-2.00)"),
         ("fair_game", f"Game Pick, nur Quote {FAIR_MIN_ODDS:.2f}-{FAIR_MAX_ODDS:.2f}"),
         ("fair_likely", "🎯 auf denselben Spielen"),
-        ("bet_tip", "Wett-Tipp (Modell und KI stimmen zu)"))}
+        ("bet_tip", "Wett-Tipp alte Regel (wahrscheinlichster, Modell und KI stimmen zu)"),
+        ("bet_tip_ki", "Wett-Tipp neue Regel (KI-Tipp, Modell ≥ Markt, nicht umgeschwenkt)"),
+        ("bet_tip_unsure", "...zurückgehalten: KI kurz vor Anpfiff umgeschwenkt"),
+        ("bet_tip_model_no", "...zurückgehalten: Modell unter Markt"))}
     for g in LIKELY_GROUPS:
         buckets["likely " + g] = Bucket(f"🎯 bei {g}")
     out = {"buckets": buckets, "edges": [], "no_tip": 0, "pending": 0, "rows": [], "fair_matches": 0,
@@ -223,11 +226,22 @@ def grade_entries(entries, finished):
             g_ai = grade(a_pick, home, away, hs, as_)
             if g_ai is not None:
                 buckets["agent_pick"].add(g_ai, a_pick["best_odds"])
-        bt = (entry.get("bet_tip") or {}).get("tip")
-        if bt:
-            g_bt = grade(bt, home, away, hs, as_)
-            if g_bt is not None:
-                buckets["bet_tip"].add(g_bt, bt["best_odds"])
+        # Since 11 October bet_tip follows the new rule ("rule" set) and the
+        # old one is logged as bet_tip_v1; before, bet_tip was the old rule.
+        tip_entry = entry.get("bet_tip") or {}
+        new_rule = bool(tip_entry.get("rule"))
+        old_tip = ((entry.get("bet_tip_v1") or {}) if new_rule else tip_entry).get("tip")
+        targets = [("bet_tip", old_tip)]
+        if new_rule:
+            targets.append(("bet_tip_ki", tip_entry.get("tip")))
+            withheld = tip_entry.get("withheld")
+            targets.append(("bet_tip_unsure" if tip_entry.get("status") == "ai_unsure" else "bet_tip_model_no",
+                            withheld))
+        for key, bt in targets:
+            if bt and bt.get("best_odds"):
+                g_bt = grade(bt, home, away, hs, as_)
+                if g_bt is not None:
+                    buckets[key].add(g_bt, bt["best_odds"])
         lp = entry.get("likely_pick")
         g_lp = grade(lp, home, away, hs, as_) if lp else None
         if g_lp is not None:
@@ -276,8 +290,9 @@ def print_report(name, r):
             print(f"  erwarteter Edge im Schnitt {sum(r['edges']) / len(r['edges']):+.1%} "
                   f"- einzelne Ergebnisse schwanken weit mehr; erst viele Tipps sagen etwas.")
         print(f"  Spiele ohne Preistipp: {r['no_tip']}")
-    if b["bet_tip"].decided:
-        print(b["bet_tip"].report())
+    for key in ("bet_tip", "bet_tip_ki", "bet_tip_unsure", "bet_tip_model_no"):
+        if b[key].decided:
+            print(b[key].report())
     if b["likely"].decided:
         print(b["likely"].report())
     if any(b["likely " + g].decided for g in LIKELY_GROUPS):

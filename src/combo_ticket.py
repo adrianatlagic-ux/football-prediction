@@ -87,6 +87,11 @@ POLICIES = {
     "agree": {"min_odds": MIN_LEG_ODDS, "model_filters": False, "agreement": True,
               "min_leg_probability": 0.45, "min_combined": 3.0},
     "market": {"min_odds": MIN_LEG_ODDS, "model_filters": False},
+    # "ki" (logged only, since 11 October): only the AI agent's own picks, the
+    # Wett-Tipp's rule - our model at least as high as the market, and not a
+    # pick the agent changed at its pre-kickoff re-check.
+    "ki": {"min_odds": MIN_LEG_ODDS, "model_filters": False, "agreement": True, "ki_only": True,
+           "min_leg_probability": 0.0, "min_combined": 3.0},
     "legacy_v3": {"min_odds": 1.20, "model_filters": True},
 }
 
@@ -162,6 +167,10 @@ def leg_pool(value_bet_results, book=None, policy="market"):
                     if pick:
                         from src.price_tip import implies
                         ki_agrees = implies(pick, candidate, vb["home_team"], vb["away_team"])
+                    if rules.get("ki_only"):
+                        same = pick and all(pick.get(k) == candidate.get(k) for k in ("market", "outcome", "team"))
+                        if not same or vb.get("agent_revised") or model_p < market_probability:
+                            continue
                 leg = {**{k: offered.get(k) for k in ("market", "outcome", "team", "best_odds", "bookmaker", "bookmaker_key",
                        "probability", "market_probability", "expected_value", "quote_last_update")},
                        **{k: vb.get(k) for k in ("home_team", "away_team", "commence_time", "sport_key", "event_id", "odds_fetched_at", "odds_stage")},

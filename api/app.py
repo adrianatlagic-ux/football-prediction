@@ -1665,6 +1665,9 @@ supporting fact, max 8 words>"]}}"""
     research = parsed.get("research") or {}
     return {
         "pick": pick,
+        # The pick before this re-check, kept for the log: did keeping the
+        # first one do better than changing it?
+        "first_pick": (previous_eval or {}).get("first_pick") or (previous_eval or {}).get("pick"),
         "research_version": "claude_prompt_v1",
         "evidence": evidence,
         "agrees_with_model": agrees_with_model,
@@ -2052,6 +2055,7 @@ def value_bets(home_team: str, away_team: str):
         agent_eval = _get_agent_pick(result)
         result["agent_eval"] = agent_eval
         result["bet_tip"] = _bet_tip(result, agent_eval)
+        result["bet_tip_v1"] = _bet_tip_v1(result, agent_eval)
         result["combined"] = _combine_recommendation(result, agent_eval)
         result["price_tip"] = _price_tip_for(odds, home_team, away_team, prediction, agent_eval,
                                              result.get("bets", []))
@@ -2109,15 +2113,15 @@ def best_bets():
     return {"best_bets": out}
 
 
-# The Wett-Tipp: the likeliest bet both the model and the AI agent back.
-# Since 4 October the page's headline tip; the same rule the combo uses
+# The Wett-Tipp until 11 October, still computed and logged for comparison:
+# the likeliest bet both the model and the AI agent back; the same rule the combo uses
 # (src/combo_ticket "agree"). In the Nations League log, bets of that kind
 # landed 20 of 23 against 60% the market expected; bets only the model
 # backed did worse than the market, so without both there is no Wett-Tipp.
 BET_TIP_MIN_ODDS, BET_TIP_MIN_CHANCE = 1.30, 0.50
 
 
-def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
+def _bet_tip_v1(vb: dict, agent_eval: Optional[dict]) -> dict:
     """{"tip": bet or None, "status": "ok" | "no_agreement" | "waiting_for_ai"}."""
     from src.price_tip import MODEL_TOLERANCE, implies
     pick = (agent_eval or {}).get("pick")
@@ -2141,6 +2145,39 @@ def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
                   if not any(same(b, o) and o["best_odds"] > b["best_odds"] for o in candidates)]
     tip = max(candidates, key=lambda b: (b["market_probability"], b["best_odds"]))
     return {"tip": tip, "status": "ok"}
+
+
+# The Wett-Tipp since 11 October: the AI agent's own pick, when our model
+# rates it at least as likely as the market does. In the Nations League log
+# the agent's picks landed 70% against the market's 52% (z +3.0, 67 picks),
+# 77% where the model rated the pick above the market (39 picks), while the
+# likeliest bet the AI merely agreed with landed under the market's estimate.
+# A pick the agent changed at its re-check an hour before kickoff landed 53%
+# (15 picks): a change of mind means it is unsure, so then there is no tip.
+BET_TIP_RULE = "ki_model_v2"
+
+
+def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
+    """{"tip", "status": "ok" | "no_agreement" | "ai_unsure" | "waiting_for_ai",
+    "confirmed": the pre-kickoff re-check kept the pick, "rule"}.
+
+    A withheld pick (the agent changed its mind, or the model rates it below
+    the market) is returned as "withheld", so the log can check the rule.
+    """
+    out = {"tip": None, "rule": BET_TIP_RULE, "confirmed": False}
+    agent_eval = agent_eval or {}
+    pick = agent_eval.get("pick")
+    if not pick:
+        return {**out, "status": "waiting_for_ai"}
+    if agent_eval.get("revised_from_previous"):
+        return {**out, "status": "ai_unsure", "withheld": pick}
+    model = pick.get("model_probability_raw")
+    if model is None:
+        model = pick.get("probability")
+    market = pick.get("market_probability")
+    if (market is None or model is None or model < market or pick.get("best_odds", 0) < BET_TIP_MIN_ODDS):
+        return {**out, "status": "no_agreement", "withheld": pick}
+    return {**out, "tip": pick, "status": "ok", "confirmed": agent_eval.get("revised_from_previous") is False}
 
 
 def _mark_legs_off_likely(report: dict, pairs: list) -> None:
@@ -2190,7 +2227,8 @@ def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
             continue
         # The AI agent's own pick, for the "agree" rule (a leg it backs first).
         agent = _get_agent_pick(vb) if vb.get("odds_found") else None
-        vb = {**vb, "agent_pick": (agent or {}).get("pick")}
+        vb = {**vb, "agent_pick": (agent or {}).get("pick"),
+              "agent_revised": bool((agent or {}).get("revised_from_previous"))}
         pairs.append((data, vb))
 
     # Only bet-at-home: the one bookmaker the user bets with. Shown: the
@@ -2204,6 +2242,9 @@ def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
     # only (scripts/log_combos.py); the page shows the market rule.
     legacy = combo_report(pairs, max_legs=max_legs, book=USER_BOOK_KEY, policy="legacy_v3")
     report["legacy_v3_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in legacy["days"]]
+    # Combos of the AI's own picks only, logged beside the others (not shown).
+    ki = combo_report(pairs, max_legs=max_legs, book=USER_BOOK_KEY, policy="ki")
+    report["ki_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in ki["days"]]
     _mark_legs_off_likely(report, pairs)
 
     from src.combo_ticket import price_tip_combos
@@ -2292,6 +2333,7 @@ def all_bets():
             "red_bets": vb.get("red_bets", []),
             "agent_eval": agent_eval,
             "bet_tip": _bet_tip(vb, agent_eval),
+            "bet_tip_v1": _bet_tip_v1(vb, agent_eval),
             "combined": _combine_recommendation(vb, agent_eval),
             # The price tip exactly as the page shows it, "no tip" included,
             # so the log can later say whether the strategy worked.
