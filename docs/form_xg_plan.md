@@ -1,6 +1,6 @@
 # Plan: Die aktuelle Form besser abbilden (xG-Bewertung)
 
-Stand 10. Oktober 2026. Ein Plan, noch nichts davon ist umgesetzt. Gilt für das
+Stand 10. Oktober 2026. Ergebnis der Schritte 1-4 am Ende („Ergebnis“). Gilt für das
 Vereinsmodell (Bundesliga, Champions League); Nationalmannschaften siehe
 „Grenzen“.
 
@@ -176,3 +176,28 @@ domains“ freigegeben werden.
   verlässlich. Ein kleinerer, echter Effekt kann unentdeckt bleiben.
 - Ein besseres Modell bleibt wahrscheinlich hinter Pinnacle. Der Plan
   verspricht bessere Wahrscheinlichkeiten, keinen Gewinn beim Wetten.
+
+## Ergebnis (10. Oktober 2026)
+
+1. **Daten.** `scripts/fetch_club_stats.py`: Schüsse für alle 4.626
+   Bundesliga-Spiele seit 2011-12, xG für 3.707 (ab 2014-15), abgeglichen
+   über Tag und Endstand (`data/club_stats/`).
+2. **Einfaches Modell (Elo + Marktwert).** `scripts/form_xg_probe.py`, 1.260
+   Testspiele: alle Varianten mit Chancendaten vorne (−0,003 bis −0,004),
+   keine erfüllt das Kriterium. Zweiter, vorher festgelegter Test
+   `scripts/form_xg_rolling.py`, Saison für Saison, 2.484 Spiele: **Elo, zu
+   70 % aus dem xG-Ergebnis aktualisiert, −0,0026 [−0,0043; −0,0009], in 9 von
+   9 Saisons besser.** Die Angriffs-/Abwehr-Bewertungen neben Elo (xG oder
+   Schüsse) bringen nichts.
+3. **Echtes Modell.** `scripts/eval_elo_mix_club.py`, 5 Saisons eingefroren
+   wie live: In der Bundesliga helfen weder Elo noch die xG-Mischung (+0,0016,
+   +0,0010, nicht gesichert); das Poisson-Modell mit gegnerbereinigten Stärken
+   enthält dieselbe Information. In der Champions League hilft **Elo**
+   (−0,011), die xG-Mischung fügt dem nichts Gesichertes hinzu. Bestätigung auf
+   unberührten CL-Saisons 2014-17 (`--confirm`, 375 Spiele): −0,0061
+   [−0,0131; +0,0005], gleiche Richtung, Kriterium knapp verfehlt.
+4. **Entscheidung.** xG wird nicht eingebaut. Elo (aus Ergebnissen, alle
+   Wettbewerbe) kommt ins Vereinsmodell (`FEATURE_VERSION = 4`), für
+   Bundesliga und Champions League gleichermaßen: dort neutral, hier
+   wahrscheinlich besser, über beide zusammen −0,0019. Trainiert mit
+   `scripts/train_club_verified.py`. Schritt 5 (Pinnacle) für xG entfällt.

@@ -174,7 +174,7 @@ class ClubFootballPredictor:
             "score_prediction": score_pred,
             "game_flow": flow,
             "explanation": explanation,
-            "model_version": "club_verified_v3",
+            "model_version": "club_verified_v4_elo" if "elo_diff" in self._feature_cols else "club_verified_v3",
             "generated_at": pd.Timestamp.now(tz="UTC").isoformat(),
             "training_end": self.bundle.metadata["training_end"],
             "market_value_policy": MARKET_VALUE_POLICY,

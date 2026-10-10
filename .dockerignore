@@ -14,3 +14,6 @@ data/odds_snapshot.json
 data/book_odds/spend.json
 data/jobs/
 data/squad_cache/
+
+# Local backup of the club model before Elo (2026-10-10); not served.
+club_model_v3_pre_elo.joblib

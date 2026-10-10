@@ -1,0 +1,126 @@
+{
+ "seasons": [
+  "2021-22",
+  "2022-23",
+  "2023-24",
+  "2024-25",
+  "2025-26"
+ ],
+ "mix": 0.7,
+ "results": [
+  {
+   "competition": "bundesliga",
+   "variant": "v3",
+   "n": 1530,
+   "log_loss": 0.9915,
+   "diff_vs_v3": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "competition": "bundesliga",
+   "variant": "v3 + Elo",
+   "n": 1530,
+   "log_loss": 0.993,
+   "diff_vs_v3": 0.0016,
+   "ci": [
+    -0.0024,
+    0.0057
+   ]
+  },
+  {
+   "competition": "bundesliga",
+   "variant": "v3 + Elo-Mischung",
+   "n": 1530,
+   "log_loss": 0.9925,
+   "diff_vs_v3": 0.001,
+   "ci": [
+    -0.003,
+    0.005
+   ],
+   "diff_vs_elo": -0.0005,
+   "ci_vs_elo": [
+    -0.0037,
+    0.0026
+   ]
+  },
+  {
+   "competition": "champions_league",
+   "variant": "v3",
+   "n": 564,
+   "log_loss": 0.9742,
+   "diff_vs_v3": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "competition": "champions_league",
+   "variant": "v3 + Elo",
+   "n": 564,
+   "log_loss": 0.9629,
+   "diff_vs_v3": -0.0112,
+   "ci": [
+    -0.0228,
+    0.0004
+   ]
+  },
+  {
+   "competition": "champions_league",
+   "variant": "v3 + Elo-Mischung",
+   "n": 564,
+   "log_loss": 0.9613,
+   "diff_vs_v3": -0.0129,
+   "ci": [
+    -0.0249,
+    -0.0013
+   ],
+   "diff_vs_elo": -0.0016,
+   "ci_vs_elo": [
+    -0.0062,
+    0.0026
+   ]
+  },
+  {
+   "competition": "alle",
+   "variant": "v3",
+   "n": 2094,
+   "log_loss": 0.9868,
+   "diff_vs_v3": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "competition": "alle",
+   "variant": "v3 + Elo",
+   "n": 2094,
+   "log_loss": 0.9849,
+   "diff_vs_v3": -0.0019,
+   "ci": [
+    -0.0062,
+    0.0027
+   ]
+  },
+  {
+   "competition": "alle",
+   "variant": "v3 + Elo-Mischung",
+   "n": 2094,
+   "log_loss": 0.9841,
+   "diff_vs_v3": -0.0027,
+   "ci": [
+    -0.0069,
+    0.0015
+   ],
+   "diff_vs_elo": -0.0008,
+   "ci_vs_elo": [
+    -0.0033,
+    0.0019
+   ]
+  }
+ ]
+}

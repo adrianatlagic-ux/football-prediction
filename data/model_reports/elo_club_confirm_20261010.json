@@ -1,0 +1,86 @@
+{
+ "seasons": [
+  "2014-15",
+  "2015-16",
+  "2016-17"
+ ],
+ "mix": 0.7,
+ "results": [
+  {
+   "competition": "champions_league",
+   "variant": "v3",
+   "n": 375,
+   "log_loss": 0.9709,
+   "diff_vs_v3": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "competition": "champions_league",
+   "variant": "v3 + Elo",
+   "n": 375,
+   "log_loss": 0.9647,
+   "diff_vs_v3": -0.0061,
+   "ci": [
+    -0.0131,
+    0.0005
+   ]
+  },
+  {
+   "competition": "champions_league",
+   "variant": "v3 + Elo-Mischung",
+   "n": 375,
+   "log_loss": 0.9638,
+   "diff_vs_v3": -0.0071,
+   "ci": [
+    -0.0146,
+    -0.0
+   ],
+   "diff_vs_elo": -0.001,
+   "ci_vs_elo": [
+    -0.0046,
+    0.0027
+   ]
+  },
+  {
+   "competition": "alle",
+   "variant": "v3",
+   "n": 375,
+   "log_loss": 0.9709,
+   "diff_vs_v3": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "competition": "alle",
+   "variant": "v3 + Elo",
+   "n": 375,
+   "log_loss": 0.9647,
+   "diff_vs_v3": -0.0061,
+   "ci": [
+    -0.013,
+    0.0008
+   ]
+  },
+  {
+   "competition": "alle",
+   "variant": "v3 + Elo-Mischung",
+   "n": 375,
+   "log_loss": 0.9638,
+   "diff_vs_v3": -0.0071,
+   "ci": [
+    -0.0148,
+    0.0004
+   ],
+   "diff_vs_elo": -0.001,
+   "ci_vs_elo": [
+    -0.0046,
+    0.0026
+   ]
+  }
+ ]
+}
