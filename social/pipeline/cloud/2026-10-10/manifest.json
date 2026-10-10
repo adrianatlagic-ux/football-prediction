@@ -1,0 +1,158 @@
+{
+  "post_id": "goaliq-2026-10-10",
+  "target_date": "2026-10-10",
+  "state": "reserved",
+  "coverage_key": "union_berlin_vs_elversberg_bl:2026-10-10",
+  "selected": {
+    "home_team": "Union Berlin",
+    "away_team": "Elversberg",
+    "match_id": "union_berlin_vs_elversberg_bl"
+  },
+  "match_date": "2026-10-10",
+  "kickoff_at": "2026-10-10T15:30:00+02:00",
+  "timezone": "Europe/Berlin",
+  "generation_basis": "verified_fixture_and_current_research",
+  "prediction_status": "omitted_optional",
+  "prediction_used": false,
+  "selection_reason": "Nearest valid matchday is today. Official match preview documents Schmahl returning to his youth club, a strong specific story with official likeness references available.",
+  "previously_covered_matches": [
+    "greece_vs_germany_nl:2026-10-04",
+    "italy_vs_turkey_nl:2026-10-05",
+    "croatia_vs_spain_nl:2026-10-06",
+    "borussia_dortmund_vs_werder_bremen_bl:2026-10-09",
+    "1_fsv_mainz_05_vs_bayer_leverkusen_bl:2026-10-10",
+    "augsburg_vs_bayern_munich_bl:2026-10-10"
+  ],
+  "excluded_candidates": [
+    {
+      "match": "Mainz-Leverkusen",
+      "reason": "reserved on Oct 8"
+    },
+    {
+      "match": "Augsburg-Bayern",
+      "reason": "already delivered on Oct 9, review_required"
+    },
+    {
+      "match": "Leipzig-Frankfurt",
+      "reason": "No specific accessible match report obtained from RBL news page; Union provides directly verified context and references"
+    },
+    {
+      "match": "Paderborn-Stuttgart; Hoffenheim-Hamburg",
+      "reason": "Same date; Union chosen for directly documented return narrative"
+    }
+  ],
+  "context_type": "match",
+  "verified_context": [
+    {
+      "source": "https://www.fc-union-berlin.de/de/meldungen/union-fordert-die-elf-aus-elversberg-RgeVbv",
+      "published": "2026-10-09",
+      "retrieved": "2026-10-10T06:03:00Z",
+      "facts": [
+        "Fixture Oct 10 15:30 at Alte Foersterei",
+        "Frederik Schmahl played in Union youth system through U19 and returns as Elversberg player"
+      ]
+    }
+  ],
+  "story_type": "misdirected_expectation",
+  "previous_story_type": "object_mystery",
+  "hook": "Returning youth player instinctively approaches home dressing-room",
+  "conflict": "Familiarity versus present team allegiance",
+  "turning_point": "Trimmel points to away door; Schmahl consciously chooses Elversberg",
+  "ending_image": "Respectful fist bump then opposite dressing-room paths; result unresolved",
+  "story_connection": "Verified Schmahl youth-club history is explicitly spoken and drives the wrong-door choice.",
+  "changed_elements": [
+    "adult returning opponent replaces child fan",
+    "dressing-room corridor replaces scarf on sideline",
+    "team allegiance decision replaces lost property",
+    "opposite doors replace scarf celebration",
+    "nostalgic dialogue replaces fan welcome"
+  ],
+  "exchangeability_test": "pass: explicit Union youth history and current Elversberg allegiance are essential",
+  "spoken_language": "de",
+  "spoken_language_reason": "Both teams German clubs",
+  "visual_style": "photorealistic_live_action",
+  "fixture_hook": {
+    "render_mode": "inside_generated_story_video",
+    "text": [
+      "UNION BERLIN",
+      "vs ELVERSBERG",
+      "TODAY · 15:30 CEST",
+      "AI FICTION"
+    ],
+    "duration_seconds_planned": 2.2,
+    "timezone": "Europe/Berlin",
+    "source": "https://www.fc-union-berlin.de/de/meldungen/union-fordert-die-elf-aus-elversberg-RgeVbv",
+    "review": "pending"
+  },
+  "references": [
+    {
+      "media_id": "5106ab11-2f0f-4190-acbd-3054a2106fc8",
+      "source": "https://www.fc-union-berlin.de/assets/favicon-NRH2K-Nk.svg",
+      "role": "Union crest",
+      "review": "visually inspected official reference"
+    },
+    {
+      "media_id": "05116d26-9a93-441f-a32f-5456d08b095f",
+      "source": "https://sv07elversberg.de/wp-content/uploads/2021/05/logo_sve.png",
+      "role": "Elversberg crest",
+      "review": "visually inspected official reference"
+    },
+    {
+      "media_id": "6431693c-fbb4-4b79-9d22-34bdee98d83f",
+      "source": "https://www.fc-union-berlin.de/image/ed2425ed-9f0d-400a-a2fb-bca4dd086604?ts=0&s=2xF9qgfXHVmwkLEvCrn-As&format=jpg",
+      "role": "Christopher Trimmel",
+      "review": "visually inspected official reference"
+    },
+    {
+      "media_id": "85358ef9-e80f-4de9-81ab-5102524a07d3",
+      "source": "https://sv07elversberg.de/wp-content/uploads/2024/06/sveg_portrait_webseite_spieler_1311x1819px_rgb_frederik_schmahl-738x1024.jpg",
+      "role": "Frederik Schmahl",
+      "review": "visually inspected official reference"
+    }
+  ],
+  "roster_sources": [
+    "https://www.fc-union-berlin.de/de/fussball/profis-maenner-p6kl",
+    "https://sv07elversberg.de/teams/profis/kader/"
+  ],
+  "production": {
+    "charge_key": "goaliq-2026-10-10-story-v1",
+    "attempt": 1,
+    "max_attempts": 2,
+    "job_id": null,
+    "cost_quote": 15,
+    "credits_before": 65.18,
+    "params": {
+      "model": "seedance_2_0_mini",
+      "duration": 15,
+      "resolution": "720p",
+      "aspect_ratio": "9:16",
+      "count": 1,
+      "bitrate_mode": "high",
+      "generate_audio": true,
+      "genre": "drama",
+      "medias": [
+        {
+          "role": "image",
+          "value": "5106ab11-2f0f-4190-acbd-3054a2106fc8"
+        },
+        {
+          "role": "image",
+          "value": "05116d26-9a93-441f-a32f-5456d08b095f"
+        },
+        {
+          "role": "image",
+          "value": "6431693c-fbb4-4b79-9d22-34bdee98d83f"
+        },
+        {
+          "role": "image",
+          "value": "85358ef9-e80f-4de9-81ab-5102524a07d3"
+        }
+      ],
+      "prompt": "15-second photorealistic live-action AI-fiction football short in a stadium corridor at Union Berlin's Alte Foersterei. No anime. Reference 1 is the official Union crest. Reference 2 is the official Elversberg crest. Reference 3 is Christopher Trimmel: tied-back brown hair, beard, tattoos, red Union jersey. Reference 4 is Frederik Schmahl: young adult, short dark hair, clean shaven, black-and-white Elversberg jersey. Preserve recognizable reference faces and respective kits. Two adult characters only. No real voice cloning. All voices original, naturally conversational German, warm human breath and intonation. This fictional encounter is not real footage, not real quotes, not a product endorsement.\n0.0-2.2s HOLD a straight-on steady shot of a physical match announcement board within the corridor, BOTH official crests large and exact, Union left, Elversberg right. Exact clean English text in four lines: \"UNION BERLIN\" / \"vs ELVERSBERG\" / \"TODAY · 15:30 CEST\" / small but clearly legible \"AI FICTION\". Keep every letter stable and readable for the whole 2.2 seconds. No dialogue or voice in this opening.\n2.2-6s: Cut to Schmahl walking toward the red home-team door, touching the old corridor wall with a nostalgic smile. He says in natural German: \"Hier habe ich als Jugendspieler angefangen.\"\n6-9s: Trimmel, standing at the red door, smiles and gently points across the corridor toward the black-and-white away-team door. He says: \"Heute ist deine Kabine dort.\"\n9-12.5s: Schmahl stops, looks at his black-and-white Elversberg shirt, smiles, turns toward the away door and replies: \"Heimat bleibt. Heute zählt Elversberg.\"\n12.5-15s: They exchange a brief respectful fist bump, then walk toward opposite dressing-room doors. End on a wide symmetrical shot with both men taking their different sides and a football between them. No playing result, goal or scoreboard. Clear continuity, believable human movement, no supernatural objects. This exact story is grounded in Schmahl's verified history as a Union youth player returning with Elversberg. The nostalgic wrong-door incident and dialogue are invented and must remain clearly AI-fiction. No additional screen text after the opening. Soft footsteps and faint distant stadium ambience, very low music, each specified German line clearly audible with natural pauses, no robotic or metallic sound. No brand outro in this source; it will be appended separately."
+    }
+  },
+  "qa": {
+    "overall": "pending"
+  },
+  "cloud_only": true
+}
