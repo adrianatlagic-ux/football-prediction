@@ -832,6 +832,14 @@ def _refresh_book_daily(events: list[dict]) -> None:
             pass
 
 
+def _retry_book_morning(events: list[dict]) -> None:
+    """Start the retry of an empty bet-at-home morning read when it is due."""
+    for sport in book_odds.morning_retries_due():
+        threading.Thread(target=book_odds.daily_refresh, daemon=True,
+                         args=(sport, [e for e in events if e.get("sport_key") == sport]),
+                         kwargs={"retry": True}).start()
+
+
 def _get_odds() -> list[dict]:
     from src.bet_audit import timestamp
     from src.odds_schedule import stamp_event
@@ -895,6 +903,7 @@ def _get_odds() -> list[dict]:
             if 0 < seconds <= 3600 and key not in _final_odds_cache:
                 selected = {**selected, "final_refresh_status": "pending_or_failed"}
             output.append(selected)
+        _retry_book_morning(list(_odds_cache))
         return output
 
 

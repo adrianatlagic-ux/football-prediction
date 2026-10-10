@@ -237,6 +237,11 @@ def _has_fresh_book(fixtures: list, event: dict) -> bool:
     return kickoff - fetched <= WINDOW
 
 
+# Last-hour reads per competition: at most one per LAST_HOUR_COOLDOWN.
+LAST_HOUR_COOLDOWN = timedelta(minutes=20)
+_last_hour_read_at: dict = {}
+
+
 # The pre-kickoff window a full book belongs to (the app's window is one hour;
 # a little slack so a fetch at T-65 min still counts).
 WINDOW = timedelta(minutes=75)
@@ -277,6 +282,13 @@ def refresh_if_due(sport_key: str, events: list) -> bool:
         fixtures = load().get("fixtures", [])
         if not due or all(_has_fresh_book(fixtures, e) for e in due):
             return False
+        # One read per competition per cooldown, whatever it brought back: a
+        # match whose name never matched kept every later page request paying
+        # for a new read (nine reads in two minutes on 6 October).
+        last = _last_hour_read_at.get(sport_key)
+        if last and now - last < LAST_HOUR_COOLDOWN:
+            return False
+        _last_hour_read_at[sport_key] = now
         items = min(len(listed), MAX_WINDOW_ITEMS)
         full = (spent_this_month() + items * PRICE_PER_FULL_BOOK <= MONTHLY_BUDGET
                 and apify_budget.allows(items * PRICE_PER_FULL_BOOK))
@@ -305,10 +317,30 @@ DAILY_HORIZON = timedelta(hours=30)
 DAILY_RESERVE = 1.0
 
 
-def daily_refresh(sport_key: str, events: list) -> bool:
+# A morning read that comes back without a single bet-at-home price (OddsPortal
+# served the list without odds on 10 October) is tried again, twice at most.
+MORNING_RETRY_AFTER = timedelta(minutes=30)
+MORNING_RETRIES = 2
+_morning_retry: dict = {}
+
+
+def morning_retries_due(now: Optional[datetime] = None) -> list:
+    """Competitions whose empty morning read is due another try; each is
+    handed out once per try."""
+    now = now or _now()
+    due = []
+    for sport_key, entry in _morning_retry.items():
+        if entry.get("next_at") and entry["next_at"] <= now:
+            entry["next_at"] = None
+            due.append(sport_key)
+    return due
+
+
+def daily_refresh(sport_key: str, events: list, retry: bool = False) -> bool:
     """The morning read: bet-at-home's full market book for every match in
     the next DAILY_HORIZON, so the bet table and the combo have every market
-    all day. Past the budget it falls back to 1X2."""
+    all day. Past the budget it falls back to 1X2. `retry` marks a repeat of
+    an empty morning read (morning_retries_due)."""
     if sport_key not in LEAGUES or not os.getenv("APIFY_TOKEN"):
         return False
     now = _now()
@@ -336,6 +368,18 @@ def daily_refresh(sport_key: str, events: list) -> bool:
             return False
         _record_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
         apify_budget.note_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
-        _log_refresh(sport_key, "morning", items, "full book" if full else "1X2 only: Apify budget")
+        if not fetched:
+            attempts = (_morning_retry.get(sport_key, {}).get("attempts", 0) if retry else 0) + 1
+            if attempts <= MORNING_RETRIES:
+                _morning_retry[sport_key] = {"attempts": attempts, "next_at": now + MORNING_RETRY_AFTER}
+                _log_refresh(sport_key, "morning", items, f"failed: no bet-at-home odds in the read, "
+                                                          f"retry {attempts} of {MORNING_RETRIES} in 30 min")
+            else:
+                _morning_retry.pop(sport_key, None)
+                _log_refresh(sport_key, "morning", items, "failed: no bet-at-home odds in the read, no retry left")
+            return False
+        _morning_retry.pop(sport_key, None)
+        _log_refresh(sport_key, "morning" if not retry else "morning retry", items,
+                     "full book" if full else "1X2 only: Apify budget")
         store(sport_key, fetched)
         return True
