@@ -1,7 +1,7 @@
 {
   "post_id": "goaliq-2026-10-10",
   "target_date": "2026-10-10",
-  "state": "generating",
+  "state": "quality_review",
   "coverage_key": "union_berlin_vs_elversberg_bl:2026-10-10",
   "selected": {
     "home_team": "Union Berlin",
@@ -46,7 +46,7 @@
     {
       "source": "https://www.fc-union-berlin.de/de/meldungen/union-fordert-die-elf-aus-elversberg-RgeVbv",
       "published": "2026-10-09",
-      "retrieved": "2026-10-10T06:03:00Z",
+      "retrieved": "2026-10-10T06:03:16.573Z",
       "facts": [
         "Fixture Oct 10 15:30 at Alte Foersterei",
         "Frederik Schmahl played in Union youth system through U19 and returns as Elversberg player"
@@ -149,10 +149,30 @@
         }
       ],
       "prompt": "15-second photorealistic live-action AI-fiction football short in a stadium corridor at Union Berlin's Alte Foersterei. No anime. Reference 1 is the official Union crest. Reference 2 is the official Elversberg crest. Reference 3 is Christopher Trimmel: tied-back brown hair, beard, tattoos, red Union jersey. Reference 4 is Frederik Schmahl: young adult, short dark hair, clean shaven, black-and-white Elversberg jersey. Preserve recognizable reference faces and respective kits. Two adult characters only. No real voice cloning. All voices original, naturally conversational German, warm human breath and intonation. This fictional encounter is not real footage, not real quotes, not a product endorsement.\n0.0-2.2s HOLD a straight-on steady shot of a physical match announcement board within the corridor, BOTH official crests large and exact, Union left, Elversberg right. Exact clean English text in four lines: \"UNION BERLIN\" / \"vs ELVERSBERG\" / \"TODAY · 15:30 CEST\" / small but clearly legible \"AI FICTION\". Keep every letter stable and readable for the whole 2.2 seconds. No dialogue or voice in this opening.\n2.2-6s: Cut to Schmahl walking toward the red home-team door, touching the old corridor wall with a nostalgic smile. He says in natural German: \"Hier habe ich als Jugendspieler angefangen.\"\n6-9s: Trimmel, standing at the red door, smiles and gently points across the corridor toward the black-and-white away-team door. He says: \"Heute ist deine Kabine dort.\"\n9-12.5s: Schmahl stops, looks at his black-and-white Elversberg shirt, smiles, turns toward the away door and replies: \"Heimat bleibt. Heute zählt Elversberg.\"\n12.5-15s: They exchange a brief respectful fist bump, then walk toward opposite dressing-room doors. End on a wide symmetrical shot with both men taking their different sides and a football between them. No playing result, goal or scoreboard. Clear continuity, believable human movement, no supernatural objects. This exact story is grounded in Schmahl's verified history as a Union youth player returning with Elversberg. The nostalgic wrong-door incident and dialogue are invented and must remain clearly AI-fiction. No additional screen text after the opening. Soft footsteps and faint distant stadium ambience, very low music, each specified German line clearly audible with natural pauses, no robotic or metallic sound. No brand outro in this source; it will be appended separately."
-    }
+    },
+    "credits_after_first_attempt": 50.18,
+    "source_media_id": "6604ff90-e98f-4aac-96b7-f065c12699d6",
+    "analysis_id": "83e918ee-3c91-4dab-bf11-deff3164c8dc",
+    "attempts": [
+      {
+        "attempt": 1,
+        "job_id": "7e47e03e-bf55-4c16-8d5e-94155fe495e6",
+        "cost": 15,
+        "qa": "failed",
+        "failures": [
+          "Opening uses UNIÖN rather than UNION",
+          "Trimmel jersey incorrectly shows number 9 rather than official 28"
+        ],
+        "analysis_id": "83e918ee-3c91-4dab-bf11-deff3164c8dc"
+      }
+    ]
   },
   "qa": {
-    "overall": "pending"
+    "overall": "failed_first_attempt",
+    "visual_style": "pass photorealistic",
+    "source_duration_seconds": 15.104,
+    "opening": "Text error in UNION",
+    "audio": "analysis_pending"
   },
   "cloud_only": true
 }
