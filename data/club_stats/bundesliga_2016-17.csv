@@ -1,0 +1,307 @@
+date,home_team,away_team,home_goals,away_goals,home_xg,away_xg,home_shots,away_shots,home_sot,away_sot
+2016-08-26,Bayern Munich,Werder Bremen,6,0,4.53263,0.185791,27,4,14,2
+2016-08-27,1. FC Köln,SV Darmstadt 98,2,0,3.13195,0.558815,21,12,8,3
+2016-08-27,Augsburg,Wolfsburg,0,2,0.452708,0.711094,13,12,2,6
+2016-08-27,Borussia Dortmund,1. FSV Mainz 05,2,1,1.81984,1.07885,17,12,8,4
+2016-08-27,Borussia Mönchengladbach,Bayer Leverkusen,2,1,1.88815,1.11067,14,12,9,6
+2016-08-27,Eintracht Frankfurt,Schalke 04,1,0,1.86688,0.930915,11,11,4,3
+2016-08-27,Hamburger SV,FC Ingolstadt 04,1,1,0.309707,1.20744,8,13,1,5
+2016-08-28,Hertha Berlin,SC Freiburg,2,1,0.869084,0.360723,15,8,5,2
+2016-08-28,TSG Hoffenheim,RB Leipzig,2,2,1.15624,2.47526,11,23,5,9
+2016-09-09,Schalke 04,Bayern Munich,0,2,0.965209,2.2266,9,18,2,2
+2016-09-10,Bayer Leverkusen,Hamburger SV,3,1,2.1378,0.65629,15,6,5,2
+2016-09-10,FC Ingolstadt 04,Hertha Berlin,0,2,0.986677,0.854096,12,7,5,6
+2016-09-10,RB Leipzig,Borussia Dortmund,1,0,0.950658,0.482478,10,8,4,1
+2016-09-10,SC Freiburg,Borussia Mönchengladbach,3,1,1.55438,0.130259,17,5,7,2
+2016-09-10,SV Darmstadt 98,Eintracht Frankfurt,1,0,0.277384,1.64252,8,14,1,3
+2016-09-10,Wolfsburg,1. FC Köln,0,0,0.914326,1.36943,18,16,4,9
+2016-09-11,1. FSV Mainz 05,TSG Hoffenheim,4,4,0.788235,2.26684,12,20,6,5
+2016-09-11,Werder Bremen,Augsburg,1,2,1.62947,1.65986,10,18,1,5
+2016-09-16,1. FC Köln,SC Freiburg,3,0,1.40487,1.4295,9,17,3,8
+2016-09-17,Bayern Munich,FC Ingolstadt 04,3,1,0.446972,1.54672,10,13,5,5
+2016-09-17,Borussia Dortmund,SV Darmstadt 98,6,0,4.05385,0.179729,22,5,14,1
+2016-09-17,Borussia Mönchengladbach,Werder Bremen,4,1,3.63049,1.20156,15,9,7,5
+2016-09-17,Eintracht Frankfurt,Bayer Leverkusen,2,1,2.14781,2.11932,17,7,8,3
+2016-09-17,Hamburger SV,RB Leipzig,0,4,1.08134,3.30009,14,12,2,6
+2016-09-17,TSG Hoffenheim,Wolfsburg,0,0,1.93562,2.34852,20,20,5,9
+2016-09-18,Augsburg,1. FSV Mainz 05,1,3,0.82866,1.54386,12,11,5,6
+2016-09-18,Hertha Berlin,Schalke 04,2,0,0.724842,0.424457,8,11,2,4
+2016-09-20,FC Ingolstadt 04,Eintracht Frankfurt,0,2,0.782075,0.352096,13,9,3,5
+2016-09-20,SC Freiburg,Hamburger SV,1,0,1.78293,0.647916,19,7,4,0
+2016-09-20,SV Darmstadt 98,TSG Hoffenheim,1,1,1.62811,1.44238,12,15,3,4
+2016-09-20,Wolfsburg,Borussia Dortmund,1,5,2.71087,2.34245,15,10,9,9
+2016-09-21,Bayer Leverkusen,Augsburg,0,0,2.0338,0.230565,14,5,6,2
+2016-09-21,Bayern Munich,Hertha Berlin,3,0,2.71721,0.153422,16,2,7,2
+2016-09-21,RB Leipzig,Borussia Mönchengladbach,1,1,1.58682,0.224262,9,3,5,1
+2016-09-21,Schalke 04,1. FC Köln,1,3,1.37614,1.18875,18,9,8,5
+2016-09-21,Werder Bremen,1. FSV Mainz 05,1,2,0.916,1.38592,13,13,7,6
+2016-09-23,Borussia Dortmund,SC Freiburg,3,1,3.2333,1.05384,24,9,5,5
+2016-09-24,1. FSV Mainz 05,Bayer Leverkusen,2,3,1.73915,1.73598,9,16,5,6
+2016-09-24,Augsburg,SV Darmstadt 98,1,0,1.95473,0.129868,19,4,6,0
+2016-09-24,Borussia Mönchengladbach,FC Ingolstadt 04,2,0,1.18177,0.535119,7,8,5,2
+2016-09-24,Eintracht Frankfurt,Hertha Berlin,3,3,1.50633,1.17158,11,6,4,4
+2016-09-24,Hamburger SV,Bayern Munich,0,1,0.304936,2.12276,7,17,1,8
+2016-09-24,Werder Bremen,Wolfsburg,2,1,1.11466,0.483419,16,11,4,3
+2016-09-25,1. FC Köln,RB Leipzig,1,1,0.366844,0.819612,10,12,2,2
+2016-09-25,TSG Hoffenheim,Schalke 04,2,1,1.8649,1.04708,14,12,2,5
+2016-09-30,RB Leipzig,Augsburg,2,1,1.04258,0.313816,17,6,10,2
+2016-10-01,Bayer Leverkusen,Borussia Dortmund,2,0,1.52698,0.837447,11,10,6,4
+2016-10-01,Bayern Munich,1. FC Köln,1,1,2.20563,0.899194,27,5,3,2
+2016-10-01,FC Ingolstadt 04,TSG Hoffenheim,1,2,2.21758,3.31162,18,21,5,9
+2016-10-01,Hertha Berlin,Hamburger SV,2,0,2.44266,1.11245,14,16,5,3
+2016-10-01,SC Freiburg,Eintracht Frankfurt,1,0,0.464817,0.715723,11,14,3,3
+2016-10-01,SV Darmstadt 98,Werder Bremen,2,2,1.27773,1.54526,9,14,2,7
+2016-10-02,Schalke 04,Borussia Mönchengladbach,4,0,3.05307,0.802215,15,12,8,4
+2016-10-02,Wolfsburg,1. FSV Mainz 05,0,0,1.32308,0.256465,19,8,3,2
+2016-10-14,Borussia Dortmund,Hertha Berlin,1,1,2.60334,0.994838,15,9,6,2
+2016-10-15,1. FC Köln,FC Ingolstadt 04,2,1,3.98127,1.07265,15,9,3,1
+2016-10-15,Augsburg,Schalke 04,1,1,0.414301,0.73357,11,12,5,3
+2016-10-15,Borussia Mönchengladbach,Hamburger SV,0,0,3.46166,0.209913,22,5,4,0
+2016-10-15,Eintracht Frankfurt,Bayern Munich,2,2,2.01559,1.4782,13,14,4,5
+2016-10-15,TSG Hoffenheim,SC Freiburg,2,1,2.4316,0.860554,14,13,4,6
+2016-10-15,Werder Bremen,Bayer Leverkusen,2,1,1.51915,0.548105,11,13,5,6
+2016-10-16,1. FSV Mainz 05,SV Darmstadt 98,2,1,2.86526,1.93127,13,12,5,4
+2016-10-16,Wolfsburg,RB Leipzig,0,1,0.684268,1.82053,10,13,2,6
+2016-10-21,Hamburger SV,Eintracht Frankfurt,0,3,0.163638,1.31119,3,13,0,4
+2016-10-22,Bayer Leverkusen,TSG Hoffenheim,0,3,0.598561,2.30615,6,14,1,8
+2016-10-22,Bayern Munich,Borussia Mönchengladbach,2,0,1.73353,0.49977,17,3,5,0
+2016-10-22,FC Ingolstadt 04,Borussia Dortmund,3,3,1.69325,2.51636,12,24,7,10
+2016-10-22,Hertha Berlin,1. FC Köln,2,1,1.43523,1.35639,13,10,7,2
+2016-10-22,SC Freiburg,Augsburg,2,1,1.53071,1.23006,12,14,5,6
+2016-10-22,SV Darmstadt 98,Wolfsburg,3,1,1.38031,0.577877,9,9,5,1
+2016-10-23,RB Leipzig,Werder Bremen,3,1,3.33619,0.913725,22,7,6,3
+2016-10-23,Schalke 04,1. FSV Mainz 05,3,0,1.21196,0.987414,11,10,5,4
+2016-10-28,Borussia Mönchengladbach,Eintracht Frankfurt,0,0,0.605662,0.388618,7,6,2,1
+2016-10-29,1. FSV Mainz 05,FC Ingolstadt 04,2,0,2.21072,0.216935,17,5,8,2
+2016-10-29,Augsburg,Bayern Munich,1,3,0.724858,3.47304,7,16,3,8
+2016-10-29,Borussia Dortmund,Schalke 04,0,0,0.816002,0.46649,9,8,1,2
+2016-10-29,SV Darmstadt 98,RB Leipzig,0,2,0.199603,1.64364,4,11,0,4
+2016-10-29,Werder Bremen,SC Freiburg,1,3,1.29428,1.71134,14,13,4,5
+2016-10-29,Wolfsburg,Bayer Leverkusen,1,2,1.1136,2.12119,6,18,2,6
+2016-10-30,1. FC Köln,Hamburger SV,3,0,2.93112,0.307566,18,9,6,2
+2016-10-30,TSG Hoffenheim,Hertha Berlin,1,0,2.77857,0.251867,24,5,7,2
+2016-11-04,Hertha Berlin,Borussia Mönchengladbach,3,0,1.66602,0.636014,12,11,6,2
+2016-11-05,Bayer Leverkusen,SV Darmstadt 98,3,2,0.674028,0.863248,12,6,4,3
+2016-11-05,Bayern Munich,TSG Hoffenheim,1,1,1.49595,0.24666,21,5,5,3
+2016-11-05,Eintracht Frankfurt,1. FC Köln,1,0,0.860348,0.638081,8,6,1,1
+2016-11-05,FC Ingolstadt 04,Augsburg,0,2,0.587399,1.15792,14,13,5,5
+2016-11-05,Hamburger SV,Borussia Dortmund,2,5,0.716262,2.88584,14,10,6,6
+2016-11-05,SC Freiburg,Wolfsburg,0,3,0.916201,2.12583,12,13,2,5
+2016-11-06,RB Leipzig,1. FSV Mainz 05,3,1,2.98005,0.510631,15,11,5,3
+2016-11-06,Schalke 04,Werder Bremen,3,1,2.84842,1.0143,24,8,6,5
+2016-11-18,Bayer Leverkusen,RB Leipzig,2,3,1.85187,1.13026,12,11,6,4
+2016-11-19,1. FSV Mainz 05,SC Freiburg,4,2,2.51061,2.46211,11,24,6,11
+2016-11-19,Augsburg,Hertha Berlin,0,0,1.1004,1.42162,9,10,3,4
+2016-11-19,Borussia Dortmund,Bayern Munich,1,0,1.55352,0.929514,11,18,4,3
+2016-11-19,Borussia Mönchengladbach,1. FC Köln,1,2,2.04672,0.413052,20,11,8,4
+2016-11-19,SV Darmstadt 98,FC Ingolstadt 04,0,1,1.92547,1.18409,18,15,4,7
+2016-11-19,Wolfsburg,Schalke 04,0,1,0.273387,1.12414,8,19,0,4
+2016-11-20,TSG Hoffenheim,Hamburger SV,2,2,2.31892,1.80116,18,14,5,4
+2016-11-20,Werder Bremen,Eintracht Frankfurt,1,2,1.03212,1.62014,14,19,4,9
+2016-11-25,SC Freiburg,RB Leipzig,1,4,0.683397,1.90539,9,16,3,7
+2016-11-26,1. FC Köln,Augsburg,0,0,1.38658,0.50809,18,13,5,2
+2016-11-26,Bayern Munich,Bayer Leverkusen,2,1,1.68783,1.26793,13,13,8,4
+2016-11-26,Borussia Mönchengladbach,TSG Hoffenheim,1,1,1.845,0.827583,16,15,8,4
+2016-11-26,Eintracht Frankfurt,Borussia Dortmund,2,1,0.686336,1.66759,12,12,4,5
+2016-11-26,FC Ingolstadt 04,Wolfsburg,1,1,3.68791,0.504027,20,11,5,3
+2016-11-26,Hamburger SV,Werder Bremen,2,2,2.17271,1.21396,17,12,7,4
+2016-11-27,Hertha Berlin,1. FSV Mainz 05,2,1,1.63472,1.52234,16,9,5,4
+2016-11-27,Schalke 04,SV Darmstadt 98,3,1,2.7318,1.26539,20,9,7,2
+2016-12-02,1. FSV Mainz 05,Bayern Munich,1,3,0.47533,1.67552,9,15,3,6
+2016-12-03,Bayer Leverkusen,SC Freiburg,1,1,3.31063,0.599753,13,10,6,2
+2016-12-03,Borussia Dortmund,Borussia Mönchengladbach,4,1,2.39193,0.731465,15,3,7,1
+2016-12-03,RB Leipzig,Schalke 04,2,1,1.8836,1.12833,14,11,5,5
+2016-12-03,TSG Hoffenheim,1. FC Köln,4,0,2.16731,1.83627,10,10,6,1
+2016-12-03,Werder Bremen,FC Ingolstadt 04,2,1,2.23558,1.09704,14,15,5,5
+2016-12-03,Wolfsburg,Hertha Berlin,2,3,1.13683,1.54821,6,18,4,8
+2016-12-04,Augsburg,Eintracht Frankfurt,1,1,0.671214,0.390793,14,7,5,4
+2016-12-04,SV Darmstadt 98,Hamburger SV,0,2,0.567564,2.12004,10,21,2,5
+2016-12-09,Eintracht Frankfurt,TSG Hoffenheim,0,0,0.582927,0.212786,15,3,3,0
+2016-12-10,1. FC Köln,Borussia Dortmund,1,1,0.905376,0.740252,7,11,2,4
+2016-12-10,Bayern Munich,Wolfsburg,5,0,2.18433,0.422847,19,6,10,3
+2016-12-10,FC Ingolstadt 04,RB Leipzig,1,0,0.577386,1.51305,4,13,1,3
+2016-12-10,Hamburger SV,Augsburg,1,0,0.886586,0.952731,11,11,5,2
+2016-12-10,Hertha Berlin,Werder Bremen,0,1,0.521946,1.371,11,13,4,6
+2016-12-10,SC Freiburg,SV Darmstadt 98,1,0,1.61481,0.604576,12,16,2,4
+2016-12-11,Borussia Mönchengladbach,1. FSV Mainz 05,1,0,0.355797,0.530834,9,12,3,4
+2016-12-11,Schalke 04,Bayer Leverkusen,0,1,0.699097,1.23195,11,13,0,2
+2016-12-16,TSG Hoffenheim,Borussia Dortmund,2,2,1.54298,1.48937,13,14,5,4
+2016-12-17,1. FSV Mainz 05,Hamburger SV,3,1,1.36545,0.900534,19,10,8,3
+2016-12-17,Augsburg,Borussia Mönchengladbach,1,0,0.34872,0.283914,8,8,1,3
+2016-12-17,RB Leipzig,Hertha Berlin,2,0,1.64142,0.199768,16,3,8,0
+2016-12-17,Schalke 04,SC Freiburg,1,1,0.958265,1.25505,17,6,2,2
+2016-12-17,Werder Bremen,1. FC Köln,1,1,0.377752,1.84906,10,14,5,5
+2016-12-17,Wolfsburg,Eintracht Frankfurt,1,0,1.75441,1.38982,15,7,3,1
+2016-12-18,Bayer Leverkusen,FC Ingolstadt 04,1,2,0.571467,2.29253,5,17,3,7
+2016-12-18,SV Darmstadt 98,Bayern Munich,0,1,0.869666,1.21772,10,13,2,2
+2016-12-20,Borussia Dortmund,Augsburg,1,1,1.98186,1.18385,23,8,8,3
+2016-12-20,Borussia Mönchengladbach,Wolfsburg,1,2,1.53544,2.26217,20,18,4,7
+2016-12-20,Eintracht Frankfurt,1. FSV Mainz 05,3,0,1.76293,1.05038,9,11,4,6
+2016-12-20,Hamburger SV,Schalke 04,2,1,2.47737,0.439814,11,6,7,3
+2016-12-21,1. FC Köln,Bayer Leverkusen,1,1,0.721118,1.45189,11,18,2,6
+2016-12-21,Bayern Munich,RB Leipzig,3,0,4.92205,0.135897,24,5,11,2
+2016-12-21,FC Ingolstadt 04,SC Freiburg,1,2,1.2843,1.5487,17,11,6,5
+2016-12-21,Hertha Berlin,SV Darmstadt 98,2,0,2.04959,1.07625,15,5,5,0
+2016-12-21,TSG Hoffenheim,Werder Bremen,1,1,1.51059,0.546119,12,10,3,3
+2017-01-20,SC Freiburg,Bayern Munich,1,2,0.696302,0.60487,11,13,3,5
+2017-01-21,Augsburg,TSG Hoffenheim,0,2,0.45179,1.89483,9,13,2,3
+2017-01-21,RB Leipzig,Eintracht Frankfurt,3,0,3.05773,0.617185,17,4,7,3
+2017-01-21,SV Darmstadt 98,Borussia Mönchengladbach,0,0,0.802235,1.26715,8,14,2,4
+2017-01-21,Schalke 04,FC Ingolstadt 04,1,0,2.02155,0.522735,15,14,5,3
+2017-01-21,Werder Bremen,Borussia Dortmund,1,2,0.683532,2.86037,9,22,5,8
+2017-01-21,Wolfsburg,Hamburger SV,1,0,1.13564,0.666936,11,11,3,1
+2017-01-22,1. FSV Mainz 05,1. FC Köln,0,0,0.489561,0.407808,12,9,5,3
+2017-01-22,Bayer Leverkusen,Hertha Berlin,3,1,2.20774,1.18956,16,7,9,3
+2017-01-27,Schalke 04,Eintracht Frankfurt,0,1,0.621137,0.416066,12,8,2,1
+2017-01-28,Bayer Leverkusen,Borussia Mönchengladbach,2,3,1.53578,1.90101,13,12,4,7
+2017-01-28,FC Ingolstadt 04,Hamburger SV,3,1,1.41586,0.491104,15,11,7,3
+2017-01-28,RB Leipzig,TSG Hoffenheim,2,1,1.47923,0.793259,14,5,5,2
+2017-01-28,SV Darmstadt 98,1. FC Köln,1,6,1.55993,3.27302,10,14,4,7
+2017-01-28,Werder Bremen,Bayern Munich,1,2,0.740585,0.664364,11,13,4,4
+2017-01-28,Wolfsburg,Augsburg,1,2,1.51608,2.03309,11,12,5,5
+2017-01-29,1. FSV Mainz 05,Borussia Dortmund,1,1,0.681513,1.16864,9,13,1,4
+2017-01-29,SC Freiburg,Hertha Berlin,2,1,0.618883,0.529186,11,11,4,2
+2017-02-03,Hamburger SV,Bayer Leverkusen,1,0,1.0957,0.258906,11,5,3,0
+2017-02-04,1. FC Köln,Wolfsburg,1,0,1.1942,0.620852,12,12,2,2
+2017-02-04,Bayern Munich,Schalke 04,1,1,1.20803,0.933229,12,7,4,3
+2017-02-04,Borussia Dortmund,RB Leipzig,1,0,3.12438,0.0680623,14,2,4,1
+2017-02-04,Borussia Mönchengladbach,SC Freiburg,3,0,1.86188,0.546023,11,14,3,4
+2017-02-04,Hertha Berlin,FC Ingolstadt 04,1,0,0.810684,0.523057,8,13,2,4
+2017-02-04,TSG Hoffenheim,1. FSV Mainz 05,4,0,2.43327,0.895123,22,13,7,2
+2017-02-05,Augsburg,Werder Bremen,3,2,1.59519,2.32944,15,19,7,4
+2017-02-05,Eintracht Frankfurt,SV Darmstadt 98,2,0,2.40111,0.250504,15,4,6,0
+2017-02-10,1. FSV Mainz 05,Augsburg,2,0,1.63564,0.427462,8,10,4,6
+2017-02-11,Bayer Leverkusen,Eintracht Frankfurt,3,0,2.54416,0.632868,17,9,7,3
+2017-02-11,FC Ingolstadt 04,Bayern Munich,0,2,0.436757,1.89105,8,17,0,5
+2017-02-11,RB Leipzig,Hamburger SV,0,3,1.39703,1.4821,15,11,0,5
+2017-02-11,SV Darmstadt 98,Borussia Dortmund,2,1,1.93475,0.746753,15,14,7,4
+2017-02-11,Schalke 04,Hertha Berlin,2,0,1.20548,0.577284,14,5,3,2
+2017-02-11,Werder Bremen,Borussia Mönchengladbach,0,1,1.06174,1.32359,16,12,6,3
+2017-02-12,SC Freiburg,1. FC Köln,2,1,0.928509,1.74238,12,12,6,5
+2017-02-12,Wolfsburg,TSG Hoffenheim,2,1,2.33121,0.874317,13,14,7,7
+2017-02-17,Augsburg,Bayer Leverkusen,1,3,1.44908,3.27707,12,20,4,10
+2017-02-18,1. FSV Mainz 05,Werder Bremen,0,2,0.855557,0.560453,13,8,5,4
+2017-02-18,Borussia Dortmund,Wolfsburg,3,0,2.5227,0.213682,24,6,10,3
+2017-02-18,Eintracht Frankfurt,FC Ingolstadt 04,0,2,2.1199,1.37301,15,14,6,11
+2017-02-18,Hamburger SV,SC Freiburg,2,2,1.63591,0.940296,6,12,4,3
+2017-02-18,Hertha Berlin,Bayern Munich,1,1,0.925318,1.28308,11,16,2,7
+2017-02-18,TSG Hoffenheim,SV Darmstadt 98,2,0,1.73239,0.316848,14,7,5,4
+2017-02-19,1. FC Köln,Schalke 04,1,1,0.302197,1.77578,9,12,4,4
+2017-02-19,Borussia Mönchengladbach,RB Leipzig,1,2,1.38933,0.75509,12,9,3,5
+2017-02-24,Wolfsburg,Werder Bremen,1,2,2.1184,1.05277,27,7,6,3
+2017-02-25,Bayer Leverkusen,1. FSV Mainz 05,0,2,1.00907,1.36951,12,11,3,5
+2017-02-25,Bayern Munich,Hamburger SV,8,0,3.61743,0.228928,18,5,12,1
+2017-02-25,Hertha Berlin,Eintracht Frankfurt,2,0,0.743606,0.550767,6,8,4,2
+2017-02-25,RB Leipzig,1. FC Köln,3,1,0.94132,0.696948,13,5,5,1
+2017-02-25,SC Freiburg,Borussia Dortmund,0,3,0.318406,5.0778,7,27,3,10
+2017-02-25,SV Darmstadt 98,Augsburg,1,2,0.680607,1.81789,5,18,2,3
+2017-02-26,FC Ingolstadt 04,Borussia Mönchengladbach,0,2,0.876174,1.15857,14,10,3,4
+2017-02-26,Schalke 04,TSG Hoffenheim,1,1,0.282474,0.907791,7,14,2,4
+2017-03-03,Augsburg,RB Leipzig,2,2,0.825387,1.38005,7,12,2,5
+2017-03-04,1. FC Köln,Bayern Munich,0,3,0.184391,1.609,6,20,2,8
+2017-03-04,1. FSV Mainz 05,Wolfsburg,1,1,0.943015,0.753265,10,7,2,5
+2017-03-04,Borussia Dortmund,Bayer Leverkusen,6,2,4.87346,0.634697,20,12,12,3
+2017-03-04,Borussia Mönchengladbach,Schalke 04,4,2,3.02164,1.29836,19,7,7,2
+2017-03-04,TSG Hoffenheim,FC Ingolstadt 04,5,2,2.00625,0.755565,17,8,12,4
+2017-03-04,Werder Bremen,SV Darmstadt 98,2,0,1.99892,1.68003,9,15,4,3
+2017-03-05,Eintracht Frankfurt,SC Freiburg,1,2,1.72726,1.64187,15,10,3,3
+2017-03-05,Hamburger SV,Hertha Berlin,1,0,0.696504,0.385743,9,8,3,1
+2017-03-10,Bayer Leverkusen,Werder Bremen,1,1,1.64424,0.977419,12,11,7,3
+2017-03-11,Bayern Munich,Eintracht Frankfurt,3,0,2.93121,0.753534,16,10,7,4
+2017-03-11,FC Ingolstadt 04,1. FC Köln,2,2,1.42995,1.28155,26,7,9,2
+2017-03-11,Hertha Berlin,Borussia Dortmund,2,1,1.73774,1.08133,16,18,4,2
+2017-03-11,RB Leipzig,Wolfsburg,0,1,0.594929,1.70049,11,15,6,5
+2017-03-11,SC Freiburg,TSG Hoffenheim,1,1,1.14554,1.59538,6,23,4,7
+2017-03-11,SV Darmstadt 98,1. FSV Mainz 05,2,1,1.66213,1.29857,11,13,5,6
+2017-03-12,Hamburger SV,Borussia Mönchengladbach,2,1,1.4575,1.31382,17,7,6,3
+2017-03-12,Schalke 04,Augsburg,3,0,3.76518,1.05335,25,9,7,3
+2017-03-17,Borussia Dortmund,FC Ingolstadt 04,1,0,0.574065,1.37608,10,14,2,2
+2017-03-18,1. FC Köln,Hertha Berlin,4,2,1.0584,1.69998,7,8,6,6
+2017-03-18,Augsburg,SC Freiburg,1,1,1.13915,1.03907,15,7,3,3
+2017-03-18,Eintracht Frankfurt,Hamburger SV,0,0,1.03591,0.134726,7,5,1,0
+2017-03-18,TSG Hoffenheim,Bayer Leverkusen,1,0,1.75958,0.992443,13,16,4,7
+2017-03-18,Werder Bremen,RB Leipzig,3,0,1.39387,0.689398,9,7,4,2
+2017-03-18,Wolfsburg,SV Darmstadt 98,1,0,2.27784,0.745708,18,6,4,1
+2017-03-19,1. FSV Mainz 05,Schalke 04,0,1,0.645262,1.04603,18,9,5,5
+2017-03-19,Borussia Mönchengladbach,Bayern Munich,0,1,0.75605,2.21621,14,18,1,6
+2017-03-31,Hertha Berlin,TSG Hoffenheim,1,3,0.269789,3.16527,5,28,3,8
+2017-04-01,Bayern Munich,Augsburg,6,0,3.67736,0.186673,21,6,8,2
+2017-04-01,Eintracht Frankfurt,Borussia Mönchengladbach,0,0,2.70815,0.205804,15,6,4,1
+2017-04-01,Hamburger SV,1. FC Köln,2,1,1.36149,1.13052,14,7,4,1
+2017-04-01,RB Leipzig,SV Darmstadt 98,4,0,4.00225,1.05189,25,11,10,1
+2017-04-01,SC Freiburg,Werder Bremen,2,5,1.76818,1.03239,13,11,4,7
+2017-04-01,Schalke 04,Borussia Dortmund,1,1,0.578624,0.916317,9,7,3,2
+2017-04-02,Bayer Leverkusen,Wolfsburg,3,3,0.779828,1.79787,8,18,5,9
+2017-04-02,FC Ingolstadt 04,1. FSV Mainz 05,2,1,1.5092,0.767112,12,10,5,1
+2017-04-04,1. FC Köln,Eintracht Frankfurt,1,0,0.731269,0.651039,5,11,1,2
+2017-04-04,Borussia Dortmund,Hamburger SV,3,0,3.96885,1.01065,17,16,10,6
+2017-04-04,TSG Hoffenheim,Bayern Munich,1,0,0.972676,1.89107,14,21,4,6
+2017-04-04,Werder Bremen,Schalke 04,3,0,2.02275,0.731092,11,14,6,3
+2017-04-05,1. FSV Mainz 05,RB Leipzig,2,3,2.90081,1.62551,18,15,3,7
+2017-04-05,Augsburg,FC Ingolstadt 04,2,3,1.36168,1.76551,13,13,5,6
+2017-04-05,Borussia Mönchengladbach,Hertha Berlin,1,0,1.82471,0.863378,22,12,7,2
+2017-04-05,SV Darmstadt 98,Bayer Leverkusen,0,2,0.548735,2.05324,13,14,2,7
+2017-04-05,Wolfsburg,SC Freiburg,0,1,1.9679,0.859006,17,16,4,5
+2017-04-07,Eintracht Frankfurt,Werder Bremen,2,2,2.5197,0.550904,16,8,7,4
+2017-04-08,1. FC Köln,Borussia Mönchengladbach,2,3,0.968922,0.615319,9,16,2,7
+2017-04-08,Bayern Munich,Borussia Dortmund,4,1,1.9556,0.696828,18,9,6,3
+2017-04-08,Hamburger SV,TSG Hoffenheim,2,1,0.920754,1.40908,12,12,6,4
+2017-04-08,RB Leipzig,Bayer Leverkusen,1,0,1.51489,0.629889,14,14,5,3
+2017-04-08,SC Freiburg,1. FSV Mainz 05,1,0,0.937258,0.851206,7,9,3,3
+2017-04-08,Schalke 04,Wolfsburg,4,1,1.64298,1.59019,12,18,7,1
+2017-04-09,FC Ingolstadt 04,SV Darmstadt 98,3,2,3.65862,0.980139,23,10,10,5
+2017-04-09,Hertha Berlin,Augsburg,2,0,1.87729,0.668736,18,5,8,0
+2017-04-15,1. FSV Mainz 05,Hertha Berlin,1,0,1.02606,0.261043,17,6,3,2
+2017-04-15,Augsburg,1. FC Köln,2,1,1.08513,1.39565,7,12,6,0
+2017-04-15,Bayer Leverkusen,Bayern Munich,0,0,0.380752,2.14432,9,21,2,6
+2017-04-15,Borussia Dortmund,Eintracht Frankfurt,3,1,2.56997,0.981383,15,9,7,2
+2017-04-15,RB Leipzig,SC Freiburg,4,0,1.19051,0.690412,13,11,6,2
+2017-04-15,TSG Hoffenheim,Borussia Mönchengladbach,5,3,2.0053,2.23834,16,10,9,4
+2017-04-15,Wolfsburg,FC Ingolstadt 04,3,0,1.60835,0.155444,9,6,6,3
+2017-04-16,SV Darmstadt 98,Schalke 04,2,1,1.48412,2.79502,11,26,5,8
+2017-04-16,Werder Bremen,Hamburger SV,2,1,1.74435,0.695911,13,6,5,4
+2017-04-21,1. FC Köln,TSG Hoffenheim,1,1,1.18729,1.16684,12,11,6,6
+2017-04-22,Bayern Munich,1. FSV Mainz 05,2,2,0.916519,1.75151,19,10,6,5
+2017-04-22,Borussia Mönchengladbach,Borussia Dortmund,2,3,0.855144,1.94133,7,12,3,6
+2017-04-22,Eintracht Frankfurt,Augsburg,3,1,2.01622,0.793224,20,10,7,4
+2017-04-22,FC Ingolstadt 04,Werder Bremen,2,4,2.2262,2.20579,15,9,5,5
+2017-04-22,Hamburger SV,SV Darmstadt 98,1,2,1.14997,1.31693,13,9,6,4
+2017-04-22,Hertha Berlin,Wolfsburg,1,0,1.98048,1.57197,14,10,5,2
+2017-04-23,SC Freiburg,Bayer Leverkusen,2,1,1.0518,1.14702,11,11,5,4
+2017-04-23,Schalke 04,RB Leipzig,1,1,0.768932,0.73343,11,9,1,1
+2017-04-28,Bayer Leverkusen,Schalke 04,1,4,1.26441,2.46126,13,12,4,8
+2017-04-29,1. FSV Mainz 05,Borussia Mönchengladbach,1,2,2.1399,1.22816,17,13,8,5
+2017-04-29,Borussia Dortmund,1. FC Köln,0,0,2.67669,0.275427,23,5,4,0
+2017-04-29,RB Leipzig,FC Ingolstadt 04,0,0,1.50493,0.593622,15,6,3,0
+2017-04-29,SV Darmstadt 98,SC Freiburg,3,0,1.61424,1.11673,14,9,4,4
+2017-04-29,Werder Bremen,Hertha Berlin,2,0,1.83478,0.761313,9,10,4,2
+2017-04-29,Wolfsburg,Bayern Munich,0,6,0.364748,2.26407,7,17,3,9
+2017-04-30,Augsburg,Hamburger SV,4,0,2.14215,0.294926,17,9,9,4
+2017-04-30,TSG Hoffenheim,Eintracht Frankfurt,1,0,0.595004,0.172208,8,4,1,2
+2017-05-05,1. FC Köln,Werder Bremen,4,3,2.86367,1.59994,16,11,9,4
+2017-05-06,Bayern Munich,SV Darmstadt 98,1,0,2.4342,1.1907,23,13,8,3
+2017-05-06,Borussia Dortmund,TSG Hoffenheim,2,1,2.58723,1.03413,11,10,4,5
+2017-05-06,Borussia Mönchengladbach,Augsburg,1,1,1.36962,1.5852,18,11,5,4
+2017-05-06,Eintracht Frankfurt,Wolfsburg,0,2,1.14243,1.41291,7,7,2,3
+2017-05-06,FC Ingolstadt 04,Bayer Leverkusen,1,1,0.432267,1.38231,10,12,2,6
+2017-05-06,Hertha Berlin,RB Leipzig,1,4,0.23152,2.56445,6,14,1,8
+2017-05-07,Hamburger SV,1. FSV Mainz 05,0,0,0.327514,1.37521,6,13,2,6
+2017-05-07,SC Freiburg,Schalke 04,2,0,2.48307,0.422559,13,14,5,3
+2017-05-13,1. FSV Mainz 05,Eintracht Frankfurt,4,2,1.77492,1.64384,21,6,8,4
+2017-05-13,Augsburg,Borussia Dortmund,1,1,1.27027,1.7547,5,15,3,5
+2017-05-13,Bayer Leverkusen,1. FC Köln,2,2,2.64929,0.970487,27,7,9,4
+2017-05-13,RB Leipzig,Bayern Munich,4,5,2.0471,3.61687,11,20,6,9
+2017-05-13,SC Freiburg,FC Ingolstadt 04,1,1,1.27196,1.89065,11,23,4,9
+2017-05-13,SV Darmstadt 98,Hertha Berlin,0,2,0.754449,1.58846,11,16,2,5
+2017-05-13,Schalke 04,Hamburger SV,1,1,1.23798,1.82811,12,18,1,4
+2017-05-13,Werder Bremen,TSG Hoffenheim,3,5,1.44786,1.01187,16,16,7,9
+2017-05-13,Wolfsburg,Borussia Mönchengladbach,1,1,1.26549,1.65365,11,14,6,6
+2017-05-20,1. FC Köln,1. FSV Mainz 05,2,0,1.29204,0.141602,16,5,4,0
+2017-05-20,Bayern Munich,SC Freiburg,4,1,3.93385,1.52892,33,19,11,8
+2017-05-20,Borussia Dortmund,Werder Bremen,4,3,4.35162,1.6445,28,11,11,5
+2017-05-20,Borussia Mönchengladbach,SV Darmstadt 98,2,2,1.97938,0.597895,18,13,10,4
+2017-05-20,Eintracht Frankfurt,RB Leipzig,2,2,2.26092,1.38077,16,7,3,5
+2017-05-20,FC Ingolstadt 04,Schalke 04,1,1,2.6011,1.13122,18,9,8,3
+2017-05-20,Hamburger SV,Wolfsburg,2,1,0.566862,0.872557,6,12,3,5
+2017-05-20,Hertha Berlin,Bayer Leverkusen,2,6,3.7783,4.4212,14,16,5,11
+2017-05-20,TSG Hoffenheim,Augsburg,0,0,0.825898,0.264815,19,8,9,2

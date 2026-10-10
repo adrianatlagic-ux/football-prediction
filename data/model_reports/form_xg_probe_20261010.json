@@ -1,0 +1,105 @@
+{
+ "chosen": {
+  "xg": [
+   0.05,
+   0.6
+  ],
+  "sot": [
+   0.02,
+   0.6
+  ],
+  "mix": 0.7
+ },
+ "train_matches": 2142,
+ "test_matches": 1260,
+ "variants": [
+  {
+   "name": "1 Basis: Elo + Marktwert",
+   "log_loss": 0.9764,
+   "accuracy": 0.535,
+   "diff": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "better": false
+  },
+  {
+   "name": "2 + xG-Durchschnitt (ohne Gegner)",
+   "log_loss": 0.972,
+   "accuracy": 0.544,
+   "diff": -0.0043,
+   "ci": [
+    -0.0099,
+    0.0011
+   ],
+   "better": false
+  },
+  {
+   "name": "3 + xG-Bewertung neben Elo",
+   "log_loss": 0.9729,
+   "accuracy": 0.541,
+   "diff": -0.0035,
+   "ci": [
+    -0.0106,
+    0.0035
+   ],
+   "better": false
+  },
+  {
+   "name": "4 + Schuss-Bewertung neben Elo",
+   "log_loss": 0.9727,
+   "accuracy": 0.543,
+   "diff": -0.0036,
+   "ci": [
+    -0.0101,
+    0.0033
+   ],
+   "better": false
+  },
+  {
+   "name": "3+4 + beide Bewertungen",
+   "log_loss": 0.9758,
+   "accuracy": 0.542,
+   "diff": -0.0005,
+   "ci": [
+    -0.0091,
+    0.0087
+   ],
+   "better": false
+  },
+  {
+   "name": "5 Elo-Mischung 30 % xG",
+   "log_loss": 0.9754,
+   "accuracy": 0.533,
+   "diff": -0.001,
+   "ci": [
+    -0.0021,
+    0.0001
+   ],
+   "better": false
+  },
+  {
+   "name": "5 Elo-Mischung 50 % xG",
+   "log_loss": 0.9746,
+   "accuracy": 0.535,
+   "diff": -0.0018,
+   "ci": [
+    -0.0038,
+    0.0002
+   ],
+   "better": false
+  },
+  {
+   "name": "5 Elo-Mischung 70 % xG (auf Training gewählt)",
+   "log_loss": 0.9737,
+   "accuracy": 0.54,
+   "diff": -0.0027,
+   "ci": [
+    -0.0056,
+    0.0002
+   ],
+   "better": false
+  }
+ ]
+}

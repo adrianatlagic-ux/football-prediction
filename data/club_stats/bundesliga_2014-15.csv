@@ -1,0 +1,307 @@
+date,home_team,away_team,home_goals,away_goals,home_xg,away_xg,home_shots,away_shots,home_sot,away_sot
+2014-08-22,Bayern Munich,Wolfsburg,2,1,2.57012,1.19842,17,9,10,4
+2014-08-23,1. FC Köln,Hamburger SV,0,0,0.522276,0.913337,10,19,3,4
+2014-08-23,Borussia Dortmund,Bayer Leverkusen,0,2,0.482324,1.14915,11,11,4,2
+2014-08-23,Eintracht Frankfurt,SC Freiburg,1,0,1.75331,1.38084,10,13,3,7
+2014-08-23,Hannover 96,Schalke 04,2,1,1.17979,0.956665,8,12,3,5
+2014-08-23,Hertha Berlin,Werder Bremen,2,2,1.75585,1.19453,19,9,5,5
+2014-08-23,TSG Hoffenheim,Augsburg,2,0,1.52873,0.280777,10,12,3,2
+2014-08-24,Borussia Mönchengladbach,VfB Stuttgart,1,1,2.40939,0.433199,19,7,6,3
+2014-08-24,SC Paderborn,1. FSV Mainz 05,2,2,0.35254,1.84123,10,14,3,4
+2014-08-29,Augsburg,Borussia Dortmund,2,3,1.00422,2.30342,12,22,3,9
+2014-08-30,Bayer Leverkusen,Hertha Berlin,4,2,2.53036,0.712547,21,3,7,1
+2014-08-30,Hamburger SV,SC Paderborn,0,3,1.14049,2.37004,13,15,4,7
+2014-08-30,Schalke 04,Bayern Munich,1,1,1.30795,1.50328,8,10,4,4
+2014-08-30,VfB Stuttgart,1. FC Köln,0,2,0.722885,1.2983,14,10,5,4
+2014-08-30,Werder Bremen,TSG Hoffenheim,1,1,2.51429,1.29948,15,12,1,1
+2014-08-30,Wolfsburg,Eintracht Frankfurt,2,2,1.00484,1.59633,14,9,11,4
+2014-08-31,1. FSV Mainz 05,Hannover 96,0,0,1.0088,0.561787,14,11,2,6
+2014-08-31,SC Freiburg,Borussia Mönchengladbach,0,0,1.30113,0.321709,17,9,4,3
+2014-09-12,Bayer Leverkusen,Werder Bremen,3,3,1.98321,1.72618,26,8,9,5
+2014-09-13,Bayern Munich,VfB Stuttgart,2,0,1.22987,0.310166,14,7,8,0
+2014-09-13,Borussia Dortmund,SC Freiburg,3,1,1.71642,0.261915,15,4,6,3
+2014-09-13,Borussia Mönchengladbach,Schalke 04,4,1,3.37955,1.81788,23,11,9,6
+2014-09-13,Hertha Berlin,1. FSV Mainz 05,1,3,1.71631,2.36643,17,7,3,6
+2014-09-13,SC Paderborn,1. FC Köln,0,0,0.327136,0.386458,8,4,4,1
+2014-09-13,TSG Hoffenheim,Wolfsburg,1,1,1.15845,1.63553,15,22,6,5
+2014-09-14,Eintracht Frankfurt,Augsburg,0,1,0.845902,1.00028,14,17,5,7
+2014-09-14,Hannover 96,Hamburger SV,2,0,2.22631,0.976735,11,11,4,0
+2014-09-19,SC Freiburg,Hertha Berlin,2,2,0.869782,0.285542,15,7,5,2
+2014-09-20,1. FSV Mainz 05,Borussia Dortmund,2,0,0.974914,2.10376,8,20,5,4
+2014-09-20,Augsburg,Werder Bremen,4,2,2.91201,2.02462,19,13,7,6
+2014-09-20,Hamburger SV,Bayern Munich,0,0,0.203118,1.03519,4,15,0,3
+2014-09-20,SC Paderborn,Hannover 96,2,0,2.05175,0.550873,17,14,4,2
+2014-09-20,Schalke 04,Eintracht Frankfurt,2,2,1.78008,0.83546,8,15,3,4
+2014-09-20,VfB Stuttgart,TSG Hoffenheim,0,2,1.32987,1.15033,17,10,2,4
+2014-09-21,1. FC Köln,Borussia Mönchengladbach,0,0,0.551855,0.772177,10,9,7,1
+2014-09-21,Wolfsburg,Bayer Leverkusen,4,1,1.55879,0.616799,17,12,9,1
+2014-09-23,Bayern Munich,SC Paderborn,4,0,3.48286,0.402844,25,6,9,2
+2014-09-23,Eintracht Frankfurt,1. FSV Mainz 05,2,2,1.45137,1.09799,16,5,8,5
+2014-09-23,TSG Hoffenheim,SC Freiburg,3,3,1.81502,2.44871,18,6,8,4
+2014-09-23,Werder Bremen,Schalke 04,0,3,0.992105,1.36741,12,11,4,4
+2014-09-24,Bayer Leverkusen,Augsburg,1,0,1.65235,0.571159,17,11,3,4
+2014-09-24,Borussia Dortmund,VfB Stuttgart,2,2,2.13683,1.48044,25,10,9,5
+2014-09-24,Borussia Mönchengladbach,Hamburger SV,1,0,2.38906,0.560569,20,14,9,1
+2014-09-24,Hannover 96,1. FC Köln,1,0,0.408032,0.695122,9,9,4,3
+2014-09-24,Hertha Berlin,Wolfsburg,1,0,0.428365,0.855691,3,13,3,3
+2014-09-26,1. FSV Mainz 05,TSG Hoffenheim,0,0,0.614332,1.08667,10,13,3,3
+2014-09-27,1. FC Köln,Bayern Munich,0,2,0.821798,3.46966,8,21,3,8
+2014-09-27,SC Freiburg,Bayer Leverkusen,0,0,0.722358,1.17679,8,16,3,8
+2014-09-27,SC Paderborn,Borussia Mönchengladbach,1,2,1.5747,1.43504,24,11,8,4
+2014-09-27,Schalke 04,Borussia Dortmund,2,1,1.07746,0.662005,11,17,6,5
+2014-09-27,VfB Stuttgart,Hannover 96,1,0,0.826395,0.853246,12,12,6,4
+2014-09-27,Wolfsburg,Werder Bremen,2,1,1.24302,0.32535,18,8,8,3
+2014-09-28,Augsburg,Hertha Berlin,1,0,1.25743,0.283655,8,10,3,3
+2014-09-28,Hamburger SV,Eintracht Frankfurt,1,2,1.09327,0.232889,14,7,6,4
+2014-10-03,Hertha Berlin,VfB Stuttgart,3,2,2.36582,1.42919,12,9,9,2
+2014-10-04,Bayer Leverkusen,SC Paderborn,2,2,1.60118,1.12552,21,8,10,5
+2014-10-04,Bayern Munich,Hannover 96,4,0,2.69879,0.443178,23,6,9,3
+2014-10-04,Borussia Dortmund,Hamburger SV,0,1,1.20017,1.42953,17,10,3,5
+2014-10-04,Eintracht Frankfurt,1. FC Köln,3,2,2.49948,1.12408,19,12,8,7
+2014-10-04,TSG Hoffenheim,Schalke 04,2,1,3.2287,0.847395,20,13,8,3
+2014-10-04,Werder Bremen,SC Freiburg,1,1,1.21503,1.03746,18,7,7,3
+2014-10-05,Borussia Mönchengladbach,1. FSV Mainz 05,1,1,1.66132,1.10201,18,8,10,2
+2014-10-05,Wolfsburg,Augsburg,1,0,0.684001,0.666035,15,7,4,1
+2014-10-18,1. FC Köln,Borussia Dortmund,2,1,0.904346,0.825853,5,16,2,3
+2014-10-18,1. FSV Mainz 05,Augsburg,2,1,1.06245,1.03873,8,15,6,6
+2014-10-18,Bayern Munich,Werder Bremen,6,0,2.49826,0.0,19,0,6,0
+2014-10-18,Hannover 96,Borussia Mönchengladbach,0,3,0.558311,1.61826,11,10,4,4
+2014-10-18,SC Freiburg,Wolfsburg,1,2,1.00939,1.45969,14,15,7,8
+2014-10-18,Schalke 04,Hertha Berlin,2,0,0.80457,0.848507,7,15,3,4
+2014-10-18,VfB Stuttgart,Bayer Leverkusen,3,3,1.30466,1.86824,13,17,6,6
+2014-10-19,Hamburger SV,TSG Hoffenheim,1,1,1.82378,1.55868,17,9,6,4
+2014-10-19,SC Paderborn,Eintracht Frankfurt,3,1,2.37575,0.558647,14,11,5,3
+2014-10-24,Werder Bremen,1. FC Köln,0,1,0.514564,0.519282,11,10,4,4
+2014-10-25,Augsburg,SC Freiburg,2,0,2.2412,0.909372,15,10,4,3
+2014-10-25,Bayer Leverkusen,Schalke 04,1,0,0.837202,0.145365,24,4,7,1
+2014-10-25,Borussia Dortmund,Hannover 96,0,1,1.61946,0.695852,17,7,4,3
+2014-10-25,Eintracht Frankfurt,VfB Stuttgart,4,5,2.97969,3.13433,21,20,13,10
+2014-10-25,Hertha Berlin,Hamburger SV,3,0,2.51297,0.784655,15,10,6,3
+2014-10-25,TSG Hoffenheim,SC Paderborn,1,0,1.5035,0.673226,19,11,5,1
+2014-10-26,Borussia Mönchengladbach,Bayern Munich,0,0,0.648384,1.2047,11,20,5,5
+2014-10-26,Wolfsburg,1. FSV Mainz 05,3,0,4.06466,1.6222,24,16,12,4
+2014-10-31,Schalke 04,Augsburg,1,0,1.71186,0.688487,13,20,7,5
+2014-11-01,1. FSV Mainz 05,Werder Bremen,1,2,1.19297,1.65943,21,9,3,7
+2014-11-01,Bayern Munich,Borussia Dortmund,2,1,2.64367,0.942884,25,10,14,4
+2014-11-01,Hamburger SV,Bayer Leverkusen,1,0,1.33863,0.426376,5,11,1,2
+2014-11-01,Hannover 96,Eintracht Frankfurt,1,0,1.11725,0.353128,14,6,3,4
+2014-11-01,VfB Stuttgart,Wolfsburg,0,4,0.924949,2.69946,13,15,4,6
+2014-11-02,1. FC Köln,SC Freiburg,0,1,0.375065,1.46003,10,8,3,3
+2014-11-02,Borussia Mönchengladbach,TSG Hoffenheim,3,1,2.46276,0.646539,13,15,7,3
+2014-11-02,SC Paderborn,Hertha Berlin,3,1,1.96835,0.925677,18,10,6,4
+2014-11-07,Hertha Berlin,Hannover 96,0,2,0.363993,1.09164,7,12,1,5
+2014-11-08,Augsburg,SC Paderborn,3,0,1.66135,0.968616,11,16,4,3
+2014-11-08,Bayer Leverkusen,1. FSV Mainz 05,0,0,2.07319,0.293271,24,6,6,1
+2014-11-08,Eintracht Frankfurt,Bayern Munich,0,4,0.222447,3.03467,6,19,2,9
+2014-11-08,SC Freiburg,Schalke 04,2,0,1.62257,0.526997,19,11,9,4
+2014-11-08,TSG Hoffenheim,1. FC Köln,3,4,1.19994,1.30702,22,11,6,7
+2014-11-08,Werder Bremen,VfB Stuttgart,2,0,0.645076,0.774005,12,8,4,1
+2014-11-09,Borussia Dortmund,Borussia Mönchengladbach,1,0,2.28053,0.0335359,22,1,6,0
+2014-11-09,Wolfsburg,Hamburger SV,2,0,1.95442,0.488693,13,10,5,2
+2014-11-22,1. FC Köln,Hertha Berlin,1,2,1.12625,0.473541,12,10,2,6
+2014-11-22,1. FSV Mainz 05,SC Freiburg,2,2,1.79109,0.691191,11,10,2,3
+2014-11-22,Bayern Munich,TSG Hoffenheim,4,0,2.08656,1.38014,17,11,9,5
+2014-11-22,Borussia Mönchengladbach,Eintracht Frankfurt,1,3,0.595484,1.73996,9,25,3,13
+2014-11-22,Hannover 96,Bayer Leverkusen,1,3,0.780087,2.36608,10,20,5,4
+2014-11-22,SC Paderborn,Borussia Dortmund,2,2,0.638364,1.92358,8,13,4,5
+2014-11-22,Schalke 04,Wolfsburg,3,2,1.12048,1.23361,9,17,6,2
+2014-11-23,Hamburger SV,Werder Bremen,2,0,2.60596,1.14769,14,12,5,7
+2014-11-23,VfB Stuttgart,Augsburg,0,1,0.382848,2.06226,9,17,1,6
+2014-11-28,SC Freiburg,VfB Stuttgart,1,4,1.49535,3.36392,16,18,6,9
+2014-11-29,Augsburg,Hamburger SV,3,1,2.79213,1.12309,13,9,8,3
+2014-11-29,Bayer Leverkusen,1. FC Köln,5,1,2.37812,0.950144,25,5,10,1
+2014-11-29,Hertha Berlin,Bayern Munich,0,1,0.25622,1.94047,4,15,1,5
+2014-11-29,Schalke 04,1. FSV Mainz 05,4,1,1.55889,2.04969,14,22,9,10
+2014-11-29,TSG Hoffenheim,Hannover 96,4,3,1.99562,1.81072,16,13,7,5
+2014-11-29,Werder Bremen,SC Paderborn,4,0,4.47976,0.839366,24,15,13,4
+2014-11-30,Eintracht Frankfurt,Borussia Dortmund,2,0,2.21905,0.769829,11,17,3,6
+2014-11-30,Wolfsburg,Borussia Mönchengladbach,1,0,1.69265,0.606945,23,10,12,2
+2014-12-05,Borussia Dortmund,TSG Hoffenheim,1,0,1.58062,0.202706,19,6,6,1
+2014-12-06,1. FC Köln,Augsburg,1,2,1.19112,1.35221,12,14,4,4
+2014-12-06,Bayern Munich,Bayer Leverkusen,1,0,0.947473,0.389245,9,3,3,1
+2014-12-06,Borussia Mönchengladbach,Hertha Berlin,3,2,1.82786,1.42138,13,11,10,3
+2014-12-06,Hannover 96,Wolfsburg,1,3,1.6788,1.85576,16,15,6,7
+2014-12-06,SC Paderborn,SC Freiburg,1,1,1.38276,0.883469,24,4,8,2
+2014-12-06,VfB Stuttgart,Schalke 04,0,4,0.675308,1.6953,13,13,3,6
+2014-12-07,Eintracht Frankfurt,Werder Bremen,5,2,3.8335,1.44207,22,10,13,4
+2014-12-07,Hamburger SV,1. FSV Mainz 05,2,1,2.03325,1.02472,18,15,8,4
+2014-12-12,TSG Hoffenheim,Eintracht Frankfurt,3,2,3.32968,2.42804,20,19,8,7
+2014-12-13,1. FSV Mainz 05,VfB Stuttgart,1,1,1.35199,0.54527,22,8,6,2
+2014-12-13,Augsburg,Bayern Munich,0,4,0.286173,2.21868,6,26,3,9
+2014-12-13,Hertha Berlin,Borussia Dortmund,1,0,0.764752,0.842366,5,18,3,5
+2014-12-13,SC Freiburg,Hamburger SV,0,0,1.46439,0.518828,10,10,4,1
+2014-12-13,Schalke 04,1. FC Köln,1,2,1.20569,1.14183,15,6,3,5
+2014-12-13,Werder Bremen,Hannover 96,3,3,1.84609,1.54036,19,12,7,7
+2014-12-14,Bayer Leverkusen,Borussia Mönchengladbach,1,1,1.01373,1.15522,22,7,5,3
+2014-12-14,Wolfsburg,SC Paderborn,1,1,3.22294,0.996117,21,6,8,3
+2014-12-16,1. FC Köln,1. FSV Mainz 05,0,0,0.541438,0.482622,11,13,1,1
+2014-12-16,Bayern Munich,SC Freiburg,2,0,2.98351,0.0497566,31,2,13,0
+2014-12-16,Hamburger SV,VfB Stuttgart,0,1,0.436429,1.36453,8,16,2,6
+2014-12-16,Hannover 96,Augsburg,2,0,1.33926,0.693534,10,10,3,5
+2014-12-17,Borussia Dortmund,Wolfsburg,2,2,1.30339,1.38959,17,10,6,4
+2014-12-17,Borussia Mönchengladbach,Werder Bremen,4,1,2.06898,0.308689,9,9,6,4
+2014-12-17,Eintracht Frankfurt,Hertha Berlin,4,4,2.73817,2.04957,16,8,7,5
+2014-12-17,SC Paderborn,Schalke 04,1,2,1.41446,1.14959,21,16,4,8
+2014-12-17,TSG Hoffenheim,Bayer Leverkusen,0,1,0.443131,2.17898,9,18,7,9
+2014-12-19,1. FSV Mainz 05,Bayern Munich,1,2,0.490212,0.831278,5,12,3,5
+2014-12-20,Augsburg,Borussia Mönchengladbach,2,1,1.65561,2.17588,18,14,6,7
+2014-12-20,Bayer Leverkusen,Eintracht Frankfurt,1,1,0.861769,1.45883,16,9,3,5
+2014-12-20,Schalke 04,Hamburger SV,0,0,1.52587,1.3688,17,15,8,6
+2014-12-20,VfB Stuttgart,SC Paderborn,0,0,0.772123,0.933283,11,17,3,5
+2014-12-20,Werder Bremen,Borussia Dortmund,2,1,2.36795,0.602289,12,14,3,5
+2014-12-20,Wolfsburg,1. FC Köln,2,1,0.527607,0.401914,14,10,3,4
+2014-12-21,Hertha Berlin,TSG Hoffenheim,0,5,0.706377,3.62858,8,15,1,8
+2014-12-21,SC Freiburg,Hannover 96,2,2,1.28555,1.52484,11,17,6,8
+2015-01-30,Wolfsburg,Bayern Munich,4,1,2.18248,1.91633,13,16,6,7
+2015-01-31,1. FSV Mainz 05,SC Paderborn,5,0,2.8788,0.717538,21,10,8,2
+2015-01-31,Bayer Leverkusen,Borussia Dortmund,0,0,0.341818,0.451401,7,10,3,2
+2015-01-31,Hamburger SV,1. FC Köln,0,2,0.601293,1.16042,10,15,3,6
+2015-01-31,SC Freiburg,Eintracht Frankfurt,4,1,3.19272,1.11886,15,12,8,6
+2015-01-31,Schalke 04,Hannover 96,1,0,1.99671,0.91702,15,13,5,1
+2015-01-31,VfB Stuttgart,Borussia Mönchengladbach,0,1,1.61352,1.27392,12,10,1,2
+2015-02-01,Augsburg,TSG Hoffenheim,3,1,2.39464,0.609254,15,13,7,5
+2015-02-01,Werder Bremen,Hertha Berlin,2,0,0.839904,0.0990819,19,3,8,0
+2015-02-03,Bayern Munich,Schalke 04,1,1,0.376661,0.994575,10,8,2,5
+2015-02-03,Borussia Mönchengladbach,SC Freiburg,1,0,1.28927,0.884382,11,15,6,5
+2015-02-03,Eintracht Frankfurt,Wolfsburg,1,1,0.948078,1.8612,12,9,4,2
+2015-02-03,Hannover 96,1. FSV Mainz 05,1,1,1.7109,1.19042,9,17,5,7
+2015-02-04,1. FC Köln,VfB Stuttgart,0,0,0.310801,0.621159,5,7,0,4
+2015-02-04,Borussia Dortmund,Augsburg,0,1,0.943193,1.04603,15,8,6,3
+2015-02-04,Hertha Berlin,Bayer Leverkusen,0,1,0.531751,1.06863,2,9,0,3
+2015-02-04,SC Paderborn,Hamburger SV,0,3,0.81246,2.21275,13,12,3,4
+2015-02-04,TSG Hoffenheim,Werder Bremen,1,2,1.33156,0.576349,13,10,5,6
+2015-02-06,Schalke 04,Borussia Mönchengladbach,1,0,1.03139,0.331344,10,8,4,1
+2015-02-07,1. FC Köln,SC Paderborn,0,0,1.03792,0.58064,17,9,5,3
+2015-02-07,1. FSV Mainz 05,Hertha Berlin,0,2,1.5201,1.77083,12,11,4,3
+2015-02-07,Hamburger SV,Hannover 96,2,1,0.674771,2.24545,6,21,3,7
+2015-02-07,SC Freiburg,Borussia Dortmund,0,3,0.159475,2.1517,7,22,1,12
+2015-02-07,VfB Stuttgart,Bayern Munich,0,2,0.132112,0.0975022,4,8,0,4
+2015-02-07,Wolfsburg,TSG Hoffenheim,3,0,1.37453,1.39639,9,16,5,4
+2015-02-08,Augsburg,Eintracht Frankfurt,2,2,1.76193,2.01179,11,16,6,5
+2015-02-08,Werder Bremen,Bayer Leverkusen,2,1,0.885549,1.74921,7,13,4,2
+2015-02-13,Borussia Dortmund,1. FSV Mainz 05,4,2,2.74589,0.691415,21,6,10,3
+2015-02-14,Bayer Leverkusen,Wolfsburg,4,5,1.98748,2.08631,15,13,7,9
+2015-02-14,Bayern Munich,Hamburger SV,8,0,4.17851,0.230619,25,7,14,2
+2015-02-14,Borussia Mönchengladbach,1. FC Köln,1,0,0.795179,0.390044,19,14,8,1
+2015-02-14,Eintracht Frankfurt,Schalke 04,1,0,1.11898,1.09914,8,8,2,6
+2015-02-14,TSG Hoffenheim,VfB Stuttgart,2,1,1.20262,0.1911,21,7,6,3
+2015-02-14,Werder Bremen,Augsburg,3,2,2.62945,0.585109,19,16,9,4
+2015-02-15,Hannover 96,SC Paderborn,1,2,0.858803,0.98493,10,11,2,5
+2015-02-15,Hertha Berlin,SC Freiburg,0,2,0.491416,0.927697,11,8,6,3
+2015-02-20,VfB Stuttgart,Borussia Dortmund,2,3,1.55893,1.56399,7,13,2,9
+2015-02-21,1. FC Köln,Hannover 96,1,1,1.54226,0.979608,16,7,7,5
+2015-02-21,1. FSV Mainz 05,Eintracht Frankfurt,3,1,1.29637,0.851176,13,8,6,1
+2015-02-21,Augsburg,Bayer Leverkusen,2,2,1.92692,1.93428,16,18,7,12
+2015-02-21,SC Freiburg,TSG Hoffenheim,1,1,0.600548,0.565627,10,14,5,5
+2015-02-21,SC Paderborn,Bayern Munich,0,6,0.380499,3.12815,13,17,3,9
+2015-02-21,Schalke 04,Werder Bremen,1,1,1.19124,1.38186,24,14,5,4
+2015-02-22,Hamburger SV,Borussia Mönchengladbach,1,1,1.04376,0.657812,13,12,3,2
+2015-02-22,Wolfsburg,Hertha Berlin,2,1,1.77626,0.563215,17,3,5,2
+2015-02-27,Bayern Munich,1. FC Köln,4,1,3.92268,0.494166,23,9,9,4
+2015-02-28,Bayer Leverkusen,SC Freiburg,1,0,0.57152,0.271169,11,3,4,2
+2015-02-28,Borussia Dortmund,Schalke 04,3,0,4.81308,0.0386148,31,3,13,0
+2015-02-28,Eintracht Frankfurt,Hamburger SV,2,1,2.21323,1.43145,19,9,6,5
+2015-02-28,Hannover 96,VfB Stuttgart,1,1,1.5399,0.742277,16,9,5,1
+2015-02-28,Hertha Berlin,Augsburg,1,0,1.26944,0.663246,9,11,4,3
+2015-02-28,TSG Hoffenheim,1. FSV Mainz 05,2,0,2.25024,2.16818,16,19,5,4
+2015-03-01,Borussia Mönchengladbach,SC Paderborn,2,0,1.43897,0.746314,19,17,7,3
+2015-03-01,Werder Bremen,Wolfsburg,3,5,1.44281,2.5513,10,13,5,6
+2015-03-06,VfB Stuttgart,Hertha Berlin,0,0,1.07906,0.682492,14,7,3,2
+2015-03-07,1. FSV Mainz 05,Borussia Mönchengladbach,2,2,1.21471,1.44907,23,6,7,3
+2015-03-07,Augsburg,Wolfsburg,1,0,1.44291,0.390951,12,10,6,2
+2015-03-07,Hamburger SV,Borussia Dortmund,0,0,0.735406,0.505015,4,12,2,2
+2015-03-07,Hannover 96,Bayern Munich,1,3,0.205925,1.33559,4,13,1,3
+2015-03-07,SC Freiburg,Werder Bremen,0,1,0.430875,0.649704,14,16,5,4
+2015-03-07,Schalke 04,TSG Hoffenheim,3,1,2.12473,1.9462,14,18,5,7
+2015-03-08,1. FC Köln,Eintracht Frankfurt,4,2,1.74567,1.89213,9,12,6,5
+2015-03-08,SC Paderborn,Bayer Leverkusen,0,3,0.755297,1.17926,9,11,2,6
+2015-03-13,Bayer Leverkusen,VfB Stuttgart,4,0,1.59835,1.03528,11,9,5,5
+2015-03-14,Augsburg,1. FSV Mainz 05,0,2,0.94984,1.62842,13,12,2,7
+2015-03-14,Borussia Dortmund,1. FC Köln,0,0,0.5365,0.938097,10,7,5,2
+2015-03-14,Eintracht Frankfurt,SC Paderborn,4,0,1.726,0.634028,11,8,6,3
+2015-03-14,Hertha Berlin,Schalke 04,2,2,1.64453,1.99192,13,12,6,6
+2015-03-14,TSG Hoffenheim,Hamburger SV,3,0,2.66878,0.438761,20,10,7,2
+2015-03-14,Werder Bremen,Bayern Munich,0,4,0.290321,2.18396,6,13,3,7
+2015-03-15,Borussia Mönchengladbach,Hannover 96,2,0,3.30586,0.395038,23,7,8,1
+2015-03-15,Wolfsburg,SC Freiburg,3,0,2.68949,1.21009,25,16,8,5
+2015-03-20,Hamburger SV,Hertha Berlin,0,1,0.482112,0.7084,13,9,4,3
+2015-03-21,1. FC Köln,Werder Bremen,1,1,1.76655,0.570166,14,11,2,6
+2015-03-21,Hannover 96,Borussia Dortmund,2,3,0.927629,2.31429,15,13,5,6
+2015-03-21,SC Freiburg,Augsburg,2,0,2.10189,1.10909,15,17,8,6
+2015-03-21,SC Paderborn,TSG Hoffenheim,0,0,1.07174,0.267507,15,8,7,2
+2015-03-21,Schalke 04,Bayer Leverkusen,0,1,1.79663,1.3174,13,16,5,7
+2015-03-21,VfB Stuttgart,Eintracht Frankfurt,3,1,2.22419,1.35468,9,11,5,5
+2015-03-22,1. FSV Mainz 05,Wolfsburg,1,1,1.02675,0.811129,22,8,1,3
+2015-03-22,Bayern Munich,Borussia Mönchengladbach,0,2,0.70739,0.604102,16,4,8,4
+2015-04-04,Bayer Leverkusen,Hamburger SV,4,0,3.81979,0.35348,25,4,9,1
+2015-04-04,Borussia Dortmund,Bayern Munich,0,1,0.51879,0.759126,15,7,2,2
+2015-04-04,Eintracht Frankfurt,Hannover 96,2,2,1.03699,1.33074,13,15,7,6
+2015-04-04,SC Freiburg,1. FC Köln,1,0,0.504147,0.844825,11,19,4,6
+2015-04-04,TSG Hoffenheim,Borussia Mönchengladbach,1,4,2.32046,3.20249,22,12,6,7
+2015-04-04,Werder Bremen,1. FSV Mainz 05,0,0,0.718931,0.92075,15,15,5,3
+2015-04-04,Wolfsburg,VfB Stuttgart,3,1,3.74206,1.92469,23,13,9,5
+2015-04-05,Augsburg,Schalke 04,0,0,0.927284,0.933294,21,18,3,3
+2015-04-05,Hertha Berlin,SC Paderborn,2,0,1.84498,0.563136,13,8,5,2
+2015-04-10,Hannover 96,Hertha Berlin,1,1,1.67956,0.358149,11,9,5,3
+2015-04-11,1. FSV Mainz 05,Bayer Leverkusen,2,3,2.21349,0.970257,8,9,2,5
+2015-04-11,Bayern Munich,Eintracht Frankfurt,3,0,2.15165,0.243596,19,4,10,1
+2015-04-11,Borussia Mönchengladbach,Borussia Dortmund,3,1,2.08503,0.699622,12,17,7,3
+2015-04-11,Hamburger SV,Wolfsburg,0,2,0.141435,2.16383,5,15,0,8
+2015-04-11,SC Paderborn,Augsburg,2,1,2.35597,0.637449,14,16,4,5
+2015-04-11,Schalke 04,SC Freiburg,0,0,1.06643,1.26863,21,10,6,3
+2015-04-12,1. FC Köln,TSG Hoffenheim,3,2,2.55523,2.32029,18,24,6,8
+2015-04-12,VfB Stuttgart,Werder Bremen,3,2,2.35291,0.448325,15,12,3,3
+2015-04-17,Eintracht Frankfurt,Borussia Mönchengladbach,0,0,1.45853,1.06606,17,11,5,4
+2015-04-18,Augsburg,VfB Stuttgart,2,1,1.14401,2.41152,12,16,4,7
+2015-04-18,Bayer Leverkusen,Hannover 96,4,0,2.60733,0.326006,25,5,10,1
+2015-04-18,Borussia Dortmund,SC Paderborn,3,0,3.20767,0.123904,21,2,8,0
+2015-04-18,Hertha Berlin,1. FC Köln,0,0,1.06799,0.54042,10,7,4,2
+2015-04-18,SC Freiburg,1. FSV Mainz 05,2,3,1.28235,2.30496,25,12,10,5
+2015-04-18,TSG Hoffenheim,Bayern Munich,0,2,0.668652,1.52453,8,20,1,5
+2015-04-19,Werder Bremen,Hamburger SV,1,0,1.3478,0.433841,11,8,5,2
+2015-04-19,Wolfsburg,Schalke 04,1,1,1.08185,0.285232,26,7,9,2
+2015-04-24,1. FSV Mainz 05,Schalke 04,2,0,1.53987,1.25458,11,18,3,2
+2015-04-25,1. FC Köln,Bayer Leverkusen,1,1,1.30026,1.19204,14,9,4,5
+2015-04-25,Bayern Munich,Hertha Berlin,1,0,0.896545,0.951998,16,8,7,3
+2015-04-25,Borussia Dortmund,Eintracht Frankfurt,2,0,2.47437,0.372545,12,11,4,0
+2015-04-25,Hamburger SV,Augsburg,3,2,1.7695,1.44372,15,14,8,3
+2015-04-25,Hannover 96,TSG Hoffenheim,1,2,1.30305,1.26477,12,13,5,4
+2015-04-25,VfB Stuttgart,SC Freiburg,2,2,1.20966,2.04706,11,14,3,7
+2015-04-26,Borussia Mönchengladbach,Wolfsburg,1,0,1.65493,0.422562,19,9,5,0
+2015-04-26,SC Paderborn,Werder Bremen,2,2,1.96537,0.959164,20,13,8,6
+2015-05-02,Augsburg,1. FC Köln,0,0,1.43037,0.292827,16,6,3,1
+2015-05-02,Bayer Leverkusen,Bayern Munich,2,0,1.12021,1.20915,20,9,8,5
+2015-05-02,SC Freiburg,SC Paderborn,1,2,1.70774,1.3154,15,14,5,6
+2015-05-02,Schalke 04,VfB Stuttgart,3,2,2.46865,1.13594,20,15,6,7
+2015-05-02,TSG Hoffenheim,Borussia Dortmund,1,1,1.6206,1.17707,15,11,4,3
+2015-05-02,Werder Bremen,Eintracht Frankfurt,1,0,2.86921,1.2158,16,14,8,5
+2015-05-02,Wolfsburg,Hannover 96,2,2,1.52891,1.41691,20,15,4,9
+2015-05-03,1. FSV Mainz 05,Hamburger SV,1,2,0.667039,0.602455,9,13,5,5
+2015-05-03,Hertha Berlin,Borussia Mönchengladbach,1,2,1.09646,2.19034,10,18,3,7
+2015-05-08,Hamburger SV,SC Freiburg,1,1,1.56791,1.88887,16,15,8,7
+2015-05-09,Bayern Munich,Augsburg,0,1,1.17797,2.58299,16,12,4,4
+2015-05-09,Borussia Dortmund,Hertha Berlin,2,0,1.78902,0.135418,15,2,4,0
+2015-05-09,Borussia Mönchengladbach,Bayer Leverkusen,3,0,2.05603,0.58536,10,19,7,2
+2015-05-09,Eintracht Frankfurt,TSG Hoffenheim,3,1,0.906802,0.788645,13,8,4,5
+2015-05-09,Hannover 96,Werder Bremen,1,1,1.17255,0.490122,12,9,3,3
+2015-05-09,VfB Stuttgart,1. FSV Mainz 05,2,0,2.70104,0.278579,18,7,7,2
+2015-05-10,1. FC Köln,Schalke 04,2,0,1.52646,0.236428,13,5,6,1
+2015-05-10,SC Paderborn,Wolfsburg,1,3,1.26876,1.68486,16,10,4,5
+2015-05-16,1. FSV Mainz 05,1. FC Köln,2,0,1.67686,1.01035,18,12,6,4
+2015-05-16,Augsburg,Hannover 96,1,2,1.03797,0.466165,8,8,2,3
+2015-05-16,Bayer Leverkusen,TSG Hoffenheim,2,0,1.17358,0.692454,13,16,4,5
+2015-05-16,Hertha Berlin,Eintracht Frankfurt,0,0,1.08366,0.0408065,9,1,2,0
+2015-05-16,SC Freiburg,Bayern Munich,2,1,0.656099,1.91964,9,17,3,6
+2015-05-16,Schalke 04,SC Paderborn,1,0,1.05307,0.87016,18,22,2,4
+2015-05-16,VfB Stuttgart,Hamburger SV,2,1,2.50374,0.197392,22,7,11,1
+2015-05-16,Werder Bremen,Borussia Mönchengladbach,0,2,1.20572,1.45177,19,14,3,4
+2015-05-16,Wolfsburg,Borussia Dortmund,2,1,1.65992,1.77219,12,17,8,3
+2015-05-23,1. FC Köln,Wolfsburg,2,2,0.909494,2.05941,12,15,3,5
+2015-05-23,Bayern Munich,1. FSV Mainz 05,2,0,2.34132,0.328659,20,7,7,5
+2015-05-23,Borussia Dortmund,Werder Bremen,3,2,2.90398,0.964946,22,7,8,4
+2015-05-23,Borussia Mönchengladbach,Augsburg,1,3,1.32784,0.664595,10,15,3,4
+2015-05-23,Eintracht Frankfurt,Bayer Leverkusen,2,1,1.11352,0.836413,8,19,3,7
+2015-05-23,Hamburger SV,Schalke 04,2,0,1.10308,1.09683,11,11,4,4
+2015-05-23,Hannover 96,SC Freiburg,2,1,0.593454,0.661015,11,9,6,5
+2015-05-23,SC Paderborn,VfB Stuttgart,1,2,0.538797,2.42856,15,18,5,3
+2015-05-23,TSG Hoffenheim,Hertha Berlin,2,1,0.893112,0.485545,16,4,5,1

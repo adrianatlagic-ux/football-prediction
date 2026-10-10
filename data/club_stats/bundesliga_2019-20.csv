@@ -1,0 +1,307 @@
+date,home_team,away_team,home_goals,away_goals,home_xg,away_xg,home_shots,away_shots,home_sot,away_sot
+2019-08-16,Bayern Munich,Hertha Berlin,2,2,2.47707,1.18459,17,6,7,3
+2019-08-17,Bayer Leverkusen,SC Paderborn,3,2,2.47615,1.20475,13,11,4,6
+2019-08-17,Borussia Dortmund,Augsburg,5,1,3.25906,0.904482,23,5,10,1
+2019-08-17,Borussia Mönchengladbach,Schalke 04,0,0,1.43141,0.760773,16,8,4,1
+2019-08-17,SC Freiburg,1. FSV Mainz 05,3,0,1.88401,0.784216,19,19,8,5
+2019-08-17,Werder Bremen,Fortuna Düsseldorf,1,3,2.0112,1.01536,23,12,10,7
+2019-08-17,Wolfsburg,1. FC Köln,2,1,0.9793,0.662001,14,11,5,2
+2019-08-18,Eintracht Frankfurt,TSG Hoffenheim,1,0,1.8214,0.634831,17,10,8,1
+2019-08-18,Union Berlin,RB Leipzig,0,4,0.782907,3.93387,13,14,2,8
+2019-08-23,1. FC Köln,Borussia Dortmund,1,3,0.937461,2.08181,13,14,1,6
+2019-08-24,1. FSV Mainz 05,Borussia Mönchengladbach,1,3,1.81289,2.09431,21,15,4,6
+2019-08-24,Augsburg,Union Berlin,1,1,1.37579,0.891198,12,13,4,1
+2019-08-24,Fortuna Düsseldorf,Bayer Leverkusen,1,3,1.12017,1.82469,11,11,6,7
+2019-08-24,SC Paderborn,SC Freiburg,1,3,1.81166,2.38424,15,9,2,4
+2019-08-24,Schalke 04,Bayern Munich,0,3,1.08016,1.59729,9,10,2,6
+2019-08-24,TSG Hoffenheim,Werder Bremen,3,2,1.05096,0.841426,10,18,3,6
+2019-08-25,Hertha Berlin,Wolfsburg,0,3,0.936557,1.33245,8,9,2,4
+2019-08-25,RB Leipzig,Eintracht Frankfurt,2,1,1.77604,0.935237,13,11,5,5
+2019-08-30,Borussia Mönchengladbach,RB Leipzig,1,3,1.4586,3.13131,11,14,3,6
+2019-08-31,Bayer Leverkusen,TSG Hoffenheim,0,0,0.936475,0.450548,20,6,2,1
+2019-08-31,Bayern Munich,1. FSV Mainz 05,6,1,3.34597,0.72047,19,7,10,4
+2019-08-31,SC Freiburg,1. FC Köln,1,2,0.838391,1.62928,14,9,1,3
+2019-08-31,Schalke 04,Hertha Berlin,3,0,1.16546,0.771094,9,9,2,3
+2019-08-31,Union Berlin,Borussia Dortmund,3,1,1.4209,1.60213,15,13,7,2
+2019-08-31,Wolfsburg,SC Paderborn,1,1,0.996067,0.492299,15,7,5,3
+2019-09-01,Eintracht Frankfurt,Fortuna Düsseldorf,2,1,1.75705,0.759809,15,14,8,4
+2019-09-01,Werder Bremen,Augsburg,3,2,2.46951,1.48072,15,12,5,6
+2019-09-13,Fortuna Düsseldorf,Wolfsburg,1,1,0.679763,2.28602,12,15,3,6
+2019-09-14,1. FC Köln,Borussia Mönchengladbach,0,1,0.841764,1.55336,14,15,7,4
+2019-09-14,1. FSV Mainz 05,Hertha Berlin,2,1,1.1162,2.07839,14,16,5,8
+2019-09-14,Augsburg,Eintracht Frankfurt,2,1,1.58878,0.899696,9,23,6,3
+2019-09-14,Borussia Dortmund,Bayer Leverkusen,4,0,3.23112,1.14812,11,22,9,12
+2019-09-14,RB Leipzig,Bayern Munich,1,1,1.65427,1.6704,12,14,6,7
+2019-09-14,Union Berlin,Werder Bremen,1,2,1.98106,2.14722,12,16,5,7
+2019-09-15,SC Paderborn,Schalke 04,1,5,1.39508,1.9184,9,18,1,11
+2019-09-15,TSG Hoffenheim,SC Freiburg,0,3,1.10385,1.78643,22,16,5,8
+2019-09-20,Schalke 04,1. FSV Mainz 05,2,1,0.873048,0.985151,19,14,6,3
+2019-09-21,Bayer Leverkusen,Union Berlin,2,0,1.55742,0.125413,20,4,7,0
+2019-09-21,Bayern Munich,1. FC Köln,4,0,2.92351,1.03267,24,16,5,2
+2019-09-21,Hertha Berlin,SC Paderborn,2,1,0.983173,1.89015,6,17,4,8
+2019-09-21,SC Freiburg,Augsburg,1,1,1.70133,0.884946,17,12,5,2
+2019-09-21,Werder Bremen,RB Leipzig,0,3,0.583174,1.72557,11,14,1,7
+2019-09-22,Borussia Mönchengladbach,Fortuna Düsseldorf,2,1,4.2854,1.27666,23,18,11,4
+2019-09-22,Eintracht Frankfurt,Borussia Dortmund,2,2,1.15899,2.36595,17,15,3,7
+2019-09-23,Wolfsburg,TSG Hoffenheim,1,1,0.941782,0.743288,12,11,4,5
+2019-09-27,Union Berlin,Eintracht Frankfurt,1,2,0.7564,2.31283,12,14,5,6
+2019-09-28,1. FSV Mainz 05,Wolfsburg,0,1,1.27755,0.994636,15,4,5,3
+2019-09-28,Augsburg,Bayer Leverkusen,0,3,0.27153,0.978659,8,11,1,5
+2019-09-28,Borussia Dortmund,Werder Bremen,2,2,1.76252,0.98217,19,11,7,5
+2019-09-28,RB Leipzig,Schalke 04,1,3,1.2781,2.64689,17,13,6,8
+2019-09-28,SC Paderborn,Bayern Munich,2,3,0.281111,3.47305,10,18,5,6
+2019-09-28,TSG Hoffenheim,Borussia Mönchengladbach,0,3,1.30868,2.83647,17,11,4,5
+2019-09-29,1. FC Köln,Hertha Berlin,0,4,0.533432,2.20336,8,10,3,6
+2019-09-29,Fortuna Düsseldorf,SC Freiburg,1,2,2.01843,1.67484,17,9,7,3
+2019-10-04,Hertha Berlin,Fortuna Düsseldorf,3,1,2.0219,1.1795,16,9,3,3
+2019-10-05,Bayer Leverkusen,RB Leipzig,1,1,1.6617,2.45811,11,11,8,5
+2019-10-05,Bayern Munich,TSG Hoffenheim,1,2,1.77327,0.723738,20,8,4,5
+2019-10-05,SC Freiburg,Borussia Dortmund,2,2,0.467957,0.774276,6,8,1,4
+2019-10-05,SC Paderborn,1. FSV Mainz 05,1,2,1.49293,2.63853,16,18,7,7
+2019-10-05,Schalke 04,1. FC Köln,1,1,2.04637,1.04818,15,9,3,5
+2019-10-06,Borussia Mönchengladbach,Augsburg,5,1,3.59033,1.35488,13,13,9,3
+2019-10-06,Eintracht Frankfurt,Werder Bremen,2,2,2.95637,1.75811,24,11,7,5
+2019-10-06,Wolfsburg,Union Berlin,1,0,1.80334,0.511105,13,14,4,3
+2019-10-18,Eintracht Frankfurt,Bayer Leverkusen,3,0,2.73688,1.58917,10,19,5,10
+2019-10-19,Augsburg,Bayern Munich,2,2,2.14428,3.06071,9,24,7,9
+2019-10-19,Borussia Dortmund,Borussia Mönchengladbach,1,0,1.62968,3.217,20,13,7,3
+2019-10-19,Fortuna Düsseldorf,1. FSV Mainz 05,1,0,2.01829,0.236283,20,7,4,1
+2019-10-19,RB Leipzig,Wolfsburg,1,1,1.35769,1.69441,13,14,5,6
+2019-10-19,Union Berlin,SC Freiburg,2,0,1.47678,0.565578,18,12,5,4
+2019-10-19,Werder Bremen,Hertha Berlin,1,1,0.967641,0.353813,15,11,5,2
+2019-10-20,1. FC Köln,SC Paderborn,3,0,2.41631,0.574545,16,9,6,1
+2019-10-20,TSG Hoffenheim,Schalke 04,2,0,0.973105,0.859284,9,11,3,1
+2019-10-25,1. FSV Mainz 05,1. FC Köln,3,1,1.54568,1.52391,18,16,6,8
+2019-10-26,Bayer Leverkusen,Werder Bremen,2,2,2.95018,0.502517,21,10,4,3
+2019-10-26,Bayern Munich,Union Berlin,2,1,2.88476,1.7324,21,6,10,4
+2019-10-26,Hertha Berlin,TSG Hoffenheim,2,3,2.37055,2.93074,13,17,4,8
+2019-10-26,SC Freiburg,RB Leipzig,2,1,1.77638,2.55936,14,25,3,6
+2019-10-26,SC Paderborn,Fortuna Düsseldorf,2,0,0.738686,1.43646,14,18,6,4
+2019-10-26,Schalke 04,Borussia Dortmund,0,0,1.08518,0.346623,13,8,3,3
+2019-10-27,Borussia Mönchengladbach,Eintracht Frankfurt,4,2,1.99947,0.997822,12,15,7,3
+2019-10-27,Wolfsburg,Augsburg,0,0,0.955818,0.741183,14,10,3,5
+2019-11-01,TSG Hoffenheim,SC Paderborn,3,0,1.89547,0.464343,12,9,7,2
+2019-11-02,Bayer Leverkusen,Borussia Mönchengladbach,1,2,2.12992,2.05874,23,11,6,6
+2019-11-02,Borussia Dortmund,Wolfsburg,3,0,2.14832,1.31443,17,12,8,3
+2019-11-02,Eintracht Frankfurt,Bayern Munich,5,1,2.99704,1.08228,17,7,11,3
+2019-11-02,RB Leipzig,1. FSV Mainz 05,8,0,3.95826,0.85545,19,10,12,2
+2019-11-02,Union Berlin,Hertha Berlin,1,0,1.31187,0.415645,16,8,6,3
+2019-11-02,Werder Bremen,SC Freiburg,2,2,2.02587,0.873641,20,13,10,3
+2019-11-03,Augsburg,Schalke 04,2,3,1.55099,0.355124,12,11,4,3
+2019-11-03,Fortuna Düsseldorf,1. FC Köln,2,0,2.18646,1.03434,9,8,3,1
+2019-11-08,1. FC Köln,TSG Hoffenheim,1,2,0.638731,1.6191,11,15,3,5
+2019-11-09,1. FSV Mainz 05,Union Berlin,2,3,2.04684,1.5394,18,14,5,4
+2019-11-09,Bayern Munich,Borussia Dortmund,4,0,3.90951,0.608676,17,2,5,0
+2019-11-09,Hertha Berlin,RB Leipzig,2,4,0.46433,1.93927,7,10,3,7
+2019-11-09,SC Paderborn,Augsburg,0,1,1.20293,1.09006,12,13,4,5
+2019-11-09,Schalke 04,Fortuna Düsseldorf,3,3,1.23132,2.06462,12,9,5,5
+2019-11-10,Borussia Mönchengladbach,Werder Bremen,3,1,2.15941,1.59871,17,16,7,7
+2019-11-10,SC Freiburg,Eintracht Frankfurt,1,0,0.773034,1.13495,13,17,7,6
+2019-11-10,Wolfsburg,Bayer Leverkusen,0,2,0.571444,1.20713,9,9,1,4
+2019-11-22,Borussia Dortmund,SC Paderborn,3,3,1.9077,2.10743,18,10,7,4
+2019-11-23,Bayer Leverkusen,SC Freiburg,1,1,3.96943,1.25233,27,7,9,2
+2019-11-23,Eintracht Frankfurt,Wolfsburg,0,2,0.848135,1.35049,17,9,9,6
+2019-11-23,Fortuna Düsseldorf,Bayern Munich,0,4,0.443491,3.81728,12,18,1,5
+2019-11-23,RB Leipzig,1. FC Köln,4,1,2.57218,0.886616,20,6,8,1
+2019-11-23,Union Berlin,Borussia Mönchengladbach,2,0,1.49758,0.95814,11,12,6,2
+2019-11-23,Werder Bremen,Schalke 04,1,2,1.7254,0.660152,16,10,5,5
+2019-11-24,Augsburg,Hertha Berlin,4,0,1.76885,0.801011,14,5,5,1
+2019-11-24,TSG Hoffenheim,1. FSV Mainz 05,1,5,2.15404,2.10482,22,11,8,5
+2019-11-29,Schalke 04,Union Berlin,2,1,1.27089,1.65551,17,17,8,7
+2019-11-30,1. FC Köln,Augsburg,1,1,1.07293,2.28696,13,11,6,4
+2019-11-30,Bayern Munich,Bayer Leverkusen,1,2,2.24624,1.44804,24,11,11,7
+2019-11-30,Hertha Berlin,Borussia Dortmund,1,2,0.751161,1.48269,13,7,3,5
+2019-11-30,SC Paderborn,RB Leipzig,2,3,1.55563,1.79269,8,18,4,6
+2019-11-30,TSG Hoffenheim,Fortuna Düsseldorf,1,1,2.69182,0.884323,12,11,6,3
+2019-12-01,Borussia Mönchengladbach,SC Freiburg,4,2,5.28668,1.5268,22,13,13,5
+2019-12-01,Wolfsburg,Werder Bremen,2,3,2.7056,1.29088,19,10,6,3
+2019-12-02,1. FSV Mainz 05,Eintracht Frankfurt,2,1,2.05075,2.0102,18,14,8,4
+2019-12-06,Eintracht Frankfurt,Hertha Berlin,2,2,2.6934,1.43518,25,9,6,3
+2019-12-07,Augsburg,1. FSV Mainz 05,2,1,3.03979,0.426387,18,12,5,3
+2019-12-07,Bayer Leverkusen,Schalke 04,2,1,3.0351,0.9976,19,5,9,3
+2019-12-07,Borussia Dortmund,Fortuna Düsseldorf,5,0,3.95015,0.102341,23,2,10,0
+2019-12-07,Borussia Mönchengladbach,Bayern Munich,2,1,1.33084,1.74378,7,17,3,5
+2019-12-07,RB Leipzig,TSG Hoffenheim,3,1,3.5887,1.28019,25,11,14,1
+2019-12-07,SC Freiburg,Wolfsburg,1,0,0.434528,1.59205,10,10,3,0
+2019-12-08,Union Berlin,1. FC Köln,2,0,1.7912,0.772348,11,14,5,4
+2019-12-08,Werder Bremen,SC Paderborn,0,1,0.8271,1.51679,12,18,3,5
+2019-12-13,TSG Hoffenheim,Augsburg,2,4,1.75727,2.22713,19,6,8,4
+2019-12-14,1. FC Köln,Bayer Leverkusen,2,0,1.94644,0.226408,13,6,5,2
+2019-12-14,1. FSV Mainz 05,Borussia Dortmund,0,4,0.233287,1.4717,9,18,0,7
+2019-12-14,Bayern Munich,Werder Bremen,6,1,5.83554,0.536081,29,11,14,2
+2019-12-14,Fortuna Düsseldorf,RB Leipzig,0,3,0.263544,3.98532,4,21,1,7
+2019-12-14,Hertha Berlin,SC Freiburg,1,0,0.930886,0.816692,14,15,4,2
+2019-12-14,SC Paderborn,Union Berlin,1,1,1.3758,1.79415,14,15,3,2
+2019-12-15,Schalke 04,Eintracht Frankfurt,1,0,1.10732,1.01796,11,17,5,3
+2019-12-15,Wolfsburg,Borussia Mönchengladbach,2,1,0.968068,0.502409,17,6,7,5
+2019-12-17,Augsburg,Fortuna Düsseldorf,3,0,1.4601,0.755838,12,6,7,2
+2019-12-17,Borussia Dortmund,RB Leipzig,3,3,1.89658,2.90735,14,12,6,8
+2019-12-17,Union Berlin,TSG Hoffenheim,0,2,1.53884,0.819222,16,7,2,4
+2019-12-17,Werder Bremen,1. FSV Mainz 05,0,5,0.48889,2.18253,15,19,5,8
+2019-12-18,Bayer Leverkusen,Hertha Berlin,0,1,1.32267,1.51156,17,10,7,5
+2019-12-18,Borussia Mönchengladbach,SC Paderborn,2,0,2.79858,0.508363,17,12,6,2
+2019-12-18,Eintracht Frankfurt,1. FC Köln,2,4,1.25773,2.13045,17,21,6,9
+2019-12-18,SC Freiburg,Bayern Munich,1,3,2.13825,4.41404,15,22,5,10
+2019-12-18,Wolfsburg,Schalke 04,1,1,2.99738,1.73056,29,8,11,2
+2019-12-20,TSG Hoffenheim,Borussia Dortmund,2,1,1.33628,2.04502,11,12,3,5
+2019-12-21,1. FC Köln,Werder Bremen,1,0,1.03002,0.229787,7,6,1,1
+2019-12-21,1. FSV Mainz 05,Bayer Leverkusen,0,1,2.49346,1.55537,17,14,2,4
+2019-12-21,Bayern Munich,Wolfsburg,2,0,1.58412,0.889656,18,10,8,3
+2019-12-21,Hertha Berlin,Borussia Mönchengladbach,0,0,0.804328,0.633262,8,11,0,5
+2019-12-21,RB Leipzig,Augsburg,3,1,3.84524,0.598351,22,6,7,2
+2019-12-21,Schalke 04,SC Freiburg,2,2,1.70201,2.56208,19,19,6,7
+2019-12-22,Fortuna Düsseldorf,Union Berlin,2,1,1.17089,1.9614,22,17,8,6
+2019-12-22,SC Paderborn,Eintracht Frankfurt,2,1,1.8362,1.81533,19,20,5,5
+2020-01-17,Schalke 04,Borussia Mönchengladbach,2,0,2.05715,0.838626,13,14,7,5
+2020-01-18,1. FC Köln,Wolfsburg,3,1,1.52546,1.73137,12,17,7,8
+2020-01-18,1. FSV Mainz 05,SC Freiburg,1,2,1.62715,2.11329,24,13,8,5
+2020-01-18,Augsburg,Borussia Dortmund,3,5,1.80963,3.75099,13,17,5,8
+2020-01-18,Fortuna Düsseldorf,Werder Bremen,0,1,1.0094,0.669177,17,13,2,4
+2020-01-18,RB Leipzig,Union Berlin,3,1,1.34573,1.02267,19,15,8,5
+2020-01-18,TSG Hoffenheim,Eintracht Frankfurt,1,2,1.00395,1.83811,12,13,5,3
+2020-01-19,Hertha Berlin,Bayern Munich,0,4,0.82925,2.96455,6,20,1,10
+2020-01-19,SC Paderborn,Bayer Leverkusen,1,4,1.3828,2.17277,13,12,7,7
+2020-01-24,Borussia Dortmund,1. FC Köln,5,1,3.14965,0.860519,14,11,9,5
+2020-01-25,Bayern Munich,Schalke 04,5,0,3.90217,0.401432,24,7,14,1
+2020-01-25,Borussia Mönchengladbach,1. FSV Mainz 05,3,1,2.997,0.889986,15,12,5,9
+2020-01-25,Eintracht Frankfurt,RB Leipzig,2,0,1.30274,1.42745,7,22,5,4
+2020-01-25,SC Freiburg,SC Paderborn,0,2,1.99439,1.79606,19,15,5,3
+2020-01-25,Union Berlin,Augsburg,2,0,1.19907,2.47924,12,25,3,7
+2020-01-25,Wolfsburg,Hertha Berlin,1,2,1.14053,1.71603,20,9,7,4
+2020-01-26,Bayer Leverkusen,Fortuna Düsseldorf,3,0,4.50128,0.710981,25,12,11,3
+2020-01-26,Werder Bremen,TSG Hoffenheim,0,3,0.908592,1.16702,16,9,3,4
+2020-01-31,Hertha Berlin,Schalke 04,0,0,0.417351,1.11364,9,13,0,5
+2020-02-01,1. FSV Mainz 05,Bayern Munich,1,3,0.332903,2.03579,8,13,3,5
+2020-02-01,Augsburg,Werder Bremen,2,1,1.21583,0.630423,14,7,4,1
+2020-02-01,Borussia Dortmund,Union Berlin,5,0,3.29375,0.560146,13,5,7,0
+2020-02-01,Fortuna Düsseldorf,Eintracht Frankfurt,1,1,0.245794,1.34897,8,6,1,4
+2020-02-01,RB Leipzig,Borussia Mönchengladbach,2,2,1.29026,0.973355,18,7,8,4
+2020-02-01,TSG Hoffenheim,Bayer Leverkusen,2,1,2.58436,3.11718,14,22,6,11
+2020-02-02,1. FC Köln,SC Freiburg,4,0,4.10075,0.502678,24,9,9,2
+2020-02-02,SC Paderborn,Wolfsburg,2,4,1.20103,1.8251,10,9,7,5
+2020-02-07,Eintracht Frankfurt,Augsburg,5,0,2.05219,1.00749,13,8,9,5
+2020-02-08,Bayer Leverkusen,Borussia Dortmund,4,3,1.10259,0.882241,9,12,5,6
+2020-02-08,Hertha Berlin,1. FSV Mainz 05,1,3,0.811018,2.85074,13,10,3,3
+2020-02-08,SC Freiburg,TSG Hoffenheim,1,0,2.24593,1.86364,12,21,6,6
+2020-02-08,Schalke 04,SC Paderborn,1,1,1.02675,0.561041,15,15,4,4
+2020-02-08,Werder Bremen,Union Berlin,0,2,1.24914,2.25796,14,11,3,5
+2020-02-08,Wolfsburg,Fortuna Düsseldorf,1,1,1.02897,0.697949,9,10,5,2
+2020-02-09,Bayern Munich,RB Leipzig,0,0,1.0745,1.76051,10,8,3,1
+2020-02-14,Borussia Dortmund,Eintracht Frankfurt,4,0,1.77897,0.0254182,17,1,7,0
+2020-02-15,Augsburg,SC Freiburg,1,1,0.666175,1.11403,10,20,3,5
+2020-02-15,Fortuna Düsseldorf,Borussia Mönchengladbach,1,4,0.804434,2.76945,9,17,4,6
+2020-02-15,RB Leipzig,Werder Bremen,3,0,2.22403,0.206913,10,8,3,1
+2020-02-15,SC Paderborn,Hertha Berlin,1,2,0.920452,2.10688,20,17,4,6
+2020-02-15,TSG Hoffenheim,Wolfsburg,2,3,2.88142,3.49709,14,15,6,6
+2020-02-15,Union Berlin,Bayer Leverkusen,2,3,2.02125,1.55179,20,12,7,5
+2020-02-16,1. FC Köln,Bayern Munich,1,4,2.03908,3.04216,13,26,6,8
+2020-02-16,1. FSV Mainz 05,Schalke 04,0,0,1.60342,1.11629,15,8,5,3
+2020-02-21,Bayern Munich,SC Paderborn,3,2,3.2444,1.47195,18,5,9,4
+2020-02-22,Borussia Mönchengladbach,TSG Hoffenheim,1,1,2.39606,1.98292,17,22,10,4
+2020-02-22,Hertha Berlin,1. FC Köln,0,5,0.449209,2.89736,9,17,1,11
+2020-02-22,SC Freiburg,Fortuna Düsseldorf,0,2,0.972649,0.873548,15,9,4,4
+2020-02-22,Schalke 04,RB Leipzig,0,5,0.289302,3.12937,3,22,2,8
+2020-02-22,Werder Bremen,Borussia Dortmund,0,2,0.217074,1.3554,8,12,2,6
+2020-02-23,Bayer Leverkusen,Augsburg,2,0,1.16763,0.683426,9,8,4,3
+2020-02-23,Wolfsburg,1. FSV Mainz 05,4,0,2.858,0.909603,16,13,6,3
+2020-02-24,Eintracht Frankfurt,Union Berlin,1,2,2.42046,1.03525,21,11,3,7
+2020-02-28,Fortuna Düsseldorf,Hertha Berlin,3,3,1.45773,3.03938,14,16,5,7
+2020-02-29,1. FC Köln,Schalke 04,3,0,1.17896,0.592026,11,7,6,1
+2020-02-29,1. FSV Mainz 05,SC Paderborn,2,0,0.894503,0.351719,8,9,3,4
+2020-02-29,Augsburg,Borussia Mönchengladbach,2,3,1.10383,3.18339,8,15,3,7
+2020-02-29,Borussia Dortmund,SC Freiburg,1,0,1.60042,0.833271,16,13,2,4
+2020-02-29,TSG Hoffenheim,Bayern Munich,0,6,0.554679,4.77962,4,25,1,11
+2020-03-01,RB Leipzig,Bayer Leverkusen,1,1,0.934157,1.16579,9,14,2,6
+2020-03-01,Union Berlin,Wolfsburg,2,2,1.04208,1.95508,6,14,3,3
+2020-03-06,SC Paderborn,1. FC Köln,1,2,0.596262,2.68366,16,15,2,3
+2020-03-07,Bayer Leverkusen,Eintracht Frankfurt,4,0,2.60789,1.10478,14,9,5,3
+2020-03-07,Borussia Mönchengladbach,Borussia Dortmund,1,2,2.62205,1.20132,10,10,3,4
+2020-03-07,Hertha Berlin,Werder Bremen,2,2,0.896654,1.51105,19,7,5,3
+2020-03-07,SC Freiburg,Union Berlin,3,1,1.62613,0.805309,9,14,4,4
+2020-03-07,Schalke 04,TSG Hoffenheim,1,1,1.1061,0.801078,14,4,4,1
+2020-03-07,Wolfsburg,RB Leipzig,0,0,0.597206,1.08959,16,15,4,4
+2020-03-08,1. FSV Mainz 05,Fortuna Düsseldorf,1,1,0.974089,1.77792,3,20,1,5
+2020-03-08,Bayern Munich,Augsburg,2,0,4.05804,1.0173,17,8,6,2
+2020-03-11,Borussia Mönchengladbach,1. FC Köln,2,1,1.32979,1.31698,12,16,5,3
+2020-05-16,Augsburg,Wolfsburg,1,2,1.24058,1.37909,8,17,3,5
+2020-05-16,Borussia Dortmund,Schalke 04,4,0,1.45195,0.345513,11,10,4,3
+2020-05-16,Eintracht Frankfurt,Borussia Mönchengladbach,1,3,0.898676,2.79227,12,15,4,8
+2020-05-16,Fortuna Düsseldorf,SC Paderborn,0,0,1.04877,0.63998,10,7,1,1
+2020-05-16,RB Leipzig,SC Freiburg,1,1,1.91915,0.334381,23,7,9,2
+2020-05-16,TSG Hoffenheim,Hertha Berlin,0,3,2.79087,1.55073,21,12,5,5
+2020-05-17,1. FC Köln,1. FSV Mainz 05,2,2,2.76011,1.97274,16,11,6,5
+2020-05-17,Union Berlin,Bayern Munich,0,2,0.548769,1.39334,10,14,2,3
+2020-05-18,Werder Bremen,Bayer Leverkusen,1,4,0.877237,2.8843,9,13,1,6
+2020-05-22,Hertha Berlin,Union Berlin,4,0,2.51634,0.273771,14,7,8,0
+2020-05-23,Bayern Munich,Eintracht Frankfurt,5,2,3.59062,1.03034,23,11,10,4
+2020-05-23,Borussia Mönchengladbach,Bayer Leverkusen,1,3,2.273,3.46649,16,13,6,7
+2020-05-23,SC Freiburg,Werder Bremen,0,1,0.722324,0.464168,15,11,8,3
+2020-05-23,SC Paderborn,TSG Hoffenheim,1,1,0.964535,1.92541,13,18,3,7
+2020-05-23,Wolfsburg,Borussia Dortmund,0,2,0.504702,1.03584,8,6,1,2
+2020-05-24,1. FC Köln,Fortuna Düsseldorf,2,2,2.24705,0.444463,16,10,6,5
+2020-05-24,1. FSV Mainz 05,RB Leipzig,0,5,0.320493,5.2681,4,21,1,9
+2020-05-24,Schalke 04,Augsburg,0,3,0.707591,1.5047,12,9,2,7
+2020-05-26,Bayer Leverkusen,Wolfsburg,1,4,1.3302,2.99484,10,14,2,9
+2020-05-26,Borussia Dortmund,Bayern Munich,0,1,0.616596,0.769692,13,13,5,6
+2020-05-26,Eintracht Frankfurt,SC Freiburg,3,3,4.29527,0.764685,35,10,16,5
+2020-05-26,Werder Bremen,Borussia Mönchengladbach,0,0,0.844607,0.359767,12,8,7,4
+2020-05-27,Augsburg,SC Paderborn,0,0,0.501125,1.18949,12,15,3,3
+2020-05-27,Fortuna Düsseldorf,Schalke 04,2,1,1.73478,0.702054,13,7,8,2
+2020-05-27,RB Leipzig,Hertha Berlin,2,2,0.612996,1.57339,11,13,5,4
+2020-05-27,TSG Hoffenheim,1. FC Köln,3,1,1.26471,2.24859,8,15,6,5
+2020-05-27,Union Berlin,1. FSV Mainz 05,1,1,0.772053,0.594984,9,10,4,2
+2020-05-29,SC Freiburg,Bayer Leverkusen,0,1,0.68733,0.394085,9,7,1,1
+2020-05-30,1. FSV Mainz 05,TSG Hoffenheim,0,1,1.07747,1.7133,18,13,2,6
+2020-05-30,Bayern Munich,Fortuna Düsseldorf,5,0,3.02763,0.723584,23,7,8,2
+2020-05-30,Hertha Berlin,Augsburg,2,0,3.05122,1.13484,12,8,6,2
+2020-05-30,Schalke 04,Werder Bremen,0,1,0.788687,0.349616,12,6,1,2
+2020-05-30,Wolfsburg,Eintracht Frankfurt,1,2,2.10016,1.94951,19,6,4,3
+2020-05-31,Borussia Mönchengladbach,Union Berlin,4,1,2.16238,0.719923,16,13,10,5
+2020-05-31,SC Paderborn,Borussia Dortmund,1,6,1.13973,4.4959,10,16,1,11
+2020-06-01,1. FC Köln,RB Leipzig,2,4,0.803762,3.20866,7,19,5,8
+2020-06-03,Werder Bremen,Eintracht Frankfurt,0,3,0.388746,1.75359,11,12,3,4
+2020-06-05,SC Freiburg,Borussia Mönchengladbach,1,0,1.56293,2.15228,16,18,6,4
+2020-06-06,Bayer Leverkusen,Bayern Munich,2,4,0.768558,2.6513,10,16,6,10
+2020-06-06,Borussia Dortmund,Hertha Berlin,1,0,1.84639,0.108241,12,5,3,2
+2020-06-06,Eintracht Frankfurt,1. FSV Mainz 05,0,2,0.366021,2.91267,10,17,0,5
+2020-06-06,Fortuna Düsseldorf,TSG Hoffenheim,2,2,2.46304,1.44523,23,8,4,5
+2020-06-06,RB Leipzig,SC Paderborn,1,1,1.91324,1.274,12,17,5,5
+2020-06-07,Augsburg,1. FC Köln,1,1,2.20052,0.791182,18,9,5,2
+2020-06-07,Union Berlin,Schalke 04,1,1,2.39933,0.166933,12,5,6,1
+2020-06-07,Werder Bremen,Wolfsburg,0,1,0.416576,1.84359,14,18,4,3
+2020-06-12,TSG Hoffenheim,RB Leipzig,0,2,1.75723,1.36763,22,14,7,7
+2020-06-13,1. FC Köln,Union Berlin,1,2,1.342,0.527425,10,7,6,5
+2020-06-13,Bayern Munich,Borussia Mönchengladbach,2,1,1.77878,0.983991,11,9,6,2
+2020-06-13,Fortuna Düsseldorf,Borussia Dortmund,0,1,0.382339,0.683609,6,5,4,3
+2020-06-13,Hertha Berlin,Eintracht Frankfurt,1,4,0.602622,2.94287,4,18,3,7
+2020-06-13,SC Paderborn,Werder Bremen,1,5,1.96916,3.1298,20,11,8,8
+2020-06-13,Wolfsburg,SC Freiburg,2,2,2.48484,2.09345,22,10,7,6
+2020-06-14,1. FSV Mainz 05,Augsburg,0,1,1.43243,0.888099,18,9,4,3
+2020-06-14,Schalke 04,Bayer Leverkusen,1,1,1.47429,0.889455,7,15,4,5
+2020-06-16,Borussia Mönchengladbach,Wolfsburg,3,0,1.73701,0.741379,11,12,3,2
+2020-06-16,SC Freiburg,Hertha Berlin,2,1,1.80838,1.43031,17,12,6,5
+2020-06-16,Union Berlin,SC Paderborn,1,0,1.51574,0.396234,14,10,6,2
+2020-06-16,Werder Bremen,Bayern Munich,0,1,0.274502,1.33112,6,13,1,4
+2020-06-17,Augsburg,TSG Hoffenheim,1,3,0.486229,3.15146,12,17,5,5
+2020-06-17,Bayer Leverkusen,1. FC Köln,3,1,2.18555,0.531542,13,7,6,1
+2020-06-17,Borussia Dortmund,1. FSV Mainz 05,0,2,1.30328,1.86738,15,10,5,6
+2020-06-17,Eintracht Frankfurt,Schalke 04,2,1,2.51124,1.22522,14,8,4,5
+2020-06-17,RB Leipzig,Fortuna Düsseldorf,2,2,1.25224,0.594246,14,12,5,2
+2020-06-20,1. FC Köln,Eintracht Frankfurt,1,1,0.960512,1.1762,4,9,2,2
+2020-06-20,1. FSV Mainz 05,Werder Bremen,3,1,2.06765,1.36006,21,19,12,6
+2020-06-20,Bayern Munich,SC Freiburg,3,1,2.14695,1.42671,23,11,8,3
+2020-06-20,Fortuna Düsseldorf,Augsburg,1,1,0.353005,0.987427,8,11,4,3
+2020-06-20,Hertha Berlin,Bayer Leverkusen,2,0,2.3555,0.679286,13,12,5,2
+2020-06-20,RB Leipzig,Borussia Dortmund,0,2,1.03505,3.12342,16,11,5,7
+2020-06-20,SC Paderborn,Borussia Mönchengladbach,1,3,0.67473,2.74581,11,22,1,10
+2020-06-20,Schalke 04,Wolfsburg,1,4,0.670604,2.63286,10,10,3,5
+2020-06-20,TSG Hoffenheim,Union Berlin,4,0,2.44299,0.917327,15,5,8,1
+2020-06-27,Augsburg,RB Leipzig,1,2,0.161187,1.88507,5,14,1,5
+2020-06-27,Bayer Leverkusen,1. FSV Mainz 05,1,0,1.88283,0.350997,13,6,2,1
+2020-06-27,Borussia Dortmund,TSG Hoffenheim,0,4,0.127933,3.85732,7,15,4,7
+2020-06-27,Borussia Mönchengladbach,Hertha Berlin,2,1,3.07113,0.827053,22,4,8,2
+2020-06-27,Eintracht Frankfurt,SC Paderborn,3,2,1.96616,1.48749,12,16,4,5
+2020-06-27,SC Freiburg,Schalke 04,4,0,1.88174,0.651918,15,21,8,5
+2020-06-27,Union Berlin,Fortuna Düsseldorf,3,0,1.19115,0.992638,11,25,7,4
+2020-06-27,Werder Bremen,1. FC Köln,6,1,3.25477,0.853136,18,6,9,2
+2020-06-27,Wolfsburg,Bayern Munich,0,4,0.745741,3.22208,11,17,4,11

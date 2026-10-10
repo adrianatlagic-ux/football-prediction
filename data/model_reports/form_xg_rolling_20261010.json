@@ -1,0 +1,169 @@
+{
+ "test_matches": 2484,
+ "seasons": [
+  {
+   "season": "2018-19",
+   "matches": 306,
+   "Elo-Mischung": -0.0003,
+   "Schuss-Bewertung": -0.0063,
+   "xG-Bewertung (Info)": 0.0143,
+   "xG-Durchschnitt (Info)": 0.0021
+  },
+  {
+   "season": "2019-20",
+   "matches": 306,
+   "Elo-Mischung": -0.0036,
+   "Schuss-Bewertung": 0.0075,
+   "xG-Bewertung (Info)": 0.0034,
+   "xG-Durchschnitt (Info)": 0.001
+  },
+  {
+   "season": "2020-21",
+   "matches": 306,
+   "Elo-Mischung": -0.0045,
+   "Schuss-Bewertung": 0.0153,
+   "xG-Bewertung (Info)": -0.0001,
+   "xG-Durchschnitt (Info)": -0.0028
+  },
+  {
+   "season": "2021-22",
+   "matches": 306,
+   "Elo-Mischung": -0.0022,
+   "Schuss-Bewertung": 0.0027,
+   "xG-Bewertung (Info)": 0.0007,
+   "xG-Durchschnitt (Info)": -0.0019
+  },
+  {
+   "season": "2022-23",
+   "matches": 306,
+   "Elo-Mischung": -0.0004,
+   "Schuss-Bewertung": -0.0016,
+   "xG-Bewertung (Info)": 0.0007,
+   "xG-Durchschnitt (Info)": 0.0009
+  },
+  {
+   "season": "2023-24",
+   "matches": 306,
+   "Elo-Mischung": -0.0002,
+   "Schuss-Bewertung": -0.0015,
+   "xG-Bewertung (Info)": -0.0055,
+   "xG-Durchschnitt (Info)": -0.0082
+  },
+  {
+   "season": "2024-25",
+   "matches": 306,
+   "Elo-Mischung": -0.0055,
+   "Schuss-Bewertung": -0.0081,
+   "xG-Bewertung (Info)": -0.0089,
+   "xG-Durchschnitt (Info)": -0.0063
+  },
+  {
+   "season": "2025-26",
+   "matches": 306,
+   "Elo-Mischung": -0.0037,
+   "Schuss-Bewertung": -0.0009,
+   "xG-Bewertung (Info)": -0.0038,
+   "xG-Durchschnitt (Info)": -0.0022
+  },
+  {
+   "season": "2026-27",
+   "matches": 36,
+   "Elo-Mischung": -0.0076,
+   "Schuss-Bewertung": 0.0088,
+   "xG-Bewertung (Info)": 0.0033,
+   "xG-Durchschnitt (Info)": 0.0175
+  }
+ ],
+ "chosen": {
+  "Elo-Mischung": {
+   "2018-19": "0.3",
+   "2019-20": "0.7",
+   "2020-21": "0.7",
+   "2021-22": "0.7",
+   "2022-23": "0.7",
+   "2023-24": "0.5",
+   "2024-25": "0.7",
+   "2025-26": "0.7",
+   "2026-27": "0.7"
+  },
+  "Schuss-Bewertung": {
+   "2018-19": "(0.02, 0.3)",
+   "2019-20": "(0.1, 0.3)",
+   "2020-21": "(0.2, 0.0)",
+   "2021-22": "(0.05, 0.0)",
+   "2022-23": "(0.02, 0.6)",
+   "2023-24": "(0.02, 0.0)",
+   "2024-25": "(0.02, 0.0)",
+   "2025-26": "(0.05, 0.6)",
+   "2026-27": "(0.02, 0.0)"
+  },
+  "xG-Bewertung (Info)": {
+   "2018-19": "(0.2, 0.3)",
+   "2019-20": "(0.02, 0.6)",
+   "2020-21": "(0.02, 0.6)",
+   "2021-22": "(0.02, 0.6)",
+   "2022-23": "(0.2, 0.0)",
+   "2023-24": "(0.02, 0.0)",
+   "2024-25": "(0.05, 0.3)",
+   "2025-26": "(0.02, 0.3)",
+   "2026-27": "(0.02, 0.0)"
+  },
+  "xG-Durchschnitt (Info)": {
+   "2018-19": "(0.02, 0.0)",
+   "2019-20": "(0.02, 0.0)",
+   "2020-21": "(0.02, 0.0)",
+   "2021-22": "(0.02, 0.0)",
+   "2022-23": "(0.02, 0.0)",
+   "2023-24": "(0.02, 0.0)",
+   "2024-25": "(0.02, 0.0)",
+   "2025-26": "(0.02, 0.0)",
+   "2026-27": "(0.02, 0.0)"
+  }
+ },
+ "pooled": [
+  {
+   "name": "Elo-Mischung",
+   "log_loss": 0.9801,
+   "diff": -0.0026,
+   "ci": [
+    -0.0043,
+    -0.0009
+   ],
+   "better": true,
+   "seasons_ahead": "9/9"
+  },
+  {
+   "name": "Schuss-Bewertung",
+   "log_loss": 0.9837,
+   "diff": 0.001,
+   "ci": [
+    -0.0039,
+    0.0064
+   ],
+   "better": false,
+   "seasons_ahead": "5/9"
+  },
+  {
+   "name": "xG-Bewertung (Info)",
+   "log_loss": 0.9828,
+   "diff": 0.0001,
+   "ci": [
+    -0.0055,
+    0.0057
+   ],
+   "better": false,
+   "seasons_ahead": "4/9"
+  },
+  {
+   "name": "xG-Durchschnitt (Info)",
+   "log_loss": 0.9808,
+   "diff": -0.0019,
+   "ci": [
+    -0.006,
+    0.0022
+   ],
+   "better": false,
+   "seasons_ahead": "5/9"
+  }
+ ]
+}

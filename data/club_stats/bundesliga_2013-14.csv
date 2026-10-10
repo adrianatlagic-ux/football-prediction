@@ -1,0 +1,307 @@
+date,home_team,away_team,home_goals,away_goals,home_xg,away_xg,home_shots,away_shots,home_sot,away_sot
+2013-08-09,Bayern Munich,Borussia Mönchengladbach,3,1,,,26,11,9,4
+2013-08-10,Augsburg,Borussia Dortmund,0,4,,,11,13,4,9
+2013-08-10,Bayer Leverkusen,SC Freiburg,3,1,,,18,8,6,3
+2013-08-10,Eintracht Braunschweig,Werder Bremen,0,1,,,13,12,3,4
+2013-08-10,Hannover 96,Wolfsburg,2,0,,,20,15,8,4
+2013-08-10,Hertha Berlin,Eintracht Frankfurt,6,1,,,16,10,9,4
+2013-08-10,TSG Hoffenheim,1. FC Nürnberg,2,2,,,23,12,8,5
+2013-08-11,1. FSV Mainz 05,VfB Stuttgart,3,2,,,9,15,7,10
+2013-08-11,Schalke 04,Hamburger SV,3,3,,,19,16,8,6
+2013-08-17,Borussia Mönchengladbach,Hannover 96,3,0,,,17,16,8,4
+2013-08-17,Eintracht Frankfurt,Bayern Munich,0,1,,,9,15,3,7
+2013-08-17,Hamburger SV,TSG Hoffenheim,1,5,,,8,18,4,7
+2013-08-17,SC Freiburg,1. FSV Mainz 05,1,2,,,9,12,3,8
+2013-08-17,VfB Stuttgart,Bayer Leverkusen,0,1,,,17,13,3,3
+2013-08-17,Werder Bremen,Augsburg,1,0,,,5,20,2,4
+2013-08-17,Wolfsburg,Schalke 04,4,0,,,20,6,8,2
+2013-08-18,1. FC Nürnberg,Hertha Berlin,2,2,,,11,12,5,5
+2013-08-18,Borussia Dortmund,Eintracht Braunschweig,2,1,,,24,8,6,3
+2013-08-23,Borussia Dortmund,Werder Bremen,1,0,,,32,7,8,1
+2013-08-24,1. FSV Mainz 05,Wolfsburg,2,0,,,12,16,4,6
+2013-08-24,Bayer Leverkusen,Borussia Mönchengladbach,4,2,,,19,10,11,3
+2013-08-24,Bayern Munich,1. FC Nürnberg,2,0,,,26,5,9,1
+2013-08-24,Hannover 96,Schalke 04,2,1,,,14,8,6,2
+2013-08-24,Hertha Berlin,Hamburger SV,1,0,,,16,15,5,7
+2013-08-24,TSG Hoffenheim,SC Freiburg,3,3,,,13,11,5,6
+2013-08-25,Augsburg,VfB Stuttgart,2,1,,,17,9,5,2
+2013-08-25,Eintracht Braunschweig,Eintracht Frankfurt,0,2,,,9,20,4,4
+2013-08-27,SC Freiburg,Bayern Munich,1,1,,,8,17,3,8
+2013-08-31,1. FC Nürnberg,Augsburg,0,1,,,7,24,1,7
+2013-08-31,Borussia Mönchengladbach,Werder Bremen,4,1,,,20,10,8,2
+2013-08-31,Hamburger SV,Eintracht Braunschweig,4,0,,,26,17,13,5
+2013-08-31,Hannover 96,1. FSV Mainz 05,4,1,,,16,13,5,2
+2013-08-31,Schalke 04,Bayer Leverkusen,2,0,,,12,11,3,1
+2013-08-31,Wolfsburg,Hertha Berlin,2,0,,,18,8,6,4
+2013-09-01,Eintracht Frankfurt,Borussia Dortmund,1,2,,,17,16,4,8
+2013-09-01,VfB Stuttgart,TSG Hoffenheim,6,2,,,13,12,7,3
+2013-09-13,Hertha Berlin,VfB Stuttgart,0,1,,,19,8,8,5
+2013-09-14,1. FSV Mainz 05,Schalke 04,0,1,,,14,10,0,5
+2013-09-14,Augsburg,SC Freiburg,2,1,,,14,5,6,1
+2013-09-14,Bayer Leverkusen,Wolfsburg,3,1,,,14,14,7,5
+2013-09-14,Bayern Munich,Hannover 96,2,0,,,18,13,8,2
+2013-09-14,Borussia Dortmund,Hamburger SV,6,2,,,32,4,14,2
+2013-09-14,Werder Bremen,Eintracht Frankfurt,0,3,,,12,14,4,6
+2013-09-15,Eintracht Braunschweig,1. FC Nürnberg,1,1,,,23,9,7,2
+2013-09-15,TSG Hoffenheim,Borussia Mönchengladbach,2,1,,,10,16,4,3
+2013-09-20,Borussia Mönchengladbach,Eintracht Braunschweig,4,1,,,13,12,7,3
+2013-09-21,1. FC Nürnberg,Borussia Dortmund,1,1,,,10,18,3,6
+2013-09-21,1. FSV Mainz 05,Bayer Leverkusen,1,4,,,14,13,2,5
+2013-09-21,Hamburger SV,Werder Bremen,0,2,,,19,16,7,6
+2013-09-21,Hannover 96,Augsburg,2,1,,,15,12,8,2
+2013-09-21,Schalke 04,Bayern Munich,0,4,,,10,14,1,5
+2013-09-21,Wolfsburg,TSG Hoffenheim,2,1,,,15,7,6,2
+2013-09-22,SC Freiburg,Hertha Berlin,1,1,,,8,8,2,4
+2013-09-22,VfB Stuttgart,Eintracht Frankfurt,1,1,,,14,16,4,4
+2013-09-27,Augsburg,Borussia Mönchengladbach,2,2,,,20,8,5,3
+2013-09-28,Bayer Leverkusen,Hannover 96,2,0,,,19,8,8,2
+2013-09-28,Bayern Munich,Wolfsburg,1,0,,,11,4,4,2
+2013-09-28,Borussia Dortmund,SC Freiburg,5,0,,,27,2,13,2
+2013-09-28,Eintracht Frankfurt,Hamburger SV,2,2,,,9,11,5,3
+2013-09-28,Hertha Berlin,1. FSV Mainz 05,3,1,,,9,7,4,5
+2013-09-28,TSG Hoffenheim,Schalke 04,3,3,,,12,12,6,5
+2013-09-29,Eintracht Braunschweig,VfB Stuttgart,0,4,,,10,15,2,8
+2013-09-29,Werder Bremen,1. FC Nürnberg,3,3,,,15,17,7,8
+2013-10-04,Hannover 96,Hertha Berlin,1,1,,,14,10,5,2
+2013-10-05,1. FSV Mainz 05,TSG Hoffenheim,2,2,,,17,14,8,5
+2013-10-05,Bayer Leverkusen,Bayern Munich,1,1,,,5,27,3,11
+2013-10-05,Borussia Mönchengladbach,Borussia Dortmund,2,0,,,6,27,3,8
+2013-10-05,Schalke 04,Augsburg,4,1,,,13,10,6,3
+2013-10-05,VfB Stuttgart,Werder Bremen,1,1,,,20,7,6,2
+2013-10-05,Wolfsburg,Eintracht Braunschweig,0,2,,,17,7,3,3
+2013-10-06,1. FC Nürnberg,Hamburger SV,0,5,,,7,16,2,13
+2013-10-06,SC Freiburg,Eintracht Frankfurt,1,1,,,13,11,4,5
+2013-10-18,TSG Hoffenheim,Bayer Leverkusen,1,2,,,20,12,8,4
+2013-10-19,Bayern Munich,1. FSV Mainz 05,4,1,,,18,13,6,4
+2013-10-19,Borussia Dortmund,Hannover 96,1,0,,,18,10,8,5
+2013-10-19,Eintracht Braunschweig,Schalke 04,2,3,,,14,14,4,6
+2013-10-19,Eintracht Frankfurt,1. FC Nürnberg,1,1,,,15,10,3,4
+2013-10-19,Hertha Berlin,Borussia Mönchengladbach,1,0,,,5,13,2,4
+2013-10-19,Werder Bremen,SC Freiburg,0,0,,,18,11,4,2
+2013-10-20,Augsburg,Wolfsburg,1,2,,,11,13,8,6
+2013-10-20,Hamburger SV,VfB Stuttgart,3,3,,,20,9,6,3
+2013-10-25,VfB Stuttgart,1. FC Nürnberg,1,1,,,10,7,4,6
+2013-10-26,1. FSV Mainz 05,Eintracht Braunschweig,2,0,,,9,6,3,1
+2013-10-26,Bayer Leverkusen,Augsburg,2,1,,,24,11,7,1
+2013-10-26,Bayern Munich,Hertha Berlin,3,2,,,13,10,5,5
+2013-10-26,Hannover 96,TSG Hoffenheim,1,4,,,11,10,3,5
+2013-10-26,Schalke 04,Borussia Dortmund,1,3,,,12,10,5,8
+2013-10-26,Wolfsburg,Werder Bremen,3,0,,,19,8,12,2
+2013-10-27,Borussia Mönchengladbach,Eintracht Frankfurt,4,1,,,13,11,4,4
+2013-10-27,SC Freiburg,Hamburger SV,0,3,,,9,17,2,7
+2013-11-01,Borussia Dortmund,VfB Stuttgart,6,1,,,17,3,10,1
+2013-11-02,1. FC Nürnberg,SC Freiburg,0,3,,,20,14,12,8
+2013-11-02,Eintracht Braunschweig,Bayer Leverkusen,1,0,,,17,16,7,8
+2013-11-02,Eintracht Frankfurt,Wolfsburg,1,2,,,10,10,5,3
+2013-11-02,Hamburger SV,Borussia Mönchengladbach,0,2,,,17,8,8,4
+2013-11-02,Hertha Berlin,Schalke 04,0,2,,,18,11,9,5
+2013-11-02,TSG Hoffenheim,Bayern Munich,1,2,,,7,17,3,7
+2013-11-03,Augsburg,1. FSV Mainz 05,2,1,,,19,11,7,4
+2013-11-03,Werder Bremen,Hannover 96,3,2,,,12,18,6,6
+2013-11-08,Hannover 96,Eintracht Braunschweig,0,0,,,19,8,6,1
+2013-11-09,Bayer Leverkusen,Hamburger SV,5,3,,,20,11,7,6
+2013-11-09,Bayern Munich,Augsburg,3,0,,,23,6,9,0
+2013-11-09,Borussia Mönchengladbach,1. FC Nürnberg,3,1,,,12,19,4,3
+2013-11-09,Schalke 04,Werder Bremen,3,1,,,17,9,6,3
+2013-11-09,TSG Hoffenheim,Hertha Berlin,2,3,,,9,11,7,5
+2013-11-09,Wolfsburg,Borussia Dortmund,2,1,,,10,12,4,2
+2013-11-10,1. FSV Mainz 05,Eintracht Frankfurt,1,0,,,20,14,9,4
+2013-11-10,SC Freiburg,VfB Stuttgart,1,3,,,19,10,5,7
+2013-11-22,VfB Stuttgart,Borussia Mönchengladbach,0,2,,,9,19,2,11
+2013-11-23,1. FC Nürnberg,Wolfsburg,1,1,,,11,23,6,6
+2013-11-23,Augsburg,TSG Hoffenheim,2,0,,,16,8,5,3
+2013-11-23,Borussia Dortmund,Bayern Munich,0,3,,,7,10,4,5
+2013-11-23,Eintracht Braunschweig,SC Freiburg,0,1,,,21,8,7,2
+2013-11-23,Eintracht Frankfurt,Schalke 04,3,3,,,15,13,8,9
+2013-11-23,Hertha Berlin,Bayer Leverkusen,0,1,,,12,4,2,2
+2013-11-24,Hamburger SV,Hannover 96,3,1,,,19,11,9,4
+2013-11-24,Werder Bremen,1. FSV Mainz 05,2,3,,,24,18,8,7
+2013-11-29,Wolfsburg,Hamburger SV,1,1,,,20,17,4,8
+2013-11-30,1. FSV Mainz 05,Borussia Dortmund,1,3,,,12,16,6,6
+2013-11-30,Bayer Leverkusen,1. FC Nürnberg,3,0,,,17,16,7,5
+2013-11-30,Bayern Munich,Eintracht Braunschweig,2,0,,,18,8,8,3
+2013-11-30,Hertha Berlin,Augsburg,0,0,,,9,2,2,0
+2013-11-30,Schalke 04,VfB Stuttgart,3,0,,,12,9,5,1
+2013-11-30,TSG Hoffenheim,Werder Bremen,4,4,,,18,13,8,6
+2013-12-01,Borussia Mönchengladbach,SC Freiburg,1,0,,,12,9,4,4
+2013-12-01,Hannover 96,Eintracht Frankfurt,2,0,,,13,12,3,4
+2013-12-06,1. FC Nürnberg,1. FSV Mainz 05,1,1,,,16,12,5,4
+2013-12-07,Borussia Dortmund,Bayer Leverkusen,0,1,,,13,7,5,4
+2013-12-07,Borussia Mönchengladbach,Schalke 04,2,1,,,19,9,8,3
+2013-12-07,Eintracht Frankfurt,TSG Hoffenheim,1,2,,,13,11,7,4
+2013-12-07,Hamburger SV,Augsburg,0,1,,,8,16,5,6
+2013-12-07,VfB Stuttgart,Hannover 96,4,2,,,13,14,8,4
+2013-12-07,Werder Bremen,Bayern Munich,0,7,,,6,17,2,10
+2013-12-08,Eintracht Braunschweig,Hertha Berlin,0,2,,,13,16,2,6
+2013-12-08,SC Freiburg,Wolfsburg,0,3,,,13,17,2,7
+2013-12-13,Hertha Berlin,Werder Bremen,3,2,,,12,9,4,4
+2013-12-14,1. FSV Mainz 05,Borussia Mönchengladbach,0,0,,,6,10,0,1
+2013-12-14,Augsburg,Eintracht Braunschweig,4,1,,,20,9,8,1
+2013-12-14,Bayern Munich,Hamburger SV,3,1,,,22,13,8,6
+2013-12-14,Hannover 96,1. FC Nürnberg,3,3,,,21,16,6,6
+2013-12-14,TSG Hoffenheim,Borussia Dortmund,2,2,,,14,16,4,8
+2013-12-14,Wolfsburg,VfB Stuttgart,3,1,,,12,9,6,4
+2013-12-15,Bayer Leverkusen,Eintracht Frankfurt,0,1,,,15,16,7,5
+2013-12-15,Schalke 04,SC Freiburg,2,0,,,13,8,4,1
+2013-12-20,Eintracht Frankfurt,Augsburg,1,1,,,5,9,5,3
+2013-12-21,1. FC Nürnberg,Schalke 04,0,0,,,15,8,4,2
+2013-12-21,Borussia Dortmund,Hertha Berlin,1,2,,,20,6,5,4
+2013-12-21,Eintracht Braunschweig,TSG Hoffenheim,1,0,,,14,16,8,3
+2013-12-21,Hamburger SV,1. FSV Mainz 05,2,3,,,18,13,8,7
+2013-12-21,SC Freiburg,Hannover 96,2,1,,,11,20,3,6
+2013-12-21,Werder Bremen,Bayer Leverkusen,1,0,,,11,22,3,5
+2013-12-22,Borussia Mönchengladbach,Wolfsburg,2,2,,,14,18,4,13
+2014-01-24,Borussia Mönchengladbach,Bayern Munich,0,2,,,10,24,5,13
+2014-01-25,1. FC Nürnberg,TSG Hoffenheim,4,0,,,16,12,7,3
+2014-01-25,Borussia Dortmund,Augsburg,2,2,,,18,6,4,1
+2014-01-25,Eintracht Frankfurt,Hertha Berlin,1,0,,,5,7,1,2
+2014-01-25,SC Freiburg,Bayer Leverkusen,3,2,,,13,15,5,8
+2014-01-25,VfB Stuttgart,1. FSV Mainz 05,1,2,,,14,10,5,4
+2014-01-25,Wolfsburg,Hannover 96,1,3,,,24,10,8,6
+2014-01-26,Hamburger SV,Schalke 04,0,3,,,11,12,3,9
+2014-01-26,Werder Bremen,Eintracht Braunschweig,0,0,,,12,7,3,2
+2014-01-29,VfB Stuttgart,Bayern Munich,1,2,,,11,24,3,7
+2014-01-31,Eintracht Braunschweig,Borussia Dortmund,1,2,,,16,20,5,6
+2014-02-01,1. FSV Mainz 05,SC Freiburg,2,0,,,13,6,5,1
+2014-02-01,Augsburg,Werder Bremen,3,1,,,20,4,5,0
+2014-02-01,Bayer Leverkusen,VfB Stuttgart,2,1,,,11,10,5,3
+2014-02-01,Hannover 96,Borussia Mönchengladbach,3,1,,,16,12,6,6
+2014-02-01,Schalke 04,Wolfsburg,2,1,,,13,10,6,6
+2014-02-01,TSG Hoffenheim,Hamburger SV,3,0,,,14,7,7,0
+2014-02-02,Bayern Munich,Eintracht Frankfurt,5,0,,,25,9,14,3
+2014-02-02,Hertha Berlin,1. FC Nürnberg,1,3,,,13,11,4,4
+2014-02-07,Borussia Mönchengladbach,Bayer Leverkusen,0,1,,,14,12,3,3
+2014-02-08,1. FC Nürnberg,Bayern Munich,0,2,,,9,18,2,6
+2014-02-08,Eintracht Frankfurt,Eintracht Braunschweig,3,0,,,19,10,7,1
+2014-02-08,Hamburger SV,Hertha Berlin,0,3,,,14,10,3,4
+2014-02-08,SC Freiburg,TSG Hoffenheim,1,1,,,11,18,4,4
+2014-02-08,Werder Bremen,Borussia Dortmund,1,5,,,11,15,5,8
+2014-02-08,Wolfsburg,1. FSV Mainz 05,3,0,,,17,8,7,2
+2014-02-09,Schalke 04,Hannover 96,2,0,,,16,6,7,1
+2014-02-09,VfB Stuttgart,Augsburg,1,4,,,16,10,1,5
+2014-02-14,1. FSV Mainz 05,Hannover 96,2,0,,,19,14,8,3
+2014-02-15,Bayer Leverkusen,Schalke 04,1,2,,,13,11,5,4
+2014-02-15,Bayern Munich,SC Freiburg,4,0,,,16,12,7,0
+2014-02-15,Borussia Dortmund,Eintracht Frankfurt,4,0,,,21,7,11,1
+2014-02-15,Eintracht Braunschweig,Hamburger SV,4,2,,,14,18,7,8
+2014-02-15,TSG Hoffenheim,VfB Stuttgart,4,1,,,13,13,8,4
+2014-02-15,Werder Bremen,Borussia Mönchengladbach,1,1,,,15,17,7,6
+2014-02-16,Augsburg,1. FC Nürnberg,0,1,,,18,11,6,2
+2014-02-16,Hertha Berlin,Wolfsburg,1,2,,,13,8,4,3
+2014-02-21,Schalke 04,1. FSV Mainz 05,0,0,,,16,15,4,8
+2014-02-22,1. FC Nürnberg,Eintracht Braunschweig,2,1,,,6,22,5,6
+2014-02-22,Borussia Mönchengladbach,TSG Hoffenheim,2,2,,,13,19,9,7
+2014-02-22,Hamburger SV,Borussia Dortmund,3,0,,,13,15,6,4
+2014-02-22,SC Freiburg,Augsburg,2,4,,,13,18,5,10
+2014-02-22,VfB Stuttgart,Hertha Berlin,1,2,,,14,9,6,4
+2014-02-22,Wolfsburg,Bayer Leverkusen,3,1,,,9,18,5,6
+2014-02-23,Eintracht Frankfurt,Werder Bremen,0,0,,,21,3,4,0
+2014-02-23,Hannover 96,Bayern Munich,0,4,,,8,14,3,7
+2014-02-28,Hertha Berlin,SC Freiburg,0,0,,,9,7,2,5
+2014-03-01,Augsburg,Hannover 96,1,1,,,16,10,5,2
+2014-03-01,Bayer Leverkusen,1. FSV Mainz 05,0,1,,,19,9,8,3
+2014-03-01,Bayern Munich,Schalke 04,5,1,,,22,10,12,4
+2014-03-01,Borussia Dortmund,1. FC Nürnberg,3,0,,,28,4,9,2
+2014-03-01,Eintracht Braunschweig,Borussia Mönchengladbach,1,1,,,20,12,3,4
+2014-03-01,Werder Bremen,Hamburger SV,1,0,,,15,11,7,4
+2014-03-02,Eintracht Frankfurt,VfB Stuttgart,2,1,,,13,13,6,4
+2014-03-02,TSG Hoffenheim,Wolfsburg,6,2,,,17,6,12,5
+2014-03-08,1. FC Nürnberg,Werder Bremen,0,2,,,15,12,4,5
+2014-03-08,Borussia Mönchengladbach,Augsburg,1,2,,,15,19,8,4
+2014-03-08,Hamburger SV,Eintracht Frankfurt,1,1,,,15,7,9,2
+2014-03-08,Hannover 96,Bayer Leverkusen,1,1,,,19,9,7,1
+2014-03-08,Schalke 04,TSG Hoffenheim,4,0,,,24,10,9,2
+2014-03-08,VfB Stuttgart,Eintracht Braunschweig,2,2,,,14,11,4,3
+2014-03-08,Wolfsburg,Bayern Munich,1,6,,,12,18,3,12
+2014-03-09,1. FSV Mainz 05,Hertha Berlin,1,1,,,16,12,6,9
+2014-03-09,SC Freiburg,Borussia Dortmund,0,1,,,10,12,0,4
+2014-03-14,Augsburg,Schalke 04,1,2,,,21,10,3,4
+2014-03-15,Bayern Munich,Bayer Leverkusen,2,1,,,23,6,8,3
+2014-03-15,Borussia Dortmund,Borussia Mönchengladbach,1,2,,,25,7,7,3
+2014-03-15,Eintracht Braunschweig,Wolfsburg,1,1,,,8,11,2,2
+2014-03-15,Hertha Berlin,Hannover 96,0,3,,,16,7,5,3
+2014-03-15,TSG Hoffenheim,1. FSV Mainz 05,2,4,,,22,11,12,7
+2014-03-15,Werder Bremen,VfB Stuttgart,1,1,,,10,16,3,3
+2014-03-16,Eintracht Frankfurt,SC Freiburg,1,4,,,26,7,10,5
+2014-03-16,Hamburger SV,1. FC Nürnberg,2,1,,,26,9,13,4
+2014-03-21,SC Freiburg,Werder Bremen,3,1,,,14,7,3,3
+2014-03-22,1. FSV Mainz 05,Bayern Munich,0,2,,,4,23,1,8
+2014-03-22,Borussia Mönchengladbach,Hertha Berlin,3,0,,,8,8,4,2
+2014-03-22,Hannover 96,Borussia Dortmund,0,3,,,9,15,3,5
+2014-03-22,Schalke 04,Eintracht Braunschweig,3,1,,,32,11,11,4
+2014-03-22,VfB Stuttgart,Hamburger SV,1,0,,,12,6,3,1
+2014-03-22,Wolfsburg,Augsburg,1,1,,,10,12,1,2
+2014-03-23,1. FC Nürnberg,Eintracht Frankfurt,2,5,,,13,23,4,9
+2014-03-23,Bayer Leverkusen,TSG Hoffenheim,2,3,,,12,12,5,7
+2014-03-25,Borussia Dortmund,Schalke 04,0,0,,,18,8,6,4
+2014-03-25,Eintracht Braunschweig,1. FSV Mainz 05,3,1,,,14,12,3,5
+2014-03-25,Hertha Berlin,Bayern Munich,1,3,,,4,13,2,6
+2014-03-25,Werder Bremen,Wolfsburg,1,3,,,6,19,2,9
+2014-03-26,1. FC Nürnberg,VfB Stuttgart,2,0,,,11,13,5,5
+2014-03-26,Augsburg,Bayer Leverkusen,1,3,,,22,13,3,7
+2014-03-26,Eintracht Frankfurt,Borussia Mönchengladbach,1,0,,,14,9,4,2
+2014-03-26,Hamburger SV,SC Freiburg,1,1,,,21,11,5,4
+2014-03-26,TSG Hoffenheim,Hannover 96,3,1,,,20,8,8,1
+2014-03-28,Schalke 04,Hertha Berlin,2,0,,,13,11,4,1
+2014-03-29,1. FSV Mainz 05,Augsburg,3,0,,,14,12,7,4
+2014-03-29,Bayer Leverkusen,Eintracht Braunschweig,1,1,,,15,9,4,2
+2014-03-29,Bayern Munich,TSG Hoffenheim,3,3,,,11,20,6,9
+2014-03-29,SC Freiburg,1. FC Nürnberg,3,2,,,14,9,7,2
+2014-03-29,VfB Stuttgart,Borussia Dortmund,2,3,,,11,17,3,5
+2014-03-29,Wolfsburg,Eintracht Frankfurt,2,1,,,22,11,9,4
+2014-03-30,Borussia Mönchengladbach,Hamburger SV,3,1,,,17,17,9,7
+2014-03-30,Hannover 96,Werder Bremen,1,2,,,9,11,4,8
+2014-04-04,Hamburger SV,Bayer Leverkusen,2,1,,,18,19,5,8
+2014-04-05,1. FC Nürnberg,Borussia Mönchengladbach,0,2,,,14,15,3,6
+2014-04-05,Augsburg,Bayern Munich,1,0,,,11,16,7,2
+2014-04-05,Borussia Dortmund,Wolfsburg,2,1,,,10,19,5,3
+2014-04-05,Eintracht Frankfurt,1. FSV Mainz 05,2,0,,,14,17,7,5
+2014-04-05,VfB Stuttgart,SC Freiburg,2,0,,,12,18,5,8
+2014-04-05,Werder Bremen,Schalke 04,1,1,,,19,9,5,5
+2014-04-06,Eintracht Braunschweig,Hannover 96,3,0,,,11,11,3,2
+2014-04-06,Hertha Berlin,TSG Hoffenheim,1,1,,,11,11,5,3
+2014-04-11,Schalke 04,Eintracht Frankfurt,2,0,,,22,10,8,3
+2014-04-12,1. FSV Mainz 05,Werder Bremen,3,0,,,23,9,5,2
+2014-04-12,Bayern Munich,Borussia Dortmund,0,3,,,14,9,3,6
+2014-04-12,Borussia Mönchengladbach,VfB Stuttgart,1,1,,,14,17,4,4
+2014-04-12,Hannover 96,Hamburger SV,2,1,,,31,5,15,3
+2014-04-12,SC Freiburg,Eintracht Braunschweig,2,0,,,18,13,8,4
+2014-04-12,Wolfsburg,1. FC Nürnberg,4,1,,,24,5,8,1
+2014-04-13,Bayer Leverkusen,Hertha Berlin,2,1,,,17,9,4,2
+2014-04-13,TSG Hoffenheim,Augsburg,2,0,,,26,23,9,8
+2014-04-17,Eintracht Frankfurt,Hannover 96,2,3,,,14,16,6,7
+2014-04-19,Augsburg,Hertha Berlin,0,0,,,10,13,0,4
+2014-04-19,Borussia Dortmund,1. FSV Mainz 05,4,2,,,30,9,11,2
+2014-04-19,Eintracht Braunschweig,Bayern Munich,0,2,,,7,12,1,3
+2014-04-19,Hamburger SV,Wolfsburg,1,3,,,14,16,3,7
+2014-04-19,SC Freiburg,Borussia Mönchengladbach,4,2,,,15,14,7,4
+2014-04-19,Werder Bremen,TSG Hoffenheim,3,1,,,12,14,7,3
+2014-04-20,1. FC Nürnberg,Bayer Leverkusen,1,4,,,9,15,6,7
+2014-04-20,VfB Stuttgart,Schalke 04,3,1,,,12,14,4,3
+2014-04-25,Hannover 96,VfB Stuttgart,0,0,,,9,6,2,3
+2014-04-26,1. FSV Mainz 05,1. FC Nürnberg,2,0,,,18,13,5,1
+2014-04-26,Bayer Leverkusen,Borussia Dortmund,2,2,,,16,14,5,6
+2014-04-26,Bayern Munich,Werder Bremen,5,2,,,23,7,11,3
+2014-04-26,Hertha Berlin,Eintracht Braunschweig,2,0,,,20,7,11,1
+2014-04-26,TSG Hoffenheim,Eintracht Frankfurt,0,0,,,18,8,5,3
+2014-04-26,Wolfsburg,SC Freiburg,2,2,,,23,13,7,7
+2014-04-27,Augsburg,Hamburger SV,3,1,,,15,19,5,5
+2014-04-27,Schalke 04,Borussia Mönchengladbach,0,1,,,17,12,6,6
+2014-05-03,1. FC Nürnberg,Hannover 96,0,2,,,15,14,8,7
+2014-05-03,Borussia Dortmund,TSG Hoffenheim,3,2,,,16,12,10,4
+2014-05-03,Borussia Mönchengladbach,1. FSV Mainz 05,3,1,,,7,18,4,4
+2014-05-03,Eintracht Braunschweig,Augsburg,0,1,,,17,24,6,10
+2014-05-03,Eintracht Frankfurt,Bayer Leverkusen,0,2,,,6,21,2,5
+2014-05-03,Hamburger SV,Bayern Munich,1,4,,,10,18,5,8
+2014-05-03,SC Freiburg,Schalke 04,0,2,,,10,26,1,6
+2014-05-03,VfB Stuttgart,Wolfsburg,1,2,,,6,13,2,6
+2014-05-03,Werder Bremen,Hertha Berlin,2,0,,,12,11,4,4
+2014-05-10,1. FSV Mainz 05,Hamburger SV,3,2,,,13,20,6,7
+2014-05-10,Augsburg,Eintracht Frankfurt,2,1,,,17,7,7,2
+2014-05-10,Bayer Leverkusen,Werder Bremen,2,1,,,14,8,6,2
+2014-05-10,Bayern Munich,VfB Stuttgart,1,0,,,24,8,6,2
+2014-05-10,Hannover 96,SC Freiburg,3,2,,,19,12,9,7
+2014-05-10,Hertha Berlin,Borussia Dortmund,0,4,,,10,13,5,7
+2014-05-10,Schalke 04,1. FC Nürnberg,4,1,,,22,11,11,4
+2014-05-10,TSG Hoffenheim,Eintracht Braunschweig,3,1,,,16,6,8,2
+2014-05-10,Wolfsburg,Borussia Mönchengladbach,3,1,,,19,13,10,3
