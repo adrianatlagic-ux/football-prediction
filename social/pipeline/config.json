@@ -307,5 +307,25 @@
     "real_voice_cloning": false,
     "authentic_quote_claims": false
   },
-  "video_generation_attempt_limit_per_editorial_date": 1
+  "video_generation_attempt_limit_per_editorial_date": 1,
+  "story_pitch_integration": {
+    "required": true,
+    "applies_to": "future_editorial_days_after_2026-10-10",
+    "minimum_distinct_on_pitch_beats": 2,
+    "beats_must_advance_verified_story_context": true,
+    "off_pitch_personal_setup_allowed": true,
+    "causal_bridge_required": true,
+    "disconnected_match_montage_allowed": false,
+    "require_goal_or_result": false,
+    "fiction_label_required": true,
+    "pre_generation_manifest_fields": [
+      "off_pitch_setup",
+      "on_pitch_beats",
+      "causal_bridge",
+      "on_pitch_payoff"
+    ],
+    "post_generation_review_field": "pitch_action_review",
+    "review_actual_beginning_middle_end": true,
+    "missing_action": "disclose_quality_status_without_second_generation"
+  }
 }
