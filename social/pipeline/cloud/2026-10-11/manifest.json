@@ -1,0 +1,130 @@
+{
+  "post_id": "goaliq-2026-10-11",
+  "target_date": "2026-10-11",
+  "state": "generation_reserved",
+  "daily_video_limit": 1,
+  "video_generation_attempt_limit": 1,
+  "video_generation_jobs_count": 0,
+  "coverage_key": "1_fc_koln_vs_borussia_monchengladbach_bl:2026-10-11",
+  "selected": {
+    "home_team": "1. FC Köln",
+    "away_team": "Borussia Mönchengladbach",
+    "match_id": "1_fc_koln_vs_borussia_monchengladbach_bl"
+  },
+  "match_date": "2026-10-11",
+  "kickoff_at": "2026-10-11T15:30:00+02:00",
+  "timezone": "Europe/Berlin",
+  "selection_reason": "Today's unannounced 101st Bundesliga Rheinderby, a major regional rivalry; verified by live fixture feed and official Köln preview.",
+  "excluded_candidates": [
+    {
+      "match": "SC Freiburg vs Schalke 04",
+      "reason": "not a comparably strong derby/marquee match today"
+    },
+    {
+      "match": "Union Berlin vs Borussia Dortmund",
+      "reason": "later matchday; today's top derby takes priority"
+    }
+  ],
+  "previously_covered_matches": [
+    "borussia_dortmund_vs_werder_bremen_bl:2026-10-09",
+    "1_fsv_mainz_05_vs_bayer_leverkusen_bl:2026-10-10",
+    "augsburg_vs_bayern_munich_bl:2026-10-10",
+    "union_berlin_vs_elversberg_bl:2026-10-10"
+  ],
+  "generation_basis": "verified_fixture_and_current_research",
+  "prediction_status": "omitted_optional",
+  "prediction_used": false,
+  "verified_context": [
+    {
+      "fact": "101st Bundesliga Rheinderby; Köln hosts Mönchengladbach Sunday 11 October at 15:30 CEST.",
+      "sources": [
+        "https://fc.de/aktuelles/news/tv-ticker-radio-so-koennt-ihr-das-derby-verfolgen",
+        "https://fc.de/aktuelles/news/wagner-vollgas-zum-derbysieg"
+      ],
+      "retrieved_at": "2026-10-11T06:03:00Z"
+    },
+    {
+      "fact": "Köln coach reports strikers Ragnar Ache and Thijs Dallinga unavailable and says an alternative dangerous combination is needed.",
+      "source": "https://fc.de/aktuelles/news/wagner-vollgas-zum-derbysieg",
+      "published": "2026-10-09",
+      "retrieved_at": "2026-10-11T06:03:00Z"
+    },
+    {
+      "fact": "Mikey Moore is training again and discussed responsibility after Köln's striker absences.",
+      "source": "https://fc.de/aktuelles/news/mikey-moore-freue-mich-sehr-aufs-derby",
+      "published": "2026-10-08",
+      "retrieved_at": "2026-10-11T06:03:00Z"
+    }
+  ],
+  "context_type": "match",
+  "story_type": "team_internal_decision",
+  "previous_story_type": "misdirected_expectation",
+  "hook": "Two empty striker shirt hooks before the Rheinderby",
+  "conflict": "With Köln's striker absences, Moore faces defensive pressure and must choose the next attack.",
+  "turning_point": "Moore shapes to shoot but sees a teammate's run and chooses a pass.",
+  "ending_image": "Low pass travels toward the runner; no result shown.",
+  "off_pitch_setup": "Fictional dressing-room glance at two empty hooks, tied to verified striker absences.",
+  "on_pitch_beats": [
+    "Moore receives a pass and uses first touch to escape Borussia pressure.",
+    "A second defender closes; Moore changes from shooting stance to a low pass toward a teammate."
+  ],
+  "causal_bridge": "Responsibility after Köln's reported striker absences is expressed by Moore's decision under pressure rather than a random play montage.",
+  "on_pitch_payoff": "The pass opens a possible attack without showing a shot or result.",
+  "story_connection": "Specific 101st Rheinderby and officially reported Köln striker absences drive the setup and action.",
+  "exchangeability_test": "Pass: the empty hooks and responsibility arc depend on Köln's documented striker absences and Moore's confirmed presence.",
+  "spoken_language": "de",
+  "visual_style": "photorealistic_live_action",
+  "fixture_hook": {
+    "render_mode": "inside_generated_story_video",
+    "text": [
+      "1. FC KÖLN vs BORUSSIA MÖNCHENGLADBACH",
+      "TODAY · 15:30 CEST"
+    ],
+    "duration_seconds_planned": 2,
+    "timezone": "Europe/Berlin",
+    "fixture_source": "https://fc.de/aktuelles/news/tv-ticker-radio-so-koennt-ihr-das-derby-verfolgen",
+    "team_crests": [
+      {
+        "team": "1. FC Köln",
+        "source": "https://fc.de/",
+        "media_id": "bc73fb99-db8f-4d53-8ab8-d666e5c625df"
+      },
+      {
+        "team": "Borussia Mönchengladbach",
+        "source": "https://www.borussia.de/apple-icon.png",
+        "media_id": "d3902d9d-e422-40b9-9a8b-635bbeeaef8a"
+      }
+    ]
+  },
+  "roster_sources": [
+    {
+      "person": "Mikey Moore",
+      "source": "https://fc.de/mannschaften/maenner/kader/mikey-moore",
+      "image_source": "https://images.ctfassets.net/nurz7nsnha04/1Zo4UD6bJwOz9OTbxh9lRn/206ffabd1c7d57f56f42c5f000eb2ff4/260831_Portrait_MikeyMoore.jpg"
+    }
+  ],
+  "limitations_before_generation": [
+    "No independently verified portrait of a current Borussia player; opposing players to remain anonymous with faces not emphasized."
+  ],
+  "production": {
+    "charge_key": "goaliq-2026-10-11-story-v1",
+    "model": "seedance_2_0_mini",
+    "duration_seconds": 15,
+    "resolution": "720p",
+    "aspect_ratio": "9:16",
+    "audio": true,
+    "cost_quote_credits": 15,
+    "balance_observed_credits": 35.18,
+    "job_id": null,
+    "source_media_id": null
+  },
+  "qa": {
+    "ready": false,
+    "pitch_action_review": "pending",
+    "spoken_audio_review": "pending",
+    "fixture_hook_review": "pending",
+    "outro_review": "pending"
+  },
+  "cloud_only": true,
+  "publication": "not_published"
+}
