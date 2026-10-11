@@ -1,10 +1,10 @@
 {
   "post_id": "goaliq-2026-10-11",
   "target_date": "2026-10-11",
-  "state": "generation_reserved",
+  "state": "generation_pending",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
-  "video_generation_jobs_count": 0,
+  "video_generation_jobs_count": 1,
   "coverage_key": "1_fc_koln_vs_borussia_monchengladbach_bl:2026-10-11",
   "selected": {
     "home_team": "1. FC Köln",
@@ -115,7 +115,7 @@
     "audio": true,
     "cost_quote_credits": 15,
     "balance_observed_credits": 35.18,
-    "job_id": null,
+    "job_id": "fc27e35c-a522-431c-a397-34aa554b5fdc",
     "source_media_id": null
   },
   "qa": {
