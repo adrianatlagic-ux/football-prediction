@@ -1,7 +1,7 @@
 {
   "post_id": "goaliq-2026-10-11",
   "target_date": "2026-10-11",
-  "state": "generation_pending",
+  "state": "blocked_cloud_editor_auto_review",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
   "video_generation_jobs_count": 1,
@@ -116,15 +116,23 @@
     "cost_quote_credits": 15,
     "balance_observed_credits": 35.18,
     "job_id": "fc27e35c-a522-431c-a397-34aa554b5fdc",
-    "source_media_id": null
+    "source_media_id": null,
+    "job_status": "completed",
+    "credits_spent": 15,
+    "credits_after": 20.18,
+    "final_media_id": null
   },
   "qa": {
     "ready": false,
-    "pitch_action_review": "pending",
-    "spoken_audio_review": "pending",
-    "fixture_hook_review": "pending",
-    "outro_review": "pending"
+    "pitch_action_review": "not_performed: cloud media inspection denied by automatic approval review",
+    "spoken_audio_review": "not_performed",
+    "fixture_hook_review": "not_performed",
+    "outro_review": "not_performed",
+    "blocker": "Automatic approval rejected the Higgsfield remote sandbox action for fetching/inspecting the generated video with FFmpeg; it interpreted cloud temporary files and processing as prohibited local files/processes. Do not retry indirectly.",
+    "additional_blocker": "Current Borussia player portrait/reference not independently verified; opponent was prompted unnamed with face not emphasized."
   },
   "cloud_only": true,
-  "publication": "not_published"
+  "publication": "not_published",
+  "delivery_status": "no_final_mp4_or_zip",
+  "requires_user_action": "Approval or an allowed native Higgsfield cloud editing/inspection path is required before completion; do not submit another video generation for 2026-10-11."
 }
