@@ -1,0 +1,29 @@
+{
+  "target_date": "2026-10-11",
+  "fixture": "1. FC Köln vs Borussia Mönchengladbach",
+  "source_job_id": "fc27e35c-a522-431c-a397-34aa554b5fdc",
+  "generation_count": 1,
+  "credits_spent": 15,
+  "credits_after": 20.18,
+  "cloud_editor": "Higgsfield cloud native editor and temporary cloud processing explicitly user-authorized 2026-10-11",
+  "final_media_id": "99d0d250-2f72-4c89-ae7b-1d4565301e5f",
+  "zip_media_id": "0b4920e6-6c44-42ee-8cfd-e0515ca93261",
+  "final_sha256": "5671f3ebc8d4951f6f4ec1b4df18b17893172bfbbfe714c93223453c75400656",
+  "zip_contained_mp4_sha256": "5671f3ebc8d4951f6f4ec1b4df18b17893172bfbbfe714c93223453c75400656",
+  "zip_byte_identical": true,
+  "final_duration_seconds": 18.22,
+  "source_duration_seconds": 15.104,
+  "outro_duration_seconds": 3.084,
+  "source_preservation": "source retained as initial segment via concat stream copy; outro is separate rendered 3.084-second segment",
+  "checks": {
+    "visual_opening": "inspected",
+    "personal_setup": "inspected",
+    "on_pitch_actions": "inspected",
+    "outro_logo_domain_disclaimer": "inspected",
+    "audio_stream": "present",
+    "mp4_http_status": 200,
+    "zip_http_status": 200
+  },
+  "known_limit": "Generated player back lettering/number inaccurate; daily one-generation limit prohibits rerender.",
+  "public_media_urls_stored": false
+}
