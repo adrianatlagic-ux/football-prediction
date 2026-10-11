@@ -1,7 +1,7 @@
 {
   "post_id": "goaliq-2026-10-11",
   "target_date": "2026-10-11",
-  "state": "blocked_cloud_editor_auto_review",
+  "state": "delivered_with_disclosed_quality_limit",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
   "video_generation_jobs_count": 1,
@@ -120,19 +120,45 @@
     "job_status": "completed",
     "credits_spent": 15,
     "credits_after": 20.18,
-    "final_media_id": null
+    "final_media_id": "99d0d250-2f72-4c89-ae7b-1d4565301e5f",
+    "source_media_url_omitted": true,
+    "source_job_id": "fc27e35c-a522-431c-a397-34aa554b5fdc",
+    "zip_media_id": "0b4920e6-6c44-42ee-8cfd-e0515ca93261",
+    "final_duration_seconds": 18.22,
+    "final_sha256": "5671f3ebc8d4951f6f4ec1b4df18b17893172bfbbfe714c93223453c75400656",
+    "zip_mp4_sha256": "5671f3ebc8d4951f6f4ec1b4df18b17893172bfbbfe714c93223453c75400656",
+    "zip_byte_identity": true,
+    "cloud_editor_finish_authorized": "2026-10-11 user instruction: loosen rules and finish",
+    "source_clip_handling": "Source clip retained as the first segment through Higgsfield-cloud concat stream copy; only the three-second outro was newly rendered."
   },
   "qa": {
-    "ready": false,
-    "pitch_action_review": "not_performed: cloud media inspection denied by automatic approval review",
-    "spoken_audio_review": "not_performed",
-    "fixture_hook_review": "not_performed",
-    "outro_review": "not_performed",
-    "blocker": "Automatic approval rejected the Higgsfield remote sandbox action for fetching/inspecting the generated video with FFmpeg; it interpreted cloud temporary files and processing as prohibited local files/processes. Do not retry indirectly.",
-    "additional_blocker": "Current Borussia player portrait/reference not independently verified; opponent was prompted unnamed with face not emphasized."
+    "ready": true,
+    "overall": "delivered_with_disclosed_quality_limit",
+    "visual_review": "Opening team names, crests, personal setup, and on-pitch football actions inspected in Higgsfield cloud at 0.5s, 3.5s, 7.5s, 11.5s, and 13.8s.",
+    "pitch_action_review": "pass — ball-receipt/pressure scene and later ball-action scene are visible and connected to the responsibility story.",
+    "fixture_hook_review": "pass with minor generative formatting variation: both correct team names and correct TODAY · 15:30 CEST are visible; additional generated VS formatting is present.",
+    "outro_review": "pass — original GoalIQ logo, goaliq.de, and exact English disclaimer visible across multiple outro frames.",
+    "transition_review": "pass — source segment transitions into separate three-second branded outro.",
+    "audio_review": "audio stream present and preserved through source segment; naturalness/language was not independently transcribed.",
+    "known_generation_limits": [
+      "Generated player back lettering and number are inaccurate; no second generation permitted by daily rule."
+    ],
+    "links_http_status": {
+      "mp4": 200,
+      "zip": 200
+    }
   },
   "cloud_only": true,
   "publication": "not_published",
   "delivery_status": "no_final_mp4_or_zip",
-  "requires_user_action": "Approval or an allowed native Higgsfield cloud editing/inspection path is required before completion; do not submit another video generation for 2026-10-11."
+  "requires_user_action": null,
+  "delivery": {
+    "inline_player": true,
+    "mp4_media_id": "99d0d250-2f72-4c89-ae7b-1d4565301e5f",
+    "zip_media_id": "0b4920e6-6c44-42ee-8cfd-e0515ca93261",
+    "mp4_and_zip_http200": true,
+    "private_urls_not_in_repository": true,
+    "social_published": false
+  },
+  "caption_output_status": "saved_and_ready_for_chat"
 }
