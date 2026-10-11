@@ -37,7 +37,7 @@
   "spoken_language": "fixture_based",
   "on_screen_language": "en",
   "language_validation_required": true,
-  "processing_environment": "higgsfield_cloud_only",
+  "processing_environment": "higgsfield_cloud_only_with_native_cloud_editor",
   "local_processing_enabled": false,
   "python_enabled": false,
   "cloud_editor_internal_ffmpeg_enabled": true,
@@ -327,5 +327,7 @@
     "post_generation_review_field": "pitch_action_review",
     "review_actual_beginning_middle_end": true,
     "missing_action": "disclose_quality_status_without_second_generation"
-  }
+  },
+  "cloud_editor_temporary_cloud_files_allowed": true,
+  "cloud_editor_qa_and_delivery_allowed": true
 }
