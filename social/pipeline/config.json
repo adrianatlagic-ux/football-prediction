@@ -58,7 +58,29 @@
       "bottom_disclaimer"
     ],
     "duration_seconds": 3,
-    "additional_cta": false
+    "additional_cta": false,
+    "canonical_master": {
+      "media_id": "9c29b762-d478-4bb4-b4bc-fadfaad35efd",
+      "sha256": "db27304c2c8ff7a0c9b0c8b91a4545999bf8e65bb8b53633bc48b69848458c7e",
+      "approved_on": "2026-10-07",
+      "duration_seconds": 3,
+      "width": 720,
+      "height": 1280,
+      "fps": "24/1",
+      "background": "black",
+      "layout": "large original gold/white GoalIQ logo in upper-middle, bold gold goaliq.de below, large legible centered two-line white disclaimer near bottom",
+      "audio": "silent"
+    },
+    "master_reuse_required": true,
+    "ad_hoc_recreation_allowed": false,
+    "match_source_format_action": "remux or adapt only the canonical master as needed; never recompose typography, logo size, colors, placement or background; preserve source clip and audio with stream copy when possible",
+    "preflight_validation": [
+      "fetch canonical master by media ID",
+      "verify sha256 and 3.000-second duration",
+      "inspect beginning/middle/end master frames",
+      "compare final outro frame against canonical master for visible layout/color/logo/text"
+    ],
+    "unavailable_or_mismatch_action": "stop finishing and report; do not make a visually different substitute"
   },
   "daily_video_limit": 1,
   "daily_limit_basis": "editorial_target_date",
@@ -68,7 +90,7 @@
     "required": true,
     "repeat_previous_story_type": false,
     "minimum_changed_elements": 3,
-    "forbidden_template": "interview_question_then_player_answer_then_standard_pitch_duel",
+    "forbidden_template": "mechanically_repeated_interview_question_then_answer_then_generic_pitch_end",
     "manifest_fields": [
       "story_type",
       "hook",
@@ -85,7 +107,25 @@
       "perspective_shift",
       "misdirected_expectation",
       "team_internal_decision"
-    ]
+    ],
+    "creative_selection": "randomized_from_eligible_nonrepeating_story_and_dialogue_modes",
+    "randomness_scope": "story_structure_and_dialogue_only_not_fixture_verification_or_quality_checks",
+    "selection_record": [
+      "eligible_story_types",
+      "eligible_dialogue_modes",
+      "random_draw",
+      "selection_reason",
+      "previous_two_modes"
+    ],
+    "dialogue_modes": [
+      "two_character_exchange",
+      "brief_character_exchange_with_action",
+      "natural_voiceover",
+      "mostly_visual_with_sparse_speech"
+    ],
+    "dialogue_variety_policy": "Characters may speak with one another and this must recur across the series; choose dialogue mode anew for each video, not an automatic interview. Avoid the same dialogue mode for three successive videos; if the last two had no character-to-character exchange, include an exchange in the next eligible story.",
+    "keep_prior_formats_as_candidates": true,
+    "require_story_pitch_integration": true
   },
   "caption_language": "de",
   "caption_required": true,
@@ -244,7 +284,10 @@
       "exaggerated synthetic anime voices"
     ],
     "real_person_imitation": false,
-    "actual_audio_review_required": true
+    "actual_audio_review_required": true,
+    "dialogue_allowed": true,
+    "multi_character_dialogue_allowed": true,
+    "dialogue_prompt_rule": "When a dialogue mode is selected, write a short natural back-and-forth between fictional characters; on-field decisions and reactions should carry the story. Never imitate a real person's voice or present fictional speech as real quotations."
   },
   "delivery": {
     "inline_media_player": true,
