@@ -1,12 +1,17 @@
 {
   "target_date": "2026-10-12",
-  "request_key": "goaliq-2026-10-12-bayern-leipzig-v1",
-  "job_id": "30f4b980-fd8f-4df9-b3c4-be21d7fff40f",
+  "exception_authorized": true,
+  "job_id": "5759ea45-f83e-4552-a2e9-48dbc7cff7b8",
   "model": "seedance_2_0_mini",
-  "preflight_credits": 15,
+  "actual_credits_consumed": 15,
   "balance_before": 20.18,
-  "balance_after": 20.18,
-  "generation_status": "ip_detected",
-  "outcome": "No video delivered. The sole authorised generation was provider-rejected before a source clip existed; no retry submitted.",
-  "time": "2026-10-12T06:03:00Z"
+  "balance_after": 5.18,
+  "fixture": "Bayern Munich vs Arsenal, 2026-10-21 21:00 CEST",
+  "source_sha256": "5a304f8898832b8ef63e007456db2e852b626e18b02c658ffe98ebc2012997fc",
+  "final_sha256": "ab791f4039dc31e16e647b909cc409e4e6bf39a45353d4be0d29e425ab92c719",
+  "zip_inner_sha256": "ab791f4039dc31e16e647b909cc409e4e6bf39a45353d4be0d29e425ab92c719",
+  "final_media_id": "8e2624e1-4f77-44ca-8a36-99014524820c",
+  "zip_media_id": "f502002f-c703-43dd-ac46-114ef46f6dcf",
+  "quality_status": "delivered_with_disclosed_quality_limit",
+  "notes": "visible team crests and matchup/date card at opening; generative team-name typography is not exact (minor spelling/diacritic deviation), documented and accepted under the single-job rule."
 }
