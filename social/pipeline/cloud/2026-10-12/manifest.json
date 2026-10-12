@@ -1,7 +1,7 @@
 {
   "schema_version": "1.4",
   "target_date": "2026-10-12",
-  "status": "exception_authorized_cl_generation_reserved",
+  "status": "exception_generation_submitted",
   "editorial_date_timezone": "Europe/Berlin",
   "coverage_key": "2026-10-21|bayern-munich|arsenal|ucl",
   "match": {
@@ -63,7 +63,7 @@
     "spoken_language": "English",
     "editorial_text_language": "English",
     "generation_attempt_limit": 2,
-    "generation_attempts_used": 1,
+    "generation_attempts_used": 2,
     "request_key": "goaliq-2026-10-12-bayern-arsenal-ucl-exception-v1",
     "credit_preflight": {
       "model": "seedance_2_0_mini",
@@ -85,15 +85,19 @@
       "duration_seconds": 2,
       "verification_pending": true
     },
-    "job_id": "30f4b980-fd8f-4df9-b3c4-be21d7fff40f",
-    "submitted_at": "2026-10-12T06:00:30Z",
+    "job_id": "5759ea45-f83e-4552-a2e9-48dbc7cff7b8",
+    "submitted_at": "2026-10-12T15:13:00Z",
     "generation_result_status": "ip_detected",
     "completed_at": "2026-10-12T06:03:00Z",
     "credits_after": 20.18,
     "exception_authorization": {
       "authorized_by_user_at": "2026-10-12T15:08:00Z",
       "scope": "one additional Champions League generation only for 2026-10-12 after original job ip_detected"
-    }
+    },
+    "crest_reference_media_ids": [
+      "4bfa7d39-83eb-466a-adf9-771053cf9e83",
+      "74596642-2d5e-4d43-a5f8-380b9475ca1c"
+    ]
   },
   "qa": {
     "status": "pending",
