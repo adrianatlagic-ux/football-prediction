@@ -1,0 +1,12 @@
+{
+  "target_date": "2026-10-12",
+  "request_key": "goaliq-2026-10-12-bayern-leipzig-v1",
+  "job_id": "30f4b980-fd8f-4df9-b3c4-be21d7fff40f",
+  "model": "seedance_2_0_mini",
+  "preflight_credits": 15,
+  "balance_before": 20.18,
+  "balance_after": 20.18,
+  "generation_status": "ip_detected",
+  "outcome": "No video delivered. The sole authorised generation was provider-rejected before a source clip existed; no retry submitted.",
+  "time": "2026-10-12T06:03:00Z"
+}
