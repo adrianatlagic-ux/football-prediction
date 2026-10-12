@@ -184,6 +184,7 @@
     "top_match_only": true,
     "top_match_policy": {
       "priority": [
+        "UEFA_Champions_League_fixture",
         "recognized_derby_or_major_rivalry",
         "fixture_involving_Bayern_Munich",
         "fixture_involving_Borussia_Dortmund"
@@ -192,7 +193,14 @@
       "generic_fixture_fallback": false,
       "lookahead_to_next_uncovered_top_match": true,
       "avoid_repeat_coverage": true,
-      "zero_valid_top_matches_action": "report_specific_blocker_without_generation"
+      "zero_valid_top_matches_action": "report_specific_blocker_without_generation",
+      "champions_league_policy": {
+        "priority": "highest",
+        "definition": "verified upcoming UEFA Champions League fixture",
+        "selection_action": "consider eligible Champions League fixtures before domestic top-match rules; rank chronologically within the nearest valid Champions League matchday",
+        "spoken_language": "en",
+        "on_screen_language": "en"
+      }
     }
   },
   "editorial_date_policy": {
@@ -264,7 +272,9 @@
     "on_screen_language": "en",
     "outro_language": "en",
     "caption_language": "de",
-    "manifest_language_and_reason_required": true
+    "manifest_language_and_reason_required": true,
+    "champions_league": "en",
+    "champions_league_override": "Champions League fixtures use English speech even when a German club participates."
   },
   "story_relevance": {
     "required": true,
