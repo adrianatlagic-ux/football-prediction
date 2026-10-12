@@ -1,7 +1,7 @@
 {
   "schema_version": "1.4",
   "target_date": "2026-10-12",
-  "status": "generation_submitted",
+  "status": "blocked_generation_ip_detected",
   "editorial_date_timezone": "Europe/Berlin",
   "coverage_key": "2026-10-17|bayern-munich|rb-leipzig",
   "match": {
@@ -81,19 +81,23 @@
       "verification_pending": true
     },
     "job_id": "30f4b980-fd8f-4df9-b3c4-be21d7fff40f",
-    "submitted_at": "2026-10-12T06:00:30Z"
+    "submitted_at": "2026-10-12T06:00:30Z",
+    "generation_result_status": "ip_detected",
+    "completed_at": "2026-10-12T06:03:00Z",
+    "credits_after": 20.18
   },
   "qa": {
-    "status": "pending",
-    "style_review": "pending",
-    "pitch_action_review": "pending",
+    "status": "not_ready_no_source_clip",
+    "style_review": "not_available: only permitted generation was rejected by provider identity/IP detection",
+    "pitch_action_review": "not_available: no source clip",
     "relevance_review": "pre-production exchangeability passed; fixture, home setting and two causal pitch beats are specific to Bayern–Leipzig.",
-    "outro_review": "pending",
-    "audio_review": "pending"
+    "outro_review": "not_available: no source clip",
+    "audio_review": "not_available: no source clip"
   },
   "delivery": {
     "final_media_id": null,
     "zip_media_id": null,
-    "private_urls_not_committed": true
+    "private_urls_not_committed": true,
+    "failure_reason": "Higgsfield rejected the only permitted generation with ip_detected; no final MP4 can be assembled without an impermissible second generation."
   }
 }
