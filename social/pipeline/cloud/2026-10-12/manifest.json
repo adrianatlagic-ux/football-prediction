@@ -1,7 +1,7 @@
 {
   "schema_version": "1.4",
   "target_date": "2026-10-12",
-  "status": "reserved",
+  "status": "generation_submitted",
   "editorial_date_timezone": "Europe/Berlin",
   "coverage_key": "2026-10-17|bayern-munich|rb-leipzig",
   "match": {
@@ -62,7 +62,7 @@
     "spoken_language": "German",
     "editorial_text_language": "English",
     "generation_attempt_limit": 1,
-    "generation_attempts_used": 0,
+    "generation_attempts_used": 1,
     "request_key": "goaliq-2026-10-12-bayern-leipzig-v1",
     "credit_preflight": {
       "model": "seedance_2_0_mini",
@@ -79,7 +79,9 @@
       "timezone": "Europe/Berlin",
       "duration_seconds": 2,
       "verification_pending": true
-    }
+    },
+    "job_id": "30f4b980-fd8f-4df9-b3c4-be21d7fff40f",
+    "submitted_at": "2026-10-12T06:00:30Z"
   },
   "qa": {
     "status": "pending",
