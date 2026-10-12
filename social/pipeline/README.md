@@ -182,3 +182,10 @@ Da der direkte MP4-Link beim Nutzer nur zum Abspielen führt, zusätzlich bei je
 ## Caption-Kürzung (Nutzeranweisung07.10.2026)
 
 Keinen erklärenden Story-Zusammenfassungsabsatz in Captions verwenden, insbesondere keine Formulierung nach dem Muster „In unserer fiktiven KI-Anime-Story …“. Story-/Vereinsbezug darf knapp im Hook oder in der Diskussionsfrage entstehen. Danach Spieltermin, sachbezogene Diskussionsfrage, goaliq.de, Unterhaltungshinweis und wenige Hashtags. Fiktion nur kompakt als „KI-Fiktion“ kennzeichnen, nicht durch einen erklärenden Satz. Diese Kürzung ersetzt ältere Vorgaben zu ausführlicher Handlungsbeschreibung in der Caption.
+
+
+## Champions-League-Priorität und Sprache (Nutzeranweisung 12.10.2026)
+
+Bei der Duellauswahl zuerst verifizierte, noch nicht abgedeckte UEFA-Champions-League-Spiele prüfen. Gibt es kein passendes Spiel am redaktionellen Tag, chronologisch den nächstgelegenen kommenden Champions-League-Spieltag vor den inländischen Topspielregeln prüfen. Innerhalb dieses Spieltags nach Relevanz und danach Termin ranken; bereits reservierte oder behandelte Paarungen überspringen.
+
+Für jedes Champions-League-Video gilt unabhängig von deutscher Vereinsbeteiligung: **gesprochener Text ist Englisch**. Redaktioneller Text im Bild und Markenabschluss bleiben ebenfalls Englisch. Deutsche Sprache bleibt ausschließlich die Regel für nicht-europäische Wettbewerbe mit deutscher Beteiligung.
