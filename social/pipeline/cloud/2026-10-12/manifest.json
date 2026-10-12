@@ -1,81 +1,86 @@
 {
   "schema_version": "1.4",
   "target_date": "2026-10-12",
-  "status": "blocked_generation_ip_detected",
+  "status": "exception_authorized_cl_generation_reserved",
   "editorial_date_timezone": "Europe/Berlin",
-  "coverage_key": "2026-10-17|bayern-munich|rb-leipzig",
+  "coverage_key": "2026-10-21|bayern-munich|arsenal|ucl",
   "match": {
     "home": "Bayern Munich",
-    "away": "RB Leipzig",
-    "match_date": "2026-10-17",
-    "kickoff_at": "2026-10-17T18:30:00+02:00",
+    "away": "Arsenal",
+    "competition": "UEFA Champions League",
+    "match_date": "2026-10-21",
+    "kickoff_at": "2026-10-21T21:00:00+02:00",
     "timezone": "Europe/Berlin",
-    "fixture_hook_text": "BAYERN MUNICH vs RB LEIPZIG · 17 OCT 2026 · 18:30 CEST"
+    "fixture_hook_text": "BAYERN MUNICH vs ARSENAL · 21 OCT 2026 · 21:00 CEST"
   },
   "selection": {
-    "top_match_qualification": "Bayern Munich fixture; ranked above other same-matchday non-derby candidates under current top-match rule.",
-    "selection_reason": "No eligible uncovered top fixture on 12 October. Bayern Munich vs RB Leipzig is the nearest chronologically valid uncovered Bayern fixture with over two hours lead time.",
+    "top_match_qualification": "Highest-priority UEFA Champions League fixture; Bayern Munich vs Arsenal is the strongest relevance-ranked uncovered duel of the nearest UCL matchday.",
+    "selection_reason": "User-authorised one-day exception after previous job rejection. Official UEFA fixture API verified Bayern Munich–Arsenal on 21 October 2026, 21:00 CEST.",
     "rejected_or_covered_candidates": [
-      "Eintracht Frankfurt vs 1. FC Köln (16 Oct): not a designated top fixture under current rule.",
-      "Union Berlin vs Borussia Dortmund (17 Oct): valid but ranked after Bayern fixture by configured priority.",
-      "1. FC Köln vs Borussia Mönchengladbach (11 Oct): already covered."
+      "Stuttgart vs Atleti (20 Oct): Champions League but lower relevance-ranked than Bayern Munich vs Arsenal.",
+      "Real Madrid vs Leipzig (21 Oct): Champions League but ranked after Bayern Munich vs Arsenal.",
+      "Bayern Munich vs RB Leipzig: earlier job rejected and superseded for this expressly authorised exception."
     ],
     "generation_basis": "verified_fixture_and_current_research",
     "prediction_status": "not_used_optional",
     "prediction_used": false
   },
   "research": {
-    "fixture_source": "Higgsfield Cloud live football fixtures; retrieved 2026-10-12",
+    "fixture_source": "Official UEFA Match API v5",
     "sources": [
       {
-        "url": "https://www.bundesliga.com/en/bundesliga/matchday/2026-2027/7/fc-bayern-muenchen-vs-rb-leipzig/liveticker",
-        "type": "fixture_reference",
-        "retrieved_at": "2026-10-12T06:00:00Z"
+        "url": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
+        "type": "official_fixture_api",
+        "retrieved_at": "2026-10-12T15:11:00Z"
       },
       {
-        "url": "https://fcbayern.com/en/teams/first-team",
-        "type": "official_club_context",
-        "retrieved_at": "2026-10-12T06:00:00Z"
+        "url": "https://www.uefa.com/uefachampionsleague/fixtures-results/",
+        "type": "official_competition_fixtures",
+        "retrieved_at": "2026-10-12T15:11:00Z"
       }
     ],
     "context_type": "match",
-    "verified_context": "Bayern Munich are the home team for the verified Bayern Munich–RB Leipzig fixture. The fictional choice-to-pass story is explicitly staged in the home-stadium setting; no form, result, or real-player claim is made.",
-    "story_connection": "The fictional player’s decision to switch play and then cut back is motivated by the Allianz Arena hand-drawn card; both choices happen as on-pitch football actions."
+    "verified_context": "Official UEFA fixture data lists Bayern Munich hosting Arsenal on 21 October 2026 at 19:00 UTC (21:00 CEST). The fictional choice-to-pass story is limited to this upcoming UEFA Champions League fixture and does not state real form, tactics, quotes or outcome.",
+    "story_connection": "A fictional tunnel note motivates two linked football decisions: a pressured turn and switch, then a cutback rather than an invented score."
   },
   "story": {
-    "previous_story_type": "team_internal_decision",
-    "story_type": "stadium-memory-perspective",
-    "hook": "A fictional Bayern player carries a child’s hand-drawn Allianz Arena card onto the pitch.",
-    "conflict": "Under defensive pressure he is tempted to force an individual finish.",
-    "twist": "The card shifts his decision from individual glory to a pass for the entire home stadium.",
-    "final_image": "Both sides reset beneath the floodlights before kickoff.",
-    "off_pitch_setup": "A fictional kit attendant gives the player the hand-drawn Allianz Arena card in the tunnel.",
+    "previous_story_type": "stadium-memory-perspective",
+    "story_type": "note-to-next-pass",
+    "hook": "A fictional Bayern player receives a small tunnel note before Bayern Munich vs Arsenal.",
+    "conflict": "Arsenal pressure invites him to force the decisive action.",
+    "turning_point": "The note reframes the moment: make the next pass count.",
+    "ending_image": "Both fictional teams reset under Champions League floodlights before kickoff.",
+    "off_pitch_setup": "A fictional young tunnel attendant gives the player the note.",
     "on_pitch_beats": [
-      "Pressured reception and diagonal switch through two Leipzig defenders.",
-      "Return ball into the box followed by a selfless cutback around a blocking defender."
+      "A first-touch turn under pressure, followed by a switch of play.",
+      "A return ball at the box followed by a deliberate cutback rather than a shot."
     ],
-    "causal_bridge": "The card changes the player’s choice from forcing a shot to linking the team.",
-    "on_pitch_payoff": "The cutback is the visual payoff of the earlier switch and the personal reminder."
+    "causal_bridge": "The note visibly motivates both decisions.",
+    "on_pitch_payoff": "The cutback confirms the story’s choice-to-pass theme."
   },
   "production": {
-    "visual_style": "photorealistic live-action",
-    "spoken_language": "German",
+    "visual_style": "photorealistic live-action, non-identifiable fictional players",
+    "spoken_language": "English",
     "editorial_text_language": "English",
-    "generation_attempt_limit": 1,
+    "generation_attempt_limit": 2,
     "generation_attempts_used": 1,
-    "request_key": "goaliq-2026-10-12-bayern-leipzig-v1",
+    "request_key": "goaliq-2026-10-12-bayern-arsenal-ucl-exception-v1",
     "credit_preflight": {
       "model": "seedance_2_0_mini",
       "duration_seconds": 15,
       "resolution": "720p",
       "credits_exact": 15,
       "balance_before": 20.18,
-      "checked_at": "2026-10-12T06:00:00Z"
+      "checked_at": "2026-10-12T15:12:00Z"
     },
     "fixture_hook": {
       "render_mode": "inside_generated_story_video",
-      "text": "BAYERN MUNICH vs RB LEIPZIG · 17 OCT 2026 · 18:30 CEST",
+      "text": "BAYERN MUNICH vs ARSENAL · 21 OCT 2026 · 21:00 CEST",
       "crests_required": true,
+      "crest_sources": [
+        "UEFA team logo 50037",
+        "UEFA team logo 52280"
+      ],
       "timezone": "Europe/Berlin",
       "duration_seconds": 2,
       "verification_pending": true
@@ -84,20 +89,23 @@
     "submitted_at": "2026-10-12T06:00:30Z",
     "generation_result_status": "ip_detected",
     "completed_at": "2026-10-12T06:03:00Z",
-    "credits_after": 20.18
+    "credits_after": 20.18,
+    "exception_authorization": {
+      "authorized_by_user_at": "2026-10-12T15:08:00Z",
+      "scope": "one additional Champions League generation only for 2026-10-12 after original job ip_detected"
+    }
   },
   "qa": {
-    "status": "not_ready_no_source_clip",
-    "style_review": "not_available: only permitted generation was rejected by provider identity/IP detection",
-    "pitch_action_review": "not_available: no source clip",
-    "relevance_review": "pre-production exchangeability passed; fixture, home setting and two causal pitch beats are specific to Bayern–Leipzig.",
-    "outro_review": "not_available: no source clip",
-    "audio_review": "not_available: no source clip"
+    "status": "pending",
+    "style_review": "pending",
+    "pitch_action_review": "pending",
+    "relevance_review": "pre-production passed: official fixture and two causally linked on-pitch actions.",
+    "outro_review": "pending",
+    "audio_review": "pending"
   },
   "delivery": {
     "final_media_id": null,
     "zip_media_id": null,
-    "private_urls_not_committed": true,
-    "failure_reason": "Higgsfield rejected the only permitted generation with ip_detected; no final MP4 can be assembled without an impermissible second generation."
+    "private_urls_not_committed": true
   }
 }
