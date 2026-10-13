@@ -164,7 +164,9 @@ def grade_entries(entries, finished):
         ("fair_likely", "🎯 auf denselben Spielen"),
         ("bet_tip", "Wett-Tipp alte Regel (wahrscheinlichster, Modell und KI stimmen zu)"),
         ("bet_tip_ki", "Wett-Tipp neue Regel (KI-Tipp, Modell ≥ Markt, nicht umgeschwenkt)"),
-        ("bet_tip_unsure", "...zurückgehalten: KI kurz vor Anpfiff umgeschwenkt"),
+        ("bet_tip_unsure", "...zurückgehalten: KI kurz vor Anpfiff umgeschwenkt (alle)"),
+        ("bet_tip_same_side", "   ...davon andere Wette, gleiche Richtung (z. B. Sieg -> -1,5)"),
+        ("bet_tip_changed_mind", "   ...davon Meinungswechsel (andere Seite oder anderer Markt)"),
         ("bet_tip_model_no", "...zurückgehalten: Modell unter Markt"))}
     for g in LIKELY_GROUPS:
         buckets["likely " + g] = Bucket(f"🎯 bei {g}")
@@ -237,6 +239,8 @@ def grade_entries(entries, finished):
             withheld = tip_entry.get("withheld")
             targets.append(("bet_tip_unsure" if tip_entry.get("status") == "ai_unsure" else "bet_tip_model_no",
                             withheld))
+            if tip_entry.get("change") in ("same_side", "changed_mind"):
+                targets.append(("bet_tip_" + tip_entry["change"], withheld))
         for key, bt in targets:
             if bt and bt.get("best_odds"):
                 g_bt = grade(bt, home, away, hs, as_)
@@ -290,7 +294,8 @@ def print_report(name, r):
             print(f"  erwarteter Edge im Schnitt {sum(r['edges']) / len(r['edges']):+.1%} "
                   f"- einzelne Ergebnisse schwanken weit mehr; erst viele Tipps sagen etwas.")
         print(f"  Spiele ohne Preistipp: {r['no_tip']}")
-    for key in ("bet_tip", "bet_tip_ki", "bet_tip_unsure", "bet_tip_model_no"):
+    for key in ("bet_tip", "bet_tip_ki", "bet_tip_unsure", "bet_tip_same_side", "bet_tip_changed_mind",
+                "bet_tip_model_no"):
         if b[key].decided:
             print(b[key].report())
     if b["likely"].decided:

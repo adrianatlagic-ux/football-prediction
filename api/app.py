@@ -2237,7 +2237,15 @@ def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
     if not pick:
         return {**out, "status": "waiting_for_ai"}
     if agent_eval.get("revised_from_previous"):
-        return {**out, "status": "ai_unsure", "withheld": pick}
+        # Any change at the re-check withholds the tip. Whether it stayed on
+        # the same side ("Leipzig to win" -> "Leipzig -1.5") is logged, to
+        # learn whether such changes deserve a tip after all.
+        from src.price_tip import changed_its_mind
+        change = "changed_mind" if changed_its_mind(agent_eval) else "same_side"
+        if not agent_eval.get("first_pick"):
+            change = "unknown"
+        return {**out, "status": "ai_unsure", "withheld": pick, "change": change,
+                "first_pick": agent_eval.get("first_pick")}
     model = pick.get("model_probability_raw")
     if model is None:
         model = pick.get("probability")

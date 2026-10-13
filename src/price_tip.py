@@ -384,6 +384,38 @@ def implies(pick: dict, tip: dict, home: str, away: str) -> bool:
     return True
 
 
+def pick_direction(bet: Optional[dict]):
+    """What a bet says about the match, whatever market it uses.
+
+    "Leipzig to win", "Leipzig -1.5" and "Leipzig +1.5" all back Leipzig;
+    "Over 2.5" and "Over 1.5" both back goals. Used to tell an AI agent that
+    changes its bet from one that changes its mind.
+    """
+    if not bet:
+        return None
+    market, outcome = bet.get("market") or "", str(bet.get("outcome") or "").lower()
+    if market == "1X2":
+        return ("draw",) if outcome == "draw" else ("team", bet.get("team"))
+    if market.startswith("Handicap") and bet.get("team"):
+        return ("team", bet.get("team"))
+    if market.startswith("Over/Under"):
+        return ("goals", outcome)
+    if market == "BTTS":
+        return ("btts", outcome)
+    return None
+
+
+def changed_its_mind(agent_eval: Optional[dict]) -> bool:
+    """Whether the agent's pre-kickoff re-check turned to another side, not
+    just to another bet on the same side. Logged with every withheld tip
+    (api/app.py _bet_tip); not yet used to show one."""
+    agent_eval = agent_eval or {}
+    if not agent_eval.get("revised_from_previous"):
+        return False
+    first, now = pick_direction(agent_eval.get("first_pick")), pick_direction(agent_eval.get("pick"))
+    return first is None or first != now
+
+
 def _same(a: dict, b: dict) -> bool:
     return bool(a and b and a.get("market") == b.get("market") and a.get("outcome") == b.get("outcome")
                 and (a.get("team") or None) == (b.get("team") or None))
