@@ -226,11 +226,26 @@ def _record_spend(usd: float) -> None:
     spend_path().write_text(json.dumps(data, indent=1) + "\n")
 
 
+def has_markets(markets) -> bool:
+    """Whether a parsed book holds any extra market at all."""
+    return bool(markets) and bool(markets.get("totals") or markets.get("spreads") or markets.get("btts"))
+
+
+def _strip_markets(fetched: list) -> list:
+    return [{k: v for k, v in f.items() if k != "markets"} for f in fetched]
+
+
 def _has_fresh_book(fixtures: list, event: dict) -> bool:
-    """Whether this match already has a full book fetched inside its window."""
+    """Whether this match already has a full book fetched inside its window.
+
+    An empty book ({}) is the deliberate 1X2-only read past the budget and
+    counts; a read whose markets all came back empty does not.
+    """
     from src.price_tip import match_fixture
     fixture = match_fixture(event, fixtures)
     if not fixture or not fixture.get("markets_fetched_at"):
+        return False
+    if fixture.get("markets") != {} and not has_markets(fixture.get("markets")):
         return False
     try:
         kickoff = datetime.fromisoformat(event["commence_time"].replace("Z", "+00:00"))
@@ -305,6 +320,13 @@ def refresh_if_due(sport_key: str, events: list) -> bool:
             return False
         _record_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
         apify_budget.note_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
+        if full and fetched and not any(has_markets(f.get("markets")) for f in fetched):
+            # OddsPortal served the matches without a single extra market (13
+            # October): keep the 1X2 prices, leave the book unread, so the
+            # next tick after the cooldown tries again.
+            _log_refresh(sport_key, "last_hour", items, "failed: no extra markets in the read, retry in 20 min")
+            store(sport_key, _strip_markets(fetched))
+            return False
         _log_refresh(sport_key, "last_hour", items, "full book" if full else "1X2 only: Apify budget")
         if not full:
             # Past the budget: mark the 1X2 read so the window is not retried.
@@ -371,15 +393,21 @@ def daily_refresh(sport_key: str, events: list, retry: bool = False) -> bool:
             return False
         _record_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
         apify_budget.note_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
-        if not fetched:
+        no_markets = full and fetched and not any(has_markets(f.get("markets")) for f in fetched)
+        if no_markets:
+            # The prices came, the extra markets did not (13 October): keep
+            # the 1X2 prices and try the full read again.
+            store(sport_key, _strip_markets(fetched))
+        if not fetched or no_markets:
             attempts = (_morning_retry.get(sport_key, {}).get("attempts", 0) if retry else 0) + 1
             if attempts <= MORNING_RETRIES:
                 _morning_retry[sport_key] = {"attempts": attempts, "next_at": now + MORNING_RETRY_AFTER}
-                _log_refresh(sport_key, "morning", items, f"failed: no bet-at-home odds in the read, "
+                what = "no extra markets" if no_markets else "no bet-at-home odds"
+                _log_refresh(sport_key, "morning", items, f"failed: {what} in the read, "
                                                           f"retry {attempts} of {MORNING_RETRIES} in 30 min")
             else:
                 _morning_retry.pop(sport_key, None)
-                _log_refresh(sport_key, "morning", items, "failed: no bet-at-home odds in the read, no retry left")
+                _log_refresh(sport_key, "morning", items, "failed: nothing usable in the read, no retry left")
             return False
         _morning_retry.pop(sport_key, None)
         _log_refresh(sport_key, "morning" if not retry else "morning retry", items,

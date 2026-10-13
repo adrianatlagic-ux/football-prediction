@@ -23,6 +23,22 @@ viele doppelte Abfragen der letzten Stunde (am 6.10. neunmal in zwei
 Minuten), die erst am 10.10. abgestellt wurden (Commit 0a329ba,
 höchstens eine Abfrage je Wettbewerb in 20 Minuten).
 
+## Zweite Ursache (13.10.2026, 20:40)
+
+Nach dem Anheben des Limits lief die Abfrage der letzten Stunde um 18:07 UTC
+mit allen Märkten (`scrapeMatchMarkets: true`, 9 Spiele, 0,21 $ bezahlt).
+Der Scraper lieferte die Spiele mit 1X2, aber **für kein Spiel einen einzigen
+Zusatzmarkt** (`markets: []`); am 12.10. waren es für dieselbe Liga mit
+derselben Einstellung über 200 je Spiel. Der Code speicherte die leeren
+Märkte als „gelesen“, daher kein zweiter Versuch, und die Tabelle zeigte
+fast nur Quoten anderer Buchmacher (mit *).
+
+Korrektur: Eine volle Abfrage ohne einen einzigen Zusatzmarkt gilt als
+fehlgeschlagen. Die 1X2-Quoten werden gespeichert, das Spiel bleibt
+„ungelesen“; die letzte Stunde versucht es nach 20 Minuten erneut, die
+Morgenabfrage nach 30 Minuten (höchstens zweimal). Tests in
+`tests/test_apify_budget.py`.
+
 ## Meldung
 
 Am 13.10. (Champions League) zeigte die Seite morgens für die Spiele des Tages

@@ -78,3 +78,36 @@ def test_a_last_hour_read_is_not_repeated_within_the_cooldown(monkeypatch):
     book_odds.refresh_if_due("soccer_germany_bundesliga", events)
     book_odds.refresh_if_due("soccer_germany_bundesliga", events)
     assert len(calls) == 1
+
+
+def test_a_full_read_without_extra_markets_keeps_1x2_and_is_tried_again(monkeypatch, tmp_path):
+    from datetime import timedelta
+    calls, stored = [], []
+    monkeypatch.setenv("APIFY_TOKEN", "x")
+    monkeypatch.setattr(book_odds, "_record_spend", lambda usd: None)
+    monkeypatch.setattr(book_odds, "load", lambda: {"fixtures": []})
+    monkeypatch.setattr(book_odds, "store", lambda sport, fixtures, replace=False: stored.append(fixtures))
+    empty = {"totals": [], "spreads": [], "btts": None}
+    monkeypatch.setattr(book_odds, "fetch_league", lambda *a, **k: calls.append(1) or
+                        [{"home_team": "A", "away_team": "B", "odds": {"home": 2.0, "draw": 3.4, "away": 3.6},
+                          "fetched_at": "x", "markets": empty}])
+    events = _soon(40)
+    assert book_odds.refresh_if_due("soccer_germany_bundesliga", events) is False
+    assert "markets" not in stored[-1][0] and stored[-1][0]["odds"]["home"] == 2.0   # 1X2 kept, book not marked read
+    assert book_odds.REFRESH_LOG["soccer_germany_bundesliga"]["outcome"].startswith("failed: no extra markets")
+    # After the cooldown the next tick reads again.
+    monkeypatch.setattr(book_odds, "_now", lambda: book_odds.datetime.now(book_odds.timezone.utc) + timedelta(minutes=21))
+    book_odds.refresh_if_due("soccer_germany_bundesliga", events)
+    assert len(calls) == 2
+
+
+def test_an_empty_book_from_the_scraper_is_not_a_fresh_book(monkeypatch):
+    from datetime import datetime, timedelta, timezone
+    import src.price_tip as price_tip
+    now = datetime.now(timezone.utc)
+    event = {"commence_time": (now + timedelta(minutes=40)).isoformat(), "home_team": "A", "away_team": "B"}
+    for markets, fresh in (({"totals": [], "spreads": [], "btts": None}, False), ({}, True),
+                           ({"totals": [{"point": 2.5, "over": 1.9, "under": 1.9}], "spreads": [], "btts": None}, True)):
+        fixture = {"markets": markets, "markets_fetched_at": now.isoformat()}
+        monkeypatch.setattr(price_tip, "match_fixture", lambda e, f, events=None, fx=fixture: fx)
+        assert book_odds._has_fresh_book([fixture], event) is fresh
