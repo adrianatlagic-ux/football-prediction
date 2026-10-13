@@ -22,6 +22,7 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 from grade_bets import _norm, grade  # noqa: E402
 
@@ -135,7 +136,11 @@ def main():
             grp.add(won, mp, odds)
         by_book["bet-at-home" if p.get("bookmaker_key") == "betathome" else f"anderer ({p.get('bookmaker')})"].add(won, mp, odds)
         rev = a.get("revised_from_previous")
-        by_recheck["vor Anpfiff geändert" if rev else "beibehalten" if rev is False else "keine zweite Prüfung"].add(won, mp, odds)
+        label = "vor Anpfiff geändert" if rev else "beibehalten" if rev is False else "keine zweite Prüfung"
+        if rev and a.get("first_pick"):
+            from src.price_tip import changed_its_mind
+            label += ", Meinungswechsel" if changed_its_mind(a) else ", gleiche Richtung"
+        by_recheck[label].add(won, mp, odds)
         same = lp and (lp.get("market"), lp.get("outcome"), lp.get("team")) == (p["market"], p["outcome"], p.get("team"))
         by_likely["KI = 🎯 wahrscheinlichster" if same else "KI ≠ 🎯 (eigene Wahl)"].add(won, mp, odds)
         model = p.get("model_probability_raw")
