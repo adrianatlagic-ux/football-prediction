@@ -6,15 +6,16 @@
   "coverage_key": null,
   "selected_candidate": {
     "competition": "UEFA Champions League",
-    "home": "VfB Stuttgart",
-    "away": "Atlético de Madrid",
-    "match_date": "2026-10-20",
-    "kickoff_at": "2026-10-20T21:00:00+02:00",
+    "home": "Atlético de Madrid",
+    "away": "Manchester United",
+    "match_date": "2026-10-13",
+    "kickoff_at": "2026-10-13T21:00:00+02:00",
     "timezone": "Europe/Berlin",
-    "fixture_source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
+    "uefa_match_id": "2049573",
+    "fixture_source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=100&limit=100",
     "fixture_status": "UPCOMING",
     "retrieved_date": "2026-10-13",
-    "selection_reason": "Nearest upcoming uncovered UEFA Champions League fixture; Bayern Munich vs Arsenal on 21 October was covered by the 12 October editorial contribution.",
+    "selection_reason": "Today's verified high-profile Champions League pairing between two major European clubs; German participation is not required.",
     "reserved_for_coverage": false
   },
   "generation": {
@@ -41,7 +42,7 @@
     "minimum_viable_preflight_credits": 15,
     "shortfall_credits": 9.82,
     "credits_consumed": 0,
-    "reason": "The available 5.18 credits do not cover a 15-second German-language story with generated fixture opening, character interaction and two linked on-pitch moments. No job submitted."
+    "reason": "Current balance 5.18 credits; a suitable 15-second German-language story video with two causal on-pitch actions, opening hook and audio is quoted at 15 exact credits. No job submitted or credits spent."
   },
   "language": {
     "spoken": "de",
@@ -62,5 +63,16 @@
     "ready": false,
     "public_media_urls_written": false
   },
-  "next_action": "After sufficient credits and reactivation, rerun current-day selection and full live checks; this blocked candidate is not a fixture reservation."
+  "next_action": "After sufficient credits, recheck today's full official fixture slate and balance before submitting at most one job; no fixture has been reserved or video generated.",
+  "selection_audit": {
+    "corrected_at": "2026-10-13T06:02:00Z",
+    "prior_error": "UEFA API first page contained 20 October and later fixtures; pagination was omitted.",
+    "today_candidates": [
+      "Atlético de Madrid vs Manchester United 21:00 MESZ",
+      "Galatasaray vs Barcelona 21:00 MESZ",
+      "Arsenal vs Lille 21:00 MESZ",
+      "Viking vs Bayern München 21:00 MESZ"
+    ],
+    "decision": "Today's Atlético de Madrid–Manchester United ranked as a marquee Champions League fixture; no generation because credits remain below exact viable 15-second quote."
+  }
 }
