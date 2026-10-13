@@ -9,8 +9,6 @@ import TEAM_COLORS from './team_colors.json'
 import TEAM_NAMES_DE from './team_names_de.json'
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? (import.meta.env.DEV ? 'http://127.0.0.1:8000' : '')
-// The one bookmaker the user bets with (api/app.py USER_BOOK_KEY).
-const USER_BOOK_KEY = 'betathome'
 
 // Champions League stages in tournament order (2024/25+ format: a single
 // 36-team league phase, then a knockout bracket) - a plain alphabetical sort
@@ -660,7 +658,7 @@ function ComboLegRow({ leg, index, onOpenLeg }) {
         </div>
         <div className="combo-leg-pick">{plainBetPhrase(leg)}</div>
         <div className="combo-leg-meta">
-          {marketGroupLabel(leg.market)} · {leg.bookmaker}
+          {marketGroupLabel(leg.market)}
         </div>
         <div className="smart-bet-agree-row combo-leg-agree">
           {/* On a phone only the signs show; the legend below the combos explains them. */}
@@ -687,7 +685,7 @@ function ComboTicketCard({ ticket, primary, onOpenLeg }) {
   return (
     <div className={`combo-ticket ${primary ? 'is-primary' : ''}`}>
       <div className="combo-ticket-head">
-        <span className="combo-ticket-legs">{tr(`${ticket.leg_count}er-Kombi`, `${ticket.leg_count}-fold`)} · {ticket.bookmaker}</span>
+        <span className="combo-ticket-legs">{tr(`${ticket.leg_count}er-Kombi`, `${ticket.leg_count}-fold`)}</span>
         <div className="combo-quote">
           <span className="combo-quote-label">{tr('Geschätzte Gesamtquote', 'Estimated combined odds')}</span>
           <span className="combo-ticket-odds">{ticket.combined_odds.toFixed(2)}</span>
@@ -707,56 +705,13 @@ function ComboTicketCard({ ticket, primary, onOpenLeg }) {
       {primary && (
         <p className="combo-ticket-note">
           {tr(`Die Wahrscheinlichkeiten nehmen an, dass die Ergebnisse unabhängig voneinander sind. Die Quoten
-          stammen aus den Einzelmärkten von ${ticket.bookmaker}; das Kombi-Angebot selbst wurde nicht
+          stammen aus den Einzelmärkten; das Kombi-Angebot selbst wurde nicht
           geprüft. Wir erwarten mit dieser Wette keinen Gewinn – es ist nur der wahrscheinlichste Schein
           über der Zielquote.`, `Probabilities assume the results are independent of one another. Prices come from
-          ${ticket.bookmaker}'s individual markets; the combined offer itself has not been checked. This is not
+          the individual markets; the combined offer itself has not been checked. This is not
           a bet we expect to profit from - it is the likeliest ticket above the target odds.`)}
         </p>
       )}
-    </div>
-  )
-}
-
-// A combo of the day's price tips: every leg is a bet where bet-at-home pays
-// more than Pinnacle's fair price, so the edges multiply.
-function PriceTipComboCard({ ticket, onOpenLeg }) {
-  return (
-    <div className="combo-ticket is-primary price-tip-combo">
-      <div className="combo-ticket-head">
-        <span className="combo-ticket-legs">💰 {tr(`${ticket.leg_count}er-Kombi`, `${ticket.leg_count}-fold`)} · bet-at-home</span>
-        <div className="combo-quote">
-          <span className="combo-quote-label">{tr('Gesamtquote', 'Combined odds')}</span>
-          <span className="combo-ticket-odds">{ticket.combined_odds.toFixed(2)}</span>
-        </div>
-      </div>
-      <div className="combo-legs">
-        {ticket.legs.map((leg, i) => (
-          <div className={`combo-leg ${onOpenLeg ? 'is-clickable' : ''}`} key={i} role="button" tabIndex={0}
-               onClick={onOpenLeg ? () => onOpenLeg(leg) : undefined}>
-            <span className="combo-leg-num">{i + 1}</span>
-            <div className="combo-leg-body">
-              <div className="combo-leg-match">
-                <TeamLabel name={leg.home_team} /> <span className="combo-leg-vs">vs</span> <TeamLabel name={leg.away_team} />
-              </div>
-              <div className="combo-leg-pick">{betOutcomeLabel(leg)}</div>
-              <div className="combo-leg-meta">{marketGroupLabel(leg.market)} · fair {leg.fair_odds.toFixed(2)} · {tr('Vorteil', 'edge')} {(leg.edge * 100).toFixed(1)}%</div>
-            </div>
-            <div className="combo-leg-numbers">
-              <span className="combo-leg-odds">{leg.book_odds.toFixed(2)}</span>
-              <span className="combo-leg-prob">{betPercent(leg.probability)} Pinnacle</span>
-            </div>
-          </div>
-        ))}
-      </div>
-      <dl className="bet-metrics probability-metrics">
-        <BetMetric label={tr('Chance, dass alle treffen', 'Chance all of them land')} value={betPercent(ticket.probability)} detail={tr('Nach Pinnacles fairen Preisen', "By Pinnacle's fair prices")} emphasis />
-        <BetMetric label={tr('Vorteil', 'Edge')} value={`${ticket.edge >= 0 ? '+' : ''}${(ticket.edge * 100).toFixed(1)}%`} detail={tr('Pro 1 € Einsatz, im Schnitt über viele Scheine', 'Per 1 staked, on average over many tickets')} />
-      </dl>
-      <p className="combo-ticket-note">
-        {tr('Nur Preis-Tipps, alle in der Stunde vor Anpfiff gelesen. Ergebnisse gelten als unabhängig; das Kombi-Angebot bei bet-at-home wurde nicht geprüft. Ein Vorteil ist ein Durchschnitt, kein Versprechen für diesen Schein.',
-            'Only price tips, all read in the hour before kickoff. Results are assumed independent; the combined offer at bet-at-home has not been checked. An edge is an average, not a promise for this ticket.')}
-      </p>
     </div>
   )
 }
@@ -780,7 +735,7 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
       {!combo.recommended && (
         <p className="smart-bet-notip">
           <strong>{tr('Heute kein Kombi-Schein.', 'No combo ticket today.')}</strong><br />
-          {LANG === 'en' ? 'No same-day ticket at bet-at-home passes all checks.' : combo.reason}
+          {LANG === 'en' ? 'No same-day ticket passes all checks.' : combo.reason}
         </p>
       )}
 
@@ -940,21 +895,10 @@ function plainBetPhrase(b) {
   return b.market
 }
 
-// 1X2 always, plus the three other bets closest to paying off.
-function priceTipRows(outcomes) {
-  const main = outcomes.filter(o => o.market === '1X2')
-  const others = outcomes.filter(o => o.market !== '1X2').sort((a, b) => b.edge - a.edge).slice(0, 3)
-  return [...main, ...others]
-}
-
 // Must match src/price_tip.py MODEL_TOLERANCE.
 const MODEL_TOLERANCE = 0.05
 const pct = (x, digits = 0) => `${(x * 100).toFixed(digits)}%`
-const signedPct = (x) => `${x >= 0 ? '+' : ''}${(x * 100).toFixed(1).replace('.', DEC())}%`
-const bookName = (b) => (b || 'bet-at-home').replace(/\.de$/, '')
 
-// The headline tip: where bet-at-home pays more than Pinnacle's margin-free
-// price (src/price_tip.py). Model and AI are shown beside it, not used by it.
 // Every tip box in the KI-Tipp's design: a headline with the bet, one
 // sentence with the numbers in bold. `tone` picks the colour.
 function TipCard({ tone, headline, children, className = '' }) {
@@ -968,74 +912,6 @@ function TipCard({ tone, headline, children, className = '' }) {
 
 const deOdds = x => x.toFixed(2).replace('.', DEC())
 
-function PriceTipBox({ priceTip }) {
-  if (!priceTip) {
-    return (
-      <p className="smart-bet-notip">
-        <strong>{tr('Kein Preis-Tipp für dieses Spiel.', 'No price tip for this match.')}</strong><br />
-        {tr('Hier gibt es keinen verlässlichen Referenzpreis.', 'There is no reliable reference price here.')}
-      </p>
-    )
-  }
-  const tip = priceTip.tip
-  const book = bookName(priceTip.bookmaker)
-  if (!tip) {
-    return (
-      <TipCard tone="gold" className="is-empty" headline={<>💰 {tr('Preis-Tipp: keiner', 'Price tip: none')}</>}>
-        {priceTip.waiting
-          ? tr('Entscheidet sich in der Stunde vor Anpfiff, wenn Pinnacles Quote gelesen wird.', "Decided in the hour before kickoff, when Pinnacle's price is read.")
-          : (LANG === 'en'
-            ? `${book} pays no more than Pinnacle's fair price anywhere here.`
-            : (priceTip.reason || `${book} zahlt nirgends mehr als Pinnacles fairer Preis.`))}
-        <details className="price-tip-more">
-          <summary>{tr('Vergleich ansehen', 'See the comparison')}</summary>
-        {priceTip.outcomes.length > 0 && (
-          <div className="price-tip-table">
-            <div className="price-tip-table-head">
-              <span>{tr('Ausgang', 'Outcome')}</span><span>Pinnacle</span><span>{book}</span><span>{tr('Chance', 'Chance')}</span><span>{tr('Vorteil', 'Edge')}</span>
-            </div>
-            {priceTipRows(priceTip.outcomes).map((o) => (
-              <div className="price-tip-table-row" key={`${o.market}-${o.outcome}-${o.side}`}>
-                <span>{betOutcomeLabel(o)}</span>
-                <span>{o.pinnacle_odds ? o.pinnacle_odds.toFixed(2) : <em title={tr('faire Quote aus Pinnacles 1X2', "fair price from Pinnacle's 1X2")}>{o.fair_odds.toFixed(2)}</em>}</span>
-                <span>{o.book_odds.toFixed(2)}</span>
-                <span title={o.refund_probability > 0 ? tr(`Sieg ${pct(o.win_probability)} · Remis erstattet ${pct(o.refund_probability)} · Niederlage ${pct(o.loss_probability)}`, `Win ${pct(o.win_probability)} · draw refunded ${pct(o.refund_probability)} · loss ${pct(o.loss_probability)}`) : undefined}>
-                  {pct(o.win_probability ?? o.probability)}{o.refund_probability > 0 ? '*' : ''}
-                </span>
-                <span className={o.edge >= priceTip.threshold ? 'positive' : 'negative'}>{signedPct(o.edge)}</span>
-              </div>
-            ))}
-          </div>
-        )}
-        <p className="price-tip-footnote">
-          {priceTip.outcomes.some(o => o.refund_probability > 0) && <>{tr('* Remis = Einsatz zurück: Chance auf Sieg; bei Remis gibt es den Einsatz zurück. ', '* Draw no bet: chance of a win; a draw returns the stake. ')}</>}
-          {tr(`Ein Tipp erscheint, wenn ${book} mindestens ${pct(priceTip.threshold)} über Pinnacles fairem Preis zahlt. Das passiert meist in der letzten Stunde vor Anpfiff, wenn Pinnacle zuerst reagiert.`,
-              `A tip appears when ${book} pays at least ${pct(priceTip.threshold)} more than Pinnacle's fair price. That usually happens in the last hour before kickoff, when Pinnacle moves first.`)}
-        </p>
-        </details>
-      </TipCard>
-    )
-  }
-  return (
-    <TipCard tone="gold" headline={<>💰 {tr('Preis-Tipp', 'Price tip')}: {betOutcomeLabel(tip)}</>}>
-      {LANG === 'en' ? <>
-        {book} pays <strong>{deOdds(tip.book_odds)}</strong>, Pinnacle's fair price is
-        {' '}<strong>{deOdds(tip.fair_odds)}</strong> – an edge of <strong>{signedPct(tip.edge)}</strong> per unit
-        {' '}at <strong>{pct(tip.win_probability ?? tip.probability)}</strong> chance
-        {tip.refund_probability > 0 ? <> ({pct(tip.refund_probability)} stake back on a draw)</> : null}.
-        {' '}Chosen by price only: the edge is an average over many bets, not a promise for this one.
-      </> : <>
-        {book} zahlt <strong>{deOdds(tip.book_odds)}</strong>, fair wären laut Pinnacle
-        {' '}<strong>{deOdds(tip.fair_odds)}</strong> – ein Vorteil von <strong>{signedPct(tip.edge)}</strong> pro Euro
-        {' '}bei <strong>{pct(tip.win_probability ?? tip.probability)}</strong> Chance
-        {tip.refund_probability > 0 ? <> (bei Remis {pct(tip.refund_probability)} Einsatz zurück)</> : null}.
-        {' '}Nur nach Preis gewählt: Der Vorteil ist ein Durchschnitt über viele Wetten, kein Versprechen für diese.
-      </>}
-    </TipCard>
-  )
-}
-
-// The AI's research, closed until the reader asks for it.
 function AgentFactors({ research: researchDe, home, away }) {
   const [open, setOpen] = useState(false)
   const en = useAiTextsEn(home, away)
@@ -1308,7 +1184,6 @@ function SmartBetCard({ betStep, betInfo, data }) {
     || (b.market_probability ?? 0) - (a.market_probability ?? 0))
   const visibleRows = showAllMarkets ? ordered : ordered.slice(0, TABLE_ROWS)
   const hiddenCount = ordered.length - TABLE_ROWS
-  const hasUserBook = (betInfo.bets || []).some(b => b.bookmaker_key === USER_BOOK_KEY)
 
   // Greyed out: the model does not back the bet, or it pays under 1.30.
   const dimmed = b => !modelBacks(b) || tooShort(b) || unlikely(b)
@@ -1328,8 +1203,8 @@ function SmartBetCard({ betStep, betInfo, data }) {
           {isPriceTip ? '💰 ' : ''}{isLikelyPick ? '🎯 ' : ''}{isAgentPick ? '✨ ' : ''}{betOutcomeLabel(b)}
           {aiBacks(b) && !isAgentPick && <span className="smart-bet-backing" title={tr('KI stimmt zu', 'AI agrees')}>✨</span>}
         </span>
-        <span className="smart-bet-col-odds" title={b.bookmaker}>
-          {b.best_odds.toFixed(2)}{b.bookmaker_key !== USER_BOOK_KEY && hasUserBook ? '*' : ''}
+        <span className="smart-bet-col-odds">
+          {b.best_odds.toFixed(2)}
         </span>
         <span className="smart-bet-col-chance">
           {b.market_probability != null ? `${Math.round(b.market_probability * 100)}%` : '–'}
@@ -1357,9 +1232,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
             </button>
           )}
           <p className="smart-bet-table-note">
-            {hasUserBook
-              ? tr('Quoten von bet-at-home. * = bei bet-at-home nicht im Angebot, beste andere Quote gezeigt.', "Odds from bet-at-home. * = not offered by bet-at-home, best other price shown.")
-              : tr('Die vollen Märkte von bet-at-home werden in der Stunde vor Anpfiff gelesen; bis dahin zeigen wir die besten verfügbaren Quoten.', "bet-at-home's full markets are read in the hour before kickoff; until then we show the best available prices.")}
+            {tr('Quoten können je nach Anbieter leicht abweichen.', 'Odds may differ slightly between bookmakers.')}
           </p>
         </div>
       )}
