@@ -48,3 +48,9 @@ def test_options_respect_requested_maximum_and_empty_matchdays():
     empty = day_reports([], all_days=["2026-09-24"])[0]
     assert [o["leg_count"] for o in empty["by_size"]] == [2,3,4]
     assert all(o["ticket"] is None and o["reason"] for o in empty["by_size"])
+
+
+def test_missing_size_names_the_minimum_odds_of_the_rule_in_use():
+    # The "agree" rule asks for 3.0; the reason once quoted the default 2.0.
+    day = day_reports(legs(2), min_odds=3.0)[0]
+    assert all("mindestens 3.00" in o["reason"] for o in day["by_size"] if o["ticket"] is None)
