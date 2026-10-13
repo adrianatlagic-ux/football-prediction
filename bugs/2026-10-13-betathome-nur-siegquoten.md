@@ -1,15 +1,43 @@
 # bet-at-home liefert nur Siegquoten (1X2), keine Zusatzmärkte
 
-**Status:** nicht bestätigt
+**Status:** offen, Symptom bestätigt, Ursache nicht gesichert
 **Gemeldet:** 13.10.2026 (Champions League)
 **Betrifft:** Wett-Tabelle, Kombis, Preistipp, `src/book_odds.py`
 
 ## Meldung
 
-Am 13.10. schienen für die Spiele des Tages nur bet-at-home-Quoten für Sieg,
-Unentschieden, Niederlage geladen zu sein, ohne Handicap, Über/Unter,
-Doppelte Chance und „beide treffen“. Später am selben Tag sah der Nutzer
-alle Quoten der Spiele. Ob, wann und wie lange Märkte fehlten, ist offen.
+Am 13.10. (Champions League) zeigte die Seite morgens für die Spiele des Tages
+nur Quoten für Sieg, Unentschieden, Niederlage, ohne Handicap, Über/Unter,
+Doppelte Chance und „beide treffen“. Etwa eine Stunde vor Anpfiff waren alle
+Quoten da (Beobachtung des Nutzers). Laut Nutzer schon früher so („wieder“).
+
+## Ablauf und was daraus folgt
+
+| Zeit | Quelle der angezeigten Quoten | Gesehen |
+|---|---|---|
+| ab 06:00 UTC | nur bet-at-home aus der Morgenabfrage (`daily_refresh`); die Spielliste der Odds API enthält keine Preise | nur 1X2 |
+| ab ca. 1 h vor Anpfiff | Odds API je Spiel (Pinnacle und viele andere Buchmacher, `h2h,totals,spreads`) plus erneute bet-at-home-Abfrage (`refresh_if_due`) | alle Märkte |
+
+Belegt ist damit: **Die Morgenabfrage bei bet-at-home lieferte keine
+Zusatzmärkte.** Bis zur letzten Stunde hängen Wett-Tabelle und Kombis
+allein an ihr. Dass eine Stunde vorher alles sichtbar war, beweist nicht,
+dass bet-at-home dann Zusatzmärkte hatte: Sie können von den anderen
+Buchmachern der Odds API stammen.
+
+Möglich sind zwei Wege, die gleich aussehen:
+
+- **Budget-Fallback**: Die Morgenabfrage holte absichtlich nur 1X2, weil eine
+  der Budget-Prüfungen nicht bestand (siehe unten). Die neuen Einträge haben
+  dann kein Markt-Feld; die Märkte vom Vortag bleiben gespeichert, gelten
+  aber nach dem 06:00-Snapshot als veraltet und werden nicht angezeigt.
+- **Scraper ohne Märkte**: Die volle Abfrage lief, der Oddsportal-Scraper gab
+  aber keine Märkte zurück (`markets` leer).
+
+Auffällig: Die Kombis für den 13.10., aufgezeichnet am 12.10. um 11:02 UTC,
+enthielten Handicap- und Über/Unter-Beine. Am Vortag gab es also einen
+erfolgreichen vollen Lauf für diese Spiele, obwohl die Morgenabfrage des
+12.10. (Horizont bis 13.10. 12:00 UTC) sie nicht erfasst. Woher dieser Lauf
+kam (Neustart, Handlauf), ist zu klären.
 
 ## Was die Logs im Repo belegen können und was nicht
 
