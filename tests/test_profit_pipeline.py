@@ -176,3 +176,14 @@ def test_goal_uplift_is_opt_in_and_never_applies_to_clubs():
 def test_log_loss_class_order():
     y = pd.Series(["H", "D", "A"])
     assert evaluate(y, y, np.eye(3))["log_loss"] == 0
+
+
+def test_club_features_carry_elo_and_prediction_rows_match_training_rows():
+    h = history()
+    X = build_features(h)
+    assert {"elo_diff", "elo_expected_score"} <= set(X.columns)
+    # The prediction for the last date sees exactly the history the training row saw.
+    last = h.iloc[-1]
+    row = prediction_row(h, last.home_team, last.away_team, last.date)
+    assert row.elo_diff.iloc[0] == X.elo_diff.iloc[-1]
+    assert X.elo_diff.iloc[0] == 0.0          # nobody has played yet

@@ -46,8 +46,23 @@ BENCH_WEIGHT = 25 / 90
 ESPN_LEAGUE = {"nations_league": "uefa.nations", "bundesliga": "ger.1", "champions_league": "uefa.champions"}
 
 
+# Letters NFKD does not break into base letter + accent; dropping them would
+# turn "Færø" into "Fr" and miss the player.
+_TRANSLIT = str.maketrans({"ø": "o", "Ø": "O", "æ": "ae", "Æ": "Ae", "ß": "ss", "đ": "d", "Đ": "D",
+                           "ł": "l", "Ł": "L", "ı": "i", "œ": "oe", "Œ": "Oe", "ð": "d", "Ð": "D",
+                           "þ": "th", "Þ": "Th"})
+# ESPN's names for nations that share no word with ours.
+ESPN_ALIASES = {"turkiye": "turkey", "czechia": "czech republic"}
+
+
 def _norm(name: str) -> str:
-    return unicodedata.normalize("NFKD", name or "").encode("ascii", "ignore").decode().lower().replace("-", " ").strip()
+    name = (name or "").translate(_TRANSLIT)
+    return unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode().lower().replace("-", " ").strip()
+
+
+def _team_words(name: str) -> set:
+    n = _norm(name)
+    return {w for w in ESPN_ALIASES.get(n, n).split() if len(w) > 2}
 
 
 def _get(url: str) -> dict:
@@ -56,22 +71,27 @@ def _get(url: str) -> dict:
         return json.loads(response.read())
 
 
-def fetch_starters(competition: str, home: str, away: str, kickoff: datetime) -> Optional[dict]:
+def fetch_starters(competition: str, home: str, away: str, kickoff: datetime,
+                   why: Optional[dict] = None) -> Optional[dict]:
     """{"home": [starters], "away": [...], "bench": {"home": [...], "away": [...]}}
-    once ESPN lists both elevens, else None."""
+    once ESPN lists both elevens, else None - and then, if `why` is given,
+    why["reason"] says whether ESPN has no such match or no line-ups yet."""
+    why = why if why is not None else {}
     league = ESPN_LEAGUE.get(competition)
     if not league:
+        why["reason"] = "no ESPN league"
         return None
     board = _get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{league}/scoreboard"
                  f"?dates={kickoff.strftime('%Y%m%d')}")
-    words = lambda n: {w for w in _norm(n).split() if len(w) > 2}
     event = None
     for e in board.get("events", []):
         sides = {c["homeAway"]: c["team"]["displayName"] for c in e["competitions"][0]["competitors"]}
-        if words(home) & words(sides.get("home", "")) and words(away) & words(sides.get("away", "")):
+        if _team_words(home) & _team_words(sides.get("home", "")) and \
+                _team_words(away) & _team_words(sides.get("away", "")):
             event = e
             break
     if not event:
+        why["reason"] = "match not found at ESPN"
         return None
     summary = _get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{league}/summary?event={event['id']}")
     out, bench = {}, {}
@@ -82,6 +102,7 @@ def fetch_starters(competition: str, home: str, away: str, kickoff: datetime) ->
             out[roster.get("homeAway")] = starters
             bench[roster.get("homeAway")] = [p["athlete"]["displayName"] for p in players if not p.get("starter")]
     if "home" not in out or "away" not in out:
+        why["reason"] = "no line-ups at ESPN yet"
         return None
     return {**out, "bench": bench}
 
@@ -100,6 +121,11 @@ def _matcher(squad: list):
             p = same[0] if len(same) == 1 else None
         return p
     return find
+
+
+def matched_count(starters: list, squad: list) -> int:
+    find = _matcher(squad)
+    return sum(find(n) is not None for n in starters)
 
 
 def lineup_share(starters: list, squad: list, bench: Optional[list] = None) -> Optional[dict]:

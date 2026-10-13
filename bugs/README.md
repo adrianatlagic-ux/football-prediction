@@ -14,5 +14,5 @@ gekennzeichnet.
 
 | Datum | Bericht | Status |
 |---|---|---|
-| 13.10.2026 | [bet-at-home liefert nur Siegquoten](2026-10-13-betathome-nur-siegquoten.md) | offen |
+| 13.10.2026 | [bet-at-home liefert nur Siegquoten](2026-10-13-betathome-nur-siegquoten.md) | behoben |
 | 13.10.2026 | [Kombi-Hinweis nennt falsche Mindestquote](2026-10-13-kombi-hinweis-falsche-mindestquote.md) | behoben |

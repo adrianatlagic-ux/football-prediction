@@ -14,3 +14,10 @@ def _isolated_runtime_files(tmp_path, monkeypatch):
     monkeypatch.setattr(apify_budget, "usage", lambda token=None: None)
     # The agent's cached picks go to a temporary file, never the real one.
     monkeypatch.setattr(api, "AGENT_CACHE_PATH", tmp_path / "agent_picks.json")
+    # The line-up job's per-match status likewise.
+    from src import jobs
+    monkeypatch.setattr(jobs, "LINEUP_STATUS", tmp_path / "lineup_status.json")
+    # The bet-at-home read cooldown and morning retries start empty per test.
+    from src import book_odds
+    monkeypatch.setattr(book_odds, "_last_hour_read_at", {})
+    monkeypatch.setattr(book_odds, "_morning_retry", {})

@@ -4,8 +4,14 @@ import numpy as np
 import pandas as pd
 from .feature_engineering import _decay_weights, encode_result
 from .club_market_value_policy import DEFAULT_POLICY, MarketValueHistory
+from .club_elo import ClubElo
 
-FEATURE_VERSION = 3
+# 4: Elo from results across every competition (src/club_elo.py). The model
+# had no rating that compares clubs of different leagues; in the Champions
+# League it improved the log-loss by about 0.006-0.011, in the Bundesliga it
+# was neutral (scripts/eval_elo_mix_club.py, docs/form_xg_plan.md).
+FEATURE_VERSION = 4
+ELO_FEATURES = ("elo_diff", "elo_expected_score")
 
 
 class ClubFeatureState:
@@ -14,6 +20,7 @@ class ClubFeatureState:
         self.h2h = defaultdict(lambda: deque(maxlen=10))
         self.market_values = market_values or MarketValueHistory()
         self.policy = policy
+        self.elo = ClubElo()
 
     def row(self, home, away, date, override=None):
         f = {}
@@ -36,9 +43,12 @@ class ClubFeatureState:
                  h2h_draws=winners.count(None) / n if n else 0,
                  h2h_away_wins=winners.count(away) / n if n else 0, h2h_games=float(n))
         f.update(self.market_values.features(home, away, date, self.policy, override))
+        elo = self.elo.features(home, away)
+        f.update({k: float(elo[k]) for k in ELO_FEATURES})
         return f
 
     def update(self, day):
+        self.elo.update_day(day)
         for r in day.itertuples():
             self.teams[r.home_team].append((r.home_goals, r.away_goals))
             self.teams[r.away_team].append((r.away_goals, r.home_goals))

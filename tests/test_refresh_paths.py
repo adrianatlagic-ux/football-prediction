@@ -172,7 +172,7 @@ def test_agent_picks_survive_a_restart(monkeypatch):
     assert api._agent_prekickoff_done == {key}
 
 
-def test_the_bet_tip_needs_model_and_ai_and_takes_the_better_price_of_one_bet():
+def test_the_old_bet_tip_needs_model_and_ai_and_takes_the_better_price_of_one_bet():
     from api import app as api
     win = {"market": "1X2", "outcome": "win", "team": "Portugal", "best_odds": 1.65,
            "market_probability": .58, "model_probability_raw": .60, "probability": .59}
@@ -181,9 +181,43 @@ def test_the_bet_tip_needs_model_and_ai_and_takes_the_better_price_of_one_bet():
     under = {"market": "Over/Under 4.5", "outcome": "Under", "team": None, "best_odds": 1.33,
              "market_probability": .70, "model_probability_raw": .70, "probability": .70}
     vb = {"home_team": "Portugal", "away_team": "Norway", "bets": [win, minus, under]}
-    tip = api._bet_tip(vb, {"pick": win})
+    tip = api._bet_tip_v1(vb, {"pick": win})
     assert tip["status"] == "ok" and tip["tip"] is win          # the same bet at 1.65, not 1.55
-    assert api._bet_tip(vb, None)["status"] == "waiting_for_ai"
+    assert api._bet_tip_v1(vb, None)["status"] == "waiting_for_ai"
     # The model 8 points below the market: no agreement, no tip.
     doubt = {**win, "model_probability_raw": .50}
-    assert api._bet_tip({**vb, "bets": [doubt]}, {"pick": doubt})["status"] == "no_agreement"
+    assert api._bet_tip_v1({**vb, "bets": [doubt]}, {"pick": doubt})["status"] == "no_agreement"
+
+
+def test_the_bet_tip_is_the_ai_pick_checked_by_the_model_and_withheld_when_the_ai_wavers():
+    from api import app as api
+    pick = {"market": "Over/Under 2.5", "outcome": "Under", "team": None, "best_odds": 1.72,
+            "market_probability": .55, "model_probability_raw": .61, "probability": .60}
+    vb = {"home_team": "A", "away_team": "B", "bets": [pick]}
+    assert api._bet_tip(vb, None)["status"] == "waiting_for_ai"
+    first = api._bet_tip(vb, {"pick": pick, "revised_from_previous": None})
+    assert first["status"] == "ok" and first["tip"] is pick and first["confirmed"] is False   # provisional
+    kept = api._bet_tip(vb, {"pick": pick, "revised_from_previous": False})
+    assert kept["confirmed"] is True
+    changed = api._bet_tip(vb, {"pick": pick, "revised_from_previous": True})
+    assert changed["status"] == "ai_unsure" and changed["tip"] is None and changed["withheld"] is pick
+    below = {**pick, "model_probability_raw": .54}
+    assert api._bet_tip(vb, {"pick": below})["status"] == "no_agreement"
+
+
+def test_the_ki_combo_takes_only_the_ai_picks_the_model_backs():
+    from src.combo_ticket import leg_pool
+    def bet(team, odds, market_p, model_p, market="1X2"):
+        return {"market": market, "outcome": "home_win" if market == "1X2" else "Under",
+                "team": team if market == "1X2" else None, "best_odds": odds, "bookmaker": "bet-at-home",
+                "bookmaker_key": "betathome", "probability": model_p, "market_probability": market_p,
+                "model_probability_raw": model_p, "quote_fresh": True}
+    def vb(home, away, pick, extra, revised=False):
+        return ({}, {"odds_found": True, "snapshot_valid": True, "home_team": home, "away_team": away,
+                     "commence_time": "2026-10-13T18:45:00Z", "sport_key": "soccer_uefa_champs_league",
+                     "bets": [pick, extra], "agent_pick": pick, "agent_revised": revised})
+    pairs = [vb("A", "B", bet("A", 1.8, .55, .60), bet("A", 1.4, .70, .72, "Over/Under 3.5")),       # pick backed: in
+             vb("C", "D", bet("C", 1.9, .52, .49), bet("C", 1.4, .70, .72, "Over/Under 3.5")),       # model below: out
+             vb("E", "F", bet("E", 1.7, .58, .62), bet("E", 1.4, .70, .72, "Over/Under 3.5"), revised=True)]  # wavered: out
+    legs = leg_pool(pairs, book="betathome", policy="ki")
+    assert [(l["home_team"], l["best_odds"]) for l in legs] == [("A", 1.8)]

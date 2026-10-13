@@ -1,8 +1,27 @@
 # bet-at-home liefert nur Siegquoten (1X2), keine Zusatzmärkte
 
-**Status:** offen, Symptom bestätigt, Ursache nicht gesichert
+**Status:** behoben (13.10.2026): Monatslimit des eigenen Zählers von 7 $ auf 20 $
+angehoben; Zählerstand jetzt in `/jobs/status` → `book_budget`
 **Gemeldet:** 13.10.2026 (Champions League)
 **Betrifft:** Wett-Tabelle, Kombis, Preistipp, `src/book_odds.py`
+
+## Ursache (nachgetragen 13.10.2026)
+
+Der eigene Zähler der App war voll. Auf dem Server, 13.10. abends:
+
+- `data/book_odds/spend.json`: `"2026-10": 7.003`, also über
+  `BOOK_MARKETS_BUDGET_USD` = 7,0 (Standardwert, keine Umgebungsvariable gesetzt)
+- `/jobs/status` → `book_refreshes`, Champions League 15:45 UTC:
+  `"outcome": "1X2 only: Apify budget"`
+- `/jobs/status` → `apify`: 2,87 $ von 25 $ im laufenden Zyklus, das
+  Apify-Konto war also nicht der Grund
+
+Damit fällt jede bet-at-home-Abfrage, morgens wie in der letzten Stunde, auf
+1X2 zurück. Die Schätzung oben (ca. 3,45 $) unterschätzt den Zähler: Er
+rechnet je Abfrage pauschal 2,3 Cent pro Spiel, und vom 1. bis 6.10. liefen
+viele doppelte Abfragen der letzten Stunde (am 6.10. neunmal in zwei
+Minuten), die erst am 10.10. abgestellt wurden (Commit 0a329ba,
+höchstens eine Abfrage je Wettbewerb in 20 Minuten).
 
 ## Meldung
 

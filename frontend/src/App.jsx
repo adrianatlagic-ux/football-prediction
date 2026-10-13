@@ -663,13 +663,14 @@ function ComboLegRow({ leg, index, onOpenLeg }) {
           {marketGroupLabel(leg.market)} · {leg.bookmaker}
         </div>
         <div className="smart-bet-agree-row combo-leg-agree">
-          {leg.policy === 'agree' && <span className="smart-bet-agree-chip yes">◆ {tr('Modell stimmt zu', 'Model agrees')} ✓</span>}
-          {leg.ki_agrees && <span className="smart-bet-agree-chip yes">✨ {tr('KI stimmt zu', 'AI agrees')} ✓</span>}
-          {leg.is_likely && <span className="smart-bet-agree-chip yes">🎯 {tr('Wahrscheinlichster Tipp', 'Most likely bet')}</span>}
+          {/* On a phone only the signs show; the legend below the combos explains them. */}
+          {leg.policy === 'agree' && <span className="smart-bet-agree-chip yes" title={tr('Modell stimmt zu', 'Model agrees')}>◆<span className="chip-text"> {tr('Modell stimmt zu', 'Model agrees')}</span> ✓</span>}
+          {leg.ki_agrees && <span className="smart-bet-agree-chip yes" title={tr('KI stimmt zu', 'AI agrees')}>✨<span className="chip-text"> {tr('KI stimmt zu', 'AI agrees')}</span> ✓</span>}
+          {leg.is_likely && <span className="smart-bet-agree-chip yes" title={tr('Wahrscheinlichster Tipp', 'Most likely bet')}>🎯<span className="chip-text"> {tr('Wahrscheinlichster Tipp', 'Most likely bet')}</span></span>}
           {leg.likely_pick && (
             <span className="smart-bet-agree-chip muted"
                   title={`${tr('🎯 dieses Spiels', "🎯 of this match")}: ${plainBetPhrase(leg.likely_pick)} ${tr('zu', 'at')} ${leg.likely_pick.best_odds?.toFixed(2)}`}>
-              🎯 {tr('Nicht der wahrscheinlichste', 'Not the most likely')}
+              🎯<span className="chip-text"> {tr('Nicht der wahrscheinlichste', 'Not the most likely')}</span><span className="chip-x"> ✕</span>
             </span>
           )}
         </div>
@@ -776,27 +777,6 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
 
   return (
     <div className="combo-view">
-      {combo.price_tip_combos?.length > 0 && (
-        <div className="combo-day">
-          <span className="combo-section-label">💰 {tr('Preis-Tipp-Kombi', 'Price tip combo')}</span>
-          {combo.price_tip_combos.map(t => <PriceTipComboCard key={t.date} ticket={t} onOpenLeg={onOpenLeg} />)}
-        </div>
-      )}
-
-      <p className="best-bets-intro">
-        {LANG === 'en' ? <>
-          Every selection must win. All prices are <strong>bet-at-home's</strong>; each ticket uses <strong>one matchday</strong>
-          {' '}and at most one selection per match. Only selections <strong>our model agrees with</strong> are used;
-          {' '}those the <strong>AI</strong> also backs after its research come first. A ticket pays at least
-          {' '}<strong>{(combo.min_combined_odds || 3).toFixed(2)}</strong>. Compare the best 2-, 3- and 4-folds for each day.
-        </> : <>
-          Jeder Tipp muss treffen. Alle Quoten sind von <strong>bet-at-home</strong>; jeder Schein nutzt <strong>einen Spieltag</strong>
-          {' '}und höchstens einen Tipp pro Spiel. Genommen werden nur Tipps, denen <strong>unser Modell zustimmt</strong>;
-          {' '}Tipps, die auch die <strong>KI</strong> nach ihrer Recherche stützt, kommen zuerst. Ein Schein zahlt mindestens
-          {' '}<strong>{(combo.min_combined_odds || 3).toFixed(2).replace('.', DEC())}</strong>. Vergleiche die besten 2er-, 3er- und 4er-Kombis pro Tag.
-        </>}
-      </p>
-
       {!combo.recommended && (
         <p className="smart-bet-notip">
           <strong>{tr('Heute kein Kombi-Schein.', 'No combo ticket today.')}</strong><br />
@@ -844,9 +824,18 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
         </div>
       ))}
 
+      <div className="combo-legend">
+        <span className="combo-legend-title">{tr('Signale', 'Signals')}</span>
+        <span><b>◆ ✓</b> {tr('Unser Modell stimmt dem Tipp zu', 'Our model agrees with the selection')}</span>
+        <span><b>✨ ✓</b> {tr('Die KI stützt den Tipp nach ihrer Recherche', 'The AI backs the selection after its research')}</span>
+        <span><b>🎯</b> {tr('Der wahrscheinlichste Tipp dieses Spiels', "This match's most likely selection")}</span>
+        <span><b className="combo-legend-muted">🎯 ✕</b> {tr('Nicht der wahrscheinlichste Tipp – gewählt, um die Zielquote zu erreichen', 'Not the most likely selection – chosen to reach the target odds')}</span>
+      </div>
+
       <p className="smart-bet-finePrint">
-        {tr('Unter den Scheinen mit den meisten KI-gestützten Tipps gewinnt der laut Markt wahrscheinlichste. Die Wahrscheinlichkeiten nehmen unabhängige Ergebnisse an; die Gesamtquoten sind aus Einzelquoten berechnet und nicht als Buchmacher-Schein geprüft. Eine höhere geschätzte Trefferquote heißt nicht, dass sich die Wette lohnt. Scheine können sich überschneiden und sind keine unabhängigen Wetten.',
-            "Among the tickets with the most AI-backed selections, the market's likeliest wins. Probabilities assume independent results; combined odds are calculated from individual prices and have not been verified as a bookmaker ticket. A higher estimated hit rate does not mean the bet is worth it. Tickets can overlap and are not independent bets.")}
+        {LANG === 'en'
+          ? `How the combos are built: per day the best 2-, 3- and 4-fold, at most one selection per match. Only selections our model agrees with are used; those the AI also backs come first, then the likeliest by the market. A combo pays at least ${(combo.min_combined_odds || 3).toFixed(2)}. Probabilities assume independent results; combined odds are calculated from individual prices. Combos can share selections and are not independent bets.`
+          : `So entstehen die Kombis: pro Tag die beste 2er-, 3er- und 4er-Kombi, höchstens ein Tipp pro Spiel. Genommen werden nur Tipps, denen unser Modell zustimmt; Tipps, die auch die KI stützt, kommen zuerst, danach die laut Markt wahrscheinlichsten. Eine Kombi zahlt mindestens ${(combo.min_combined_odds || 3).toFixed(2).replace('.', DEC())}. Die Wahrscheinlichkeiten nehmen unabhängige Ergebnisse an; die Gesamtquoten sind aus den Einzelquoten berechnet. Kombis können sich Tipps teilen und sind keine unabhängigen Wetten.`}
       </p>
     </div>
   )
@@ -1171,42 +1160,36 @@ function ModelTrackRecord({ bet, bets = [], competition }) {
   )
 }
 
-// The second headline: what the market thinks will most likely land, at
-// odds still worth taking. No edge is claimed - that is the price tip's job.
-// The headline tip: the likeliest bet both the model and the AI back (the
-// combo's rule). The server computes it (bet_tip); computed here the same
-// way when it is missing.
-function computeBetTip(betInfo, agentPick, sameBet) {
-  if (betInfo.bet_tip) return betInfo.bet_tip
-  if (!agentPick) return { tip: null, status: 'waiting_for_ai' }
-  const ok = (betInfo.bets || []).filter(b => b.market !== 'Handicap 0.0' && b.market_probability != null
-    && b.best_odds >= 1.30 && b.market_probability >= 0.5
-    && (b.model_probability_raw ?? b.probability) >= b.market_probability - MODEL_TOLERANCE
-    && impliesBet(agentPick, b, betInfo.home_team, betInfo.away_team, sameBet))
-  if (!ok.length) return { tip: null, status: 'no_agreement' }
-  // One bet in two markets ("-0.5" and "to win"): keep the better price.
-  const same = (x, y) => impliesBet(x, y, betInfo.home_team, betInfo.away_team, sameBet)
-    && impliesBet(y, x, betInfo.home_team, betInfo.away_team, sameBet)
-  const best = ok.filter(b => !ok.some(o => same(b, o) && o.best_odds > b.best_odds))
-  const tip = best.reduce((x, y) => (y.market_probability > x.market_probability
-    || (y.market_probability === x.market_probability && y.best_odds > x.best_odds)) ? y : x)
-  return { tip, status: 'ok' }
+// The headline tip: the AI agent's own pick, when our model rates it at least
+// as likely as the market and the agent kept it at its re-check an hour
+// before kickoff. The server decides it (bet_tip); this is the fallback.
+function computeBetTip(betInfo, agentEval) {
+  if (betInfo.bet_tip && betInfo.bet_tip.rule) return betInfo.bet_tip
+  const pick = agentEval?.pick
+  if (!pick) return { tip: null, status: 'waiting_for_ai' }
+  if (agentEval.revised_from_previous) return { tip: null, status: 'ai_unsure' }
+  const model = pick.model_probability_raw ?? pick.probability
+  if (pick.market_probability == null || model == null || model < pick.market_probability || pick.best_odds < 1.30)
+    return { tip: null, status: 'no_agreement' }
+  return { tip: pick, status: 'ok', confirmed: agentEval.revised_from_previous === false }
 }
 
 function BetTipBox({ betTip }) {
   const tip = betTip?.tip
   if (!tip) {
+    const why = {
+      waiting_for_ai: tr('Folgt, sobald die KI das Spiel geprüft hat (in den 15 Stunden vor Anpfiff).', 'Coming once the AI has checked the match (in the 15 hours before kickoff).'),
+      ai_unsure: tr('Kein Wett-Tipp – die KI hat ihren Tipp kurz vor Anpfiff geändert und ist sich nicht sicher.', 'No bet tip – the AI changed its pick shortly before kickoff and is not sure.'),
+      no_agreement: tr('Kein Wett-Tipp – unser Modell schätzt den KI-Tipp nicht höher ein als der Markt.', 'No bet tip – our model does not rate the AI pick above the market.'),
+    }[betTip?.status] || tr('Kein Wett-Tipp für dieses Spiel.', 'No bet tip for this match.')
     return (
       <div className="bet-tip is-empty">
         <span className="smart-bet-label bet-tip-label">{tr('Wett-Tipp', 'Bet tip')}</span>
-        <div className="bet-tip-none">
-          {betTip?.status === 'waiting_for_ai'
-            ? tr('Folgt, sobald die KI das Spiel geprüft hat (in den 15 Stunden vor Anpfiff).', 'Coming once the AI has checked the match (in the 15 hours before kickoff).')
-            : tr('Kein Wett-Tipp – Modell und KI sind sich bei diesem Spiel nicht einig.', 'No bet tip – the model and the AI do not agree on this match.')}
-        </div>
+        <div className="bet-tip-none">{why}</div>
       </div>
     )
   }
+  const model = tip.model_probability_raw ?? tip.probability
   return (
     <div className="bet-tip">
       <span className="smart-bet-label bet-tip-label">{tr('Wett-Tipp', 'Bet tip')}</span>
@@ -1216,8 +1199,12 @@ function BetTipBox({ betTip }) {
         <span className="likely-tip-chance">{pct(tip.market_probability)} {tr('Chance', 'chance')}</span>
       </div>
       <div className="smart-bet-agree-row">
-        <span className="smart-bet-agree-chip yes">◆ {tr('Modell stimmt zu', 'Model agrees')} ✓</span>
-        <span className="smart-bet-agree-chip yes">✨ {tr('KI stimmt zu', 'AI agrees')} ✓</span>
+        <span className="smart-bet-agree-chip yes">◆ {tr('Modell stimmt zu', 'Model agrees')} {pct(model)} ✓</span>
+      </div>
+      <div className={`bet-tip-status ${betTip.confirmed ? 'is-confirmed' : ''}`}>
+        {betTip.confirmed
+          ? tr('bestätigt – die KI hat ihren Tipp vor Anpfiff noch einmal geprüft', 'confirmed – the AI checked its pick again before kickoff')
+          : tr('vorläufig – die KI prüft ihn etwa eine Stunde vor Anpfiff noch einmal', 'provisional – the AI checks it again about an hour before kickoff')}
       </div>
     </div>
   )
@@ -1282,7 +1269,8 @@ function SmartBetCard({ betStep, betInfo, data }) {
   const agentEval = betInfo.agent_eval
   const agentPick = agentEval && agentEval.pick
   const combined = betInfo.combined
-  const priceTipPick = betInfo.price_tip && betInfo.price_tip.tip
+  // The price tip is no longer shown (3 tips in 77 matches, none landed).
+  const priceTipPick = null
   const modelFavorite = betInfo.model_favorite
   const likelyPick = betInfo.likely_pick
   const scenarioText = data?.score_prediction?.betting_markets?.scenario
@@ -1352,7 +1340,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
 
   return (
     <div className="wm-reveal smart-bet-card">
-      <BetTipBox betTip={computeBetTip(betInfo, agentPick, sameBet)} />
+      <BetTipBox betTip={computeBetTip(betInfo, agentEval)} />
 
       {(greens.length > 0 || reds.length > 0) && (
         <div className="smart-bet-table">
@@ -1384,13 +1372,12 @@ function SmartBetCard({ betStep, betInfo, data }) {
           <p className="smart-bet-agent-text">
             {renderBoldMarkdown(aiEn?.bet_reasoning || agentEval.bet_reasoning, 'smart-bet-highlight-purple')}
             {agentPick && (
-              <> {tr('Unser Modell sieht das bei', 'Our model puts this at')} <strong className="smart-bet-highlight-purple">{(agentPick.probability * 100).toFixed(0)}%</strong>.</>
+              <> {tr('Unser Modell sieht das bei', 'Our model puts this at')} <strong className="smart-bet-highlight-purple">{((agentPick.model_probability_raw ?? agentPick.probability) * 100).toFixed(0)}%</strong>.</>
             )}
           </p>
         </div>
       )}
 
-      <PriceTipBox priceTip={betInfo.price_tip} />
       <LikelyTipBox pick={likelyPick} />
 
       <LineupStrength data={data} />
@@ -1398,8 +1385,8 @@ function SmartBetCard({ betStep, betInfo, data }) {
       <div className="smart-bet-finePrint">
         {LANG === 'en' ? (
           <p>
-            <strong>Bet tip</strong> = the likeliest bet both the model and the AI agree with (odds from 1.30, chance from 50%) ·
-            {' '}<strong>💰</strong> bet-at-home pays more than Pinnacle's fair price · <strong>🎯</strong> the market's
+            <strong>Bet tip</strong> = the AI's pick when our model rates it at least as likely as the market (odds from 1.30);
+            {' '}none if the AI changed its pick shortly before kickoff · <strong>🎯</strong> the market's
             likeliest bet (odds 1.30–2.00; no edge, the margin is built in) · <strong>✨</strong> the AI's pick after research ·
             {' '}<strong>⚠</strong> more likely a model error · <strong>✨</strong> after a pick: the AI agrees; grey = the model
             does not agree, odds under 1.30 or chance under 50%. <strong>+0.5</strong> = double chance, <strong>0.0</strong> = draw no bet,
@@ -1407,8 +1394,8 @@ function SmartBetCard({ betStep, betInfo, data }) {
           </p>
         ) : (
           <p>
-            <strong>Wett-Tipp</strong> = wahrscheinlichste Wette, der Modell und KI zustimmen (Quote ab 1,30, Chance ab 50 %) ·
-            {' '}<strong>💰</strong> bet-at-home zahlt mehr als Pinnacles fairer Preis · <strong>🎯</strong> laut Markt
+            <strong>Wett-Tipp</strong> = der Tipp der KI, wenn unser Modell ihn mindestens so hoch einschätzt wie der Markt (Quote ab 1,30);
+            {' '}keiner, wenn die KI ihren Tipp kurz vor Anpfiff geändert hat · <strong>🎯</strong> laut Markt
             wahrscheinlichste Wette (Quote 1,30–2,00; kein Vorteil, die Marge steckt drin) · <strong>✨</strong> Tipp der KI
             nach Recherche · <strong>⚠</strong> eher ein
             Modellfehler · <strong>✨</strong> hinter einem Tipp: die KI stimmt zu; grau = Modell stimmt nicht zu, Quote unter 1,30 oder Chance unter 50 %. <strong>+0,5</strong> = Doppelte Chance, <strong>0,0</strong> = Einsatz zurück bei Remis,

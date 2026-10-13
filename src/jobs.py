@@ -19,7 +19,7 @@ from __future__ import annotations
 
 import json
 import threading
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Callable, Optional
 
@@ -28,6 +28,10 @@ CACHE = ROOT / "data" / "predictions_cache"
 REPORTS = ROOT / "data" / "jobs"
 REPREDICT_HOURS = 48
 SQUAD_WINDOW_MINUTES = 75
+# Per match, the line-up job's latest outcome (adjusted, or why not), kept
+# across runs and restarts; last_hourly.json only shows the latest tick.
+LINEUP_STATUS = REPORTS / "lineup_status.json"
+LINEUP_STATUS_DAYS = 21
 
 _lock = threading.Lock()
 
@@ -135,6 +139,21 @@ def run_daily(club: Callable, national: Callable, morning_odds: Callable,
     return _report("daily", report)
 
 
+def load_lineup_status() -> dict:
+    try:
+        return json.loads(LINEUP_STATUS.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+def _save_lineup_status(status: dict, now: datetime) -> None:
+    cutoff = (now - timedelta(days=LINEUP_STATUS_DAYS)).isoformat()
+    status = {k: v for k, v in status.items() if str(v.get("kickoff") or "") >= cutoff}
+    REPORTS.mkdir(parents=True, exist_ok=True)
+    LINEUP_STATUS.write_text(json.dumps(status, indent=1, ensure_ascii=False, sort_keys=True) + "\n",
+                             encoding="utf-8")
+
+
 def _lineup_done(fixture: dict) -> bool:
     return bool(_cached(fixture["match_id"]).get("lineup_refreshed_at"))
 
@@ -156,17 +175,27 @@ def run_hourly(club: Callable, national: Callable) -> dict:
     with _lock:
         _report("hourly", {**report, "running": True})
         keys = ("probability_home_win", "probability_draw", "probability_away_win")
+        status = load_lineup_status()
+
+        def note(f, state, reason=None):
+            status[f["match_id"]] = {"home_team": f["home_team"], "away_team": f["away_team"],
+                                     "kickoff": f["kickoff"].isoformat(), "status": state,
+                                     "reason": reason, "checked_at": now.isoformat()}
+
         for f in upcoming(SQUAD_WINDOW_MINUTES, now):
             if _lineup_done(f):
                 continue
             home, away, comp = f["home_team"], f["away_team"], f["competition"]
+            why = {}
             try:
-                starters = lineups.fetch_starters(comp, home, away, f["kickoff"])
+                starters = lineups.fetch_starters(comp, home, away, f["kickoff"], why)
             except Exception as exc:
                 report["errors"].append(f"{f['match_id']} line-up: {type(exc).__name__}: {exc}")
+                note(f, "error", f"line-up: {type(exc).__name__}: {exc}")
                 continue
             if not starters:
                 report["waiting_for_lineup"].append(f["match_id"])
+                note(f, "waiting", why.get("reason") or "no line-ups")
                 continue
             registry = load_registry(comp)
             ids = [registry.get(home), registry.get(away)]
@@ -175,12 +204,24 @@ def run_hourly(club: Callable, national: Callable) -> dict:
                 squads = cached_squads([i for i in ids if i], ttl)
             except Exception as exc:
                 report["errors"].append(f"{f['match_id']} squads: {type(exc).__name__}: {exc}")
+                note(f, "error", f"squads: {type(exc).__name__}: {exc}")
                 continue
-            shares = {}
-            for side, team_id in (("home", ids[0]), ("away", ids[1])):
-                info = (lineups.lineup_share(starters[side], squads.get(str(team_id), []),
-                                             starters.get("bench", {}).get(side)) if team_id else None)
+            shares, reasons = {}, []
+            for side, team, team_id in (("home", home, ids[0]), ("away", away, ids[1])):
+                squad = squads.get(str(team_id)) if team_id else None
+                info = (lineups.lineup_share(starters[side], squad or [], starters.get("bench", {}).get(side))
+                        if team_id else None)
                 shares[side] = info
+                if info:
+                    continue
+                if not team_id:
+                    reasons.append(f"{team}: not in the Transfermarkt registry")
+                elif squad is None:
+                    reasons.append(f"{team}: squad not loaded (cache expired and Apify budget or fetch failed)")
+                else:
+                    found = lineups.matched_count(starters[side], squad)
+                    reasons.append(f"{team}: only {found} of {len(starters[side])} starters found in the squad "
+                                   f"(need {lineups.MIN_MATCHED})")
             if not shares["home"] or not shares["away"]:
                 # Both elevens or neither: counting an unvalued side as full
                 # strength would move the prediction toward it. The match stays
@@ -188,6 +229,7 @@ def run_hourly(club: Callable, national: Callable) -> dict:
                 # never gets valued, the prediction stays as it was.
                 missing = [s for s in ("home", "away") if not shares[s]]
                 report["waiting_for_lineup"].append(f"{f['match_id']} (not valued: {', '.join(missing)})")
+                note(f, "not_valued", "; ".join(reasons))
                 continue
             try:
                 predictor = national() if comp == "nations_league" else club()
@@ -195,6 +237,7 @@ def run_hourly(club: Callable, national: Callable) -> dict:
                 baseline = predictor.predict_match(home, away, **kwargs)
             except Exception as exc:
                 report["errors"].append(f"{f['match_id']}: {type(exc).__name__}: {exc}")
+                note(f, "error", f"{type(exc).__name__}: {exc}")
                 continue
             share_h, share_a = shares["home"]["share"], shares["away"]["share"]
             before = _cached(f["match_id"])
@@ -213,5 +256,10 @@ def run_hourly(club: Callable, national: Callable) -> dict:
                          probabilities_cached_before={k: before.get(k) for k in keys})
             _write(f, fresh)
             report["refreshed"].append(f["match_id"])
+            note(f, "adjusted", f"shares {share_h:.0%} / {share_a:.0%}")
+        try:
+            _save_lineup_status(status, now)
+        except OSError as exc:
+            report["errors"].append(f"lineup status: {exc}")
     report["finished_at"] = datetime.now(timezone.utc).isoformat()
     return _report("hourly", report)

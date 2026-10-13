@@ -27,3 +27,6 @@ htmlcov/
 data/odds_snapshot.json
 data/book_odds/spend.json
 data/jobs/
+
+# Raw Understat / football-data.co.uk downloads (scripts/fetch_club_stats.py re-fetches them)
+data/club_stats/raw/

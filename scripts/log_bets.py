@@ -104,6 +104,8 @@ def _build_entry(m, now):
         "safest_pick": m.get("safest_pick"),
         "likely_pick": m.get("likely_pick"),
         "bet_tip": m.get("bet_tip"),
+        # The rule before 11 October, for comparison.
+        "bet_tip_v1": m.get("bet_tip_v1"),
         "odds_refreshed": m.get("odds_refreshed", False),
         "combined": m.get("combined"),
         # The price tip as shown: the tip or "no tip" with its reason, every

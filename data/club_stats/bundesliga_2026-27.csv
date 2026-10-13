@@ -1,0 +1,37 @@
+date,home_team,away_team,home_goals,away_goals,home_xg,away_xg,home_shots,away_shots,home_sot,away_sot
+2026-08-28,Bayern Munich,VfB Stuttgart,5,1,4.07897,1.24951,21,11,9,4
+2026-08-29,1. FC Köln,TSG Hoffenheim,3,2,2.31412,1.92317,18,15,6,4
+2026-08-29,1. FSV Mainz 05,SC Paderborn,0,0,1.54945,0.691131,21,10,4,0
+2026-08-29,Borussia Dortmund,Hamburger SV,2,0,1.31287,1.10643,20,8,6,3
+2026-08-29,Elversberg,Bayer Leverkusen,3,2,1.40032,2.61527,11,21,6,4
+2026-08-29,RB Leipzig,Borussia Mönchengladbach,3,0,3.76496,1.23375,25,15,11,4
+2026-08-29,Union Berlin,Eintracht Frankfurt,3,3,2.28332,2.1189,19,12,10,3
+2026-08-30,Augsburg,Schalke 04,3,0,5.53649,1.83691,24,11,13,5
+2026-08-30,SC Freiburg,Werder Bremen,4,1,2.38503,0.948636,19,9,5,3
+2026-09-04,VfB Stuttgart,1. FC Köln,4,1,3.5224,2.85818,22,18,8,5
+2026-09-05,Bayer Leverkusen,Union Berlin,4,0,3.39215,0.249852,21,5,10,0
+2026-09-05,Borussia Mönchengladbach,Elversberg,3,4,2.88776,3.03199,25,14,6,10
+2026-09-05,SC Paderborn,SC Freiburg,0,1,0.733133,1.1716,14,16,3,5
+2026-09-05,Schalke 04,Bayern Munich,0,0,0.25073,2.0536,4,15,1,5
+2026-09-05,TSG Hoffenheim,Borussia Dortmund,2,3,2.16627,2.02481,18,11,6,4
+2026-09-05,Werder Bremen,RB Leipzig,3,1,0.854137,1.58161,12,19,7,5
+2026-09-06,Eintracht Frankfurt,Augsburg,1,4,2.51037,1.44545,22,17,8,7
+2026-09-06,Hamburger SV,1. FSV Mainz 05,0,5,0.257239,3.27983,8,17,1,8
+2026-09-11,Union Berlin,Schalke 04,1,3,1.91756,3.21809,20,19,8,10
+2026-09-12,1. FC Köln,Werder Bremen,1,1,1.61333,1.18178,15,14,6,5
+2026-09-12,1. FSV Mainz 05,Eintracht Frankfurt,1,3,2.24195,2.15926,18,11,5,5
+2026-09-12,Augsburg,Bayer Leverkusen,2,2,0.842513,1.88606,8,30,5,5
+2026-09-12,Borussia Dortmund,SC Paderborn,3,0,3.14526,0.311097,14,10,8,0
+2026-09-12,SC Freiburg,Borussia Mönchengladbach,5,0,2.1488,0.268308,19,5,9,0
+2026-09-12,TSG Hoffenheim,VfB Stuttgart,2,1,2.95745,2.66977,20,16,8,5
+2026-09-13,Elversberg,Bayern Munich,1,2,1.02972,3.06035,5,28,1,6
+2026-09-13,RB Leipzig,Hamburger SV,5,0,2.4682,0.508374,19,10,6,4
+2026-09-18,Bayern Munich,Union Berlin,7,0,4.1308,0.471553,23,3,15,2
+2026-09-19,Borussia Mönchengladbach,1. FSV Mainz 05,3,4,3.0902,3.46968,21,17,7,8
+2026-09-19,Eintracht Frankfurt,SC Freiburg,2,2,2.08323,2.93158,10,22,3,7
+2026-09-19,Hamburger SV,1. FC Köln,2,1,2.07655,2.15949,12,18,7,5
+2026-09-19,VfB Stuttgart,Borussia Dortmund,0,1,0.666049,2.11223,12,13,5,2
+2026-09-19,Werder Bremen,Augsburg,3,2,2.30122,0.742238,20,7,11,4
+2026-09-20,Bayer Leverkusen,RB Leipzig,2,0,2.54515,0.929998,18,12,6,3
+2026-09-20,SC Paderborn,TSG Hoffenheim,3,1,1.34065,1.67256,13,23,5,2
+2026-09-20,Schalke 04,Elversberg,0,0,1.26962,0.795372,13,11,1,1
