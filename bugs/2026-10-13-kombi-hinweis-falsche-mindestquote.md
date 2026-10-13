@@ -1,6 +1,6 @@
 # Kombi-Hinweis nennt falsche Mindestquote
 
-**Status:** Ursache gefunden, nicht behoben
+**Status:** behoben (Test `test_missing_size_names_the_minimum_odds_of_the_rule_in_use`)
 **Gemeldet:** 13.10.2026
 **Betrifft:** Kombi-Ansicht der Seite, `src/combo_ticket.py`
 
@@ -20,5 +20,7 @@ jeweiligen Regel, die die Funktion als Parameter `min_odds` bereits bekommt
 
 ## Korrektur
 
-Im Text `min_odds` statt `MIN_COMBINED_ODDS` verwenden. Test: Für die Regel
-„agree“ muss der Grund „mindestens 3.00“ nennen.
+Der Text verwendet jetzt `min_odds`, also die Mindestquote der Regel, die
+`combo_report()` übergibt. Test in `tests/test_combo_sizes.py`: Mit
+Mindestquote 3,0 nennt jeder Grund „mindestens 3.00“. Vor der Korrektur
+schlug er fehl.
