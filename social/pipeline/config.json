@@ -255,10 +255,18 @@
       "champions_league_policy": {
         "priority": "highest",
         "definition": "verified upcoming UEFA Champions League fixture",
-        "selection_action": "consider eligible Champions League fixtures before domestic top-match rules; rank chronologically within the nearest valid Champions League matchday",
+        "selection_action": "Search all pages of the live UEFA Champions League fixture feed for eligible unannounced fixtures on the editorial date first, regardless of country or German participation; rank today's matches by documented marquee relevance. Only if none are suitable, look ahead to the nearest upcoming matchday.",
         "spoken_language": "de",
-        "on_screen_language": "de"
+        "on_screen_language": "de",
+        "german_participation_required": false
       }
+    },
+    "today_first_absolute": true,
+    "fixture_source_fetch_policy": {
+      "pagination_required": true,
+      "continue_until": "all pages needed to cover editorial date and next eligible matchday",
+      "do_not_infer_no_today_fixture_from_first_page": true,
+      "crosscheck": "official UEFA match API or official fixtures page; optional second scoreboard"
     }
   },
   "editorial_date_policy": {
