@@ -41,8 +41,11 @@ LEAGUES = {
 }
 PRICE_PER_MATCH = 0.003          # USD, 1X2 only
 PRICE_PER_FULL_BOOK = 0.023      # USD, match plus every market
-# Two full reads per match: the morning one and the last-hour one.
-MONTHLY_BUDGET = float(os.getenv("BOOK_MARKETS_BUDGET_USD", "7.0"))
+# Two full reads per match: the morning one and the last-hour one. 7 $ ran
+# out on 13 October (duplicate last-hour reads early in the month), and every
+# read fell back to 1X2; raised to 20 $. The Apify account limit stays the
+# outer guard (src/apify_budget.py).
+MONTHLY_BUDGET = float(os.getenv("BOOK_MARKETS_BUDGET_USD", "20.0"))
 # A Nations League evening lists ten matches at one kickoff plus those still
 # in play; a smaller cap left matches without a book and re-fetched them.
 MAX_WINDOW_ITEMS = 20

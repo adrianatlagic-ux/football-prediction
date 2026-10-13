@@ -1,6 +1,7 @@
 # bet-at-home liefert nur Siegquoten (1X2), keine Zusatzmärkte
 
-**Status:** Ursache gefunden (13.10.2026, abends), Korrektur steht aus
+**Status:** behoben (13.10.2026): Monatslimit des eigenen Zählers von 7 $ auf 20 $
+angehoben; Zählerstand jetzt in `/jobs/status` → `book_budget`
 **Gemeldet:** 13.10.2026 (Champions League)
 **Betrifft:** Wett-Tabelle, Kombis, Preistipp, `src/book_odds.py`
 

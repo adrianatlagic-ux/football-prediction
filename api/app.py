@@ -416,6 +416,10 @@ def job_status():
     out["apify"] = apify_budget.usage()
     out["book_coverage"] = _book_coverage()
     out["book_refreshes"] = book_odds.REFRESH_LOG
+    # The app's own monthly counter for bet-at-home reads: past it, every
+    # read falls back to 1X2 (bugs/2026-10-13-betathome-nur-siegquoten.md).
+    out["book_budget"] = {"spent_this_month": round(book_odds.spent_this_month(), 3),
+                          "monthly_budget": book_odds.MONTHLY_BUDGET}
     out["lineups"] = jobs.load_lineup_status()
     return out
 
