@@ -1,0 +1,978 @@
+{
+  "post_id": "goaliq-2026-10-07",
+  "target_date": "2026-10-07",
+  "state": "ready",
+  "created_at": "2026-10-07T06:16:13.112Z",
+  "cloud_only": true,
+  "daily_limit": 1,
+  "daily_limit_basis": "editorial_target_date",
+  "selected": [
+    {
+      "home_team": "Borussia Dortmund",
+      "away_team": "Werder Bremen",
+      "match_id": "borussia_dortmund_vs_werder_bremen_bl",
+      "date": "2026-10-09",
+      "time": "20:30",
+      "competition": "bl",
+      "selection_reason": "Nearest future fixture, no prior coverage; Dortmund relevance, officially reported return after international break and Friday floodlit home match"
+    }
+  ],
+  "previously_covered_matches": [
+    {
+      "post_id": "goalfiq-2026-10-04",
+      "match_id": "greece_vs_germany_nl",
+      "match_date": "2026-10-04",
+      "home": "Greece",
+      "away": "Germany",
+      "state": "append_only_exported"
+    },
+    {
+      "post_id": "goaliq-2026-10-05",
+      "match_id": "italy_vs_turkey_nl",
+      "match_date": "2026-10-05",
+      "home": "Italy",
+      "away": "Turkey",
+      "state": "exceptional_exported_review_pending"
+    },
+    {
+      "post_id": "goaliq-2026-10-06",
+      "match_id": "croatia_vs_spain_nl",
+      "match_date": "2026-10-06",
+      "home": "Croatia",
+      "away": "Spain",
+      "state": "ready"
+    }
+  ],
+  "selection_policy": "today_then_nearest_upcoming_uncovered_matchday",
+  "today_matches": [],
+  "data_check": {
+    "fetched_at": "2026-10-07T06:15:12.190Z",
+    "future_fixture_count": 448,
+    "missing_prediction_count": 433,
+    "nearest_missing": [
+      {
+        "group": "Spieltag 5",
+        "date": "2026-10-09",
+        "time": "20:30",
+        "home_team": "Borussia Dortmund",
+        "away_team": "Werder Bremen",
+        "match_id": "borussia_dortmund_vs_werder_bremen_bl",
+        "competition": "bl"
+      },
+      {
+        "group": "Spieltag 5",
+        "date": "2026-10-10",
+        "time": "15:30",
+        "home_team": "1. FSV Mainz 05",
+        "away_team": "Bayer Leverkusen",
+        "match_id": "1_fsv_mainz_05_vs_bayer_leverkusen_bl",
+        "competition": "bl"
+      },
+      {
+        "group": "Spieltag 5",
+        "date": "2026-10-10",
+        "time": "15:30",
+        "home_team": "Augsburg",
+        "away_team": "Bayern Munich",
+        "match_id": "augsburg_vs_bayern_munich_bl",
+        "competition": "bl"
+      },
+      {
+        "group": "Spieltag 5",
+        "date": "2026-10-10",
+        "time": "15:30",
+        "home_team": "SC Paderborn",
+        "away_team": "VfB Stuttgart",
+        "match_id": "sc_paderborn_vs_vfb_stuttgart_bl",
+        "competition": "bl"
+      },
+      {
+        "group": "Spieltag 5",
+        "date": "2026-10-10",
+        "time": "15:30",
+        "home_team": "TSG Hoffenheim",
+        "away_team": "Hamburger SV",
+        "match_id": "tsg_hoffenheim_vs_hamburger_sv_bl",
+        "competition": "bl"
+      },
+      {
+        "group": "Spieltag 5",
+        "date": "2026-10-10",
+        "time": "15:30",
+        "home_team": "Union Berlin",
+        "away_team": "Elversberg",
+        "match_id": "union_berlin_vs_elversberg_bl",
+        "competition": "bl"
+      },
+      {
+        "group": "Spieltag 5",
+        "date": "2026-10-10",
+        "time": "18:30",
+        "home_team": "RB Leipzig",
+        "away_team": "Eintracht Frankfurt",
+        "match_id": "rb_leipzig_vs_eintracht_frankfurt_bl",
+        "competition": "bl"
+      },
+      {
+        "group": "Spieltag 5",
+        "date": "2026-10-11",
+        "time": "15:30",
+        "home_team": "1. FC Köln",
+        "away_team": "Borussia Mönchengladbach",
+        "match_id": "1_fc_koln_vs_borussia_monchengladbach_bl",
+        "competition": "bl"
+      },
+      {
+        "group": "Spieltag 5",
+        "date": "2026-10-11",
+        "time": "17:30",
+        "home_team": "SC Freiburg",
+        "away_team": "Schalke 04",
+        "match_id": "sc_freiburg_vs_schalke_04_bl",
+        "competition": "bl"
+      }
+    ],
+    "cached_future_candidates": [
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-13",
+          "time": "18:45",
+          "home_team": "RC Lens",
+          "away_team": "Sporting Lisbon",
+          "match_id": "rc_lens_vs_sporting_lisbon_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "RC Lens",
+          "away": "Sporting Lisbon",
+          "probabilities": [
+            0.2158,
+            0.2002,
+            0.5839
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-13",
+          "time": "18:45",
+          "home_team": "Sabah FK",
+          "away_team": "Slavia Praha",
+          "match_id": "sabah_fk_vs_slavia_praha_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Sabah FK",
+          "away": "Slavia Praha",
+          "probabilities": [
+            0.4478,
+            0.2351,
+            0.3171
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-13",
+          "time": "21:00",
+          "home_team": "Arsenal",
+          "away_team": "Lille",
+          "match_id": "arsenal_vs_lille_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Arsenal",
+          "away": "Lille",
+          "probabilities": [
+            0.7672,
+            0.1385,
+            0.0943
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-13",
+          "time": "21:00",
+          "home_team": "Atlético Madrid",
+          "away_team": "Manchester United",
+          "match_id": "atletico_madrid_vs_manchester_united_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Atlético Madrid",
+          "away": "Manchester United",
+          "probabilities": [
+            0.3723,
+            0.3151,
+            0.3125
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-13",
+          "time": "21:00",
+          "home_team": "Galatasaray",
+          "away_team": "Barcelona",
+          "match_id": "galatasaray_vs_barcelona_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Galatasaray",
+          "away": "Barcelona",
+          "probabilities": [
+            0.1789,
+            0.2396,
+            0.5815
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-13",
+          "time": "21:00",
+          "home_team": "Inter Milan",
+          "away_team": "Club Brugge",
+          "match_id": "inter_milan_vs_club_brugge_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Inter Milan",
+          "away": "Club Brugge",
+          "probabilities": [
+            0.6954,
+            0.1358,
+            0.1688
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-13",
+          "time": "21:00",
+          "home_team": "RB Leipzig",
+          "away_team": "PSV Eindhoven",
+          "match_id": "rb_leipzig_vs_psv_eindhoven_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "RB Leipzig",
+          "away": "PSV Eindhoven",
+          "probabilities": [
+            0.6109,
+            0.1751,
+            0.214
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-13",
+          "time": "21:00",
+          "home_team": "Viking FK",
+          "away_team": "Bayern Munich",
+          "match_id": "viking_fk_vs_bayern_munich_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Viking FK",
+          "away": "Bayern Munich",
+          "probabilities": [
+            0.1419,
+            0.142,
+            0.7161
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-13",
+          "time": "21:00",
+          "home_team": "Villarreal",
+          "away_team": "Napoli",
+          "match_id": "villarreal_vs_napoli_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Villarreal",
+          "away": "Napoli",
+          "probabilities": [
+            0.2986,
+            0.2074,
+            0.494
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-14",
+          "time": "18:45",
+          "home_team": "Feyenoord",
+          "away_team": "Como",
+          "match_id": "feyenoord_vs_como_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Feyenoord",
+          "away": "Como",
+          "probabilities": [
+            0.4919,
+            0.3021,
+            0.206
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-14",
+          "time": "21:00",
+          "home_team": "AS Roma",
+          "away_team": "Real Madrid",
+          "match_id": "as_roma_vs_real_madrid_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "AS Roma",
+          "away": "Real Madrid",
+          "probabilities": [
+            0.2423,
+            0.177,
+            0.5807
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-14",
+          "time": "21:00",
+          "home_team": "Aston Villa",
+          "away_team": "Fenerbahce",
+          "match_id": "aston_villa_vs_fenerbahce_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Aston Villa",
+          "away": "Fenerbahce",
+          "probabilities": [
+            0.7108,
+            0.1493,
+            0.1399
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-14",
+          "time": "21:00",
+          "home_team": "Manchester City",
+          "away_team": "Paris Saint Germain",
+          "match_id": "manchester_city_vs_paris_saint_germain_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Manchester City",
+          "away": "Paris Saint Germain",
+          "probabilities": [
+            0.5866,
+            0.2398,
+            0.1736
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-14",
+          "time": "21:00",
+          "home_team": "Real Betis",
+          "away_team": "Porto",
+          "match_id": "real_betis_vs_porto_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Real Betis",
+          "away": "Porto",
+          "probabilities": [
+            0.1595,
+            0.126,
+            0.7146
+          ]
+        },
+        "age_hours": null
+      },
+      {
+        "fixture": {
+          "group": "Matchday 2",
+          "date": "2026-10-14",
+          "time": "21:00",
+          "home_team": "Shakhtar Donetsk",
+          "away_team": "AEK Athens",
+          "match_id": "shakhtar_donetsk_vs_aek_athens_cl",
+          "competition": "cl"
+        },
+        "status": 200,
+        "prediction": {
+          "home": "Shakhtar Donetsk",
+          "away": "AEK Athens",
+          "probabilities": [
+            0.4526,
+            0.2969,
+            0.2505
+          ]
+        },
+        "age_hours": null
+      }
+    ]
+  },
+  "excluded": [
+    {
+      "match_id": "rc_lens_vs_sporting_lisbon_cl",
+      "match_date": "2026-10-13",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "sabah_fk_vs_slavia_praha_cl",
+      "match_date": "2026-10-13",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "arsenal_vs_lille_cl",
+      "match_date": "2026-10-13",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "atletico_madrid_vs_manchester_united_cl",
+      "match_date": "2026-10-13",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "galatasaray_vs_barcelona_cl",
+      "match_date": "2026-10-13",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "inter_milan_vs_club_brugge_cl",
+      "match_date": "2026-10-13",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "rb_leipzig_vs_psv_eindhoven_cl",
+      "match_date": "2026-10-13",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "viking_fk_vs_bayern_munich_cl",
+      "match_date": "2026-10-13",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "villarreal_vs_napoli_cl",
+      "match_date": "2026-10-13",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "feyenoord_vs_como_cl",
+      "match_date": "2026-10-14",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "as_roma_vs_real_madrid_cl",
+      "match_date": "2026-10-14",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "aston_villa_vs_fenerbahce_cl",
+      "match_date": "2026-10-14",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "manchester_city_vs_paris_saint_germain_cl",
+      "match_date": "2026-10-14",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "real_betis_vs_porto_cl",
+      "match_date": "2026-10-14",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    },
+    {
+      "match_id": "shakhtar_donetsk_vs_aek_athens_cl",
+      "match_date": "2026-10-14",
+      "reason": "Missing history_refreshed_at freshness proof in actual cached prediction; response also has no fixture date/time metadata",
+      "prediction_status": 200
+    }
+  ],
+  "blockers": [],
+  "credits": {
+    "balance_before": 187.22,
+    "balance_after": 165.42,
+    "consumed": 21.8,
+    "original_generation": 15,
+    "corrections": 6.8
+  },
+  "charges": [
+    {
+      "asset_id": "goaliq-2026-10-07-story-v1",
+      "state": "completed",
+      "credits_exact": 15,
+      "credits": 15,
+      "balance_before": 187.22,
+      "job_id": "8f620b34-b15e-4b77-bdc5-d93127a9ae2f",
+      "submitted_at": "2026-10-07T06:23:21.793Z"
+    },
+    {
+      "asset_id": "goaliq-2026-10-07-opening-correction-1",
+      "state": "completed",
+      "credits_exact": 4,
+      "balance_before": 172.22,
+      "params": {
+        "model": "flux_3_video_edit",
+        "count": 1,
+        "medias": [
+          {
+            "role": "video",
+            "value": "c7ccbd1d-569a-4fb8-b077-590941ce53e8"
+          }
+        ],
+        "prompt": "Make a precise local correction to the physical yellow-and-black stadium announcement board in this hand-drawn 2D anime video. Preserve the entire scene, camera movement, stadium, timing, cel shading, ink outlines and all other objects. Replace ALL misspelled team-name lettering on that board with the exact word DORTMUND. The board must contain ONLY these correct readable text lines: DORTMUND vs BREMEN ; 9 OCT 2026 · 20:30 CEST. In the left yellow circular crest the letters are BVB and the number beneath is exactly 09 (zero nine), NOT 08. Keep the right official Werder Bremen green diamond white W crest unchanged. Keep these letters and numerals stable and correctly spelled throughout every visible frame. The writing and crests must be on the actual physical board in the anime scene, with matching perspective; no floating overlays, no subtitles, no new title cards. Correct only the board lettering and the BVB crest numeral, leave everything else unchanged. Original 720x1280 resolution and original 24fps, same duration.",
+        "duration": 4
+      },
+      "job_id": "e540a633-4b9f-41fe-aebf-c6be1206360e",
+      "credits_actual": 3.42
+    },
+    {
+      "asset_id": "goaliq-2026-10-07-opening-correction-2",
+      "state": "completed",
+      "credits_exact": 4,
+      "balance_before": 168.8,
+      "params": {
+        "model": "flux_3_video_edit",
+        "duration": 4,
+        "count": 1,
+        "medias": [
+          {
+            "role": "video",
+            "value": "e540a633-4b9f-41fe-aebf-c6be1206360e"
+          }
+        ],
+        "prompt": "Correct exactly ONE letter on the physical stadium sign. It currently reads DORTMAND vs BREMEN. Change the letter A in DORTMAND to U, so the sign reads exactly DORTMUND vs BREMEN. Spelling letter by letter: D O R T M U N D. Do NOT write DORTMAND. Do NOT change any other text, image, crest, camera, timing, motion, lighting or anime drawing. Preserve the existing correct BVB 09 crest and Werder W crest. Preserve the correct date line 9 OCT 2026 · 20:30 CEST. Only replace that A with U on the sign in the existing perspective for every frame where it is visible. Preserve the source video exactly otherwise."
+      },
+      "job_id": "e1040807-bcd4-4a1e-884c-a31d1fd19785",
+      "credits_actual": 3.38
+    },
+    {
+      "asset_id": "goaliq-2026-10-07-opening-correction-3",
+      "state": "rejected_nsfw",
+      "credits_exact": 4,
+      "balance_before": 165.42,
+      "params": {
+        "model": "flux_3_video_edit",
+        "duration": 4,
+        "count": 1,
+        "medias": [
+          {
+            "role": "video",
+            "value": "e1040807-bcd4-4a1e-884c-a31d1fd19785"
+          }
+        ],
+        "prompt": "Remove both football club crests from the big physical stadium announcement board: remove the yellow circular BVB emblem on the left and the green diamond emblem on the right, replacing their areas with the board's plain yellow/black painted background. No club crests or logo-like substitutes on this announcement board. Preserve the existing correct text exactly: DORTMUND vs BREMEN and 9 OCT 2026 · 20:30 CEST. Preserve each letter and numeral without alteration throughout the video. Keep the existing physical board, perspective, hand-drawn 2D anime style, camera movement, stadium, lighting and all timing unchanged. No floating text overlays, no separate title cards, no extra text. Only erase the two emblems on the board, preserve the two correct text lines on the board."
+      },
+      "job_id": "ead3f126-c5ef-49e7-a838-3adc3c6aafbc",
+      "credits_actual_observed": 0
+    },
+    {
+      "asset_id": "goaliq-2026-10-07-opening-correction-4",
+      "state": "rejected_nsfw",
+      "credits_exact": 4,
+      "balance_before": 165.42,
+      "params": {
+        "model": "flux_3_video_edit",
+        "duration": 4,
+        "count": 1,
+        "medias": [
+          {
+            "role": "video",
+            "value": "e1040807-bcd4-4a1e-884c-a31d1fd19785"
+          }
+        ],
+        "prompt": "Remove both football club crests from the big physical stadium announcement board: remove the yellow circular BVB emblem on the left and the green diamond emblem on the right, replacing their areas with the board's plain yellow/black painted background. No club crests or logo-like substitutes on this announcement board. Preserve the existing correct text exactly: DORTMUND vs BREMEN and 9 OCT 2026 · 20:30 CEST. Preserve each letter and numeral without alteration throughout the video. Keep the existing physical board, perspective, hand-drawn 2D anime style, camera movement, stadium, lighting and all timing unchanged. No floating text overlays, no separate title cards, no extra text. Only erase the two emblems on the board, preserve the two correct text lines on the board."
+      },
+      "job_id": "a7d48a69-0a33-41c1-b3bd-a5994832cda5",
+      "credits_actual_observed": 0
+    },
+    {
+      "asset_id": "goaliq-2026-10-07-opening-correction-5",
+      "state": "rejected_nsfw",
+      "credits_exact": 4,
+      "balance_before": 165.42,
+      "params": {
+        "model": "flux_3_video_edit",
+        "duration": 4,
+        "count": 1,
+        "medias": [
+          {
+            "role": "video",
+            "value": "e1040807-bcd4-4a1e-884c-a31d1fd19785"
+          }
+        ],
+        "prompt": "Remove both football club crests from the big physical stadium announcement board: remove the yellow circular BVB emblem on the left and the green diamond emblem on the right, replacing their areas with the board's plain yellow/black painted background. No club crests or logo-like substitutes on this announcement board. Preserve the existing correct text exactly: DORTMUND vs BREMEN and 9 OCT 2026 · 20:30 CEST. Preserve each letter and numeral without alteration throughout the video. Keep the existing physical board, perspective, hand-drawn 2D anime style, camera movement, stadium, lighting and all timing unchanged. No floating text overlays, no separate title cards, no extra text. Only erase the two emblems on the board, preserve the two correct text lines on the board."
+      },
+      "job_id": "1f237d06-9331-41cf-8f18-a3c41d92419b",
+      "credits_actual_observed": 0
+    }
+  ],
+  "jobs": [
+    {
+      "job_id": "8f620b34-b15e-4b77-bdc5-d93127a9ae2f",
+      "asset_id": "goaliq-2026-10-07-story-v1",
+      "state": "completed",
+      "media_id": "da02a9e8-a940-4c5c-a683-1d96d6190abf"
+    },
+    {
+      "asset_id": "goaliq-2026-10-07-opening-correction-1",
+      "job_id": "e540a633-4b9f-41fe-aebf-c6be1206360e",
+      "state": "completed_quality_failed"
+    },
+    {
+      "asset_id": "goaliq-2026-10-07-opening-correction-2",
+      "job_id": "e1040807-bcd4-4a1e-884c-a31d1fd19785",
+      "state": "completed_quality_failed"
+    },
+    {
+      "asset_id": "goaliq-2026-10-07-opening-correction-3",
+      "job_id": "ead3f126-c5ef-49e7-a838-3adc3c6aafbc",
+      "state": "nsfw"
+    },
+    {
+      "asset_id": "goaliq-2026-10-07-opening-correction-4",
+      "job_id": "a7d48a69-0a33-41c1-b3bd-a5994832cda5",
+      "state": "nsfw"
+    },
+    {
+      "asset_id": "goaliq-2026-10-07-opening-correction-5",
+      "job_id": "1f237d06-9331-41cf-8f18-a3c41d92419b",
+      "state": "nsfw"
+    }
+  ],
+  "quality": {
+    "state": "passed_with_user_approved_source_exceptions",
+    "source_visuals": "user_approved_original_source",
+    "style": "passed_2d_anime",
+    "hook": "known_spelling_defects_explicitly_user_accepted",
+    "crests": "known_shape_and_number_defects_explicitly_user_accepted",
+    "source_language": "passed_cloud_analysis_three_english_lines",
+    "audio": "original_audio_preserved_hash_verified",
+    "voice_naturalness": "existing_audio_accepted_for_this_clip_more_natural_voices_required_future",
+    "transition": "passed_visual_review",
+    "outro": "passed_original_logo_exact_domain_and_english_disclaimer",
+    "integrity": "passed361source_frames473source_audio_packets"
+  },
+  "resume_policy": "Completed one contribution for this editorial day. Skip without new generation or repeated notification; no second daily video.",
+  "schedule_action": "Routine remains enabled; missing data may change at next scheduled check.",
+  "required_data": "Verified upcoming fixture and current research; predictions optional and not used.",
+  "rules_read": {
+    "readme_sha": "cb864b92bd5fc42553d64a4ebacbc25b497d9248",
+    "config_sha": "c4d24d17054bca62280149a22f725ffb215cbd64",
+    "reference_sha": "489e22792172644dd32922b64b473588e298c6eb"
+  },
+  "resumed_at": "2026-10-07T06:22:46.899Z",
+  "blockers_resolved": {
+    "reason": "User instruction 2026-10-07: predictions optional for fixture research stories",
+    "resolved_at": "2026-10-07T06:22:46.899Z"
+  },
+  "generation_basis": "verified_fixture_and_current_research",
+  "prediction_status": "not_available",
+  "prediction_used": false,
+  "match_date": "2026-10-09",
+  "kickoff_at": "2026-10-09T20:30:00+02:00",
+  "coverage_key": "borussia_dortmund_vs_werder_bremen_bl:2026-10-09",
+  "sources": [
+    {
+      "url": "https://football-prediction.fly.dev/fixtures",
+      "retrieved": "2026-10-07T06:14:23.944Z",
+      "context": "Nearest future match Dortmund–Bremen2026-10-09at20:30"
+    },
+    {
+      "url": "https://www.bundesliga.com/de/bundesliga/spieltag/2026-2027/5",
+      "retrieved": "2026-10-07T06:19:07.453Z",
+      "context": "Official matchday confirms date; embedded kickoff2026-10-09T18:30:00+0000 equals20:30CEST"
+    },
+    {
+      "url": "https://www.bvb.de/de/de/aktuelles/news/news.html/2026/10/6/Zurueck-von-den-Laenderspielen-rein-ins-Training.html",
+      "published": "2026-10-06",
+      "retrieved": "2026-10-07T06:21:31.536Z",
+      "context": "BVB players returned from national teams and resumed training for Friday home game with Bremen; this is factual context only, fictional blackout not reported news"
+    }
+  ],
+  "story": {
+    "fictional": true,
+    "story_type": "time_pressure_mission",
+    "previous_story_type": "team_internal_decision",
+    "hook": "Both crests and actual match date on a physical anime stadium announcement board; lights begin going out.",
+    "conflict": "A Dortmund player must keep the last light alive before the stadium gate closes.",
+    "turning_point": "A Bremen rival opens the pass route and the ball restarts the stadium.",
+    "ending_image": "Ball between opposing yellow-black and green-white boots under restored floodlights; match unresolved.",
+    "changed_elements": [
+      "stormy stadium instead of seaside stone bridge",
+      "closing gate and extinguishing lights instead of stone burden",
+      "precision pass powers stadium instead of shield crossing",
+      "opponents facing ball instead of teammates clasping hands"
+    ],
+    "dialogues": [
+      "One light left. Keep it alive.",
+      "Then pass it through the dark.",
+      "Now the real game begins."
+    ],
+    "actual_rendered_action": "Rival intercepts glowing ball near illuminated stadium doors; floodlights return, ball floats and drops between facing rivals. No result."
+  },
+  "visual_style": "2d_anime",
+  "style_review": "passed",
+  "fixture_hook": {
+    "render_mode": "inside_generated_story_video",
+    "text": [
+      "DORTMUND vs BREMEN",
+      "9 OCT 2026 · 20:30 CEST"
+    ],
+    "duration_planned_seconds": 2.5,
+    "timezone": "Europe/Berlin",
+    "review": "user_accepted_known_generated_spelling_defects",
+    "team_crests": true
+  },
+  "team_crests": [
+    {
+      "team": "Borussia Dortmund",
+      "source": "https://assets.bundesliga.com/clublogos/DFL-SEA-0001KA/DFL-CLU-000007.svg",
+      "media_id": "021cdb73-a2ac-44b6-bfbb-0a0d9f2ea5e9",
+      "reference_review": "visually verified yellow BVB09 circular crest"
+    },
+    {
+      "team": "Werder Bremen",
+      "source": "https://assets.bundesliga.com/clublogos/DFL-SEA-0001KA/DFL-CLU-00000E.svg",
+      "media_id": "3dff4ce6-99f4-44c2-9272-4592a320e81e",
+      "reference_review": "visually verified green diamond white W"
+    }
+  ],
+  "params": {
+    "model": "seedance_2_0_mini",
+    "duration": 15,
+    "resolution": "720p",
+    "aspect_ratio": "9:16",
+    "generate_audio": true,
+    "count": 1,
+    "bitrate_mode": "high",
+    "genre": "epic",
+    "medias": [
+      {
+        "role": "image",
+        "value": "021cdb73-a2ac-44b6-bfbb-0a0d9f2ea5e9"
+      },
+      {
+        "role": "image",
+        "value": "3dff4ce6-99f4-44c2-9272-4592a320e81e"
+      }
+    ],
+    "prompt": "Create a 15-second vertical HAND-DRAWN 2D ANIME football fantasy. Bold clean ink outlines, flat cel shading, expressive illustrated adult characters, dynamic anime motion, painted stadium backgrounds. Entire film must look drawn, never photorealistic, never live-action, never realistic 3D humans. Original fictional players and voices, no real player likeness or voice imitation. This is a fictitious time-pressure mission, not match footage or a result prediction.\nUse the two supplied reference images ONLY to reproduce the official crests accurately: reference1 is Borussia Dortmund's yellow circular BVB09 crest, reference2 is Werder Bremen's green diamond with white W.\n0–2.5sec: begin immediately inside a painted anime stadium, close on a large physical match-announcement board above the entrance tunnel. It is a real object in the scene, not a floating text overlay or separate black title card. Left official BVB09 crest and right official Werder green diamond crest, equal size, fully visible and unobscured. Between/below them spell EXACTLY these two readable lines in large clean English block lettering:\n\"DORTMUND vs BREMEN\"\n\"9 OCT 2026 · 20:30 CEST\"\nNo TODAY, no other dates, no score or odds. Hold steady long enough to read, then camera sweeps under this board into the SAME stadium. All crests and text must be generated in the scene itself.\n2.5–5sec: floodlights shut off rapidly one by one in a dramatic fictional stadium; the last light glows inside a football at a yellow-black Dortmund player's feet. A gate at the tunnel is slowly closing. The Dortmund player says clearly in English, \"One light left. Keep it alive.\"\n5–8sec: he dribbles the glowing ball along a narrow path of light while shadows close around him. A green-white Bremen defender steps into the path, poised to take the ball. No ordinary match montage, no shot at goal. The Bremen defender says in clear English, \"Then pass it through the dark.\"\n8–11.5sec: twist: instead of tackling, the defender opens a tiny gap between two closing shadow walls. Dortmund makes one precise low pass THROUGH that gap. The Bremen defender receives it beside an unlit circular power socket in the pitch, taps the glowing ball INTO THE SOCKET with his foot. The same ball visibly stays there.\n11.5–15sec: the whole stadium erupts in golden floodlight as the gate reopens. The ball pops out of the socket between the two rivals; they turn to face each other, now ready to compete. Dortmund says in clear English, \"Now the real game begins.\" End on the ball between yellow-black and green-white boots under the restored lights. No winner, scored goal, victory celebration or final score.\nAudio exactly the three English sentences above, natural intelligible adult male voices, no extra dialogue and no other language. Original instrumental suspense percussion ducked below speech; wind and switch-click effects, no singing. No subtitles or other writing after the announcement board, no news claim about a real blackout. No brand outro inside this source; it will be appended separately."
+  },
+  "updated_at": "2026-10-07T06:59:19.763Z",
+  "final_media_id": "2b609874-cb6a-4712-930d-db852a994e28",
+  "correction_policy": {
+    "max_runs": 5,
+    "runs_submitted": 5,
+    "scope": "opening_only",
+    "authorized_at": "2026-10-07T08:30:12+02:00",
+    "preserve_remaining_story": true,
+    "preserve_entire_original_audio": true,
+    "runs_remaining": 0,
+    "automatic_retry_allowed": false,
+    "additional_authorization": {
+      "at": "2026-10-07T08:41:35+02:00",
+      "runs": 1,
+      "scope": "remove_opening_club_crests_preserve_names_and_date"
+    },
+    "authorizations": [
+      {
+        "at": "2026-10-07T08:45:55+02:00",
+        "runs": 1,
+        "scope": "same_opening_crest_removal_request",
+        "user_instruction": "Nochmal"
+      },
+      {
+        "at": "2026-10-07T08:49:34+02:00",
+        "runs": 1,
+        "scope": "same_opening_crest_removal",
+        "user_instruction": "Ok nochmal"
+      }
+    ]
+  },
+  "correction_reviews": [
+    {
+      "run": 1,
+      "job_id": "e540a633-4b9f-41fe-aebf-c6be1206360e",
+      "crest": "passed_09",
+      "team_name": "failed_DORTMAND",
+      "resolution": [
+        704,
+        1248
+      ],
+      "frames": 81,
+      "duration": 3.375
+    },
+    {
+      "run": 2,
+      "job_id": "e1040807-bcd4-4a1e-884c-a31d1fd19785",
+      "team_name": "passed_DORTMUND",
+      "bvb_crest": "passed_09",
+      "werder_crest": "failed: generated white emblem resembles U instead of official W",
+      "date_time": "passed",
+      "resolution": [
+        704,
+        1248
+      ],
+      "frames": 81,
+      "duration": 3.375
+    }
+  ],
+  "audio_analysis_id": "4b24f76e-0999-4f60-b6c6-22f954a1fc66",
+  "team_crests_required": true,
+  "user_approval": {
+    "at": "2026-10-07T08:54:27+02:00",
+    "source_job_id": "8f620b34-b15e-4b77-bdc5-d93127a9ae2f",
+    "instruction": "Ich finde es sehr gut mit den Wappen kann man so lassen",
+    "scope": "Displayed original 15-second clip accepted including observed opening name/crest defects; append brand outro only",
+    "automatic_quality_gate_override": false,
+    "editorial_exception": true
+  },
+  "source_job_id": "8f620b34-b15e-4b77-bdc5-d93127a9ae2f",
+  "source_media_id": "da02a9e8-a940-4c5c-a683-1d96d6190abf",
+  "ready_at": "2026-10-07T06:59:19.763Z",
+  "final_duration_seconds": 18.136,
+  "brand_outro_media_id": "9c29b762-d478-4bb4-b4bc-fadfaad35efd",
+  "caption": "Ein Ball hält das ganze Stadion am Leben. Dann kommt Bremen. ⚡\n\nDortmund gegen Bremen: Freitag, 9. Oktober 2026, 20:30 Uhr MESZ.\n\nIst Dortmunds Heimkulisse ein echter Vorteil – oder wird sie zur Ausrede, wenn Bremen mutiger spielt?\n\nKI-Fiktion.\nMehr auf goaliq.de\nKI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.\n\n#BVB #WerderBremen #Bundesliga #FootballAnime",
+  "caption_language": "de",
+  "final_live_check": {
+    "retrieved_at": "2026-10-07T06:57:34.975Z",
+    "fixture_status": 200,
+    "fixture": {
+      "group": "Spieltag 5",
+      "date": "2026-10-09",
+      "time": "20:30",
+      "home_team": "Borussia Dortmund",
+      "away_team": "Werder Bremen",
+      "match_id": "borussia_dortmund_vs_werder_bremen_bl"
+    },
+    "official_source": "https://www.bundesliga.com/de/bundesliga/spieltag/2026-2027/5",
+    "official_kickoff_confirmed": true,
+    "kickoff_berlin": "2026-10-09T20:30:00+02:00"
+  },
+  "integrity": {
+    "source_frames": 361,
+    "final_frames": 433,
+    "video_frame_hash_prefix_identical": true,
+    "source_audio_packets": 473,
+    "audio_packet_hash_prefix_identical": true,
+    "source": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "duration": "15.041667",
+          "nb_frames": "361"
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "duration": "15.104000",
+          "nb_frames": "473"
+        }
+      ],
+      "format": {
+        "duration": "15.104000"
+      }
+    },
+    "final": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "duration": "18.104004",
+          "nb_frames": "433"
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "duration": "18.136000",
+          "nb_frames": "568"
+        }
+      ],
+      "format": {
+        "duration": "18.136000"
+      }
+    }
+  },
+  "caption_updated_at": "2026-10-07T16:00:44.627Z"
+}

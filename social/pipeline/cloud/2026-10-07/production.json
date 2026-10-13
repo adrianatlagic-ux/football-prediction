@@ -1,0 +1,277 @@
+{
+  "post_id": "goaliq-2026-10-07",
+  "status": "ready",
+  "cloud_only": true,
+  "source_job_id": "8f620b34-b15e-4b77-bdc5-d93127a9ae2f",
+  "source_media_id": "da02a9e8-a940-4c5c-a683-1d96d6190abf",
+  "correction_policy": {
+    "max_runs": 5,
+    "runs_submitted": 5,
+    "scope": "opening_only",
+    "authorized_at": "2026-10-07T08:30:12+02:00",
+    "preserve_remaining_story": true,
+    "preserve_entire_original_audio": true,
+    "runs_remaining": 0,
+    "automatic_retry_allowed": false,
+    "additional_authorization": {
+      "at": "2026-10-07T08:41:35+02:00",
+      "runs": 1,
+      "scope": "remove_opening_club_crests_preserve_names_and_date"
+    },
+    "authorizations": [
+      {
+        "at": "2026-10-07T08:45:55+02:00",
+        "runs": 1,
+        "scope": "same_opening_crest_removal_request",
+        "user_instruction": "Nochmal"
+      },
+      {
+        "at": "2026-10-07T08:49:34+02:00",
+        "runs": 1,
+        "scope": "same_opening_crest_removal",
+        "user_instruction": "Ok nochmal"
+      }
+    ]
+  },
+  "correction_reviews": [
+    {
+      "run": 1,
+      "job_id": "e540a633-4b9f-41fe-aebf-c6be1206360e",
+      "crest": "passed_09",
+      "team_name": "failed_DORTMAND",
+      "resolution": [
+        704,
+        1248
+      ],
+      "frames": 81,
+      "duration": 3.375
+    },
+    {
+      "run": 2,
+      "job_id": "e1040807-bcd4-4a1e-884c-a31d1fd19785",
+      "team_name": "passed_DORTMUND",
+      "bvb_crest": "passed_09",
+      "werder_crest": "failed: generated white emblem resembles U instead of official W",
+      "date_time": "passed",
+      "resolution": [
+        704,
+        1248
+      ],
+      "frames": 81,
+      "duration": 3.375
+    }
+  ],
+  "third_correction": {
+    "job_id": "ead3f126-c5ef-49e7-a838-3adc3c6aafbc",
+    "requested": "remove_opening_club_crests_keep_correct_names_and_date",
+    "provider_status": "nsfw",
+    "provider_reason": null,
+    "result_media": null,
+    "quote": 4,
+    "balance_before": 165.42,
+    "balance_after": 165.42,
+    "additional_cost_observed": 0
+  },
+  "credits": {
+    "before": 187.22,
+    "after": 165.42,
+    "consumed": 21.8,
+    "original_generation": 15,
+    "corrections": 6.8,
+    "assembly_additional": 0
+  },
+  "source_audio_analysis": [
+    {
+      "audio": "A rhythmic, energetic drum beat begins, paired with a low bass synth hum. No dialogue.",
+      "label": "Opening Hook",
+      "visual": "Static low-angle shot of a large yellow and black billboard at a soccer stadium against a blue sky with soft white clouds. The billboard announces a match. The lighting is bright and natural. The background shows the top edge of stadium seating and floodlights.",
+      "shot_type": "Close-Up",
+      "scene_number": 1,
+      "timestamp_end": "0:02",
+      "timestamp_start": "0:00"
+    },
+    {
+      "audio": "The drum beat intensifies. A faint sound of wind whistling through the stadium is audible.",
+      "label": "Opening Hook",
+      "visual": "A slow tilt down from the bottom of the billboard to reveal a vast, empty soccer stadium at dusk. The stadium has yellow and black seats, a green grass pitch, and bright floodlights shining down. The overall color palette is dark with high contrast from the artificial lights.",
+      "shot_type": "Wide Shot",
+      "scene_number": 2,
+      "timestamp_end": "0:03",
+      "timestamp_start": "0:02"
+    },
+    {
+      "audio": "Sound of heavy metal doors creaking open and slamming against the walls. A male voice says, \"One light left. Keep it alive.\"",
+      "label": "Opening Hook",
+      "visual": "Static shot focusing on large dark gray metal doors at the end of a stadium tunnel. The doors slowly creak open to reveal a single character standing in the center. The character is a young male, roughly 17-20 years old, with tan skin, messy dark brown hair, and a determined expression. He wears a yellow and black soccer jersey with the number 08, black shorts, and yellow and black striped socks. A single spotlight shines directly on a soccer ball at his feet.",
+      "shot_type": "Medium Shot",
+      "scene_number": 3,
+      "timestamp_end": "0:05",
+      "timestamp_start": "0:03"
+    },
+    {
+      "audio": "Sound of a soccer ball being kicked. The male voice continues, \"Then pass it through the dark.\"",
+      "label": "Usage Scenarios",
+      "visual": "The dark-haired character begins to dribble the soccer ball, which is glowing with a bright internal light. A second character appears from the right side of the frame, attempting to steal the ball. This second character is a male of similar age, with fair skin, short spiky green hair, and a green and white soccer jersey with the number 10. The camera follows their movement with a slight lateral tracking shot. The lighting is dominated by the glowing ball and the stadium floodlights.",
+      "shot_type": "Medium Close-Up",
+      "scene_number": 4,
+      "timestamp_end": "0:08",
+      "timestamp_start": "0:05"
+    },
+    {
+      "audio": "A sharp 'woosh' sound as the ball is intercepted, followed by the sound of rapid footsteps on grass.",
+      "label": "Usage Scenarios",
+      "visual": "A tracking shot from behind the green-haired character as he intercepts the glowing ball. He is now running toward the stadium doors, which are glowing with a bright yellow light. His body language is intense and focused. The background is a dark stadium wall with a single door frame emitting a powerful light.",
+      "shot_type": "Medium Shot",
+      "scene_number": 5,
+      "timestamp_end": "0:10",
+      "timestamp_start": "0:08"
+    },
+    {
+      "audio": "The drum beat reaches a crescendo. A high-pitched chime sound as the ball floats in the air.",
+      "label": "Usage Scenarios",
+      "visual": "A static wide shot from behind the two characters as they stand on the pitch, facing each other. The glowing soccer ball is suspended in the air between them, level with their chests. The stadium floodlights are extremely bright, creating a lens flare effect. The background is the vast, dark stadium seating.",
+      "shot_type": "Wide Shot",
+      "scene_number": 6,
+      "timestamp_end": "0:12",
+      "timestamp_start": "0:10"
+    },
+    {
+      "audio": "The male voice says, \"Now the real game begins.\"",
+      "label": "Opening Hook",
+      "visual": "A static shot of both characters from the waist up, facing each other with intense, competitive expressions. The dark-haired character on the left and the green-haired character on the right. The lighting is dramatic, with strong highlights and deep shadows. The background is the blurred stadium pitch and lights.",
+      "shot_type": "Medium Close-Up",
+      "scene_number": 7,
+      "timestamp_end": "0:13",
+      "timestamp_start": "0:12"
+    },
+    {
+      "audio": "The drum beat ends with a final, heavy strike. A low, resonant hum fades out.",
+      "label": "Call to Action",
+      "visual": "A static low-angle shot focusing on the soccer ball resting on the grass between the feet of the two characters. The character on the left wears yellow and black shoes, and the character on the right wears green and white shoes. The ball is black and white with a subtle glow. The background is the brightly lit, out-of-focus stadium.",
+      "shot_type": "Close-Up",
+      "scene_number": 8,
+      "timestamp_end": "0:15",
+      "timestamp_start": "0:13"
+    }
+  ],
+  "final_assembly": "Cloud stream-copy concatenation of entire original source plus72-frame brand outro; source untouched",
+  "private_urls_omitted": true,
+  "fourth_correction": {
+    "job_id": "a7d48a69-0a33-41c1-b3bd-a5994832cda5",
+    "provider_status": "nsfw",
+    "reason": null,
+    "output": null,
+    "user_authorized": true,
+    "same_prompt_as_third": true,
+    "estimated_credits": 4,
+    "balance_before": 165.42,
+    "balance_after": 165.42,
+    "additional_cost_observed": 0
+  },
+  "fifth_correction": {
+    "job_id": "1f237d06-9331-41cf-8f18-a3c41d92419b",
+    "provider_status": "nsfw",
+    "reason": null,
+    "result": null,
+    "estimated_credits": 4,
+    "balance_before": 165.42,
+    "balance_after": 165.42,
+    "additional_cost_observed": 0
+  },
+  "final_media_id": "2b609874-cb6a-4712-930d-db852a994e28",
+  "brand_outro_media_id": "9c29b762-d478-4bb4-b4bc-fadfaad35efd",
+  "integrity": {
+    "source_frames": 361,
+    "final_frames": 433,
+    "video_frame_hash_prefix_identical": true,
+    "source_audio_packets": 473,
+    "audio_packet_hash_prefix_identical": true,
+    "source": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "duration": "15.041667",
+          "nb_frames": "361"
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "duration": "15.104000",
+          "nb_frames": "473"
+        }
+      ],
+      "format": {
+        "duration": "15.104000"
+      }
+    },
+    "final": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "duration": "18.104004",
+          "nb_frames": "433"
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "32000",
+          "channels": 2,
+          "r_frame_rate": "0/0",
+          "duration": "18.136000",
+          "nb_frames": "568"
+        }
+      ],
+      "format": {
+        "duration": "18.136000"
+      }
+    }
+  },
+  "review": {
+    "source_opening": "Known name and crest defects accepted explicitly by user after preview; not claimed accurate",
+    "style": "2D anime verified across source contact sheet",
+    "speech": "Completed Higgsfield analysis confirms all3 intended English sentences",
+    "voice_naturalness": "Original voice preserved under explicit source approval; user's preference for more natural voices mandatory on future productions",
+    "transition": "8 extracted frames at14–16.5s inspected; source ending then brand only",
+    "outro": "Original logo above goaliq.de and exact English disclaimer visually verified at17s; silent",
+    "source_integrity": "All361 decoded source frame hashes and473 encoded audio packet hashes match final prefix",
+    "duration": "18.136s including codec/container padding; outro72frames24fps =3.000s",
+    "status": "passed_with_explicit_user_acceptance_of_source_defects"
+  },
+  "user_approval": {
+    "at": "2026-10-07T08:54:27+02:00",
+    "source_job_id": "8f620b34-b15e-4b77-bdc5-d93127a9ae2f",
+    "instruction": "Ich finde es sehr gut mit den Wappen kann man so lassen",
+    "scope": "Displayed original 15-second clip accepted including observed opening name/crest defects; append brand outro only",
+    "automatic_quality_gate_override": false,
+    "editorial_exception": true
+  },
+  "final_live_check": {
+    "retrieved_at": "2026-10-07T06:57:34.975Z",
+    "fixture_status": 200,
+    "fixture": {
+      "group": "Spieltag 5",
+      "date": "2026-10-09",
+      "time": "20:30",
+      "home_team": "Borussia Dortmund",
+      "away_team": "Werder Bremen",
+      "match_id": "borussia_dortmund_vs_werder_bremen_bl"
+    },
+    "official_source": "https://www.bundesliga.com/de/bundesliga/spieltag/2026-2027/5",
+    "official_kickoff_confirmed": true,
+    "kickoff_berlin": "2026-10-09T20:30:00+02:00"
+  },
+  "logo": {
+    "repo_blob_sha": "111446b99b4f0e0dcd233544d351bd9acd9e7d52",
+    "cloud_download_git_blob_sha": "111446b99b4f0e0dcd233544d351bd9acd9e7d52",
+    "match": true
+  }
+}

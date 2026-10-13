@@ -34,31 +34,71 @@
     "Manchester City": 0.9,
     "Paris Saint-Germain": 0.9
   },
-  "spoken_language": "en",
-  "on_screen_language": "en",
+  "spoken_language": "de",
+  "on_screen_language": "de",
   "language_validation_required": true,
-  "processing_environment": "higgsfield_cloud_only",
+  "processing_environment": "higgsfield_cloud_only_with_native_cloud_editor",
   "local_processing_enabled": false,
   "python_enabled": false,
   "cloud_editor_internal_ffmpeg_enabled": true,
-  "edit_mode": "append_goalfiq_outro_only",
+  "edit_mode": "generated_fixture_hook_in_source_append_goalfiq_outro_only",
   "preserve_source_video": true,
   "preserve_source_audio": true,
   "reuse_scenes_from_other_versions": false,
   "force_target_duration": false,
   "prefer_source_stream_copy": true,
-  "final_output": "single_mp4_inline_chat",
+  "final_output": "single_mp4_inline_chat_with_direct_download_link",
   "outro": {
     "logo_path": "social/pipeline/assets/goal-logo.png",
     "domain": "goaliq.de",
-    "disclaimer_en": "AI predictions, for entertainment only. No betting advice.",
+    "disclaimer_en": "historical_only_do_not_use_for_new_videos",
     "layout": [
       "original_logo",
       "domain",
       "bottom_disclaimer"
     ],
     "duration_seconds": 3,
-    "additional_cta": false
+    "additional_cta": false,
+    "canonical_master": {
+      "status": "verified",
+      "approved_english_reference_media_id": "9c29b762-d478-4bb4-b4bc-fadfaad35efd",
+      "required_language": "de",
+      "required_disclaimer": "KI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.",
+      "preserve_layout": "same black background, large gold/white original logo, bold gold domain, readable two-line white disclaimer; only wording changes",
+      "media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+      "sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+      "duration_seconds": 3,
+      "width": 720,
+      "height": 1280,
+      "fps": "24/1",
+      "verified_on": "2026-10-13",
+      "frame_count": 72,
+      "top_frames_pixel_identical_to_approved_english_master": true,
+      "visual_review": "passed: large original logo and gold domain identical; centered two-line German disclaimer on black, readable"
+    },
+    "master_reuse_required": true,
+    "ad_hoc_recreation_allowed": false,
+    "match_source_format_action": "remux or adapt only the canonical master as needed; never recompose typography, logo size, colors, placement or background; preserve source clip and audio with stream copy when possible",
+    "preflight_validation": [
+      "fetch German canonical master by media ID",
+      "verify SHA256 and 3.000-second duration",
+      "inspect opening/middle/end frames for original logo, gold domain, exact German text",
+      "compare size, placement, color and typography against 2026-10-07 approved English reference"
+    ],
+    "unavailable_or_mismatch_action": "stop before paid generation; report missing German master",
+    "disclaimer_de": "KI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.",
+    "canonical_master_previous_en": {
+      "media_id": "9c29b762-d478-4bb4-b4bc-fadfaad35efd",
+      "sha256": "db27304c2c8ff7a0c9b0c8b91a4545999bf8e65bb8b53633bc48b69848458c7e",
+      "approved_on": "2026-10-07",
+      "duration_seconds": 3,
+      "width": 720,
+      "height": 1280,
+      "fps": "24/1",
+      "background": "black",
+      "layout": "large original gold/white GoalIQ logo in upper-middle, bold gold goaliq.de below, large legible centered two-line white disclaimer near bottom",
+      "audio": "silent"
+    }
   },
   "daily_video_limit": 1,
   "daily_limit_basis": "editorial_target_date",
@@ -68,7 +108,7 @@
     "required": true,
     "repeat_previous_story_type": false,
     "minimum_changed_elements": 3,
-    "forbidden_template": "interview_question_then_player_answer_then_standard_pitch_duel",
+    "forbidden_template": "mechanically_repeated_interview_question_then_answer_then_generic_pitch_end",
     "manifest_fields": [
       "story_type",
       "hook",
@@ -85,6 +125,286 @@
       "perspective_shift",
       "misdirected_expectation",
       "team_internal_decision"
+    ],
+    "creative_selection": "randomized_from_eligible_nonrepeating_story_and_dialogue_modes",
+    "randomness_scope": "story_structure_and_dialogue_only_not_fixture_verification_or_quality_checks",
+    "selection_record": [
+      "eligible_story_types",
+      "eligible_dialogue_modes",
+      "random_draw",
+      "selection_reason",
+      "previous_two_modes"
+    ],
+    "dialogue_modes": [
+      "two_character_exchange",
+      "brief_character_exchange_with_action",
+      "natural_voiceover",
+      "mostly_visual_with_sparse_speech"
+    ],
+    "dialogue_variety_policy": "Characters may speak with one another and this must recur across the series; choose dialogue mode anew for each video, not an automatic interview. Avoid the same dialogue mode for three successive videos; if the last two had no character-to-character exchange, include an exchange in the next eligible story.",
+    "keep_prior_formats_as_candidates": true,
+    "require_story_pitch_integration": true
+  },
+  "caption_language": "de",
+  "caption_required": true,
+  "caption_output": "inline_chat_and_caption_txt_and_manifest",
+  "caption_style": {
+    "attention_hook": true,
+    "controversial_discussion": true,
+    "story_specific": true,
+    "avoid_repeated_template": true,
+    "virality_guarantee": false,
+    "fiction_label_required": true,
+    "domain": "goaliq.de",
+    "disclaimer_de": "KI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.",
+    "explanatory_story_summary": false,
+    "fiction_label_format": "KI-Fiktion",
+    "avoid_phrases": [
+      "In unserer fiktiven KI-Anime-Story"
+    ],
+    "story_reference": "implicit_in_hook_or_question_without_explanatory_summary"
+  },
+  "visual_style": {
+    "required": true,
+    "type": "photorealistic_live_action",
+    "traits": [
+      "natural human appearance",
+      "cinematic live action",
+      "verified current player likenesses"
+    ],
+    "photorealistic": true,
+    "validation_required": true
+  },
+  "fixture_hook": {
+    "required": true,
+    "duration_seconds": 2,
+    "placement": "opening_inside_generated_story_video",
+    "text_renderer": "higgsfield_video_generation",
+    "language": "en",
+    "line_templates": [
+      "{HOME_EN} vs {AWAY_EN}",
+      "{RELATIVE_DAY_EN} · {HH:MM} {CET_OR_CEST}"
+    ],
+    "timezone": "Europe/Berlin",
+    "source": "live_verified_fixture",
+    "relative_day_must_match_delivery_date": true,
+    "background": "generated_photorealistic_scene",
+    "source_video_overlay": false,
+    "speech": false,
+    "validation_required": true,
+    "future_day_template": "{D} {MON_EN} {YYYY} · {HH:MM} {CET_OR_CEST}",
+    "future_date_required": true,
+    "render_mode": "inside_generated_story_video",
+    "post_generation_text_overlay": false,
+    "separate_intro": false,
+    "team_crests": {
+      "required": true,
+      "enabled": true,
+      "placement": "very_beginning",
+      "source": "authorized_assets_or_official_team_sources",
+      "reference_media_required": true,
+      "team_assignment_validation_required": true,
+      "shape_and_legibility_validation_required": true
+    },
+    "opening_content": [
+      "official_team_crests",
+      "team_names",
+      "verified_match_date_and_kickoff"
     ]
-  }
+  },
+  "source_hash_comparison_offset": 0,
+  "fixture_selection": {
+    "mode": "today_then_next_upcoming_uncovered_top_match",
+    "daily_production_goal": 1,
+    "upcoming_preview_enabled": true,
+    "explicit_preview_request_required": false,
+    "chronological_matchdays": true,
+    "rank_within_nearest_valid_matchday": true,
+    "skip_previously_reserved_or_covered_fixture": true,
+    "coverage_source": "repository_cloud_manifests",
+    "coverage_fields": [
+      "match_id",
+      "home_team",
+      "away_team",
+      "match_date"
+    ],
+    "invalid_candidate_action": "record_reason_then_check_next_candidate_or_matchday",
+    "no_today_matches_action": "look_ahead",
+    "no_valid_available_fixture_action": "report_blocker",
+    "preserve_data_credit_and_quality_checks": true,
+    "research_only_ranking": [
+      "team_relevance",
+      "verified_current_context",
+      "story_potential"
+    ],
+    "prediction_absence_is_blocker": false,
+    "minimum_editorial_score_without_prediction": null,
+    "top_match_only": true,
+    "top_match_policy": {
+      "priority": [
+        "UEFA_Champions_League_fixture",
+        "recognized_derby_or_major_rivalry",
+        "fixture_involving_Bayern_Munich",
+        "fixture_involving_Borussia_Dortmund"
+      ],
+      "other_match_requires": "documented_current_marquee_reason",
+      "generic_fixture_fallback": false,
+      "lookahead_to_next_uncovered_top_match": true,
+      "avoid_repeat_coverage": true,
+      "zero_valid_top_matches_action": "report_specific_blocker_without_generation",
+      "champions_league_policy": {
+        "priority": "highest",
+        "definition": "verified upcoming UEFA Champions League fixture",
+        "selection_action": "Search all pages of the live UEFA Champions League fixture feed for eligible unannounced fixtures on the editorial date first, regardless of country or German participation; rank today's matches by documented marquee relevance. Only if none are suitable, look ahead to the nearest upcoming matchday.",
+        "spoken_language": "de",
+        "on_screen_language": "de",
+        "german_participation_required": false
+      }
+    },
+    "today_first_absolute": true,
+    "fixture_source_fetch_policy": {
+      "pagination_required": true,
+      "continue_until": "all pages needed to cover editorial date and next eligible matchday",
+      "do_not_infer_no_today_fixture_from_first_page": true,
+      "crosscheck": "official UEFA match API or official fixtures page; optional second scoreboard"
+    }
+  },
+  "editorial_date_policy": {
+    "target_date": "intended_content_day_europe_berlin",
+    "match_date": "actual_fixture_date_separate",
+    "upcoming_preview_consumes": "editorial_day_only",
+    "historical_manifests": "do_not_redate"
+  },
+  "prediction_required": false,
+  "generation_basis": "verified_fixture_and_current_research",
+  "prediction_policy": {
+    "role": "optional_internal_selection_aid",
+    "missing_action": "continue_fixture_and_research",
+    "missing_freshness_action": "omit_prediction_and_continue",
+    "stale_action": "omit_prediction_and_continue",
+    "max_age_hours": 48,
+    "impute_probabilities": false
+  },
+  "correction_policy": {
+    "obey_user_authorized_run_cap": true,
+    "max_video_generation_attempts_per_editorial_date": 1,
+    "automatic_retry": false,
+    "store_in_daily_manifest": true,
+    "generated_name_error_action": "record_and_deliver_single_existing_clip_without_regeneration",
+    "do_not_retry_when_cap_exhausted": true
+  },
+  "voice_quality": {
+    "required": true,
+    "spoken_language": "fixture_based",
+    "style": "natural_human_conversational",
+    "traits": [
+      "credible emotion",
+      "varied intonation",
+      "natural pauses",
+      "clear articulation"
+    ],
+    "avoid": [
+      "robotic",
+      "metallic",
+      "monotonous",
+      "exaggerated synthetic anime voices"
+    ],
+    "real_person_imitation": false,
+    "actual_audio_review_required": true,
+    "dialogue_allowed": true,
+    "multi_character_dialogue_allowed": true,
+    "dialogue_prompt_rule": "When a dialogue mode is selected, write a short natural back-and-forth between fictional characters; on-field decisions and reactions should carry the story. Never imitate a real person's voice or present fictional speech as real quotations."
+  },
+  "delivery": {
+    "inline_media_player": true,
+    "direct_mp4_download_link_required": true,
+    "download_link_label": "Video herunterladen (MP4)",
+    "link_target": "confirmed_final_composite_mp4",
+    "verify_link_reachable": true,
+    "caption_inline_required": true,
+    "private_media_urls_in_public_repository": false,
+    "repeat_download_request_action": "reuse_existing_final_without_generation",
+    "zip_download_fallback_required": true,
+    "zip_contains": "same_final_mp4_byte_identical",
+    "download_archive_renderer": "higgsfield_cloud_only",
+    "zip_label": "Video herunterladen (ZIP mit MP4)",
+    "name_typo_waiver": "disclose_actual_error; still deliver the one composite for the editorial day, no second generation",
+    "max_single_composite_per_day": 1
+  },
+  "spoken_language_policy": {
+    "all_competitions": "de",
+    "champions_league": "de",
+    "german_participation": "de",
+    "other_matches": "de",
+    "on_screen_language": "de",
+    "outro_language": "de",
+    "caption_language": "de",
+    "proper_names": "official_unchanged",
+    "manifest_language_and_reason_required": true,
+    "override": "All new GoalIQ video speech, dialogue, narration, fixture hook, editorial on-screen text and outro disclaimer in German, including UEFA Champions League."
+  },
+  "story_relevance": {
+    "required": true,
+    "basis": "verified_match_or_club_context",
+    "context_types": [
+      "match",
+      "club"
+    ],
+    "minimum_substantive_verified_context_points": 1,
+    "acceptable_context": [
+      "sporting context",
+      "verified tactical contrast",
+      "rivalry",
+      "fans",
+      "stadium tradition",
+      "club identity",
+      "verified club history",
+      "official squad news"
+    ],
+    "historical_and_enduring_club_context_allowed": true,
+    "team_names_colors_crests_alone_sufficient": false,
+    "exchangeability_test_required": true,
+    "actual_video_review_required": true,
+    "unrelated_fantasy_obstacle_allowed": false,
+    "fiction_label_required": true,
+    "source_attribution_required": true,
+    "manifest_fields": [
+      "context_type",
+      "verified_context",
+      "story_connection",
+      "spoken_language",
+      "relevance_review"
+    ]
+  },
+  "player_likeness": {
+    "allowed": true,
+    "current_team_verification_required": true,
+    "official_visual_references_required": true,
+    "fiction_label_required": true,
+    "real_voice_cloning": false,
+    "authentic_quote_claims": false
+  },
+  "video_generation_attempt_limit_per_editorial_date": 1,
+  "story_pitch_integration": {
+    "required": true,
+    "applies_to": "future_editorial_days_after_2026-10-10",
+    "minimum_distinct_on_pitch_beats": 2,
+    "beats_must_advance_verified_story_context": true,
+    "off_pitch_personal_setup_allowed": true,
+    "causal_bridge_required": true,
+    "disconnected_match_montage_allowed": false,
+    "require_goal_or_result": false,
+    "fiction_label_required": true,
+    "pre_generation_manifest_fields": [
+      "off_pitch_setup",
+      "on_pitch_beats",
+      "causal_bridge",
+      "on_pitch_payoff"
+    ],
+    "post_generation_review_field": "pitch_action_review",
+    "review_actual_beginning_middle_end": true,
+    "missing_action": "disclose_quality_status_without_second_generation"
+  },
+  "cloud_editor_temporary_cloud_files_allowed": true,
+  "cloud_editor_qa_and_delivery_allowed": true
 }
