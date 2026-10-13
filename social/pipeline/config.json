@@ -34,8 +34,8 @@
     "Manchester City": 0.9,
     "Paris Saint-Germain": 0.9
   },
-  "spoken_language": "fixture_based",
-  "on_screen_language": "en",
+  "spoken_language": "de",
+  "on_screen_language": "de",
   "language_validation_required": true,
   "processing_environment": "higgsfield_cloud_only_with_native_cloud_editor",
   "local_processing_enabled": false,
@@ -51,7 +51,7 @@
   "outro": {
     "logo_path": "social/pipeline/assets/goal-logo.png",
     "domain": "goaliq.de",
-    "disclaimer_en": "AI predictions, for entertainment only. No betting advice.",
+    "disclaimer_en": "historical_only_do_not_use_for_new_videos",
     "layout": [
       "original_logo",
       "domain",
@@ -60,6 +60,30 @@
     "duration_seconds": 3,
     "additional_cta": false,
     "canonical_master": {
+      "status": "pending_german_master",
+      "approved_english_reference_media_id": "9c29b762-d478-4bb4-b4bc-fadfaad35efd",
+      "required_language": "de",
+      "required_disclaimer": "KI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.",
+      "preserve_layout": "same black background, large gold/white original logo, bold gold domain, readable two-line white disclaimer; only wording changes",
+      "media_id": null,
+      "sha256": null,
+      "duration_seconds": 3,
+      "width": 720,
+      "height": 1280,
+      "fps": "24/1"
+    },
+    "master_reuse_required": true,
+    "ad_hoc_recreation_allowed": false,
+    "match_source_format_action": "remux or adapt only the canonical master as needed; never recompose typography, logo size, colors, placement or background; preserve source clip and audio with stream copy when possible",
+    "preflight_validation": [
+      "fetch German canonical master by media ID",
+      "verify SHA256 and 3.000-second duration",
+      "inspect opening/middle/end frames for original logo, gold domain, exact German text",
+      "compare size, placement, color and typography against 2026-10-07 approved English reference"
+    ],
+    "unavailable_or_mismatch_action": "stop before paid generation; report missing German master",
+    "disclaimer_de": "KI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.",
+    "canonical_master_previous_en": {
       "media_id": "9c29b762-d478-4bb4-b4bc-fadfaad35efd",
       "sha256": "db27304c2c8ff7a0c9b0c8b91a4545999bf8e65bb8b53633bc48b69848458c7e",
       "approved_on": "2026-10-07",
@@ -70,17 +94,7 @@
       "background": "black",
       "layout": "large original gold/white GoalIQ logo in upper-middle, bold gold goaliq.de below, large legible centered two-line white disclaimer near bottom",
       "audio": "silent"
-    },
-    "master_reuse_required": true,
-    "ad_hoc_recreation_allowed": false,
-    "match_source_format_action": "remux or adapt only the canonical master as needed; never recompose typography, logo size, colors, placement or background; preserve source clip and audio with stream copy when possible",
-    "preflight_validation": [
-      "fetch canonical master by media ID",
-      "verify sha256 and 3.000-second duration",
-      "inspect beginning/middle/end master frames",
-      "compare final outro frame against canonical master for visible layout/color/logo/text"
-    ],
-    "unavailable_or_mismatch_action": "stop finishing and report; do not make a visually different substitute"
+    }
   },
   "daily_video_limit": 1,
   "daily_limit_basis": "editorial_target_date",
@@ -238,8 +252,8 @@
         "priority": "highest",
         "definition": "verified upcoming UEFA Champions League fixture",
         "selection_action": "consider eligible Champions League fixtures before domestic top-match rules; rank chronologically within the nearest valid Champions League matchday",
-        "spoken_language": "en",
-        "on_screen_language": "en"
+        "spoken_language": "de",
+        "on_screen_language": "de"
       }
     }
   },
@@ -306,18 +320,16 @@
     "max_single_composite_per_day": 1
   },
   "spoken_language_policy": {
+    "all_competitions": "de",
+    "champions_league": "de",
     "german_participation": "de",
-    "other_matches": "en",
-    "german_participation_definition": [
-      "German club in domestic or international competition",
-      "German national team"
-    ],
-    "on_screen_language": "en",
-    "outro_language": "en",
+    "other_matches": "de",
+    "on_screen_language": "de",
+    "outro_language": "de",
     "caption_language": "de",
+    "proper_names": "official_unchanged",
     "manifest_language_and_reason_required": true,
-    "champions_league": "en",
-    "champions_league_override": "Champions League fixtures use English speech even when a German club participates."
+    "override": "All new GoalIQ video speech, dialogue, narration, fixture hook, editorial on-screen text and outro disclaimer in German, including UEFA Champions League."
   },
   "story_relevance": {
     "required": true,
