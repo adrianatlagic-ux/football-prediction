@@ -1,0 +1,41 @@
+name: Price source alerts
+
+# The server records every failure of a price source (the bet-at-home scraper,
+# the Odds API) at /alerts (src/alerts.py). This opens one GitHub issue per new
+# alert, labelled "alarm", so GitHub notifies the owner by mail and in the app.
+# GitHub runs scheduled workflows only from the default branch, and late at
+# busy times; an alert can take up to an hour or two to become an issue.
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  issues: write
+
+jobs:
+  alerts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open an issue for each new alert
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          API: ${{ vars.API_BASE_URL || 'https://football-prediction.fly.dev' }}
+        run: |
+          set -euo pipefail
+          alerts=$(curl -fsS "$API/alerts?days=2" | jq -c '.alerts[]') || { echo "Server not reachable"; exit 1; }
+          [ -z "$alerts" ] && { echo "No alerts"; exit 0; }
+          gh label create alarm --repo "$REPO" --color B60205 --description "Price source failed" 2>/dev/null || true
+          echo "$alerts" | while read -r a; do
+            id=$(echo "$a" | jq -r .id)
+            if [ -n "$(gh issue list --repo "$REPO" --label alarm --state all --search "$id in:title" --json number --jq '.[].number')" ]; then
+              continue
+            fi
+            msg=$(echo "$a" | jq -r .message)
+            at=$(echo "$a" | jq -r .at)
+            gh issue create --repo "$REPO" --label alarm \
+              --title "Alarm [$id]: ${msg:0:180}" \
+              --body "$(printf '%s\n\nZeit (UTC): %s\nQuelle: %s\n\nStatus: %s/jobs/status (book_refreshes, book_coverage, book_budget)\nFehlerberichte: bugs/' "$msg" "$at" "$(echo "$a" | jq -r .source)" "$API")"
+            echo "Opened: $msg"
+          done

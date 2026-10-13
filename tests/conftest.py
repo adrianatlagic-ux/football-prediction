@@ -23,3 +23,6 @@ def _isolated_runtime_files(tmp_path, monkeypatch):
     monkeypatch.setattr(book_odds, "_morning_retry", {})
     monkeypatch.setattr(book_odds, "_empty_last_hour_days", {})
     monkeypatch.setattr(book_odds, "REFRESH_LOG_PATH", tmp_path / "book_refresh_log.jsonl")
+    # Alerts go to a temporary file, never the server's.
+    from src import alerts
+    monkeypatch.setattr(alerts, "PATH", tmp_path / "alerts.jsonl")

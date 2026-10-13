@@ -12,6 +12,8 @@ that refreshes Pinnacle. That refresh reads bet-at-home's full market book
 (Asian Handicap, Over/Under, Draw No Bet, Double Chance, both teams to
 score), which costs 2.3 cents per match instead of 0.3, so it runs once per
 match and stops at a monthly budget; past the budget it falls back to 1X2.
+(Since 14 October trev0n's scraper, 0.1 cent a match with or without the
+markets; see ACTOR.)
 
 OddsPortal cannot be asked for one match, only for a league page, soonest
 match first - games already in play included. A refresh therefore pays for
@@ -32,15 +34,21 @@ from src.foreign_team_names import to_english
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PATH = ROOT / "data" / "book_odds" / "latest.json"
-ACTOR = "piotrv1001~oddsportal-scraper"
+# Since 14 October trev0n's scraper: OddsPortal moved to a new site with a
+# bot check on 12/13 October, and piotrv1001's scraper has brought no market
+# since (only 1X2). trev0n's still reads bet-at-home's 1X2, Asian Handicap,
+# Double Chance and Draw No Bet; Over/Under and BTTS are blocked for it too,
+# so those come from the Odds API's other bookmakers. 0.1 cent a match.
+ACTOR = "trev0n~oddsportal-com-scraper"
+SCRAPED_MARKETS = ["Asian Handicap", "Double Chance", "Draw No Bet"]
 BOOKMAKER = "bet-at-home.de"
 LEAGUES = {
     "soccer_uefa_champs_league": "https://www.oddsportal.com/football/europe/champions-league/",
     "soccer_germany_bundesliga": "https://www.oddsportal.com/football/germany/bundesliga/",
     "soccer_uefa_nations_league": "https://www.oddsportal.com/football/europe/uefa-nations-league/",
 }
-PRICE_PER_MATCH = 0.003          # USD, 1X2 only
-PRICE_PER_FULL_BOOK = 0.023      # USD, match plus every market
+PRICE_PER_MATCH = 0.001          # USD per match, trev0n's flat price
+PRICE_PER_FULL_BOOK = 0.001      # the same: 1X2 always comes with the markets
 # Two full reads per match: the morning one and the last-hour one. 7 $ ran
 # out on 13 October (duplicate last-hour reads early in the month), and every
 # read fell back to 1X2; raised to 20 $. The Apify account limit stays the
@@ -137,34 +145,79 @@ def parse_markets(item: dict) -> dict:
             "btts": btts}
 
 
+def parse_scraped_markets(item: dict) -> dict:
+    """bet-at-home's full-time markets from one match of trev0n's scraper.
+
+    The Asian Handicap line is the home side's handicap. Double Chance 1X and
+    X2 are Asian Handicap +0.5 home / away and are merged into that line at
+    the higher price; Draw No Bet is Asian Handicap 0.
+    """
+    spreads, dc = {}, None
+    for market in item.get("markets") or []:
+        if market.get("scope") != "Full Time":
+            continue
+        offer = next((b for b in market.get("bookmakers", []) if b.get("bookmaker") == BOOKMAKER), None)
+        if offer is None:
+            continue
+        kind = market.get("market")
+        try:
+            if kind == "Asian Handicap":
+                pair = {k: float(offer[k]) for k in ("home", "away")}
+                spreads[float(market.get("handicap"))] = pair
+            elif kind == "Draw No Bet":
+                spreads[0.0] = {k: float(offer[k]) for k in ("home", "away")}
+            elif kind == "Double Chance":
+                dc = {"homeOrDraw": float(offer["1X"]), "drawOrAway": float(offer["X2"])}
+        except (KeyError, TypeError, ValueError):
+            continue
+    spreads = {k: v for k, v in spreads.items() if all(x > 1 for x in v.values())}
+    if dc and all(x > 1 for x in dc.values()):
+        plus = spreads.setdefault(0.5, {})
+        plus["home"] = max(plus.get("home", 0), dc["homeOrDraw"])
+        minus = spreads.setdefault(-0.5, {})
+        minus["away"] = max(minus.get("away", 0), dc["drawOrAway"])
+    return {"totals": [], "spreads": [{"point": k, **v} for k, v in sorted(spreads.items())], "btts": None}
+
+
 def fetch_league(sport_key: str, max_items: int, token: Optional[str] = None,
                  full_book: bool = False) -> list:
-    """One OddsPortal read of a competition; returns bet-at-home fixtures."""
+    """One OddsPortal read of a competition; returns bet-at-home fixtures.
+
+    bet-at-home's own 1X2 price only comes with the per-bookmaker markets, so
+    every read asks for them; without `full_book` only the quickest market.
+    """
     token = token or os.environ["APIFY_TOKEN"]
-    payload = {"startUrls": [{"url": LEAGUES[sport_key]}], "maxItems": max_items,
-               "scrapeMatchMarkets": full_book,
+    payload = {"leagueUrls": [{"url": LEAGUES[sport_key]}], "fullOdds": True,
+               "markets": SCRAPED_MARKETS if full_book else ["Draw No Bet"],
+               "marketScope": "Full Time", "includeOpeningOdds": False, "includeFinished": False,
+               "maxMatches": max_items, "detailConcurrency": 5, "oddsFormat": "Decimal",
                # The proxy country decides which bookmakers OddsPortal lists;
-               # Germany returns exactly the ones licensed there.
+               # Germany returns exactly the ones licensed there. Datacenter
+               # proxies are blocked by the bot check.
                "proxyConfiguration": {"useApifyProxy": True, "apifyProxyGroups": ["RESIDENTIAL"],
                                       "apifyProxyCountry": "DE"}}
     request = urllib.request.Request(
-        f"https://api.apify.com/v2/acts/{ACTOR}/run-sync-get-dataset-items?token={token}",
+        f"https://api.apify.com/v2/acts/{ACTOR}/run-sync-get-dataset-items?token={token}&memory=1024",
         method="POST", data=json.dumps(payload).encode(), headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(request, timeout=300) as response:
+    with urllib.request.urlopen(request, timeout=330) as response:
         items = json.loads(response.read().decode())
     stamp = _now().isoformat()
     out = []
     for m in items:
-        offer = next((b for b in m.get("bookmakerOdds", []) if b.get("bookmaker") == BOOKMAKER), None)
-        if not offer or not all(offer.get(k) for k in ("home", "draw", "away")):
+        if not m.get("home") or not m.get("date"):
+            continue
+        main = next((mk for mk in m.get("markets") or [] if mk.get("market") == "1X2"), {})
+        offer = next((b for b in main.get("bookmakers", []) if b.get("bookmaker") == BOOKMAKER), None)
+        try:
+            odds = {k: float(offer[k]) for k in ("home", "draw", "away")}
+        except (KeyError, TypeError, ValueError):
             continue
         # OddsPortal may answer in another language (it once sent Polish).
-        fixture = {"sport_key": sport_key, "home_team": to_english(m["homeTeam"]),
-                   "away_team": to_english(m["awayTeam"]),
-                   "commence_time": m["startTime"], "fetched_at": stamp,
-                   "odds": {k: float(offer[k]) for k in ("home", "draw", "away")}}
+        fixture = {"sport_key": sport_key, "home_team": to_english(m["home"]),
+                   "away_team": to_english(m["away"]), "commence_time": m["date"],
+                   "fetched_at": stamp, "odds": odds}
         if full_book:
-            fixture["markets"] = parse_markets(m)
+            fixture["markets"] = parse_scraped_markets(m)
         out.append(fixture)
     return out
 
@@ -282,9 +335,18 @@ REFRESH_LOG: dict = {}
 REFRESH_LOG_PATH = ROOT / "data" / "logs" / "book_refresh_log.jsonl"
 
 
+_SPORT_NAMES = {"soccer_uefa_champs_league": "Champions League", "soccer_germany_bundesliga": "Bundesliga",
+                "soccer_uefa_nations_league": "Nations League"}
+
+
 def _log_refresh(sport_key: str, kind: str, items: int, outcome: str) -> None:
     entry = {"at": _now().isoformat(), "kind": kind, "items": items, "outcome": outcome}
     REFRESH_LOG[sport_key] = entry
+    if outcome.startswith(("failed", "skipped")):
+        from src import alerts
+        when = "Morgenabruf" if kind.startswith("morning") else "Abruf vor Anpfiff"
+        alerts.record("bet-at-home", f"{sport_key} {kind}",
+                      f"bet-at-home ({_SPORT_NAMES.get(sport_key, sport_key)}, {when}): {outcome}")
     try:
         REFRESH_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
         with REFRESH_LOG_PATH.open("a", encoding="utf-8") as stream:
@@ -348,10 +410,13 @@ def refresh_if_due(sport_key: str, events: list) -> bool:
         try:
             fetched = fetch_league(sport_key, items, full_book=full)
         except Exception as exc:
-            _log_refresh(sport_key, "last_hour", items, f"failed: {type(exc).__name__}")
+            _log_refresh(sport_key, "last_hour", items, f"failed: {type(exc).__name__}: {exc}"[:200])
             return False
         _record_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
         apify_budget.note_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
+        if not fetched:
+            _log_refresh(sport_key, "last_hour", items, "failed: no bet-at-home odds in the read")
+            return False
         if full and fetched and not any(has_markets(f.get("markets")) for f in fetched):
             # OddsPortal served the matches without a single extra market (13
             # October): keep the 1X2 prices. One more try per competition and
@@ -425,7 +490,7 @@ def daily_refresh(sport_key: str, events: list, retry: bool = False) -> bool:
         try:
             fetched = fetch_league(sport_key, items, full_book=full)
         except Exception as exc:
-            _log_refresh(sport_key, "morning", items, f"failed: {type(exc).__name__}")
+            _log_refresh(sport_key, "morning", items, f"failed: {type(exc).__name__}: {exc}"[:200])
             return False
         _record_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
         apify_budget.note_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))

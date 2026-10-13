@@ -128,7 +128,9 @@ def test_daily_fetch_includes_nations_league_quotes(monkeypatch):
     monkeypatch.setattr(api, "ODDS_API_KEY", "test-placeholder")
     events = api._fetch_odds()
     assert api._find_odds_match(events, "Austria", "Israel") == event
-    assert len(requested) == 3
+    # Three free event lists, plus Over/Under (one credit) where there are games.
+    assert len(requested) == 4
+    assert requested[-1] == "/v4/sports/soccer_uefa_nations_league/odds"
 
 
 def test_audit_reports_daily_and_final_separately(tmp_path, monkeypatch):

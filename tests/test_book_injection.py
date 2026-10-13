@@ -56,10 +56,12 @@ def test_a_stale_1x2_is_left_out_but_the_last_good_markets_stay(tmp_path, monkey
 def test_window_refresh_respects_the_monthly_budget(tmp_path, monkeypatch):
     _write_book(tmp_path, monkeypatch, datetime.now(timezone.utc) - timedelta(hours=5), markets=False)
     monkeypatch.setenv("APIFY_TOKEN", "x")
-    monkeypatch.setattr(book_odds, "MONTHLY_BUDGET", 0.01)
+    monkeypatch.setattr(book_odds, "MONTHLY_BUDGET", 0.0)
     calls = []
     monkeypatch.setattr(book_odds, "fetch_league",
-                        lambda key, items, full_book=False: calls.append((items, full_book)) or [])
+                        lambda key, items, full_book=False: calls.append((items, full_book)) or
+                        [{"sport_key": "soccer_germany_bundesliga", "home_team": "Aachen", "away_team": "Bochum",
+                          "commence_time": "2026-10-14T19:00:00Z", "fetched_at": "x", "odds": {}}])
     soon = {**event(), "commence_time": (datetime.now(timezone.utc) + timedelta(minutes=40)).isoformat()}
     assert book_odds.refresh_if_due("soccer_germany_bundesliga", [soon])
     assert calls == [(1, False)]

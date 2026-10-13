@@ -24,19 +24,20 @@ def test_the_morning_read_stops_at_the_account_cap(monkeypatch):
     assert calls == []
 
 
-def test_the_morning_read_falls_back_to_1x2_near_the_cap(monkeypatch):
+def test_the_morning_read_takes_the_full_book_while_it_fits(monkeypatch):
+    # Since trev0n's scraper a full book costs the same as 1X2 (0.1 cent).
     calls = []
     monkeypatch.setenv("APIFY_TOKEN", "x")
-    # Full book for one match costs 0.023, 1X2 0.003; 19.98 leaves room for 1X2 only.
     monkeypatch.setattr(apify_budget, "usage", lambda token=None: {"used": 19.98, "limit": 21, "cycle_end": None})
     monkeypatch.setattr(book_odds, "fetch_league",
                         lambda sport, items, full_book: calls.append(full_book) or [{"home_team": "A"}])
     monkeypatch.setattr(book_odds, "store", lambda *a, **k: None)
+    monkeypatch.setattr(book_odds, "_record_spend", lambda usd: None)
     from datetime import datetime, timedelta, timezone
     kickoff = (datetime.now(timezone.utc) + timedelta(hours=5)).isoformat().replace("+00:00", "Z")
     events = [{"commence_time": kickoff, "home_team": "A", "away_team": "B"}]
-    assert book_odds.daily_refresh("soccer_uefa_nations_league", events) is True
-    assert calls == [False]
+    book_odds.daily_refresh("soccer_uefa_nations_league", events)
+    assert calls == [True]
 
 
 def _soon(minutes):

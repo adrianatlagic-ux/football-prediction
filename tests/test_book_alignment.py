@@ -21,9 +21,18 @@ def test_a_later_read_counts_when_the_snapshot_has_no_other_prices(monkeypatch):
 
 def test_a_later_read_is_not_set_beside_another_bookmakers_price(monkeypatch):
     _setup(monkeypatch, "2026-10-03T10:55:00+00:00")
-    pinnacle = {"key": "pinnacle", "markets": []}
+    pinnacle = {"key": "pinnacle", "markets": [{"key": "h2h", "outcomes": []}]}
     out = api._with_book_odds(_event([pinnacle]))
     assert [b["key"] for b in out["bookmakers"]] == ["pinnacle"]
+
+
+def test_other_books_with_over_under_only_do_not_age_out_the_morning_read(monkeypatch):
+    # The morning snapshot carries the Odds API's Over/Under only (since 14
+    # October); bet-at-home's 1X2 read beside it still counts.
+    _setup(monkeypatch, "2026-10-03T10:55:00+00:00")
+    totals_only = {"key": "pinnacle", "markets": [{"key": "totals", "outcomes": []}]}
+    out = api._with_book_odds(_event([totals_only]))
+    assert api.USER_BOOK_KEY in [b["key"] for b in out["bookmakers"]]
 
 
 def test_coverage_says_why_a_price_is_missing(monkeypatch):

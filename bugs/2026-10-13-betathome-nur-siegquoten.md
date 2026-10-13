@@ -23,6 +23,21 @@ viele doppelte Abfragen der letzten Stunde (am 6.10. neunmal in zwei
 Minuten), die erst am 10.10. abgestellt wurden (Commit 0a329ba,
 höchstens eine Abfrage je Wettbewerb in 20 Minuten).
 
+## Dritte Ursache und Umstellung (13./14.10.2026)
+
+OddsPortal läuft seit dem 12./13.10. auf einer neuen Seite (Next.js) mit
+Bot-Schutz (`/ajax-esi/ab-proof-mint/`, `ab-honeypot`). Der bisherige
+Scraper `piotrv1001/oddsportal-scraper` (ohne Browser, unverändert seit
+3.10.) bekommt seitdem keine Märkte mehr, nur 1X2. Tests mit einem Spiel:
+`trev0n/oddsportal-com-scraper` liefert bet-at-home 1X2, Asian Handicap,
+Doppelte Chance und Draw No Bet (zeitweise blockiert), Über/Unter und „beide
+treffen" nicht; `oodoow/oddsportal-com` (Browser) lieferte nichts.
+
+Umstellung: bet-at-home über `trev0n` (0,1 Cent je Spiel), Über/Unter morgens
+aus der Odds API (andere Buchmacher, 1 Credit je Wettbewerb). Jeder Ausfall
+eines Abrufs erzeugt einen Alarm (`/alerts`, `data/logs/alerts.jsonl`), den
+`.github/workflows/alerts.yml` als GitHub-Issue mit Label „alarm“ anlegt.
+
 ## Zweite Ursache (13.10.2026, 20:40)
 
 Nach dem Anheben des Limits lief die Abfrage der letzten Stunde um 18:07 UTC
