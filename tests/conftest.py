@@ -21,3 +21,5 @@ def _isolated_runtime_files(tmp_path, monkeypatch):
     from src import book_odds
     monkeypatch.setattr(book_odds, "_last_hour_read_at", {})
     monkeypatch.setattr(book_odds, "_morning_retry", {})
+    monkeypatch.setattr(book_odds, "_empty_last_hour_days", {})
+    monkeypatch.setattr(book_odds, "REFRESH_LOG_PATH", tmp_path / "book_refresh_log.jsonl")

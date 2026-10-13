@@ -386,6 +386,7 @@ def model_track_record():
 @app.on_event("startup")
 def _start_scheduler():
     _load_agent_cache()
+    book_odds.load_refresh_log()
     from src import scheduler
     scheduler.start(_get_predictor, _get_national_predictor, _get_odds, all_bets, combo_ticket, _get_espn_results)
 
@@ -1068,6 +1069,11 @@ def _with_book_odds(event: dict, events: Optional[list] = None) -> dict:
             {"name": away, "price": o["away"]}]})
     full = fixture.get("markets") or {}
     full_time = stamp(fixture.get("markets_fetched_at"))
+    if full_time is None and book_odds.has_markets(full):
+        # No read of the markets in this hour (the scraper brought none, or
+        # the read failed): the last good bet-at-home markets rather than
+        # none, so the table shows what the user can actually bet.
+        full_time = snapshot.isoformat()
     if full and full_time:
         if full.get("totals"):
             markets.append({"key": "totals", "last_update": full_time, "outcomes": [

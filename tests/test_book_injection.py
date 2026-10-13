@@ -44,10 +44,13 @@ def test_user_book_prices_every_market_it_lists(tmp_path, monkeypatch):
     assert not any(m.startswith("Over/Under 0.75") for m, _, _ in bets)
 
 
-def test_book_read_apart_from_the_snapshot_is_left_out(tmp_path, monkeypatch):
+def test_a_stale_1x2_is_left_out_but_the_last_good_markets_stay(tmp_path, monkeypatch):
+    # Since 13 October: without a read in this hour the last good bet-at-home
+    # markets are shown rather than none; its stale 1X2 price stays out.
     _write_book(tmp_path, monkeypatch, datetime.now(timezone.utc) - timedelta(hours=3))
     vb = api._compute_value_bets(_renamed(prediction()), [_snapshot_event()], "Aachen", "Bochum")
-    assert all(b["bookmaker_key"] != api.USER_BOOK_KEY for b in vb["bets"])
+    mine = [b for b in vb["bets"] if b["bookmaker_key"] == api.USER_BOOK_KEY]
+    assert mine and all(b["market"] != "1X2" for b in mine)
 
 
 def test_window_refresh_respects_the_monthly_budget(tmp_path, monkeypatch):

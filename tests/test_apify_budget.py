@@ -45,7 +45,7 @@ def _soon(minutes):
              "home_team": "A", "away_team": "B", "sport_key": "soccer_germany_bundesliga"}]
 
 
-def test_an_empty_morning_read_is_retried_twice_then_left(monkeypatch):
+def test_an_empty_morning_read_is_retried_once_then_left(monkeypatch):
     from datetime import timedelta
     calls = []
     monkeypatch.setenv("APIFY_TOKEN", "x")
@@ -59,10 +59,8 @@ def test_an_empty_morning_read_is_retried_twice_then_left(monkeypatch):
     assert book_odds.morning_retries_due(later) == ["soccer_germany_bundesliga"]
     assert book_odds.morning_retries_due(later) == []                # handed out once
     book_odds.daily_refresh("soccer_germany_bundesliga", events, retry=True)
-    assert book_odds._morning_retry["soccer_germany_bundesliga"]["attempts"] == 2
-    book_odds.daily_refresh("soccer_germany_bundesliga", events, retry=True)
-    assert "soccer_germany_bundesliga" not in book_odds._morning_retry   # two retries, then stop
-    assert len(calls) == 3
+    assert "soccer_germany_bundesliga" not in book_odds._morning_retry   # one retry, then stop
+    assert len(calls) == 2
 
 
 def test_a_last_hour_read_is_not_repeated_within_the_cooldown(monkeypatch):
@@ -111,3 +109,37 @@ def test_an_empty_book_from_the_scraper_is_not_a_fresh_book(monkeypatch):
         fixture = {"markets": markets, "markets_fetched_at": now.isoformat()}
         monkeypatch.setattr(price_tip, "match_fixture", lambda e, f, events=None, fx=fixture: fx)
         assert book_odds._has_fresh_book([fixture], event) is fresh
+
+
+def test_an_empty_last_hour_read_is_retried_once_a_day_then_left(monkeypatch):
+    from datetime import timedelta
+    calls = []
+    monkeypatch.setenv("APIFY_TOKEN", "x")
+    monkeypatch.setattr(book_odds, "_record_spend", lambda usd: None)
+    monkeypatch.setattr(book_odds, "load", lambda: {"fixtures": []})
+    monkeypatch.setattr(book_odds, "store", lambda *a, **k: None)
+    monkeypatch.setattr(book_odds, "fetch_league", lambda *a, **k: calls.append(1) or
+                        [{"home_team": "A", "away_team": "B", "odds": {"home": 2.0, "draw": 3.4, "away": 3.6},
+                          "fetched_at": "x", "markets": {"totals": [], "spreads": [], "btts": None}}])
+    events = _soon(70)
+    base = book_odds.datetime.now(book_odds.timezone.utc)
+    for minutes in (0, 21, 42):
+        monkeypatch.setattr(book_odds, "_now", lambda m=minutes: base + timedelta(minutes=m))
+        book_odds.refresh_if_due("soccer_germany_bundesliga", events)
+    assert len(calls) == 2
+    assert book_odds.REFRESH_LOG["soccer_germany_bundesliga"]["outcome"].endswith("no retry today")
+    lines = book_odds.REFRESH_LOG_PATH.read_text().splitlines()
+    assert len(lines) == 2                                     # kept on disk, not only in memory
+
+
+def test_store_never_replaces_good_markets_with_empty_ones(monkeypatch, tmp_path):
+    monkeypatch.setenv("BOOK_ODDS_PATH", str(tmp_path / "book.json"))
+    good = {"totals": [{"point": 2.5, "over": 1.9, "under": 1.9}], "spreads": [], "btts": None}
+    f = {"sport_key": "s", "home_team": "A", "away_team": "B", "commence_time": "2026-10-13T19:00:00Z",
+         "odds": {"home": 2.0, "draw": 3.4, "away": 3.6}}
+    book_odds.store("s", [{**f, "fetched_at": "2026-10-13T06:00:00+00:00", "markets": good}])
+    book_odds.store("s", [{**f, "fetched_at": "2026-10-13T18:00:00+00:00",
+                           "markets": {"totals": [], "spreads": [], "btts": None}}])
+    kept = book_odds.load()["fixtures"][0]
+    assert kept["markets"] == good and kept["markets_fetched_at"] == "2026-10-13T06:00:00+00:00"
+    assert kept["fetched_at"] == "2026-10-13T18:00:00+00:00"   # the newer 1X2 price still wins

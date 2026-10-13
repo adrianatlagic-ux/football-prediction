@@ -33,11 +33,22 @@ derselben Einstellung über 200 je Spiel. Der Code speicherte die leeren
 Märkte als „gelesen“, daher kein zweiter Versuch, und die Tabelle zeigte
 fast nur Quoten anderer Buchmacher (mit *).
 
-Korrektur: Eine volle Abfrage ohne einen einzigen Zusatzmarkt gilt als
-fehlgeschlagen. Die 1X2-Quoten werden gespeichert, das Spiel bleibt
-„ungelesen“; die letzte Stunde versucht es nach 20 Minuten erneut, die
-Morgenabfrage nach 30 Minuten (höchstens zweimal). Tests in
-`tests/test_apify_budget.py`.
+Korrektur (Commits d69a8f7 und folgende):
+
+- Eine volle Abfrage ohne einen einzigen Zusatzmarkt gilt als
+  fehlgeschlagen; die 1X2-Quoten werden gespeichert.
+- Kosten begrenzt: in der letzten Stunde **ein** weiterer Versuch je
+  Wettbewerb und Tag (nach 20 Minuten), morgens **ein** weiterer Versuch
+  (nach 30 Minuten).
+- Gute Märkte werden nie durch leere überschrieben; sie bleiben mit ihrer
+  Lesezeit in `data/book_odds/latest.json` auf dem Fly-Volume.
+- Fehlt ein frischer Abruf, zeigt die Seite die letzten guten
+  bet-at-home-Märkte statt der Quoten anderer Buchmacher.
+- Jede Abfrage steht dauerhaft in `data/logs/book_refresh_log.jsonl`
+  (mit Zählerstand); `/jobs/status` zeigt nach einem Neustart den letzten
+  Stand je Wettbewerb.
+
+Tests in `tests/test_apify_budget.py` und `tests/test_book_injection.py`.
 
 ## Meldung
 

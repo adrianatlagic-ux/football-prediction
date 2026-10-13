@@ -191,7 +191,12 @@ def store(sport_key: str, fixtures: list, replace: bool = False) -> None:
                                    if f.get("sport_key") == sport_key}
         for f in fixtures:
             old = mine.get(_identity(f))
-            if old and "markets" in old and "markets" not in f:
+            keeps_old = old and "markets" in old and (
+                "markets" not in f or (not has_markets(f["markets"]) and has_markets(old["markets"])))
+            if keeps_old:
+                # A read without markets, or with empty ones, never replaces a
+                # book that had them: the last good markets stay, with their
+                # own read time.
                 f = {**f, "markets": old["markets"], "markets_fetched_at": old.get("markets_fetched_at")}
             elif "markets" in f:
                 f = {**f, "markets_fetched_at": f["fetched_at"]}
@@ -258,6 +263,10 @@ def _has_fresh_book(fixtures: list, event: dict) -> bool:
 # Last-hour reads per competition: at most one per LAST_HOUR_COOLDOWN.
 LAST_HOUR_COOLDOWN = timedelta(minutes=20)
 _last_hour_read_at: dict = {}
+# (competition, day) pairs whose last-hour read already came back without
+# extra markets once: they get one retry, not one per tick.
+_empty_last_hour_days: dict = {}
+EMPTY_LAST_HOUR_READS = 2
 
 
 # The pre-kickoff window a full book belongs to (the app's window is one hour;
@@ -268,10 +277,31 @@ WINDOW = timedelta(minutes=75)
 # What the last reads did, per competition - shown in /jobs/status so a
 # missing price says why (budget, failure) instead of failing silently.
 REFRESH_LOG: dict = {}
+# Every read, kept on the Fly volume (data/logs is linked there), so a missing
+# price can be traced after a restart (bugs/2026-10-13-betathome-nur-siegquoten.md).
+REFRESH_LOG_PATH = ROOT / "data" / "logs" / "book_refresh_log.jsonl"
 
 
 def _log_refresh(sport_key: str, kind: str, items: int, outcome: str) -> None:
-    REFRESH_LOG[sport_key] = {"at": _now().isoformat(), "kind": kind, "items": items, "outcome": outcome}
+    entry = {"at": _now().isoformat(), "kind": kind, "items": items, "outcome": outcome}
+    REFRESH_LOG[sport_key] = entry
+    try:
+        REFRESH_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with REFRESH_LOG_PATH.open("a", encoding="utf-8") as stream:
+            stream.write(json.dumps({"sport_key": sport_key, **entry,
+                                     "spent_this_month": round(spent_this_month(), 3)}) + "\n")
+    except OSError:
+        pass
+
+
+def load_refresh_log() -> None:
+    """The latest read per competition from the file, after a restart."""
+    try:
+        for line in REFRESH_LOG_PATH.read_text(encoding="utf-8").splitlines():
+            e = json.loads(line)
+            REFRESH_LOG[e.pop("sport_key")] = {k: e[k] for k in ("at", "kind", "items", "outcome") if k in e}
+    except (OSError, ValueError, KeyError):
+        pass
 
 
 def refresh_if_due(sport_key: str, events: list) -> bool:
@@ -306,6 +336,8 @@ def refresh_if_due(sport_key: str, events: list) -> bool:
         last = _last_hour_read_at.get(sport_key)
         if last and now - last < LAST_HOUR_COOLDOWN:
             return False
+        if _empty_last_hour_days.get((sport_key, now.date().isoformat()), 0) >= EMPTY_LAST_HOUR_READS:
+            return False
         _last_hour_read_at[sport_key] = now
         items = min(len(listed), MAX_WINDOW_ITEMS)
         full = (spent_this_month() + items * PRICE_PER_FULL_BOOK <= MONTHLY_BUDGET
@@ -322,10 +354,14 @@ def refresh_if_due(sport_key: str, events: list) -> bool:
         apify_budget.note_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
         if full and fetched and not any(has_markets(f.get("markets")) for f in fetched):
             # OddsPortal served the matches without a single extra market (13
-            # October): keep the 1X2 prices, leave the book unread, so the
-            # next tick after the cooldown tries again.
-            _log_refresh(sport_key, "last_hour", items, "failed: no extra markets in the read, retry in 20 min")
-            store(sport_key, _strip_markets(fetched))
+            # October): keep the 1X2 prices. One more try per competition and
+            # day after the cooldown; after that the last good markets stay.
+            day = (sport_key, now.date().isoformat())
+            _empty_last_hour_days[day] = _empty_last_hour_days.get(day, 0) + 1
+            retry = _empty_last_hour_days[day] < EMPTY_LAST_HOUR_READS
+            _log_refresh(sport_key, "last_hour", items, "failed: no extra markets in the read"
+                         + (", one retry in 20 min" if retry else ", no retry today"))
+            store(sport_key, _strip_markets(fetched) if retry else [{**f, "markets": {}} for f in fetched])
             return False
         _log_refresh(sport_key, "last_hour", items, "full book" if full else "1X2 only: Apify budget")
         if not full:
@@ -343,9 +379,9 @@ DAILY_RESERVE = 1.0
 
 
 # A morning read that comes back without a single bet-at-home price (OddsPortal
-# served the list without odds on 10 October) is tried again, twice at most.
+# served the list without odds on 10 October) is tried again once.
 MORNING_RETRY_AFTER = timedelta(minutes=30)
-MORNING_RETRIES = 2
+MORNING_RETRIES = 1
 _morning_retry: dict = {}
 
 
