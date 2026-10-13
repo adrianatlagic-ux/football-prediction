@@ -17,3 +17,7 @@ data/squad_cache/
 
 # Local backup of the club model before Elo (2026-10-10); not served.
 club_model_v3_pre_elo.joblib
+
+# Server logs live on the Fly volume; a local copy (tests, scripts) must never
+# be shipped into it.
+data/logs/

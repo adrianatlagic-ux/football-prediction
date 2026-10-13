@@ -23,6 +23,48 @@ viele doppelte Abfragen der letzten Stunde (am 6.10. neunmal in zwei
 Minuten), die erst am 10.10. abgestellt wurden (Commit 0a329ba,
 höchstens eine Abfrage je Wettbewerb in 20 Minuten).
 
+## Dritte Ursache und Umstellung (13./14.10.2026)
+
+OddsPortal läuft seit dem 12./13.10. auf einer neuen Seite (Next.js) mit
+Bot-Schutz (`/ajax-esi/ab-proof-mint/`, `ab-honeypot`). Der bisherige
+Scraper `piotrv1001/oddsportal-scraper` (ohne Browser, unverändert seit
+3.10.) bekommt seitdem keine Märkte mehr, nur 1X2. Tests mit einem Spiel:
+`trev0n/oddsportal-com-scraper` liefert bet-at-home 1X2, Asian Handicap,
+Doppelte Chance und Draw No Bet (zeitweise blockiert), Über/Unter und „beide
+treffen" nicht; `oodoow/oddsportal-com` (Browser) lieferte nichts.
+
+Umstellung: bet-at-home über `trev0n` (0,1 Cent je Spiel), Über/Unter morgens
+aus der Odds API (andere Buchmacher, 1 Credit je Wettbewerb). Jeder Ausfall
+eines Abrufs erzeugt einen Alarm (`/alerts`, `data/logs/alerts.jsonl`), den
+`.github/workflows/alerts.yml` als GitHub-Issue mit Label „alarm“ anlegt.
+
+## Zweite Ursache (13.10.2026, 20:40)
+
+Nach dem Anheben des Limits lief die Abfrage der letzten Stunde um 18:07 UTC
+mit allen Märkten (`scrapeMatchMarkets: true`, 9 Spiele, 0,21 $ bezahlt).
+Der Scraper lieferte die Spiele mit 1X2, aber **für kein Spiel einen einzigen
+Zusatzmarkt** (`markets: []`); am 12.10. waren es für dieselbe Liga mit
+derselben Einstellung über 200 je Spiel. Der Code speicherte die leeren
+Märkte als „gelesen“, daher kein zweiter Versuch, und die Tabelle zeigte
+fast nur Quoten anderer Buchmacher (mit *).
+
+Korrektur (Commits d69a8f7 und folgende):
+
+- Eine volle Abfrage ohne einen einzigen Zusatzmarkt gilt als
+  fehlgeschlagen; die 1X2-Quoten werden gespeichert.
+- Kosten begrenzt: in der letzten Stunde **ein** weiterer Versuch je
+  Wettbewerb und Tag (nach 20 Minuten), morgens **ein** weiterer Versuch
+  (nach 30 Minuten).
+- Gute Märkte werden nie durch leere überschrieben; sie bleiben mit ihrer
+  Lesezeit in `data/book_odds/latest.json` auf dem Fly-Volume.
+- Fehlt ein frischer Abruf, zeigt die Seite die letzten guten
+  bet-at-home-Märkte statt der Quoten anderer Buchmacher.
+- Jede Abfrage steht dauerhaft in `data/logs/book_refresh_log.jsonl`
+  (mit Zählerstand); `/jobs/status` zeigt nach einem Neustart den letzten
+  Stand je Wettbewerb.
+
+Tests in `tests/test_apify_budget.py` und `tests/test_book_injection.py`.
+
 ## Meldung
 
 Am 13.10. (Champions League) zeigte die Seite morgens für die Spiele des Tages
