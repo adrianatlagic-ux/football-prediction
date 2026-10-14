@@ -356,3 +356,24 @@ def test_agree_rule_drops_legs_the_model_rejects_and_puts_ai_backed_legs_first()
     assert two["combined_odds"] >= 3.0
     # The AI-backed A leg is on the two-fold, though C and E are likelier.
     assert any(l["team"] == "A" and l["ki_agrees"] for l in two["legs"])
+
+
+def test_the_shown_combo_takes_only_each_matchs_wett_tipp():
+    from src.combo_ticket import combo_report
+    def vb(home, away, tip, other):
+        return ({}, {"odds_found": True, "snapshot_valid": True, "home_team": home, "away_team": away,
+                     "commence_time": "2026-10-14T18:45:00Z", "sport_key": "soccer_uefa_champs_league",
+                     "bets": [tip, other] if tip else [other], "bet_tip_pick": tip})
+    def bet(team, odds, p, book="betathome"):
+        return {"market": "1X2", "outcome": "home_win", "team": team, "best_odds": odds, "probability": p,
+                "market_probability": p, "model_probability_raw": p + .02, "bookmaker": book,
+                "bookmaker_key": book, "quote_fresh": True}
+    likelier = lambda team: {**bet(team, 1.3, .75), "market": "Over/Under 0.5", "outcome": "Over", "team": None}
+    pairs = [vb("A", "B", bet("A", 1.9, .52), likelier("A")),
+             vb("C", "D", bet("C", 1.8, .55, book="onexbet"), likelier("C")),   # another book's price is fine
+             vb("E", "F", None, likelier("E"))]                                  # no Wett-Tipp: not in a combo
+    report = combo_report(pairs, max_legs=4, policy="wett_tipp")
+    ticket = report["days"][0]["by_size"][0]["ticket"]
+    assert ticket and sorted(l["team"] for l in ticket["legs"]) == ["A", "C"]
+    assert ticket["combined_odds"] == 3.42
+    assert all(l["market"] == "1X2" for l in report["legs_considered"])

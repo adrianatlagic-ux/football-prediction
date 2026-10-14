@@ -662,7 +662,7 @@ function ComboLegRow({ leg, index, onOpenLeg }) {
         </div>
         <div className="smart-bet-agree-row combo-leg-agree">
           {/* On a phone only the signs show; the legend below the combos explains them. */}
-          {leg.policy === 'agree' && <span className="smart-bet-agree-chip yes" title={tr('Modell stimmt zu', 'Model agrees')}>◆<span className="chip-text"> {tr('Modell stimmt zu', 'Model agrees')}</span> ✓</span>}
+          {(leg.policy === 'agree' || leg.policy === 'wett_tipp') && <span className="smart-bet-agree-chip yes" title={tr('Modell stimmt zu', 'Model agrees')}>◆<span className="chip-text"> {tr('Modell stimmt zu', 'Model agrees')}</span> ✓</span>}
           {leg.ki_agrees && <span className="smart-bet-agree-chip yes" title={tr('KI stimmt zu', 'AI agrees')}>✨<span className="chip-text"> {tr('KI stimmt zu', 'AI agrees')}</span> ✓</span>}
           {leg.is_likely && <span className="smart-bet-agree-chip yes" title={tr('Wahrscheinlichster Tipp', 'Most likely bet')}>🎯<span className="chip-text"> {tr('Wahrscheinlichster Tipp', 'Most likely bet')}</span></span>}
           {leg.likely_pick && (
@@ -789,8 +789,8 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
 
       <p className="smart-bet-finePrint">
         {LANG === 'en'
-          ? `How the combos are built: per day the best 2-, 3- and 4-fold, at most one selection per match. Only selections our model agrees with are used; those the AI also backs come first, then the likeliest by the market. A combo pays at least ${(combo.min_combined_odds || 3).toFixed(2)}. Probabilities assume independent results; combined odds are calculated from individual prices. Combos can share selections and are not independent bets.`
-          : `So entstehen die Kombis: pro Tag die beste 2er-, 3er- und 4er-Kombi, höchstens ein Tipp pro Spiel. Genommen werden nur Tipps, denen unser Modell zustimmt; Tipps, die auch die KI stützt, kommen zuerst, danach die laut Markt wahrscheinlichsten. Eine Kombi zahlt mindestens ${(combo.min_combined_odds || 3).toFixed(2).replace('.', DEC())}. Die Wahrscheinlichkeiten nehmen unabhängige Ergebnisse an; die Gesamtquoten sind aus den Einzelquoten berechnet. Kombis können sich Tipps teilen und sind keine unabhängigen Wetten.`}
+          ? `How the combos are built: per day the best 2-, 3- and 4-fold of the matches' bet tips, one per match, at the price shown with the match. Among those reaching the target, the market's likeliest wins. A combo pays at least ${(combo.min_combined_odds || 3).toFixed(2)}. Probabilities assume independent results; combined odds are calculated from individual prices. Combos can share selections and are not independent bets.`
+          : `So entstehen die Kombis: pro Tag die beste 2er-, 3er- und 4er-Kombi aus den Wett-Tipps der Spiele, ein Tipp pro Spiel, zu der Quote, die beim Spiel steht. Bei gleicher Zielquote gewinnt die laut Markt wahrscheinlichste Kombi. Eine Kombi zahlt mindestens ${(combo.min_combined_odds || 3).toFixed(2).replace('.', DEC())}. Die Wahrscheinlichkeiten nehmen unabhängige Ergebnisse an; die Gesamtquoten sind aus den Einzelquoten berechnet. Kombis können sich Tipps teilen und sind keine unabhängigen Wetten.`}
       </p>
     </div>
   )

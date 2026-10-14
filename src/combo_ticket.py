@@ -87,6 +87,11 @@ POLICIES = {
     "agree": {"min_odds": MIN_LEG_ODDS, "model_filters": False, "agreement": True,
               "min_leg_probability": 0.45, "min_combined": 3.0},
     "market": {"min_odds": MIN_LEG_ODDS, "model_filters": False},
+    # "wett_tipp" (shown since 14 October): only each match's Wett-Tipp - the
+    # AI agent's pick where our model rates it at least as the market and the
+    # agent kept it - at the price the page shows for it.
+    "wett_tipp": {"min_odds": MIN_LEG_ODDS, "model_filters": False, "tip_only": True,
+                  "min_combined": 3.0},
     # "ki" (logged only, since 11 October): only the AI agent's own picks, the
     # Wett-Tipp's rule - our model at least as high as the market, and not a
     # pick the agent changed at its pre-kickoff re-check.
@@ -118,6 +123,25 @@ def leg_pool(value_bet_results, book=None, policy="market"):
         try:
             identity = fixture_key(vb)
         except (KeyError, ValueError, TypeError):
+            continue
+        if POLICIES[policy].get("tip_only"):
+            tip = vb.get("bet_tip_pick")
+            if (not tip or not binary_market(tip.get("market")) or tip.get("best_odds", 0) < POLICIES[policy]["min_odds"]
+                    or not isinstance(tip.get("market_probability"), (int, float))):
+                continue
+            # One leg per match, the Wett-Tipp itself. Its price is the one the
+            # page shows (bet-at-home's where it quotes the market); the legs
+            # share one key so a ticket may combine them.
+            leg = {**{k: tip.get(k) for k in ("market", "outcome", "team", "best_odds", "probability",
+                                              "market_probability", "expected_value", "quote_last_update")},
+                   **{k: vb.get(k) for k in ("home_team", "away_team", "commence_time", "sport_key", "event_id",
+                                             "odds_fetched_at", "odds_stage")},
+                   "bookmaker": "Wett-Tipps", "bookmaker_key": "wett_tipp",
+                   "source_bookmaker": tip.get("bookmaker_key"),
+                   "conservative_probability": tip["market_probability"], "policy": policy,
+                   "market_agrees": True, "quote_fresh": True,
+                   "model_probability": tip.get("model_probability_raw"), "ki_agrees": True}
+            selected[(identity, "wett_tipp")] = leg
             continue
         for candidate in vb.get("bets", []):
             if not binary_market(candidate.get("market")):

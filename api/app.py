@@ -2302,15 +2302,19 @@ def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
             continue
         # The AI agent's own pick, for the "agree" rule (a leg it backs first).
         agent = _get_agent_pick(vb) if vb.get("odds_found") else None
+        tip = _bet_tip(vb, agent) if vb.get("odds_found") else {}
         vb = {**vb, "agent_pick": (agent or {}).get("pick"),
-              "agent_revised": bool((agent or {}).get("revised_from_previous"))}
+              "agent_revised": bool((agent or {}).get("revised_from_previous")),
+              "bet_tip_pick": tip.get("tip")}
         pairs.append((data, vb))
 
-    # Only bet-at-home: the one bookmaker the user bets with. Shown: the
-    # "agree" rule (model and AI); the market rule and the rule before
-    # 26 September are computed on the same matches for the log only.
-    report = combo_report(pairs, max_legs=max_legs, book=USER_BOOK_KEY, policy="agree")
+    # Shown since 14 October: combos of the day's Wett-Tipps only, at the
+    # prices the page shows. The other rules are computed on the same matches
+    # for the log only (scripts/log_combos.py), bet-at-home's prices only.
+    report = combo_report(pairs, max_legs=max_legs, policy="wett_tipp")
     report["competition"] = competition
+    agree = combo_report(pairs, max_legs=max_legs, book=USER_BOOK_KEY, policy="agree")
+    report["agree_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in agree["days"]]
     market = combo_report(pairs, max_legs=max_legs, book=USER_BOOK_KEY, policy="market")
     report["market_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in market["days"]]
     # The rule before 26 September, computed on the same matches for the log
@@ -2322,16 +2326,6 @@ def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
     report["ki_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in ki["days"]]
     _mark_legs_off_likely(report, pairs)
 
-    from src.combo_ticket import price_tip_combos
-    tips = []
-    for data, vb in pairs:
-        if not vb.get("odds_found") or vb.get("in_play"):
-            continue
-        tip = _price_tip_for(odds, data["home_team"], data["away_team"], data, None)
-        if tip and tip.get("tip"):
-            tips.append({"home_team": vb["home_team"], "away_team": vb["away_team"],
-                         "commence_time": vb.get("commence_time"), "tip": tip["tip"]})
-    report["price_tip_combos"] = price_tip_combos(tips)
 
     return report
 

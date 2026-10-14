@@ -45,6 +45,8 @@ def entries_due(report: dict, competition: str, now: datetime) -> list:
         sources.append(("market", report["market_days"]))
     if report.get("ki_days") is not None:
         sources.append(("ki", report["ki_days"]))
+    if report.get("agree_days") is not None:
+        sources.append(("agree", report["agree_days"]))
     for policy, days in sources:
         for day in days:
             for option in day.get("by_size") or []:
