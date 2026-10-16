@@ -17,6 +17,7 @@ stake - neither win nor loss.
 import argparse
 import json
 import re
+import unicodedata
 import sys
 import urllib.request
 from pathlib import Path
@@ -35,10 +36,35 @@ LIKELY_GROUPS = ("Modell ✓ / KI ✓", "Modell ✓ / KI ✗", "Modell ✗ / KI 
 DEFAULT_API = "https://football-prediction.fly.dev"
 
 
+_TRANSLIT = str.maketrans({"ø": "o", "æ": "ae", "ß": "ss", "đ": "d", "ł": "l", "ı": "i", "œ": "oe", "ð": "d", "þ": "th"})
+
+
 def _norm(name: str) -> str:
-    n = re.sub(r"\band\b", " ", name.lower()).replace("&", " ")
-    n = re.sub(r"[^a-z]", "", n)
+    # Letters NFKD keeps whole (ø, æ) are spelled out; accents are dropped,
+    # so "Mönchengladbach" and "Monchengladbach" meet.
+    n = unicodedata.normalize("NFKD", (name or "").lower().translate(_TRANSLIT)).encode("ascii", "ignore").decode()
+    n = re.sub(r"\band\b", " ", n).replace("&", " ")
+    n = re.sub(r"[^a-z0-9]", "", n)
     return {"usa": "unitedstates"}.get(n, n)
+
+
+class ResultIndex(dict):
+    """Results keyed (home, away[, day]) by _norm, with a fallback for names
+    one source writes longer: "Schalke 04" / "FC Schalke 04", "LASK" /
+    "LASK Linz", "Bodø/Glimt" / "FK Bodø/Glimt". Same day, each name
+    contained in the other's, and only one such result."""
+
+    def get(self, key, default=None):
+        hit = super().get(key)
+        if hit is not None:
+            return hit
+        home, away, rest = key[0], key[1], tuple(key[2:])
+        if len(home) < 4 or len(away) < 4:
+            return default
+        near = lambda a, b: a in b or b in a
+        found = [r for k, r in self.items()
+                 if tuple(k[2:]) == rest and near(home, k[0]) and near(away, k[1])]
+        return found[0] if len(found) == 1 else default
 
 
 def _team_margin(team, home, away, hs, as_):
@@ -331,8 +357,8 @@ def main():
 
     results = json.load(urllib.request.urlopen(f"{args.api}/real-results", timeout=30))["results"]
     # Teams AND date: the same pairing can meet twice in a season.
-    finished = {(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
-                for r in results if r.get("completed") and r.get("home_score") is not None}
+    finished = ResultIndex({(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
+                for r in results if r.get("completed") and r.get("home_score") is not None})
     groups = {}
     for line in LOG_PATH.read_text(encoding="utf-8").splitlines():
         if line.strip():

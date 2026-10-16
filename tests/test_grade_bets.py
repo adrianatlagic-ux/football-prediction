@@ -31,3 +31,16 @@ def test_the_fair_comparison_uses_only_matches_with_both_picks_in_the_same_odds_
 def test_results_are_matched_on_the_date_too():
     other_day = {("a", "b", "2026-11-12"): {"home_score": 0, "away_score": 2}}
     assert grade_entries([_entry("x", 1.60, 1.50)], other_day)["pending"] == 1
+
+
+def test_results_are_found_under_longer_or_accented_names():
+    import sys
+    sys.path.insert(0, "scripts")
+    from grade_bets import ResultIndex, _norm
+    rows = [("FC Schalke 04", "SC Freiburg"), ("LASK Linz", "Liverpool"), ("FK Bodø/Glimt", "Borussia Dortmund"),
+            ("1. FC Köln", "Borussia Mönchengladbach")]
+    idx = ResultIndex({(_norm(h), _norm(a), "2026-10-14"): {"home_team": h} for h, a in rows})
+    for h, a in (("Schalke 04", "SC Freiburg"), ("LASK", "Liverpool"), ("Bodø/Glimt", "Borussia Dortmund"),
+                 ("1. FC Köln", "Borussia Monchengladbach")):
+        assert idx.get((_norm(h), _norm(a), "2026-10-14")) is not None, h
+    assert idx.get((_norm("LASK"), _norm("Liverpool"), "2026-10-15")) is None   # another day

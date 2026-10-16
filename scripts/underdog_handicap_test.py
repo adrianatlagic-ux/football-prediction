@@ -29,7 +29,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-from grade_bets import _game_pick, _norm, competition_of, grade  # noqa: E402
+from grade_bets import ResultIndex, _game_pick, _norm, competition_of, grade  # noqa: E402
 
 OUT = ROOT / "data" / "model_reports" / "underdog_handicap_20261004.json"
 ARCHIVE = ROOT / "data" / "odds_archive" / "oddsportal_nl_20260927"
@@ -54,8 +54,8 @@ def kind(bet, underdog):
 
 def live(api: str) -> dict:
     results = json.load(urllib.request.urlopen(f"{api}/real-results", timeout=60))["results"]
-    finished = {(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
-                for r in results if r.get("completed") and r.get("home_score") is not None}
+    finished = ResultIndex({(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
+                for r in results if r.get("completed") and r.get("home_score") is not None})
     groups = defaultdict(lambda: {"n": 0, "won": 0, "expected": 0.0, "units": 0.0})
     for line in (ROOT / "data" / "bet_log.jsonl").read_text(encoding="utf-8").splitlines():
         e = json.loads(line)

@@ -137,9 +137,9 @@ def grade_live(paths: list, results: list) -> list:
     """Logged bets with a model and a market probability, graded against
     results matched on teams AND kickoff date - the same pairing can meet
     twice in a season."""
-    from grade_bets import _norm, grade
-    finished = {(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
-                for r in results if r.get("completed") and r.get("home_score") is not None}
+    from grade_bets import ResultIndex, _norm, grade
+    finished = ResultIndex({(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
+                for r in results if r.get("completed") and r.get("home_score") is not None})
     cases = []
     for entry in _logged_entries(paths):
         res = finished.get((_norm(entry["home_team"]), _norm(entry["away_team"]),

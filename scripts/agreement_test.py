@@ -61,10 +61,10 @@ def summarise(cases):
 
 
 def live_cases():
-    from grade_bets import _norm, competition_of, grade
+    from grade_bets import ResultIndex, _norm, competition_of, grade
     results = json.load(urllib.request.urlopen("https://football-prediction.fly.dev/real-results", timeout=60))["results"]
-    finished = {(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
-                for r in results if r.get("completed") and r.get("home_score") is not None}
+    finished = ResultIndex({(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
+                for r in results if r.get("completed") and r.get("home_score") is not None})
     cases = []
     for line in (ROOT / "data" / "bet_log.jsonl").read_text(encoding="utf-8").splitlines():
         e = json.loads(line)

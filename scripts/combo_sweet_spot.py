@@ -28,7 +28,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
-from grade_bets import _norm, grade  # noqa: E402
+from grade_bets import ResultIndex, _norm, grade  # noqa: E402
 from src.combo_ticket import MIN_LEG_ODDS, MODEL_TOLERANCE, binary_market, build_tickets  # noqa: E402
 from src.price_tip import implies  # noqa: E402
 
@@ -41,8 +41,8 @@ SIZES = [2, 3, 4]
 
 def live_days():
     results = json.load(urllib.request.urlopen(f"{API}/real-results", timeout=60))["results"]
-    finished = {(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
-                for r in results if r.get("completed") and r.get("home_score") is not None}
+    finished = ResultIndex({(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
+                for r in results if r.get("completed") and r.get("home_score") is not None})
     text = urllib.request.urlopen(f"{API}/logs/bet_log", timeout=60).read().decode()
     legs = []
     for line in text.splitlines():
