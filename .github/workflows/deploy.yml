@@ -1,0 +1,25 @@
+name: Deploy to Fly
+
+# Started by hand (Actions → Deploy to Fly → Run workflow), from a phone
+# browser too. Builds on Fly's remote builder, so the runner needs nothing
+# but flyctl. Needs the repository secret FLY_API_TOKEN, a deploy token for
+# the app: fly tokens create deploy -a football-prediction
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: fly-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: Deploy
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+        run: |
+          if [ -z "$FLY_API_TOKEN" ]; then echo "FLY_API_TOKEN is not set" >&2; exit 1; fi
+          flyctl deploy --remote-only -a football-prediction
