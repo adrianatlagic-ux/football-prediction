@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.4",
+  "target_date": "2026-10-19",
+  "status": "completed_with_limited_visual_review",
+  "editorial_date_timezone": "Europe/Berlin",
+  "coverage_key": "bundesliga:2026-10-17:FC Bayern München:RB Leipzig",
+  "selected_candidate": {
+    "competition": "Bundesliga",
+    "home": "FC Bayern München",
+    "away": "RB Leipzig",
+    "match_date": "2026-10-17",
+    "result": "6:1",
+    "selection_reason": "Retrospektiver Topspielbeitrag zum prominenten Bayern-Spiel am Wochenende; historisches Ergebnis als Fakt, gezeichnete Spielszenen ausdrücklich KI-Fiktion.",
+    "fixture_status": "FINISHED",
+    "story_context_source": "https://www.bundesliga.com/de/bundesliga/news/fc-bayern-muenchen-rb-leipzig-spieltag-6-spielbericht-highlights-39615"
+  },
+  "generation": {
+    "attempt_limit": 1,
+    "attempts_used": 1,
+    "job_id": "b76f2e5f-cb72-48e4-a133-113bb5d7ee7d",
+    "request_key": "goaliq-2026-10-19-bundesliga-bayern-leipzig-retro-v2",
+    "model": "grok_video_v15_lite",
+    "duration_seconds": 8,
+    "aspect_ratio": "9:16",
+    "resolution": "720p",
+    "credits_exact": 8,
+    "balance_before_credits": 600,
+    "credits_consumed": 8,
+    "balance_after_credits": 592,
+    "status": "completed",
+    "result_media_id": "b76f2e5f-cb72-48e4-a133-113bb5d7ee7d"
+  },
+  "language": {
+    "spoken": "de",
+    "dialogue": "de",
+    "editorial_on_screen": "de",
+    "fixture_hook": "de",
+    "caption": "de",
+    "brand_disclaimer": "KI-Prognosen, nur zur Unterhaltung. Keine Wettberatung."
+  },
+  "story": {
+    "format": "anime_dialogue_causal_pitch_actions",
+    "style": "2D-Anime, deutliche Konturen, Cel-Shading, gezeichnete nicht-identifizierbare Figuren",
+    "off_pitch_setup": "Zwei fiktive erwachsene Fans sprechen über die Notwendigkeit einer klaren Antwort.",
+    "on_pitch_beats": [
+      "Gemeinsames Anlaufen erzwingt einen Fehlpass.",
+      "Schneller präziser Pass in den freien Raum und flacher Abschluss."
+    ],
+    "causal_bridge": "Der Fan-Dialog lenkt die Aufmerksamkeit auf Tempo und Druck, das gemeinsame Anlaufen verursacht den Fehlpass und eröffnet den folgenden Angriff.",
+    "on_pitch_payoff": "Der schnelle Pass und Abschluss bilden den gezeichneten symbolischen Payoff.",
+    "verified_context": "Bayern München gewann gegen RB Leipzig am 17.10.2026 mit 6:1; Luis Díaz traf dreimal.",
+    "fiction_boundary": "Generierte Platzaktionen sind symbolische KI-Fiktion und keine Rekonstruktion realer Tore oder Archivbilder.",
+    "pitch_action_review": "Technischer Export bestätigt 8.042 Sekunden Quellclip mit H.264-Video und AAC-Stereo-Ton. Einzelne Bilddateien wurden extrahiert, aber eine verlässliche inhaltliche visuelle/Sprach-QA über alle Szenen konnte hier nicht abschließend bestätigt werden; deshalb Status nicht als vollständig visuell freigegeben markieren."
+  },
+  "outro_master": {
+    "media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "status": "verified",
+    "duration_seconds": 3,
+    "language": "de"
+  },
+  "delivery": {
+    "final_media_id": "9965efd4-0963-4086-b177-761faf61cd47",
+    "zip_media_id": "1d865dea-e466-4caa-88da-d6cb779e225c",
+    "ready": true,
+    "technical_checks": {
+      "final_duration_seconds": 11.064,
+      "width": 720,
+      "height": 1280,
+      "fps": "24/1",
+      "video_codec": "h264",
+      "audio_codec": "aac",
+      "audio_channels": 2,
+      "outro_sha256_verified": true,
+      "zip_integrity": "passed",
+      "mp4_sha256": "3113770a80de7fde5001eb4f59cdb821c83dd7c40458a479d8e801cd02091246",
+      "zip_embedded_mp4_sha256": "3113770a80de7fde5001eb4f59cdb821c83dd7c40458a479d8e801cd02091246",
+      "mp4_and_zip_byte_identity": "verified",
+      "mp4_upload_http": 200,
+      "zip_upload_http": 200
+    },
+    "public_media_urls_written": false
+  },
+  "caption": "Sechs Tore, eine klare Ansage. 🔴⚪ Bayern schlägt Leipzig 6:1 – Luis Díaz trifft dreimal. Die gezeichneten Spielszenen hier sind KI-Fiktion, keine echten Spielbilder. Welche Szene vom Wochenende ist euch am meisten hängen geblieben? ⚽\n\nKI-Fiktion · 17.10.2026\ngoaliq.de\nKI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.\n\n#FCBayern #RBLeipzig #Bundesliga #GoalIQ #KIFiktion",
+  "credits": {
+    "before": 600,
+    "quoted": 8,
+    "spent": 8,
+    "after": 592
+  },
+  "next_action": "Keine weitere Generierung am 19.10.2026. Technische Montage und Archivprüfung abgeschlossen; inhaltliche visuelle QA ist als eingeschränkt dokumentiert."
+}
