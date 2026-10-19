@@ -1,7 +1,7 @@
 {
   "schema_version": "1.4",
   "target_date": "2026-10-19",
-  "status": "completed_with_limited_visual_review",
+  "status": "blocked_quality_review",
   "editorial_date_timezone": "Europe/Berlin",
   "coverage_key": "bundesliga:2026-10-17:FC Bayern München:RB Leipzig",
   "selected_candidate": {
@@ -23,12 +23,32 @@
     "duration_seconds": 8,
     "aspect_ratio": "9:16",
     "resolution": "720p",
-    "credits_exact": 8,
-    "balance_before_credits": 600,
+    "credits_exact": null,
+    "balance_before_credits": null,
     "credits_consumed": 8,
     "balance_after_credits": 592,
     "status": "completed",
-    "result_media_id": "b76f2e5f-cb72-48e4-a133-113bb5d7ee7d"
+    "result_media_id": "b76f2e5f-cb72-48e4-a133-113bb5d7ee7d",
+    "attempt_history": [
+      {
+        "request_key": "goaliq-2026-10-19-bundesliga-bayern-leipzig-retro-v1",
+        "status": "blocked_by_safety_check_or_submission_unclear",
+        "job_id": null,
+        "credits_effect": "unknown_not_reconciled_at_the_time; do not infer zero spend",
+        "note": "First photorealistic prompt was blocked by a safety check; a reliable final submission/credit state was not recorded before the second request. This should have stopped further generation until reconciled."
+      },
+      {
+        "request_key": "goaliq-2026-10-19-bundesliga-bayern-leipzig-retro-v2",
+        "status": "completed",
+        "job_id": "b76f2e5f-cb72-48e4-a133-113bb5d7ee7d",
+        "credits_quoted_estimate": 8,
+        "credits_consumed_reported": 8,
+        "post_generation_balance_reported": 592
+      }
+    ],
+    "credits_quoted_estimate": 8,
+    "credits_consumed_reported": 8,
+    "credit_audit_note": "Der vor Auftrag eingetragene Stand 600 ist nicht hinreichend belegt und wurde entfernt. Nach dem fertigen Auftrag wurde 592 gemeldet. Die heutige erneute Guthabenabfrage ergab 582; diese spätere Differenz wird ohne Job-Abgleich keinem einzelnen Auftrag zugerechnet."
   },
   "language": {
     "spoken": "de",
@@ -50,7 +70,7 @@
     "on_pitch_payoff": "Der schnelle Pass und Abschluss bilden den gezeichneten symbolischen Payoff.",
     "verified_context": "Bayern München gewann gegen RB Leipzig am 17.10.2026 mit 6:1; Luis Díaz traf dreimal.",
     "fiction_boundary": "Generierte Platzaktionen sind symbolische KI-Fiktion und keine Rekonstruktion realer Tore oder Archivbilder.",
-    "pitch_action_review": "Technischer Export bestätigt 8.042 Sekunden Quellclip mit H.264-Video und AAC-Stereo-Ton. Einzelne Bilddateien wurden extrahiert, aber eine verlässliche inhaltliche visuelle/Sprach-QA über alle Szenen konnte hier nicht abschließend bestätigt werden; deshalb Status nicht als vollständig visuell freigegeben markieren."
+    "pitch_action_review": "NICHT BESTANDEN / NICHT ABGESCHLOSSEN: Technische Metadaten und einzelne Frames wurden erfasst, aber der vollständige Clip wurde nicht zuverlässig visuell geprüft. Die tatsächliche Lesbarkeit/Korrektheit der Eröffnung, Stilkonformität, kausale Umsetzung der Platzaktionen, Vereins-/Spielbezug und Audio/Sprache/Natürlichkeit wurden nicht abschließend bestätigt. Keine Freigabe als ready."
   },
   "outro_master": {
     "media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
@@ -62,7 +82,7 @@
   "delivery": {
     "final_media_id": "9965efd4-0963-4086-b177-761faf61cd47",
     "zip_media_id": "1d865dea-e466-4caa-88da-d6cb779e225c",
-    "ready": true,
+    "ready": false,
     "technical_checks": {
       "final_duration_seconds": 11.064,
       "width": 720,
@@ -79,7 +99,9 @@
       "mp4_upload_http": 200,
       "zip_upload_http": 200
     },
-    "public_media_urls_written": false
+    "public_media_urls_written": false,
+    "status": "blocked_quality_review",
+    "quality_gate_note": "Technische Montage- und ZIP-Hashprüfung sind dokumentiert, ersetzen aber keine vorgeschriebene inhaltliche Bild-, Eröffnungs-, Stil- und Audio-QA. Das MP4 und ZIP sind vorhandene Artefakte, nicht redaktionell freigegeben."
   },
   "caption": "Sechs Tore, eine klare Ansage. 🔴⚪ Bayern schlägt Leipzig 6:1 – Luis Díaz trifft dreimal. Die gezeichneten Spielszenen hier sind KI-Fiktion, keine echten Spielbilder. Welche Szene vom Wochenende ist euch am meisten hängen geblieben? ⚽\n\nKI-Fiktion · 17.10.2026\ngoaliq.de\nKI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.\n\n#FCBayern #RBLeipzig #Bundesliga #GoalIQ #KIFiktion",
   "credits": {
@@ -88,5 +110,23 @@
     "spent": 8,
     "after": 592
   },
-  "next_action": "Keine weitere Generierung am 19.10.2026. Technische Montage und Archivprüfung abgeschlossen; inhaltliche visuelle QA ist als eingeschränkt dokumentiert."
+  "next_action": "Keine weitere Generierung am 19.10.2026. Technische Montage und Archivprüfung abgeschlossen; inhaltliche visuelle QA ist als eingeschränkt dokumentiert.",
+  "audit_corrections": {
+    "audited_at": "2026-10-19",
+    "routine_read": [
+      "social/pipeline/README.md",
+      "social/pipeline/config.json",
+      "social/pipeline/reference-research-2026-10-04.md",
+      "social/pipeline/cloud/2026-10-19/manifest.json"
+    ],
+    "confirmed_violations": [
+      "Die erste blockierte/unklare Anfrage wurde vor dem zweiten bezahlten Generierungsauftrag nicht sauber reconciled.",
+      "Der erste Anfrageversuch fehlte im ursprünglichen Manifest.",
+      "Das Manifest markierte delivery.ready=true, obwohl es selbst unvollständige visuelle und Audio-QA dokumentierte.",
+      "Der ursprüngliche Kontostand 600 war nicht ausreichend belegt."
+    ],
+    "current_higgsfield_balance_at_audit": 582,
+    "current_balance_note": "Aktueller Kontostand ist eine Momentaufnahme und wird nicht rückwirkend dem Tagesauftrag zugeordnet.",
+    "action": "Keinen weiteren Videogenerierungsauftrag am 2026-10-19 ausführen. Vorhandenen Clip nicht erneut generieren. Qualitätsstatus bleibt gesperrt, bis die tatsächlichen vorhandenen Artefakte ohne neue Generierung vollständig geprüft sind."
+  }
 }
