@@ -1,0 +1,28 @@
+{
+  "target_date": "2026-10-20",
+  "source_job_id": "f76c5a99-6a12-40f9-b3fd-cb82febacfaa",
+  "source_video_media_id": "98be90e7-c6cd-4344-a8cb-739ebff79032",
+  "final_media_id": "bc9ab210-bba6-4eef-a87b-56126cca3937",
+  "zip_media_id": "c09ebc17-fc01-4e0c-82c4-20d2a6816550",
+  "outro_master_media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+  "outro_master_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+  "source_video_elementary_sha256": "37324c137743324564c81c4ab469e04f334b5afbd4b5f9b4442ebc2ecbd884c6",
+  "final_first_289_video_frames_elementary_sha256": "37324c137743324564c81c4ab469e04f334b5afbd4b5f9b4442ebc2ecbd884c6",
+  "source_audio_first_564_packets_adts_sha256": "86c42c8f0656d9a760cb2948c7a711200af8b140294ca3da7885c23cf98dfc40",
+  "final_audio_first_564_packets_adts_sha256": "86c42c8f0656d9a760cb2948c7a711200af8b140294ca3da7885c23cf98dfc40",
+  "final_mp4_sha256": "56e5ce65ac917fddbdd914728233e0550c57ee34fa8945031e52c44252bbd9fa",
+  "zip_contained_mp4_sha256": "56e5ce65ac917fddbdd914728233e0550c57ee34fa8945031e52c44252bbd9fa",
+  "zip_test": "passed",
+  "upload_http": {
+    "mp4": 200,
+    "zip": 200
+  },
+  "download_head_http": {
+    "mp4": 200,
+    "zip": 200
+  },
+  "qa_video_analysis_id": "17912eea-a4f2-4df1-a1bb-7a0965a6163c",
+  "quality_status": "not_ready_content_qa: second pitch action missing and German speech not confirmed",
+  "credit_quote": 12,
+  "credits_used": 12
+}
