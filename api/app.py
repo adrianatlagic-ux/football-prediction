@@ -763,13 +763,10 @@ ODDS_SPORT_KEYS = [
 
 
 def _fetch_odds() -> list[dict]:
-    """The day's fixtures from the Odds API's free event list - no prices.
+    """Free fixture lists plus one three-market price read per active league.
 
-    Prices come from two other reads: bet-at-home's full market book right
-    after this one (src/book_odds.daily_refresh), and Pinnacle once per match
-    in its last hour (_fetch_event_odds), when the price tip is decided. The
-    event list costs no credits, so the morning read spends nothing of the
-    Odds API plan; each match then costs 3 credits, once.
+    The last-hour refresh also batches by league, rather than paying three
+    credits for every individual match.
     """
     if not ODDS_API_KEY:
         raise HTTPException(status_code=503, detail="ODDS_API_KEY ist nicht konfiguriert.")
@@ -790,34 +787,61 @@ def _fetch_odds() -> list[dict]:
             _odds_alert(sport_key, f"Odds API (Spielliste {sport_key}) nicht erreichbar: {type(exc).__name__}")
             continue
         if listed:
-            _add_morning_totals(sport_key, listed, window)
+            _add_morning_prices(sport_key, listed, window)
         events.extend(listed)
     if not events and last_error is not None:
         raise last_error
     return events
 
 
-# Over/Under is the market bet-at-home's scraper can no longer read (since
-# 13 October), so the morning read takes it from the Odds API's other
-# bookmakers: one market, one region, one credit per competition with games.
-MORNING_ODDS_MARKETS = "totals"
+# One region and three main markets cost at most three credits per league
+# read, regardless of how many fixtures the response contains.
+MAIN_ODDS_MARKETS = "h2h,totals,spreads"
 ODDS_QUOTA_ALERT_BELOW = 40
 
 
-def _add_morning_totals(sport_key: str, listed: list[dict], window: str) -> None:
+def _add_morning_prices(sport_key: str, listed: list[dict], window: str) -> None:
     url = (f"https://api.the-odds-api.com/v4/sports/{sport_key}/odds?apiKey={ODDS_API_KEY}"
-           f"&regions=eu&markets={MORNING_ODDS_MARKETS}&oddsFormat=decimal{window}")
+           f"&regions=eu&markets={MAIN_ODDS_MARKETS}&oddsFormat=decimal{window}")
     try:
         with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"}),
                                     timeout=10) as resp:
             priced = {e.get("id"): e.get("bookmakers", []) for e in json.loads(resp.read())}
             _note_odds_quota(getattr(resp, "headers", None))
     except Exception as exc:
-        _odds_alert(sport_key, f"Odds API (Über/Unter am Morgen, {sport_key}) fehlgeschlagen: {type(exc).__name__}")
+        _odds_alert(sport_key, f"Odds API (Hauptmärkte am Morgen, {sport_key}) fehlgeschlagen: {type(exc).__name__}")
         return
     for e in listed:
         if priced.get(e.get("id")):
             e["bookmakers"] = list(e.get("bookmakers") or []) + priced[e["id"]]
+
+
+def _fetch_league_odds(sport: str, events: list[dict]) -> list[dict]:
+    """Read the main markets for a league's due kickoff window in one call."""
+    from src.bet_audit import timestamp
+    if sport not in ODDS_SPORT_KEYS or not events:
+        raise ValueError("Unknown competition or empty refresh window")
+    kickoffs = [timestamp(e["commence_time"]) for e in events]
+    start = min(kickoffs) - timedelta(seconds=1)
+    end = max(kickoffs) + timedelta(seconds=1)
+    url = (f"https://api.the-odds-api.com/v4/sports/{sport}/odds"
+           f"?apiKey={ODDS_API_KEY}&regions=eu&markets={MAIN_ODDS_MARKETS}&oddsFormat=decimal"
+           f"&commenceTimeFrom={start.strftime('%Y-%m-%dT%H:%M:%SZ')}"
+           f"&commenceTimeTo={end.strftime('%Y-%m-%dT%H:%M:%SZ')}")
+    with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"}),
+                                timeout=10) as resp:
+        fresh = json.loads(resp.read())
+        _note_odds_quota(getattr(resp, "headers", None))
+    expected = {e["id"]: e for e in events}
+    matched = []
+    for e in fresh:
+        original = expected.get(e.get("id"))
+        if original is None or any(e.get(k) != original.get(k) for k in
+                                   ("sport_key", "home_team", "away_team", "commence_time")):
+            continue
+        if any(m.get("outcomes") for book in e.get("bookmakers", []) for m in book.get("markets", [])):
+            matched.append(e)
+    return matched
 
 
 def _odds_alert(subject: str, message: str) -> None:
@@ -937,27 +961,41 @@ def _get_odds() -> list[dict]:
             except Exception:
                 if not _odds_cache:
                     raise
+        due_by_sport = {}
+        for event in _odds_cache:
+            try:
+                seconds = (timestamp(event["commence_time"]) - now).total_seconds()
+            except (KeyError, ValueError, TypeError):
+                continue
+            key = (event.get("sport_key"), event.get("id"), event["commence_time"])
+            previous = _final_odds_attempts.get(key)
+            if (0 < seconds <= 3600 and key not in _final_odds_cache
+                    and (previous is None or time.time() - previous >= 900)):
+                due_by_sport.setdefault(event.get("sport_key"), []).append(event)
+        for sport, events in due_by_sport.items():
+            for event in events:
+                key = (sport, event.get("id"), event["commence_time"])
+                _final_odds_attempts[key] = time.time()
+            try:
+                fresh_events = _fetch_league_odds(sport, events)
+                fetched = datetime.now(timezone.utc)
+                for fresh in fresh_events:
+                    key = (sport, fresh["id"], fresh["commence_time"])
+                    _final_odds_cache[key] = stamp_event(fresh, fetched, "final")
+                missing = {e["id"] for e in events} - {e["id"] for e in fresh_events}
+                if missing:
+                    _odds_alert(f"final {sport}", f"Odds API: Quoten vor Anpfiff fehlen für {len(missing)} Spiele ({sport}).")
+            except Exception as exc:
+                _odds_alert(f"final {sport}",
+                            f"Odds API: Quoten vor Anpfiff für {sport} nicht geladen ({type(exc).__name__}).")
         output = []
         for event in _odds_cache:
             try:
-                seconds = (timestamp(event["commence_time"]) - datetime.now(timezone.utc)).total_seconds()
+                seconds = (timestamp(event["commence_time"]) - now).total_seconds()
             except (KeyError, ValueError, TypeError):
                 output.append(event)
                 continue
             key = (event.get("sport_key"), event.get("id"), event["commence_time"])
-            if 0 < seconds <= 3600 and key not in _final_odds_cache:
-                # Failed refreshes retry at most every 15 minutes. They do not
-                # turn an old daily snapshot into a purported final snapshot.
-                previous = _final_odds_attempts.get(key)
-                if previous is None or time.time() - previous >= 900:
-                    _final_odds_attempts[key] = time.time()
-                    try:
-                        fresh = _fetch_event_odds(event)
-                        _final_odds_cache[key] = stamp_event(fresh, datetime.now(timezone.utc), "final")
-                    except Exception as exc:
-                        _odds_alert(f"final {event.get('id')}",
-                                    f"Odds API: Quoten vor Anpfiff für {event.get('home_team')} – "
-                                    f"{event.get('away_team')} nicht geladen ({type(exc).__name__}).")
             selected = _final_odds_cache.get(key, event)
             if 0 < seconds <= 3600 and key not in _final_odds_cache:
                 selected = {**selected, "final_refresh_status": "pending_or_failed"}
