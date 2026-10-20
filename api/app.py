@@ -421,6 +421,7 @@ def job_status():
     # read falls back to 1X2 (bugs/2026-10-13-betathome-nur-siegquoten.md).
     out["book_budget"] = {"spent_this_month": round(book_odds.spent_this_month(), 3),
                           "monthly_budget": book_odds.MONTHLY_BUDGET}
+    out["odds_api"] = _odds_status()
     out["lineups"] = jobs.load_lineup_status()
     return out
 
@@ -673,7 +674,7 @@ def real_results():
 # ── Value Betting (The Odds API) ────────────────────────────────────────────
 
 ODDS_API_KEY = os.getenv("ODDS_API_KEY", "")
-# Daily at 15:00 UTC, plus one event-only refresh during its final hour.
+# Daily at 06:00 UTC, plus batched league refreshes in the final hour.
 # Requests trigger due work; the GitHub logger is the periodic caller.
 # This is not an exact-time scheduler and its calls consume provider credits.
 from src.odds_schedule import DAILY_REFRESH_HOUR_UTC as ODDS_REFRESH_HOUR_UTC
@@ -850,6 +851,8 @@ def _odds_alert(subject: str, message: str) -> None:
 
 
 def _note_odds_quota(headers) -> None:
+    from src.odds_runtime import note_quota
+    note_quota(_odds_runtime_path("quota"), headers, datetime.now(timezone.utc).isoformat())
     try:
         remaining = int(float(headers.get("x-requests-remaining")))
     except (TypeError, ValueError, AttributeError):
@@ -879,6 +882,108 @@ def _fetch_event_odds(event):
 # same day now reuses the stored snapshot instead.
 ODDS_SNAPSHOT_PATH = Path(os.getenv("ODDS_SNAPSHOT_PATH",
                                     Path(__file__).parent.parent / "data" / "odds_snapshot.json"))
+
+
+def _odds_runtime_path(name):
+    # data/jobs is already linked to the persistent Fly volume by start.sh.
+    return ODDS_SNAPSHOT_PATH.parent / "jobs" / f"odds_{name}.json"
+
+
+def _restore_final_odds(now):
+    from src.odds_runtime import read
+    from src.bet_audit import timestamp
+    stored = read(_odds_runtime_path("final"))
+    known = {(e.get("sport_key"), e.get("id"), e.get("commence_time")): e for e in _odds_cache}
+    for event in stored.get("events", []) if isinstance(stored.get("events"), list) else []:
+        try:
+            key = (event["sport_key"], event["id"], event["commence_time"])
+            fetched, kickoff = timestamp(event["odds_fetched_at"]), timestamp(event["commence_time"])
+            original = known.get(key)
+            if (original and event.get("odds_stage") == "final" and fetched <= now < kickoff
+                    and 0 < (kickoff - fetched).total_seconds() <= 3600
+                    and all(event.get(k) == original.get(k) for k in ("home_team", "away_team"))):
+                _final_odds_cache.setdefault(key, event)
+        except (KeyError, ValueError, TypeError):
+            continue
+    for attempt in stored.get("attempts", []) if isinstance(stored.get("attempts"), list) else []:
+        try:
+            key = tuple(attempt["key"])
+            attempted = float(attempt["at"])
+            if key in known and 0 <= time.time() - attempted < 900:
+                _final_odds_attempts.setdefault(key, attempted)
+        except (KeyError, ValueError, TypeError):
+            continue
+
+
+def _save_final_odds(now):
+    from src.odds_runtime import write
+    from src.bet_audit import timestamp
+    events, attempts = [], []
+    for key, event in list(_final_odds_cache.items()):
+        try:
+            if timestamp(event["commence_time"]) > now:
+                events.append(event)
+            else:
+                _final_odds_cache.pop(key, None)
+        except (ValueError, TypeError, KeyError):
+            continue
+    for key, attempted in list(_final_odds_attempts.items()):
+        if 0 <= time.time() - attempted < 900:
+            attempts.append({"key": list(key), "at": attempted})
+        else:
+            _final_odds_attempts.pop(key, None)
+    if not write(_odds_runtime_path("final"), {"events": events, "attempts": attempts}):
+        _odds_alert("cache", "Odds API: Quoten-Cache konnte nicht dauerhaft gespeichert werden.")
+
+
+def _odds_status():
+    """Read-only credit observation and earliest due refresh; never fetch prices."""
+    from src.odds_runtime import read
+    from src.bet_audit import timestamp
+    now = datetime.now(timezone.utc)
+    quota = read(_odds_runtime_path("quota"))
+    today = now.date().isoformat()
+    daily = now.replace(hour=ODDS_REFRESH_HOUR_UTC, minute=0, second=0, microsecond=0)
+    stored = _load_odds_snapshot(now)
+    refreshed_today = (_odds_daily_refresh_date == today or
+                       (stored and stored[1].date().isoformat() == today and stored[2] == "daily"))
+    if refreshed_today:
+        daily += timedelta(days=1)
+    due_times = [max(now, daily)]
+    events = _odds_cache or (stored[0] if stored else [])
+    finals = set(_final_odds_cache)
+    persisted = read(_odds_runtime_path("final"))
+    for e in persisted.get("events", []) if isinstance(persisted.get("events"), list) else []:
+        try:
+            if e.get("odds_stage") == "final" and timestamp(e["odds_fetched_at"]) <= now < timestamp(e["commence_time"]):
+                finals.add((e["sport_key"], e["id"], e["commence_time"]))
+        except (AttributeError, KeyError, ValueError, TypeError):
+            continue
+    attempts = dict(_final_odds_attempts)
+    for a in persisted.get("attempts", []) if isinstance(persisted.get("attempts"), list) else []:
+        try:
+            attempts.setdefault(tuple(a["key"]), float(a["at"]))
+        except (KeyError, ValueError, TypeError):
+            continue
+    for e in events:
+        try:
+            key = (e["sport_key"], e["id"], e["commence_time"])
+            kickoff = timestamp(e["commence_time"])
+            if kickoff <= now or key in finals:
+                continue
+            due = max(now, kickoff - timedelta(hours=1))
+            if key in attempts:
+                due = max(due, datetime.fromtimestamp(attempts[key] + 900, timezone.utc))
+            if due < kickoff:
+                due_times.append(due)
+        except (KeyError, ValueError, TypeError, OverflowError):
+            continue
+    return {"quota": quota or {"remaining_credits": None, "used_credits": None,
+                               "last_request_credits": None, "observed_at": None},
+            "next_refresh_due_at": min(due_times).isoformat(),
+            "refresh_trigger": "next_request_or_scheduler_after_due_time",
+            "main_markets": MAIN_ODDS_MARKETS.split(","),
+            "region": "eu", "max_credits_per_league_read": 3}
 
 
 def _load_odds_snapshot(now: datetime) -> Optional[tuple]:
@@ -961,6 +1066,7 @@ def _get_odds() -> list[dict]:
             except Exception:
                 if not _odds_cache:
                     raise
+        _restore_final_odds(now)
         due_by_sport = {}
         for event in _odds_cache:
             try:
@@ -976,6 +1082,7 @@ def _get_odds() -> list[dict]:
             for event in events:
                 key = (sport, event.get("id"), event["commence_time"])
                 _final_odds_attempts[key] = time.time()
+            _save_final_odds(now)
             try:
                 fresh_events = _fetch_league_odds(sport, events)
                 fetched = datetime.now(timezone.utc)
@@ -988,6 +1095,8 @@ def _get_odds() -> list[dict]:
             except Exception as exc:
                 _odds_alert(f"final {sport}",
                             f"Odds API: Quoten vor Anpfiff für {sport} nicht geladen ({type(exc).__name__}).")
+        if due_by_sport:
+            _save_final_odds(datetime.now(timezone.utc))
         output = []
         for event in _odds_cache:
             try:
