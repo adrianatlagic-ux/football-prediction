@@ -14,6 +14,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.bet_audit import norm, timestamp, settlement
+from src.bet_tip import relaxation_distance
 
 POLICIES = ('original', 'original_edge', 'fallback', 'fallback_edge')
 
@@ -41,31 +42,6 @@ def eligible(b, edge=False):
     return (p is not None and q is not None and all(math.isfinite(v) for v in (p, q, odds))
             and 0 <= q <= p <= 1 and odds >= 1.30 and b.get('quote_fresh') is not False
             and (not edge or (binary(b) and p * odds - 1 > 0)))
-
-
-def relaxation_distance(pick, bet):
-    """Analytic implication for binary, same-direction goals/team bets only.
-
-    Unlike a bounded score grid this cannot infer false implications above 8 goals.
-    Win = team handicap -0.5; draw-no-bet and quarter/push lines excluded.
-    """
-    pm, bm = pick.get('market', ''), bet.get('market', '')
-    if not binary(pick) or not binary(bet):
-        return None
-    if pm.startswith('Over/Under ') and bm.startswith('Over/Under ') and pick['outcome'] == bet['outcome']:
-        a, b = float(pm.split()[-1]), float(bm.split()[-1])
-        distance = b - a if pick['outcome'] == 'Under' else a - b
-        return distance if distance > 0 else None
-    if not pick.get('team') or norm(pick['team']) != norm(bet.get('team', '')):
-        return None
-    def team_line(b):
-        if b['market'] == '1X2' and b['outcome'] in ('home_win', 'away_win'):
-            return -.5
-        if b['market'].startswith('Handicap '):
-            return float(b['market'].split()[-1])
-        return None
-    a, b = team_line(pick), team_line(bet)
-    return b - a if a is not None and b is not None and b > a else None
 
 
 def select(entry, policy):

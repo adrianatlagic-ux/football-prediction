@@ -1056,7 +1056,7 @@ function BetTipBox({ betTip }) {
     const why = {
       waiting_for_ai: tr('Folgt, sobald die KI das Spiel geprüft hat (in den 15 Stunden vor Anpfiff).', 'Coming once the AI has checked the match (in the 15 hours before kickoff).'),
       ai_unsure: tr('Kein Wett-Tipp – die KI hat ihren Tipp kurz vor Anpfiff geändert und ist sich nicht sicher.', 'No bet tip – the AI changed its pick shortly before kickoff and is not sure.'),
-      no_agreement: tr('Kein Wett-Tipp – unser Modell schätzt den KI-Tipp nicht höher ein als der Markt.', 'No bet tip – our model does not rate the AI pick above the market.'),
+      no_agreement: tr('Kein Wett-Tipp – weder der KI-Tipp noch eine passende Ersatzwette erfüllt die Bedingungen.', 'No bet tip – neither the AI pick nor a suitable alternative meets the conditions.'),
     }[betTip?.status] || tr('Kein Wett-Tipp für dieses Spiel.', 'No bet tip for this match.')
     return (
       <div className="bet-tip is-empty">
@@ -1077,10 +1077,20 @@ function BetTipBox({ betTip }) {
       <div className="smart-bet-agree-row">
         <span className="smart-bet-agree-chip yes">◆ {tr('Modell stimmt zu', 'Model agrees')} {pct(model)} ✓</span>
       </div>
+      {betTip.is_fallback && betTip.original_pick && (
+        <p className="bet-tip-status">
+          {tr('Ersatzwette aus dem KI-Tipp', 'Alternative derived from the AI pick')}: {betOutcomeLabel(betTip.original_pick)}.
+          {' '}{tr('Die abgeschwächte Wette wird vom Modell mindestens so wahrscheinlich eingeschätzt wie vom Markt.', 'The model rates this weaker bet at least as likely as the market does.')}
+        </p>
+      )}
       <div className={`bet-tip-status ${betTip.confirmed ? 'is-confirmed' : ''}`}>
         {betTip.confirmed
-          ? tr('bestätigt – die KI hat ihren Tipp vor Anpfiff noch einmal geprüft', 'confirmed – the AI checked its pick again before kickoff')
-          : tr('vorläufig – die KI prüft ihn etwa eine Stunde vor Anpfiff noch einmal', 'provisional – the AI checks it again about an hour before kickoff')}
+          ? (betTip.is_fallback
+            ? tr('bestätigt – die KI hat ihren ursprünglichen Tipp beibehalten', 'confirmed – the AI kept its original pick')
+            : tr('bestätigt – die KI hat ihren Tipp vor Anpfiff noch einmal geprüft', 'confirmed – the AI checked its pick again before kickoff'))
+          : (betTip.is_fallback
+            ? tr('vorläufig – die KI prüft ihren ursprünglichen Tipp etwa eine Stunde vor Anpfiff noch einmal', 'provisional – the AI checks its original pick again about an hour before kickoff')
+            : tr('vorläufig – die KI prüft ihn etwa eine Stunde vor Anpfiff noch einmal', 'provisional – the AI checks it again about an hour before kickoff'))}
       </div>
     </div>
   )
@@ -1163,7 +1173,8 @@ function SmartBetCard({ betStep, betInfo, data }) {
   // Table order: the price tip, the market's likeliest bet, the model's
   // biggest gap to the market (★, explained in its box below), the AI's pick.
   // The model's favourite is no longer marked.
-  const signals = [priceTipPick, likelyPick, agentPick].filter(Boolean)
+  const betTip = computeBetTip(betInfo, agentEval)
+  const signals = [betTip.tip, priceTipPick, likelyPick, agentPick].filter(Boolean)
   const signalRank = b => { const i = signals.findIndex(x => sameBet(x, b)); return i === -1 ? signals.length : i }
   // After the marked bets, the same order the combo uses: bets both the
   // model and the AI back, then bets only the model backs (each by the
@@ -1215,7 +1226,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
 
   return (
     <div className="wm-reveal smart-bet-card">
-      <BetTipBox betTip={computeBetTip(betInfo, agentEval)} />
+      <BetTipBox betTip={betTip} />
 
       {(greens.length > 0 || reds.length > 0) && (
         <div className="smart-bet-table">

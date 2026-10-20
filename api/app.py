@@ -2259,15 +2259,15 @@ def _bet_tip_v1(vb: dict, agent_eval: Optional[dict]) -> dict:
 # likeliest bet the AI merely agreed with landed under the market's estimate.
 # A pick the agent changed at its re-check an hour before kickoff landed 53%
 # (15 picks): a change of mind means it is unsure, so then there is no tip.
-BET_TIP_RULE = "ki_model_v2"
+BET_TIP_RULE = "ki_model_fallback_v3"
 
 
 def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
     """{"tip", "status": "ok" | "no_agreement" | "ai_unsure" | "waiting_for_ai",
     "confirmed": the pre-kickoff re-check kept the pick, "rule"}.
 
-    A withheld pick (the agent changed its mind, or the model rates it below
-    the market) is returned as "withheld", so the log can check the rule.
+    A model-below-market rejection can use a strictly weaker quoted bet.
+    AI changes always withhold the tip. Original selections remain logged.
     """
     out = {"tip": None, "rule": BET_TIP_RULE, "confirmed": False}
     agent_eval = agent_eval or {}
@@ -2288,8 +2288,17 @@ def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
     if model is None:
         model = pick.get("probability")
     market = pick.get("market_probability")
-    if (market is None or model is None or model < market or pick.get("best_odds", 0) < BET_TIP_MIN_ODDS):
+    if (market is None or model is None or pick.get("best_odds", 0) < BET_TIP_MIN_ODDS):
         return {**out, "status": "no_agreement", "withheld": pick}
+    if model < market:
+        from src.bet_tip import fallback_pick
+        replacement = fallback_pick(pick, vb.get("bets") or vb.get("green_bets", []) + vb.get("red_bets", []),
+                                    min_odds=BET_TIP_MIN_ODDS)
+        if replacement is None:
+            return {**out, "status": "no_agreement", "withheld": pick}
+        return {**out, "tip": replacement, "status": "ok", "is_fallback": True,
+                "original_pick": pick, "fallback_reason": "original_model_below_market",
+                "confirmed": agent_eval.get("revised_from_previous") is False}
     return {**out, "tip": pick, "status": "ok", "confirmed": agent_eval.get("revised_from_previous") is False}
 
 
