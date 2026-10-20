@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.5",
+  "target_date": "2026-10-20",
+  "editorial_date_timezone": "Europe/Berlin",
+  "status": "reserved_preflight",
+  "daily_limit": 1,
+  "video_generation_attempt_limit": 1,
+  "attempts_used": 0,
+  "coverage_key": "ucl:2049589:2026-10-20:paris-barcelona",
+  "fixture": {
+    "competition": "UEFA Champions League",
+    "id": "2049589",
+    "home": "Paris Saint-Germain",
+    "away": "FC Barcelona",
+    "match_date": "2026-10-20",
+    "kickoff_at": "2026-10-20T21:00:00+02:00",
+    "status": "UPCOMING",
+    "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=100&limit=100",
+    "crosscheck": "https://www.uefa.com/uefachampionsleague/history/h2h/52747/50080/",
+    "retrieved_at": "2026-10-20T16:25:50Z",
+    "stadium": "Parc des Princes"
+  },
+  "selection": {
+    "reason": "Heutiges noch nicht behandeltes Champions-League-Topspiel zwischen Paris und Barcelona; 21 Uhr MESZ lässt mehr als zwei Stunden Vorlauf.",
+    "skipped": [
+      "Bayern München–Arsenal am 21.10. bereits am 12.10. angekündigt",
+      "Frühes Sabah–Dortmund erfüllt bei späterem Nachholen den Zwei-Stunden-Vorlauf nicht"
+    ],
+    "generation_basis": "verified_fixture_and_current_research",
+    "prediction_used": false
+  },
+  "research": {
+    "context_type": "match",
+    "verified_context": "Offizielle UEFA-Historie führt Paris–Barcelona als direkte Champions-League-Begegnung mit früheren wechselseitigen Begegnungen, darunter Barcelona 1:4 Paris (2024); diese Rivalität und Unsicherheit prägen den fiktiven Wechsel von Angriff und Gegenwehr.",
+    "source": "https://www.uefa.com/uefachampionsleague/history/h2h/52747/50080/",
+    "retrieved_at": "2026-10-20T16:25:50Z"
+  },
+  "story": {
+    "story_type": "perspective_shift",
+    "previous_story_type": "anime_dialogue_causal_pitch_actions (19.10., nicht freigegeben)",
+    "hook": "Zwei Fans blicken auf ein Duell mit wechselnden Spielmomenten.",
+    "conflict": "Pariser Vorstoß vs. Barcelonas Ballgewinn.",
+    "turning_point": "Eroberung führt zum schnellen Barcelona-Pass; Paris verteidigt im Rückweg.",
+    "ending_image": "Freier Ball, offener Ausgang.",
+    "off_pitch_setup": "Zwei fiktive erwachsene Zuschauer sprechen knapp über die Unsicherheit des Duells.",
+    "on_pitch_beats": [
+      "Paris dribbelt links; Barcelona liest Finte und erobert Ball.",
+      "Barcelona spielt in freie Gasse; Paris läuft zurück und blockt vor dem Abschluss."
+    ],
+    "causal_bridge": "Blick und Dialog der Zuschauer führen in unmittelbar zusammenhängende Entscheidungen am Ball.",
+    "on_pitch_payoff": "Offener Ball ohne Ergebnisbehauptung.",
+    "spoken_language": "de",
+    "fiction_boundary": "Fiktive, nicht identifizierbare Figuren und Spielmomente; keine behaupteten historischen Szenen.",
+    "exchangeability_test": "Duellbezug durch UEFA-Historie und Heimstadion; die Platzaktionen illustrieren gegenseitige Wendungen."
+  },
+  "fixture_hook": {
+    "text": "PARIS SAINT-GERMAIN GEGEN FC BARCELONA · HEUTE · 21:00 UHR MESZ",
+    "render_mode": "confirmed_cloud_start_image_inside_generated_source",
+    "start_media_id": "6586f9e1-1063-43ef-91ad-8487bc26e313",
+    "crest_sources": [
+      "https://img.uefa.com/imgml/TP/teams/logos/700x700/52747.png",
+      "https://img.uefa.com/imgml/TP/teams/logos/700x700/50080.png"
+    ],
+    "stadium_source": "https://img.uefa.com/imgml/stadium/matchinfo/w1/57779.jpg"
+  },
+  "outro_master": {
+    "media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "duration_seconds": 3,
+    "preflight": "verified in Higgsfield cloud; German text and visual reviewed"
+  },
+  "production": {
+    "charge_key": "goaliq-2026-10-20-ucl-2049589-single-video-v1",
+    "model": "grok_video_v15_lite",
+    "params": {
+      "duration": 12,
+      "aspect_ratio": "9:16",
+      "resolution": "720p",
+      "count": 1,
+      "start_media_id": "6586f9e1-1063-43ef-91ad-8487bc26e313"
+    },
+    "quoted_credits_exact": 12,
+    "balance_before_credits": 512,
+    "job_id": null,
+    "prompt": "12-sekündiges vertikales fotorealistisches Kino-Vorschauvideo, durchgehend deutsch. Das bereitgestellte Startbild ist die erste Szene: echte UEFA-Wappen von Paris Saint-Germain und FC Barcelona, korrekte Paarung und HEUTE · 21:00 UHR MESZ auf der Stadionanzeige. Halte diese Anfangsinformation ca. 2 Sekunden stabil und gut lesbar, ohne weitere Texteinblendung. Danach ein eigenständiges fiktives Duell im Parc des Princes, keine echte Spielaufnahme oder Ergebnisbehauptung, keine nachgebildeten identifizierbaren Profis, keine Stimmenklone. Zwei fiktive erwachsene Figuren auf der Tribüne, natürliche deutsche Stimmen und kurze wechselseitige Sätze: 'Hier kippt jeder Vorsprung.' – 'Dann zählen die nächsten Sekunden.' Ihre Blicke führen zum Platz. Erste kausale Spielaktion: fiktiver Pariser Angreifer dribbelt auf links, eine fiktive Barcelona-Verteidigerin liest die Finte und erobert den Ball. Zweite Aktion unmittelbar als Folge: Barcelona spielt schnell in die freie Gasse, ein fiktiver Pariser Verteidiger sprintet zurück und grätscht fair vor dem Abschluss dazwischen. Schlussbild: der frei rollende Ball zwischen beiden Teams, offene Frage statt Tor oder Ergebnis. Starke räumliche Kontinuität, Ballrichtung und Reaktionen klar, realistische Körperbewegung, glaubwürdige Emotion, dynamischer Kameraschwenk zwischen Tribüne und Platz. Keine Sponsorenaussage, kein Stat-Overlay, keine erfundenen Nachrichten. Dies ist eine klar fiktionale visuelle Vorschau, keine dokumentarische Rekonstruktion."
+  },
+  "qa": {
+    "status": "pending"
+  },
+  "delivery": {
+    "ready": false,
+    "final_media_id": null,
+    "zip_media_id": null
+  },
+  "created_at": "2026-10-20T16:25:50Z"
+}
