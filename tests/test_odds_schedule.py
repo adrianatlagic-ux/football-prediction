@@ -59,11 +59,11 @@ def test_initial_daily_final_fetch_once_at_first_request(monkeypatch, clock_and_
     def daily():
         calls.append("daily")
         return [fixture(clock["now"], kickoff)]
-    def final(event):
-        calls.append(event["sport_key"])
-        return fixture(clock["now"], kickoff)
+    def final(sport, events):
+        calls.append(sport)
+        return [fixture(clock["now"], kickoff)]
     monkeypatch.setattr(api, "_fetch_odds", daily)
-    monkeypatch.setattr(api, "_fetch_event_odds", final)
+    monkeypatch.setattr(api, "_fetch_league_odds", final)
     assert api._get_odds()[0]["odds_stage"] == "initial"
     clock["now"] += timedelta(minutes=20)
     api._get_odds()
@@ -83,10 +83,10 @@ def test_failed_final_never_relabels_old_quote_or_retries_every_view(monkeypatch
     clock["now"] = clock["now"].replace(hour=16, minute=5)
     monkeypatch.setattr(api, "_fetch_odds", lambda: [fixture(clock["now"], clock["now"].replace(hour=17))])
     calls = []
-    def fail(event):
-        calls.append(event)
+    def fail(sport, events):
+        calls.append(events)
         raise OSError("provider unavailable")
-    monkeypatch.setattr(api, "_fetch_event_odds", fail)
+    monkeypatch.setattr(api, "_fetch_league_odds", fail)
     first = api._get_odds()[0]
     assert first["odds_stage"] == "daily" and first["final_refresh_status"] == "pending_or_failed"
     api._get_odds()
@@ -128,7 +128,7 @@ def test_daily_fetch_includes_nations_league_quotes(monkeypatch):
     monkeypatch.setattr(api, "ODDS_API_KEY", "test-placeholder")
     events = api._fetch_odds()
     assert api._find_odds_match(events, "Austria", "Israel") == event
-    # Three free event lists, plus Over/Under (one credit) where there are games.
+    # Three free event lists, plus main-market prices where there are games.
     assert len(requested) == 4
     assert requested[-1] == "/v4/sports/soccer_uefa_nations_league/odds"
 
@@ -154,3 +154,67 @@ def test_audit_reports_daily_and_final_separately(tmp_path, monkeypatch):
     assert profit(report) == 1
     assert profit(report["by_odds_stage"]["daily"]) == 1.5
     assert profit(report["by_odds_stage"]["final"]) == 1
+
+
+def test_final_batches_matches_and_retries_only_missing(monkeypatch, clock_and_caches):
+    clock = clock_and_caches
+    clock['now'] = clock['now'].replace(hour=16, minute=5)
+    first = fixture(clock['now'], clock['now'].replace(hour=17))
+    second = {**first, 'id': 'bl-two', 'home_team': 'C', 'away_team': 'D'}
+    later = {**first, 'id': 'bl-later', 'commence_time': clock['now'].replace(hour=20).isoformat()}
+    monkeypatch.setattr(api, '_fetch_odds', lambda: [first, second, later])
+    calls = []
+    def fetch(sport, events):
+        calls.append([e['id'] for e in events])
+        return [first] if len(calls) == 1 else [second]
+    monkeypatch.setattr(api, '_fetch_league_odds', fetch)
+    wall = [10000]
+    monkeypatch.setattr(api.time, 'time', lambda: wall[0])
+    out = api._get_odds()
+    assert calls == [['bl-one', 'bl-two']]
+    assert out[0]['odds_stage'] == 'final'
+    assert out[1]['final_refresh_status'] == 'pending_or_failed'
+    assert out[2]['odds_stage'] == 'daily'
+    api._get_odds()
+    assert len(calls) == 1
+    wall[0] += 901
+    out = api._get_odds()
+    assert calls[-1] == ['bl-two']
+    assert out[1]['odds_stage'] == 'final'
+
+
+def test_league_response_checks_identity_and_requests_three_markets(monkeypatch):
+    import json
+    from io import BytesIO
+    from urllib.parse import urlparse, parse_qs
+    now = datetime.now(timezone.utc)
+    event = fixture(now)
+    wrong = {**event, 'home_team': 'Wrong'}
+    empty = {**event, 'id': 'empty', 'bookmakers': []}
+    seen = []
+    def open_(request, timeout):
+        seen.append(request.full_url)
+        return BytesIO(json.dumps([wrong, empty, event]).encode())
+    monkeypatch.setattr(api.urllib.request, 'urlopen', open_)
+    monkeypatch.setattr(api, 'ODDS_API_KEY', 'test-placeholder')
+    assert api._fetch_league_odds(event['sport_key'], [event, empty]) == [event]
+    query = parse_qs(urlparse(seen[0]).query)
+    assert query['markets'] == ['h2h,totals,spreads']
+    assert '/events/' not in seen[0]
+    assert query['commenceTimeFrom'][0] < query['commenceTimeTo'][0]
+
+
+def test_morning_prices_request_all_main_markets(monkeypatch):
+    import json
+    from io import BytesIO
+    from urllib.parse import urlparse, parse_qs
+    event = fixture(datetime.now(timezone.utc))
+    listed = [{**event, 'bookmakers': []}]
+    seen = []
+    def open_(request, timeout):
+        seen.append(parse_qs(urlparse(request.full_url).query))
+        return BytesIO(json.dumps([event]).encode())
+    monkeypatch.setattr(api.urllib.request, 'urlopen', open_)
+    api._add_morning_prices(event['sport_key'], listed, '')
+    assert seen[0]['markets'] == ['h2h,totals,spreads']
+    assert listed[0]['bookmakers'] == event['bookmakers']

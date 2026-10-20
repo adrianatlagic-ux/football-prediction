@@ -82,6 +82,8 @@ body {
 
 .nav-links {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.75rem;
 }
 
@@ -1573,7 +1575,16 @@ body {
 }
 
 @media (max-width: 700px) {
-  .navbar { flex-direction: column; gap: 0.75rem; padding: 1rem; justify-content: center; }
+  .navbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    padding: 1rem;
+  }
+  .nav-brand { flex-shrink: 0; }
+  .nav-links { order: 3; flex-basis: 100%; min-width: 0; }
+  .navbar .lang-switch { position: static; flex-shrink: 0; margin-left: auto; }
+
   .nav-links { gap: 1.25rem; }
   .hero h1 { font-size: 2rem; overflow-wrap: anywhere; }
   .hero-eyebrow { letter-spacing: 0.1em; font-size: 0.62rem; }
@@ -1602,6 +1613,7 @@ body {
 }
 
 .wm-section {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -1885,7 +1897,7 @@ body {
 /* Fixtures List */
 .fixtures-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr));
   gap: 0.9rem;
   align-items: start;
 }
@@ -1906,6 +1918,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-width: 0;
 }
 
 .fixture-row:hover {
@@ -1916,6 +1929,8 @@ body {
 
 .fixture-meta {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.6rem;
@@ -1952,6 +1967,8 @@ body {
 }
 
 .fixture-teams > span:not(.fixture-vs) {
+  min-width: 0;
+  overflow-wrap: anywhere;
   display: flex;
   align-items: center;
   gap: 0.55rem;
@@ -3548,10 +3565,6 @@ body {
 .lang-switch button.active {
   background: linear-gradient(135deg, var(--gold-light), var(--gold));
   color: #1a1406;
-}
-@media (max-width: 700px) {
-  .navbar { position: relative; }
-  .lang-switch { position: absolute; top: 1rem; right: 1rem; }
 }
 
 /* Landing card: the match page's blocks, scaled to the card. */

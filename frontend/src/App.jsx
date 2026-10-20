@@ -7,6 +7,7 @@ import NL_FIXTURES from './nl_fixtures.json'
 import CLUB_CRESTS from './club_crests.json'
 import TEAM_COLORS from './team_colors.json'
 import TEAM_NAMES_DE from './team_names_de.json'
+import { fixtureDateTime, nextGamesFor } from './fixtureSchedule.js'
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? (import.meta.env.DEV ? 'http://127.0.0.1:8000' : '')
 
@@ -23,9 +24,6 @@ const GROUPS = [...new Set(CL_FIXTURES.map(f => f.group))].sort((a, b) => {
   return a.localeCompare(b)
 })
 
-function fixtureDateTime(f) {
-  return new Date(`${f.date}T${f.time}:00`)
-}
 
 // The page's language: German by default, English on request (the switch at
 // the top right), remembered in the browser. Every text a visitor reads goes
@@ -84,24 +82,6 @@ const MATCH_DESCRIPTIONS_DE = {
   'Few chances expected, a single goal could be decisive': 'Wenige Chancen erwartet, ein Tor könnte entscheiden',
 }
 
-// "Next Games" = the current matchday window: 15:00 until 06:00 the next morning.
-// Before 06:00 we're still inside last evening's window; otherwise it's today's.
-function nextGamesWindow(now = new Date()) {
-  const start = new Date(now)
-  const end = new Date(now)
-  if (now.getHours() < 6) {
-    start.setDate(start.getDate() - 1)
-    start.setHours(15, 0, 0, 0)
-    end.setHours(6, 0, 0, 0)
-  } else {
-    start.setHours(15, 0, 0, 0)
-    end.setDate(end.getDate() + 1)
-    end.setHours(6, 0, 0, 0)
-  }
-  return [start, end]
-}
-
-const [_NG_START, _NG_END] = nextGamesWindow()
 const BL_GROUPS = [...new Set(BL_FIXTURES.map(f => f.group))]
 const NL_GROUPS = [...new Set(NL_FIXTURES.map(f => f.group))]
 
@@ -159,13 +139,6 @@ function predictionOpensAt(fixture) {
   return new Date(fixtureDateTime(fixture).getTime() - PREDICTION_LEAD_HOURS * 3600000)
 }
 
-// "Next games" follows whichever competition is on screen: showing Champions
-// League kickoffs while the Nations League tab is open would just look broken.
-function nextGamesFor(fixtures) {
-  return fixtures
-    .filter(f => { const d = fixtureDateTime(f); return d >= _NG_START && d < _NG_END })
-    .sort((a, b) => fixtureDateTime(a) - fixtureDateTime(b))
-}
 
 function excitementScore(data) {
   const probs = [data.probability_home_win, data.probability_draw, data.probability_away_win]
@@ -523,10 +496,10 @@ function useAiTextsEn(home, away) {
 
 function MatchScenario({ data }) {
   const bm = (data.score_prediction || {}).betting_markets
-  if (!bm) return null
   const home = data.home_team
   const away = data.away_team
   const en = useAiTextsEn(home, away)
+  if (!bm) return null
   return (
     <div className="betting-markets">
       <div className="scenario-box">
@@ -1056,7 +1029,8 @@ function BetTipBox({ betTip }) {
     const why = {
       waiting_for_ai: tr('Folgt, sobald die KI das Spiel geprüft hat (in den 15 Stunden vor Anpfiff).', 'Coming once the AI has checked the match (in the 15 hours before kickoff).'),
       ai_unsure: tr('Kein Wett-Tipp – die KI hat ihren Tipp kurz vor Anpfiff geändert und ist sich nicht sicher.', 'No bet tip – the AI changed its pick shortly before kickoff and is not sure.'),
-      no_agreement: tr('Kein Wett-Tipp – unser Modell schätzt den KI-Tipp nicht höher ein als der Markt.', 'No bet tip – our model does not rate the AI pick above the market.'),
+      no_agreement: tr('Kein Wett-Tipp – die Bedingungen für einen Tipp sind nicht erfüllt.', 'No bet tip – the conditions for a tip are not met.'),
+      odds_expired: tr('Kein Wett-Tipp – die Quoten sind nicht mehr gültig. Bitte erneut laden.', 'No bet tip – the odds are no longer valid. Please reload.'),
     }[betTip?.status] || tr('Kein Wett-Tipp für dieses Spiel.', 'No bet tip for this match.')
     return (
       <div className="bet-tip is-empty">
@@ -1079,8 +1053,8 @@ function BetTipBox({ betTip }) {
       </div>
       <div className={`bet-tip-status ${betTip.confirmed ? 'is-confirmed' : ''}`}>
         {betTip.confirmed
-          ? tr('bestätigt – die KI hat ihren Tipp vor Anpfiff noch einmal geprüft', 'confirmed – the AI checked its pick again before kickoff')
-          : tr('vorläufig – die KI prüft ihn etwa eine Stunde vor Anpfiff noch einmal', 'provisional – the AI checks it again about an hour before kickoff')}
+          ? tr('bestätigt – die KI-Prüfung vor Anpfiff ist abgeschlossen', 'confirmed – the AI review before kickoff is complete')
+          : tr('vorläufig – die KI prüft das Spiel etwa eine Stunde vor Anpfiff noch einmal', 'provisional – the AI reviews the match again about an hour before kickoff')}
       </div>
     </div>
   )
@@ -1103,7 +1077,7 @@ function LikelyTipBox({ pick }) {
   )
 }
 
-function SmartBetCard({ betStep, betInfo, data }) {
+function SmartBetCard({ betStep, betInfo, data, onRefresh, currentTime }) {
   const [showAllMarkets, setShowAllMarkets] = useState(false)
   const aiEn = useAiTextsEn(data?.home_team, data?.away_team)
 
@@ -1136,6 +1110,22 @@ function SmartBetCard({ betStep, betInfo, data }) {
     )
   }
 
+  const snapshotExpired = betInfo.snapshot_valid === false
+    || (betInfo.snapshot_valid_until && currentTime >= Date.parse(betInfo.snapshot_valid_until))
+  if (snapshotExpired) {
+    return (
+      <div className="wm-reveal">
+        <p className="smart-bet-notip">
+          {tr('Der Quotenstand ist abgelaufen. Bitte lade die Wett-Tipps erneut, um aktuelle Daten abzurufen.',
+              'This odds snapshot has expired. Reload the bet tips to fetch updated data.')}
+        </p>
+        {onRefresh && <button className="fixture-generate-btn" onClick={onRefresh}>
+          {tr('Quoten erneut laden', 'Reload odds')}
+        </button>}
+      </div>
+    )
+  }
+
   // A recommendation with a warning means nothing cleared the clean/above-
   // threshold bar (see MIN_KELLY_FOR_RECOMMENDATION in the backend) - it's a
   // thin fallback, not a real tip, so it must not be promoted to a ★ signal
@@ -1163,7 +1153,8 @@ function SmartBetCard({ betStep, betInfo, data }) {
   // Table order: the price tip, the market's likeliest bet, the model's
   // biggest gap to the market (★, explained in its box below), the AI's pick.
   // The model's favourite is no longer marked.
-  const signals = [priceTipPick, likelyPick, agentPick].filter(Boolean)
+  const betTip = computeBetTip(betInfo, agentEval)
+  const signals = [betTip.tip, priceTipPick, likelyPick, agentPick].filter(Boolean)
   const signalRank = b => { const i = signals.findIndex(x => sameBet(x, b)); return i === -1 ? signals.length : i }
   // After the marked bets, the same order the combo uses: bets both the
   // model and the AI back, then bets only the model backs (each by the
@@ -1215,7 +1206,7 @@ function SmartBetCard({ betStep, betInfo, data }) {
 
   return (
     <div className="wm-reveal smart-bet-card">
-      <BetTipBox betTip={computeBetTip(betInfo, agentEval)} />
+      <BetTipBox betTip={betTip} />
 
       {(greens.length > 0 || reds.length > 0) && (
         <div className="smart-bet-table">
@@ -1308,7 +1299,7 @@ function RevealSection({ visible, className = '', children }) {
   return <div className={`wm-reveal ${className}`}>{children}</div>
 }
 
-function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Infinity, betStep, onStartBetCheck, betInfo }) {
+function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Infinity, betStep, onStartBetCheck, betInfo, currentTime }) {
   const sp = data.score_prediction || {}
   const gf = data.game_flow || {}
   const ps = gf.predicted_stats || {}
@@ -1449,7 +1440,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
                   </button>
                 </div>
               ) : (
-                <SmartBetCard betStep={betStep} betInfo={betInfo} data={data} />
+                <SmartBetCard betStep={betStep} betInfo={betInfo} data={data} onRefresh={onStartBetCheck} currentTime={currentTime} />
               )}
             </div>
           )}
@@ -2236,14 +2227,21 @@ export default function App() {
   const [activeCompetition, setActiveCompetition] = useState('cl')
   const [activeGroup, setActiveGroup] = useState('next')
   const [, setFixturesVersion] = useState(0)
+  const [fixtureNow, setFixtureNow] = useState(() => new Date())
+  useEffect(() => {
+    const refreshClock = () => setFixtureNow(new Date())
+    const timer = setInterval(refreshClock, 60000)
+    window.addEventListener('focus', refreshClock)
+    return () => { clearInterval(timer); window.removeEventListener('focus', refreshClock) }
+  }, [])
   const [analysisStep, setAnalysisStep] = useState({})
   const [combo, setCombo] = useState(null)
   const [comboLoading, setComboLoading] = useState(false)
 
   const competition = COMPETITIONS[activeCompetition]
   const currentFixtures = competition.fixtures
-  const currentGroups = competition.groups
-  const nextGames = nextGamesFor(currentFixtures)
+  const currentGroups = groupsAroundToday(currentFixtures, fixtureNow)
+  const nextGames = nextGamesFor(currentFixtures, fixtureNow)
 
   // Anything already loaded belongs to the competition being left, so it is
   // dropped rather than shown under the new one.
@@ -2562,11 +2560,11 @@ export default function App() {
               )}
 
               {activeGroup === 'next' && nextGames.length === 0 && (
-                <p className="wm-subtle">{tr('Heute stehen keine Spiele an.', 'No games today.')}</p>
+                <p className="wm-subtle">{tr('Noch keine weiteren Spieltermine verfügbar.', 'No further fixtures available yet.')}</p>
               )}
 
               {activeGroup === 'hot' && nextGames.length === 0 && (
-                <p className="wm-subtle">{tr('Heute stehen keine Spiele an.', 'No games today.')}</p>
+                <p className="wm-subtle">{tr('Noch keine weiteren Spieltermine verfügbar.', 'No further fixtures available yet.')}</p>
               )}
 
 
@@ -2625,6 +2623,7 @@ export default function App() {
                         onCollapse={step === Infinity ? () => collapseAnalysis(fixture.match_id) : undefined}
                         betStep={betStepById[fixture.match_id]}
                         betInfo={betInfoById[fixture.match_id]}
+                        currentTime={fixtureNow.getTime()}
                         onStartBetCheck={() => startBetCheck(fixture.match_id, fixture)}
                       />
                     )

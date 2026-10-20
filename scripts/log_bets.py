@@ -97,6 +97,8 @@ def _build_entry(m, now):
         "competition": _competition(m.get("sport_key")),
         "recommendation": m.get("recommendation"),
         "recommendation_warning": m.get("recommendation_warning"),
+        # Keep every priced candidate: fallback audits need rejected lines too.
+        "bets": m.get("bets", []),
         "green_bets": m.get("green_bets", []),
         "red_bets": m.get("red_bets", []),
         "agent_eval": m.get("agent_eval"),

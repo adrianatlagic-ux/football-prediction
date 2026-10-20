@@ -3,8 +3,8 @@ from datetime import datetime, timezone, timedelta
 from .bet_audit import timestamp
 
 # 06:00 UTC, 08:00 in Germany: the morning read of the day's fixtures and
-# bet-at-home's full market book. Pinnacle is read only in each match's last
-# hour, so the morning snapshot carries no Pinnacle price.
+# bet-at-home's full market book, plus Odds API main-market prices.
+# Final Odds API reads batch due fixtures by competition in the last hour.
 DAILY_REFRESH_HOUR_UTC = 6
 
 
