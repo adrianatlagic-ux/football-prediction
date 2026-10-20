@@ -2,7 +2,7 @@
   "schema_version": "1.5",
   "target_date": "2026-10-20",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "delivered_with_disclosed_quality_limit",
+  "status": "user_rejected_quality",
   "daily_limit": 1,
   "video_generation_attempt_limit": 1,
   "attempts_used": 1,
@@ -107,11 +107,17 @@
       "status": "UPCOMING",
       "kickoff_at": "2026-10-20T19:00:00Z",
       "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=100&limit=100"
+    },
+    "user_feedback": {
+      "at": "2026-10-20T18:46:05+02:00",
+      "verdict": "Schlechtestes Video bisher; Story unverständlich; Spieler wirken zufällig; Union–Elversberg als positive Referenz.",
+      "diagnosis": "Heutiger Fan-Dialog hat kein persönliches Dilemma und keine klare Entscheidung; Spieler ohne verifizierbare Identität, generierte Spielszenen ohne nachvollziehbare Ursache/Folge; Fixture-Schrift bleibt zu lange im Bild.",
+      "action": "Nicht als ready behandeln; keine weitere Videogenerierung für das Beitragsdatum, 1/1 Auftrag genutzt. Nächste Beiträge an klarer Union–Elversberg-Dramaturgie ausrichten."
     }
   },
   "delivery": {
     "ready": false,
-    "status": "delivered_with_disclosed_quality_limit",
+    "status": "user_rejected_quality",
     "final_media_id": "bc9ab210-bba6-4eef-a87b-56126cca3937",
     "zip_media_id": "c09ebc17-fc01-4e0c-82c4-20d2a6816550",
     "final_sha256": "56e5ce65ac917fddbdd914728233e0550c57ee34fa8945031e52c44252bbd9fa",
@@ -124,5 +130,5 @@
   },
   "created_at": "2026-10-20T16:25:50Z",
   "caption": "Paris gegen Barça: Wer behält die Nerven, wenn ein Ballgewinn das Spiel sofort dreht? 🔥 Wird der schnelle Konter oder die letzte Abwehraktion entscheidend?\n\n20.10.2026 · 21:00 Uhr MESZ · KI-Fiktion\ngoaliq.de\nKI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.\n\n#PSG #FCBarcelona #ChampionsLeague #GoalIQ",
-  "updated_at": "2026-10-20T16:31:45Z"
+  "updated_at": "2026-10-20T16:46:05Z"
 }
