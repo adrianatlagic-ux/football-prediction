@@ -2,10 +2,10 @@
   "schema_version": "1.5",
   "target_date": "2026-10-20",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "reserved_preflight",
+  "status": "generation_submitted",
   "daily_limit": 1,
   "video_generation_attempt_limit": 1,
-  "attempts_used": 0,
+  "attempts_used": 1,
   "coverage_key": "ucl:2049589:2026-10-20:paris-barcelona",
   "fixture": {
     "competition": "UEFA Champions League",
@@ -81,8 +81,9 @@
     },
     "quoted_credits_exact": 12,
     "balance_before_credits": 512,
-    "job_id": null,
-    "prompt": "12-sekündiges vertikales fotorealistisches Kino-Vorschauvideo, durchgehend deutsch. Das bereitgestellte Startbild ist die erste Szene: echte UEFA-Wappen von Paris Saint-Germain und FC Barcelona, korrekte Paarung und HEUTE · 21:00 UHR MESZ auf der Stadionanzeige. Halte diese Anfangsinformation ca. 2 Sekunden stabil und gut lesbar, ohne weitere Texteinblendung. Danach ein eigenständiges fiktives Duell im Parc des Princes, keine echte Spielaufnahme oder Ergebnisbehauptung, keine nachgebildeten identifizierbaren Profis, keine Stimmenklone. Zwei fiktive erwachsene Figuren auf der Tribüne, natürliche deutsche Stimmen und kurze wechselseitige Sätze: 'Hier kippt jeder Vorsprung.' – 'Dann zählen die nächsten Sekunden.' Ihre Blicke führen zum Platz. Erste kausale Spielaktion: fiktiver Pariser Angreifer dribbelt auf links, eine fiktive Barcelona-Verteidigerin liest die Finte und erobert den Ball. Zweite Aktion unmittelbar als Folge: Barcelona spielt schnell in die freie Gasse, ein fiktiver Pariser Verteidiger sprintet zurück und grätscht fair vor dem Abschluss dazwischen. Schlussbild: der frei rollende Ball zwischen beiden Teams, offene Frage statt Tor oder Ergebnis. Starke räumliche Kontinuität, Ballrichtung und Reaktionen klar, realistische Körperbewegung, glaubwürdige Emotion, dynamischer Kameraschwenk zwischen Tribüne und Platz. Keine Sponsorenaussage, kein Stat-Overlay, keine erfundenen Nachrichten. Dies ist eine klar fiktionale visuelle Vorschau, keine dokumentarische Rekonstruktion."
+    "job_id": "f76c5a99-6a12-40f9-b3fd-cb82febacfaa",
+    "prompt": "12-sekündiges vertikales fotorealistisches Kino-Vorschauvideo, durchgehend deutsch. Das bereitgestellte Startbild ist die erste Szene: echte UEFA-Wappen von Paris Saint-Germain und FC Barcelona, korrekte Paarung und HEUTE · 21:00 UHR MESZ auf der Stadionanzeige. Halte diese Anfangsinformation ca. 2 Sekunden stabil und gut lesbar, ohne weitere Texteinblendung. Danach ein eigenständiges fiktives Duell im Parc des Princes, keine echte Spielaufnahme oder Ergebnisbehauptung, keine nachgebildeten identifizierbaren Profis, keine Stimmenklone. Zwei fiktive erwachsene Figuren auf der Tribüne, natürliche deutsche Stimmen und kurze wechselseitige Sätze: 'Hier kippt jeder Vorsprung.' – 'Dann zählen die nächsten Sekunden.' Ihre Blicke führen zum Platz. Erste kausale Spielaktion: fiktiver Pariser Angreifer dribbelt auf links, eine fiktive Barcelona-Verteidigerin liest die Finte und erobert den Ball. Zweite Aktion unmittelbar als Folge: Barcelona spielt schnell in die freie Gasse, ein fiktiver Pariser Verteidiger sprintet zurück und grätscht fair vor dem Abschluss dazwischen. Schlussbild: der frei rollende Ball zwischen beiden Teams, offene Frage statt Tor oder Ergebnis. Starke räumliche Kontinuität, Ballrichtung und Reaktionen klar, realistische Körperbewegung, glaubwürdige Emotion, dynamischer Kameraschwenk zwischen Tribüne und Platz. Keine Sponsorenaussage, kein Stat-Overlay, keine erfundenen Nachrichten. Dies ist eine klar fiktionale visuelle Vorschau, keine dokumentarische Rekonstruktion.",
+    "status": "pending"
   },
   "qa": {
     "status": "pending"
