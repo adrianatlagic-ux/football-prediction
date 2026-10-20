@@ -1,0 +1,5943 @@
+{
+  "policies": {
+    "original": {
+      "bets": 43,
+      "wins": 32,
+      "losses": 11,
+      "push_or_partial": 0,
+      "hit_rate": 0.7441860465116279,
+      "profit_units": 25.16,
+      "roi": 0.5851162790697675,
+      "fallback_bets": 0
+    },
+    "original_edge": {
+      "bets": 41,
+      "wins": 30,
+      "losses": 11,
+      "push_or_partial": 0,
+      "hit_rate": 0.7317073170731707,
+      "profit_units": 23.61,
+      "roi": 0.5758536585365853,
+      "fallback_bets": 0
+    },
+    "fallback": {
+      "bets": 43,
+      "wins": 32,
+      "losses": 11,
+      "push_or_partial": 0,
+      "hit_rate": 0.7441860465116279,
+      "profit_units": 25.16,
+      "roi": 0.5851162790697675,
+      "fallback_bets": 0
+    },
+    "fallback_edge": {
+      "bets": 41,
+      "wins": 30,
+      "losses": 11,
+      "push_or_partial": 0,
+      "hit_rate": 0.7317073170731707,
+      "profit_units": 23.61,
+      "roi": 0.5758536585365853,
+      "fallback_bets": 0
+    }
+  },
+  "date_range": [
+    "2026-09-28",
+    "2026-10-20"
+  ],
+  "coverage": {
+    "finished_with_ai": 95,
+    "full_bets_field": 0,
+    "changed_ai": 25,
+    "fallback_triggered": 24,
+    "trigger_with_recorded_relaxation": 12,
+    "trigger_with_qualifying_relaxation": 0
+  },
+  "exclusions": {
+    "no_completed_regulation_result": 13,
+    "no_ai_pick": 5
+  },
+  "records": [
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "augsburg",
+        "bayernmunich",
+        "2026-10-10T13:30:00+00:00"
+      ],
+      "date": "2026-10-10",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-10T13:04:15.055666+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 4.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 4.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.06,
+        "bookmaker": "Matchbook",
+        "model_probability_raw": 0.6972,
+        "probability": 0.5511,
+        "market_probability": 0.4885
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.06
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "augsburg",
+        "bayernmunich",
+        "2026-10-10T13:30:00+00:00"
+      ],
+      "date": "2026-10-10",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-10T13:04:15.055666+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 4.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 4.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.06,
+        "bookmaker": "Matchbook",
+        "model_probability_raw": 0.6972,
+        "probability": 0.5511,
+        "market_probability": 0.4885
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.06
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "augsburg",
+        "bayernmunich",
+        "2026-10-10T13:30:00+00:00"
+      ],
+      "date": "2026-10-10",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-10T13:04:15.055666+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 4.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 4.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.06,
+        "bookmaker": "Matchbook",
+        "model_probability_raw": 0.6972,
+        "probability": 0.5511,
+        "market_probability": 0.4885
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.06
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "augsburg",
+        "bayernmunich",
+        "2026-10-10T13:30:00+00:00"
+      ],
+      "date": "2026-10-10",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-10T13:04:15.055666+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 4.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 4.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.06,
+        "bookmaker": "Matchbook",
+        "model_probability_raw": 0.6972,
+        "probability": 0.5511,
+        "market_probability": 0.4885
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.06
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "borussiadortmund",
+        "werderbremen",
+        "2026-10-09T18:30:00+00:00"
+      ],
+      "date": "2026-10-09",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-09T18:02:37.444305+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "No",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "No",
+        "team": null,
+        "best_odds": 2.15,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.4681,
+        "probability": 0.4511,
+        "market_probability": 0.4342
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "borussiadortmund",
+        "werderbremen",
+        "2026-10-09T18:30:00+00:00"
+      ],
+      "date": "2026-10-09",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-09T18:02:37.444305+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "No",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "No",
+        "team": null,
+        "best_odds": 2.15,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.4681,
+        "probability": 0.4511,
+        "market_probability": 0.4342
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "borussiadortmund",
+        "werderbremen",
+        "2026-10-09T18:30:00+00:00"
+      ],
+      "date": "2026-10-09",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-09T18:02:37.444305+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "No",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "No",
+        "team": null,
+        "best_odds": 2.15,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.4681,
+        "probability": 0.4511,
+        "market_probability": 0.4342
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "borussiadortmund",
+        "werderbremen",
+        "2026-10-09T18:30:00+00:00"
+      ],
+      "date": "2026-10-09",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-09T18:02:37.444305+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "No",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "No",
+        "team": null,
+        "best_odds": 2.15,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.4681,
+        "probability": 0.4511,
+        "market_probability": 0.4342
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "elversberg",
+        "augsburg",
+        "2026-10-17T13:30:00+00:00"
+      ],
+      "date": "2026-10-17",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-17T13:01:45.359263+00:00",
+      "score": [
+        4,
+        3
+      ],
+      "ai_pick": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 1.81,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.7029,
+        "probability": 0.5958,
+        "market_probability": 0.5499
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "elversberg",
+        "augsburg",
+        "2026-10-17T13:30:00+00:00"
+      ],
+      "date": "2026-10-17",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-17T13:01:45.359263+00:00",
+      "score": [
+        4,
+        3
+      ],
+      "ai_pick": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 1.81,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.7029,
+        "probability": 0.5958,
+        "market_probability": 0.5499
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "elversberg",
+        "augsburg",
+        "2026-10-17T13:30:00+00:00"
+      ],
+      "date": "2026-10-17",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-17T13:01:45.359263+00:00",
+      "score": [
+        4,
+        3
+      ],
+      "ai_pick": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 1.81,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.7029,
+        "probability": 0.5958,
+        "market_probability": 0.5499
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "elversberg",
+        "augsburg",
+        "2026-10-17T13:30:00+00:00"
+      ],
+      "date": "2026-10-17",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-17T13:01:45.359263+00:00",
+      "score": [
+        4,
+        3
+      ],
+      "ai_pick": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 1.81,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.7029,
+        "probability": 0.5958,
+        "market_probability": 0.5499
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "scfreiburg",
+        "schalke04",
+        "2026-10-11T15:30:00+00:00"
+      ],
+      "date": "2026-10-11",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-11T15:09:29.143577+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "home_win",
+        "team": "SC Freiburg"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "home_win",
+        "team": "SC Freiburg",
+        "best_odds": 1.75,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6289,
+        "probability": 0.6033,
+        "market_probability": 0.5776
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.75
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "scfreiburg",
+        "schalke04",
+        "2026-10-11T15:30:00+00:00"
+      ],
+      "date": "2026-10-11",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-11T15:09:29.143577+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "home_win",
+        "team": "SC Freiburg"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "home_win",
+        "team": "SC Freiburg",
+        "best_odds": 1.75,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6289,
+        "probability": 0.6033,
+        "market_probability": 0.5776
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.75
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "scfreiburg",
+        "schalke04",
+        "2026-10-11T15:30:00+00:00"
+      ],
+      "date": "2026-10-11",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-11T15:09:29.143577+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "home_win",
+        "team": "SC Freiburg"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "home_win",
+        "team": "SC Freiburg",
+        "best_odds": 1.75,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6289,
+        "probability": 0.6033,
+        "market_probability": 0.5776
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.75
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "scfreiburg",
+        "schalke04",
+        "2026-10-11T15:30:00+00:00"
+      ],
+      "date": "2026-10-11",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-11T15:09:29.143577+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "home_win",
+        "team": "SC Freiburg"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "home_win",
+        "team": "SC Freiburg",
+        "best_odds": 1.75,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6289,
+        "probability": 0.6033,
+        "market_probability": 0.5776
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.75
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "tsghoffenheim",
+        "hamburgersv",
+        "2026-10-10T13:30:00+00:00"
+      ],
+      "date": "2026-10-10",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-10T13:04:15.055666+00:00",
+      "score": [
+        2,
+        3
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null,
+        "best_odds": 1.5,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6875,
+        "probability": 0.6514,
+        "market_probability": 0.6154
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.5
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "tsghoffenheim",
+        "hamburgersv",
+        "2026-10-10T13:30:00+00:00"
+      ],
+      "date": "2026-10-10",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-10T13:04:15.055666+00:00",
+      "score": [
+        2,
+        3
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null,
+        "best_odds": 1.5,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6875,
+        "probability": 0.6514,
+        "market_probability": 0.6154
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.5
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "tsghoffenheim",
+        "hamburgersv",
+        "2026-10-10T13:30:00+00:00"
+      ],
+      "date": "2026-10-10",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-10T13:04:15.055666+00:00",
+      "score": [
+        2,
+        3
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null,
+        "best_odds": 1.5,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6875,
+        "probability": 0.6514,
+        "market_probability": 0.6154
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.5
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "tsghoffenheim",
+        "hamburgersv",
+        "2026-10-10T13:30:00+00:00"
+      ],
+      "date": "2026-10-10",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-10T13:04:15.055666+00:00",
+      "score": [
+        2,
+        3
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null,
+        "best_odds": 1.5,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6875,
+        "probability": 0.6514,
+        "market_probability": 0.6154
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.5
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "unionberlin",
+        "elversberg",
+        "2026-10-10T13:30:00+00:00"
+      ],
+      "date": "2026-10-10",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-10T13:04:15.055666+00:00",
+      "score": [
+        1,
+        0
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Elversberg"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Elversberg",
+        "best_odds": 2.85,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.3881,
+        "probability": 0.3671,
+        "market_probability": 0.3462
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "unionberlin",
+        "elversberg",
+        "2026-10-10T13:30:00+00:00"
+      ],
+      "date": "2026-10-10",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-10T13:04:15.055666+00:00",
+      "score": [
+        1,
+        0
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Elversberg"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Elversberg",
+        "best_odds": 2.85,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.3881,
+        "probability": 0.3671,
+        "market_probability": 0.3462
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "unionberlin",
+        "elversberg",
+        "2026-10-10T13:30:00+00:00"
+      ],
+      "date": "2026-10-10",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-10T13:04:15.055666+00:00",
+      "score": [
+        1,
+        0
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Elversberg"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Elversberg",
+        "best_odds": 2.85,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.3881,
+        "probability": 0.3671,
+        "market_probability": 0.3462
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_germany_bundesliga",
+        "unionberlin",
+        "elversberg",
+        "2026-10-10T13:30:00+00:00"
+      ],
+      "date": "2026-10-10",
+      "competition": "soccer_germany_bundesliga",
+      "logged_at": "2026-10-10T13:04:15.055666+00:00",
+      "score": [
+        1,
+        0
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Elversberg"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Elversberg",
+        "best_odds": 2.85,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.3881,
+        "probability": 0.3671,
+        "market_probability": 0.3462
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "astonvilla",
+        "fenerbahce",
+        "2026-10-14T19:00:00+00:00"
+      ],
+      "date": "2026-10-14",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-14T18:32:01.011140+00:00",
+      "score": [
+        6,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.66,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.6216,
+        "probability": 0.6069,
+        "market_probability": 0.6006
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.6599999999999999
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "astonvilla",
+        "fenerbahce",
+        "2026-10-14T19:00:00+00:00"
+      ],
+      "date": "2026-10-14",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-14T18:32:01.011140+00:00",
+      "score": [
+        6,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.66,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.6216,
+        "probability": 0.6069,
+        "market_probability": 0.6006
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.6599999999999999
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "astonvilla",
+        "fenerbahce",
+        "2026-10-14T19:00:00+00:00"
+      ],
+      "date": "2026-10-14",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-14T18:32:01.011140+00:00",
+      "score": [
+        6,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.66,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.6216,
+        "probability": 0.6069,
+        "market_probability": 0.6006
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.6599999999999999
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "astonvilla",
+        "fenerbahce",
+        "2026-10-14T19:00:00+00:00"
+      ],
+      "date": "2026-10-14",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-14T18:32:01.011140+00:00",
+      "score": [
+        6,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.66,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.6216,
+        "probability": 0.6069,
+        "market_probability": 0.6006
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.6599999999999999
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "fenerbahce",
+        "slaviapraha",
+        "2026-10-20T16:45:00+00:00"
+      ],
+      "date": "2026-10-20",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-20T16:20:16.745647+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.91,
+        "bookmaker": "Betsson",
+        "model_probability_raw": 0.4639,
+        "probability": 0.3705,
+        "market_probability": 0.3305
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "fenerbahce",
+        "slaviapraha",
+        "2026-10-20T16:45:00+00:00"
+      ],
+      "date": "2026-10-20",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-20T16:20:16.745647+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.91,
+        "bookmaker": "Betsson",
+        "model_probability_raw": 0.4639,
+        "probability": 0.3705,
+        "market_probability": 0.3305
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "fenerbahce",
+        "slaviapraha",
+        "2026-10-20T16:45:00+00:00"
+      ],
+      "date": "2026-10-20",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-20T16:20:16.745647+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.91,
+        "bookmaker": "Betsson",
+        "model_probability_raw": 0.4639,
+        "probability": 0.3705,
+        "market_probability": 0.3305
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "fenerbahce",
+        "slaviapraha",
+        "2026-10-20T16:45:00+00:00"
+      ],
+      "date": "2026-10-20",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-20T16:20:16.745647+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.91,
+        "bookmaker": "Betsson",
+        "model_probability_raw": 0.4639,
+        "probability": 0.3705,
+        "market_probability": 0.3305
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "feyenoord",
+        "como",
+        "2026-10-14T16:45:00+00:00"
+      ],
+      "date": "2026-10-14",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-14T16:16:44.138923+00:00",
+      "score": [
+        3,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 3.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 3.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 2.4,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.4671,
+        "probability": 0.4326,
+        "market_probability": 0.4178
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.4
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "feyenoord",
+        "como",
+        "2026-10-14T16:45:00+00:00"
+      ],
+      "date": "2026-10-14",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-14T16:16:44.138923+00:00",
+      "score": [
+        3,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 3.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 3.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 2.4,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.4671,
+        "probability": 0.4326,
+        "market_probability": 0.4178
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.4
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "feyenoord",
+        "como",
+        "2026-10-14T16:45:00+00:00"
+      ],
+      "date": "2026-10-14",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-14T16:16:44.138923+00:00",
+      "score": [
+        3,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 3.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 3.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 2.4,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.4671,
+        "probability": 0.4326,
+        "market_probability": 0.4178
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.4
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "feyenoord",
+        "como",
+        "2026-10-14T16:45:00+00:00"
+      ],
+      "date": "2026-10-14",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-14T16:16:44.138923+00:00",
+      "score": [
+        3,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 3.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 3.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 2.4,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.4671,
+        "probability": 0.4326,
+        "market_probability": 0.4178
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.4
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "rclens",
+        "sportinglisbon",
+        "2026-10-13T16:45:00+00:00"
+      ],
+      "date": "2026-10-13",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-13T16:15:54.039949+00:00",
+      "score": [
+        0,
+        2
+      ],
+      "ai_pick": {
+        "market": "Handicap -0.5",
+        "outcome": "handicap",
+        "team": "Sporting Lisbon"
+      },
+      "bet": {
+        "market": "Handicap -0.5",
+        "outcome": "handicap",
+        "team": "Sporting Lisbon",
+        "best_odds": 2.41,
+        "bookmaker": "GTbets",
+        "model_probability_raw": 0.4579,
+        "probability": 0.4224,
+        "market_probability": 0.3868
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.4100000000000001
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "rclens",
+        "sportinglisbon",
+        "2026-10-13T16:45:00+00:00"
+      ],
+      "date": "2026-10-13",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-13T16:15:54.039949+00:00",
+      "score": [
+        0,
+        2
+      ],
+      "ai_pick": {
+        "market": "Handicap -0.5",
+        "outcome": "handicap",
+        "team": "Sporting Lisbon"
+      },
+      "bet": {
+        "market": "Handicap -0.5",
+        "outcome": "handicap",
+        "team": "Sporting Lisbon",
+        "best_odds": 2.41,
+        "bookmaker": "GTbets",
+        "model_probability_raw": 0.4579,
+        "probability": 0.4224,
+        "market_probability": 0.3868
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.4100000000000001
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "rclens",
+        "sportinglisbon",
+        "2026-10-13T16:45:00+00:00"
+      ],
+      "date": "2026-10-13",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-13T16:15:54.039949+00:00",
+      "score": [
+        0,
+        2
+      ],
+      "ai_pick": {
+        "market": "Handicap -0.5",
+        "outcome": "handicap",
+        "team": "Sporting Lisbon"
+      },
+      "bet": {
+        "market": "Handicap -0.5",
+        "outcome": "handicap",
+        "team": "Sporting Lisbon",
+        "best_odds": 2.41,
+        "bookmaker": "GTbets",
+        "model_probability_raw": 0.4579,
+        "probability": 0.4224,
+        "market_probability": 0.3868
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.4100000000000001
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "rclens",
+        "sportinglisbon",
+        "2026-10-13T16:45:00+00:00"
+      ],
+      "date": "2026-10-13",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-13T16:15:54.039949+00:00",
+      "score": [
+        0,
+        2
+      ],
+      "ai_pick": {
+        "market": "Handicap -0.5",
+        "outcome": "handicap",
+        "team": "Sporting Lisbon"
+      },
+      "bet": {
+        "market": "Handicap -0.5",
+        "outcome": "handicap",
+        "team": "Sporting Lisbon",
+        "best_odds": 2.41,
+        "bookmaker": "GTbets",
+        "model_probability_raw": 0.4579,
+        "probability": 0.4224,
+        "market_probability": 0.3868
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.4100000000000001
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "realbetis",
+        "porto",
+        "2026-10-14T19:00:00+00:00"
+      ],
+      "date": "2026-10-14",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-14T18:32:01.011140+00:00",
+      "score": [
+        3,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.76,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.7212,
+        "probability": 0.6115,
+        "market_probability": 0.5645
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.76
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "realbetis",
+        "porto",
+        "2026-10-14T19:00:00+00:00"
+      ],
+      "date": "2026-10-14",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-14T18:32:01.011140+00:00",
+      "score": [
+        3,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.76,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.7212,
+        "probability": 0.6115,
+        "market_probability": 0.5645
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.76
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "realbetis",
+        "porto",
+        "2026-10-14T19:00:00+00:00"
+      ],
+      "date": "2026-10-14",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-14T18:32:01.011140+00:00",
+      "score": [
+        3,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.76,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.7212,
+        "probability": 0.6115,
+        "market_probability": 0.5645
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.76
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "realbetis",
+        "porto",
+        "2026-10-14T19:00:00+00:00"
+      ],
+      "date": "2026-10-14",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-14T18:32:01.011140+00:00",
+      "score": [
+        3,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.76,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.7212,
+        "probability": 0.6115,
+        "market_probability": 0.5645
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.76
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "sabahfk",
+        "borussiadortmund",
+        "2026-10-20T16:45:00+00:00"
+      ],
+      "date": "2026-10-20",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-20T16:20:16.745647+00:00",
+      "score": [
+        1,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.95,
+        "bookmaker": "Betsson",
+        "model_probability_raw": 0.3544,
+        "probability": 0.3352,
+        "market_probability": 0.3269
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "sabahfk",
+        "borussiadortmund",
+        "2026-10-20T16:45:00+00:00"
+      ],
+      "date": "2026-10-20",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-20T16:20:16.745647+00:00",
+      "score": [
+        1,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.95,
+        "bookmaker": "Betsson",
+        "model_probability_raw": 0.3544,
+        "probability": 0.3352,
+        "market_probability": 0.3269
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "sabahfk",
+        "borussiadortmund",
+        "2026-10-20T16:45:00+00:00"
+      ],
+      "date": "2026-10-20",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-20T16:20:16.745647+00:00",
+      "score": [
+        1,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.95,
+        "bookmaker": "Betsson",
+        "model_probability_raw": 0.3544,
+        "probability": 0.3352,
+        "market_probability": 0.3269
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "sabahfk",
+        "borussiadortmund",
+        "2026-10-20T16:45:00+00:00"
+      ],
+      "date": "2026-10-20",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-20T16:20:16.745647+00:00",
+      "score": [
+        1,
+        2
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.95,
+        "bookmaker": "Betsson",
+        "model_probability_raw": 0.3544,
+        "probability": 0.3352,
+        "market_probability": 0.3269
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "sabahfk",
+        "slaviapraha",
+        "2026-10-13T16:45:00+00:00"
+      ],
+      "date": "2026-10-13",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-13T16:15:54.039949+00:00",
+      "score": [
+        2,
+        0
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Sabah FK"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Sabah FK",
+        "best_odds": 2.03,
+        "bookmaker": "Pinnacle",
+        "model_probability_raw": 0.7007,
+        "probability": 0.5955,
+        "market_probability": 0.4903
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.0299999999999998
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "sabahfk",
+        "slaviapraha",
+        "2026-10-13T16:45:00+00:00"
+      ],
+      "date": "2026-10-13",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-13T16:15:54.039949+00:00",
+      "score": [
+        2,
+        0
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Sabah FK"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Sabah FK",
+        "best_odds": 2.03,
+        "bookmaker": "Pinnacle",
+        "model_probability_raw": 0.7007,
+        "probability": 0.5955,
+        "market_probability": 0.4903
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.0299999999999998
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "sabahfk",
+        "slaviapraha",
+        "2026-10-13T16:45:00+00:00"
+      ],
+      "date": "2026-10-13",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-13T16:15:54.039949+00:00",
+      "score": [
+        2,
+        0
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Sabah FK"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Sabah FK",
+        "best_odds": 2.03,
+        "bookmaker": "Pinnacle",
+        "model_probability_raw": 0.7007,
+        "probability": 0.5955,
+        "market_probability": 0.4903
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.0299999999999998
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "sabahfk",
+        "slaviapraha",
+        "2026-10-13T16:45:00+00:00"
+      ],
+      "date": "2026-10-13",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-13T16:15:54.039949+00:00",
+      "score": [
+        2,
+        0
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Sabah FK"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Sabah FK",
+        "best_odds": 2.03,
+        "bookmaker": "Pinnacle",
+        "model_probability_raw": 0.7007,
+        "probability": 0.5955,
+        "market_probability": 0.4903
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.0299999999999998
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "shakhtardonetsk",
+        "aekathens",
+        "2026-10-14T19:00:00+00:00"
+      ],
+      "date": "2026-10-14",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-14T18:32:01.011140+00:00",
+      "score": [
+        3,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 1.92,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.5314,
+        "probability": 0.5229,
+        "market_probability": 0.5193
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "shakhtardonetsk",
+        "aekathens",
+        "2026-10-14T19:00:00+00:00"
+      ],
+      "date": "2026-10-14",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-14T18:32:01.011140+00:00",
+      "score": [
+        3,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 1.92,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.5314,
+        "probability": 0.5229,
+        "market_probability": 0.5193
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "shakhtardonetsk",
+        "aekathens",
+        "2026-10-14T19:00:00+00:00"
+      ],
+      "date": "2026-10-14",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-14T18:32:01.011140+00:00",
+      "score": [
+        3,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 1.92,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.5314,
+        "probability": 0.5229,
+        "market_probability": 0.5193
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "shakhtardonetsk",
+        "aekathens",
+        "2026-10-14T19:00:00+00:00"
+      ],
+      "date": "2026-10-14",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-14T18:32:01.011140+00:00",
+      "score": [
+        3,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 1.92,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.5314,
+        "probability": 0.5229,
+        "market_probability": 0.5193
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "vikingfk",
+        "bayernmunich",
+        "2026-10-13T19:00:00+00:00"
+      ],
+      "date": "2026-10-13",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-13T18:37:46.091018+00:00",
+      "score": [
+        3,
+        3
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null,
+        "best_odds": 8.5,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.128,
+        "probability": 0.1128,
+        "market_probability": 0.0975
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 7.5
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "vikingfk",
+        "bayernmunich",
+        "2026-10-13T19:00:00+00:00"
+      ],
+      "date": "2026-10-13",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-13T18:37:46.091018+00:00",
+      "score": [
+        3,
+        3
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null,
+        "best_odds": 8.5,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.128,
+        "probability": 0.1128,
+        "market_probability": 0.0975
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 7.5
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "vikingfk",
+        "bayernmunich",
+        "2026-10-13T19:00:00+00:00"
+      ],
+      "date": "2026-10-13",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-13T18:37:46.091018+00:00",
+      "score": [
+        3,
+        3
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null,
+        "best_odds": 8.5,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.128,
+        "probability": 0.1128,
+        "market_probability": 0.0975
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 7.5
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_champs_league",
+        "vikingfk",
+        "bayernmunich",
+        "2026-10-13T19:00:00+00:00"
+      ],
+      "date": "2026-10-13",
+      "competition": "soccer_uefa_champs_league",
+      "logged_at": "2026-10-13T18:37:46.091018+00:00",
+      "score": [
+        3,
+        3
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null,
+        "best_odds": 8.5,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.128,
+        "probability": 0.1128,
+        "market_probability": 0.0975
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 7.5
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "albania",
+        "sanmarino",
+        "2026-10-06T18:45:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T18:18:46.748385+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 4.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 4.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 1.6,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6954,
+        "probability": 0.6301,
+        "market_probability": 0.6021
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.6000000000000001
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "albania",
+        "sanmarino",
+        "2026-10-06T18:45:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T18:18:46.748385+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 4.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 4.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 1.6,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6954,
+        "probability": 0.6301,
+        "market_probability": 0.6021
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.6000000000000001
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "albania",
+        "sanmarino",
+        "2026-10-06T18:45:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T18:18:46.748385+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 4.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 4.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 1.6,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6954,
+        "probability": 0.6301,
+        "market_probability": 0.6021
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.6000000000000001
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "albania",
+        "sanmarino",
+        "2026-10-06T18:45:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T18:18:46.748385+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 4.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 4.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 1.6,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6954,
+        "probability": 0.6301,
+        "market_probability": 0.6021
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.6000000000000001
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "belarus",
+        "finland",
+        "2026-10-06T18:45:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T18:18:46.748385+00:00",
+      "score": [
+        1,
+        0
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Belarus"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Belarus",
+        "best_odds": 1.8,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6215,
+        "probability": 0.5732,
+        "market_probability": 0.525
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.8
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "belarus",
+        "finland",
+        "2026-10-06T18:45:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T18:18:46.748385+00:00",
+      "score": [
+        1,
+        0
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Belarus"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Belarus",
+        "best_odds": 1.8,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6215,
+        "probability": 0.5732,
+        "market_probability": 0.525
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.8
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "belarus",
+        "finland",
+        "2026-10-06T18:45:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T18:18:46.748385+00:00",
+      "score": [
+        1,
+        0
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Belarus"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Belarus",
+        "best_odds": 1.8,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6215,
+        "probability": 0.5732,
+        "market_probability": 0.525
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.8
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "belarus",
+        "finland",
+        "2026-10-06T18:45:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T18:18:46.748385+00:00",
+      "score": [
+        1,
+        0
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Belarus"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Belarus",
+        "best_odds": 1.8,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6215,
+        "probability": 0.5732,
+        "market_probability": 0.525
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.8
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "belarus",
+        "sanmarino",
+        "2026-10-03T16:00:00+00:00"
+      ],
+      "date": "2026-10-03",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-03T15:30:08.312737+00:00",
+      "score": [
+        4,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 4.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 4.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 3.85,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.2743,
+        "probability": 0.2538,
+        "market_probability": 0.2451
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "belarus",
+        "sanmarino",
+        "2026-10-03T16:00:00+00:00"
+      ],
+      "date": "2026-10-03",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-03T15:30:08.312737+00:00",
+      "score": [
+        4,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 4.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 4.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 3.85,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.2743,
+        "probability": 0.2538,
+        "market_probability": 0.2451
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "belarus",
+        "sanmarino",
+        "2026-10-03T16:00:00+00:00"
+      ],
+      "date": "2026-10-03",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-03T15:30:08.312737+00:00",
+      "score": [
+        4,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 4.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 4.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 3.85,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.2743,
+        "probability": 0.2538,
+        "market_probability": 0.2451
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "belarus",
+        "sanmarino",
+        "2026-10-03T16:00:00+00:00"
+      ],
+      "date": "2026-10-03",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-03T15:30:08.312737+00:00",
+      "score": [
+        4,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 4.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 4.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 3.85,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.2743,
+        "probability": 0.2538,
+        "market_probability": 0.2451
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "belgium",
+        "france",
+        "2026-09-28T18:45:00+00:00"
+      ],
+      "date": "2026-09-28",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-28T18:20:58.687476+00:00",
+      "score": [
+        0,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.45,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.438,
+        "probability": 0.408,
+        "market_probability": 0.3951
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.4500000000000002
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "belgium",
+        "france",
+        "2026-09-28T18:45:00+00:00"
+      ],
+      "date": "2026-09-28",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-28T18:20:58.687476+00:00",
+      "score": [
+        0,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.45,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.438,
+        "probability": 0.408,
+        "market_probability": 0.3951
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.4500000000000002
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "belgium",
+        "france",
+        "2026-09-28T18:45:00+00:00"
+      ],
+      "date": "2026-09-28",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-28T18:20:58.687476+00:00",
+      "score": [
+        0,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.45,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.438,
+        "probability": 0.408,
+        "market_probability": 0.3951
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.4500000000000002
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "belgium",
+        "france",
+        "2026-09-28T18:45:00+00:00"
+      ],
+      "date": "2026-09-28",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-28T18:20:58.687476+00:00",
+      "score": [
+        0,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.45,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.438,
+        "probability": 0.408,
+        "market_probability": 0.3951
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.4500000000000002
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "bulgaria",
+        "estonia",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 2.3,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.5208,
+        "probability": 0.4434,
+        "market_probability": 0.4103
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "bulgaria",
+        "estonia",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 2.3,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.5208,
+        "probability": 0.4434,
+        "market_probability": 0.4103
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "bulgaria",
+        "estonia",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 2.3,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.5208,
+        "probability": 0.4434,
+        "market_probability": 0.4103
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "bulgaria",
+        "estonia",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 2.3,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.5208,
+        "probability": 0.4434,
+        "market_probability": 0.4103
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "cyprus",
+        "armenia",
+        "2026-10-02T16:00:00+00:00"
+      ],
+      "date": "2026-10-02",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-02T15:31:55.839000+00:00",
+      "score": [
+        2,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 2.08,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.6099,
+        "probability": 0.5095,
+        "market_probability": 0.4665
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "cyprus",
+        "armenia",
+        "2026-10-02T16:00:00+00:00"
+      ],
+      "date": "2026-10-02",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-02T15:31:55.839000+00:00",
+      "score": [
+        2,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 2.08,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.6099,
+        "probability": 0.5095,
+        "market_probability": 0.4665
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "cyprus",
+        "armenia",
+        "2026-10-02T16:00:00+00:00"
+      ],
+      "date": "2026-10-02",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-02T15:31:55.839000+00:00",
+      "score": [
+        2,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 2.08,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.6099,
+        "probability": 0.5095,
+        "market_probability": 0.4665
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "cyprus",
+        "armenia",
+        "2026-10-02T16:00:00+00:00"
+      ],
+      "date": "2026-10-02",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-02T15:31:55.839000+00:00",
+      "score": [
+        2,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 2.08,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.6099,
+        "probability": 0.5095,
+        "market_probability": 0.4665
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "czechrepublic",
+        "england",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        2
+      ],
+      "ai_pick": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Czech Republic"
+      },
+      "bet": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Czech Republic",
+        "best_odds": 1.85,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.595,
+        "probability": 0.5528,
+        "market_probability": 0.5106
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "czechrepublic",
+        "england",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        2
+      ],
+      "ai_pick": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Czech Republic"
+      },
+      "bet": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Czech Republic",
+        "best_odds": 1.85,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.595,
+        "probability": 0.5528,
+        "market_probability": 0.5106
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "czechrepublic",
+        "england",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        2
+      ],
+      "ai_pick": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Czech Republic"
+      },
+      "bet": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Czech Republic",
+        "best_odds": 1.85,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.595,
+        "probability": 0.5528,
+        "market_probability": 0.5106
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "czechrepublic",
+        "england",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        2
+      ],
+      "ai_pick": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Czech Republic"
+      },
+      "bet": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Czech Republic",
+        "best_odds": 1.85,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.595,
+        "probability": 0.5528,
+        "market_probability": 0.5106
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "denmark",
+        "portugal",
+        "2026-10-01T18:45:00+00:00"
+      ],
+      "date": "2026-10-01",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-01T18:24:20.335516+00:00",
+      "score": [
+        2,
+        4
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Portugal"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Portugal",
+        "best_odds": 1.95,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.5215,
+        "probability": 0.5033,
+        "market_probability": 0.4851
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.95
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "denmark",
+        "portugal",
+        "2026-10-01T18:45:00+00:00"
+      ],
+      "date": "2026-10-01",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-01T18:24:20.335516+00:00",
+      "score": [
+        2,
+        4
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Portugal"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Portugal",
+        "best_odds": 1.95,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.5215,
+        "probability": 0.5033,
+        "market_probability": 0.4851
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.95
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "denmark",
+        "portugal",
+        "2026-10-01T18:45:00+00:00"
+      ],
+      "date": "2026-10-01",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-01T18:24:20.335516+00:00",
+      "score": [
+        2,
+        4
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Portugal"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Portugal",
+        "best_odds": 1.95,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.5215,
+        "probability": 0.5033,
+        "market_probability": 0.4851
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.95
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "denmark",
+        "portugal",
+        "2026-10-01T18:45:00+00:00"
+      ],
+      "date": "2026-10-01",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-01T18:24:20.335516+00:00",
+      "score": [
+        2,
+        4
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Portugal"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Portugal",
+        "best_odds": 1.95,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.5215,
+        "probability": 0.5033,
+        "market_probability": 0.4851
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.95
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "estonia",
+        "luxembourg",
+        "2026-10-03T16:00:00+00:00"
+      ],
+      "date": "2026-10-03",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-03T15:30:08.312737+00:00",
+      "score": [
+        1,
+        0
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Estonia"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Estonia",
+        "best_odds": 1.45,
+        "bookmaker": "MyBookie.ag",
+        "model_probability_raw": 0.764,
+        "probability": 0.7047,
+        "market_probability": 0.6455
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.44999999999999996
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "estonia",
+        "luxembourg",
+        "2026-10-03T16:00:00+00:00"
+      ],
+      "date": "2026-10-03",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-03T15:30:08.312737+00:00",
+      "score": [
+        1,
+        0
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Estonia"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Estonia",
+        "best_odds": 1.45,
+        "bookmaker": "MyBookie.ag",
+        "model_probability_raw": 0.764,
+        "probability": 0.7047,
+        "market_probability": 0.6455
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.44999999999999996
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "estonia",
+        "luxembourg",
+        "2026-10-03T16:00:00+00:00"
+      ],
+      "date": "2026-10-03",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-03T15:30:08.312737+00:00",
+      "score": [
+        1,
+        0
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Estonia"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Estonia",
+        "best_odds": 1.45,
+        "bookmaker": "MyBookie.ag",
+        "model_probability_raw": 0.764,
+        "probability": 0.7047,
+        "market_probability": 0.6455
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.44999999999999996
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "estonia",
+        "luxembourg",
+        "2026-10-03T16:00:00+00:00"
+      ],
+      "date": "2026-10-03",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-03T15:30:08.312737+00:00",
+      "score": [
+        1,
+        0
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Estonia"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Estonia",
+        "best_odds": 1.45,
+        "bookmaker": "MyBookie.ag",
+        "model_probability_raw": 0.764,
+        "probability": 0.7047,
+        "market_probability": 0.6455
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.44999999999999996
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "france",
+        "italy",
+        "2026-10-02T18:45:00+00:00"
+      ],
+      "date": "2026-10-02",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-02T18:23:14.142017+00:00",
+      "score": [
+        1,
+        1
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Italy"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Italy",
+        "best_odds": 2.75,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.443,
+        "probability": 0.3926,
+        "market_probability": 0.3421
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.75
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "france",
+        "italy",
+        "2026-10-02T18:45:00+00:00"
+      ],
+      "date": "2026-10-02",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-02T18:23:14.142017+00:00",
+      "score": [
+        1,
+        1
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Italy"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Italy",
+        "best_odds": 2.75,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.443,
+        "probability": 0.3926,
+        "market_probability": 0.3421
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.75
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "france",
+        "italy",
+        "2026-10-02T18:45:00+00:00"
+      ],
+      "date": "2026-10-02",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-02T18:23:14.142017+00:00",
+      "score": [
+        1,
+        1
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Italy"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Italy",
+        "best_odds": 2.75,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.443,
+        "probability": 0.3926,
+        "market_probability": 0.3421
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.75
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "france",
+        "italy",
+        "2026-10-02T18:45:00+00:00"
+      ],
+      "date": "2026-10-02",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-02T18:23:14.142017+00:00",
+      "score": [
+        1,
+        1
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Italy"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Italy",
+        "best_odds": 2.75,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.443,
+        "probability": 0.3926,
+        "market_probability": 0.3421
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.75
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "kazakhstan",
+        "faroeislands",
+        "2026-10-06T14:00:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T13:34:31.238569+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null,
+        "best_odds": 3.1,
+        "bookmaker": "Betfair",
+        "model_probability_raw": 0.4033,
+        "probability": 0.362,
+        "market_probability": 0.3206
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 2.1
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "kazakhstan",
+        "faroeislands",
+        "2026-10-06T14:00:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T13:34:31.238569+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null,
+        "best_odds": 3.1,
+        "bookmaker": "Betfair",
+        "model_probability_raw": 0.4033,
+        "probability": 0.362,
+        "market_probability": 0.3206
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 2.1
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "kazakhstan",
+        "faroeislands",
+        "2026-10-06T14:00:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T13:34:31.238569+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null,
+        "best_odds": 3.1,
+        "bookmaker": "Betfair",
+        "model_probability_raw": 0.4033,
+        "probability": 0.362,
+        "market_probability": 0.3206
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 2.1
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "kazakhstan",
+        "faroeislands",
+        "2026-10-06T14:00:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T13:34:31.238569+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null,
+        "best_odds": 3.1,
+        "bookmaker": "Betfair",
+        "model_probability_raw": 0.4033,
+        "probability": 0.362,
+        "market_probability": 0.3206
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 2.1
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "kosovo",
+        "austria",
+        "2026-10-04T16:00:00+00:00"
+      ],
+      "date": "2026-10-04",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-04T15:32:50.174382+00:00",
+      "score": [
+        1,
+        1
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Austria"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Austria",
+        "best_odds": 2.04,
+        "bookmaker": "Betfair",
+        "model_probability_raw": 0.612,
+        "probability": 0.5445,
+        "market_probability": 0.4769
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "kosovo",
+        "austria",
+        "2026-10-04T16:00:00+00:00"
+      ],
+      "date": "2026-10-04",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-04T15:32:50.174382+00:00",
+      "score": [
+        1,
+        1
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Austria"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Austria",
+        "best_odds": 2.04,
+        "bookmaker": "Betfair",
+        "model_probability_raw": 0.612,
+        "probability": 0.5445,
+        "market_probability": 0.4769
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "kosovo",
+        "austria",
+        "2026-10-04T16:00:00+00:00"
+      ],
+      "date": "2026-10-04",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-04T15:32:50.174382+00:00",
+      "score": [
+        1,
+        1
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Austria"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Austria",
+        "best_odds": 2.04,
+        "bookmaker": "Betfair",
+        "model_probability_raw": 0.612,
+        "probability": 0.5445,
+        "market_probability": 0.4769
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "kosovo",
+        "austria",
+        "2026-10-04T16:00:00+00:00"
+      ],
+      "date": "2026-10-04",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-04T15:32:50.174382+00:00",
+      "score": [
+        1,
+        1
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Austria"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Austria",
+        "best_odds": 2.04,
+        "bookmaker": "Betfair",
+        "model_probability_raw": 0.612,
+        "probability": 0.5445,
+        "market_probability": 0.4769
+      },
+      "fallback": false,
+      "settlement": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "latvia",
+        "montenegro",
+        "2026-10-02T16:00:00+00:00"
+      ],
+      "date": "2026-10-02",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-02T15:31:55.839000+00:00",
+      "score": [
+        1,
+        2
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Montenegro"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Montenegro",
+        "best_odds": 1.77,
+        "bookmaker": "Betfair",
+        "model_probability_raw": 0.5589,
+        "probability": 0.5538,
+        "market_probability": 0.5488
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.77
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "latvia",
+        "montenegro",
+        "2026-10-02T16:00:00+00:00"
+      ],
+      "date": "2026-10-02",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-02T15:31:55.839000+00:00",
+      "score": [
+        1,
+        2
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Montenegro"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Montenegro",
+        "best_odds": 1.77,
+        "bookmaker": "Betfair",
+        "model_probability_raw": 0.5589,
+        "probability": 0.5538,
+        "market_probability": 0.5488
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.77
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "luxembourg",
+        "iceland",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        3
+      ],
+      "ai_pick": {
+        "market": "Over/Under 1.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 1.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.4,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.7147,
+        "probability": 0.6917,
+        "market_probability": 0.6818
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.3999999999999999
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "luxembourg",
+        "iceland",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        3
+      ],
+      "ai_pick": {
+        "market": "Over/Under 1.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 1.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.4,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.7147,
+        "probability": 0.6917,
+        "market_probability": 0.6818
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.3999999999999999
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "luxembourg",
+        "iceland",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        3
+      ],
+      "ai_pick": {
+        "market": "Over/Under 1.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 1.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.4,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.7147,
+        "probability": 0.6917,
+        "market_probability": 0.6818
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.3999999999999999
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "luxembourg",
+        "iceland",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        3
+      ],
+      "ai_pick": {
+        "market": "Over/Under 1.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 1.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.4,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.7147,
+        "probability": 0.6917,
+        "market_probability": 0.6818
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.3999999999999999
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "malta",
+        "andorra",
+        "2026-10-04T16:00:00+00:00"
+      ],
+      "date": "2026-10-04",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-04T15:32:50.174382+00:00",
+      "score": [
+        1,
+        0
+      ],
+      "ai_pick": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Andorra"
+      },
+      "bet": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Andorra",
+        "best_odds": 1.4,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.8129,
+        "probability": 0.7533,
+        "market_probability": 0.6937
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.3999999999999999
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "malta",
+        "andorra",
+        "2026-10-04T16:00:00+00:00"
+      ],
+      "date": "2026-10-04",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-04T15:32:50.174382+00:00",
+      "score": [
+        1,
+        0
+      ],
+      "ai_pick": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Andorra"
+      },
+      "bet": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Andorra",
+        "best_odds": 1.4,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.8129,
+        "probability": 0.7533,
+        "market_probability": 0.6937
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.3999999999999999
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "malta",
+        "andorra",
+        "2026-10-04T16:00:00+00:00"
+      ],
+      "date": "2026-10-04",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-04T15:32:50.174382+00:00",
+      "score": [
+        1,
+        0
+      ],
+      "ai_pick": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Andorra"
+      },
+      "bet": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Andorra",
+        "best_odds": 1.4,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.8129,
+        "probability": 0.7533,
+        "market_probability": 0.6937
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.3999999999999999
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "malta",
+        "andorra",
+        "2026-10-04T16:00:00+00:00"
+      ],
+      "date": "2026-10-04",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-04T15:32:50.174382+00:00",
+      "score": [
+        1,
+        0
+      ],
+      "ai_pick": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Andorra"
+      },
+      "bet": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Andorra",
+        "best_odds": 1.4,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.8129,
+        "probability": 0.7533,
+        "market_probability": 0.6937
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.3999999999999999
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "malta",
+        "gibraltar",
+        "2026-10-01T18:45:00+00:00"
+      ],
+      "date": "2026-10-01",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-01T18:24:20.335516+00:00",
+      "score": [
+        1,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 1.78,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.5513,
+        "probability": 0.5369,
+        "market_probability": 0.5308
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.78
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "malta",
+        "gibraltar",
+        "2026-10-01T18:45:00+00:00"
+      ],
+      "date": "2026-10-01",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-01T18:24:20.335516+00:00",
+      "score": [
+        1,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 1.78,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.5513,
+        "probability": 0.5369,
+        "market_probability": 0.5308
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.78
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "moldova",
+        "slovakia",
+        "2026-10-06T18:45:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T18:18:46.748385+00:00",
+      "score": [
+        0,
+        4
+      ],
+      "ai_pick": {
+        "market": "Handicap -1.5",
+        "outcome": "handicap",
+        "team": "Slovakia"
+      },
+      "bet": {
+        "market": "Handicap -1.5",
+        "outcome": "handicap",
+        "team": "Slovakia",
+        "best_odds": 2.16,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.6299,
+        "probability": 0.538,
+        "market_probability": 0.4461
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.1600000000000001
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "moldova",
+        "slovakia",
+        "2026-10-06T18:45:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T18:18:46.748385+00:00",
+      "score": [
+        0,
+        4
+      ],
+      "ai_pick": {
+        "market": "Handicap -1.5",
+        "outcome": "handicap",
+        "team": "Slovakia"
+      },
+      "bet": {
+        "market": "Handicap -1.5",
+        "outcome": "handicap",
+        "team": "Slovakia",
+        "best_odds": 2.16,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.6299,
+        "probability": 0.538,
+        "market_probability": 0.4461
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.1600000000000001
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "moldova",
+        "slovakia",
+        "2026-10-06T18:45:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T18:18:46.748385+00:00",
+      "score": [
+        0,
+        4
+      ],
+      "ai_pick": {
+        "market": "Handicap -1.5",
+        "outcome": "handicap",
+        "team": "Slovakia"
+      },
+      "bet": {
+        "market": "Handicap -1.5",
+        "outcome": "handicap",
+        "team": "Slovakia",
+        "best_odds": 2.16,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.6299,
+        "probability": 0.538,
+        "market_probability": 0.4461
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.1600000000000001
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "moldova",
+        "slovakia",
+        "2026-10-06T18:45:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T18:18:46.748385+00:00",
+      "score": [
+        0,
+        4
+      ],
+      "ai_pick": {
+        "market": "Handicap -1.5",
+        "outcome": "handicap",
+        "team": "Slovakia"
+      },
+      "bet": {
+        "market": "Handicap -1.5",
+        "outcome": "handicap",
+        "team": "Slovakia",
+        "best_odds": 2.16,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.6299,
+        "probability": 0.538,
+        "market_probability": 0.4461
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.1600000000000001
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "netherlands",
+        "serbia",
+        "2026-10-04T18:45:00+00:00"
+      ],
+      "date": "2026-10-04",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-04T18:21:08.490035+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.08,
+        "bookmaker": "Pinnacle",
+        "model_probability_raw": 0.6702,
+        "probability": 0.5378,
+        "market_probability": 0.481
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.08
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "netherlands",
+        "serbia",
+        "2026-10-04T18:45:00+00:00"
+      ],
+      "date": "2026-10-04",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-04T18:21:08.490035+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.08,
+        "bookmaker": "Pinnacle",
+        "model_probability_raw": 0.6702,
+        "probability": 0.5378,
+        "market_probability": 0.481
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.08
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "netherlands",
+        "serbia",
+        "2026-10-04T18:45:00+00:00"
+      ],
+      "date": "2026-10-04",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-04T18:21:08.490035+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.08,
+        "bookmaker": "Pinnacle",
+        "model_probability_raw": 0.6702,
+        "probability": 0.5378,
+        "market_probability": 0.481
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.08
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "netherlands",
+        "serbia",
+        "2026-10-04T18:45:00+00:00"
+      ],
+      "date": "2026-10-04",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-04T18:21:08.490035+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 2.08,
+        "bookmaker": "Pinnacle",
+        "model_probability_raw": 0.6702,
+        "probability": 0.5378,
+        "market_probability": 0.481
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.08
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "northernireland",
+        "hungary",
+        "2026-09-28T18:45:00+00:00"
+      ],
+      "date": "2026-09-28",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-28T18:20:58.687476+00:00",
+      "score": [
+        0,
+        0
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null,
+        "best_odds": 2.95,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.3608,
+        "probability": 0.3421,
+        "market_probability": 0.3234
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.9500000000000002
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "northernireland",
+        "hungary",
+        "2026-09-28T18:45:00+00:00"
+      ],
+      "date": "2026-09-28",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-28T18:20:58.687476+00:00",
+      "score": [
+        0,
+        0
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null,
+        "best_odds": 2.95,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.3608,
+        "probability": 0.3421,
+        "market_probability": 0.3234
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.9500000000000002
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "northernireland",
+        "hungary",
+        "2026-09-28T18:45:00+00:00"
+      ],
+      "date": "2026-09-28",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-28T18:20:58.687476+00:00",
+      "score": [
+        0,
+        0
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null,
+        "best_odds": 2.95,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.3608,
+        "probability": 0.3421,
+        "market_probability": 0.3234
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.9500000000000002
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "northernireland",
+        "hungary",
+        "2026-09-28T18:45:00+00:00"
+      ],
+      "date": "2026-09-28",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-28T18:20:58.687476+00:00",
+      "score": [
+        0,
+        0
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "draw",
+        "team": null,
+        "best_odds": 2.95,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.3608,
+        "probability": 0.3421,
+        "market_probability": 0.3234
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 1.9500000000000002
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "republicofireland",
+        "austria",
+        "2026-10-01T18:45:00+00:00"
+      ],
+      "date": "2026-10-01",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-01T18:24:20.335516+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Republic of Ireland"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Republic of Ireland",
+        "best_odds": 1.7,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6511,
+        "probability": 0.6019,
+        "market_probability": 0.5526
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.7
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "republicofireland",
+        "austria",
+        "2026-10-01T18:45:00+00:00"
+      ],
+      "date": "2026-10-01",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-01T18:24:20.335516+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Republic of Ireland"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Republic of Ireland",
+        "best_odds": 1.7,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6511,
+        "probability": 0.6019,
+        "market_probability": 0.5526
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.7
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "republicofireland",
+        "austria",
+        "2026-10-01T18:45:00+00:00"
+      ],
+      "date": "2026-10-01",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-01T18:24:20.335516+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Republic of Ireland"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Republic of Ireland",
+        "best_odds": 1.7,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6511,
+        "probability": 0.6019,
+        "market_probability": 0.5526
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.7
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "republicofireland",
+        "austria",
+        "2026-10-01T18:45:00+00:00"
+      ],
+      "date": "2026-10-01",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-01T18:24:20.335516+00:00",
+      "score": [
+        2,
+        2
+      ],
+      "ai_pick": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Republic of Ireland"
+      },
+      "bet": {
+        "market": "Handicap +0.5",
+        "outcome": "handicap",
+        "team": "Republic of Ireland",
+        "best_odds": 1.7,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6511,
+        "probability": 0.6019,
+        "market_probability": 0.5526
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.7
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "sanmarino",
+        "albania",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        3
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.43,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.7052,
+        "probability": 0.6777,
+        "market_probability": 0.6659
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.42999999999999994
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "sanmarino",
+        "albania",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        3
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.43,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.7052,
+        "probability": 0.6777,
+        "market_probability": 0.6659
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.42999999999999994
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "sanmarino",
+        "albania",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        3
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.43,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.7052,
+        "probability": 0.6777,
+        "market_probability": 0.6659
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.42999999999999994
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "sanmarino",
+        "albania",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        3
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.43,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.7052,
+        "probability": 0.6777,
+        "market_probability": 0.6659
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.42999999999999994
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "scotland",
+        "switzerland",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        3
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Switzerland"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Switzerland",
+        "best_odds": 1.88,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.5555,
+        "probability": 0.5313,
+        "market_probability": 0.507
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.8799999999999999
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "scotland",
+        "switzerland",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        3
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Switzerland"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Switzerland",
+        "best_odds": 1.88,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.5555,
+        "probability": 0.5313,
+        "market_probability": 0.507
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.8799999999999999
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "scotland",
+        "switzerland",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        3
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Switzerland"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Switzerland",
+        "best_odds": 1.88,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.5555,
+        "probability": 0.5313,
+        "market_probability": 0.507
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.8799999999999999
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "scotland",
+        "switzerland",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        0,
+        3
+      ],
+      "ai_pick": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Switzerland"
+      },
+      "bet": {
+        "market": "1X2",
+        "outcome": "away_win",
+        "team": "Switzerland",
+        "best_odds": 1.88,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.5555,
+        "probability": 0.5313,
+        "market_probability": 0.507
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.8799999999999999
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "slovakia",
+        "kazakhstan",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.8,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.584,
+        "probability": 0.5436,
+        "market_probability": 0.5263
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.8
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "slovakia",
+        "kazakhstan",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.8,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.584,
+        "probability": 0.5436,
+        "market_probability": 0.5263
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.8
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "slovakia",
+        "kazakhstan",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.8,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.584,
+        "probability": 0.5436,
+        "market_probability": 0.5263
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.8
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "slovakia",
+        "kazakhstan",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 2.5",
+        "outcome": "Over",
+        "team": null,
+        "best_odds": 1.8,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.584,
+        "probability": 0.5436,
+        "market_probability": 0.5263
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.8
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "slovenia",
+        "northmacedonia",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        2,
+        0
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "No",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "No",
+        "team": null,
+        "best_odds": 1.58,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6484,
+        "probability": 0.6179,
+        "market_probability": 0.5875
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.5800000000000001
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "slovenia",
+        "northmacedonia",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        2,
+        0
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "No",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "No",
+        "team": null,
+        "best_odds": 1.58,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6484,
+        "probability": 0.6179,
+        "market_probability": 0.5875
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.5800000000000001
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "slovenia",
+        "northmacedonia",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        2,
+        0
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "No",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "No",
+        "team": null,
+        "best_odds": 1.58,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6484,
+        "probability": 0.6179,
+        "market_probability": 0.5875
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.5800000000000001
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "slovenia",
+        "northmacedonia",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        2,
+        0
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "No",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "No",
+        "team": null,
+        "best_odds": 1.58,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6484,
+        "probability": 0.6179,
+        "market_probability": 0.5875
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.5800000000000001
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "spain",
+        "croatia",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        4,
+        1
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null,
+        "best_odds": 1.95,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.5714,
+        "probability": 0.5243,
+        "market_probability": 0.4772
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.95
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "spain",
+        "croatia",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        4,
+        1
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null,
+        "best_odds": 1.95,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.5714,
+        "probability": 0.5243,
+        "market_probability": 0.4772
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.95
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "spain",
+        "croatia",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        4,
+        1
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null,
+        "best_odds": 1.95,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.5714,
+        "probability": 0.5243,
+        "market_probability": 0.4772
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.95
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "spain",
+        "croatia",
+        "2026-09-29T18:45:00+00:00"
+      ],
+      "date": "2026-09-29",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-29T18:16:38.737089+00:00",
+      "score": [
+        4,
+        1
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null,
+        "best_odds": 1.95,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.5714,
+        "probability": 0.5243,
+        "market_probability": 0.4772
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.95
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "sweden",
+        "poland",
+        "2026-09-28T18:45:00+00:00"
+      ],
+      "date": "2026-09-28",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-28T18:20:58.687476+00:00",
+      "score": [
+        3,
+        1
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null,
+        "best_odds": 1.58,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6843,
+        "probability": 0.6359,
+        "market_probability": 0.5875
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.5800000000000001
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "sweden",
+        "poland",
+        "2026-09-28T18:45:00+00:00"
+      ],
+      "date": "2026-09-28",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-28T18:20:58.687476+00:00",
+      "score": [
+        3,
+        1
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null,
+        "best_odds": 1.58,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6843,
+        "probability": 0.6359,
+        "market_probability": 0.5875
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.5800000000000001
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "sweden",
+        "poland",
+        "2026-09-28T18:45:00+00:00"
+      ],
+      "date": "2026-09-28",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-28T18:20:58.687476+00:00",
+      "score": [
+        3,
+        1
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null,
+        "best_odds": 1.58,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6843,
+        "probability": 0.6359,
+        "market_probability": 0.5875
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.5800000000000001
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "sweden",
+        "poland",
+        "2026-09-28T18:45:00+00:00"
+      ],
+      "date": "2026-09-28",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-09-28T18:20:58.687476+00:00",
+      "score": [
+        3,
+        1
+      ],
+      "ai_pick": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null
+      },
+      "bet": {
+        "market": "BTTS",
+        "outcome": "Yes",
+        "team": null,
+        "best_odds": 1.58,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6843,
+        "probability": 0.6359,
+        "market_probability": 0.5875
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.5800000000000001
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "switzerland",
+        "northmacedonia",
+        "2026-10-06T18:45:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T18:18:46.748385+00:00",
+      "score": [
+        3,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 1.7,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6104,
+        "probability": 0.5744,
+        "market_probability": 0.5589
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.7
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "switzerland",
+        "northmacedonia",
+        "2026-10-06T18:45:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T18:18:46.748385+00:00",
+      "score": [
+        3,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 1.7,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6104,
+        "probability": 0.5744,
+        "market_probability": 0.5589
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.7
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "switzerland",
+        "northmacedonia",
+        "2026-10-06T18:45:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T18:18:46.748385+00:00",
+      "score": [
+        3,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 1.7,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6104,
+        "probability": 0.5744,
+        "market_probability": 0.5589
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.7
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "switzerland",
+        "northmacedonia",
+        "2026-10-06T18:45:00+00:00"
+      ],
+      "date": "2026-10-06",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-06T18:18:46.748385+00:00",
+      "score": [
+        3,
+        0
+      ],
+      "ai_pick": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null
+      },
+      "bet": {
+        "market": "Over/Under 3.5",
+        "outcome": "Under",
+        "team": null,
+        "best_odds": 1.7,
+        "bookmaker": "bet-at-home",
+        "model_probability_raw": 0.6104,
+        "probability": 0.5744,
+        "market_probability": 0.5589
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.7
+    },
+    {
+      "policy": "original",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "switzerland",
+        "slovenia",
+        "2026-10-03T18:45:00+00:00"
+      ],
+      "date": "2026-10-03",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-03T18:20:28.072275+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Slovenia"
+      },
+      "bet": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Slovenia",
+        "best_odds": 1.83,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.6212,
+        "probability": 0.5736,
+        "market_probability": 0.5261
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.8300000000000001
+    },
+    {
+      "policy": "original_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "switzerland",
+        "slovenia",
+        "2026-10-03T18:45:00+00:00"
+      ],
+      "date": "2026-10-03",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-03T18:20:28.072275+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Slovenia"
+      },
+      "bet": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Slovenia",
+        "best_odds": 1.83,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.6212,
+        "probability": 0.5736,
+        "market_probability": 0.5261
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.8300000000000001
+    },
+    {
+      "policy": "fallback",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "switzerland",
+        "slovenia",
+        "2026-10-03T18:45:00+00:00"
+      ],
+      "date": "2026-10-03",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-03T18:20:28.072275+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Slovenia"
+      },
+      "bet": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Slovenia",
+        "best_odds": 1.83,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.6212,
+        "probability": 0.5736,
+        "market_probability": 0.5261
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.8300000000000001
+    },
+    {
+      "policy": "fallback_edge",
+      "fixture": [
+        "soccer_uefa_nations_league",
+        "switzerland",
+        "slovenia",
+        "2026-10-03T18:45:00+00:00"
+      ],
+      "date": "2026-10-03",
+      "competition": "soccer_uefa_nations_league",
+      "logged_at": "2026-10-03T18:20:28.072275+00:00",
+      "score": [
+        2,
+        1
+      ],
+      "ai_pick": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Slovenia"
+      },
+      "bet": {
+        "market": "Handicap +1.5",
+        "outcome": "handicap",
+        "team": "Slovenia",
+        "best_odds": 1.83,
+        "bookmaker": "1xBet",
+        "model_probability_raw": 0.6212,
+        "probability": 0.5736,
+        "market_probability": 0.5261
+      },
+      "fallback": false,
+      "settlement": "win",
+      "profit_units": 0.8300000000000001
+    }
+  ],
+  "method": {
+    "stake": "one unit per single, no compounding or commissions",
+    "edge": "raw model probability * recorded decimal odds - 1 > 0; binary markets only",
+    "fallback": "only model-below-market rejections; nearest eligible strictly weaker same-direction binary bet",
+    "ai_change": "always rejected, including same-direction changes",
+    "limitations": [
+      "Legacy logs omit some rejected candidates; no missing quotes reconstructed.",
+      "Retrospective exploratory replay; baseline rule already informed by this history.",
+      "Different policies place different numbers of bets; no causal or future-profit claim."
+    ]
+  },
+  "by_competition": {
+    "soccer_germany_bundesliga": {
+      "original": {
+        "bets": 6,
+        "wins": 3,
+        "losses": 3,
+        "push_or_partial": 0,
+        "hit_rate": 0.5,
+        "profit_units": -0.69,
+        "roi": -0.11499999999999999,
+        "fallback_bets": 0
+      },
+      "original_edge": {
+        "bets": 6,
+        "wins": 3,
+        "losses": 3,
+        "push_or_partial": 0,
+        "hit_rate": 0.5,
+        "profit_units": -0.69,
+        "roi": -0.11499999999999999,
+        "fallback_bets": 0
+      },
+      "fallback": {
+        "bets": 6,
+        "wins": 3,
+        "losses": 3,
+        "push_or_partial": 0,
+        "hit_rate": 0.5,
+        "profit_units": -0.69,
+        "roi": -0.11499999999999999,
+        "fallback_bets": 0
+      },
+      "fallback_edge": {
+        "bets": 6,
+        "wins": 3,
+        "losses": 3,
+        "push_or_partial": 0,
+        "hit_rate": 0.5,
+        "profit_units": -0.69,
+        "roi": -0.11499999999999999,
+        "fallback_bets": 0
+      }
+    },
+    "soccer_uefa_champs_league": {
+      "original": {
+        "bets": 9,
+        "wins": 6,
+        "losses": 3,
+        "push_or_partial": 0,
+        "hit_rate": 0.6666666666666666,
+        "profit_units": 9.76,
+        "roi": 1.0844444444444443,
+        "fallback_bets": 0
+      },
+      "original_edge": {
+        "bets": 9,
+        "wins": 6,
+        "losses": 3,
+        "push_or_partial": 0,
+        "hit_rate": 0.6666666666666666,
+        "profit_units": 9.76,
+        "roi": 1.0844444444444443,
+        "fallback_bets": 0
+      },
+      "fallback": {
+        "bets": 9,
+        "wins": 6,
+        "losses": 3,
+        "push_or_partial": 0,
+        "hit_rate": 0.6666666666666666,
+        "profit_units": 9.76,
+        "roi": 1.0844444444444443,
+        "fallback_bets": 0
+      },
+      "fallback_edge": {
+        "bets": 9,
+        "wins": 6,
+        "losses": 3,
+        "push_or_partial": 0,
+        "hit_rate": 0.6666666666666666,
+        "profit_units": 9.76,
+        "roi": 1.0844444444444443,
+        "fallback_bets": 0
+      }
+    },
+    "soccer_uefa_nations_league": {
+      "original": {
+        "bets": 28,
+        "wins": 23,
+        "losses": 5,
+        "push_or_partial": 0,
+        "hit_rate": 0.8214285714285714,
+        "profit_units": 16.09,
+        "roi": 0.5746428571428571,
+        "fallback_bets": 0
+      },
+      "original_edge": {
+        "bets": 26,
+        "wins": 21,
+        "losses": 5,
+        "push_or_partial": 0,
+        "hit_rate": 0.8076923076923077,
+        "profit_units": 14.54,
+        "roi": 0.5592307692307693,
+        "fallback_bets": 0
+      },
+      "fallback": {
+        "bets": 28,
+        "wins": 23,
+        "losses": 5,
+        "push_or_partial": 0,
+        "hit_rate": 0.8214285714285714,
+        "profit_units": 16.09,
+        "roi": 0.5746428571428571,
+        "fallback_bets": 0
+      },
+      "fallback_edge": {
+        "bets": 26,
+        "wins": 21,
+        "losses": 5,
+        "push_or_partial": 0,
+        "hit_rate": 0.8076923076923077,
+        "profit_units": 14.54,
+        "roi": 0.5592307692307693,
+        "fallback_bets": 0
+      }
+    }
+  },
+  "date_cluster_bootstrap_delta_vs_original_95pct": {
+    "original_edge:roi": [
+      -0.04923831070889889,
+      0.020732600732600748
+    ],
+    "original_edge:hit_rate": [
+      -0.03801843317972353,
+      0.0
+    ],
+    "fallback:roi": [
+      0.0,
+      0.0
+    ],
+    "fallback:hit_rate": [
+      0.0,
+      0.0
+    ],
+    "fallback_edge:roi": [
+      -0.04923831070889889,
+      0.020732600732600748
+    ],
+    "fallback_edge:hit_rate": [
+      -0.03801843317972353,
+      0.0
+    ]
+  },
+  "sources": {
+    "/tmp/football-fallback-audit/server_bet_log.jsonl": "9aa86b74bfff85111c0daf940d32f42206137f795466279ad5da82982b13c7c1",
+    "/tmp/football-fallback-audit/results.json": "6d587e1f6ce71313c46a32936dcdcdb03d1daa0d0acee9a4954a5274c19ed990"
+  }
+}
