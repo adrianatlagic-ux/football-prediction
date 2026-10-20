@@ -21,7 +21,7 @@ quotes, model/market data, or an original below the minimum odds do not
 trigger a rescue.
 
 The response marks `is_fallback`, `original_pick`, and `fallback_reason`.
-The UI labels the result as an alternative derived from the original AI pick;
-confirmation refers to the AI retaining that original pick. It places the
-accepted alternative among the visible table signals. Existing bet-tip logs
-keep this metadata, and new logs also include all priced candidates.
+The UI displays the accepted tip without an additional fallback notice and
+places it among the visible table signals. Confirmation refers to completion
+of the AI review. Bet-tip logs keep the fallback metadata and original AI
+pick; new logs also include all priced candidates.

@@ -1056,7 +1056,7 @@ function BetTipBox({ betTip }) {
     const why = {
       waiting_for_ai: tr('Folgt, sobald die KI das Spiel geprüft hat (in den 15 Stunden vor Anpfiff).', 'Coming once the AI has checked the match (in the 15 hours before kickoff).'),
       ai_unsure: tr('Kein Wett-Tipp – die KI hat ihren Tipp kurz vor Anpfiff geändert und ist sich nicht sicher.', 'No bet tip – the AI changed its pick shortly before kickoff and is not sure.'),
-      no_agreement: tr('Kein Wett-Tipp – weder der KI-Tipp noch eine passende Ersatzwette erfüllt die Bedingungen.', 'No bet tip – neither the AI pick nor a suitable alternative meets the conditions.'),
+      no_agreement: tr('Kein Wett-Tipp – die Bedingungen für einen Tipp sind nicht erfüllt.', 'No bet tip – the conditions for a tip are not met.'),
     }[betTip?.status] || tr('Kein Wett-Tipp für dieses Spiel.', 'No bet tip for this match.')
     return (
       <div className="bet-tip is-empty">
@@ -1077,20 +1077,10 @@ function BetTipBox({ betTip }) {
       <div className="smart-bet-agree-row">
         <span className="smart-bet-agree-chip yes">◆ {tr('Modell stimmt zu', 'Model agrees')} {pct(model)} ✓</span>
       </div>
-      {betTip.is_fallback && betTip.original_pick && (
-        <p className="bet-tip-status">
-          {tr('Ersatzwette aus dem KI-Tipp', 'Alternative derived from the AI pick')}: {betOutcomeLabel(betTip.original_pick)}.
-          {' '}{tr('Die abgeschwächte Wette wird vom Modell mindestens so wahrscheinlich eingeschätzt wie vom Markt.', 'The model rates this weaker bet at least as likely as the market does.')}
-        </p>
-      )}
       <div className={`bet-tip-status ${betTip.confirmed ? 'is-confirmed' : ''}`}>
         {betTip.confirmed
-          ? (betTip.is_fallback
-            ? tr('bestätigt – die KI hat ihren ursprünglichen Tipp beibehalten', 'confirmed – the AI kept its original pick')
-            : tr('bestätigt – die KI hat ihren Tipp vor Anpfiff noch einmal geprüft', 'confirmed – the AI checked its pick again before kickoff'))
-          : (betTip.is_fallback
-            ? tr('vorläufig – die KI prüft ihren ursprünglichen Tipp etwa eine Stunde vor Anpfiff noch einmal', 'provisional – the AI checks its original pick again about an hour before kickoff')
-            : tr('vorläufig – die KI prüft ihn etwa eine Stunde vor Anpfiff noch einmal', 'provisional – the AI checks it again about an hour before kickoff'))}
+          ? tr('bestätigt – die KI-Prüfung vor Anpfiff ist abgeschlossen', 'confirmed – the AI review before kickoff is complete')
+          : tr('vorläufig – die KI prüft das Spiel etwa eine Stunde vor Anpfiff noch einmal', 'provisional – the AI reviews the match again about an hour before kickoff')}
       </div>
     </div>
   )
