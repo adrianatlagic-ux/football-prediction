@@ -406,5 +406,48 @@
     "missing_action": "disclose_quality_status_without_second_generation"
   },
   "cloud_editor_temporary_cloud_files_allowed": true,
-  "cloud_editor_qa_and_delivery_allowed": true
+  "cloud_editor_qa_and_delivery_allowed": true,
+  "narrative_quality_priority": {
+    "reference_editorial_date": "2026-10-10",
+    "reference_fixture": "Union Berlin vs Elversberg",
+    "positive_features": [
+      "verified personal club connection drives the premise",
+      "one recognizable protagonist with consistent identity",
+      "specific dilemma, conversational correction, conscious choice, visible payoff",
+      "natural coherent staging"
+    ],
+    "do_not_repeat": "same wrong dressing-room plot",
+    "rejected_editorial_date": "2026-10-20",
+    "rejection_reason": "unintelligible story and generic/random players; disconnected match action",
+    "pregeneration_questions": [
+      "Who is the protagonist?",
+      "What verifiable tie to this fixture or club?",
+      "What does the protagonist want?",
+      "What conflict requires a choice?",
+      "What visible consequence follows?"
+    ],
+    "manifest_fields": [
+      "protagonist",
+      "verified_personal_or_club_tie",
+      "goal",
+      "dilemma",
+      "decision",
+      "visible_consequence",
+      "one_sentence_audience_story",
+      "character_continuity_plan",
+      "pitch_causal_chain"
+    ],
+    "pitch_beats": "at least two distinct moments causally inside the protagonist's decision and payoff",
+    "opening_display": "approximately first two seconds only; do not persist over story",
+    "model_and_duration": "choose enough seconds and model capability for coherent character, dialogue, and action; verify exact quote; do not minimize cost by breaking story",
+    "qa_gate": [
+      "one sentence audience comprehension",
+      "character and team identity consistency",
+      "actual natural German speech",
+      "opening disappears after two seconds",
+      "two related pitch actions"
+    ],
+    "one_generation_per_editorial_day": true,
+    "no_regeneration_of_rejected_2026_10_20": true
+  }
 }
