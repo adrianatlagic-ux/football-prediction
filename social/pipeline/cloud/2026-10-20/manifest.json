@@ -2,7 +2,7 @@
   "schema_version": "1.5",
   "target_date": "2026-10-20",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "generation_submitted",
+  "status": "delivered_with_disclosed_quality_limit",
   "daily_limit": 1,
   "video_generation_attempt_limit": 1,
   "attempts_used": 1,
@@ -83,15 +83,46 @@
     "balance_before_credits": 512,
     "job_id": "f76c5a99-6a12-40f9-b3fd-cb82febacfaa",
     "prompt": "12-sekündiges vertikales fotorealistisches Kino-Vorschauvideo, durchgehend deutsch. Das bereitgestellte Startbild ist die erste Szene: echte UEFA-Wappen von Paris Saint-Germain und FC Barcelona, korrekte Paarung und HEUTE · 21:00 UHR MESZ auf der Stadionanzeige. Halte diese Anfangsinformation ca. 2 Sekunden stabil und gut lesbar, ohne weitere Texteinblendung. Danach ein eigenständiges fiktives Duell im Parc des Princes, keine echte Spielaufnahme oder Ergebnisbehauptung, keine nachgebildeten identifizierbaren Profis, keine Stimmenklone. Zwei fiktive erwachsene Figuren auf der Tribüne, natürliche deutsche Stimmen und kurze wechselseitige Sätze: 'Hier kippt jeder Vorsprung.' – 'Dann zählen die nächsten Sekunden.' Ihre Blicke führen zum Platz. Erste kausale Spielaktion: fiktiver Pariser Angreifer dribbelt auf links, eine fiktive Barcelona-Verteidigerin liest die Finte und erobert den Ball. Zweite Aktion unmittelbar als Folge: Barcelona spielt schnell in die freie Gasse, ein fiktiver Pariser Verteidiger sprintet zurück und grätscht fair vor dem Abschluss dazwischen. Schlussbild: der frei rollende Ball zwischen beiden Teams, offene Frage statt Tor oder Ergebnis. Starke räumliche Kontinuität, Ballrichtung und Reaktionen klar, realistische Körperbewegung, glaubwürdige Emotion, dynamischer Kameraschwenk zwischen Tribüne und Platz. Keine Sponsorenaussage, kein Stat-Overlay, keine erfundenen Nachrichten. Dies ist eine klar fiktionale visuelle Vorschau, keine dokumentarische Rekonstruktion.",
-    "status": "pending"
+    "status": "completed",
+    "source_media_id": "f76c5a99-6a12-40f9-b3fd-cb82febacfaa",
+    "credits_consumed": 12,
+    "balance_after_credits": 500
   },
   "qa": {
-    "status": "pending"
+    "status": "not_ready_content_qa",
+    "source_duration_seconds": 12.042,
+    "final_duration_seconds": 15.064,
+    "format": "720x1280 24 fps H.264/AAC",
+    "intro_review": "Correct PSG/Barcelona crests, pairing and 21:00 MESZ legible; generated pairing/clock remains superimposed across much of the story, beyond planned opening.",
+    "pitch_action_review": "One apparent dribble and tackle/ball gain at 0:06–0:09; second requested fast pass and defensive recovery not clearly present. Scene ends with group around ball.",
+    "spoken_language_review": "Higgsfield automated video analysis renders fan dialogue in English despite German prompt. It may translate speech; actual German audio was not independently confirmed. Do not mark language as passed.",
+    "audio_review": "AAC stereo present, source audio preserved packet-identically for first 564 packets; naturalness and German language not conclusively verified.",
+    "visual_review": "Opening and pitch frames inspected, live-action look present; generated action is fiction.",
+    "transition_review": "12.0 s cut to original three-second black/gold/white German master inspected at 12.2 s and 14.7 s; master fades at its end.",
+    "master_hash_verified": true,
+    "source_video_bitstream_hash_match": true,
+    "source_audio_adts_sha256_match": true,
+    "final_live_fixture_check": {
+      "at": "2026-10-20T16:31:45Z",
+      "status": "UPCOMING",
+      "kickoff_at": "2026-10-20T19:00:00Z",
+      "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=100&limit=100"
+    }
   },
   "delivery": {
     "ready": false,
-    "final_media_id": null,
-    "zip_media_id": null
+    "status": "delivered_with_disclosed_quality_limit",
+    "final_media_id": "bc9ab210-bba6-4eef-a87b-56126cca3937",
+    "zip_media_id": "c09ebc17-fc01-4e0c-82c4-20d2a6816550",
+    "final_sha256": "56e5ce65ac917fddbdd914728233e0550c57ee34fa8945031e52c44252bbd9fa",
+    "zip_embedded_mp4_sha256": "56e5ce65ac917fddbdd914728233e0550c57ee34fa8945031e52c44252bbd9fa",
+    "link_http_status": {
+      "mp4": 200,
+      "zip": 200
+    },
+    "private_urls_in_repository": false
   },
-  "created_at": "2026-10-20T16:25:50Z"
+  "created_at": "2026-10-20T16:25:50Z",
+  "caption": "Paris gegen Barça: Wer behält die Nerven, wenn ein Ballgewinn das Spiel sofort dreht? 🔥 Wird der schnelle Konter oder die letzte Abwehraktion entscheidend?\n\n20.10.2026 · 21:00 Uhr MESZ · KI-Fiktion\ngoaliq.de\nKI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.\n\n#PSG #FCBarcelona #ChampionsLeague #GoalIQ",
+  "updated_at": "2026-10-20T16:31:45Z"
 }
