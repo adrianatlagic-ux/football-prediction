@@ -1,0 +1,18 @@
+name: Verify deployable image
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - run: git lfs fsck
+      - name: Build and verify both production models
+        run: docker build -t goaliq-verified .

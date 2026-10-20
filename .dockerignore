@@ -21,3 +21,9 @@ club_model_v3_pre_elo.joblib
 # Server logs live on the Fly volume; a local copy (tests, scripts) must never
 # be shipped into it.
 data/logs/
+
+# Never include local credentials or migration archives in deployments.
+.env
+.env.*
+.fly_token
+local-archive

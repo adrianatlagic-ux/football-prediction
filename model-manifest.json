@@ -1,0 +1,14 @@
+{
+  "source_release": 121,
+  "source_image": "registry.fly.io/football-prediction:deployment-01M52Y9ZD80WBZKYSFQP3SD4NS",
+  "models": {
+    "club_model_v3.joblib": {
+      "sha256": "dfe138a9867129cd132dcfed02cd48e5463734b39af2e4c67ecbb18348df6380",
+      "size_bytes": 68300031
+    },
+    "model.joblib": {
+      "sha256": "c9dfbc69c859bd187d60336428383eb52a73dd31128bf4353b7afad54cdbc1ae",
+      "size_bytes": 134949486
+    }
+  }
+}

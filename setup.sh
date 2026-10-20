@@ -1,120 +1,24 @@
 #!/bin/bash
+set -euo pipefail
+cd "$(cd "$(dirname "$0")" && pwd)"
 
-set -e
-
-echo ""
-echo "======================================================"
-echo "  WM 2026 Predictor — Setup"
-echo "======================================================"
-echo ""
-
-# Set up the checkout containing this script.
-DEST="$(cd "$(dirname "$0")" && pwd)"
-cd "$DEST"
-
-echo ""
-echo "======================================================"
-echo "  Aktueller Projektstand"
-echo "======================================================"
-echo ""
-echo "📦 Projektstruktur:"
-echo ""
-echo "  football-prediction/"
-echo "  ├── src/"
-echo "  │   ├── data_loader.py         — Lädt echte Länderspieldaten (49.355 Spiele)"
-echo "  │   ├── feature_engineering.py — Form, H2H, Tore, FIFA-Ranking Features"
-echo "  │   ├── fifa_rankings.py       — Offizielle FIFA Rankings Juni 2026"
-echo "  │   ├── poisson_model.py       — Dixon-Coles Ergebnisvorhersage"
-echo "  │   ├── predictor.py           — Haupt-Predictor (RF + XGBoost Ensemble)"
-echo "  │   └── models/                — Random Forest, XGBoost, Ensemble"
-echo "  ├── api/"
-echo "  │   └── app.py                 — FastAPI Backend (REST API)"
-echo "  ├── frontend/"
-echo "  │   └── src/                   — React + Vite Frontend"
-echo "  ├── scripts/"
-echo "  │   ├── train.py               — Modell trainieren"
-echo "  │   └── predict.py             — Einzelvorhersage CLI"
-echo "  └── data/"
-echo "      └── international_results.csv  — 49.355 echte Länderspiele seit 1872"
-echo ""
-echo "🤖 Modell:"
-echo "  - Algorithmus  : Random Forest + XGBoost Ensemble"
-echo "  - Trainingsdaten: 32.166 Länderspiele seit 1990"
-echo "  - Genauigkeit  : 59.1%"
-echo "  - Ergebnisse   : Dixon-Coles Poisson Modell (xG-basiert)"
-echo "  - Features     : Form, H2H, Tore, Zu-Null, FIFA-Ranking"
-echo ""
-echo "🌍 WM 2026:"
-echo "  - 60 Teams mit offiziellen FIFA Rankings (Juni 2026)"
-echo "  - Alle Gruppenspiele im Datensatz vorhanden"
-echo ""
-
-# Python setup
-echo "======================================================"
-echo "  Python Dependencies installieren"
-echo "======================================================"
-echo ""
-
-if ! command -v python3 &>/dev/null; then
-  echo "❌ Python3 nicht gefunden. Bitte installiere Python 3.10+"
+if ! git lfs version >/dev/null 2>&1; then
+  echo "Git LFS fehlt. Bitte zuerst git-lfs installieren."
   exit 1
 fi
+git lfs install --local
+git lfs pull
 
 if [ ! -x .venv/bin/python ]; then
-  python3 -m venv .venv
+  PYTHON_BIN="${PYTHON_BIN:-python3}"
+  "$PYTHON_BIN" -c 'import sys; assert sys.version_info >= (3, 11), "Python 3.11+ erforderlich; PYTHON_BIN setzen"'
+  "$PYTHON_BIN" -m venv .venv
 fi
-.venv/bin/python -m pip install -r requirements-local.txt -q
-.venv/bin/python -m pip install python-multipart scipy -q
-echo "✅ Python Dependencies installiert"
+.venv/bin/python -c 'import sys; assert sys.version_info >= (3, 11), "Die .venv braucht Python 3.11+"'
+.venv/bin/python -m pip install -r requirements-local.txt
+.venv/bin/python scripts/verify_models.py
 
-# Train model
-echo ""
-echo "======================================================"
-echo "  Modell trainieren (~3 Minuten)"
-echo "======================================================"
-echo ""
-if [ ! -f model.joblib ]; then
-  .venv/bin/python scripts/train.py
-else
-  echo "Vorhandenes Modell wird beibehalten."
-fi
-
-# Frontend setup
-echo ""
-echo "======================================================"
-echo "  Frontend Dependencies installieren"
-echo "======================================================"
-echo ""
-
-if ! command -v node &>/dev/null; then
-  echo "⚠️  Node.js nicht gefunden — Frontend wird übersprungen."
-  echo "   Installiere Node.js von https://nodejs.org"
-else
-  cd frontend
-  npm ci -q
-  npm run build -q
-  cd ..
-  echo "✅ Frontend gebaut"
-fi
-
-echo ""
-echo "======================================================"
-echo "  ✅ Setup abgeschlossen!"
-echo "======================================================"
-echo ""
-echo "  Starten:"
-echo ""
-echo "  Terminal 1 — Backend:"
-echo "    cd $DEST"
-echo "    ./start_api.sh"
-echo ""
-echo "  Terminal 2 — Frontend:"
-echo "    cd $DEST/frontend"
-echo "    npm run dev"
-echo ""
-echo "  Dann im Browser öffnen: http://localhost:5173"
-echo ""
-echo "  Oder direkt eine Vorhersage:"
-echo "    python3 scripts/predict.py --home 'Germany' --away 'France'"
-echo ""
-echo "======================================================"
+(cd frontend && npm ci && npm run build)
+echo "GoalIQ ist eingerichtet."
+echo "Backend: ./start_api.sh"
+echo "Frontend: cd frontend && npm run dev"
