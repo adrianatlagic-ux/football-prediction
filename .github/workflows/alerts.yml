@@ -3,11 +3,12 @@ name: Price source alerts
 # The server records every failure of a price source (the bet-at-home scraper,
 # the Odds API) at /alerts (src/alerts.py). This opens one GitHub issue per new
 # alert, labelled "alarm", so GitHub notifies the owner by mail and in the app.
-# GitHub runs scheduled workflows only from the default branch, and late at
-# busy times; an alert can take up to an hour or two to become an issue.
+# The Fly daily odds read starts at 06:05 UTC. The 07:15 UTC check gives
+# that job time to finish; later checks run every two hours. GitHub may delay
+# scheduled runs, so this is monitoring rather than an exact-time trigger.
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "15 1-23/2 * * *"
   workflow_dispatch: {}
 
 permissions:

@@ -1,13 +1,11 @@
 name: Log bets and combos
 
-# Runs independently of any chat session, so the bet log stays complete even
-# when nobody is actively working on the repo. log_bets.py only logs a match
-# once it's within 30 minutes of kickoff (see FIRST_LOG_WINDOW_HOURS in the
-# script), so a 15-minute interval is frequent enough to catch every match
-# without ever missing its window.
+# The Fly scheduler writes the original logs every 10 minutes. This workflow
+# copies those existing logs to GitHub twice daily for history and backup;
+# it does not decide whether a pre-match bet gets recorded.
 on:
   schedule:
-    - cron: "7,22,37,52 * * * *"
+    - cron: "15 8,20 * * *"
   workflow_dispatch: {}
 
 permissions:
