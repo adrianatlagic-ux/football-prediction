@@ -8,17 +8,8 @@ echo "  WM 2026 Predictor — Setup"
 echo "======================================================"
 echo ""
 
-# Clone repo to Desktop
-DEST="$HOME/Desktop/football-prediction"
-
-if [ -d "$DEST" ]; then
-  echo "📁 Ordner existiert bereits — aktualisiere..."
-  git -C "$DEST" pull
-else
-  echo "📥 Klone Repository auf den Desktop..."
-  git clone https://github.com/adrianatlagic-ux/football-prediction "$DEST"
-fi
-
+# Set up the checkout containing this script.
+DEST="$(cd "$(dirname "$0")" && pwd)"
 cd "$DEST"
 
 echo ""
@@ -69,8 +60,11 @@ if ! command -v python3 &>/dev/null; then
   exit 1
 fi
 
-pip3 install -r requirements.txt -q
-pip3 install python-multipart scipy -q
+if [ ! -x .venv/bin/python ]; then
+  python3 -m venv .venv
+fi
+.venv/bin/python -m pip install -r requirements-local.txt -q
+.venv/bin/python -m pip install python-multipart scipy -q
 echo "✅ Python Dependencies installiert"
 
 # Train model
@@ -79,7 +73,11 @@ echo "======================================================"
 echo "  Modell trainieren (~3 Minuten)"
 echo "======================================================"
 echo ""
-python3 scripts/train.py
+if [ ! -f model.joblib ]; then
+  .venv/bin/python scripts/train.py
+else
+  echo "Vorhandenes Modell wird beibehalten."
+fi
 
 # Frontend setup
 echo ""
@@ -93,7 +91,7 @@ if ! command -v node &>/dev/null; then
   echo "   Installiere Node.js von https://nodejs.org"
 else
   cd frontend
-  npm install -q
+  npm ci -q
   npm run build -q
   cd ..
   echo "✅ Frontend gebaut"
@@ -108,7 +106,7 @@ echo "  Starten:"
 echo ""
 echo "  Terminal 1 — Backend:"
 echo "    cd $DEST"
-echo "    uvicorn api.app:app --reload"
+echo "    ./start_api.sh"
 echo ""
 echo "  Terminal 2 — Frontend:"
 echo "    cd $DEST/frontend"
