@@ -7,6 +7,7 @@ import NL_FIXTURES from './nl_fixtures.json'
 import CLUB_CRESTS from './club_crests.json'
 import TEAM_COLORS from './team_colors.json'
 import TEAM_NAMES_DE from './team_names_de.json'
+import { fixtureDateTime, nextGamesFor } from './fixtureSchedule.js'
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? (import.meta.env.DEV ? 'http://127.0.0.1:8000' : '')
 
@@ -23,9 +24,6 @@ const GROUPS = [...new Set(CL_FIXTURES.map(f => f.group))].sort((a, b) => {
   return a.localeCompare(b)
 })
 
-function fixtureDateTime(f) {
-  return new Date(`${f.date}T${f.time}:00`)
-}
 
 // The page's language: German by default, English on request (the switch at
 // the top right), remembered in the browser. Every text a visitor reads goes
@@ -84,24 +82,6 @@ const MATCH_DESCRIPTIONS_DE = {
   'Few chances expected, a single goal could be decisive': 'Wenige Chancen erwartet, ein Tor könnte entscheiden',
 }
 
-// "Next Games" = the current matchday window: 15:00 until 06:00 the next morning.
-// Before 06:00 we're still inside last evening's window; otherwise it's today's.
-function nextGamesWindow(now = new Date()) {
-  const start = new Date(now)
-  const end = new Date(now)
-  if (now.getHours() < 6) {
-    start.setDate(start.getDate() - 1)
-    start.setHours(15, 0, 0, 0)
-    end.setHours(6, 0, 0, 0)
-  } else {
-    start.setHours(15, 0, 0, 0)
-    end.setDate(end.getDate() + 1)
-    end.setHours(6, 0, 0, 0)
-  }
-  return [start, end]
-}
-
-const [_NG_START, _NG_END] = nextGamesWindow()
 const BL_GROUPS = [...new Set(BL_FIXTURES.map(f => f.group))]
 const NL_GROUPS = [...new Set(NL_FIXTURES.map(f => f.group))]
 
@@ -159,13 +139,6 @@ function predictionOpensAt(fixture) {
   return new Date(fixtureDateTime(fixture).getTime() - PREDICTION_LEAD_HOURS * 3600000)
 }
 
-// "Next games" follows whichever competition is on screen: showing Champions
-// League kickoffs while the Nations League tab is open would just look broken.
-function nextGamesFor(fixtures) {
-  return fixtures
-    .filter(f => { const d = fixtureDateTime(f); return d >= _NG_START && d < _NG_END })
-    .sort((a, b) => fixtureDateTime(a) - fixtureDateTime(b))
-}
 
 function excitementScore(data) {
   const probs = [data.probability_home_win, data.probability_draw, data.probability_away_win]
@@ -2237,14 +2210,21 @@ export default function App() {
   const [activeCompetition, setActiveCompetition] = useState('cl')
   const [activeGroup, setActiveGroup] = useState('next')
   const [, setFixturesVersion] = useState(0)
+  const [fixtureNow, setFixtureNow] = useState(() => new Date())
+  useEffect(() => {
+    const refreshClock = () => setFixtureNow(new Date())
+    const timer = setInterval(refreshClock, 60000)
+    window.addEventListener('focus', refreshClock)
+    return () => { clearInterval(timer); window.removeEventListener('focus', refreshClock) }
+  }, [])
   const [analysisStep, setAnalysisStep] = useState({})
   const [combo, setCombo] = useState(null)
   const [comboLoading, setComboLoading] = useState(false)
 
   const competition = COMPETITIONS[activeCompetition]
   const currentFixtures = competition.fixtures
-  const currentGroups = competition.groups
-  const nextGames = nextGamesFor(currentFixtures)
+  const currentGroups = groupsAroundToday(currentFixtures, fixtureNow)
+  const nextGames = nextGamesFor(currentFixtures, fixtureNow)
 
   // Anything already loaded belongs to the competition being left, so it is
   // dropped rather than shown under the new one.
@@ -2563,11 +2543,11 @@ export default function App() {
               )}
 
               {activeGroup === 'next' && nextGames.length === 0 && (
-                <p className="wm-subtle">{tr('Heute stehen keine Spiele an.', 'No games today.')}</p>
+                <p className="wm-subtle">{tr('Noch keine weiteren Spieltermine verfügbar.', 'No further fixtures available yet.')}</p>
               )}
 
               {activeGroup === 'hot' && nextGames.length === 0 && (
-                <p className="wm-subtle">{tr('Heute stehen keine Spiele an.', 'No games today.')}</p>
+                <p className="wm-subtle">{tr('Noch keine weiteren Spieltermine verfügbar.', 'No further fixtures available yet.')}</p>
               )}
 
 
