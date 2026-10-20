@@ -44,13 +44,12 @@ def test_user_book_prices_every_market_it_lists(tmp_path, monkeypatch):
     assert not any(m.startswith("Over/Under 0.75") for m, _, _ in bets)
 
 
-def test_a_stale_1x2_is_left_out_but_the_last_good_markets_stay(tmp_path, monkeypatch):
-    # Since 13 October: without a read in this hour the last good bet-at-home
-    # markets are shown rather than none; its stale 1X2 price stays out.
+def test_failed_refresh_does_not_relabel_stale_market_quotes(tmp_path, monkeypatch):
+    # A stale book must not acquire the current snapshot's timestamp.
     _write_book(tmp_path, monkeypatch, datetime.now(timezone.utc) - timedelta(hours=3))
     vb = api._compute_value_bets(_renamed(prediction()), [_snapshot_event()], "Aachen", "Bochum")
     mine = [b for b in vb["bets"] if b["bookmaker_key"] == api.USER_BOOK_KEY]
-    assert mine and all(b["market"] != "1X2" for b in mine)
+    assert not mine
 
 
 def test_window_refresh_respects_the_monthly_budget(tmp_path, monkeypatch):
@@ -79,3 +78,14 @@ def test_most_likely_pick_is_the_markets_likeliest_in_the_odds_range():
     pick = vb["likely_pick"]
     # Over 0.5 is likelier but priced at 1.05, below the 1.30 floor.
     assert pick["market"] == "1X2" and pick["team"] == "Aachen"
+
+
+def test_fresh_1x2_does_not_renew_stale_extra_markets(tmp_path, monkeypatch):
+    _write_book(tmp_path, monkeypatch, datetime.now(timezone.utc))
+    path = book_odds.path()
+    stored = json.loads(path.read_text())
+    stored['fixtures'][0]['markets_fetched_at'] = (datetime.now(timezone.utc) - timedelta(hours=3)).isoformat()
+    path.write_text(json.dumps(stored))
+    vb = api._compute_value_bets(_renamed(prediction()), [_snapshot_event()], 'Aachen', 'Bochum')
+    mine = [b for b in vb['bets'] if b['bookmaker_key'] == api.USER_BOOK_KEY]
+    assert mine and all(b['market'] == '1X2' for b in mine)

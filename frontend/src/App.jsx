@@ -496,10 +496,10 @@ function useAiTextsEn(home, away) {
 
 function MatchScenario({ data }) {
   const bm = (data.score_prediction || {}).betting_markets
-  if (!bm) return null
   const home = data.home_team
   const away = data.away_team
   const en = useAiTextsEn(home, away)
+  if (!bm) return null
   return (
     <div className="betting-markets">
       <div className="scenario-box">
@@ -1030,6 +1030,7 @@ function BetTipBox({ betTip }) {
       waiting_for_ai: tr('Folgt, sobald die KI das Spiel geprüft hat (in den 15 Stunden vor Anpfiff).', 'Coming once the AI has checked the match (in the 15 hours before kickoff).'),
       ai_unsure: tr('Kein Wett-Tipp – die KI hat ihren Tipp kurz vor Anpfiff geändert und ist sich nicht sicher.', 'No bet tip – the AI changed its pick shortly before kickoff and is not sure.'),
       no_agreement: tr('Kein Wett-Tipp – die Bedingungen für einen Tipp sind nicht erfüllt.', 'No bet tip – the conditions for a tip are not met.'),
+      odds_expired: tr('Kein Wett-Tipp – die Quoten sind nicht mehr gültig. Bitte erneut laden.', 'No bet tip – the odds are no longer valid. Please reload.'),
     }[betTip?.status] || tr('Kein Wett-Tipp für dieses Spiel.', 'No bet tip for this match.')
     return (
       <div className="bet-tip is-empty">
@@ -1076,7 +1077,7 @@ function LikelyTipBox({ pick }) {
   )
 }
 
-function SmartBetCard({ betStep, betInfo, data }) {
+function SmartBetCard({ betStep, betInfo, data, onRefresh, currentTime }) {
   const [showAllMarkets, setShowAllMarkets] = useState(false)
   const aiEn = useAiTextsEn(data?.home_team, data?.away_team)
 
@@ -1105,6 +1106,22 @@ function SmartBetCard({ betStep, betInfo, data }) {
           {tr('Die Quoten sind jetzt live und bewegen sich mit dem Spielstand – unser Vorab-Modell lässt sich nicht mehr sinnvoll damit vergleichen. Kein Tipp für dieses Spiel.',
               'The odds are live now and move with the score – our pre-match model can no longer be compared with them meaningfully. No tip for this match.')}
         </p>
+      </div>
+    )
+  }
+
+  const snapshotExpired = betInfo.snapshot_valid === false
+    || (betInfo.snapshot_valid_until && currentTime >= Date.parse(betInfo.snapshot_valid_until))
+  if (snapshotExpired) {
+    return (
+      <div className="wm-reveal">
+        <p className="smart-bet-notip">
+          {tr('Der Quotenstand ist abgelaufen. Bitte lade die Wett-Tipps erneut, um aktuelle Daten abzurufen.',
+              'This odds snapshot has expired. Reload the bet tips to fetch updated data.')}
+        </p>
+        {onRefresh && <button className="fixture-generate-btn" onClick={onRefresh}>
+          {tr('Quoten erneut laden', 'Reload odds')}
+        </button>}
       </div>
     )
   }
@@ -1282,7 +1299,7 @@ function RevealSection({ visible, className = '', children }) {
   return <div className={`wm-reveal ${className}`}>{children}</div>
 }
 
-function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Infinity, betStep, onStartBetCheck, betInfo }) {
+function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Infinity, betStep, onStartBetCheck, betInfo, currentTime }) {
   const sp = data.score_prediction || {}
   const gf = data.game_flow || {}
   const ps = gf.predicted_stats || {}
@@ -1423,7 +1440,7 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
                   </button>
                 </div>
               ) : (
-                <SmartBetCard betStep={betStep} betInfo={betInfo} data={data} />
+                <SmartBetCard betStep={betStep} betInfo={betInfo} data={data} onRefresh={onStartBetCheck} currentTime={currentTime} />
               )}
             </div>
           )}
@@ -2606,6 +2623,7 @@ export default function App() {
                         onCollapse={step === Infinity ? () => collapseAnalysis(fixture.match_id) : undefined}
                         betStep={betStepById[fixture.match_id]}
                         betInfo={betInfoById[fixture.match_id]}
+                        currentTime={fixtureNow.getTime()}
                         onStartBetCheck={() => startBetCheck(fixture.match_id, fixture)}
                       />
                     )

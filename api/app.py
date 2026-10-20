@@ -1236,31 +1236,16 @@ def _with_book_odds(event: dict, events: Optional[list] = None) -> dict:
     if not fixture:
         return event
 
-    # The alignment guards against a stale bet-at-home price beside a fresh
-    # one from another bookmaker. The morning snapshot (the free events list)
-    # carries no other prices, so there bet-at-home's read of the same day
-    # stands alone - a read caught up later in the day included.
-    # Since 14 October the morning read carries the other books' Over/Under
-    # only; they say nothing about how old bet-at-home's 1X2 may be.
-    others = any(b.get("key") != USER_BOOK_KEY and any(m.get("key") == "h2h" for m in b.get("markets", []))
-                 for b in event.get("bookmakers", []))
-    # In the last hour bet-at-home is read once (book_odds.refresh_if_due)
-    # while Pinnacle can be re-read later - after a restart, say - so both
-    # count as that hour's prices.
-    allowed_gap = (3600 if event.get("odds_stage") == "final" else MAX_QUOTE_AGE_SECONDS) if others else 18 * 3600
-
+    # Compare each market's own fetch time with this snapshot. A failed
+    # refresh must never renew the timestamps of the previous market book.
     def stamp(value):
         try:
             fetched = timestamp(value)
         except (TypeError, ValueError):
             return None
         gap = abs((snapshot - fetched).total_seconds())
-        if gap > allowed_gap:
-            return None
-        # Accepted as this hour's price: stamped with the snapshot time, or
-        # the later freshness check would drop it again as too old.
         if gap > MAX_QUOTE_AGE_SECONDS:
-            return snapshot.isoformat()
+            return None
         return min(fetched, snapshot).isoformat()
 
     home, away = event["home_team"], event["away_team"]
@@ -1273,11 +1258,6 @@ def _with_book_odds(event: dict, events: Optional[list] = None) -> dict:
             {"name": away, "price": o["away"]}]})
     full = fixture.get("markets") or {}
     full_time = stamp(fixture.get("markets_fetched_at"))
-    if full_time is None and book_odds.has_markets(full):
-        # No read of the markets in this hour (the scraper brought none, or
-        # the read failed): the last good bet-at-home markets rather than
-        # none, so the table shows what the user can actually bet.
-        full_time = snapshot.isoformat()
     if full and full_time:
         if full.get("totals"):
             markets.append({"key": "totals", "last_update": full_time, "outcomes": [
@@ -2379,6 +2359,15 @@ def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
     AI changes always withhold the tip. Original selections remain logged.
     """
     out = {"tip": None, "rule": BET_TIP_RULE, "confirmed": False}
+    expired = vb.get("snapshot_valid") is False or vb.get("in_play")
+    if vb.get("snapshot_valid_until"):
+        from src.bet_audit import timestamp
+        try:
+            expired = expired or timestamp(vb["snapshot_valid_until"]) <= datetime.now(timezone.utc)
+        except (ValueError, TypeError):
+            expired = True
+    if expired:
+        return {**out, "status": "odds_expired"}
     agent_eval = agent_eval or {}
     pick = agent_eval.get("pick")
     if not pick:
@@ -2393,6 +2382,8 @@ def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
             change = "unknown"
         return {**out, "status": "ai_unsure", "withheld": pick, "change": change,
                 "first_pick": agent_eval.get("first_pick")}
+    if pick.get("quote_fresh") is False:
+        return {**out, "status": "odds_expired", "withheld": pick}
     model = pick.get("model_probability_raw")
     if model is None:
         model = pick.get("probability")

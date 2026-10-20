@@ -66,3 +66,19 @@ def test_logging_keeps_complete_candidates_and_fallback_origin():
     assert entry['bets'] == [pick, alternative]
     assert entry['bet_tip']['original_pick'] == pick
     assert entry['bet_tip']['tip'] == alternative
+
+
+@pytest.mark.parametrize('snapshot', [
+    {'snapshot_valid': False},
+    {'snapshot_valid_until': '2020-01-01T00:00:00Z'},
+    {'snapshot_valid_until': 'invalid'},
+    {'in_play': True},
+])
+def test_expired_snapshot_never_keeps_a_cached_tip(snapshot):
+    pick = bet(model=.8)
+    out = api._bet_tip({'home_team': 'A', 'away_team': 'B', **snapshot}, {'pick': pick})
+    assert out['tip'] is None and out['status'] == 'odds_expired'
+
+
+def test_explicitly_stale_original_cannot_be_promoted():
+    assert decide({**bet(model=.8), 'quote_fresh': False}, [])['status'] == 'odds_expired'
