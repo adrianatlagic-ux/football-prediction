@@ -2,7 +2,7 @@
   "schema_version": "1.6",
   "target_date": "2026-10-21",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "generation_submitted",
+  "status": "delivered_with_disclosed_quality_limit",
   "coverage_key": "ucl:2049599:2026-10-21:real-madrid-leipzig",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
@@ -132,13 +132,46 @@
     "balance_before_credits": 500,
     "job_id": "67f52bd0-2137-4eab-9344-b8abc1a7a75a",
     "prompt": "15 Sekunden, 9:16, fotorealistischer fiktionaler Champions-League-Kurzfilm, klares zusammenhängendes Handlungsgerüst. Der erste Referenz-Frame ist die physische Stadionanzeige im Bernabéu: offizielle Wappen Real Madrid und RB Leipzig, \"REAL MADRID\", \"GEGEN RB LEIPZIG\", \"HEUTE · 21:00 UHR MESZ\", \"KI-FIKTION\". Diese Anzeige NUR 0–2 Sekunden zeigen. Bei 2,0 Sekunden harter Schnitt; danach keine Schrift und keine Überlagerung. Die zweite Bildreferenz zeigt den aktuellen Leipziger Kaderspieler Willi Orbán (UEFA-Foto); ihn als EINZIGE Hauptfigur in Gesicht und Leipziger weiß-rotem Trikot über alle Szenen konsistent halten. Keine zufällig wechselnden Gesichter, keine Trikot- oder Teamwechsel. Ein männliches UEFA-Champions-League-Duell, keine gemischten Teams. Kein Archivmaterial, keine echten Spielereignisse, keine echten Stimmen, keine Behauptung, dass die fiktiven Aktionen stattgefunden haben.\n2–5 Sekunden: Kurz vor Betreten des Rasens bleibt Orbán an der Seitenlinie stehen. Die Kamera bleibt auf seinem Gesicht und seiner konkreten Entscheidung zwischen Abwarten und Vorwärtsschritt. Deutsche, natürliche ERZÄHLERSTIMME, nicht Orbáns Stimme: \"2024 war es hier knapp. Heute entscheidet er früher.\" Das bezieht sich auf das verifizierte historische enge Real–Leipzig-Duell, behauptet keinen neuen Ausgang.\n5–9 Sekunden: Schnitt auf denselben Orbán im gleichen Trikot und dieselbe Spielrichtung. Ein Real-Spieler spielt einen flachen Pass in seine Zone. Orbán zögert einen Augenblick, tritt dann bewusst vor die Linie und fängt genau diesen Ball ab. Zeige seinen Fuß am Ball, den abgefangenen Pass und den Blick zum freien Mitspieler. Dies ist Handlungsschritt eins, der seine Entscheidung sichtbar macht.\n9–13 Sekunden: Ohne Orts- oder Figurenwechsel spielt Orbán den eroberten Ball zu einem Leipziger Mitspieler, rückt nach und erhält den Ball unmittelbar zurück. Unter Druck eines Real-Gegenspielers schickt er einen flachen Steckpass in den freien Raum. Dies ist Handlungsschritt zwei und die direkte Folge des Ballgewinns. Nur diese eine nachvollziehbare Ballkette; nicht eine zufällige Spielmontage.\n13–15 Sekunden: Ein Leipziger Läufer erreicht den Pass, blickt kurz zum Tor; Schnitt auf Orbáns Reaktion. Kein Abschluss, kein Tor, kein Ergebnis. Klare räumliche Kontinuität, glaubwürdige Bewegungen, echtes Stadionambiente, natürliche deutsche Erzählerstimme mit Pause, Ton gut verständlich, Musik leise. Emotional, zurückhaltend, menschlich wie ein kurzer Sportfilm. Schöpferische KI-Fiktion; die reale Historie und der aktuelle Kader sind nur Kontext. Keine weitere CTA oder Markenkarte, der feste GoalIQ-Abschluss wird später angehängt.",
-    "status": "pending"
+    "status": "completed",
+    "credits_consumed": 15,
+    "balance_after_credits": 485,
+    "source_review_media_id": "8092ab53-4225-4d32-8ee1-360aa1c73b37"
   },
   "qa": {
-    "status": "pending"
+    "status": "not_ready_content_qa",
+    "video_analysis_id": "f94f90d3-c4e4-402e-ab50-798ef06af5b8",
+    "opening_review": "Generated first frame shows correct Real Madrid and RB Leipzig crests, 'HEUTE · 21:00 UHR MESZ' and KI-FIKTION; overlay not persistent after early cut.",
+    "style_review": "Photorealistic live-action style at beginning, middle and end.",
+    "character_review": "One similar-looking Leipziger protagonist persists, but on-pitch jersey shows number 20 rather than UEFA squad number 4 for Orbán; current-player identity not reliable enough for ready.",
+    "narrative_review": "Planned decision to step out and intercept a Real pass is not shown; after close-up and static ball shot, player dribbles and passes. The intended personal dilemma and clear cause-effect arc are not evident.",
+    "pitch_action_review": "Dribble and pass to teammate visible, but no prior interception/recovery; teammate appears to score an AI-fictional goal, contrary to prompt and no-premature-result rule. Not suitable as a verified preview.",
+    "audio_review": "Higgsfield automated scene analysis identifies a German male voiceover, but naturalness and exact spoken wording were not independently listened to; source audio stream preserved packet-identically.",
+    "transition_review": "Source 15.104 s then canonical three-second German master; 18.136 s final, seam and first master frames visually checked.",
+    "source_video_prefix_sha256_match": true,
+    "source_audio_prefix_sha256_match": true,
+    "master_sha256_verified": true,
+    "final_fixture_check": {
+      "at": "2026-10-21T06:24:14Z",
+      "status": "UPCOMING",
+      "kickoff_at": "2026-10-21T19:00:00Z",
+      "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100"
+    }
   },
   "delivery": {
-    "ready": false
+    "ready": false,
+    "status": "preview_only_with_disclosed_quality_limit",
+    "final_media_id": "2fc23d25-02ca-4d7b-a417-668482048d31",
+    "zip_media_id": "a5846ffe-371f-4556-8b40-4c5417a43e17",
+    "mp4_sha256": "3fd5234ae81d476bb532301289c2127446187ebd4ed17a999d96f6009b3ae93a",
+    "zip_embedded_mp4_sha256": "3fd5234ae81d476bb532301289c2127446187ebd4ed17a999d96f6009b3ae93a",
+    "link_http_status": {
+      "mp4": 200,
+      "zip": 200
+    },
+    "social_published": false,
+    "private_urls_in_repository": false
   },
-  "created_at": "2026-10-21T06:03:43Z"
+  "created_at": "2026-10-21T06:03:43Z",
+  "caption": "Real Madrid gegen Leipzig: Wer traut sich im Bernabéu, zuerst aus der Linie zu treten – und wer bestraft genau diesen Mut? ⚽\n\n21.10.2026 · 21:00 Uhr MESZ · KI-Fiktion\ngoaliq.de\nKI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.\n\n#RealMadrid #RBLeipzig #ChampionsLeague #GoalIQ",
+  "updated_at": "2026-10-21T06:24:14Z"
 }
