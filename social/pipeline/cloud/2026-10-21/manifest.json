@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.6",
+  "target_date": "2026-10-21",
+  "editorial_date_timezone": "Europe/Berlin",
+  "status": "reserved_preflight",
+  "coverage_key": "ucl:2049599:2026-10-21:real-madrid-leipzig",
+  "daily_video_limit": 1,
+  "video_generation_attempt_limit": 1,
+  "attempts_used": 0,
+  "fixture": {
+    "competition": "UEFA Champions League",
+    "uefa_match_id": "2049599",
+    "home": "Real Madrid",
+    "away": "RB Leipzig",
+    "match_date": "2026-10-21",
+    "kickoff_at": "2026-10-21T21:00:00+02:00",
+    "status": "UPCOMING",
+    "stadium": "Estadio Santiago Bernabéu",
+    "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
+    "retrieved_at": "2026-10-21T06:03:43Z"
+  },
+  "selection": {
+    "today_ucl_fixture_pages_checked": [
+      0,
+      100,
+      200,
+      300,
+      400
+    ],
+    "reason": "Unbehandeltes heutiges Champions-League-Topspiel Real Madrid–Leipzig; Bayern–Arsenal ist bereits im Beitrag 12.10. angekündigt; mehr als zwei Stunden Vorlauf.",
+    "excluded": [
+      "Bayern München–Arsenal am 21.10. bereits abgedeckt; Cloud-Manifest 12.10.",
+      "Andere heutige CL-Duelle innerhalb desselben Spieltags redaktionell hinter Real–Leipzig rangiert."
+    ],
+    "generation_basis": "verified_fixture_and_current_research",
+    "prediction_status": "not_used",
+    "prediction_used": false
+  },
+  "research": {
+    "context_type": "match_and_player",
+    "verified_context": [
+      "UEFA-Historie: Real Madrid–Leipzig 1:1 am 06.03.2024, ein enges Duell; keine erfundenen aktuellen Form- oder Taktikbehauptungen.",
+      "Willi Orbán steht im offiziellen UEFA-Kader Leipzigs der Saison 2026/27; UEFA-Bildreferenz ist zugeordnet."
+    ],
+    "sources": [
+      {
+        "url": "https://www.uefa.com/uefachampionsleague/history/h2h/50051/2603790/",
+        "retrieved_at": "2026-10-21T06:05:00Z"
+      },
+      {
+        "url": "https://www.uefa.com/uefachampionsleague/clubs/2603790--leipzig/squad/",
+        "retrieved_at": "2026-10-21T06:05:00Z"
+      },
+      {
+        "url": "https://www.uefa.com/uefachampionsleague/clubs/players/250051754--willi-orban/",
+        "retrieved_at": "2026-10-21T06:05:00Z"
+      }
+    ],
+    "fiction_boundary": "Alle neuen Entscheidungen und Platzaktionen im Video sind KI-Fiktion; historische 1:1-Begegnung ist belegter Kontext."
+  },
+  "story": {
+    "story_type": "team_internal_decision",
+    "eligible_story_types": [
+      "team_internal_decision",
+      "time_pressure_mission"
+    ],
+    "selection_method": "random draw from two suitable nonrepeating formats",
+    "previous_story_type": "perspective_shift (20.10., vom Nutzer abgelehnt)",
+    "spoken_mode": "natural_voiceover",
+    "previous_spoken_mode": "fan_dialogue (20.10.)",
+    "protagonist": "Willi Orbán, aktueller Leipziger UEFA-Kaderspieler",
+    "verified_personal_or_club_tie": "Orbán gehört zum aktuellen RB-Leipzig-Kader; Club traf 2024 in Madrid auf Real und spielte dort 1:1.",
+    "goal": "Ein frühes Zeichen setzen und die Leipziger Linie selbst nach vorn führen.",
+    "dilemma": "Zurückweichen oder einen riskanten Schritt auf den Pass zu machen.",
+    "decision": "Er tritt vor und fängt den Pass ab.",
+    "visible_consequence": "Er spielt eine zusammenhängende Ballfolge und öffnet mit einem Steckpass Raum für einen Mitspieler.",
+    "one_sentence_audience_story": "Orbán entscheidet sich im Bernabéu gegen Abwarten, fängt einen Pass ab und eröffnet mit einem Steckpass eine fiktive Leipziger Chance.",
+    "off_pitch_setup": "Orbán hält an der Seitenlinie inne; der belegte historische knappe Ausgang in Madrid ist emotionaler Kontext, ohne reales Zitat.",
+    "on_pitch_beats": [
+      "Orbán rückt aus der Linie, fängt Real-Pass ab.",
+      "Er passt zum Leipziger Mitspieler, rückt mit, erhält den Ball zurück und spielt in den freien Raum."
+    ],
+    "causal_bridge": "Die Entscheidung, früh vorzutreten, gewinnt den Ball und löst unmittelbar die zweite Passaktion aus.",
+    "on_pitch_payoff": "Läufer erreicht Ball, Orbán reagiert; kein vorweggenommener Abschluss.",
+    "hook": "Hier war es 2024 knapp. Heute entscheidet er früher.",
+    "conflict": "Rückzug versus aktives Vorwärtsverteidigen.",
+    "turning_point": "Abfangen des flachen Passes.",
+    "ending_image": "Läufer im freien Raum und Orbáns Blick, offener Ausgang.",
+    "spoken_language": "de",
+    "exchangeability_test": "Orbán und Real–Leipzig-Historie 2024 sind Kern; bloße Teamnamen könnten nicht ohne inhaltliche Änderung ersetzt werden.",
+    "character_continuity_plan": "Offizielles Orbán-UEFA-Foto als Bildreferenz, dasselbe Gesicht und weiß-rote Leipziger Trikot in allen Szenen; keine wechselnden Hauptfiguren."
+  },
+  "visual_style": "photorealistic_live_action_fiction",
+  "fixture_hook": {
+    "render_mode": "confirmed_start_image_inside_generated_source",
+    "media_id": "7ae8690b-597c-4503-bb2a-66f3c7709f4e",
+    "exact_text": "REAL MADRID · GEGEN RB LEIPZIG · HEUTE · 21:00 UHR MESZ · KI-FIKTION",
+    "duration_target_seconds": 2,
+    "source_crest_urls": [
+      "https://img.uefa.com/imgml/TP/teams/logos/700x700/50051.png",
+      "https://img.uefa.com/imgml/TP/teams/logos/700x700/2603790.png"
+    ],
+    "stadium_image_source": "https://img.uefa.com/imgml/stadium/matchinfo/w1/62401.jpg",
+    "timezone": "Europe/Berlin"
+  },
+  "references": {
+    "orban_media_id": "f2242420-7cb1-437d-9c2d-5891c756ba3e",
+    "orban_official_photo": "https://img.uefa.com/imgml/TP/players/1/2027/324x324/250051754.jpg"
+  },
+  "outro_master": {
+    "media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "preflight": "SHA, 3.000s, logo, domain and German disclaimer checked in Higgsfield cloud"
+  },
+  "production": {
+    "charge_key": "goaliq-2026-10-21-ucl-2049599-single-video-v1",
+    "model": "seedance_2_0_mini",
+    "params": {
+      "duration": 15,
+      "resolution": "720p",
+      "aspect_ratio": "9:16",
+      "bitrate_mode": "high",
+      "generate_audio": true,
+      "genre": "drama",
+      "count": 1,
+      "media_ids": [
+        "7ae8690b-597c-4503-bb2a-66f3c7709f4e",
+        "f2242420-7cb1-437d-9c2d-5891c756ba3e"
+      ]
+    },
+    "quoted_credits_exact": 15,
+    "balance_before_credits": 500,
+    "job_id": null,
+    "prompt": "15 Sekunden, 9:16, fotorealistischer fiktionaler Champions-League-Kurzfilm, klares zusammenhängendes Handlungsgerüst. Der erste Referenz-Frame ist die physische Stadionanzeige im Bernabéu: offizielle Wappen Real Madrid und RB Leipzig, \"REAL MADRID\", \"GEGEN RB LEIPZIG\", \"HEUTE · 21:00 UHR MESZ\", \"KI-FIKTION\". Diese Anzeige NUR 0–2 Sekunden zeigen. Bei 2,0 Sekunden harter Schnitt; danach keine Schrift und keine Überlagerung. Die zweite Bildreferenz zeigt den aktuellen Leipziger Kaderspieler Willi Orbán (UEFA-Foto); ihn als EINZIGE Hauptfigur in Gesicht und Leipziger weiß-rotem Trikot über alle Szenen konsistent halten. Keine zufällig wechselnden Gesichter, keine Trikot- oder Teamwechsel. Ein männliches UEFA-Champions-League-Duell, keine gemischten Teams. Kein Archivmaterial, keine echten Spielereignisse, keine echten Stimmen, keine Behauptung, dass die fiktiven Aktionen stattgefunden haben.\n2–5 Sekunden: Kurz vor Betreten des Rasens bleibt Orbán an der Seitenlinie stehen. Die Kamera bleibt auf seinem Gesicht und seiner konkreten Entscheidung zwischen Abwarten und Vorwärtsschritt. Deutsche, natürliche ERZÄHLERSTIMME, nicht Orbáns Stimme: \"2024 war es hier knapp. Heute entscheidet er früher.\" Das bezieht sich auf das verifizierte historische enge Real–Leipzig-Duell, behauptet keinen neuen Ausgang.\n5–9 Sekunden: Schnitt auf denselben Orbán im gleichen Trikot und dieselbe Spielrichtung. Ein Real-Spieler spielt einen flachen Pass in seine Zone. Orbán zögert einen Augenblick, tritt dann bewusst vor die Linie und fängt genau diesen Ball ab. Zeige seinen Fuß am Ball, den abgefangenen Pass und den Blick zum freien Mitspieler. Dies ist Handlungsschritt eins, der seine Entscheidung sichtbar macht.\n9–13 Sekunden: Ohne Orts- oder Figurenwechsel spielt Orbán den eroberten Ball zu einem Leipziger Mitspieler, rückt nach und erhält den Ball unmittelbar zurück. Unter Druck eines Real-Gegenspielers schickt er einen flachen Steckpass in den freien Raum. Dies ist Handlungsschritt zwei und die direkte Folge des Ballgewinns. Nur diese eine nachvollziehbare Ballkette; nicht eine zufällige Spielmontage.\n13–15 Sekunden: Ein Leipziger Läufer erreicht den Pass, blickt kurz zum Tor; Schnitt auf Orbáns Reaktion. Kein Abschluss, kein Tor, kein Ergebnis. Klare räumliche Kontinuität, glaubwürdige Bewegungen, echtes Stadionambiente, natürliche deutsche Erzählerstimme mit Pause, Ton gut verständlich, Musik leise. Emotional, zurückhaltend, menschlich wie ein kurzer Sportfilm. Schöpferische KI-Fiktion; die reale Historie und der aktuelle Kader sind nur Kontext. Keine weitere CTA oder Markenkarte, der feste GoalIQ-Abschluss wird später angehängt."
+  },
+  "qa": {
+    "status": "pending"
+  },
+  "delivery": {
+    "ready": false
+  },
+  "created_at": "2026-10-21T06:03:43Z"
+}
