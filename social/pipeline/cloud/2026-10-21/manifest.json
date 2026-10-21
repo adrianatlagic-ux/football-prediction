@@ -155,6 +155,13 @@
       "status": "UPCOMING",
       "kickoff_at": "2026-10-21T19:00:00Z",
       "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100"
+    },
+    "crowd_review": {
+      "status": "failed",
+      "finding": "Visible empty blue stadium stands in the supplied opening reference and in generated stadium scenes; user observed empty stadiums in delivered clip.",
+      "user_feedback_date": "2026-10-21",
+      "requirement_for_future": "Densely occupied visible stands throughout all pitch and stadium scenes, checked at opening, middle and end.",
+      "same_day_regeneration": false
     }
   },
   "delivery": {
