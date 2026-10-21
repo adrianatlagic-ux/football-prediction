@@ -479,5 +479,35 @@
     "failure_status": "not_ready",
     "same_day_regeneration_allowed": false,
     "applies_when": "stadium or pitch stands visible; not required for a dressing-room-only story"
+  },
+  "audio_provider_policy": {
+    "allowed_cloud_connectors": [
+      "Higgsfield",
+      "ElevenLabs"
+    ],
+    "preferred_narration_provider": "ElevenLabs",
+    "dialogue_provider": "choose based on verified German voice quality and lip-sync; Higgsfield integrated speech remains acceptable",
+    "elevenlabs_use": "German off-screen narration, inner voice, or synchronized dialogue only after verified handoff",
+    "voice_selection": "Listen to current catalog previews; choose natural, emotionally credible voice rather than fixed voice ID",
+    "real_person_voice_clone_allowed": false,
+    "prepaid_gate": "Check credit/cost/availability before any paid audio generation",
+    "cloud_handoff_required": true,
+    "qa": [
+      "actual German spoken text",
+      "natural intonation",
+      "character-voice consistency",
+      "lip sync for visible speakers",
+      "source and outro audio integrity"
+    ],
+    "failure_fallback": "Use synchronized Higgsfield dialogue if ElevenLabs handoff or lip sync is unreliable",
+    "manifest_fields": [
+      "audio_provider",
+      "voice_id",
+      "audio_job_id",
+      "audio_cost",
+      "handoff_review",
+      "audio_review"
+    ],
+    "video_generation_attempt_limit_unchanged": 1
   }
 }
