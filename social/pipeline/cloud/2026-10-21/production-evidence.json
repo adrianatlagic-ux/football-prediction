@@ -1,0 +1,29 @@
+{
+  "target_date": "2026-10-21",
+  "generation_job_id": "67f52bd0-2137-4eab-9344-b8abc1a7a75a",
+  "source_review_media_id": "8092ab53-4225-4d32-8ee1-360aa1c73b37",
+  "final_media_id": "2fc23d25-02ca-4d7b-a417-668482048d31",
+  "zip_media_id": "a5846ffe-371f-4556-8b40-4c5417a43e17",
+  "outro_master_media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+  "outro_master_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+  "source_video_h264_sha256": "26071a2ef72ab0f9e010bf139ce8339dcb611d96ecf3ad96cf89b07644dba27d",
+  "final_first_361_video_frames_h264_sha256": "26071a2ef72ab0f9e010bf139ce8339dcb611d96ecf3ad96cf89b07644dba27d",
+  "source_audio_473_packets_adts_sha256": "272aa56e2c55b8a7068cbb720bdadac9608018837e212b4c489386ac80c9c8c5",
+  "final_audio_first_473_packets_adts_sha256": "272aa56e2c55b8a7068cbb720bdadac9608018837e212b4c489386ac80c9c8c5",
+  "final_mp4_sha256": "3fd5234ae81d476bb532301289c2127446187ebd4ed17a999d96f6009b3ae93a",
+  "zip_contained_mp4_sha256": "3fd5234ae81d476bb532301289c2127446187ebd4ed17a999d96f6009b3ae93a",
+  "zip_integrity": "passed",
+  "upload_http": {
+    "mp4": 200,
+    "zip": 200
+  },
+  "download_head_http": {
+    "mp4": 200,
+    "zip": 200
+  },
+  "final_duration_seconds": 18.136,
+  "video_analysis_id": "f94f90d3-c4e4-402e-ab50-798ef06af5b8",
+  "credit_quote": 15,
+  "credits_consumed": 15,
+  "quality_status": "not ready: no interception, wrong player number, fictional goal, incomplete storyline"
+}
