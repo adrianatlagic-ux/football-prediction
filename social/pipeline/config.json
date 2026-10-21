@@ -445,9 +445,28 @@
       "character and team identity consistency",
       "actual natural German speech",
       "opening disappears after two seconds",
-      "two related pitch actions"
+      "two related pitch actions",
+      "densely occupied visible stadium stands in opening, middle, ending and pitch backgrounds"
     ],
     "one_generation_per_editorial_day": true,
     "no_regeneration_of_rejected_2026_10_20": true
+  },
+  "stadium_crowd": {
+    "required_for_all_stadium_and_pitch_scenes": true,
+    "opening_reference": "If a stadium is visible, source must show densely occupied stands; do not use empty-seat stadium images as atmosphere reference.",
+    "visible_stands": "Densely occupied varied crowd in every visible stand across wide shots and pitch backgrounds, without empty seat rows or obvious repeated crowd texture.",
+    "night_match": "Believable floodlit crowd and appropriate club colors.",
+    "audio": "Natural stadium ambience supports, never substitutes for, visible crowd.",
+    "prompt_requirement": "Explicitly request packed visible stands in every stadium and pitch scene.",
+    "actual_sellout_claim_without_evidence": false,
+    "qa_review": [
+      "opening",
+      "middle",
+      "ending",
+      "all relevant pitch backgrounds"
+    ],
+    "manifest_field": "qa.crowd_review",
+    "failure_status": "not_ready",
+    "same_day_regeneration_allowed": false
   }
 }
