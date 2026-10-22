@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.7",
+  "target_date": "2026-10-22",
+  "editorial_date_timezone": "Europe/Berlin",
+  "status": "reserved",
+  "daily_video_limit": 1,
+  "video_generation_attempt_limit": 1,
+  "attempts_used": 0,
+  "coverage_key": "ucl:2049608:2026-11-03:atletico-bayern",
+  "fixture": {
+    "competition": "UEFA Champions League",
+    "uefa_match_id": "2049608",
+    "home": "Atlético Madrid",
+    "away": "FC Bayern München",
+    "match_date": "2026-11-03",
+    "kickoff_at": "2026-11-03T21:00:00+01:00",
+    "status": "UPCOMING",
+    "venue": "Estadio Metropolitano",
+    "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
+    "retrieved_at": "2026-10-22T06:07:44Z"
+  },
+  "selection": {
+    "today_cl_pages_checked": [
+      0,
+      100,
+      200
+    ],
+    "today_cl_matches": 0,
+    "chosen_next_matchday": "2026-11-03",
+    "reason": "Nächstes unbehandeltes Champions-League-Spieltag-Topduell mit Bayern München; historische Halbfinal-Begegnung 2016 bietet konkreten Storybezug.",
+    "excluded": [
+      "Andere 03.11.-Paarungen im selben CL-Spieltag gegenüber Atlético–Bayern nach Topspielrelevanz niedriger gerankt.",
+      "Spätere CL-Spieltage erst nach dem nächstgelegenen Spieltag prüfen."
+    ],
+    "historical_coverage_checked": "Cloud-Manifeste 2026-10-06 bis 2026-10-21"
+  },
+  "research": {
+    "generation_basis": "verified_fixture_and_current_research",
+    "prediction_used": false,
+    "prediction_status": "not_used_optional",
+    "verified_context": {
+      "type": "match_history",
+      "fact": "Atlético und Bayern trafen im UEFA-Champions-League-Halbfinale 2016 aufeinander; Atlético erreichte nach 1:0 zu Hause und 1:2 auswärts das Finale.",
+      "sources": [
+        "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2016&offset=0&limit=100",
+        "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2016&offset=100&limit=100"
+      ],
+      "retrieved_at": "2026-10-22T06:07:44Z"
+    }
+  },
+  "story": {
+    "story_type": "memento_reframing",
+    "previous_story_type": "team_internal_decision",
+    "story_setting": "fictional_Bayern_dressing_room",
+    "protagonist": "Eine wiedererkennbare junge fiktive Bayern-Zeugwartin",
+    "verified_personal_or_club_tie": "Bayern–Atlético 2016 CL-Halbfinale",
+    "goal": "Sie will die schmerzhafte Erinnerung vor dem Wiedersehen aus dem Blick der Mannschaft nehmen.",
+    "dilemma": "Ein älterer fiktiver Kollege stellt die Entscheidung infrage.",
+    "decision": "Sie versteckt den alten Schal nicht, sondern hängt ihn sichtbar am Ausgang auf.",
+    "visible_consequence": "Eintretende fiktive Teammitglieder sehen den Schal beim Weg zur Tür; die Zeugwartin ist erleichtert.",
+    "one_sentence_audience_story": "Eine Bayern-Zeugwartin will die Erinnerung an Atlético 2016 verstecken, entscheidet sich dann, sie vor dem Wiedersehen für die Mannschaft sichtbar zu lassen.",
+    "hook": "Ein alter Schal soll verschwinden.",
+    "conflict": "Erinnerung verbergen oder als Antrieb sichtbar machen.",
+    "turning_point": "Der Kollege fordert sie auf, den Schal gerade deshalb hängen zu lassen.",
+    "ending_image": "Die Zeugwartin neben dem Schal an der Kabinentür.",
+    "character_continuity_plan": "Dieselbe fiktive Zeugwartin und derselbe fiktive Kollege, gleicher Raum, Kleidung, Schal und Bildschirmrichtung über alle Szenen.",
+    "on_pitch_beats": [],
+    "pitch_action_review": "not_applicable_planned",
+    "changed_elements_vs_previous": [
+      "protagonist",
+      "setting",
+      "conflict",
+      "turning_point",
+      "ending_image"
+    ],
+    "spoken_language": "de",
+    "dialogue_mode": "two_character_exchange",
+    "fiction_label": "KI-FIKTION"
+  },
+  "visual_style": {
+    "type": "photorealistic_live_action",
+    "references": [
+      "Official UEFA Atlético crest",
+      "Official UEFA Bayern crest"
+    ],
+    "player_likeness": "none_fictional_staff",
+    "crowd_requirement": "not_applicable_no_stadium_shots"
+  },
+  "fixture_hook": {
+    "render_mode": "inside_generated_story_video",
+    "exact_text": [
+      "ATLÉTICO MADRID – FC BAYERN MÜNCHEN",
+      "03. NOVEMBER · 21:00 UHR MEZ",
+      "KI-FIKTION"
+    ],
+    "approx_duration_seconds": 2,
+    "timezone": "Europe/Berlin",
+    "team_crests": "official UEFA image references"
+  },
+  "outro_master": {
+    "media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "preflight": "SHA verified, 3.000s, 720x1280 24fps, exact German disclaimer visually reviewed in Higgsfield cloud"
+  },
+  "production": {
+    "charge_key": "goaliq-2026-10-22-ucl-2049608-single-video-v1",
+    "model": "seedance_2_5",
+    "params": {
+      "mode": "omni_reference",
+      "duration": 22,
+      "resolution": "720p",
+      "aspect_ratio": "9:16",
+      "bitrate_mode": "high",
+      "generate_audio": true,
+      "count": 1,
+      "crest_sources": [
+        "https://img.uefa.com/imgml/TP/teams/logos/700x700/50124.png",
+        "https://img.uefa.com/imgml/TP/teams/logos/700x700/50037.png"
+      ]
+    },
+    "quoted_credits_exact": 154,
+    "balance_before_credits": 485,
+    "prompt": "Vertikaler fotorealistischer Kurzfilm, 22 Sekunden, 9:16, durchgehend DEUTSCH, ein zusammenhängender Ort: die fiktive Umkleide von Bayern München vor dem kommenden Champions-League-Spiel bei Atlético Madrid. Alle Personen sind ausdrücklich FIKTIVE Vereinsmitarbeiter, keine Abbilder oder Stimmen aktueller Spieler, Trainer oder prominenter realer Personen. Verwende die zwei offiziellen UEFA-Wappen-Bildreferenzen ausschließlich für die richtige Teamzuordnung im kurzen Anfangsbild und dezente Vereinsidentität. Niemals eine reale Spieler-Aussage oder ein echtes Spielereignis vortäuschen.\n0–2 Sekunden: In der Szene sichtbare physische Anzeigetafel an der Kabinentür, beide korrekten Wappen, genau und gut lesbar: „ATLÉTICO MADRID – FC BAYERN MÜNCHEN“ und „03. NOVEMBER · 21:00 UHR MEZ“ und klein „KI-FIKTION“. Keine weitere Schrift nach Sekunde 2; kein dauerhaftes Overlay, keine Statistik. Danach harter Schnitt in dieselbe Kabine.\n2–6 Sekunden: Eine EINZIGE junge fiktive Bayern-Zeugwartin mit kurzem dunklem Haar und dunkelblauer Jacke entdeckt einen alten rot-weißen Schal aus dem früheren Halbfinalduell 2016 und zieht ihn von einem Haken. Ihre Absicht ist klar: Sie will die schmerzhafte Erinnerung vor dem Wiedersehen verstecken. Natürliche, leise deutsche Stimme: „Das Halbfinale 2016 … das muss heute keiner sehen.“ Historischer Fakt: Bayern und Atlético trafen 2016 im Champions-League-Halbfinale aufeinander, Atlético kam weiter. Kein Resultat des kommenden Spiels behaupten.\n6–11 Sekunden: Dieselbe Zeugwartin geht mit dem Schal zwei Schritte zur geschlossenen Schranktür. Ein älterer fiktiver Kollege in schlichtem Bayern-Trainingsanzug hält sie mit einer offenen Hand auf. Er sagt leise, warm, ohne Pathos: „Vielleicht sollten sie es gerade deshalb sehen.“ Zwei klare, unterscheidbare menschliche Stimmen, natürliches Timing, glaubwürdige Pausen, synchron zu den sichtbaren Sprechern. Kein Interview, keine dritte Figur spricht.\n11–17 Sekunden: Die Zeugwartin schaut vom Schal zu den freien Haken der Kabine. Sie entscheidet sich sichtbar um: Sie öffnet den Schrank NICHT, dreht sich um und hängt genau denselben Schal neben den Ausgang zur Spielfeldtür. Der ältere Kollege nickt. Keine neue Person und kein Ortswechsel, dieselben Gesichter, Kleidung und Requisite in jedem Schnitt.\n17–22 Sekunden: Die Zeugwartin tritt einen Schritt zurück. Zwei weitere nur schemenhaft sichtbare, nicht identifizierbare Bayern-Teammitglieder betreten die Kabine, sehen den aufgehängten Schal und gehen entschlossen an ihr vorbei zum Ausgang. Schlussbild: die junge Zeugwartin und der Schal am Ausgang, ihr Gesicht wirkt erleichtert; offenes Ende vor dem Spiel. Keine Fußballplatzszene, kein Tor, keine Ergebnisbehauptung.\nCineastisches, menschliches Spiel mit klarer Ursache und Folge. Realistische, dezente Kabinenatmosphäre und glaubwürdige Bayern-Farben, keine generischen Stadionaufnahmen und keine leeren Tribünen. Deutscher Dialog deutlich hörbar, Raumton unter den Stimmen, keine Musik, die Sprache verdeckt. Kein Outro, kein GoalIQ-Logo in der Story; das geprüfte dreisekündige Master wird anschließend unverändert angehängt.",
+    "audio_provider": "Higgsfield",
+    "audio_provider_reason": "Visible two-character dialogue requires synchronized German lips; ElevenLabs cloud handoff and sync not validated before one-video attempt.",
+    "status": "not_submitted"
+  },
+  "qa": {
+    "status": "pending"
+  },
+  "delivery": {
+    "ready": false,
+    "social_published": false,
+    "private_urls_in_repository": false
+  },
+  "created_at": "2026-10-22T06:07:44Z"
+}
