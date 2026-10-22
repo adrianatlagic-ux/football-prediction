@@ -1,0 +1,62 @@
+{
+  "target_date": "2026-10-22",
+  "fixture": {
+    "id": "2049608",
+    "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
+    "final_check_at": "2026-10-22T06:37:37Z",
+    "status": "UPCOMING",
+    "kickoff_utc": "2026-11-03T20:00:00Z"
+  },
+  "generation": {
+    "job_id": "7894cd32-dbb8-4066-9286-b1d5eb28a76e",
+    "model": "seedance_2_5",
+    "quote_higgsfield_credits": 154,
+    "observed_debit_higgsfield_credits": 154,
+    "source_sha256": "3474ddb096c11eadf44f84c2da0e1a135335dd9f07c47f92b32b54b7aa21d6c9",
+    "source_duration_seconds": 22.08,
+    "source_resolution": "720x1280",
+    "source_codec": "H.264 + AAC",
+    "source_review_upload_media_id": "9fd93bb4-1596-4b6b-9639-ad9f9ce11aa8"
+  },
+  "outro": {
+    "media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "duration_seconds": 3,
+    "visual_check": "German disclaimer, gold goaliq.de and original logo on black visually checked."
+  },
+  "assembly": {
+    "environment": "Higgsfield cloud sandbox",
+    "final_media_id": "d46dfcd6-4906-4567-a83b-103b9c96e907",
+    "final_sha256": "2937ab9c31e661033f434e752844c7181bced456caf0533796700fbec8aedfc3",
+    "final_duration_seconds": 25.112,
+    "zip_media_id": "5f4870f8-df23-495c-ad23-ead4adcc29fb",
+    "zip_embedded_mp4_sha256": "2937ab9c31e661033f434e752844c7181bced456caf0533796700fbec8aedfc3",
+    "video_prefix_elementary_sha256": "8f3d1eed1adb85f60749fd4b79ae32c31fe3f53ff715c6ce441f6fa78a13d635",
+    "audio_prefix_adts_sha256": "4040bd992b3479a6526a4918b74411318f347e5692f47b9e90b73a1a870f1871",
+    "prefix_comparison": "Source vs first 529 video packets and 691 AAC packets in final: equal; FFmpeg full decode no errors.",
+    "transition_review": "Frame at 21.5s is source protagonist, frames 22.2s and 24.5s show canonical master; no unrelated scene.",
+    "link_checks": {
+      "mp4": "HTTP 206 partial content video/mp4",
+      "zip": "HTTP 206 partial content application/octet-stream"
+    }
+  },
+  "qa": {
+    "opening": "At 0.5s official crests, Atlético Madrid – FC Bayern München, 03. NOVEMBER – 21:00 UHR MEZ; KI-FIKTION text visible but small.",
+    "protagonist": "Same short-haired female in Bayern outfit persists across cabin shots.",
+    "narrative": "Scarf from 2016, attempt to hide, older colleague intervenes, protagonist rehanges it, team members enter; one-sentence comprehension supported by visual frames and automated scene analysis.",
+    "no_pitch": "Dressing room only; crowd QA not applicable.",
+    "scene_analysis_id": "061dbcde-3312-4791-9c63-11cdfd04c77f",
+    "audio_transcription": {
+      "provider": "ElevenLabs Scribe",
+      "language_code": "deu",
+      "text": "Das Halbfinale 2016. Das muss heute keiner sehen. Vielleicht sollten Sie es gerade deshalb sehen.",
+      "generation_id": "NYeyljgpV0oTqL4j0Wc7",
+      "estimated_credits": 6.746666666666666,
+      "actual_reported_credits": 121.44,
+      "estimate_mismatch": true
+    },
+    "audio_review_limit": "Exact German words verified by transcription and scene analysis; natural timbre and lip synchronization not independently listened to. Do not mark ready on this basis.",
+    "status": "not_ready_audio_naturalness_unverified"
+  },
+  "private_urls_in_public_repo": false
+}
