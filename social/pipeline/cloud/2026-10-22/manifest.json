@@ -2,7 +2,7 @@
   "schema_version": "1.7",
   "target_date": "2026-10-22",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "generation_in_progress_provider_delay",
+  "status": "delivered_with_disclosed_audio_review_limit",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
   "attempts_used": 1,
@@ -121,9 +121,9 @@
     "quoted_credits_exact": 154,
     "balance_before_credits": 485,
     "prompt": "Vertikaler fotorealistischer Kurzfilm, 22 Sekunden, 9:16, durchgehend DEUTSCH, ein zusammenhängender Ort: die fiktive Umkleide von Bayern München vor dem kommenden Champions-League-Spiel bei Atlético Madrid. Alle Personen sind ausdrücklich FIKTIVE Vereinsmitarbeiter, keine Abbilder oder Stimmen aktueller Spieler, Trainer oder prominenter realer Personen. Verwende die zwei offiziellen UEFA-Wappen-Bildreferenzen ausschließlich für die richtige Teamzuordnung im kurzen Anfangsbild und dezente Vereinsidentität. Niemals eine reale Spieler-Aussage oder ein echtes Spielereignis vortäuschen.\n0–2 Sekunden: In der Szene sichtbare physische Anzeigetafel an der Kabinentür, beide korrekten Wappen, genau und gut lesbar: „ATLÉTICO MADRID – FC BAYERN MÜNCHEN“ und „03. NOVEMBER · 21:00 UHR MEZ“ und klein „KI-FIKTION“. Keine weitere Schrift nach Sekunde 2; kein dauerhaftes Overlay, keine Statistik. Danach harter Schnitt in dieselbe Kabine.\n2–6 Sekunden: Eine EINZIGE junge fiktive Bayern-Zeugwartin mit kurzem dunklem Haar und dunkelblauer Jacke entdeckt einen alten rot-weißen Schal aus dem früheren Halbfinalduell 2016 und zieht ihn von einem Haken. Ihre Absicht ist klar: Sie will die schmerzhafte Erinnerung vor dem Wiedersehen verstecken. Natürliche, leise deutsche Stimme: „Das Halbfinale 2016 … das muss heute keiner sehen.“ Historischer Fakt: Bayern und Atlético trafen 2016 im Champions-League-Halbfinale aufeinander, Atlético kam weiter. Kein Resultat des kommenden Spiels behaupten.\n6–11 Sekunden: Dieselbe Zeugwartin geht mit dem Schal zwei Schritte zur geschlossenen Schranktür. Ein älterer fiktiver Kollege in schlichtem Bayern-Trainingsanzug hält sie mit einer offenen Hand auf. Er sagt leise, warm, ohne Pathos: „Vielleicht sollten sie es gerade deshalb sehen.“ Zwei klare, unterscheidbare menschliche Stimmen, natürliches Timing, glaubwürdige Pausen, synchron zu den sichtbaren Sprechern. Kein Interview, keine dritte Figur spricht.\n11–17 Sekunden: Die Zeugwartin schaut vom Schal zu den freien Haken der Kabine. Sie entscheidet sich sichtbar um: Sie öffnet den Schrank NICHT, dreht sich um und hängt genau denselben Schal neben den Ausgang zur Spielfeldtür. Der ältere Kollege nickt. Keine neue Person und kein Ortswechsel, dieselben Gesichter, Kleidung und Requisite in jedem Schnitt.\n17–22 Sekunden: Die Zeugwartin tritt einen Schritt zurück. Zwei weitere nur schemenhaft sichtbare, nicht identifizierbare Bayern-Teammitglieder betreten die Kabine, sehen den aufgehängten Schal und gehen entschlossen an ihr vorbei zum Ausgang. Schlussbild: die junge Zeugwartin und der Schal am Ausgang, ihr Gesicht wirkt erleichtert; offenes Ende vor dem Spiel. Keine Fußballplatzszene, kein Tor, keine Ergebnisbehauptung.\nCineastisches, menschliches Spiel mit klarer Ursache und Folge. Realistische, dezente Kabinenatmosphäre und glaubwürdige Bayern-Farben, keine generischen Stadionaufnahmen und keine leeren Tribünen. Deutscher Dialog deutlich hörbar, Raumton unter den Stimmen, keine Musik, die Sprache verdeckt. Kein Outro, kein GoalIQ-Logo in der Story; das geprüfte dreisekündige Master wird anschließend unverändert angehängt.",
-    "audio_provider": "Higgsfield",
+    "audio_provider": "Higgsfield generated speech",
     "audio_provider_reason": "Visible two-character dialogue requires synchronized German lips; ElevenLabs cloud handoff and sync not validated before one-video attempt.",
-    "status": "in_progress",
+    "status": "completed",
     "job_id": "7894cd32-dbb8-4066-9286-b1d5eb28a76e",
     "reference_media_ids": [
       "8e3b4e73-4fd4-4971-a07b-346be490f469",
@@ -133,15 +133,51 @@
     "credits_debited_observed": 154,
     "job_type_reported_by_jobs_wait": "image",
     "job_type_note": "Generation submission returned type video, jobs_wait currently reports type image with model seedance_2_5; await terminal state and inspect output before classifying.",
-    "last_checked_at": "2026-10-22T06:30:53Z"
+    "last_checked_at": "2026-10-22T06:30:53Z",
+    "credits_consumed": 154,
+    "balance_after_credits": 331,
+    "source_review_media_id": "9fd93bb4-1596-4b6b-9639-ad9f9ce11aa8",
+    "source_sha256": "3474ddb096c11eadf44f84c2da0e1a135335dd9f07c47f92b32b54b7aa21d6c9",
+    "audio_qa_provider": "ElevenLabs Scribe",
+    "audio_qa_actual_reported_credits": 121.44,
+    "audio_qa_estimate_credits": 6.746666666666666,
+    "audio_qa_estimate_mismatch": true
   },
   "qa": {
-    "status": "awaiting_render"
+    "status": "not_ready_audio_naturalness_unverified",
+    "opening_review": "Correct crests and readable Atlético Madrid – FC Bayern München, 03. November at 21:00 MEZ at 0.5s; KI-FIKTION visible but small.",
+    "story_review": "One recurring fictional female club staffer handles a scarf tied to 2016 history; male colleague intervenes; she chooses to hang it visibly; other team figures arrive. Actual frames support decision and consequence.",
+    "pitch_action_review": "not_applicable_dressing_room_only",
+    "crowd_review": "not_applicable_no_stadium_or_pitch_visible",
+    "spoken_language_review": "German detected by ElevenLabs Scribe: 'Das Halbfinale 2016. Das muss heute keiner sehen. Vielleicht sollten Sie es gerade deshalb sehen.'",
+    "audio_review_limit": "Natural voice timbre and lip sync not independently listened to; therefore not ready despite transcribed German dialogue.",
+    "transition_review": "Source content through 22.08s; exact canonical three-second outro follows.",
+    "source_video_prefix_sha256_match": true,
+    "source_audio_prefix_sha256_match": true,
+    "master_sha256_verified": true,
+    "final_fixture_check": {
+      "at": "2026-10-22T06:37:37Z",
+      "status": "UPCOMING",
+      "kickoff_at": "2026-11-03T20:00:00Z",
+      "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100"
+    }
   },
   "delivery": {
     "ready": false,
+    "status": "preview_with_disclosed_audio_review_limit",
+    "final_media_id": "d46dfcd6-4906-4567-a83b-103b9c96e907",
+    "zip_media_id": "5f4870f8-df23-495c-ad23-ead4adcc29fb",
+    "mp4_sha256": "2937ab9c31e661033f434e752844c7181bced456caf0533796700fbec8aedfc3",
+    "zip_embedded_mp4_sha256": "2937ab9c31e661033f434e752844c7181bced456caf0533796700fbec8aedfc3",
+    "link_http_status": {
+      "mp4": 206,
+      "zip": 206
+    },
     "social_published": false,
     "private_urls_in_repository": false
   },
-  "created_at": "2026-10-22T06:07:44Z"
+  "created_at": "2026-10-22T06:07:44Z",
+  "caption": "social/pipeline/cloud/2026-10-22/caption.txt",
+  "production_evidence": "social/pipeline/cloud/2026-10-22/production-evidence.json",
+  "updated_at": "2026-10-22T06:37:37Z"
 }
