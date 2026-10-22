@@ -2,10 +2,10 @@
   "schema_version": "1.7",
   "target_date": "2026-10-22",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "reserved",
+  "status": "generation_pending",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
-  "attempts_used": 0,
+  "attempts_used": 1,
   "coverage_key": "ucl:2049608:2026-11-03:atletico-bayern",
   "fixture": {
     "competition": "UEFA Champions League",
@@ -123,7 +123,12 @@
     "prompt": "Vertikaler fotorealistischer Kurzfilm, 22 Sekunden, 9:16, durchgehend DEUTSCH, ein zusammenhängender Ort: die fiktive Umkleide von Bayern München vor dem kommenden Champions-League-Spiel bei Atlético Madrid. Alle Personen sind ausdrücklich FIKTIVE Vereinsmitarbeiter, keine Abbilder oder Stimmen aktueller Spieler, Trainer oder prominenter realer Personen. Verwende die zwei offiziellen UEFA-Wappen-Bildreferenzen ausschließlich für die richtige Teamzuordnung im kurzen Anfangsbild und dezente Vereinsidentität. Niemals eine reale Spieler-Aussage oder ein echtes Spielereignis vortäuschen.\n0–2 Sekunden: In der Szene sichtbare physische Anzeigetafel an der Kabinentür, beide korrekten Wappen, genau und gut lesbar: „ATLÉTICO MADRID – FC BAYERN MÜNCHEN“ und „03. NOVEMBER · 21:00 UHR MEZ“ und klein „KI-FIKTION“. Keine weitere Schrift nach Sekunde 2; kein dauerhaftes Overlay, keine Statistik. Danach harter Schnitt in dieselbe Kabine.\n2–6 Sekunden: Eine EINZIGE junge fiktive Bayern-Zeugwartin mit kurzem dunklem Haar und dunkelblauer Jacke entdeckt einen alten rot-weißen Schal aus dem früheren Halbfinalduell 2016 und zieht ihn von einem Haken. Ihre Absicht ist klar: Sie will die schmerzhafte Erinnerung vor dem Wiedersehen verstecken. Natürliche, leise deutsche Stimme: „Das Halbfinale 2016 … das muss heute keiner sehen.“ Historischer Fakt: Bayern und Atlético trafen 2016 im Champions-League-Halbfinale aufeinander, Atlético kam weiter. Kein Resultat des kommenden Spiels behaupten.\n6–11 Sekunden: Dieselbe Zeugwartin geht mit dem Schal zwei Schritte zur geschlossenen Schranktür. Ein älterer fiktiver Kollege in schlichtem Bayern-Trainingsanzug hält sie mit einer offenen Hand auf. Er sagt leise, warm, ohne Pathos: „Vielleicht sollten sie es gerade deshalb sehen.“ Zwei klare, unterscheidbare menschliche Stimmen, natürliches Timing, glaubwürdige Pausen, synchron zu den sichtbaren Sprechern. Kein Interview, keine dritte Figur spricht.\n11–17 Sekunden: Die Zeugwartin schaut vom Schal zu den freien Haken der Kabine. Sie entscheidet sich sichtbar um: Sie öffnet den Schrank NICHT, dreht sich um und hängt genau denselben Schal neben den Ausgang zur Spielfeldtür. Der ältere Kollege nickt. Keine neue Person und kein Ortswechsel, dieselben Gesichter, Kleidung und Requisite in jedem Schnitt.\n17–22 Sekunden: Die Zeugwartin tritt einen Schritt zurück. Zwei weitere nur schemenhaft sichtbare, nicht identifizierbare Bayern-Teammitglieder betreten die Kabine, sehen den aufgehängten Schal und gehen entschlossen an ihr vorbei zum Ausgang. Schlussbild: die junge Zeugwartin und der Schal am Ausgang, ihr Gesicht wirkt erleichtert; offenes Ende vor dem Spiel. Keine Fußballplatzszene, kein Tor, keine Ergebnisbehauptung.\nCineastisches, menschliches Spiel mit klarer Ursache und Folge. Realistische, dezente Kabinenatmosphäre und glaubwürdige Bayern-Farben, keine generischen Stadionaufnahmen und keine leeren Tribünen. Deutscher Dialog deutlich hörbar, Raumton unter den Stimmen, keine Musik, die Sprache verdeckt. Kein Outro, kein GoalIQ-Logo in der Story; das geprüfte dreisekündige Master wird anschließend unverändert angehängt.",
     "audio_provider": "Higgsfield",
     "audio_provider_reason": "Visible two-character dialogue requires synchronized German lips; ElevenLabs cloud handoff and sync not validated before one-video attempt.",
-    "status": "not_submitted"
+    "status": "pending",
+    "job_id": "7894cd32-dbb8-4066-9286-b1d5eb28a76e",
+    "reference_media_ids": [
+      "8e3b4e73-4fd4-4971-a07b-346be490f469",
+      "70cc01a8-9ef9-467d-8b29-11bed26a9216"
+    ]
   },
   "qa": {
     "status": "pending"
