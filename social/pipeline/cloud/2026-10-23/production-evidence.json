@@ -1,0 +1,42 @@
+{
+  "target_date": "2026-10-23",
+  "fixture": {
+    "uefa_match_id": "2049609",
+    "kickoff_at": "2026-11-03T20:00:00Z",
+    "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
+    "retrieved_and_rechecked": "2026-10-23T06:16:52Z"
+  },
+  "history": {
+    "fact": "UEFA displays 2007 Manchester United 7-1 Roma quarterfinal highlights.",
+    "source": "https://www.uefa.com/uefachampionsleague/history/h2h/52682/50137/",
+    "retrieved_at": "2026-10-23T06:09:29Z"
+  },
+  "production": {
+    "assignment_key": "goaliq-2026-10-23-ucl-2049609-seedance25-v1",
+    "video_job_id": "5e70c6c4-86cf-4fae-aca1-41bafd2e1e61",
+    "video_generation_attempts": 1,
+    "model": "seedance_2_5",
+    "quote_credits": 154,
+    "actual_credits": 154,
+    "balance_before": 331,
+    "balance_after": 177,
+    "source_sha256": "3bc4c8947ca62df7a70c952cc8906e6c66a8a67f33fa5f65086ed31237dca453",
+    "source_review_media_id": "d77ce088-c206-4e4d-b8ae-cd027aa8ce40",
+    "final_media_id": "6dde7d89-ff31-463d-868e-93b796e037ff",
+    "zip_media_id": "b96f4fe8-0ba1-44e2-ade5-bb65ac726c99",
+    "final_sha256": "9483fc7b9fb32bcac95a24a58b44a3358f50656410adbcfff923b6d614b538b7",
+    "source_video_prefix_match": true,
+    "source_audio_prefix_match": true,
+    "zip_mp4_byte_identical": true,
+    "mp4_and_zip_http": 206,
+    "outro_media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "outro_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2"
+  },
+  "qa": {
+    "visual": "Opening crests/date readable; same room and fictional staff; repaired hole below crest; planned third-player handoff absent; canonical outro and seam reviewed.",
+    "audio": "Higgsfield scene analysis reports German dialogue, but naturalness and lip sync could not be independently heard.",
+    "analysis_id": "d087ec17-6104-4d58-8e13-81d9a8a0af17",
+    "status": "not_ready_story_deviation_and_audio_naturalness_unverified"
+  },
+  "private_urls": "omitted"
+}
