@@ -1,6 +1,6 @@
 {
   "target_date": "2026-10-23",
-  "status": "reserved",
+  "status": "generating",
   "ready": false,
   "coverage_key": "ucl:2049609:2026-11-03:man-utd-roma",
   "generation_basis": "verified_fixture_and_current_research",
@@ -94,7 +94,7 @@
   "story_connection": "Old Trafford 2007 history motivates the fictional worker to preserve Roma's crest rather than use a plain spare. The personal scene is explicitly fiction.",
   "generation": {
     "max_attempts": 1,
-    "attempts_used": 0,
+    "attempts_used": 1,
     "assignment_key": "goaliq-2026-10-23-ucl-2049609-seedance25-v1",
     "model": "seedance_2_5",
     "duration_seconds": 22,
@@ -108,7 +108,12 @@
       "https://img.uefa.com/imgml/TP/teams/logos/700x700/52682.png",
       "https://img.uefa.com/imgml/TP/teams/logos/700x700/50137.png"
     ],
-    "job_id": null
+    "job_id": "5e70c6c4-86cf-4fae-aca1-41bafd2e1e61",
+    "submitted_at": "2026-10-23T06:11:00Z",
+    "reference_media_ids": [
+      "753ddc69-87ba-467e-ae47-e0c4ee0441e0",
+      "1a42db14-3a4f-44d9-876c-c09c4bbbef25"
+    ]
   },
   "outro": {
     "media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
