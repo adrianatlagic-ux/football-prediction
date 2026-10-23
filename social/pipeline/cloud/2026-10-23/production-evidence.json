@@ -1,42 +1,82 @@
 {
   "target_date": "2026-10-23",
-  "fixture": {
-    "uefa_match_id": "2049609",
-    "kickoff_at": "2026-11-03T20:00:00Z",
-    "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
-    "retrieved_and_rechecked": "2026-10-23T06:16:52Z"
+  "original_rejected_contribution": {
+    "target_date": "2026-10-23",
+    "fixture": {
+      "uefa_match_id": "2049609",
+      "kickoff_at": "2026-11-03T20:00:00Z",
+      "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
+      "retrieved_and_rechecked": "2026-10-23T06:16:52Z"
+    },
+    "history": {
+      "fact": "UEFA displays 2007 Manchester United 7-1 Roma quarterfinal highlights.",
+      "source": "https://www.uefa.com/uefachampionsleague/history/h2h/52682/50137/",
+      "retrieved_at": "2026-10-23T06:09:29Z"
+    },
+    "production": {
+      "assignment_key": "goaliq-2026-10-23-ucl-2049609-seedance25-v1",
+      "video_job_id": "5e70c6c4-86cf-4fae-aca1-41bafd2e1e61",
+      "video_generation_attempts": 1,
+      "model": "seedance_2_5",
+      "quote_credits": 154,
+      "actual_credits": 154,
+      "balance_before": 331,
+      "balance_after": 177,
+      "source_sha256": "3bc4c8947ca62df7a70c952cc8906e6c66a8a67f33fa5f65086ed31237dca453",
+      "source_review_media_id": "d77ce088-c206-4e4d-b8ae-cd027aa8ce40",
+      "final_media_id": "6dde7d89-ff31-463d-868e-93b796e037ff",
+      "zip_media_id": "b96f4fe8-0ba1-44e2-ade5-bb65ac726c99",
+      "final_sha256": "9483fc7b9fb32bcac95a24a58b44a3358f50656410adbcfff923b6d614b538b7",
+      "source_video_prefix_match": true,
+      "source_audio_prefix_match": true,
+      "zip_mp4_byte_identical": true,
+      "mp4_and_zip_http": 206,
+      "outro_media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+      "outro_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2"
+    },
+    "qa": {
+      "visual": "Opening crests/date readable; same room and fictional staff; repaired hole below crest; planned third-player handoff absent; canonical outro and seam reviewed.",
+      "audio": "Higgsfield scene analysis reports German dialogue, but naturalness and lip sync could not be independently heard.",
+      "analysis_id": "d087ec17-6104-4d58-8e13-81d9a8a0af17",
+      "status": "not_ready_story_deviation_and_audio_naturalness_unverified"
+    },
+    "private_urls": "omitted"
   },
-  "history": {
-    "fact": "UEFA displays 2007 Manchester United 7-1 Roma quarterfinal highlights.",
-    "source": "https://www.uefa.com/uefachampionsleague/history/h2h/52682/50137/",
-    "retrieved_at": "2026-10-23T06:09:29Z"
-  },
-  "production": {
-    "assignment_key": "goaliq-2026-10-23-ucl-2049609-seedance25-v1",
-    "video_job_id": "5e70c6c4-86cf-4fae-aca1-41bafd2e1e61",
-    "video_generation_attempts": 1,
-    "model": "seedance_2_5",
-    "quote_credits": 154,
-    "actual_credits": 154,
-    "balance_before": 331,
-    "balance_after": 177,
-    "source_sha256": "3bc4c8947ca62df7a70c952cc8906e6c66a8a67f33fa5f65086ed31237dca453",
-    "source_review_media_id": "d77ce088-c206-4e4d-b8ae-cd027aa8ce40",
-    "final_media_id": "6dde7d89-ff31-463d-868e-93b796e037ff",
-    "zip_media_id": "b96f4fe8-0ba1-44e2-ade5-bb65ac726c99",
-    "final_sha256": "9483fc7b9fb32bcac95a24a58b44a3358f50656410adbcfff923b6d614b538b7",
+  "authorized_replacement": {
+    "user_authorization": "Explicit second generation on 2026-10-23; no third generation.",
+    "fixture": {
+      "home": "VfB Stuttgart",
+      "away": "Borussia Mönchengladbach",
+      "kickoff_at": "2026-10-23T20:30:00+02:00",
+      "official_source": "https://www.vfb.de/de/",
+      "official_context": "https://www.vfb.de/de/vfb/aktuell/neues/profis/2627/pressekonferenz-vor-vfb-stuttgart-gegen-borussia-moenchengladbach/",
+      "official_roster": "https://www.vfb.de/de/1893/profis/kader/saisonen/2026-2027/kader/"
+    },
+    "model": "seedance_2_0_mini",
+    "video_job_id": "27ed31f2-2b8e-4c3f-842d-671d60ae4c3e",
+    "quote_credits": 15,
+    "actual_credits": 15,
+    "balance_before": 177,
+    "balance_after": 162,
+    "source_sha256": "c02c07de437ef43a762b095db7580654db4f2a0c5a1ddcc377935391724f0815",
+    "source_review_media_id": "842b023f-9aa8-40c7-a91c-95cf8275fcf8",
+    "final_media_id": "9c505989-5376-42f0-987f-09a1cbf57112",
+    "zip_media_id": "19f7f846-c18b-453a-8e1f-1c55dea60a90",
+    "final_sha256": "45024f83f35115114cc69a59a8397134cb1ebd15827bb9985bc11e57270deaff",
     "source_video_prefix_match": true,
     "source_audio_prefix_match": true,
-    "zip_mp4_byte_identical": true,
+    "zip_byte_identical": true,
     "mp4_and_zip_http": 206,
-    "outro_media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
-    "outro_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2"
-  },
-  "qa": {
-    "visual": "Opening crests/date readable; same room and fictional staff; repaired hole below crest; planned third-player handoff absent; canonical outro and seam reviewed.",
-    "audio": "Higgsfield scene analysis reports German dialogue, but naturalness and lip sync could not be independently heard.",
-    "analysis_id": "d087ec17-6104-4d58-8e13-81d9a8a0af17",
-    "status": "not_ready_story_deviation_and_audio_naturalness_unverified"
-  },
-  "private_urls": "omitted"
+    "outro_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "qa": {
+      "status": "not_ready",
+      "opening_typo": "STUTTGERT",
+      "cast": "Two male VfB-like players matching reference appearance broadly; exact likeness not guaranteed.",
+      "continuity": "Ball duplication/inconsistent handoff appears in final sequence.",
+      "audio": "AAC present; spoken naturalness and exact German content not independently heard; Higgsfield scene analysis queued at time of record.",
+      "no_stadium_visible": true,
+      "master_seam_verified": true
+    },
+    "private_media_urls": "omitted"
+  }
 }
