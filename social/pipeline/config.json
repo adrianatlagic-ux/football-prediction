@@ -242,10 +242,10 @@
     "top_match_only": true,
     "top_match_policy": {
       "priority": [
-        "UEFA_Champions_League_fixture",
+        "today_verified_top_fixture_Bundesliga_or_Champions_League",
         "recognized_derby_or_major_rivalry",
-        "fixture_involving_Bayern_Munich",
-        "fixture_involving_Borussia_Dortmund"
+        "fixture_involving_Bayern_Munich_or_Borussia_Dortmund",
+        "next_upcoming_uncovered_top_match"
       ],
       "other_match_requires": "documented_current_marquee_reason",
       "generic_fixture_fallback": false,
@@ -253,9 +253,9 @@
       "avoid_repeat_coverage": true,
       "zero_valid_top_matches_action": "report_specific_blocker_without_generation",
       "champions_league_policy": {
-        "priority": "highest",
+        "priority": "same_day_priority_only; do not choose a later Champions League match ahead of an eligible Bundesliga top game today",
         "definition": "verified upcoming UEFA Champions League fixture",
-        "selection_action": "Search all pages of the live UEFA Champions League fixture feed for eligible unannounced fixtures on the editorial date first, regardless of country or German participation; rank today's matches by documented marquee relevance. Only if none are suitable, look ahead to the nearest upcoming matchday.",
+        "selection_action": "Check all pages of today's UCL fixtures and today's verified Bundesliga fixtures before any future preview. Rank today's eligible top matches by evidenced relevance.",
         "spoken_language": "de",
         "on_screen_language": "de",
         "german_participation_required": false
@@ -509,5 +509,31 @@
       "audio_review"
     ],
     "video_generation_attempt_limit_unchanged": 1
+  },
+  "cast_policy": {
+    "effective_from": "2026-10-23",
+    "preferred_format_reference_dates": [
+      "2026-10-09",
+      "2026-10-10"
+    ],
+    "style": "photorealistic_live_action",
+    "story_duration_target_seconds": 15,
+    "protagonists": "two_current_verified_male_professional_players_from_participating_clubs",
+    "female_protagonists_allowed": false,
+    "fictional_staff_or_generic_actor_substitution_allowed": false,
+    "official_squad_and_portrait_references_required": true,
+    "real_player_voice_cloning_allowed": false,
+    "fictional_dialogue_label_required": true,
+    "fictional_quotes_must_not_be_presented_as_real": true,
+    "one_clear_dilemma_decision_visible_consequence": true,
+    "do_not_copy_prior_plot": true
+  },
+  "explicit_exception_2026_10_23": {
+    "user_authorized_second_generation": true,
+    "fixture": "VfB Stuttgart vs Borussia Mönchengladbach",
+    "purpose": "replace user-rejected Manchester United–Roma video",
+    "max_total_video_generations": 2,
+    "third_generation_allowed": false,
+    "scope": "2026-10-23 only"
   }
 }
