@@ -1,0 +1,123 @@
+{
+  "target_date": "2026-10-23",
+  "status": "reserved",
+  "ready": false,
+  "coverage_key": "ucl:2049609:2026-11-03:man-utd-roma",
+  "generation_basis": "verified_fixture_and_current_research",
+  "prediction_status": "not_used_optional",
+  "prediction_used": false,
+  "match": {
+    "competition": "UEFA Champions League",
+    "uefa_match_id": "2049609",
+    "home": "Manchester United",
+    "away": "AS Roma",
+    "match_date": "2026-11-03",
+    "kickoff_at": "2026-11-03T21:00:00+01:00",
+    "status": "UPCOMING",
+    "venue": "Old Trafford",
+    "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
+    "retrieved_at": "2026-10-23T06:09:29Z"
+  },
+  "selection": {
+    "today_ucl_pages_checked": [
+      0,
+      100,
+      200
+    ],
+    "today_ucl_matches": 0,
+    "nearest_matchday": "2026-11-03",
+    "already_covered": [
+      "ucl:2049608:2026-11-03:atletico-bayern"
+    ],
+    "reason": "Historic Manchester United–Roma UEFA Champions League pairing at Old Trafford; UEFA archives their 2007 meeting.",
+    "historical_source": "https://www.uefa.com/uefachampionsleague/history/h2h/52682/50137/",
+    "historical_fact": "UEFA archives 2007 Manchester United 7-1 Roma quarterfinal highlights."
+  },
+  "story": {
+    "story_type": "time_pressure_mission",
+    "previous_story_type": "memento_reframing",
+    "story_setting": "fictional_AS_Roma_visitors_dressing_room_Old_Trafford",
+    "protagonist": "A fictional female AS Roma kit worker, short dark curls, burgundy staff jacket",
+    "verified_personal_or_club_tie": "AS Roma returns to Old Trafford for a verified Champions League match; UEFA documents their 2007 meeting and defeat there.",
+    "goal": "Repair a loose Roma crest patch before a fictional team member enters.",
+    "dilemma": "Use a plain spare shirt or repair the club crest in the short time available.",
+    "decision": "She stitches the crest back on, helped by the older fictional colleague.",
+    "visible_consequence": "A fictional player from behind takes the repaired Roma shirt; the crest is firmly attached.",
+    "one_sentence_audience_story": "Before Roma returns to Old Trafford after its famous 2007 loss, a fictional kit worker races to repair the club crest rather than issue a blank spare shirt.",
+    "character_continuity_plan": "Same female kit worker, older bearded colleague, room and one shirt throughout; third player shown from behind only.",
+    "hook": "A club crest is coming loose just before the team enters.",
+    "conflict": "Time pressure versus wearing the club badge at Old Trafford.",
+    "turning_point": "She rejects the spare shirt and repairs the badge.",
+    "ending_image": "Repaired Roma badge and kit worker's relieved face.",
+    "on_pitch_beats": [],
+    "pitch_action_review": "not_applicable_planned",
+    "spoken_language": "de",
+    "dialogue_mode": "brief_character_exchange_with_action",
+    "fiction_label": "KI-Fiktion",
+    "changed_elements_vs_previous": [
+      "protagonist",
+      "club",
+      "conflict",
+      "decision",
+      "ending_image"
+    ],
+    "random_selection": {
+      "eligible_story_types": [
+        "time_pressure_mission",
+        "rivalry_riddle",
+        "perspective_shift",
+        "object_mystery"
+      ],
+      "eligible_dialogue_modes": [
+        "brief_character_exchange_with_action",
+        "natural_voiceover",
+        "mostly_visual_with_sparse_speech"
+      ],
+      "selected": "time_pressure_mission+brief_character_exchange_with_action",
+      "previous_mode": "two_character_exchange",
+      "reason": "Distinct time pressure and visible handwork support one coherent room and natural short dialogue."
+    }
+  },
+  "context_type": "match",
+  "verified_context": [
+    {
+      "fact": "UEFA schedules Manchester United–Roma at Old Trafford on 2026-11-03.",
+      "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
+      "retrieved_at": "2026-10-23T06:09:29Z"
+    },
+    {
+      "fact": "UEFA archives Manchester United 7-1 Roma from 2007.",
+      "source": "https://www.uefa.com/uefachampionsleague/history/h2h/52682/50137/",
+      "retrieved_at": "2026-10-23T06:09:29Z"
+    }
+  ],
+  "story_connection": "Old Trafford 2007 history motivates the fictional worker to preserve Roma's crest rather than use a plain spare. The personal scene is explicitly fiction.",
+  "generation": {
+    "max_attempts": 1,
+    "attempts_used": 0,
+    "assignment_key": "goaliq-2026-10-23-ucl-2049609-seedance25-v1",
+    "model": "seedance_2_5",
+    "duration_seconds": 22,
+    "resolution": "720p",
+    "aspect_ratio": "9:16",
+    "mode": "omni_reference",
+    "cost_estimate_credits": 154,
+    "balance_before_credits": 331,
+    "prompt": "Create ONE continuous 22-second vertical 9:16 photorealistic live-action fictional football short, fully in German, with natural synchronized spoken German. No real player likenesses or voice clones. Same two clearly fictional AS Roma kit staff throughout: young woman with short dark curls and burgundy club staff jacket, older male colleague with grey beard and burgundy staff jacket. A third fictional player is seen from behind only. One coherent visitors' dressing room at Old Trafford, no stadium or crowd shots, no pitch montage. Opening 0-2 seconds ONLY: official Manchester United and AS Roma crests from the two supplied image references, clear exact German text: 'Manchester United – AS Roma' and '03. November 2026 · 21:00 MEZ'. The text disappears completely after second 2. Small 'KI-Fiktion' indication in opening. Do not place further editorial text over story. 2-6 seconds: close shot of an AS Roma match shirt on a hanger, its crest patch has come loose; the woman notices, her team is about to enter, urgent but believable. 6-11 seconds: older colleague offers a blank spare shirt and says naturally, 'Das Ersatztrikot reicht.' She looks at the loose Roma crest, answers with controlled conviction, 'Nicht hier in Old Trafford. Nicht nach 2007.' This refers to Roma's real 2007 Champions League defeat at Old Trafford, without invented footage or results shown. 11-17 seconds: she consciously chooses the club shirt, quickly and visibly stitches the crest firmly back on; the older colleague steadies the fabric. Show the same people and shirt, clear cause and effect, authentic fabric and fingers. 17-22 seconds: the fictional player enters, takes the repaired shirt with crest clearly fixed, nods, and the woman quietly says 'Jetzt gehört der Moment uns.' End on the stitched Roma crest and her relieved expression. Emotionally credible and easy to retell: a fictional Roma kit worker repairs the club crest before returning to Old Trafford after its famous 2007 defeat. German speech with human pacing and natural pauses, accurate lip synchronization and stable character identity. Keep it respectful, no fake archival footage, no historical score display, no future result claims, no gambling, no external advertisement, no GoalIQ brand card inside this 22-second source; the canonical GoalIQ outro will be appended separately.",
+    "crest_sources": [
+      "https://img.uefa.com/imgml/TP/teams/logos/700x700/52682.png",
+      "https://img.uefa.com/imgml/TP/teams/logos/700x700/50137.png"
+    ],
+    "job_id": null
+  },
+  "outro": {
+    "media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "duration_seconds": 3,
+    "preflight_review": "passed on 2026-10-23: 3.000 s, SHA matched, frame displayed correct logo, domain and German notice."
+  },
+  "qa": {
+    "status": "pending",
+    "crowd_review": "not_applicable_planned_no_stadium"
+  }
+}
