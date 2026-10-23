@@ -1,6 +1,6 @@
 {
   "target_date": "2026-10-23",
-  "status": "user_authorized_second_generation_reserved",
+  "status": "second_generation_running",
   "ready": false,
   "coverage_key": "ucl:2049609:2026-11-03:man-utd-roma",
   "generation_basis": "verified_fixture_and_current_research",
@@ -283,7 +283,7 @@
     "resolution": "720p",
     "quote_credits": 15,
     "balance_before_credits": 177,
-    "job_id": null,
+    "job_id": "27ed31f2-2b8e-4c3f-842d-671d60ae4c3e",
     "prompt": "15-second photorealistic live-action KI-FIKTION about TODAY'S Bundesliga match VfB Stuttgart vs Borussia Mönchengladbach. Match date Friday 23 October 2026, kick-off 20:30 CEST (MESZ). Use four image references in this exact order: 1 official VfB Stuttgart crest; 2 official Borussia Mönchengladbach crest; 3 official VfB portrait of current male player Deniz Undav; 4 official VfB portrait of current male player Ermedin Demirovic. Preserve the recognizable adult male faces and Stuttgart white-red kits of Deniz Undav and Ermedin Demirovic. Exactly these two real current MALE professional players are the visible human protagonists; no women, no staff, no child, no extra speaking person, no generic actor. Clearly fictional dramatization, not actual footage, not authentic quotes or voice clones, not player endorsement.\n0-2.2s: Steady front-facing physical match board inside VfB dressing-room corridor, both correct official crests, large exact German text 'VfB STUTTGART – BORUSSIA MÖNCHENGLADBACH' then 'HEUTE · 20:30 MESZ', small legible 'KI-FIKTION'. No spoken intro. Text vanishes after board cut.\n2.2-6s: Same coherent VfB locker room, two male players in current-looking VfB white-red jerseys. Demirovic sits tying boots after a busy week, hears powerful but distant home-fan roar. Undav steps beside him, looks at him and asks in natural conversational German: 'Noch Kraft nach Dienstag?' This alludes to Stuttgart's verified Champions League match earlier this week, not to a fabricated injury.\n6-10s: Demirovic briefly hesitates, looks toward the tunnel light. Undav offers him a football and says warmly: 'Draußen warten sie schon.' The ball stays visibly in their hands across the cut; clear spatial continuity.\n10-15s: Demirovic takes the ball, finishes the boot knot, rises decisively and replies in natural German: 'Dann gehen wir zusammen.' The two men exchange a brief fist bump and step side by side toward the corridor, filmed from the front with correct recognizable faces. End on their determined faces and the ball between them, match outcome unresolved. No pitch montage, no score, no stat overlay, no invented news. This is a simple cause-and-effect personal story anchored in the verified short turnaround and the sold-out Stuttgart home section for tonight's match. Warm believable German male voices with natural breath and pauses, accurate lip sync, low music under clear dialogue. No brand outro inside the source; a separately approved GoalIQ outro will be attached.",
     "reference_urls": [
       "https://www.vfb.de/api/emblems/wappen/s1074_150x150.png",
@@ -291,6 +291,12 @@
       "https://www.vfb.de/?proxy=sportdb/spieler/a56ab-22_undav.png",
       "https://www.vfb.de/?proxy=sportdb/spieler/0ba85-9_demirovic.png"
     ],
-    "qa_status": "pending"
+    "qa_status": "pending",
+    "reference_media_ids": [
+      "7cc3c8f4-587d-444f-bc0a-c5e26d798d65",
+      "8d5346f2-0763-4fe0-87a0-4d69d3cdcd53",
+      "3c20c51f-78ca-4376-bbf9-338ad6ca8c53",
+      "28e123e6-31c2-4098-b1f4-2bbb8f77f239"
+    ]
   }
 }
