@@ -1,128 +1,88 @@
 {
   "target_date": "2026-10-23",
-  "status": "second_generation_running",
+  "status": "delivered_replacement_with_disclosed_quality_limits",
   "ready": false,
-  "coverage_key": "ucl:2049609:2026-11-03:man-utd-roma",
+  "coverage_key": "bundesliga:2026-10-23:vfb-stuttgart-borussia-moenchengladbach",
   "generation_basis": "verified_fixture_and_current_research",
   "prediction_status": "not_used_optional",
   "prediction_used": false,
   "match": {
-    "competition": "UEFA Champions League",
-    "uefa_match_id": "2049609",
-    "home": "Manchester United",
-    "away": "AS Roma",
-    "match_date": "2026-11-03",
-    "kickoff_at": "2026-11-03T21:00:00+01:00",
-    "status": "UPCOMING",
-    "venue": "Old Trafford",
-    "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
-    "retrieved_at": "2026-10-23T06:09:29Z"
+    "competition": "Bundesliga",
+    "home": "VfB Stuttgart",
+    "away": "Borussia Mönchengladbach",
+    "match_date": "2026-10-23",
+    "kickoff_at": "2026-10-23T20:30:00+02:00",
+    "source": "https://www.vfb.de/de/",
+    "official_context_source": "https://www.vfb.de/de/vfb/aktuell/neues/profis/2627/pressekonferenz-vor-vfb-stuttgart-gegen-borussia-moenchengladbach/",
+    "source_roster": "https://www.vfb.de/de/1893/profis/kader/saisonen/2026-2027/kader/"
   },
   "selection": {
-    "today_ucl_pages_checked": [
-      0,
-      100,
-      200
-    ],
-    "today_ucl_matches": 0,
-    "nearest_matchday": "2026-11-03",
-    "already_covered": [
-      "ucl:2049608:2026-11-03:atletico-bayern"
-    ],
-    "reason": "Historic Manchester United–Roma UEFA Champions League pairing at Old Trafford; UEFA archives their 2007 meeting.",
-    "historical_source": "https://www.uefa.com/uefachampionsleague/history/h2h/52682/50137/",
-    "historical_fact": "UEFA archives 2007 Manchester United 7-1 Roma quarterfinal highlights."
+    "today_fixture": "VfB Stuttgart vs Borussia Mönchengladbach",
+    "reason": "User explicitly corrected priority to today's Bundesliga and authorized replacement for rejected future-CL preview.",
+    "source": "https://www.vfb.de/de/"
   },
   "story": {
-    "story_type": "time_pressure_mission",
-    "previous_story_type": "memento_reframing",
-    "story_setting": "fictional_AS_Roma_visitors_dressing_room_Old_Trafford",
-    "protagonist": "A fictional female AS Roma kit worker, short dark curls, burgundy staff jacket",
-    "verified_personal_or_club_tie": "AS Roma returns to Old Trafford for a verified Champions League match; UEFA documents their 2007 meeting and defeat there.",
-    "goal": "Repair a loose Roma crest patch before a fictional team member enters.",
-    "dilemma": "Use a plain spare shirt or repair the club crest in the short time available.",
-    "decision": "She stitches the crest back on, helped by the older fictional colleague.",
-    "visible_consequence": "A fictional player from behind takes the repaired Roma shirt; the crest is firmly attached.",
-    "one_sentence_audience_story": "Before Roma returns to Old Trafford after its famous 2007 loss, a fictional kit worker races to repair the club crest rather than issue a blank spare shirt.",
-    "character_continuity_plan": "Same female kit worker, older bearded colleague, room and one shirt throughout; third player shown from behind only.",
-    "hook": "A club crest is coming loose just before the team enters.",
-    "conflict": "Time pressure versus wearing the club badge at Old Trafford.",
-    "turning_point": "She rejects the spare shirt and repairs the badge.",
-    "ending_image": "Repaired Roma badge and kit worker's relieved face.",
+    "story_type": "short_turnaround_team_decision",
+    "previous_story_type": "time_pressure_mission",
+    "story_setting": "VfB_dressing_room_and_corridor",
+    "protagonists": [
+      "Deniz Undav",
+      "Ermedin Demirovic"
+    ],
+    "verified_personal_or_club_tie": "Both are current VfB players on official 2026/27 roster; official VfB preview confirms second floodlit match in three days and sold-out home section.",
+    "goal": "Be ready together for tonight's home game.",
+    "dilemma": "Fatigue after Tuesday versus stepping out for the supporters.",
+    "decision": "Demirovic accepts the ball, rises and joins Undav.",
+    "visible_consequence": "The two players stand together near the corridor, match unresolved.",
+    "one_sentence_audience_story": "After a short turnaround, Demirovic finds the resolve to join Undav for VfB's home match against Gladbach.",
     "on_pitch_beats": [],
     "pitch_action_review": "not_applicable_dressing_room_only",
     "spoken_language": "de",
-    "dialogue_mode": "brief_character_exchange_with_action",
-    "fiction_label": "KI-Fiktion",
-    "changed_elements_vs_previous": [
-      "protagonist",
-      "club",
-      "conflict",
-      "decision",
-      "ending_image"
-    ],
-    "random_selection": {
-      "eligible_story_types": [
-        "time_pressure_mission",
-        "rivalry_riddle",
-        "perspective_shift",
-        "object_mystery"
-      ],
-      "eligible_dialogue_modes": [
-        "brief_character_exchange_with_action",
-        "natural_voiceover",
-        "mostly_visual_with_sparse_speech"
-      ],
-      "selected": "time_pressure_mission+brief_character_exchange_with_action",
-      "previous_mode": "two_character_exchange",
-      "reason": "Distinct time pressure and visible handwork support one coherent room and natural short dialogue."
-    }
+    "fiction_label": "KI-Fiktion"
   },
   "context_type": "match",
   "verified_context": [
     {
-      "fact": "UEFA schedules Manchester United–Roma at Old Trafford on 2026-11-03.",
-      "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
-      "retrieved_at": "2026-10-23T06:09:29Z"
+      "fact": "VfB Stuttgart hosts Borussia Mönchengladbach on 23 October 2026 at 20:30 CEST.",
+      "source": "https://www.vfb.de/de/",
+      "retrieved_at": "2026-10-23"
     },
     {
-      "fact": "UEFA archives Manchester United 7-1 Roma from 2007.",
-      "source": "https://www.uefa.com/uefachampionsleague/history/h2h/52682/50137/",
-      "retrieved_at": "2026-10-23T06:09:29Z"
+      "fact": "VfB calls this its second floodlit match in three days and says its home section is sold out.",
+      "source": "https://www.vfb.de/de/vfb/aktuell/neues/profis/2627/pressekonferenz-vor-vfb-stuttgart-gegen-borussia-moenchengladbach/",
+      "retrieved_at": "2026-10-23"
+    },
+    {
+      "fact": "Deniz Undav and Ermedin Demirovic are on the official current VfB roster.",
+      "source": "https://www.vfb.de/de/1893/profis/kader/saisonen/2026-2027/kader/",
+      "retrieved_at": "2026-10-23"
     }
   ],
   "story_connection": "Old Trafford 2007 history motivates the fictional worker to preserve Roma's crest rather than use a plain spare. The personal scene is explicitly fiction.",
   "generation": {
-    "max_attempts": 1,
-    "attempts_used": 1,
-    "assignment_key": "goaliq-2026-10-23-ucl-2049609-seedance25-v1",
-    "model": "seedance_2_5",
-    "duration_seconds": 22,
+    "assignment_key": "goaliq-2026-10-23-bl-vfb-gladbach-male-players-v2",
+    "model": "seedance_2_0_mini",
+    "duration_seconds": 15,
+    "actual_duration_seconds": 15.104,
     "resolution": "720p",
     "aspect_ratio": "9:16",
-    "mode": "omni_reference",
-    "cost_estimate_credits": 154,
-    "balance_before_credits": 331,
-    "prompt": "Create ONE continuous 22-second vertical 9:16 photorealistic live-action fictional football short, fully in German, with natural synchronized spoken German. No real player likenesses or voice clones. Same two clearly fictional AS Roma kit staff throughout: young woman with short dark curls and burgundy club staff jacket, older male colleague with grey beard and burgundy staff jacket. A third fictional player is seen from behind only. One coherent visitors' dressing room at Old Trafford, no stadium or crowd shots, no pitch montage. Opening 0-2 seconds ONLY: official Manchester United and AS Roma crests from the two supplied image references, clear exact German text: 'Manchester United – AS Roma' and '03. November 2026 · 21:00 MEZ'. The text disappears completely after second 2. Small 'KI-Fiktion' indication in opening. Do not place further editorial text over story. 2-6 seconds: close shot of an AS Roma match shirt on a hanger, its crest patch has come loose; the woman notices, her team is about to enter, urgent but believable. 6-11 seconds: older colleague offers a blank spare shirt and says naturally, 'Das Ersatztrikot reicht.' She looks at the loose Roma crest, answers with controlled conviction, 'Nicht hier in Old Trafford. Nicht nach 2007.' This refers to Roma's real 2007 Champions League defeat at Old Trafford, without invented footage or results shown. 11-17 seconds: she consciously chooses the club shirt, quickly and visibly stitches the crest firmly back on; the older colleague steadies the fabric. Show the same people and shirt, clear cause and effect, authentic fabric and fingers. 17-22 seconds: the fictional player enters, takes the repaired shirt with crest clearly fixed, nods, and the woman quietly says 'Jetzt gehört der Moment uns.' End on the stitched Roma crest and her relieved expression. Emotionally credible and easy to retell: a fictional Roma kit worker repairs the club crest before returning to Old Trafford after its famous 2007 defeat. German speech with human pacing and natural pauses, accurate lip synchronization and stable character identity. Keep it respectful, no fake archival footage, no historical score display, no future result claims, no gambling, no external advertisement, no GoalIQ brand card inside this 22-second source; the canonical GoalIQ outro will be appended separately.",
-    "crest_sources": [
-      "https://img.uefa.com/imgml/TP/teams/logos/700x700/52682.png",
-      "https://img.uefa.com/imgml/TP/teams/logos/700x700/50137.png"
-    ],
-    "job_id": "5e70c6c4-86cf-4fae-aca1-41bafd2e1e61",
-    "submitted_at": "2026-10-23T06:11:00Z",
-    "reference_media_ids": [
-      "753ddc69-87ba-467e-ae47-e0c4ee0441e0",
-      "1a42db14-3a4f-44d9-876c-c09c4bbbef25"
-    ],
+    "job_id": "27ed31f2-2b8e-4c3f-842d-671d60ae4c3e",
     "job_status": "completed",
-    "credits_used": 154,
-    "balance_after_credits": 177,
-    "source_sha256": "3bc4c8947ca62df7a70c952cc8906e6c66a8a67f33fa5f65086ed31237dca453",
-    "actual_duration_seconds": 22.08,
-    "source_review_media_id": "d77ce088-c206-4e4d-b8ae-cd027aa8ce40",
-    "audio_provider": "Higgsfield integrated German dialogue",
-    "elevenlabs_used": false,
-    "elevenlabs_reason": "Optional transcription cost not reliably quotable after 2026-10-22 overcharge; no ElevenLabs paid job ordered."
+    "attempts_used_today": 2,
+    "quote_credits": 15,
+    "credits_used": 15,
+    "balance_before_credits": 177,
+    "balance_after_credits": 162,
+    "source_sha256": "c02c07de437ef43a762b095db7580654db4f2a0c5a1ddcc377935391724f0815",
+    "source_review_media_id": "842b023f-9aa8-40c7-a91c-95cf8275fcf8",
+    "reference_media_ids": [
+      "7cc3c8f4-587d-444f-bc0a-c5e26d798d65",
+      "8d5346f2-0763-4fe0-87a0-4d69d3cdcd53",
+      "3c20c51f-78ca-4376-bbf9-338ad6ca8c53",
+      "28e123e6-31c2-4098-b1f4-2bbb8f77f239"
+    ],
+    "prompt": "15-second photorealistic live-action KI-FIKTION about TODAY'S Bundesliga match VfB Stuttgart vs Borussia Mönchengladbach. Match date Friday 23 October 2026, kick-off 20:30 CEST (MESZ). Use four image references in this exact order: 1 official VfB Stuttgart crest; 2 official Borussia Mönchengladbach crest; 3 official VfB portrait of current male player Deniz Undav; 4 official VfB portrait of current male player Ermedin Demirovic. Preserve the recognizable adult male faces and Stuttgart white-red kits of Deniz Undav and Ermedin Demirovic. Exactly these two real current MALE professional players are the visible human protagonists; no women, no staff, no child, no extra speaking person, no generic actor. Clearly fictional dramatization, not actual footage, not authentic quotes or voice clones, not player endorsement.\n0-2.2s: Steady front-facing physical match board inside VfB dressing-room corridor, both correct official crests, large exact German text 'VfB STUTTGART – BORUSSIA MÖNCHENGLADBACH' then 'HEUTE · 20:30 MESZ', small legible 'KI-FIKTION'. No spoken intro. Text vanishes after board cut.\n2.2-6s: Same coherent VfB locker room, two male players in current-looking VfB white-red jerseys. Demirovic sits tying boots after a busy week, hears powerful but distant home-fan roar. Undav steps beside him, looks at him and asks in natural conversational German: 'Noch Kraft nach Dienstag?' This alludes to Stuttgart's verified Champions League match earlier this week, not to a fabricated injury.\n6-10s: Demirovic briefly hesitates, looks toward the tunnel light. Undav offers him a football and says warmly: 'Draußen warten sie schon.' The ball stays visibly in their hands across the cut; clear spatial continuity.\n10-15s: Demirovic takes the ball, finishes the boot knot, rises decisively and replies in natural German: 'Dann gehen wir zusammen.' The two men exchange a brief fist bump and step side by side toward the corridor, filmed from the front with correct recognizable faces. End on their determined faces and the ball between them, match outcome unresolved. No pitch montage, no score, no stat overlay, no invented news. This is a simple cause-and-effect personal story anchored in the verified short turnaround and the sold-out Stuttgart home section for tonight's match. Warm believable German male voices with natural breath and pauses, accurate lip sync, low music under clear dialogue. No brand outro inside the source; a separately approved GoalIQ outro will be attached.",
+    "user_authorized_second_generation": true
   },
   "outro": {
     "media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
@@ -131,36 +91,28 @@
     "preflight_review": "passed on 2026-10-23: 3.000 s, SHA matched, frame displayed correct logo, domain and German notice."
   },
   "qa": {
-    "status": "not_ready_story_deviation_and_audio_naturalness_unverified",
-    "opening_review": "Official crests visible, readable Manchester United–AS Roma and 03. November 2026 21:00 MEZ in first second; opening then disappears.",
-    "story_review": "Fictional Roma kit worker and older colleague remain consistent. Actual damage is a hole below the crest rather than a loose crest patch. The two staffers visibly mend it, and the final close-up shows the intact crest. The planned third-player handoff is absent.",
-    "relevance_review": "German dialogue explicitly references Old Trafford and 2007; UEFA history supports the context. No invented real match event is presented.",
+    "status": "not_ready_opening_spelling_and_audio_unverified",
+    "opening_review": "Official VfB and Borussia Mönchengladbach crests are visible; opening erroneously spells STUTTGERT instead of STUTTGART; 20:30 MESZ and KI-FIKTION are readable.",
+    "cast_review": "Two adult male VfB-clad faces broadly track official Undav/Demirovic portraits; exact identity fidelity cannot be guaranteed from visual comparison alone. No women visible.",
+    "story_review": "Seated player laces boots, other player encourages him with the ball, both stand together. At the ending the ball continuity appears inconsistent, with an extra ball visible in one mid sequence.",
+    "speech_review": "Native audio stream present; German dialogue and naturalness could not be independently heard. Higgsfield video analysis still queued at delivery.",
+    "crowd_review": "not_applicable_no_stadium_stands_visible",
     "pitch_action_review": "not_applicable_dressing_room_only",
-    "crowd_review": "not_applicable_no_stadium_or_pitch_visible",
-    "spoken_language_review": "Higgsfield scene analysis identifies and translates German dialogue corresponding to the scripted exchange.",
-    "audio_review_limit": "Dialogue naturalness and lip sync could not be independently heard; no optional ElevenLabs Scribe order due unreliable quote after 2026-10-22.",
-    "transition_review": "Source continues through approximately 22.08 seconds then the exact canonical three-second German outro; seam frames visually checked.",
+    "outro_review": "Canonical German master SHA256 verified, logo/domain/disclaimer and transition frames visually checked.",
     "source_video_prefix_sha256_match": true,
     "source_audio_prefix_sha256_match": true,
-    "master_sha256_verified": true,
-    "final_fixture_check": {
-      "at": "2026-10-23T06:16:52Z",
-      "status": "UPCOMING",
-      "kickoff_at": "2026-11-03T20:00:00Z",
-      "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100"
-    },
-    "video_analysis_id": "d087ec17-6104-4d58-8e13-81d9a8a0af17"
+    "fixture_last_checked": "2026-10-23: official VfB home page still lists 20:30 and score -:-",
+    "video_analysis_id": "e8cae655-c5ae-494f-a775-448af9aac7e0"
   },
   "final": {
-    "media_id": "6dde7d89-ff31-463d-868e-93b796e037ff",
-    "zip_media_id": "b96f4fe8-0ba1-44e2-ade5-bb65ac726c99",
-    "sha256": "9483fc7b9fb32bcac95a24a58b44a3358f50656410adbcfff923b6d614b538b7",
-    "duration_seconds": 25.112,
+    "media_id": "9c505989-5376-42f0-987f-09a1cbf57112",
+    "zip_media_id": "19f7f846-c18b-453a-8e1f-1c55dea60a90",
+    "sha256": "45024f83f35115114cc69a59a8397134cb1ebd15827bb9985bc11e57270deaff",
+    "duration_seconds": 18.136,
     "source_video_prefix_sha256_match": true,
     "source_audio_prefix_sha256_match": true,
     "zip_contains_byte_identical_mp4": true,
-    "download_links_verified_http_206": true,
-    "delivered_at": "2026-10-23T06:16:52Z"
+    "download_links_verified_http_206": true
   },
   "original_contribution": {
     "status": "delivered_with_disclosed_story_and_audio_review_limit",
@@ -291,12 +243,21 @@
       "https://www.vfb.de/?proxy=sportdb/spieler/a56ab-22_undav.png",
       "https://www.vfb.de/?proxy=sportdb/spieler/0ba85-9_demirovic.png"
     ],
-    "qa_status": "pending",
+    "qa_status": "not_ready_opening_spelling_and_audio_unverified",
     "reference_media_ids": [
       "7cc3c8f4-587d-444f-bc0a-c5e26d798d65",
       "8d5346f2-0763-4fe0-87a0-4d69d3cdcd53",
       "3c20c51f-78ca-4376-bbf9-338ad6ca8c53",
       "28e123e6-31c2-4098-b1f4-2bbb8f77f239"
-    ]
-  }
+    ],
+    "job_status": "completed",
+    "credits_used": 15,
+    "balance_after_credits": 162,
+    "final_media_id": "9c505989-5376-42f0-987f-09a1cbf57112",
+    "zip_media_id": "19f7f846-c18b-453a-8e1f-1c55dea60a90"
+  },
+  "original_coverage_key": "ucl:2049609:2026-11-03:man-utd-roma",
+  "additional_covered_fixtures": [
+    "ucl:2049609:2026-11-03:man-utd-roma"
+  ]
 }
