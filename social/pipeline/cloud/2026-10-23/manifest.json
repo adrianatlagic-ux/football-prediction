@@ -1,6 +1,6 @@
 {
   "target_date": "2026-10-23",
-  "status": "generating",
+  "status": "delivered_with_disclosed_story_and_audio_review_limit",
   "ready": false,
   "coverage_key": "ucl:2049609:2026-11-03:man-utd-roma",
   "generation_basis": "verified_fixture_and_current_research",
@@ -50,7 +50,7 @@
     "turning_point": "She rejects the spare shirt and repairs the badge.",
     "ending_image": "Repaired Roma badge and kit worker's relieved face.",
     "on_pitch_beats": [],
-    "pitch_action_review": "not_applicable_planned",
+    "pitch_action_review": "not_applicable_dressing_room_only",
     "spoken_language": "de",
     "dialogue_mode": "brief_character_exchange_with_action",
     "fiction_label": "KI-Fiktion",
@@ -113,7 +113,16 @@
     "reference_media_ids": [
       "753ddc69-87ba-467e-ae47-e0c4ee0441e0",
       "1a42db14-3a4f-44d9-876c-c09c4bbbef25"
-    ]
+    ],
+    "job_status": "completed",
+    "credits_used": 154,
+    "balance_after_credits": 177,
+    "source_sha256": "3bc4c8947ca62df7a70c952cc8906e6c66a8a67f33fa5f65086ed31237dca453",
+    "actual_duration_seconds": 22.08,
+    "source_review_media_id": "d77ce088-c206-4e4d-b8ae-cd027aa8ce40",
+    "audio_provider": "Higgsfield integrated German dialogue",
+    "elevenlabs_used": false,
+    "elevenlabs_reason": "Optional transcription cost not reliably quotable after 2026-10-22 overcharge; no ElevenLabs paid job ordered."
   },
   "outro": {
     "media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
@@ -122,7 +131,35 @@
     "preflight_review": "passed on 2026-10-23: 3.000 s, SHA matched, frame displayed correct logo, domain and German notice."
   },
   "qa": {
-    "status": "pending",
-    "crowd_review": "not_applicable_planned_no_stadium"
+    "status": "not_ready_story_deviation_and_audio_naturalness_unverified",
+    "opening_review": "Official crests visible, readable Manchester United–AS Roma and 03. November 2026 21:00 MEZ in first second; opening then disappears.",
+    "story_review": "Fictional Roma kit worker and older colleague remain consistent. Actual damage is a hole below the crest rather than a loose crest patch. The two staffers visibly mend it, and the final close-up shows the intact crest. The planned third-player handoff is absent.",
+    "relevance_review": "German dialogue explicitly references Old Trafford and 2007; UEFA history supports the context. No invented real match event is presented.",
+    "pitch_action_review": "not_applicable_dressing_room_only",
+    "crowd_review": "not_applicable_no_stadium_or_pitch_visible",
+    "spoken_language_review": "Higgsfield scene analysis identifies and translates German dialogue corresponding to the scripted exchange.",
+    "audio_review_limit": "Dialogue naturalness and lip sync could not be independently heard; no optional ElevenLabs Scribe order due unreliable quote after 2026-10-22.",
+    "transition_review": "Source continues through approximately 22.08 seconds then the exact canonical three-second German outro; seam frames visually checked.",
+    "source_video_prefix_sha256_match": true,
+    "source_audio_prefix_sha256_match": true,
+    "master_sha256_verified": true,
+    "final_fixture_check": {
+      "at": "2026-10-23T06:16:52Z",
+      "status": "UPCOMING",
+      "kickoff_at": "2026-11-03T20:00:00Z",
+      "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100"
+    },
+    "video_analysis_id": "d087ec17-6104-4d58-8e13-81d9a8a0af17"
+  },
+  "final": {
+    "media_id": "6dde7d89-ff31-463d-868e-93b796e037ff",
+    "zip_media_id": "b96f4fe8-0ba1-44e2-ade5-bb65ac726c99",
+    "sha256": "9483fc7b9fb32bcac95a24a58b44a3358f50656410adbcfff923b6d614b538b7",
+    "duration_seconds": 25.112,
+    "source_video_prefix_sha256_match": true,
+    "source_audio_prefix_sha256_match": true,
+    "zip_contains_byte_identical_mp4": true,
+    "download_links_verified_http_206": true,
+    "delivered_at": "2026-10-23T06:16:52Z"
   }
 }
