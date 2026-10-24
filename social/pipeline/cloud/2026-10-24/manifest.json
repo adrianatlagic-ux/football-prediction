@@ -1,6 +1,6 @@
 {
   "target_date": "2026-10-24",
-  "status": "generating",
+  "status": "delivered_with_disclosed_quality_limit",
   "ready": false,
   "coverage_key": "bundesliga:2026-10-24:borussia-dortmund-eintracht-frankfurt",
   "match": {
@@ -70,7 +70,7 @@
     "turning_point": "Knauff rolls the ball to Frankfurt's side.",
     "ending_image": "Can and Knauff part toward their teams, match unresolved.",
     "on_pitch_beats": [],
-    "pitch_action_review": "not_applicable_planned",
+    "pitch_action_review": "not_applicable_tunnel_only",
     "character_continuity_plan": "Same two referenced male players, correct kits, one ball, one tunnel; front-facing facial views.",
     "spoken_language": "de",
     "fiction_label": "KI-FIKTION",
@@ -107,7 +107,14 @@
       "66f7d916-82c6-40d8-8575-6f203b97c83d",
       "8ee94389-a083-4a3e-8efa-30bf7ccef645",
       "0f2960a7-0354-41b5-8882-2dc610325f25"
-    ]
+    ],
+    "job_status": "completed",
+    "actual_duration_seconds": 15.104,
+    "credits_used": 15,
+    "balance_after_credits": 147,
+    "source_sha256": "59f06a8f52a95888319098e82cb87df1f536e01645b0390f6ab2b8dea5f48070",
+    "source_review_media_id": "b85af536-d3ed-4018-b247-eb2c5e27e267",
+    "audio_provider": "Higgsfield native"
   },
   "outro": {
     "media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
@@ -115,7 +122,35 @@
     "preflight": "passed 2026-10-24: hash, 3-second duration and visible frame with large logo, goaliq.de and exact German disclaimer"
   },
   "qa": {
-    "status": "pending",
-    "crowd_review": "not_applicable_planned_no_stadium_stands"
+    "status": "not_ready_wrong_time_zone_text_and_jersey_identity",
+    "opening_review": "Both crests and DORTMUND–FRANKFURT legible, but generated label reads HEUTE · 18:30 MESK instead of MESZ.",
+    "player_review": "Front faces broadly resemble provided portraits. At end, generated BVB shirt shows number 8 and malformed back name instead of Emre Can's official 23; Frankfurt shirt shows number 17 and malformed back name instead of Knauff's official 7.",
+    "story_review": "Two men exchange dialogue and handshake in tunnel; Knauff mentions Frankfurt, but generated ending has them walking side-by-side rather than separating to their teams, so planned decisive payoff fails. Ball is left behind rather than moved toward Frankfurt.",
+    "relevance_review": "Former Dortmund player Knauff now Frankfurt is verified and spoken by generated dialogue. Match outcome not predicted.",
+    "spoken_language_review": "Higgsfield video analysis reports content of three scripted exchanges but returns English translations; German timbre and exact wording not independently heard.",
+    "audio_review_limit": "Native AAC present and prefix preserved. Naturalness and lip sync not independently audited; no paid ElevenLabs Scribe due 2026-10-22 quote mismatch.",
+    "pitch_action_review": "not_applicable_tunnel_only",
+    "crowd_review": "not_applicable_no_stands_visible",
+    "transition_review": "Story source through 15.104s then exact canonical 3.000s German outro; seam frames visually checked.",
+    "source_video_prefix_sha256_match": true,
+    "source_audio_prefix_sha256_match": true,
+    "master_sha256_verified": true,
+    "video_analysis_id": "7d607a7c-0bf6-495e-8551-342f7654acea",
+    "final_fixture_check": {
+      "at": "2026-10-24T06:13:30Z",
+      "kickoff_at": "2026-10-24T18:30:00+02:00",
+      "source": "https://www.bvb.de/de/de/bvb-spielplan/spiel.html/2026-2027/Fussball/Profis/Bundesliga/7/Borussia-Dortmund-Eintracht-Frankfurt.html"
+    }
+  },
+  "final": {
+    "media_id": "6e66b7c4-21c4-4ece-abe9-ebe19b66b47e",
+    "zip_media_id": "37ca7ec2-9258-464d-8cbe-451450dc40b5",
+    "sha256": "c8e1c8ce93c45545011c951e49b304095ef5bd6771d587da674d21908f8b8e46",
+    "duration_seconds": 18.136,
+    "source_video_prefix_sha256_match": true,
+    "source_audio_prefix_sha256_match": true,
+    "zip_contains_byte_identical_mp4": true,
+    "download_links_verified_http_206": true,
+    "delivered_at": "2026-10-24T06:13:30Z"
   }
 }
