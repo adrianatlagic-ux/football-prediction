@@ -1690,8 +1690,8 @@ def _call_gemini_agent_pick(
       a plain-language pick label, one sentence of reasoning, and a couple of
       short supporting bullets - shown only in the Smart Bet section.
 
-    A re-check is an independent assessment of the current full priced book.
-    Previous picks and input snapshots are kept only for comparison afterwards.
+    At the re-check the earlier selection is context; new markets, odds or
+    team information may justify a documented change.
 
     Returns None if the call fails (caller treats that as "no agent opinion",
     not block the rest of the response).
@@ -1704,19 +1704,107 @@ def _call_gemini_agent_pick(
     except ImportError:
         return None
 
-    from src.ai_tip_research import VERSION, fresh_candidates, input_snapshot, prompt as build_prompt
+    from src.ai_tip_research import VERSION, fresh_candidates, input_snapshot, market_changes
     candidates = fresh_candidates(value_bets)
-    research_input = input_snapshot(value_bets, candidates)
+    research_input = input_snapshot(value_bets, candidates, prediction)
     if not research_input["coverage"]["complete"]:
         return {"pick": None, "research_version": VERSION, "status": "incomplete_markets",
                 "research_input": research_input,
                 "first_research_input": (previous_eval or {}).get("first_research_input")
                     or (previous_eval or {}).get("research_input"),
                 "first_pick": (previous_eval or {}).get("first_pick") or (previous_eval or {}).get("pick"),
+                "first_reasoning": (previous_eval or {}).get("first_reasoning")
+                    or (previous_eval or {}).get("bet_reasoning"),
+                "bet_headline": (previous_eval or {}).get("bet_headline"),
+                "bet_reasoning": (previous_eval or {}).get("bet_reasoning"),
                 "revised_from_previous": None}
+
+    # All supported fresh quotes are neutral input. A model-selected bet,
+    # per-bet model score and green/red display labels are not passed through.
+    cand_lines = "\n".join(
+        f"- market={c['market']}, outcome={c.get('team') or c['outcome']}, odds={c['best_odds']}"
+        for c in candidates
+    )
+
+    previous_block = ""
+    if previous_eval and previous_eval.get("bet_headline"):
+        prev_pick = (previous_eval.get("first_pick") if previous_eval.get("status") == "incomplete_markets"
+                     else previous_eval.get("pick"))
+        changes = market_changes(previous_eval.get("research_input"), research_input)
+        prev_pick_desc = (
+            f"market={prev_pick['market']}, outcome={prev_pick.get('team') or prev_pick['outcome']}"
+            if prev_pick else "none"
+        )
+        previous_block = f"""
+
+YOUR EARLIER ASSESSMENT of this same match (from an earlier check today): \
+pick="{previous_eval['bet_headline']}" ({prev_pick_desc}), reasoning="{previous_eval.get('bet_reasoning', '')}"
+Earlier quote snapshot: {(previous_eval.get('research_input') or {}).get('odds_fetched_at')}.
+Market changes since that snapshot: {json.dumps(changes, ensure_ascii=False)}.
+
+You are being asked again now, closer to kickoff, with a chance to search for newer information. \
+Compare the current complete market book with the earlier selection. A newly available market, \
+changed odds, or concrete new team news may justify a different pick. If your choice changes, \
+explain which input made the alternative better. If it stays, say why it remains best. \
+Do not change your pick merely to seem thorough."""
+
     competition = _AGENT_COMPETITION_NAMES.get(value_bets.get("sport_key"), "football")
-    # Previous selections are used only AFTER the new independent decision.
-    prompt = build_prompt(research_input, home_team, away_team, competition)
+    model = research_input["model_context"]
+    xg_line = ""
+    if "home_xg" in model and "away_xg" in model:
+        xg_line = (f" Expected goals: {model['home_xg']:.2f} for {home_team}, "
+                   f"{model['away_xg']:.2f} for {away_team}.")
+    prompt = f"""You are researching an upcoming {competition} match: {home_team} vs {away_team}.
+Kickoff: {research_input['commence_time']}. Quote snapshot: {research_input['odds_fetched_at']}.
+
+For reference only, our statistical model's headline probabilities: Home win \
+{prediction['probability_home_win']:.0%}, Draw {prediction['probability_draw']:.0%}, \
+Away win {prediction['probability_away_win']:.0%}. Treat these as one input to weigh \
+against your own research - NOT as the answer to agree with.{xg_line}
+
+The bets available to pick from (all supported fresh markets and current odds only - decide for yourself \
+which, if any, is worth backing):
+{cand_lines}{previous_block}
+
+STEP 1 - RESEARCH (use Google Search). Our stats model only sees historical results, so dig up CURRENT \
+context across as many of these angles as you can actually find information on - don't limit yourself \
+to just one or two. Search in English AND in the local languages of both teams (e.g. Croatian sports \
+media for Croatia, Georgian for Georgia, German for a Bundesliga club): team news, line-ups and \
+injuries often appear there first.
+- Confirmed/expected lineups, key injuries or suspensions (incl. accumulated yellow cards)
+- Recent form (last 2-3 matches, goals for/against, performance trend)
+- Table situation: what does each team need from this result, is it a dead rubber, must-win, or \
+already decided?
+- Squad fatigue / travel / rest days since the last match, weather/pitch conditions if notable
+- Coach or player quotes/interviews about tactics, motivation, or team news
+- Head-to-head history or tactical matchup notes if genuinely relevant
+- Any other concrete, current fact you find that could matter
+
+STEP 2 - BETTING VERDICT. Based on YOUR research plus the odds, decide which ONE bet from the list is \
+the best one to actually back - or none, if nothing looks good. Form this view independently; do not \
+assume the model's most-likely outcome is the right bet. Compare 1X2, Handicap, Over/Under and BTTS \
+when offered; weigh the price and evidence for the strongest alternative. A likely event is not \
+automatically a good bet at its price. Give the main reason your choice beats the strongest alternative. \
+Then write bet_reasoning as exactly one \
+sentence explaining why you landed on that pick (or why none of them are worth backing - e.g. too \
+unpredictable, no real edge, the odds don't justify it). Wrap the 2-4 words/phrases in that sentence \
+that most directly justify the pick (the actual stat or fact doing the work, e.g. "zero goals \
+conceded", "erratic form", "unbeaten in 8") in double asterisks like **this** - not team names, not \
+filler words, only the specific evidence a reader would want to see highlighted.
+
+Keep everything SHORT - this renders in a small card, not an article. Respond with ONLY raw JSON, no \
+markdown formatting, no code fences, exactly this shape. Write every text value (the research \
+sentences, bet_headline, bet_reasoning, bet_points) in German for German football fans; copy \
+pick_market and pick_outcome exactly as the strings above:
+{{"research": {{"lineups_injuries": "<one short sentence, or empty string if nothing found>", \
+"form": "<one short sentence, or empty string>", "table_situation": "<one short sentence, or empty \
+string>", "other": "<one short sentence on anything else notable, or empty string>"}}, \
+"pick_market": "<one of the market strings above, or null>", "pick_outcome": "<matching outcome \
+string, or null>", "bet_headline": "<2-5 words naming the pick in plain language, e.g. 'Über 2,5 \
+Tore' or 'Sieg Kroatien' - or 'Keine gute Wette' if pick is null>", "bet_reasoning": "<exactly ONE \
+sentence with your verdict>", "bet_points": ["<short supporting fact, max 8 words>", "<short \
+supporting fact, max 8 words>"], "alternative_reasoning": "<why this beats the strongest alternative>", \
+"change_reason": "<on re-check, concrete reason to keep or change the earlier pick>"}}"""
 
     try:
         client = genai.Client(api_key=GEMINI_API_KEY)
@@ -1755,11 +1843,8 @@ def _call_gemini_agent_pick(
                 pick = c
                 break
 
-    # Whether the agent's INDEPENDENT pick happens to match the model's
-    # most-likely outcome - the meaningful "do our two independent sources
-    # agree" comparison (consistent with _combine_recommendation). Compared
-    # against the model favorite, not the value rec, and computed ourselves
-    # rather than trusting the agent to self-report it.
+    # Agreement is computed here for the UI. The AI saw headline model values,
+    # so this is a comparison on shared information, not independent evidence.
     model_fav = value_bets.get("model_favorite")
     agrees_with_model = bool(
         pick is not None and model_fav is not None
@@ -1774,9 +1859,8 @@ def _call_gemini_agent_pick(
     # is inconsistent.
     revised_from_previous = None
     if previous_eval is not None:
-        prev_pick = previous_eval.get("pick")
-        if previous_eval.get("status") == "incomplete_markets":
-            prev_pick = previous_eval.get("first_pick")
+        prev_pick = (previous_eval.get("first_pick") if previous_eval.get("status") == "incomplete_markets"
+                     else previous_eval.get("pick"))
         revised_from_previous = not (
             (pick is None and prev_pick is None)
             or (
@@ -1786,8 +1870,6 @@ def _call_gemini_agent_pick(
                 and pick.get("team") == prev_pick.get("team")
             )
         )
-
-    # Receiving a complete book for the first time is not a change of mind.
     if previous_eval and previous_eval.get("status") == "incomplete_markets" and not prev_pick:
         revised_from_previous = None
 
@@ -1802,7 +1884,10 @@ def _call_gemini_agent_pick(
         "research_input": research_input,
         "first_research_input": (previous_eval or {}).get("first_research_input")
             or (previous_eval or {}).get("research_input"),
-        "market_comparison": parsed.get("market_comparison") or [],
+        "first_reasoning": (previous_eval or {}).get("first_reasoning")
+            or (previous_eval or {}).get("bet_reasoning"),
+        "prompt_text": prompt,
+        "change_reason": parsed.get("change_reason") or "",
         "alternative_reasoning": parsed.get("alternative_reasoning") or "",
         "evidence": evidence,
         "agrees_with_model": agrees_with_model,
@@ -1991,9 +2076,9 @@ def _combine_recommendation(vb: dict, agent_eval: Optional[dict]) -> dict:
     }
 
 
-# Independently reassess in the last hour with the current complete market book.
-# Keep the previous pick for comparison only; a changed decision still withholds
-# the Wett-Tipp under the existing rule.
+# A second per-match check, exactly in the hour before kickoff. The AI sees
+# the current complete book and the previous selection; a changed pick still
+# withholds the public tip under the existing rule.
 _agent_prekickoff_done: set[tuple[str, str]] = set()
 _agent_prekickoff_in_progress: set[tuple[str, str]] = set()
 PREKICKOFF_WINDOW_HOURS = 1
@@ -2076,7 +2161,6 @@ def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
                 if agent is not None:
                     _agent_picks_cache[key] = agent
             finally:
-                # Missing markets must remain eligible for a later scheduled read.
                 cached = _agent_picks_cache.get(key) or {}
                 if cached.get("status") != "incomplete_markets":
                     _agent_prekickoff_done.add(key)
@@ -2307,10 +2391,11 @@ def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
     if expired:
         return {**out, "status": "odds_expired"}
     agent_eval = agent_eval or {}
+    if agent_eval.get("status") == "incomplete_markets":
+        return {**out, "status": "incomplete_markets"}
     if agent_eval.get("research_input"):
         from src.ai_tip_research import coverage, fresh_candidates
-        if (not agent_eval["research_input"]["coverage"]["complete"]
-                or not coverage(fresh_candidates(vb))["complete"]):
+        if not coverage(fresh_candidates(vb))["complete"]:
             return {**out, "status": "incomplete_markets"}
     pick = agent_eval.get("pick")
     if not pick:

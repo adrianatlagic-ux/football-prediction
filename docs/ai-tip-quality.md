@@ -1,53 +1,44 @@
-# Independent AI tip review
+# AI tip input quality
 
-The live Gemini selector uses `src/ai_tip_research.py`, version
-`independent_market_review_v2`. It receives every fresh supported bet from the
-full `bets` list, sorted by market and outcome. Green/red display shortlists,
-model probabilities, Kelly scores and previous picks do not enter its prompt.
-The existing downstream model agreement and weaker-line fallback rules remain.
+The established Gemini research prompt is still the basis of the tip. It makes
+one grounded Gemini call at the early review and one at the scheduled review
+before kickoff, as before. There is no parallel Gemini call or second search.
+The revised input supplies all supported, fresh 1X2, Handicap, Over/Under and
+BTTS quotes in neutral order. It also supplies the statistical model's headline
+1X2 probabilities and, when available, its home/away expected goals. Those are
+labelled model estimates to weigh against current research. The chosen model
+bet, green/red shortlist labels, per-bet model scores, Kelly stakes and expected
+value are not supplied.
 
-Before a paid research call, the candidate book must include all three 1X2
-outcomes, both directions of at least one totals line and opposing handicap
-lines for the two teams. BTTS is included when available but is optional.
-Missing main markets produce `incomplete_markets`, no AI bet and no Wett-Tipp.
-A later scheduled complete snapshot can be evaluated again. Existing scheduled
-Odds API reads already request h2h, totals and spreads together; this change
-adds no provider requests or BTTS scraping. Freshness retains the application's
-scheduled-snapshot semantics (fresh at retrieval, not a continuous live feed).
+A paid call is postponed until all three 1X2 outcomes, both directions of one
+totals line and opposing handicap lines are present. BTTS is optional. While
+coverage is incomplete, the tip reports `incomplete_markets`; the normal
+schedule retries until a complete snapshot is available. The pre-kickoff read
+still uses its existing odds refresh. This change adds no provider requests.
 
-The prompt supplies kickoff date/year, competition, research time and quote
-retrieval time. It preserves the research angles and local-language search,
-requests dated source facts, comparison of available market families, the best
-alternative and counterevidence. It explicitly permits no pick and neither
-requests invented precise probabilities nor a target distribution of markets.
-Source association and publication timestamps are logged, not certified as
-independently verified facts.
+The later check receives the earlier selection and a concise quote delta as
+context. New team news, market availability or odds can justify a different
+choice. The prompt asks for a concrete reason and a comparison with the
+strongest alternative. The existing rule still withholds a public tip when the
+AI changes its selection.
+This is recorded as `revised_from_previous`; it is not interpreted as proof
+that the new selection is worse. A first complete review after an incomplete
+book is not counted as a change of mind.
 
-The pre-kickoff review makes a new decision without seeing its predecessor.
-Only afterwards does the server compare selections. A changed selection still
-withholds the Wett-Tipp. A first complete review after missing markets is not
-mislabelled as a change of mind. An intentional no-pick result has a distinct
-user-facing message instead of saying research is pending.
+`agent_eval` keeps the exact candidate/quote snapshot, model context, full
+prompt, research, source associations, and the prior selection and input at a
+re-check. The bet log copies it for later analysis. The model and the AI now
+share headline probabilities; their agreement is a comparison, not an
+independent confirmation. Historical tip performance cannot establish the
+causal effect of this change without a simultaneous control group. Comparing
+market distribution and realized outcomes after 30–50 matches is a first
+observation, not evidence of profitability.
 
-`agent_eval` preserves the exact public input snapshot, coverage, candidate
-quotes and provenance, prompt version, market comparison and alternative reason.
-At recheck it also preserves the first input and first pick. These are saved by
-the existing agent cache and bet log. Existing cached decisions are not silently
-rewritten on deployment: the new policy applies on the next scheduled AI call.
+A longer prompt can use slightly more input tokens, but there is no additional
+Gemini request per review. No live Gemini calls were used for validation.
 
-## Validation
-
-Mocked Gemini calls verify full-book selection, neutral ordering, no model/old
-pick leakage, missing/stale/one-sided markets, first review after incomplete
-coverage, changed-pick withholding, unchanged-pick confirmation and log retention.
-No paid Gemini requests or live outcome claims are part of these tests.
-
-Run the focused suite:
+Focused verification:
 
 ```sh
 .venv/bin/python -m pytest -q tests/test_ai_tip_research.py tests/test_bet_tip_fallback.py tests/test_bet_selection.py tests/test_odds_schedule.py tests/test_odds_snapshot.py tests/test_odds_runtime.py
 ```
-
-The complete suite currently cannot collect three unrelated research tests:
-`test_hit_selector.py`, `test_joint_score_model.py`, `test_strict_selector.py`.
-Their imported training/research modules are absent from this checkout.
