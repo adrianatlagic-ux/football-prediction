@@ -1,0 +1,56 @@
+{
+  "target_date": "2026-10-24",
+  "fixture": {
+    "home": "Borussia Dortmund",
+    "away": "Eintracht Frankfurt",
+    "kickoff_at": "2026-10-24T18:30:00+02:00",
+    "official_source": "https://www.bvb.de/de/de/bvb-spielplan/spiel.html/2026-2027/Fussball/Profis/Bundesliga/7/Borussia-Dortmund-Eintracht-Frankfurt.html",
+    "checked_at": "2026-10-24T06:13:30Z"
+  },
+  "player_sources": [
+    {
+      "player": "Emre Can",
+      "club": "Borussia Dortmund",
+      "squad": "https://www.bvb.de/de/de/mannschaften/fussball/maenner.html",
+      "portrait": "https://s7g10.scene7.com/is/image/BORUSSIADORTMUNDGMBHANDCOKGAA/can-slider%3APlayer-Teaser?ts=1783695243927&dpr=off",
+      "official_jersey_number": "23"
+    },
+    {
+      "player": "Ansgar Knauff",
+      "club": "Eintracht Frankfurt",
+      "squad_and_history": "https://profis.eintracht.de/kader/ansgar-knauff/",
+      "portrait": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_ansgar-knauff-74fb.png",
+      "official_jersey_number": "7"
+    }
+  ],
+  "production": {
+    "assignment_key": "goaliq-2026-10-24-bl-bvb-frankfurt-seedance2mini-v1",
+    "video_job_id": "a94f82e5-60a5-45cb-af29-d69f19923783",
+    "video_generation_attempts": 1,
+    "model": "seedance_2_0_mini",
+    "quote_credits": 15,
+    "actual_credits": 15,
+    "balance_before": 162,
+    "balance_after": 147,
+    "source_sha256": "59f06a8f52a95888319098e82cb87df1f536e01645b0390f6ab2b8dea5f48070",
+    "source_review_media_id": "b85af536-d3ed-4018-b247-eb2c5e27e267",
+    "final_media_id": "6e66b7c4-21c4-4ece-abe9-ebe19b66b47e",
+    "zip_media_id": "37ca7ec2-9258-464d-8cbe-451450dc40b5",
+    "final_sha256": "c8e1c8ce93c45545011c951e49b304095ef5bd6771d587da674d21908f8b8e46",
+    "source_video_prefix_match": true,
+    "source_audio_prefix_match": true,
+    "zip_mp4_byte_identical": true,
+    "mp4_and_zip_http": 206,
+    "outro_media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "outro_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2"
+  },
+  "qa": {
+    "status": "not_ready",
+    "opening_time_zone_typo": "MESK for MESZ",
+    "shirt_number_and_name_errors": "BVB 8/malformed vs Can 23; Frankfurt 17/malformed vs Knauff 7",
+    "narrative_issue": "Characters walk together instead of choosing separate sides; ball stays behind.",
+    "audio_limit": "Scene analysis reports dialogue semantically but translates; German naturalness not independently heard.",
+    "video_analysis_id": "7d607a7c-0bf6-495e-8551-342f7654acea"
+  },
+  "private_media_urls": "omitted"
+}
