@@ -1,0 +1,118 @@
+{
+  "target_date": "2026-10-24",
+  "status": "reserved",
+  "ready": false,
+  "coverage_key": "bundesliga:2026-10-24:borussia-dortmund-eintracht-frankfurt",
+  "match": {
+    "competition": "Bundesliga",
+    "home": "Borussia Dortmund",
+    "away": "Eintracht Frankfurt",
+    "match_date": "2026-10-24",
+    "kickoff_at": "2026-10-24T18:30:00+02:00",
+    "timezone": "Europe/Berlin",
+    "official_source": "https://www.bvb.de/de/de/bvb-spielplan/spiel.html/2026-2027/Fussball/Profis/Bundesliga/7/Borussia-Dortmund-Eintracht-Frankfurt.html",
+    "official_retrieved_at": "2026-10-24T06:06:15Z",
+    "status": "UPCOMING"
+  },
+  "selection": {
+    "today_bundesliga_candidates": [
+      "RB Leipzig–SV Elversberg",
+      "FC Augsburg–Union Berlin",
+      "Mainz–Werder Bremen",
+      "Köln–Schalke",
+      "Paderborn–Hamburger SV",
+      "Borussia Dortmund–Eintracht Frankfurt"
+    ],
+    "today_ucl_pages_checked": [
+      0,
+      100,
+      200
+    ],
+    "today_ucl_candidates": [],
+    "reason": "Today's Borussia Dortmund home match against high-profile Eintracht Frankfurt; stronger established top-game relevance than other listed fixtures; unannounced in prior manifests.",
+    "prior_coverage_checked": "2026-10-06 through 2026-10-23, including 2026-10-23 additional covered fixture",
+    "generation_basis": "verified_fixture_and_current_research",
+    "prediction_status": "not_used_optional",
+    "prediction_used": false
+  },
+  "verified_context": [
+    {
+      "fact": "BVB official match page schedules Borussia Dortmund–Eintracht Frankfurt on 24 October 2026 at 18:30 Europe/Berlin.",
+      "source": "https://www.bvb.de/de/de/bvb-spielplan/spiel.html/2026-2027/Fussball/Profis/Bundesliga/7/Borussia-Dortmund-Eintracht-Frankfurt.html",
+      "retrieved_at": "2026-10-24T06:06:15Z"
+    },
+    {
+      "fact": "Eintracht's current official profile lists Ansgar Knauff as a 2026/27 Frankfurt player and Borussia Dortmund as a previous club.",
+      "source": "https://profis.eintracht.de/kader/ansgar-knauff/",
+      "retrieved_at": "2026-10-24T06:06:15Z"
+    },
+    {
+      "fact": "BVB's current men's squad lists Emre Can.",
+      "source": "https://www.bvb.de/de/de/mannschaften/fussball/maenner.html",
+      "retrieved_at": "2026-10-24T06:06:15Z"
+    }
+  ],
+  "story": {
+    "story_type": "friendly_rivalry_ball_challenge",
+    "previous_story_type": "short_turnaround_team_decision",
+    "story_setting": "fictional_stadium_tunnel",
+    "protagonists": [
+      "Emre Can",
+      "Ansgar Knauff"
+    ],
+    "verified_personal_or_club_tie": "Knauff is a current Frankfurt player who previously played for Borussia Dortmund, per Frankfurt official profile.",
+    "goal": "Knauff must make his changed team allegiance clear before the coming match.",
+    "conflict": "Respect for his former club versus competing for Frankfurt now.",
+    "decision": "Knauff rolls a single ball toward Frankfurt's side and explicitly chooses his present team.",
+    "visible_consequence": "Can acknowledges the decision with a fist bump; they head toward opposite sides.",
+    "one_sentence_audience_story": "Former Dortmund player Knauff meets Can in the tunnel, chooses Frankfurt's side with the ball, and they part respectfully before kickoff.",
+    "hook": "Former Dortmund player returns in Frankfurt colors.",
+    "turning_point": "Knauff rolls the ball to Frankfurt's side.",
+    "ending_image": "Can and Knauff part toward their teams, match unresolved.",
+    "on_pitch_beats": [],
+    "pitch_action_review": "not_applicable_planned",
+    "character_continuity_plan": "Same two referenced male players, correct kits, one ball, one tunnel; front-facing facial views.",
+    "spoken_language": "de",
+    "fiction_label": "KI-FIKTION",
+    "changed_elements_vs_previous": [
+      "clubs",
+      "two opposing players",
+      "former club history",
+      "ball choice",
+      "tunnel setting",
+      "separation ending"
+    ]
+  },
+  "generation": {
+    "assignment_key": "goaliq-2026-10-24-bl-bvb-frankfurt-seedance2mini-v1",
+    "attempts_used": 0,
+    "max_attempts": 1,
+    "model": "seedance_2_0_mini",
+    "duration_seconds": 15,
+    "resolution": "720p",
+    "aspect_ratio": "9:16",
+    "mode": "reference",
+    "quote_credits": 15,
+    "balance_before_credits": 162,
+    "job_id": null,
+    "prompt": "Create ONE 15-second vertical 9:16 photorealistic live-action KI-FIKTION football short. All spoken words and on-screen editorial words must be German. Two adult male professional footballers only: Emre Can in Borussia Dortmund's current black-yellow kit and Ansgar Knauff in Eintracht Frankfurt's current black-red kit. Use the supplied four references in order: official BVB crest, official Frankfurt crest, current official portrait of Emre Can, current official portrait of Ansgar Knauff. Preserve recognizable faces, distinct clubs, kit colors and character identity throughout. These are imagined scenes and invented dialogue, never real footage or original quotations. Generate natural German male dialogue with believable emotion and pauses, synchronized with mouths; do not imitate or clone their real voices.\n\n0.0-2.0s: inside the stadium tunnel, hold a steady front-on physical announcement board with the two correct club crests and ONLY exact large simple text 'DORTMUND – FRANKFURT' and 'HEUTE · 18:30 MESZ', plus a small readable 'KI-FIKTION'. Both names and time remain legible across multiple frames; no speech. Cut away at 2s, no persistent text.\n\n2.0-6.0s: One continuous, geographically clear tunnel scene. Knauff, in Frankfurt black-red, hears distant packed crowd ambience, stops when he sees Can in Dortmund black-yellow. Can stands near a single football and says with a restrained friendly smile, 'Früher warst du auf dieser Seite.' This refers only to the verified fact that Knauff formerly played for Borussia Dortmund.\n\n6.0-10.0s: Knauff looks at his Frankfurt crest, consciously rolls the SAME single football with the inside of his foot across the corridor toward his Frankfurt side, and answers naturally, 'Heute spiele ich für Frankfurt.' The movement and his changed allegiance are visually clear; no extra or duplicated ball.\n\n10.0-15.0s: Can gives him a brief respectful fist bump and replies, 'Dann sehen wir uns draußen.' Both make a deliberate choice and part toward their own teams, still filmed mostly front-on with stable recognizable faces. End on Knauff stepping toward Frankfurt and Can turning toward Dortmund, the one football between their paths; the coming match remains unresolved. A simple personal competitive story, not an interview, no generic match-action montage, no score or stats, no future result. Stay entirely in the tunnel; do not show empty seats. No women, staff, fictional replacement players, children, or extra actors. Low music, clear speech, realistic footsteps. Do not generate any GoalIQ outro in this source clip; the approved German three-second brand master will be appended separately.",
+    "reference_sources": [
+      "https://www.bvb.de/content/dam/bvbweb/de/matches/football/profis/teams/157.svg",
+      "https://media.eintracht.de/image/upload/c_fit,w_400/sge_standard_logo_rgb-f66c.png",
+      "https://s7g10.scene7.com/is/image/BORUSSIADORTMUNDGMBHANDCOKGAA/can-slider%3APlayer-Teaser?ts=1783695243927&dpr=off",
+      "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_ansgar-knauff-74fb.png"
+    ],
+    "reference_media_ids": [
+      "7d95eaaa-8b36-483b-8825-3e3088f11375"
+    ]
+  },
+  "outro": {
+    "media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "preflight": "passed 2026-10-24: hash, 3-second duration and visible frame with large logo, goaliq.de and exact German disclaimer"
+  },
+  "qa": {
+    "status": "pending",
+    "crowd_review": "not_applicable_planned_no_stadium_stands"
+  }
+}
