@@ -404,6 +404,16 @@ def server_log(name: str):
     return PlainTextResponse(path.read_text(encoding="utf-8") if path.exists() else "")
 
 
+@app.get("/ai-tip-review")
+def ai_tip_review():
+    """Read the daily evaluation; never triggers research or odds requests."""
+    from src.jobs import REPORTS
+    path = REPORTS / "ai_tip_review.json"
+    if not path.exists():
+        return {"status": "awaiting_daily_evaluation", "groups": [], "decisions": []}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 @app.get("/jobs/status")
 def job_status():
     from src import jobs

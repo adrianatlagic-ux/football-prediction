@@ -20,12 +20,14 @@ safe.
 Grade the log later with scripts/grade_bets.py once matches have finished.
 """
 import argparse
+import sys
 import json
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
 LOG_PATH = Path(__file__).parent.parent / "data" / "bet_log.jsonl"
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 DEFAULT_API = "https://football-prediction.fly.dev"
 
 
@@ -139,6 +141,7 @@ def apply(matches, entries, now_dt):
     """Merge one /all-bets snapshot into the log entries. Returns (added, updated)."""
     now = now_dt.isoformat()
     by_key = {_fixture_key(e): e for e in entries}
+    histories = {k: list(e.get("ai_review_history", [])) for k, e in by_key.items()}
     added = updated = 0
     for m in matches:
         new_entry = _build_entry(m, now)
@@ -172,6 +175,17 @@ def apply(matches, entries, now_dt):
             updated += 1
         elif not _has_movement(old) and _has_movement(new_entry):
             old.update(new_entry)
+            updated += 1
+    # Keep changed AI decisions without replacing earlier pre-match evidence.
+    from src.ai_tip_review import capture, merge_history
+    for match in matches:
+        key = _fixture_key(match)
+        entry = by_key.get(key)
+        if entry is None:
+            continue
+        merge_history(entry, histories.get(key, []))
+        observation = capture(match, now_dt)
+        if observation and merge_history(entry, [observation]):
             updated += 1
     return added, updated
 

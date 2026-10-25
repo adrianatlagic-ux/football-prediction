@@ -65,3 +65,38 @@ Scenario generation and translation still use `GEMINI_API_KEY`; this setting
 only moves AI-tip research and re-checks. An OpenRouter account with available
 credits is required before activating this route. No live OpenRouter call was
 made during implementation.
+
+## Automatic results diary
+
+The existing pre-kickoff logger now preserves changed AI decisions in
+`ai_review_history` inside the bet log. Repeated identical decisions are not
+added again. Only observations strictly before kickoff enter this history;
+the report also excludes any legacy entry first recorded after kickoff.
+This captures late AI responses without rewriting earlier decisions. The
+existing GitHub log backup merges the history as well.
+
+The daily results job builds `data/jobs/ai_tip_review.json`, available read-only
+at `/ai-tip-review`. It uses the already fetched results and does not call
+Gemini or the Odds API. It compares the final AI pick, published Wett-Tipp,
+recorded first pick, and market baseline at a fixed one-unit stake. Model
+agreement/disagreement is reported separately; the published tip additionally
+reflects the existing freshness, minimum-odds and revised-pick rules.
+
+Results stay separate by research version, league, calendar week and market.
+Each row includes counts, profit and ROI; full-win hit rate excludes pushes
+and partial wins/losses, which remain explicit and enter ROI correctly.
+Missing/ambiguous scores and unsupported bets are reported rather than counted
+as losses. Individual decisions retain research and reasoning for manual review;
+no automatic rules are inferred from wording or small winning streaks.
+Legacy logs have less complete history and are not a simultaneous control.
+A version is only evaluated prospectively once its code actually runs on Fly.
+
+Offline report (existing saved files only):
+
+```sh
+.venv/bin/python scripts/review_ai_tips.py --log data/bet_log.jsonl --results /path/to/results.json --json-output /tmp/ai-tip-review.json
+```
+
+This is observation, not automatic learning: proposed changes must be fixed
+before testing on subsequent matches. No selection rules or prompts are changed
+by the diary, and it makes no profitability claim.
