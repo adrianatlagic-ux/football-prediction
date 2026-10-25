@@ -7,6 +7,8 @@ same Berlin matchday, fresh binary-settlement quotes, at least 1.30 per leg,
 model probability no more than five points below the market, and at least
 3.00 combined odds. ROI is net units divided by tickets at one unit per
 ticket. The same ticket search and ranking were replayed for each floor.
+This isolates the probability-floor question under the former single-book
+rule. It is not a backtest of the new cross-book combination display.
 
 ## Primary sensitivity checks
 
@@ -33,3 +35,8 @@ historical tests, but admits Leverkusen at 44.18% in the 25 October morning
 snapshot. Together with Bayern at bet-at-home, that produces a same-book
 2-fold at 2.15 × 1.45 = 3.12. The match outcomes were still unknown when
 this change was prepared.
+
+The subsequent display change selects the best fresh offer for each leg,
+regardless of bookmaker. Historical returns above cannot establish whether
+that change improves hit rate or ROI. A product of prices from different
+bookmakers is a theoretical quote, not a verified available accumulator.
