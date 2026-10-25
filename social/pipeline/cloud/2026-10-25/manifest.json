@@ -2,10 +2,10 @@
   "schema_version": "1.0",
   "target_date": "2026-10-25",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "reserved_pre_generation",
+  "status": "generation_submitted",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
-  "attempts_used": 0,
+  "attempts_used": 1,
   "coverage_key": "bundesliga:83214:2026-10-25:sc-freiburg-fc-bayern-muenchen",
   "match": {
     "competition": "Bundesliga",
@@ -71,7 +71,7 @@
   },
   "generation": {
     "idempotency_key": "goaliq-2026-10-25-bl1-83214-seedance2mini-15s-v1",
-    "job_id": null,
+    "job_id": "afc2f7a3-9d48-45c4-a67e-e432cdabbfee",
     "model": "seedance_2_0_mini",
     "duration_seconds": 15,
     "resolution": "720p",
@@ -79,7 +79,12 @@
     "reference_count": 2,
     "quoted_credits_exact": 15,
     "balance_before": 147,
-    "paid_job_status": "not_submitted"
+    "paid_job_status": "pending",
+    "reference_media_ids": [
+      "09c7c199-2d78-46b4-b1e1-7dac21549aa1",
+      "f32477ea-5a47-4bbc-829f-8a4632238d25"
+    ],
+    "submitted_at": "2026-10-25T07:12:00Z"
   },
   "qa": {
     "ready": false,
