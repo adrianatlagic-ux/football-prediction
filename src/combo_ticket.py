@@ -83,9 +83,13 @@ def book_key(leg):
 # ticket must pay at least 3.0 - lower combos landed too rarely for what
 # they paid. "market" is now logged beside it.
 MODEL_TOLERANCE = 0.05
+# The 45% market-probability heuristic gets a one-point margin: fair
+# probabilities are estimates, and 44.18% versus 45% should not alone veto a
+# model-supported, same-book ticket that still meets the 3.0 total-odds rule.
+AGREE_MIN_MARKET_PROBABILITY = 0.44
 POLICIES = {
     "agree": {"min_odds": MIN_LEG_ODDS, "model_filters": False, "agreement": True,
-              "min_leg_probability": 0.45, "min_combined": 3.0},
+              "min_leg_probability": AGREE_MIN_MARKET_PROBABILITY, "min_combined": 3.0},
     "market": {"min_odds": MIN_LEG_ODDS, "model_filters": False},
     # "ki" (logged only, since 11 October): only the AI agent's own picks, the
     # Wett-Tipp's rule - our model at least as high as the market, and not a
@@ -321,10 +325,17 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None, min_o
             near_miss = next((t for t in near if t["leg_count"] == size), None)
             if ticket and near_miss and near_miss["ranking_score"] <= ticket["ranking_score"]:
                 near_miss = None
+            eligible_games = len({fixture_key(l) for l in day_legs})
+            reason = None
+            if not ticket:
+                if eligible_games < size:
+                    reason = (f"Keine {size}er-Kombi möglich: nur {eligible_games} passende Spiele; "
+                              f"benötigt werden {size} beim selben Buchmacher.")
+                else:
+                    reason = (f"Keine {size}er-Kombi besteht alle Prüfungen und erreicht "
+                              f"die Mindestquote {min_odds:.2f} beim selben Buchmacher.")
             by_size.append({"leg_count": size, "ticket": ticket, "near_miss": near_miss,
-                            "reason": None if ticket else (
-                                f"Keine {size}er-Kombi möglich. Dafür braucht es {size} passende Spiele "
-                                f"bei einem Buchmacher und eine Gesamtquote von mindestens {min_odds:.2f}.")})
+                            "reason": reason})
         days.append({"date": date, "eligible_legs": len({fixture_key(l) for l in day_legs}),
                      "by_size": by_size,
                      "already_started": started, "recommended": top, "alternatives": tickets[1:3],
@@ -348,7 +359,8 @@ def combo_report(value_bet_results, max_legs=MAX_LEGS, book=None, policy="market
             "eligible_legs": len({fixture_key(l) for l in legs}), "recommended": tickets[0] if tickets else None,
             "alternatives": tickets[1:4], "days": day_reports(legs, max_legs, days, started, min_combined(policy)),
             "legs_considered": legs,
-            "parameters": {"min_leg_probability": MIN_LEG_PROBABILITY, "max_legs": max_legs,
+            "parameters": {"min_leg_probability": POLICIES[policy].get("min_leg_probability", MIN_LEG_PROBABILITY),
+                           "max_legs": max_legs,
                            "max_stake_fraction": MAX_STAKE_FRACTION, "one_leg_per_fixture": True,
                            "same_bookmaker": True, "binary_settlement_only": True,
                            "single_bet_stress_required": False,
