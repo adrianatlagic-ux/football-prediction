@@ -56,6 +56,7 @@ def test_full_market_and_compact_model_enter_existing_one_call(monkeypatch):
     calls = fake_gemini(monkeypatch, answer())
     result = api._call_gemini_agent_pick(prediction(), vb, 'A', 'B')
     assert len(calls) == 1
+    assert calls[0]['model'] == 'gemini-3.8-flash'
     assert result['pick'] == vb['bets'][0]
     assert api._bet_tip(vb, result)['tip'] == vb['bets'][0]
     assert len(result['research_input']['candidates']) == len(vb['bets'])
@@ -101,9 +102,16 @@ def test_incomplete_book_defers_existing_call_and_tip(monkeypatch, missing):
 def test_stale_or_one_sided_markets_do_not_count_as_coverage():
     vb = fixture()
     vb['bets'][-1]['quote_fresh'] = False
-    vb['bets'][4]['market'] = 'Handicap +2.5'
+    vb['bets'][4]['team'] = 'A'
     assert coverage(fresh_candidates(vb))['missing_main_markets'] == ['Handicap', 'Over/Under']
     assert coverage(fresh_candidates(fixture()))['complete']
+
+
+def test_different_handicap_lines_for_both_teams_count_as_coverage():
+    vb = fixture()
+    vb['bets'][3]['market'] = 'Handicap +0.5'
+    vb['bets'][4]['market'] = 'Handicap +0.5'
+    assert coverage(fresh_candidates(vb))['complete']
 
 
 def test_recheck_can_change_on_new_markets_or_odds_and_records_prior_input(monkeypatch):

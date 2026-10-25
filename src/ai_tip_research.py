@@ -22,20 +22,16 @@ def fresh_candidates(vb):
 
 def coverage(candidates):
     h2h = {b["outcome"] for b in candidates if b["market"] == "1X2"}
-    totals, spreads = {}, set()
+    totals, handicap_teams = {}, set()
     for bet in candidates:
         market = bet["market"]
         if market.startswith("Over/Under "):
             totals.setdefault(market, set()).add(bet["outcome"])
-        elif market.startswith("Handicap "):
-            try:
-                spreads.add((bet.get("team"), float(market.split()[-1])))
-            except ValueError:
-                pass
+        elif market.startswith("Handicap ") and bet.get("team"):
+            handicap_teams.add(bet["team"])
     available = {
         "1X2": {"home_win", "draw", "away_win"} <= h2h,
-        "Handicap": any(team and other and team != other and point == -other_point
-                        for team, point in spreads for other, other_point in spreads),
+        "Handicap": len(handicap_teams) >= 2,
         "Over/Under": any({"Over", "Under"} <= sides for sides in totals.values()),
         "BTTS": {"yes", "no"} <= {b["outcome"].lower() for b in candidates if b["market"] == "BTTS"},
     }

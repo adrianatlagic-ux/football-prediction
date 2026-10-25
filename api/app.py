@@ -1834,7 +1834,7 @@ supporting fact, max 8 words>"], "alternative_reasoning": "<why this beats the s
             from google.genai import types
             client = genai.Client(api_key=GEMINI_API_KEY)
             response = client.models.generate_content(
-                model="gemini-2.5-flash",
+                model="gemini-3.8-flash",
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     tools=[types.Tool(google_search=types.GoogleSearch())],

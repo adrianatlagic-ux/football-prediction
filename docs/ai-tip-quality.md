@@ -3,6 +3,8 @@
 The established Gemini research prompt is still the basis of the tip. It makes
 one grounded Gemini call at the early review and one at the scheduled review
 before kickoff, as before. There is no parallel Gemini call or second search.
+New Gemini projects use `gemini-3.8-flash`: Google returns 404 for
+`gemini-2.5-flash` on those projects.
 The revised input supplies all supported, fresh 1X2, Handicap, Over/Under and
 BTTS quotes in neutral order. It also supplies the statistical model's headline
 1X2 probabilities and, when available, its home/away expected goals. Those are
@@ -11,7 +13,9 @@ bet, green/red shortlist labels, per-bet model scores, Kelly stakes and expected
 value are not supplied.
 
 A paid call is postponed until all three 1X2 outcomes, both directions of one
-totals line and opposing handicap lines are present. BTTS is optional. While
+totals line and a handicap quote for each team are present. The handicap lines
+can differ because the available bookmaker quotes need not be mirror images.
+BTTS is optional. While
 coverage is incomplete, the tip reports `incomplete_markets`; the normal
 schedule retries until a complete snapshot is available. The pre-kickoff read
 still uses its existing odds refresh. This change adds no provider requests.
