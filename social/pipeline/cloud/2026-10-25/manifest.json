@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "target_date": "2026-10-25",
+  "editorial_date_timezone": "Europe/Berlin",
+  "status": "reserved_pre_generation",
+  "daily_video_limit": 1,
+  "video_generation_attempt_limit": 1,
+  "attempts_used": 0,
+  "coverage_key": "bundesliga:83214:2026-10-25:sc-freiburg-fc-bayern-muenchen",
+  "match": {
+    "competition": "Bundesliga",
+    "match_id": 83214,
+    "home": "SC Freiburg",
+    "away": "FC Bayern München",
+    "match_date": "2026-10-25",
+    "kickoff_at": "2026-10-25T17:30:00+01:00",
+    "timezone": "Europe/Berlin",
+    "fixture_source": "https://api.openligadb.de/getmatchdata/bl1/2026/7",
+    "official_context_source": "https://www.scfreiburg.com/aktuell/nachrichten/profis/news/2026/27/torgefahr-als-trumpf/",
+    "fixture_retrieved_at": "2026-10-25T07:08:00Z"
+  },
+  "selection": {
+    "today_bundesliga_reviewed": [
+      "TSG Hoffenheim – Bayer 04 Leverkusen",
+      "SC Freiburg – FC Bayern München"
+    ],
+    "today_ucl_pages_reviewed": [
+      0,
+      100,
+      200
+    ],
+    "today_ucl_games": 0,
+    "reason": "Heutiges Bayern-Auswärtsspiel ist ein Topspiel; keine Vorverlegung auf einen späteren CL-Spieltag.",
+    "prior_manifests_compared": "2026-10-04 through 2026-10-24; no prior SC Freiburg–FC Bayern München coverage found"
+  },
+  "research": {
+    "generation_basis": "verified_fixture_and_current_research",
+    "prediction_used": false,
+    "prediction_status": "not_used_optional",
+    "verified_context": "SC Freiburg official opponent check dated 2026-10-23 describes Bayern attacking threat, Harry Kane as current Bayern player, and Vincenzo Grifo's wish for a home response.",
+    "source": "https://www.scfreiburg.com/aktuell/nachrichten/profis/news/2026/27/torgefahr-als-trumpf/",
+    "retrieved_at": "2026-10-25T07:08:00Z",
+    "roster_sources": [
+      "https://www.scfreiburg.com/teams/profis/spieler/vincenzo-grifo/",
+      "https://www.scfreiburg.com/aktuell/nachrichten/profis/news/2026/27/torgefahr-als-trumpf/"
+    ],
+    "image_reference_note": "Official SC Freiburg profile photo for Grifo and official SC Freiburg opponent-check editorial photo showing Kane in Bayern shirt; Kane photo is an official club-published editorial image, not a formal Bayern headshot."
+  },
+  "story": {
+    "story_type": "pre_match_tunnel_choice",
+    "previous_story_type": "friendly_rivalry_ball_challenge",
+    "story_setting": "tunnel_no_visible_stands",
+    "protagonists": [
+      "Vincenzo Grifo",
+      "Harry Kane"
+    ],
+    "goal": "Grifo wants to take the initiative at home against Bayern.",
+    "conflict": "Whether to retreat before the feared attack or meet Kane with composure.",
+    "decision": "Grifo puts the ball down and offers a handshake before leading toward the exit.",
+    "visible_consequence": "Kane accepts the handshake; Grifo takes the first steps toward the pitch.",
+    "one_sentence_audience_story": "Vor Freiburg–Bayern begegnet Grifo Kane im Tunnel und entscheidet sich, dem Favoriten mit Respekt und eigener Initiative entgegenzutreten.",
+    "spoken_language": "de",
+    "on_pitch_beats": [],
+    "pitch_action_review": "not_applicable_planned",
+    "fiction_label": "KI-FIKTION"
+  },
+  "outro_master": {
+    "media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "preflight": "hash_duration_frame_pass"
+  },
+  "generation": {
+    "idempotency_key": "goaliq-2026-10-25-bl1-83214-seedance2mini-15s-v1",
+    "job_id": null,
+    "model": "seedance_2_0_mini",
+    "duration_seconds": 15,
+    "resolution": "720p",
+    "aspect_ratio": "9:16",
+    "reference_count": 2,
+    "quoted_credits_exact": 15,
+    "balance_before": 147,
+    "paid_job_status": "not_submitted"
+  },
+  "qa": {
+    "ready": false,
+    "crowd_review": "not_applicable_planned_no_stands"
+  },
+  "created_at": "2026-10-25T07:10:00Z"
+}
