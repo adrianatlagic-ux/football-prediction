@@ -18,7 +18,7 @@ from src.jobs import REPORTS
 
 PATH = REPORTS / "translations_en.json"
 # The small model first; gemini-2.5-flash-lite is closed to new accounts.
-MODELS = ("gemini-3.5-flash-lite", "gemini-2.5-flash")
+MODELS = ("gemini-3.5-flash-lite", "gemini-3.8-flash")
 MAX_KEPT = 5000
 _lock = threading.Lock()
 
