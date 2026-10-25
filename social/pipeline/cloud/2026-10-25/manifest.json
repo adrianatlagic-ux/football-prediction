@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "target_date": "2026-10-25",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "generation_submitted",
+  "status": "delivered_with_disclosed_quality_limit",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
   "attempts_used": 1,
@@ -79,16 +79,46 @@
     "reference_count": 2,
     "quoted_credits_exact": 15,
     "balance_before": 147,
-    "paid_job_status": "pending",
+    "paid_job_status": "completed",
     "reference_media_ids": [
       "09c7c199-2d78-46b4-b1e1-7dac21549aa1",
       "f32477ea-5a47-4bbc-829f-8a4632238d25"
     ],
-    "submitted_at": "2026-10-25T07:12:00Z"
+    "submitted_at": "2026-10-25T07:12:00Z",
+    "credits_used": 15,
+    "balance_after": 132,
+    "source_sha256": "f6e48457a8ed4c92b5b65339f8021ee02539a599c3b498e7b8c8f1113d4f3092"
   },
   "qa": {
     "ready": false,
-    "crowd_review": "not_applicable_planned_no_stands"
+    "fixture_hook": "fail_SC_FREIBERG_misspelling_and_malformed_crests",
+    "cast_review": "fail_wrong_back_names_and_numbers_despite_resembling_front_faces",
+    "story_review": "handshake_and_tunnel_exit_are_coherent",
+    "crowd_review": "no_discernible_stands_in_tunnel_scene",
+    "audio_review": "AAC_present_packet_preserved_language_and_voice_quality_not_independently_heard",
+    "outro_review": "pass_approved_German_master_frame_text_duration_and_hash",
+    "download_review": "MP4_and_ZIP_HTTP_206_ZIP_verified",
+    "final_fixture_check": "2026-10-25 match still scheduled at 17:30 MEZ; OpenLigaDB 2026/7 match 83214"
   },
-  "created_at": "2026-10-25T07:10:00Z"
+  "created_at": "2026-10-25T07:10:00Z",
+  "production": {
+    "source_job_id": "afc2f7a3-9d48-45c4-a67e-e432cdabbfee",
+    "source_duration_seconds": 15.104,
+    "final_media_id": "9ecfddb3-932d-4de3-abd9-2496af1d6766",
+    "zip_media_id": "a043eafe-aed5-4365-92ce-34a38955ed69",
+    "final_sha256": "677e619f30913380bf1a0c6828ae9ca3fdc75d707b7118baec4408c09e22fbd3",
+    "final_duration_seconds": 18.136,
+    "zip_byte_identity": "sha256_match",
+    "source_video_integrity": "decoded_frame_hashes_match_all_361; container packet bytes partly remuxed",
+    "source_audio_integrity": "all_source_AAC_packets_identical"
+  },
+  "caption": "caption.txt",
+  "production_evidence": "production-evidence.json",
+  "delivery": {
+    "media_player": "final_media_id",
+    "mp4_download": "final_media_id",
+    "zip_download": "zip_media_id",
+    "status": "disclosed_not_ready"
+  },
+  "updated_at": "2026-10-25T07:21:00Z"
 }
