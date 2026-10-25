@@ -1355,6 +1355,9 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
                 "exclusion": "scheduled_snapshot_expired"}
     quote_as_of = timestamp(context["odds_fetched_at"])
     candidates = []
+    # Combo construction requests every offered quote. Its candidate list must
+    # include markets even when bet-at-home covers the group but not that line.
+    price_for = _best_price if include_offers else _user_price
     home_outcome_name, away_outcome_name = event["home_team"], event["away_team"]
 
     # If our own model is reasonably confident about who wins (>50%), a 1X2 bet
@@ -1481,7 +1484,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
     from src.bet_selection import market_consensus
     for label, outcome_name, prob in h2h_outcomes:
         market_prob = market_consensus(event, "h2h", outcome_name, now=quote_as_of)
-        best = _user_price(event, "h2h", outcome_name)
+        best = price_for(event, "h2h", outcome_name)
         if best:
             _add_candidate("1X2", label, outcome_name if label != "draw" else None, prob, best, market_prob)
 
@@ -1501,7 +1504,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
             if prob is None:
                 continue
             market_prob = market_consensus(event, "totals", side, line, now=quote_as_of)
-            best = _user_price(event, "totals", side, point=line)
+            best = price_for(event, "totals", side, point=line)
             if best:
                 _add_candidate(f"Over/Under {line}", side, None, prob, best, market_prob)
 
@@ -1515,7 +1518,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
             market_prob = market_consensus(event, "spreads", team_name, point, now=quote_as_of)
             # price_bet derives probabilities from H/D/A or the complete matrix.
             prob = 0.0
-            best = _user_price(event, "spreads", team_name, point=point)
+            best = price_for(event, "spreads", team_name, point=point)
             if best:
                 sign = "+" if point > 0 else ""
                 _add_candidate(f"Handicap {sign}{point}", "handicap", team_name, prob, best, market_prob)
@@ -1523,7 +1526,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
     # Both teams to score: bet-at-home's book carries it, the Odds API feed
     # does not. price_bet reads it off the full score matrix.
     for side in ("Yes", "No"):
-        best = _user_price(event, "btts", side)
+        best = price_for(event, "btts", side)
         if best:
             _add_candidate("BTTS", side, None, 0.0, best,
                            market_consensus(event, "btts", side, now=quote_as_of))
@@ -2490,7 +2493,7 @@ def _mark_legs_off_likely(report: dict, pairs: list) -> None:
 
 @app.get("/combo-ticket")
 def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
-    """Same-book, same-day combos ranked by model/market win estimates.
+    """Same-day combos ranked by model/market win estimates.
 
     Uses the probability-based combo policy, without the stress selector.
     Quotes come from offered singles; fixture independence is assumed.
@@ -2517,19 +2520,19 @@ def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
               "agent_revised": bool((agent or {}).get("revised_from_previous"))}
         pairs.append((data, vb))
 
-    # Only bet-at-home: the one bookmaker the user bets with. Shown: the
-    # "agree" rule (model and AI); the market rule and the rule before
-    # 26 September are computed on the same matches for the log only.
-    report = combo_report(pairs, max_legs=max_legs, book=USER_BOOK_KEY, policy="agree")
+    # Use the best fresh quote per leg, independently of its bookmaker.
+    # The resulting product is a theoretical combined price, not a verified
+    # accumulator offer. Keep the logged comparison policies on this basis.
+    report = combo_report(pairs, max_legs=max_legs, policy="agree", allow_mixed_books=True)
     report["competition"] = competition
-    market = combo_report(pairs, max_legs=max_legs, book=USER_BOOK_KEY, policy="market")
+    market = combo_report(pairs, max_legs=max_legs, policy="market", allow_mixed_books=True)
     report["market_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in market["days"]]
     # The rule before 26 September, computed on the same matches for the log
     # only (scripts/log_combos.py); the page shows the market rule.
-    legacy = combo_report(pairs, max_legs=max_legs, book=USER_BOOK_KEY, policy="legacy_v3")
+    legacy = combo_report(pairs, max_legs=max_legs, policy="legacy_v3", allow_mixed_books=True)
     report["legacy_v3_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in legacy["days"]]
     # Combos of the AI's own picks only, logged beside the others (not shown).
-    ki = combo_report(pairs, max_legs=max_legs, book=USER_BOOK_KEY, policy="ki")
+    ki = combo_report(pairs, max_legs=max_legs, policy="ki", allow_mixed_books=True)
     report["ki_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in ki["days"]]
     _mark_legs_off_likely(report, pairs)
 

@@ -27,7 +27,8 @@ from pathlib import Path
 LOG_PATH = Path(__file__).resolve().parents[1] / "data" / "combo_log.jsonl"
 DEFAULT_API = "https://football-prediction.fly.dev"
 COMPETITIONS = ("soccer_uefa_champs_league", "soccer_germany_bundesliga", "soccer_uefa_nations_league")
-LEG_FIELDS = ("market", "outcome", "team", "best_odds", "home_team", "away_team", "commence_time",
+LEG_FIELDS = ("market", "outcome", "team", "best_odds", "bookmaker", "bookmaker_key",
+              "home_team", "away_team", "commence_time",
               "market_probability", "probability", "conservative_probability", "model_probability", "ki_agrees")
 
 
@@ -40,6 +41,8 @@ def entries_due(report: dict, competition: str, now: datetime) -> list:
     kicked off."""
     out = []
     shown = report.get("policy") or "market"
+    quote_basis = ("best_singles_mixed_books" if report.get("parameters", {}).get("same_bookmaker") is False
+                   else "single_book")
     sources = [(shown, report.get("days") or []), ("legacy_v3", report.get("legacy_v3_days") or [])]
     if report.get("market_days") is not None:
         sources.append(("market", report["market_days"]))
@@ -57,7 +60,7 @@ def entries_due(report: dict, competition: str, now: datetime) -> list:
                 out.append({
                     "logged_at": now.isoformat(), "first_kickoff": first.isoformat(),
                     "date": day["date"], "competition": competition,
-                    "policy": policy, "leg_count": ticket["leg_count"],
+                    "policy": policy, "leg_count": ticket["leg_count"], "quote_basis": quote_basis,
                     "combined_odds": ticket["combined_odds"],
                     "estimated_probability": ticket["conservative_probability"],
                     "model_probability": ticket["probability"],
@@ -68,12 +71,14 @@ def entries_due(report: dict, competition: str, now: datetime) -> list:
 
 def _key(e):
     """The slot a ticket fills: one rule's ticket of one size on one day."""
-    return (e["date"], e["competition"], e["policy"], e["leg_count"])
+    return (e["date"], e["competition"], e["policy"], e["leg_count"],
+            e.get("quote_basis", "single_book"))
 
 
 def signature(e):
     """What makes a version: its legs, not their moving odds."""
-    return tuple(sorted((l["home_team"], l["away_team"], l["market"], l.get("outcome"), l.get("team"))
+    return tuple(sorted((l["home_team"], l["away_team"], l["market"], l.get("outcome") or "",
+                         l.get("team") or "", l.get("bookmaker_key") or "")
                         for l in e["legs"]))
 
 

@@ -236,6 +236,33 @@ def test_combined_quote_never_uses_mixed_best_prices():
         assert "margin_cost" not in ticket
 
 
+def test_mixed_mode_uses_the_best_fresh_offer_for_each_distinct_match():
+    rows = []
+    for home, away, best_book in [("A", "B", "X"), ("C", "D", "Y")]:
+        offers = [candidate(.75, 1.85 if b == best_book else 1.60,
+                            bookmaker=b, bookmaker_key=b, team=home) for b in ("X", "Y")]
+        rows.append(vb(home, away, [{**offers[0], "bookmaker_offers": offers}]))
+    report = combo_report(rows, policy="agree", allow_mixed_books=True)
+    ticket = report["recommended"]
+    assert ticket is not None
+    assert ticket["combined_odds"] == 3.42  # 1.85², from different books
+    assert {l["bookmaker_key"] for l in ticket["legs"]} == {"X", "Y"}
+    assert ticket["same_bookmaker"] is False
+    assert ticket["offered_ticket_price_verified"] is False
+    assert report["parameters"]["same_bookmaker"] is False
+    assert len(report["legs_considered"]) == 2  # one best quote per outcome
+    with pytest.raises(ValueError):
+        score_ticket(ticket["legs"])  # the old single-book rule is opt-in only
+
+
+def test_mixed_mode_still_rejects_stale_quotes():
+    fresh = candidate(.75, 1.70, bookmaker="X", bookmaker_key="X")
+    stale = candidate(.75, 2.00, bookmaker="Y", bookmaker_key="Y", quote_fresh=False)
+    pool = leg_pool([vb("A", "B", [{**fresh, "bookmaker_offers": [fresh, stale]}])],
+                    allow_mixed_books=True)
+    assert len(pool) == 1 and pool[0]["best_odds"] == 1.70
+
+
 def test_ranking_and_stake_use_the_market_checked_probability():
     """Stake is flat: sizing by an edge we cannot measure would be a pretence."""
     ticket = score_ticket([leg("A", "B", .8, 1.5, .70), leg("C", "D", .8, 1.5, .70)])
@@ -250,7 +277,7 @@ def test_api_reprices_each_offer_and_excludes_that_book_from_reference(monkeypat
     from api import app as api
     now = datetime.now(timezone.utc)
     predictions, events = {}, []
-    # "betathome" is the user's book: the combo is built at its prices only.
+    # Different bookmakers lead on the two fixtures.
     for home, away, best_book in [("A", "B", "betathome"), ("C", "D", "Y")]:
         p = {"home_team": home, "away_team": away, "probability_home_win": .75,
              "probability_draw": .15, "probability_away_win": .10}
@@ -274,14 +301,39 @@ def test_api_reprices_each_offer_and_excludes_that_book_from_reference(monkeypat
             assert offered["expected_value"] == pytest.approx(.75*offered["best_odds"]-1)
             assert max(x["profit"] for x in offered["payout_distribution"]) == pytest.approx(offered["best_odds"]-1)
     report = api.combo_ticket()
-    # 1.65 x 1.70 = 2.81 is under the shown rule's 3.0; the market rule,
-    # logged beside it, still builds the two-fold at bet-at-home's prices.
+    # 1.70² = 2.89 is under the shown rule's 3.0; the market rule has a
+    # lower minimum and logs the mixed-book combination.
     assert report["recommended"] is None
     ticket = report["market_days"][0]["by_size"][0]["ticket"]
     assert ticket is not None
-    assert sorted(l["best_odds"] for l in ticket["legs"]) == [1.65, 1.7]
-    assert {l["bookmaker_key"] for l in ticket["legs"]} == {"betathome"}
+    assert sorted(l["best_odds"] for l in ticket["legs"]) == [1.7, 1.7]
+    assert {l["bookmaker_key"] for l in ticket["legs"]} == {"betathome", "Y"}
+    assert ticket["same_bookmaker"] is False
     assert ticket["legs_the_market_agrees_with"] == 2
+
+
+def test_combo_candidates_include_an_odds_api_line_missing_at_betathome():
+    from datetime import datetime, timezone, timedelta
+    from api import app as api
+    now = datetime.now(timezone.utc)
+    event = {"id": "only-other", "home_team": "A", "away_team": "B",
+             "sport_key": "soccer_germany_bundesliga", "odds_fetched_at": now.isoformat(),
+             "odds_stage": "final", "commence_time": (now + timedelta(minutes=30)).isoformat(),
+             "bookmakers": [
+                 {"key": "betathome", "title": "bet-at-home", "last_update": now.isoformat(),
+                  "markets": [{"key": "h2h", "outcomes": [{"name": "A", "price": 2.0}]}]},
+                 {"key": "other", "title": "Other", "last_update": now.isoformat(),
+                  "markets": [{"key": "h2h", "outcomes": [
+                      {"name": "A", "price": 3.0}, {"name": "Draw", "price": 4.0},
+                      {"name": "B", "price": 1.7}]}]},
+             ]}
+    prediction = {"home_team": "A", "away_team": "B", "probability_home_win": .2,
+                  "probability_draw": .2, "probability_away_win": .6}
+    singles = api._compute_value_bets(prediction, [event], "A", "B")
+    combos = api._compute_value_bets(prediction, [event], "A", "B", include_offers=True)
+    assert not any(b["outcome"] == "away_win" for b in singles["bets"])
+    assert any(b["outcome"] == "away_win" and b["bookmaker_key"] == "other"
+               for b in combos["bets"])
 
 
 def test_price_tip_combos_need_two_binary_tips_on_one_day():
@@ -356,3 +408,19 @@ def test_agree_rule_drops_legs_the_model_rejects_and_puts_ai_backed_legs_first()
     assert two["combined_odds"] >= 3.0
     # The AI-backed A leg is on the two-fold, though C and E are likelier.
     assert any(l["team"] == "A" and l["ki_agrees"] for l in two["legs"])
+
+
+def test_agree_rule_allows_one_point_tolerance_but_still_requires_same_book_and_three_odds():
+    from src.combo_ticket import combo_report
+    pairs = [
+        _agree_vb("Hoffenheim", "Leverkusen", [_bet("Leverkusen", 2.15, .4418, .4827)]),
+        _agree_vb("Freiburg", "Bayern", [_bet("Bayern", 1.45, .6721, .7238)]),
+    ]
+    report = combo_report(pairs, book="betathome", policy="agree")
+    assert report["parameters"]["min_leg_probability"] == .44
+    ticket = report["recommended"]
+    assert ticket["combined_odds"] == 3.12
+    assert {leg["bookmaker_key"] for leg in ticket["legs"]} == {"betathome"}
+
+    pairs[0][1]["bets"][0]["market_probability"] = .4399
+    assert combo_report(pairs, book="betathome", policy="agree")["recommended"] is None
