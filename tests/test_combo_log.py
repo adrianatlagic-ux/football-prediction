@@ -33,6 +33,18 @@ def test_a_new_version_is_logged_only_when_the_legs_change():
     assert new_versions(other, first) == other
 
 
+def test_mixed_quote_basis_is_separate_from_historical_single_book_tickets():
+    from scripts.log_combos import new_versions
+    ticket = _ticket(NOW + timedelta(hours=3))
+    old = entries_due({"policy": "agree", "days": [{"date": "2026-09-26", "by_size": [{"ticket": ticket}]}]},
+                      "nl", NOW)
+    mixed = entries_due({"policy": "agree", "parameters": {"same_bookmaker": False},
+                         "days": [{"date": "2026-09-26", "by_size": [{"ticket": ticket}]}]}, "nl", NOW)
+    assert old[0]["quote_basis"] == "single_book"
+    assert mixed[0]["quote_basis"] == "best_singles_mixed_books"
+    assert new_versions(mixed, old) == mixed
+
+
 def test_a_combo_is_lost_on_its_first_losing_leg_even_with_legs_pending():
     t = _ticket(NOW)
     lost = {("a", "b"): {"home_score": 0, "away_score": 1}}

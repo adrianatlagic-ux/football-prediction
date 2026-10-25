@@ -1,4 +1,4 @@
-"""Same-book, same-day accumulators of outcomes that are likely to happen.
+"""Same-day combinations of outcomes that are likely to happen.
 
 What this does NOT claim is as important as what it does. It does not look for
 value: every systematic attempt to find a betting edge in this project failed,
@@ -85,7 +85,7 @@ def book_key(leg):
 MODEL_TOLERANCE = 0.05
 # The 45% market-probability heuristic gets a one-point margin: fair
 # probabilities are estimates, and 44.18% versus 45% should not alone veto a
-# model-supported, same-book ticket that still meets the 3.0 total-odds rule.
+# model-supported ticket that still meets the 3.0 total-odds rule.
 AGREE_MIN_MARKET_PROBABILITY = 0.44
 POLICIES = {
     "agree": {"min_odds": MIN_LEG_ODDS, "model_filters": False, "agreement": True,
@@ -104,16 +104,16 @@ def min_combined(policy):
     return POLICIES[policy].get("min_combined", MIN_COMBINED_ODDS)
 
 
-def leg_pool(value_bet_results, book=None, policy="market"):
-    """Every qualifying leg, per bookmaker at that bookmaker's price.
+def leg_pool(value_bet_results, book=None, policy="market", allow_mixed_books=False):
+    """Every qualifying leg, optionally keeping only the best eligible quote.
 
     A match may contribute several legs (Over 1.5 and Team +0.5, say); the
     ticket search picks at most one of them. Choosing one per match up front
     hid combinations: the likeliest leg of a match can be too short to help a
     ticket reach its minimum odds while another leg of the same match fits.
 
-    With `book`, only that bookmaker's prices are used - the one the user
-    can actually bet with.
+    With `book`, only that bookmaker's prices are used. Mixed mode keeps the
+    highest fresh quote for each market and outcome, regardless of source.
     """
     selected = {}
     for prediction, vb in value_bet_results:
@@ -184,14 +184,20 @@ def leg_pool(value_bet_results, book=None, policy="market"):
                        "market_agrees": True, "quote_fresh": True,
                        "model_probability": candidate.get("model_probability_raw"),
                        "ki_agrees": ki_agrees}
-                key = (identity, book_key(leg), leg["market"], leg["outcome"], leg.get("team"))
+                key = (identity, None if allow_mixed_books else book_key(leg),
+                       leg["market"], leg["outcome"], leg.get("team"))
                 old = selected.get(key)
-                if old is None or (leg["conservative_probability"], leg["probability"]) > (old["conservative_probability"], old["probability"]):
+                rank = ((leg["best_odds"], leg["conservative_probability"], leg["probability"])
+                        if allow_mixed_books else (leg["conservative_probability"], leg["probability"]))
+                old_rank = None if old is None else (
+                    (old["best_odds"], old["conservative_probability"], old["probability"])
+                    if allow_mixed_books else (old["conservative_probability"], old["probability"]))
+                if old is None or rank > old_rank:
                     selected[key] = leg
     return list(selected.values())
 
 
-def score_ticket(legs):
+def score_ticket(legs, allow_mixed_books=False):
     if len(legs) < MIN_LEGS:
         raise ValueError("A ticket requires at least two fixtures")
     identities = [fixture_key(l) for l in legs]
@@ -202,8 +208,8 @@ def score_ticket(legs):
     if len(set(teams)) != len(teams):
         raise ValueError("Repeated team on ticket")
     books, days = {book_key(l) for l in legs}, {match_day(l["commence_time"]) for l in legs}
-    if None in books or len(books) != 1 or None in days or len(days) != 1:
-        raise ValueError("Ticket needs one bookmaker and one matchday")
+    if None in books or (len(books) != 1 and not allow_mixed_books) or None in days or len(days) != 1:
+        raise ValueError("Ticket needs valid bookmakers and one matchday")
     if any(not binary_market(l.get("market")) for l in legs):
         raise ValueError("Push and split-settlement markets are not supported in combos")
     for l in legs:
@@ -224,7 +230,12 @@ def score_ticket(legs):
     # A flat stake: the returns here are not claimed to be positive, so sizing
     # by an edge we cannot measure would dress a guess up as a calculation.
     stake = MAX_STAKE_FRACTION
-    return {"legs": legs, "leg_count": len(legs), "bookmaker": legs[0]["bookmaker"], "bookmaker_key": book_key(legs[0]),
+    same_bookmaker = len(books) == 1
+    return {"legs": legs, "leg_count": len(legs),
+            "bookmaker": legs[0]["bookmaker"] if same_bookmaker else "Verschiedene Buchmacher",
+            "bookmaker_key": book_key(legs[0]) if same_bookmaker else "mixed",
+            "bookmakers": sorted({l["bookmaker"] for l in legs}),
+            "same_bookmaker": same_bookmaker,
             "combined_odds": round(odds, 2), "probability": round(probability, 4),
             "conservative_probability": round(conservative_probability, 4), "market_probability": market_probability,
             "model_market_gap": probability-market_probability if market_probability is not None else None,
@@ -261,8 +272,8 @@ def _ki_legs(ticket):
 
 
 def build_tickets(legs, min_legs=MIN_LEGS, max_legs=MAX_LEGS, pool_size=FIXTURES_PER_DAY,
-                  min_odds=MIN_COMBINED_ODDS):
-    """Every ticket of one leg per match, same book and day, best first.
+                  min_odds=MIN_COMBINED_ODDS, allow_mixed_books=False):
+    """Every ticket of one leg per match and day, best first.
 
     All legs of a match stay candidates until the ticket is put together, so
     the search sees every mix and keeps the likeliest ticket that reaches
@@ -270,7 +281,7 @@ def build_tickets(legs, min_legs=MIN_LEGS, max_legs=MAX_LEGS, pool_size=FIXTURES
     """
     groups = defaultdict(list)
     for leg in legs:
-        groups[(book_key(leg), match_day(leg.get("commence_time")))].append(leg)
+        groups[(None if allow_mixed_books else book_key(leg), match_day(leg.get("commence_time")))].append(leg)
     tickets = []
     for group in groups.values():
         fixtures = _by_fixture(group)
@@ -283,7 +294,7 @@ def build_tickets(legs, min_legs=MIN_LEGS, max_legs=MAX_LEGS, pool_size=FIXTURES
                     if _product(l["best_odds"] for l in picks) < min_odds:
                         continue
                     try:
-                        tickets.append(score_ticket(list(picks)))
+                        tickets.append(score_ticket(list(picks), allow_mixed_books=allow_mixed_books))
                     except (ValueError, KeyError, TypeError):
                         continue
     # Most legs the AI also backs first, then the likeliest ticket.
@@ -291,7 +302,8 @@ def build_tickets(legs, min_legs=MIN_LEGS, max_legs=MAX_LEGS, pool_size=FIXTURES
                                           t["bookmaker_key"]))
 
 
-def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None, min_odds=MIN_COMBINED_ODDS):
+def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None,
+                min_odds=MIN_COMBINED_ODDS, allow_mixed_books=False):
     by_day = defaultdict(list)
     for leg in legs:
         by_day[match_day(leg.get("commence_time"))].append(leg)
@@ -300,7 +312,9 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None, min_o
     days = []
     for date in sorted(d for d in by_day if d):
         day_legs = by_day[date]
-        with_near = build_tickets(day_legs, max_legs=max_legs, min_odds=min_odds * NEAR_MISS_MIN_ODDS / MIN_COMBINED_ODDS)
+        with_near = build_tickets(day_legs, max_legs=max_legs,
+                                  min_odds=min_odds * NEAR_MISS_MIN_ODDS / MIN_COMBINED_ODDS,
+                                  allow_mixed_books=allow_mixed_books)
         # The exact product, not the rounded combined_odds: 1.33 x 1.50 is
         # 1.995 and must stay below 2.00.
         reaches = lambda t: _product(l["best_odds"] for l in t["legs"]) >= min_odds
@@ -308,13 +322,14 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None, min_o
         near = [t for t in with_near if not reaches(t)]
         top = tickets[0] if tickets else None
         all_in = None
-        # Comparison uses only the recommended bookmaker, never mixed best prices.
+        # Compare the chosen ticket with each match's likeliest eligible leg.
         if top:
             # One leg per match: each match's likeliest.
-            same_book = [ls[0] for ls in _by_fixture(
-                [l for l in day_legs if book_key(l) == top["bookmaker_key"]]).values()]
+            comparable_legs = (day_legs if allow_mixed_books else
+                               [l for l in day_legs if book_key(l) == top["bookmaker_key"]])
+            all_in_legs = [ls[0] for ls in _by_fixture(comparable_legs).values()]
             try:
-                all_in = score_ticket(same_book)
+                all_in = score_ticket(all_in_legs, allow_mixed_books=allow_mixed_books)
             except (ValueError, KeyError, TypeError):
                 pass
         started = (started_by_day or {}).get(date, 0)
@@ -330,10 +345,12 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None, min_o
             if not ticket:
                 if eligible_games < size:
                     reason = (f"Keine {size}er-Kombi möglich: nur {eligible_games} passende Spiele; "
-                              f"benötigt werden {size} beim selben Buchmacher.")
+                              f"benötigt werden {size} am selben Spieltag"
+                              + (" beim selben Buchmacher." if not allow_mixed_books else "."))
                 else:
                     reason = (f"Keine {size}er-Kombi besteht alle Prüfungen und erreicht "
-                              f"die Mindestquote {min_odds:.2f} beim selben Buchmacher.")
+                              f"die Mindestquote {min_odds:.2f}"
+                              + (" beim selben Buchmacher." if not allow_mixed_books else "."))
             by_size.append({"leg_count": size, "ticket": ticket, "near_miss": near_miss,
                             "reason": reason})
         days.append({"date": date, "eligible_legs": len({fixture_key(l) for l in day_legs}),
@@ -341,32 +358,39 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None, min_o
                      "already_started": started, "recommended": top, "alternatives": tickets[1:3],
                      "all_in": all_in, "all_in_is_worse": bool(all_in and top and all_in["ranking_score"] < top["ranking_score"]),
                      "legs": day_legs,
-                     "reason": None if top else f"Für diesen Tag gibt es keinen passenden Schein bei einem Buchmacher. {started} Spiele haben schon begonnen."})
+                     "reason": None if top else (f"Für diesen Tag gibt es keine passende Kombination. "
+                                                 f"{started} Spiele haben schon begonnen.")})
     return days
 
 
-def combo_report(value_bet_results, max_legs=MAX_LEGS, book=None, policy="market"):
+def combo_report(value_bet_results, max_legs=MAX_LEGS, book=None, policy="market",
+                 allow_mixed_books=False):
     pairs = list(value_bet_results)
-    legs = leg_pool(pairs, book=book, policy=policy)
+    legs = leg_pool(pairs, book=book, policy=policy, allow_mixed_books=allow_mixed_books)
     days, started = set(), defaultdict(int)
     for _, vb in pairs:
         date = match_day(vb.get("commence_time"))
         if date and vb.get("odds_found"):
             days.add(date)
             started[date] += bool(vb.get("in_play"))
-    tickets = [t for t in build_tickets(legs, max_legs=max_legs, min_odds=min_combined(policy))]
+    tickets = [t for t in build_tickets(legs, max_legs=max_legs,
+                                      min_odds=min_combined(policy), allow_mixed_books=allow_mixed_books)]
     return {"version": "combo_ticket_v4", "experimental": True, "policy": policy, "min_combined_odds": min_combined(policy),
             "eligible_legs": len({fixture_key(l) for l in legs}), "recommended": tickets[0] if tickets else None,
-            "alternatives": tickets[1:4], "days": day_reports(legs, max_legs, days, started, min_combined(policy)),
+            "alternatives": tickets[1:4], "days": day_reports(legs, max_legs, days, started,
+                                                               min_combined(policy), allow_mixed_books),
             "legs_considered": legs,
             "parameters": {"min_leg_probability": POLICIES[policy].get("min_leg_probability", MIN_LEG_PROBABILITY),
                            "max_legs": max_legs,
                            "max_stake_fraction": MAX_STAKE_FRACTION, "one_leg_per_fixture": True,
-                           "same_bookmaker": True, "binary_settlement_only": True,
+                           "same_bookmaker": not allow_mixed_books, "binary_settlement_only": True,
                            "single_bet_stress_required": False,
                            "ranking": "model_market_win_probability"},
-            "reason": None if tickets else "Kein Schein mit Spielen eines Tages bei einem Buchmacher besteht alle Prüfungen. Märkte mit Rückerstattung und Viertel-Linien sind derzeit ausgeschlossen.",
-            "interpretation": "Model estimate assuming independence between different fixtures; not guaranteed. Same-book singles prices multiplied, not a verified offered accumulator price. Experimental, no proven profitability."}
+            "reason": None if tickets else "Keine Kombination eines Spieltags besteht alle Prüfungen. Märkte mit Rückerstattung und Viertel-Linien sind ausgeschlossen.",
+            "interpretation": ("Model estimate assuming independence between different fixtures; not guaranteed. "
+                               + ("Best available singles prices may come from different bookmakers. "
+                                  if allow_mixed_books else "Same-book singles prices multiplied. ")
+                               + "No offered accumulator price verified. Experimental, no proven profitability.")}
 
 
 def price_tip_combos(entries, max_legs=MAX_LEGS):
