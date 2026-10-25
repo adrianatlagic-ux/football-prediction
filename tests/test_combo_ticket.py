@@ -356,3 +356,19 @@ def test_agree_rule_drops_legs_the_model_rejects_and_puts_ai_backed_legs_first()
     assert two["combined_odds"] >= 3.0
     # The AI-backed A leg is on the two-fold, though C and E are likelier.
     assert any(l["team"] == "A" and l["ki_agrees"] for l in two["legs"])
+
+
+def test_agree_rule_allows_one_point_tolerance_but_still_requires_same_book_and_three_odds():
+    from src.combo_ticket import combo_report
+    pairs = [
+        _agree_vb("Hoffenheim", "Leverkusen", [_bet("Leverkusen", 2.15, .4418, .4827)]),
+        _agree_vb("Freiburg", "Bayern", [_bet("Bayern", 1.45, .6721, .7238)]),
+    ]
+    report = combo_report(pairs, book="betathome", policy="agree")
+    assert report["parameters"]["min_leg_probability"] == .44
+    ticket = report["recommended"]
+    assert ticket["combined_odds"] == 3.12
+    assert {leg["bookmaker_key"] for leg in ticket["legs"]} == {"betathome"}
+
+    pairs[0][1]["bets"][0]["market_probability"] = .4399
+    assert combo_report(pairs, book="betathome", policy="agree")["recommended"] is None

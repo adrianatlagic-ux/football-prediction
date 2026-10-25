@@ -53,4 +53,6 @@ def test_options_respect_requested_maximum_and_empty_matchdays():
 def test_missing_size_names_the_minimum_odds_of_the_rule_in_use():
     # The "agree" rule asks for 3.0; the reason once quoted the default 2.0.
     day = day_reports(legs(2), min_odds=3.0)[0]
-    assert all("mindestens 3.00" in o["reason"] for o in day["by_size"] if o["ticket"] is None)
+    assert "3.00" in day["by_size"][0]["reason"]
+    assert "nur 2 passende Spiele" in day["by_size"][1]["reason"]
+    assert "nur 2 passende Spiele" in day["by_size"][2]["reason"]
