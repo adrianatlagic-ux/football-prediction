@@ -42,3 +42,22 @@ Focused verification:
 ```sh
 .venv/bin/python -m pytest -q tests/test_ai_tip_research.py tests/test_bet_tip_fallback.py tests/test_bet_selection.py tests/test_odds_schedule.py tests/test_odds_snapshot.py tests/test_odds_runtime.py
 ```
+
+## Optional OpenRouter billing route for AI tips
+
+The AI tip can use OpenRouter without changing the selection schedule or
+adding a second model request. Set `AI_TIP_PROVIDER=openrouter` and provide
+`OPENROUTER_API_KEY` as a server secret. The default remains `gemini`. The
+OpenRouter route uses `google/gemini-2.5-flash` plus OpenRouter's Parallel
+Basic web search; it allows at most three searches in one tip request. The
+research prompt and candidate list stay the same apart from the search-tool
+name. If OpenRouter fails, the app does **not** spend another call on Gemini.
+
+The route records token and search counts under `data/jobs/openrouter_usage.json`.
+`/jobs/status` exposes `ai_tip_provider`, `ai_tip_ready` and the accumulated
+OpenRouter usage without exposing the key. Existing cached tips are preserved,
+so changing the provider does not regenerate matches that already have a tip.
+Scenario generation and translation still use `GEMINI_API_KEY`; this setting
+only moves AI-tip research and re-checks. An OpenRouter account with available
+credits is required before activating this route. No live OpenRouter call was
+made during implementation.
