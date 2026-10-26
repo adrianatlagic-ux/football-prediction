@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "target_date": "2026-10-26",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "generation_submitted",
+  "status": "delivered_with_disclosed_quality_limit",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
   "attempts_used": 1,
@@ -93,18 +93,49 @@
     "reference_count": 4,
     "quoted_credits_exact": 67.5,
     "balance_before": 126,
-    "paid_job_status": "pending",
+    "paid_job_status": "completed",
     "reference_media_ids": [
       "9ab7f0ed-688c-4468-96e8-d0ce11396e99",
       "f24e3e83-6405-4778-9130-4354d05b955a",
       "dd0bc5e3-ba2e-47b2-85bd-ebd558cc4baf",
       "9358edc7-a76d-4a39-92a5-77183f24cd07"
     ],
-    "submitted_at": "2026-10-26T07:02:00Z"
+    "submitted_at": "2026-10-26T07:02:00Z",
+    "credits_used": 67.5,
+    "balance_after": 58.5,
+    "source_sha256": "ce2859b506a47bed167eb29fc2b94658b1af74d030e59d28f396cf90a522c05d"
   },
   "qa": {
     "ready": false,
-    "crowd_review": "not_applicable_planned_no_stadium"
+    "fixture_hook": "pass_exact_names_time_correct_crests_fiction_label",
+    "cast_review": "two_male_players_broadly_resemble_Kane_and_Guirassy_correct_front_kits",
+    "story_review": "not_ready_no_clear_conscious_step_or_visible_consequence",
+    "audio_review": "not_ready_Higgsfield_analysis_reports_English_translated_voiceover_single_speaker_instead_of_verified_German_dialogue; actual_audio_not_independently_heard",
+    "crowd_review": "not_applicable_no_visible_stadium",
+    "outro_review": "pass_approved_master_hash_and_frame",
+    "download_review": "pass_MP4_ZIP_HTTP_206_and_archive_integrity",
+    "final_fixture_check": "pass_BVB_official_and_OpenLigaDB_31_Oct_2026_18_30_MEZ_upcoming"
   },
-  "created_at": "2026-10-26T07:00:00Z"
+  "created_at": "2026-10-26T07:00:00Z",
+  "production": {
+    "source_review_media_id": "0232d941-b5d1-442a-8453-d6d2a77d3473",
+    "video_analysis_id": "1b474b28-acb0-459a-a0f0-40fcdc853e38",
+    "final_media_id": "ec86f3e5-d387-41ae-afe8-cd79c355d34c",
+    "zip_media_id": "d238f3a3-1431-4fc6-886b-3403f41692e4",
+    "source_duration_seconds": 15.072,
+    "final_duration_seconds": 18.105,
+    "final_sha256": "5e9fc7567cc24bea0dc3e592919fd4e4dd37409ac1ec13b129fa58db05b060ad",
+    "zip_byte_identity": "sha256_match",
+    "source_video_integrity": "all_361_decoded_frames_pixel_identical",
+    "source_audio_integrity": "all_471_source_AAC_packets_identical"
+  },
+  "caption": "caption.txt",
+  "production_evidence": "production-evidence.json",
+  "delivery": {
+    "media_player": "final_media_id",
+    "mp4_download": "final_media_id",
+    "zip_download": "zip_media_id",
+    "status": "disclosed_not_ready"
+  },
+  "updated_at": "2026-10-26T07:11:00Z"
 }
