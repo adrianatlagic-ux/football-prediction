@@ -2,10 +2,10 @@
   "schema_version": "1.0",
   "target_date": "2026-10-26",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "reserved_pre_generation",
+  "status": "generation_submitted",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
-  "attempts_used": 0,
+  "attempts_used": 1,
   "coverage_key": "bundesliga:83219:2026-10-31:bayern-muenchen-borussia-dortmund",
   "match": {
     "competition": "Bundesliga",
@@ -84,7 +84,7 @@
   },
   "generation": {
     "idempotency_key": "goaliq-2026-10-26-bl1-83219-seedance2std-15s-v1",
-    "job_id": null,
+    "job_id": "fbe9503f-da4c-4d4c-865d-5e61f051cbb9",
     "model": "seedance_2_0",
     "mode": "std",
     "duration_seconds": 15,
@@ -93,7 +93,14 @@
     "reference_count": 4,
     "quoted_credits_exact": 67.5,
     "balance_before": 126,
-    "paid_job_status": "not_submitted"
+    "paid_job_status": "pending",
+    "reference_media_ids": [
+      "9ab7f0ed-688c-4468-96e8-d0ce11396e99",
+      "f24e3e83-6405-4778-9130-4354d05b955a",
+      "dd0bc5e3-ba2e-47b2-85bd-ebd558cc4baf",
+      "9358edc7-a76d-4a39-92a5-77183f24cd07"
+    ],
+    "submitted_at": "2026-10-26T07:02:00Z"
   },
   "qa": {
     "ready": false,
