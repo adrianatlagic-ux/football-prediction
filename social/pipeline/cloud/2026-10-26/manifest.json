@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "target_date": "2026-10-26",
+  "editorial_date_timezone": "Europe/Berlin",
+  "status": "reserved_pre_generation",
+  "daily_video_limit": 1,
+  "video_generation_attempt_limit": 1,
+  "attempts_used": 0,
+  "coverage_key": "bundesliga:83219:2026-10-31:bayern-muenchen-borussia-dortmund",
+  "match": {
+    "competition": "Bundesliga",
+    "match_id": 83219,
+    "home": "FC Bayern München",
+    "away": "Borussia Dortmund",
+    "match_date": "2026-10-31",
+    "kickoff_at": "2026-10-31T18:30:00+01:00",
+    "timezone": "Europe/Berlin",
+    "official_source": "https://www.bvb.de/de/de/bvb-spielplan/spiel.html/2026-2027/Fussball/Profis/Bundesliga/8/Bayern-Muenchen-Borussia-Dortmund.html",
+    "secondary_source": "https://api.openligadb.de/getmatchdata/bl1/2026/8",
+    "retrieved_at": "2026-10-26T06:57:52Z"
+  },
+  "selection": {
+    "today_bundesliga_matches": 0,
+    "today_ucl_matches": 0,
+    "uefa_pages_checked": [
+      0,
+      100,
+      200
+    ],
+    "nearest_matchday": "2026-10-30 to 2026-11-01",
+    "rejected_candidate": "Elversberg–Mainz 30.10 is not a top match",
+    "other_candidate": "Leverkusen–Stuttgart 31.10 potentially relevant but Bayern–Dortmund is the clearer documented rivalry",
+    "prior_manifest_check": "2026-10-04 through 2026-10-25; Bayern–Dortmund 31.10 not previously reserved or delivered"
+  },
+  "research": {
+    "generation_basis": "verified_fixture_and_current_research",
+    "prediction_used": false,
+    "prediction_status": "optional_not_used",
+    "verified_context": "The official BVB fixture page lists Bayern home against Dortmund 31 October 2026 18:30 CET; BVB official men's roster lists Serhou Guirassy and provides his current squad portrait. SC Freiburg's opponent-check article dated 23 October 2026 identifies Harry Kane as current Bayern attacker and has an editorial photograph of him in Bayern shirt.",
+    "source_urls": [
+      "https://www.bvb.de/de/de/bvb-spielplan/spiel.html/2026-2027/Fussball/Profis/Bundesliga/8/Bayern-Muenchen-Borussia-Dortmund.html",
+      "https://www.bvb.de/de/de/mannschaften/fussball/maenner.html",
+      "https://www.scfreiburg.com/aktuell/nachrichten/profis/news/2026/27/torgefahr-als-trumpf/"
+    ],
+    "retrieved_at": "2026-10-26T06:58:00Z",
+    "player_reference_note": "Guirassy: official BVB squad portrait. Kane: current official SC Freiburg opponent article photograph showing him in Bayern shirt; this is a club-published editorial image rather than a formal Bayern headshot.",
+    "crest_sources": [
+      "https://www.bvb.de/content/dam/bvbweb/de/matches/football/profis/teams/156.svg",
+      "https://www.bvb.de/content/dam/bvbweb/de/matches/football/profis/teams/157.svg"
+    ],
+    "crest_media_ids": [
+      "dd0bc5e3-ba2e-47b2-85bd-ebd558cc4baf",
+      "9358edc7-a76d-4a39-92a5-77183f24cd07"
+    ]
+  },
+  "story": {
+    "story_type": "rivalry_promo_spotlight",
+    "previous_story_type": "pre_match_tunnel_choice",
+    "story_setting": "neutral_pre_match_camera_studio_no_stadium",
+    "protagonists": [
+      "Harry Kane",
+      "Serhou Guirassy"
+    ],
+    "goal": "Guirassy wants Dortmund visible on equal footing in the Bayern home fixture promo.",
+    "conflict": "A single spotlight favors home player Kane while Guirassy stands at its edge.",
+    "decision": "Guirassy steps into the spotlight beside Kane.",
+    "visible_consequence": "Both rival players are equally lit and face each other for the final flash.",
+    "one_sentence_audience_story": "Vor Bayern–Dortmund lässt Guirassy sich bei einem fiktiven Fototermin nicht an den Rand stellen und tritt neben Kane ins Licht.",
+    "spoken_language": "de",
+    "on_pitch_beats": [],
+    "pitch_action_review": "not_applicable_planned",
+    "fiction_label": "KI-FIKTION",
+    "difference_from_previous": [
+      "studio instead of tunnel",
+      "spotlight position rather than ball",
+      "Guirassy instead of Grifo protagonist",
+      "competitive stance instead of handshake"
+    ]
+  },
+  "outro_master": {
+    "media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "preflight": "hash_duration_and_frame_pass"
+  },
+  "generation": {
+    "idempotency_key": "goaliq-2026-10-26-bl1-83219-seedance2std-15s-v1",
+    "job_id": null,
+    "model": "seedance_2_0",
+    "mode": "std",
+    "duration_seconds": 15,
+    "resolution": "720p",
+    "aspect_ratio": "9:16",
+    "reference_count": 4,
+    "quoted_credits_exact": 67.5,
+    "balance_before": 126,
+    "paid_job_status": "not_submitted"
+  },
+  "qa": {
+    "ready": false,
+    "crowd_review": "not_applicable_planned_no_stadium"
+  },
+  "created_at": "2026-10-26T07:00:00Z"
+}
