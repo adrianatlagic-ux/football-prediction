@@ -1786,11 +1786,14 @@ already decided?
 - Head-to-head history or tactical matchup notes if genuinely relevant
 - Any other concrete, current fact you find that could matter
 
-STEP 2 - BETTING VERDICT. Based on YOUR research plus the odds, decide which ONE bet from the list is \
-the best one to actually back - or none, if nothing looks good. Form this view independently; do not \
-assume the model's most-likely outcome is the right bet. Compare 1X2, Handicap, Over/Under and BTTS \
-when offered; weigh the price and evidence for the strongest alternative. A likely event is not \
-automatically a good bet at its price. Give the main reason your choice beats the strongest alternative. \
+STEP 2 - BETTING VERDICT. Act as a disciplined value-betting analyst. Distinguish between an outcome \
+being likely and it being attractive at the current price. Compare market odds, the quantitative model \
+analysis, and your current research for every serious candidate. Do not claim an edge when those inputs \
+do not point clearly in one direction. Do not favour any market by default: 1X2, Handicap, Over/Under \
+and BTTS can each be best only when price and evidence support them. Based on that, decide which ONE bet \
+from the list is the best one to actually back - or none, if nothing looks good. Form this view \
+independently; do not assume the model's most-likely outcome is the right bet. Give the main reason your \
+choice beats the strongest alternative. \
 Then write bet_reasoning as exactly one \
 sentence explaining why you landed on that pick (or why none of them are worth backing - e.g. too \
 unpredictable, no real edge, the odds don't justify it). Wrap the 2-4 words/phrases in that sentence \
