@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0",
+  "target_date": "2026-10-27",
+  "editorial_date_timezone": "Europe/Berlin",
+  "status": "reserved_pre_generation",
+  "daily_video_limit": 1,
+  "video_generation_attempt_limit": 1,
+  "attempts_used": 0,
+  "coverage_key": "ucl:2049616:2026-11-04:borussia-dortmund-real-betis",
+  "match": {
+    "competition": "UEFA Champions League",
+    "match_id": "2049616",
+    "home": "Borussia Dortmund",
+    "away": "Real Betis",
+    "match_date": "2026-11-04",
+    "kickoff_at": "2026-11-04T21:00:00+01:00",
+    "timezone": "Europe/Berlin",
+    "official_source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
+    "club_confirmation": "https://www.realbetisbalompie.es/noticias/noticias/abierto-el-proceso-de-solicitud-de-entradas-con-asiento-para-el-borussia-dortmund-real-betis-32714",
+    "retrieved_at": "2026-10-27T07:13:18Z",
+    "status": "UPCOMING"
+  },
+  "selection": {
+    "today_bundesliga_matches": 0,
+    "today_ucl_matches": 0,
+    "uefa_pages_checked": [
+      0,
+      100,
+      200
+    ],
+    "bundesliga_matchday_8_checked": true,
+    "skipped_or_rejected": [
+      "2026-10-30 Elversberg–Mainz: not a top match",
+      "2026-10-31 Bayern–Dortmund: already covered on editorial date 2026-10-26",
+      "2026-11-03 Atlético–Bayern: covered on 2026-10-22",
+      "2026-11-03 Manchester United–Roma: reserved/generated on 2026-10-23",
+      "other 2026-11-03 CL pairings: no comparably strong documented top-match criterion"
+    ],
+    "reason": "Next uncovered clearly qualifying top match is Borussia Dortmund's Champions League home game on the same next CL matchday.",
+    "prior_manifests_compared": "2026-10-04 through 2026-10-26; no Borussia Dortmund–Real Betis coverage"
+  },
+  "research": {
+    "generation_basis": "verified_fixture_and_current_research",
+    "prediction_used": false,
+    "prediction_status": "optional_not_used",
+    "verified_context": "Real Betis official visitor ticket article confirms 3,813 tickets allocated by Borussia Dortmund for Betis supporters at Signal Iduna Park; 04 Nov 2026 21:00. Away fans travelling is the narrative anchor.",
+    "official_context_source": "https://www.realbetisbalompie.es/noticias/noticias/abierto-el-proceso-de-solicitud-de-entradas-con-asiento-para-el-borussia-dortmund-real-betis-32714",
+    "roster_sources": [
+      "https://www.bvb.de/de/de/mannschaften/fussball/spieler/emre-can.html",
+      "https://www.realbetisbalompie.es/primer-equipo/jugador/antony-667430"
+    ],
+    "portrait_sources": [
+      "https://s7g10.scene7.com/is/image/BORUSSIADORTMUNDGMBHANDCOKGAA/can-slider%3APlayer-Teaser?ts=1783695243927&dpr=off",
+      "https://thumb2.besoccerapps.com/rbetis/2027/img_players/667430.jpg?v=2&size=600x600t"
+    ],
+    "crest_sources": [
+      "https://img.uefa.com/imgml/TP/teams/logos/240x240/52758.png",
+      "https://img.uefa.com/imgml/TP/teams/logos/240x240/52265.png"
+    ],
+    "retrieved_at": "2026-10-27T07:14:00Z"
+  },
+  "story": {
+    "story_type": "away_supporters_scarf_space",
+    "previous_story_type": "rivalry_promo_spotlight",
+    "story_setting": "fictional_backstage_photo_room_no_stands",
+    "protagonists": [
+      "Emre Can",
+      "Antony"
+    ],
+    "goal": "Antony wants the travelling Betis supporters visibly represented beside Dortmund's home scarf.",
+    "conflict": "The two display hooks are visually occupied by the home scarf.",
+    "decision": "Antony refuses to fold the Betis scarf away and lays it beside the Dortmund scarf; Can shifts his scarf to make room.",
+    "visible_consequence": "Both club scarves hang together; the two players exit on separate sides.",
+    "one_sentence_audience_story": "Vor Dortmund–Betis macht Antony beim fiktiven Fototermin Platz für den Schal der mitgereisten Betis-Fans, und Emre Can lässt ihn neben dem BVB-Schal hängen.",
+    "spoken_language": "de",
+    "on_pitch_beats": [],
+    "pitch_action_review": "not_applicable_planned",
+    "fiction_label": "KI-FIKTION",
+    "difference_from_previous": [
+      "away fan context instead of home spotlight",
+      "concrete scarf prop",
+      "backstage hook decision rather than center-stage pose",
+      "Emre Can and Antony rather than Kane and Guirassy"
+    ]
+  },
+  "outro_master": {
+    "media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "preflight": "hash_duration_and_frame_pass"
+  },
+  "generation": {
+    "idempotency_key": "goaliq-2026-10-27-ucl-2049616-seedance2fast-15s-v1",
+    "job_id": null,
+    "model": "seedance_2_0",
+    "mode": "fast",
+    "duration_seconds": 15,
+    "resolution": "720p",
+    "aspect_ratio": "9:16",
+    "reference_count": 4,
+    "quoted_credits_exact": 37.5,
+    "balance_before": 58.5,
+    "paid_job_status": "not_submitted"
+  },
+  "qa": {
+    "ready": false,
+    "crowd_review": "not_applicable_planned_no_stadium"
+  },
+  "created_at": "2026-10-27T07:15:00Z"
+}
