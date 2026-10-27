@@ -1,0 +1,49 @@
+{
+  "target_date": "2026-10-27",
+  "fixture": {
+    "match_id": "2049616",
+    "home": "Borussia Dortmund",
+    "away": "Real Betis",
+    "kickoff_at": "2026-11-04T21:00:00+01:00",
+    "final_check": "2026-10-27",
+    "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
+    "status": "UPCOMING"
+  },
+  "generation": {
+    "job_id": "43575607-68d9-47dd-97f1-5fb4e967f877",
+    "source_media_id": "0fa91ace-85e2-4039-9ce6-7c665e22c32b",
+    "source_sha256": "0eb6b24a18521eef933a99217dc6fcd6e868811a17fd823596bf22d3e8188120",
+    "model": "seedance_2_0",
+    "mode": "fast",
+    "duration_seconds": 15.104,
+    "credits_quoted": 37.5,
+    "credits_used": 37.5,
+    "balance_before": 58.5,
+    "balance_after": 21
+  },
+  "montage": {
+    "final_media_id": "0c82adff-3f7d-4820-8f33-b0d84270b27c",
+    "final_sha256": "9be3ee9b1d534dde3c4d3302376a635d4587d34437ef2066bac0619b88a65d45",
+    "duration_seconds": 18.136,
+    "outro_master_media_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "outro_master_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "source_video_decoded_frames_identical": true,
+    "source_audio_packets_identical_after_one_extra_priming_packet": true,
+    "zip_media_id": "52d7c4b3-c84a-46cf-ac20-5d1db8549c6a",
+    "zip_integrity": "passed",
+    "zip_mp4_sha256_matches_final": true,
+    "mp4_http_status": 206,
+    "zip_http_status": 206
+  },
+  "qa": {
+    "opening": "both crests, team names, 04.11.2026 21:00 MEZ, KI-FIKTION legible",
+    "players": "Emre Can and Antony resemble official portrait references; two male figures in corresponding kits",
+    "story": "BVB scarf hook dilemma and Betis scarf hung beside it; visible cause and consequence",
+    "stadium_crowd": "not_applicable_no_stadium",
+    "outro": "German master visually correct",
+    "audio": "AAC source and packet-preserved montage confirmed; spoken German and natural delivery not independently verified",
+    "video_analysis_job_id": "01560ebc-3aec-474d-ab82-5bf25c7d0aa1",
+    "ready": false
+  },
+  "note": "No private media URLs stored. One video generation attempt for editorial date."
+}
