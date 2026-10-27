@@ -3,7 +3,7 @@
 import math
 from datetime import datetime, timezone
 
-VERSION = "full_market_model_context_v3"
+VERSION = "full_market_model_context_v4"
 
 
 def fresh_candidates(vb):
@@ -40,7 +40,11 @@ def coverage(candidates):
 
 
 def model_context(prediction):
-    """A small, explicit model estimate, without a preselected bet or ranking."""
+    """Give the agent the readable outputs of the whole quantitative analysis.
+
+    The score matrix itself is intentionally omitted: it is a large, redundant
+    representation of the market probabilities already included below.
+    """
     result = {}
     for key in ("probability_home_win", "probability_draw", "probability_away_win"):
         value = prediction.get(key)
@@ -51,6 +55,21 @@ def model_context(prediction):
         value = score.get(key)
         if isinstance(value, (float, int)) and not isinstance(value, bool) and math.isfinite(value):
             result[key] = value
+    if score.get("most_likely_score"):
+        result["most_likely_score"] = score["most_likely_score"]
+    if isinstance(score.get("top_scorelines"), list):
+        result["top_scorelines"] = [
+            {"score": row.get("score"), "probability": row.get("probability")}
+            for row in score["top_scorelines"][:5]
+            if isinstance(row, dict) and row.get("score") is not None
+        ]
+    if isinstance(score.get("betting_markets"), dict):
+        result["market_probabilities"] = {
+            key: value for key, value in score["betting_markets"].items()
+            if key in {"over_under", "btts", "win_margin", "double_chance"}
+        }
+    if isinstance(prediction.get("explanation"), dict):
+        result["team_indicators"] = prediction["explanation"]
     return result
 
 

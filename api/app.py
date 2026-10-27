@@ -1758,17 +1758,15 @@ Do not change your pick merely to seem thorough."""
 
     competition = _AGENT_COMPETITION_NAMES.get(value_bets.get("sport_key"), "football")
     model = research_input["model_context"]
-    xg_line = ""
-    if "home_xg" in model and "away_xg" in model:
-        xg_line = (f" Expected goals: {model['home_xg']:.2f} for {home_team}, "
-                   f"{model['away_xg']:.2f} for {away_team}.")
+    model_analysis = json.dumps(model, ensure_ascii=False, separators=(",", ":"))
     prompt = f"""You are researching an upcoming {competition} match: {home_team} vs {away_team}.
 Kickoff: {research_input['commence_time']}. Quote snapshot: {research_input['odds_fetched_at']}.
 
-For reference only, our statistical model's headline probabilities: Home win \
-{prediction['probability_home_win']:.0%}, Draw {prediction['probability_draw']:.0%}, \
-Away win {prediction['probability_away_win']:.0%}. Treat these as one input to weigh \
-against your own research - NOT as the answer to agree with.{xg_line}
+OUR QUANTITATIVE MODEL ANALYSIS (reference only, not a preselected bet):
+{model_analysis}
+This includes result probabilities, expected goals, likely scorelines, derived market probabilities, \
+and the historical team indicators behind the model. Treat it as one input to weigh against your own \
+research and the price - NOT as the answer to agree with.
 
 The bets available to pick from (all supported fresh markets and current odds only - decide for yourself \
 which, if any, is worth backing):
