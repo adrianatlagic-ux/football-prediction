@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "target_date": "2026-10-27",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "generation_submitted",
+  "status": "delivered_with_disclosed_audio_review_limit",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
   "attempts_used": 1,
@@ -74,7 +74,7 @@
     "one_sentence_audience_story": "Vor Dortmund–Betis macht Antony beim fiktiven Fototermin Platz für den Schal der mitgereisten Betis-Fans, und Emre Can lässt ihn neben dem BVB-Schal hängen.",
     "spoken_language": "de",
     "on_pitch_beats": [],
-    "pitch_action_review": "not_applicable_planned",
+    "pitch_action_review": "not_applicable_backstage_story",
     "fiction_label": "KI-FIKTION",
     "difference_from_previous": [
       "away fan context instead of home spotlight",
@@ -99,18 +99,46 @@
     "reference_count": 4,
     "quoted_credits_exact": 37.5,
     "balance_before": 58.5,
-    "paid_job_status": "pending",
+    "paid_job_status": "completed",
     "reference_media_ids": [
       "01497cfa-ea5f-41b5-8950-4b1a2c07e88a",
       "fae863c6-eafb-4eec-8798-f492d5c9292a",
       "c56bf01b-076c-40f1-855e-fc1a8ed8ceef",
       "cbc54690-91a0-427c-bf58-38a547c5193a"
     ],
-    "submitted_at": "2026-10-27T07:16:00Z"
+    "submitted_at": "2026-10-27T07:16:00Z",
+    "credits_used": 37.5,
+    "balance_after": 21,
+    "source_media_id": "0fa91ace-85e2-4039-9ce6-7c665e22c32b",
+    "source_sha256": "0eb6b24a18521eef933a99217dc6fcd6e868811a17fd823596bf22d3e8188120"
   },
   "qa": {
     "ready": false,
-    "crowd_review": "not_applicable_planned_no_stadium"
+    "status": "visual_pass_audio_review_limit",
+    "opening": "correct team names, crests, date, time and KI-FIKTION visible",
+    "story": "two recognizable male players; scarf placement creates visible decision and consequence",
+    "player_likeness": "portrait resemblance visually checked but generative likeness cannot be authenticated",
+    "dialogue": "AAC audio track exists and source packets preserved; actual spoken language, wording, naturalness, and lip sync not independently verified",
+    "outro": "approved German master frame verified",
+    "crowd_review": "not_applicable_no_stadium",
+    "pitch_action_review": "not_applicable_backstage_story",
+    "video_analysis_job_id": "01560ebc-3aec-474d-ab82-5bf25c7d0aa1"
   },
-  "created_at": "2026-10-27T07:15:00Z"
+  "created_at": "2026-10-27T07:15:00Z",
+  "montage": {
+    "final_media_id": "0c82adff-3f7d-4820-8f33-b0d84270b27c",
+    "final_sha256": "9be3ee9b1d534dde3c4d3302376a635d4587d34437ef2066bac0619b88a65d45",
+    "zip_media_id": "52d7c4b3-c84a-46cf-ac20-5d1db8549c6a",
+    "source_decoded_video_identical": true,
+    "source_audio_packets_identical_after_one_priming_packet": true,
+    "zip_hash_matches_final": true,
+    "mp4_download_http": 206,
+    "zip_download_http": 206
+  },
+  "final_fixture_check": {
+    "checked_at": "2026-10-27",
+    "status": "UPCOMING",
+    "kickoff_at": "2026-11-04T21:00:00+01:00",
+    "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100"
+  }
 }
