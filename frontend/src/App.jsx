@@ -1156,6 +1156,10 @@ function SmartBetCard({ betStep, betInfo, data, onRefresh, currentTime }) {
   // biggest gap to the market (★, explained in its box below), the AI's pick.
   // The model's favourite is no longer marked.
   const betTip = computeBetTip(betInfo, agentEval)
+  const changedBeforeKickoff = agentEval?.revised_from_previous && agentEval?.change_reason
+  const agentReason = changedBeforeKickoff
+    ? `${tr('Vor Anpfiff geändert: ', 'Changed before kickoff: ')}${aiEn?.change_reason || agentEval.change_reason}`
+    : (aiEn?.bet_reasoning || agentEval?.bet_reasoning)
   const signals = [betTip.tip, priceTipPick, likelyPick, agentPick].filter(Boolean)
   const signalRank = b => { const i = signals.findIndex(x => sameBet(x, b)); return i === -1 ? signals.length : i }
   // After the marked bets, the same order the combo uses: bets both the
@@ -1236,7 +1240,7 @@ function SmartBetCard({ betStep, betInfo, data, onRefresh, currentTime }) {
             <span className="smart-bet-agent-headline">✨ {tr('KI-Tipp', 'AI tip')}: {aiEn?.bet_headline || agentEval.bet_headline}</span>
           </div>
           <p className="smart-bet-agent-text">
-            {renderBoldMarkdown(aiEn?.bet_reasoning || agentEval.bet_reasoning, 'smart-bet-highlight-purple')}
+            {renderBoldMarkdown(agentReason, 'smart-bet-highlight-purple')}
             {agentPick && (
               <> {tr('Unser Modell sieht das bei', 'Our model puts this at')} <strong className="smart-bet-highlight-purple">{((agentPick.model_probability_raw ?? agentPick.probability) * 100).toFixed(0)}%</strong>.</>
             )}

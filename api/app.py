@@ -1812,7 +1812,7 @@ string, or null>", "bet_headline": "<2-5 words naming the pick in plain language
 Tore' or 'Sieg Kroatien' - or 'Keine gute Wette' if pick is null>", "bet_reasoning": "<exactly ONE \
 sentence with your verdict>", "bet_points": ["<short supporting fact, max 8 words>", "<short \
 supporting fact, max 8 words>"], "alternative_reasoning": "<why this beats the strongest alternative>", \
-"change_reason": "<on re-check, concrete reason to keep or change the earlier pick>"}}"""
+"change_reason": "<only when the re-check changes the pick: one short sentence, max 16 words, naming the concrete new input; otherwise empty string>"}}"""
 
     try:
         kind = "agent_recheck" if previous_eval else "agent_pick"
@@ -2247,11 +2247,12 @@ def ai_texts_en(home_team: str, away_team: str):
             agent = v
     research = (agent or {}).get("research") or {}
     fields = ["lineups_injuries", "form", "table_situation", "other"]
-    texts = [scenario, (agent or {}).get("bet_headline") or "", (agent or {}).get("bet_reasoning") or ""] \
+    texts = [scenario, (agent or {}).get("bet_headline") or "", (agent or {}).get("bet_reasoning") or "", \
+             (agent or {}).get("change_reason") or ""] \
         + [research.get(f) or "" for f in fields]
     en = to_english(texts)
     return {"scenario": en[0], "bet_headline": en[1], "bet_reasoning": en[2],
-            "research": {f: en[3 + i] for i, f in enumerate(fields)}}
+            "change_reason": en[3], "research": {f: en[4 + i] for i, f in enumerate(fields)}}
 
 
 @app.get("/value-bets")
