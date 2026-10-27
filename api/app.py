@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-import logging
 import math
 import unicodedata
 import os
@@ -423,12 +422,8 @@ def job_status():
             out[name] = json.loads((jobs.REPORTS / f"last_{name}.json").read_text(encoding="utf-8"))
         except (OSError, ValueError):
             out[name] = None
-    from src import apify_budget, gemini_usage, openrouter_tip
+    from src import apify_budget, gemini_usage
     out["gemini"] = gemini_usage.load()
-    out["openrouter"] = openrouter_tip.load()
-    out["ai_tip_provider"] = AI_TIP_PROVIDER
-    out["ai_tip_ready"] = {"gemini": bool(GEMINI_API_KEY),
-                           "openrouter": bool(OPENROUTER_API_KEY)}.get(AI_TIP_PROVIDER, False)
     out["apify"] = apify_budget.usage()
     out["book_coverage"] = _book_coverage()
     out["book_refreshes"] = book_odds.REFRESH_LOG
@@ -703,8 +698,6 @@ _odds_refresh_lock = threading.Lock()
 ODDS_CACHE_TTL_SECONDS = int(os.getenv("ODDS_CACHE_TTL_SECONDS", "0"))  # 0 retains daily quota policy
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
-AI_TIP_PROVIDER = os.getenv("AI_TIP_PROVIDER", "gemini").lower()
 # Agent picks are cached per match indefinitely once computed (see
 # _refresh_agent_picks) - never recomputed for a match that already has one.
 _agent_picks_cache: dict[tuple[str, str], dict] = {}
@@ -1697,7 +1690,7 @@ def _call_gemini_agent_pick(
     prediction: dict, value_bets: dict, home_team: str, away_team: str,
     previous_eval: Optional[dict] = None,
 ) -> Optional[dict]:
-    """Ask the selected AI provider to research current context our
+    """Ask Gemini to research current context our
     stats model can't see, and separately evaluate the candidate bets against it.
 
     Returns two distinct, structured pieces - kept deliberately apart and kept
@@ -1716,14 +1709,7 @@ def _call_gemini_agent_pick(
     Returns None if the call fails (caller treats that as "no agent opinion",
     not block the rest of the response).
     """
-    if AI_TIP_PROVIDER == "openrouter":
-        if not OPENROUTER_API_KEY:
-            return None
-    elif AI_TIP_PROVIDER == "gemini":
-        if not GEMINI_API_KEY:
-            return None
-    else:
-        logging.getLogger(__name__).error("Unknown AI_TIP_PROVIDER: %s", AI_TIP_PROVIDER)
+    if not GEMINI_API_KEY:
         return None
 
     from src.ai_tip_research import VERSION, fresh_candidates, input_snapshot, market_changes
@@ -1828,49 +1814,35 @@ sentence with your verdict>", "bet_points": ["<short supporting fact, max 8 word
 supporting fact, max 8 words>"], "alternative_reasoning": "<why this beats the strongest alternative>", \
 "change_reason": "<on re-check, concrete reason to keep or change the earlier pick>"}}"""
 
-    if AI_TIP_PROVIDER == "openrouter":
-        prompt = prompt.replace("STEP 1 - RESEARCH (use Google Search)",
-                                "STEP 1 - RESEARCH (use web search)")
-
     try:
         kind = "agent_recheck" if previous_eval else "agent_pick"
-        if AI_TIP_PROVIDER == "openrouter":
-            from src import openrouter_tip
-            result = openrouter_tip.research(prompt, OPENROUTER_API_KEY)
-            openrouter_tip.record(kind, result)
-            if not result["searched"]:
-                raise ValueError("OpenRouter answered without current web research")
-            text = result["text"].strip()
-            source_urls = result["source_urls"]
-        else:
-            from google import genai
-            from google.genai import types
-            client = genai.Client(api_key=GEMINI_API_KEY)
-            response = client.models.generate_content(
-                model="gemini-3.8-flash",
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    tools=[types.Tool(google_search=types.GoogleSearch())],
-                ),
-            )
-            from src import gemini_usage
-            gemini_usage.record(kind, response, grounded=True)
-            text = response.text.strip()
-            source_urls = []
-            for candidate in getattr(response, "candidates", []) or []:
-                grounding = getattr(candidate, "grounding_metadata", None)
-                for chunk in getattr(grounding, "grounding_chunks", []) or []:
-                    uri = getattr(getattr(chunk, "web", None), "uri", None)
-                    if uri:
-                        source_urls.append(uri)
+        from google import genai
+        from google.genai import types
+        client = genai.Client(api_key=GEMINI_API_KEY)
+        response = client.models.generate_content(
+            model="gemini-3.8-flash",
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                tools=[types.Tool(google_search=types.GoogleSearch())],
+            ),
+        )
+        from src import gemini_usage
+        gemini_usage.record(kind, response, grounded=True)
+        text = response.text.strip()
+        source_urls = []
+        for candidate in getattr(response, "candidates", []) or []:
+            grounding = getattr(candidate, "grounding_metadata", None)
+            for chunk in getattr(grounding, "grounding_chunks", []) or []:
+                uri = getattr(getattr(chunk, "web", None), "uri", None)
+                if uri:
+                    source_urls.append(uri)
         text = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.MULTILINE).strip()
         parsed = json.loads(text)
         if not isinstance(parsed, dict):
             return None
         from src.bet_research import capture_evidence
         evidence = capture_evidence(parsed, source_urls)
-    except Exception as exc:
-        logging.getLogger(__name__).warning("AI tip via %s failed: %s", AI_TIP_PROVIDER, exc)
+    except Exception:
         return None
 
     pick = None
@@ -1918,7 +1890,6 @@ supporting fact, max 8 words>"], "alternative_reasoning": "<why this beats the s
         # first one do better than changing it?
         "first_pick": (previous_eval or {}).get("first_pick") or (previous_eval or {}).get("pick"),
         "research_version": VERSION,
-        "ai_provider": AI_TIP_PROVIDER,
         "status": "ok" if pick else "no_pick",
         "research_input": research_input,
         "first_research_input": (previous_eval or {}).get("first_research_input")
