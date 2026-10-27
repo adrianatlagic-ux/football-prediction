@@ -1028,6 +1028,8 @@ function BetTipBox({ betTip }) {
   if (!tip) {
     const why = {
       waiting_for_ai: tr('Folgt, sobald die KI das Spiel geprüft hat (in den 15 Stunden vor Anpfiff).', 'Coming once the AI has checked the match (in the 15 hours before kickoff).'),
+      no_selection: tr('Kein Wett-Tipp – die KI findet aktuell keine ausreichend begründete Wette.', 'No bet tip – the AI currently finds no sufficiently supported bet.'),
+      incomplete_markets: tr('Noch kein Wett-Tipp – aktuelle Quoten für Sieg, Handicap oder Über/Unter fehlen.', 'No bet tip yet – current win, handicap or totals odds are missing.'),
       ai_unsure: tr('Kein Wett-Tipp – die KI hat ihren Tipp kurz vor Anpfiff geändert und ist sich nicht sicher.', 'No bet tip – the AI changed its pick shortly before kickoff and is not sure.'),
       no_agreement: tr('Kein Wett-Tipp – die Bedingungen für einen Tipp sind nicht erfüllt.', 'No bet tip – the conditions for a tip are not met.'),
       odds_expired: tr('Kein Wett-Tipp – die Quoten sind nicht mehr gültig. Bitte erneut laden.', 'No bet tip – the odds are no longer valid. Please reload.'),
@@ -1154,6 +1156,10 @@ function SmartBetCard({ betStep, betInfo, data, onRefresh, currentTime }) {
   // biggest gap to the market (★, explained in its box below), the AI's pick.
   // The model's favourite is no longer marked.
   const betTip = computeBetTip(betInfo, agentEval)
+  const changedBeforeKickoff = agentEval?.revised_from_previous && agentEval?.change_reason
+  const agentReason = changedBeforeKickoff
+    ? `${tr('Vor Anpfiff geändert: ', 'Changed before kickoff: ')}${aiEn?.change_reason || agentEval.change_reason}`
+    : (aiEn?.bet_reasoning || agentEval?.bet_reasoning)
   const signals = [betTip.tip, priceTipPick, likelyPick, agentPick].filter(Boolean)
   const signalRank = b => { const i = signals.findIndex(x => sameBet(x, b)); return i === -1 ? signals.length : i }
   // After the marked bets, the same order the combo uses: bets both the
@@ -1234,7 +1240,7 @@ function SmartBetCard({ betStep, betInfo, data, onRefresh, currentTime }) {
             <span className="smart-bet-agent-headline">✨ {tr('KI-Tipp', 'AI tip')}: {aiEn?.bet_headline || agentEval.bet_headline}</span>
           </div>
           <p className="smart-bet-agent-text">
-            {renderBoldMarkdown(aiEn?.bet_reasoning || agentEval.bet_reasoning, 'smart-bet-highlight-purple')}
+            {renderBoldMarkdown(agentReason, 'smart-bet-highlight-purple')}
             {agentPick && (
               <> {tr('Unser Modell sieht das bei', 'Our model puts this at')} <strong className="smart-bet-highlight-purple">{((agentPick.model_probability_raw ?? agentPick.probability) * 100).toFixed(0)}%</strong>.</>
             )}

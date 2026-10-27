@@ -131,8 +131,11 @@ def run_daily(club: Callable, national: Callable, morning_odds: Callable,
             # Graded here, on the server's own logs, so the page shows today's
             # record and not the one baked into the last deploy.
             try:
+                results = real_results()
                 from scripts.build_model_track_record import refresh
-                report["track_record_live"] = sum(b["n"] for b in refresh(real_results())["live"])
+                report["track_record_live"] = sum(b["n"] for b in refresh(results)["live"])
+                from src.ai_tip_review import refresh as review
+                report["ai_tip_review_fixtures"] = review(results, ROOT)["fixtures"]
             except Exception as exc:
                 report["errors"].append(f"track_record: {type(exc).__name__}: {exc}")
     report["finished_at"] = datetime.now(timezone.utc).isoformat()

@@ -15,6 +15,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 import log_bets  # noqa: E402
 import log_combos  # noqa: E402
@@ -31,6 +32,7 @@ def merge_bets(repo, server):
     for e in server:
         key = log_bets._fixture_key(e)
         old = by_key.get(key)
+        previous_history = list((old or {}).get("ai_review_history", []))
         if old is None:
             repo.append(e)
             by_key[key] = e
@@ -40,6 +42,9 @@ def merge_bets(repo, server):
             old.update(e)
         elif log_bets._price_tip_upgrade(old.get("price_tip"), e.get("price_tip")):
             old["price_tip"] = e["price_tip"]
+        if old is not None:
+            from src.ai_tip_review import merge_history
+            merge_history(old, previous_history + e.get("ai_review_history", []))
     return added
 
 
