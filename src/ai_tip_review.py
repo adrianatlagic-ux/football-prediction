@@ -15,6 +15,8 @@ def capture(match, now):
             return None
     except (KeyError, ValueError, TypeError):
         return None
+    if not match.get('agent_eval'):
+        return None
     fields = ('home_team', 'away_team', 'sport_key', 'event_id', 'commence_time',
               'agent_eval', 'bet_tip', 'likely_pick', 'odds_fetched_at', 'odds_stage')
     item = deepcopy({k: match.get(k) for k in fields})
