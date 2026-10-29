@@ -384,7 +384,7 @@
     "review_actual_beginning_middle_end": true,
     "missing_action": "disclose_quality_status_without_second_generation",
     "on_pitch_beats_optional": true,
-    "story_setting_default": "dressing_room_or_club_backstage",
+    "story_setting_default": "choose_from_verified_story_and_recent_visual_settings",
     "pure_dressing_room_story_can_be_ready": true
   },
   "cloud_editor_temporary_cloud_files_allowed": true,
@@ -430,7 +430,8 @@
       "actual natural German speech",
       "opening disappears after two seconds",
       "clear decision and visible consequence in the actual story",
-      "if visible, stadium stands densely occupied; not applicable to pure dressing-room stories"
+      "if visible, stadium stands densely occupied; not applicable to pure dressing-room stories",
+      "main setting and visual action differ clearly from recent videos"
     ],
     "one_generation_per_editorial_day": true,
     "no_regeneration_of_rejected_2026_10_20": true
@@ -510,5 +511,22 @@
     "max_total_video_generations": 2,
     "third_generation_allowed": false,
     "scope": "2026-10-23 only"
+  },
+  "setting_diversity": {
+    "required": true,
+    "effective_from": "2026-10-29",
+    "compare_previous_posts": 3,
+    "repeat_same_main_setting": false,
+    "tunnel_or_dressing_room_default": false,
+    "choose_setting_for_verified_story": true,
+    "required_manifest_fields": [
+      "recent_settings",
+      "story_setting",
+      "setting_difference",
+      "visual_action"
+    ],
+    "short_video_rule": "One clear on-screen action and visible consequence; do not compress a 15-second dialogue story into five seconds.",
+    "stadium_rule": "If stands are visible, they must be densely and credibly filled.",
+    "opening_rule": "Immediate player action; no fixture/date pre-roll."
   }
 }
