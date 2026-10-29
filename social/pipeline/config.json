@@ -176,41 +176,15 @@
     "validation_required": true
   },
   "fixture_hook": {
-    "required": true,
-    "duration_seconds": 2,
-    "placement": "opening_inside_generated_story_video",
-    "text_renderer": "higgsfield_video_generation",
-    "language": "en",
-    "line_templates": [
-      "{HOME_EN} vs {AWAY_EN}",
-      "{RELATIVE_DAY_EN} · {HH:MM} {CET_OR_CEST}"
-    ],
-    "timezone": "Europe/Berlin",
-    "source": "live_verified_fixture",
-    "relative_day_must_match_delivery_date": true,
-    "background": "generated_photorealistic_scene",
-    "source_video_overlay": false,
-    "speech": false,
-    "validation_required": true,
-    "future_day_template": "{D} {MON_EN} {YYYY} · {HH:MM} {CET_OR_CEST}",
-    "future_date_required": true,
-    "render_mode": "inside_generated_story_video",
-    "post_generation_text_overlay": false,
-    "separate_intro": false,
-    "team_crests": {
-      "required": true,
-      "enabled": true,
-      "placement": "very_beginning",
-      "source": "authorized_assets_or_official_team_sources",
-      "reference_media_required": true,
-      "team_assignment_validation_required": true,
-      "shape_and_legibility_validation_required": true
-    },
-    "opening_content": [
-      "official_team_crests",
-      "team_names",
-      "verified_match_date_and_kickoff"
-    ]
+    "required": false,
+    "duration_seconds": 0,
+    "placement": "none",
+    "team_names_in_video_intro": false,
+    "kickoff_in_video_intro": false,
+    "crest_intro": false,
+    "opening_rule": "begin_immediately_with_players_and_story",
+    "verified_fixture_required_for_manifest_and_caption": true,
+    "override": "User correction 2026-10-29 supersedes earlier generated fixture intro and crest card requirements"
   },
   "source_hash_comparison_offset": 0,
   "fixture_selection": {
@@ -526,7 +500,8 @@
     "fictional_dialogue_label_required": true,
     "fictional_quotes_must_not_be_presented_as_real": true,
     "one_clear_dilemma_decision_visible_consequence": true,
-    "do_not_copy_prior_plot": true
+    "do_not_copy_prior_plot": true,
+    "opening_rule": "First frame shows relevant players in the scene; no fixture/date/crest pre-roll."
   },
   "explicit_exception_2026_10_23": {
     "user_authorized_second_generation": true,
