@@ -2,9 +2,9 @@
   "schema_version": "1.0",
   "target_date": "2026-10-29",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "reserved",
+  "status": "generation_submitted",
   "daily_video_limit": 1,
-  "attempts_used": 0,
+  "attempts_used": 1,
   "video_generation_attempt_limit": 1,
   "coverage_key": "bundesliga:83219:2026-10-31:bayern-muenchen-borussia-dortmund:second-angle-2026-10-29",
   "duplicate_fixture_exception": "User explicitly requested a new distinct on-pitch angle after the 2026-10-26 preview.",
@@ -58,14 +58,15 @@
   },
   "generation": {
     "idempotency_key": "goaliq-2026-10-29-bl1-83219-mini5s-onpitch-v1",
-    "job_id": null,
+    "job_id": "273c5311-c159-447d-b693-1f3316793ceb",
     "model": "seedance_2_0_mini",
     "duration_seconds": 5,
     "resolution": "480p",
     "aspect_ratio": "9:16",
     "reference_count": 2,
     "quoted_credits_exact": 2.5,
-    "balance_before": 21
+    "balance_before": 21,
+    "paid_job_status": "pending"
   },
   "outro": {
     "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
