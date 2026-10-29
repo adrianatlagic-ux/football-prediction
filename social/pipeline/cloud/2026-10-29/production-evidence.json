@@ -1,0 +1,44 @@
+{
+  "target_date": "2026-10-29",
+  "generation": {
+    "job_id": "273c5311-c159-447d-b693-1f3316793ceb",
+    "model": "seedance_2_0_mini",
+    "resolution": "480p",
+    "source_sha256": "1aef4fe9ebb0443a6b246a0897cf9b1a47acf3d3a6f16e926115611254816def",
+    "source_duration_seconds": 5.088,
+    "quoted_credits": 2.5,
+    "used_credits": 2.5,
+    "balance_before": 21,
+    "balance_after": 18.5
+  },
+  "montage": {
+    "outro_master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "outro_master_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "outro_trim_seconds": 2,
+    "final_media_id": "46fbe916-24a2-4ea2-8acf-5e4718f2aa27",
+    "zip_media_id": "a55c4942-ee06-45f7-a482-5697679a070b",
+    "final_sha256": "0b0152389dd4f16c761473b5277bb61f108534140e6fc93ad35b486fdcfddc02",
+    "final_duration_seconds": 7.12,
+    "source_video_frames_identical": "all 121 decoded source frames match final prefix",
+    "source_audio_packets_identical": "all 160 source AAC packets match final prefix",
+    "zip_contains_byte_identical_mp4": true,
+    "mp4_http": 206,
+    "zip_http": 206
+  },
+  "qa": {
+    "opening": "starts immediately with Kane, no fixture intro",
+    "players": "Kane and Can visually resemble references, correct clubs",
+    "action": "Kane motion then Can ball control and forward kick; exact intercept not clearly shown in shared frame",
+    "crowd": "visible stands appear populated but dark, no obvious empty-seat rows in sampled frames",
+    "audio": "AAC present and packet-preserved; German wording, naturalness, lip sync not independently verified",
+    "outro": "GoalIQ logo, goaliq.de and exact German disclaimer visible in trimmed two-second master",
+    "ready": false,
+    "reason": "The Kane-to-Can interception and German dialogue cannot be independently confirmed."
+  },
+  "fixture": {
+    "source": "https://www.bvb.de/de/de/bvb-spielplan/spiel.html/2026-2027/Fussball/Profis/Bundesliga/8/Bayern-Muenchen-Borussia-Dortmund.html",
+    "kickoff_at": "2026-10-31T18:30:00+01:00",
+    "checked_on": "2026-10-29"
+  },
+  "note": "No private media URLs stored."
+}
