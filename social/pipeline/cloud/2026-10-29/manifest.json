@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "target_date": "2026-10-29",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "generation_submitted",
+  "status": "delivered_with_disclosed_quality_limit",
   "daily_video_limit": 1,
   "attempts_used": 1,
   "video_generation_attempt_limit": 1,
@@ -66,7 +66,10 @@
     "reference_count": 2,
     "quoted_credits_exact": 2.5,
     "balance_before": 21,
-    "paid_job_status": "pending"
+    "paid_job_status": "completed",
+    "credits_used": 2.5,
+    "balance_after": 18.5,
+    "source_sha256": "1aef4fe9ebb0443a6b246a0897cf9b1a47acf3d3a6f16e926115611254816def"
   },
   "outro": {
     "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
@@ -77,6 +80,23 @@
   },
   "qa": {
     "ready": false,
-    "crowd_review": "pending"
-  }
+    "story_review": "Kane and Can shown with ball action but interception not unambiguously visible as one continuous duel",
+    "cast_review": "two current male players visually resemble official references in correct team kits",
+    "crowd_review": "sampled dark stadium frames show populated-looking stands; no obvious empty rows",
+    "audio_review": "AAC present and preserved but German speech and lip sync not independently verified",
+    "outro_review": "2-second crop of approved master retains logo, goaliq.de and exact German text",
+    "download_review": "both links HTTP 206 and ZIP MP4 SHA256 match"
+  },
+  "production": {
+    "final_media_id": "46fbe916-24a2-4ea2-8acf-5e4718f2aa27",
+    "zip_media_id": "a55c4942-ee06-45f7-a482-5697679a070b",
+    "final_sha256": "0b0152389dd4f16c761473b5277bb61f108534140e6fc93ad35b486fdcfddc02",
+    "source_duration_seconds": 5.088,
+    "final_duration_seconds": 7.12,
+    "source_video_integrity": "all_121_decoded_frames_identical",
+    "source_audio_integrity": "all_160_AAC_packets_identical",
+    "zip_byte_identity": "sha256_match"
+  },
+  "caption": "caption.txt",
+  "production_evidence": "production-evidence.json"
 }
