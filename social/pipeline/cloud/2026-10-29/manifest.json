@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "target_date": "2026-10-29",
+  "editorial_date_timezone": "Europe/Berlin",
+  "status": "reserved",
+  "daily_video_limit": 1,
+  "attempts_used": 0,
+  "video_generation_attempt_limit": 1,
+  "coverage_key": "bundesliga:83219:2026-10-31:bayern-muenchen-borussia-dortmund:second-angle-2026-10-29",
+  "duplicate_fixture_exception": "User explicitly requested a new distinct on-pitch angle after the 2026-10-26 preview.",
+  "match": {
+    "competition": "Bundesliga",
+    "match_id": 83219,
+    "home": "FC Bayern München",
+    "away": "Borussia Dortmund",
+    "match_date": "2026-10-31",
+    "kickoff_at": "2026-10-31T18:30:00+01:00",
+    "timezone": "Europe/Berlin",
+    "official_source": "https://www.bvb.de/de/de/bvb-spielplan/spiel.html/2026-2027/Fussball/Profis/Bundesliga/8/Bayern-Muenchen-Borussia-Dortmund.html",
+    "checked_on": "2026-10-29"
+  },
+  "selection": {
+    "today_bundesliga_matches": 0,
+    "today_ucl_matches": 0,
+    "prior_match_covered_on": "2026-10-26",
+    "distinct_angle": "Emre Can defensive decision on a packed pitch instead of Kane–Guirassy studio spotlight"
+  },
+  "research": {
+    "prediction_used": false,
+    "verified_context": "Emre Can is a current Borussia Dortmund player and former Bayern youth and professional player.",
+    "sources": [
+      "https://www.bvb.de/de/de/mannschaften/fussball/spieler/emre-can.html",
+      "https://fcbayern.com/de/teams/profis"
+    ],
+    "reference_media_ids": [
+      "9ab7f0ed-688c-4468-96e8-d0ce11396e99",
+      "01497cfa-ea5f-41b5-8950-4b1a2c07e88a"
+    ]
+  },
+  "story": {
+    "story_type": "on_pitch_interception_choice",
+    "previous_story_type": "away_supporters_scarf_space",
+    "recent_settings": [
+      "2026-10-26 studio",
+      "2026-10-27 backstage photo room",
+      "2026-10-28 no video"
+    ],
+    "story_setting": "fictional packed football stadium",
+    "setting_difference": "direct on-pitch action, no backstage or tunnel",
+    "visual_action": "Kane prepares a shot; Can intercepts and consciously passes forward.",
+    "hook": "Kane begins a shot immediately",
+    "conflict": "Can must stop the attempt",
+    "decision": "Can intercepts and chooses a forward pass",
+    "visible_consequence": "The ball leaves Can toward a teammate",
+    "one_sentence_audience_story": "Im fiktiven Duell stoppt Ex-Bayern-Spieler Emre Can Kanes Schussversuch und leitet den BVB-Angriff ein.",
+    "spoken_language": "de",
+    "fiction_label": "KI-Fiktion in caption"
+  },
+  "generation": {
+    "idempotency_key": "goaliq-2026-10-29-bl1-83219-mini5s-onpitch-v1",
+    "job_id": null,
+    "model": "seedance_2_0_mini",
+    "duration_seconds": 5,
+    "resolution": "480p",
+    "aspect_ratio": "9:16",
+    "reference_count": 2,
+    "quoted_credits_exact": 2.5,
+    "balance_before": 21
+  },
+  "outro": {
+    "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "master_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "trimmed_duration_seconds": 2,
+    "keep_layout_text_logo": true,
+    "preflight": "master_sha256_duration_pass"
+  },
+  "qa": {
+    "ready": false,
+    "crowd_review": "pending"
+  }
+}
