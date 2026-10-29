@@ -1,6 +1,6 @@
 ## Vorrangige Nutzerkorrektur 29.10.2026: direkter Einstieg bei den Spielern
 
-Neue GoalIQ-Videos beginnen unmittelbar mit den beteiligten Spielern und der konkreten Handlung. Keine vorangestellte Paarungs-/Termin-Eröffnung, keine Wappenkarte und keine eingeblendete Anstoßzeit als Intro – weder generiert noch im Schnitt ergänzt. Der erste sichtbare Moment gehört den Spielern. Spielpaarung und verifizierter Anstoß bleiben verpflichtend für Recherche, Manifest und deutsche Caption. Diese Korrektur ersetzt alle älteren Pflichtregeln für einen etwa zweisekündigen Fixture-Hook und dessen Wappen-/Textprüfung. Das feste GoalIQ-Markenende bleibt eine eigene Vorgabe; die Nutzeridee eines kürzeren Endes ist noch nicht als neues Master freigegeben und wird nicht stillschweigend umgesetzt.
+Neue GoalIQ-Videos beginnen unmittelbar mit den beteiligten Spielern und der konkreten Handlung. Keine vorangestellte Paarungs-/Termin-Eröffnung, keine Wappenkarte und keine eingeblendete Anstoßzeit als Intro – weder generiert noch im Schnitt ergänzt. Der erste sichtbare Moment gehört den Spielern. Spielpaarung und verifizierter Anstoß bleiben verpflichtend für Recherche, Manifest und deutsche Caption. Diese Korrektur ersetzt alle älteren Pflichtregeln für einen etwa zweisekündigen Fixture-Hook und dessen Wappen-/Textprüfung. Die Länge des Markenabschlusses wird separat festgelegt; Logo, Domain und deutscher Hinweis bleiben erhalten.
 
 ## Vorrangige Nutzerkorrektur 23.10.2026: Rückkehr zum Spielerformat von Anfang Oktober
 
