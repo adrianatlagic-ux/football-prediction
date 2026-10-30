@@ -1,0 +1,45 @@
+{
+  "target_date": "2026-10-30",
+  "job_id": "c4d680be-df57-4957-8d36-20a9ad168831",
+  "source": {
+    "sha256": "d70a46bdd07c7dd92ecdb095690590b2f96c754c0ee24141a6d2b96ae65996c8",
+    "duration_seconds": 5.088,
+    "width": 720,
+    "height": 1280,
+    "video_bit_rate": 12842765,
+    "audio": "AAC 32000 stereo"
+  },
+  "montage": {
+    "final_media_id": "d53a0115-639c-40c8-b547-6e5d5eb23566",
+    "zip_media_id": "bd5cf496-09d5-4a08-9a7d-84f7839bb7a7",
+    "sha256": "1f4c9f8a16aa45624166f066cd6177291a8d7afafe0bafc1ec7638dbb96bb97e",
+    "duration_seconds": 7.12,
+    "source_all_121_frames_identical": true,
+    "source_all_160_audio_packets_identical": true,
+    "zip_byte_identity": true,
+    "mp4_http": 206,
+    "zip_http": 206,
+    "outro_master_hash": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "outro_trim_seconds": 2
+  },
+  "credits": {
+    "quoted": 5,
+    "used": 5,
+    "before": 18.5,
+    "after": 13.5
+  },
+  "qa": {
+    "visual_style": "photorealistic, stable indoor lounge",
+    "player_review": "Undav and Andrich resemble supplied official portraits in correct club shirts",
+    "story_review": "Andrich holds small ball, both exchange expressions, ball is placed and they start table football",
+    "setting_review": "off_pitch_only; no tunnel or stadium; tabletop miniature game is indoor prop",
+    "sharpness_review": "720p output and 12.8Mbps confirmed; faces and clothing clearer in sampled frames than previous moving 480p pitch clip; confounded by lighting and scene motion, not a controlled model comparison",
+    "audio_review": "source audio present and preserved; actual German wording, voice naturalness and lip sync not independently heard",
+    "outro_review": "logo, goaliq.de, full exact German disclaimer visible",
+    "ready": false,
+    "quality_status": "visual_pass_audio_review_limit"
+  },
+  "fixture_final_check_source": "https://www.vfb.de/de/",
+  "fixture_kickoff": "2026-10-31T15:30:00+01:00",
+  "private_media_urls_in_repository": false
+}
