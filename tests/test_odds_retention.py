@@ -126,3 +126,123 @@ def test_split_book_replacements_keep_historical_evidence_without_old_offers():
         {'name': 'Under', 'point': 2.5, 'price': 2.1})
     updated = stamp_event(retain_missing_quotes(merged, complete), now, 'final')
     assert market_consensus(updated, 'totals', 'Over', 2.5, now) == (1 / 1.7) / (1 / 1.7 + 1 / 2.1)
+
+
+@pytest.mark.parametrize('key,names,points', [
+    ('h2h', ['A', 'Draw', 'B'], [None, None, None]),
+    ('totals', ['Over', 'Under'], [2.5, 2.5]),
+    ('spreads', ['A', 'B'], [0.5, -0.5]),
+    ('btts', ['Yes', 'No'], [None, None]),
+])
+@pytest.mark.parametrize('reverse_history', [False, True])
+def test_latest_complete_market_survives_successive_fetches_and_restart(key, names, points, reverse_history):
+    import json
+    now = datetime.now(timezone.utc)
+    base = event()
+    base['commence_time'] = (now + timedelta(hours=1)).isoformat()
+
+    def snapshot(prices, fetched):
+        outcomes = [dict(name=name, price=price, **({'point': point} if point is not None else {}))
+                    for name, point, price in zip(names, points, prices)]
+        return stamp_event({**base, 'bookmakers': [
+            {'key': 'book', 'last_update': fetched.isoformat(),
+             'markets': [{'key': key, 'outcomes': outcomes}]}]}, fetched, 'final')
+
+    old_prices = [1.8, 2.0] if len(names) == 2 else [1.8, 4.0, 5.0]
+    latest_prices = [1.4, 3.0] if len(names) == 2 else [1.4, 5.0, 7.0]
+    old = snapshot(old_prices, now - timedelta(hours=6))
+    current = snapshot(latest_prices, now - timedelta(hours=2))
+    merged = retain_missing_quotes(old, current)
+    # Include old-format caches with several evidence versions in either order.
+    legacy = deepcopy(old['bookmakers'][0]['markets'][0])
+    legacy.update(last_update=old['bookmakers'][0]['last_update'], carried_forward=True,
+                  historical_outcomes=legacy['outcomes'], outcomes=[])
+    merged['bookmakers'][0]['markets'].append(legacy)
+    if reverse_history:
+        merged['bookmakers'][0]['markets'].reverse()
+    # A saved cache from the earlier implementation must also give the latest
+    # probability before any provider refresh has compacted its history.
+    cached = deepcopy(merged)
+    for market in cached['bookmakers'][0]['markets']:
+        market['carried_forward'] = True
+    expected = (1 / latest_prices[0]) / sum(1 / p for p in latest_prices)
+    assert market_consensus(cached, key, names[0], points[0], now) == pytest.approx(expected)
+    missing = stamp_event({**base, 'bookmakers': []}, now, 'final')
+    for _ in range(5):
+        merged = stamp_event(retain_missing_quotes(merged, missing), now, 'final')
+        # Round-trip as the on-disk snapshot does before a process restart.
+        merged = json.loads(json.dumps(merged))
+        for name, point, price in zip(names, points, latest_prices):
+            offer = api._best_price(merged, key, name, point)
+            assert offer['price'] == price
+            assert offer['last_update'] == current['bookmakers'][0]['last_update']
+            expected = (1 / price) / sum(1 / p for p in latest_prices)
+            assert market_consensus(merged, key, name, point, now) == pytest.approx(expected)
+        # No growth across repeated absent markets and repeated injection.
+        stable = deepcopy(merged)
+        merged = retain_missing_quotes(merged, merged)
+        assert merged == stable
+
+
+def test_each_total_line_keeps_its_own_latest_complete_probability():
+    now = datetime.now(timezone.utc)
+    base = event()
+    base['commence_time'] = (now + timedelta(hours=1)).isoformat()
+
+    def snapshot(lines, fetched):
+        return stamp_event({**base, 'bookmakers': [{'key': 'book', 'last_update': fetched.isoformat(),
+            'markets': [{'key': 'totals', 'outcomes': [
+                {'name': name, 'point': line, 'price': price}
+                for line, over, under in lines for name, price in [('Over', over), ('Under', under)]]}]}]},
+            fetched, 'final')
+
+    old = snapshot([(2.5, 1.8, 2.0), (3.5, 2.5, 1.6)], now - timedelta(hours=6))
+    fresh = snapshot([(2.5, 1.4, 3.0)], now - timedelta(hours=2))
+    merged = retain_missing_quotes(old, fresh)
+    missing = stamp_event({**base, 'bookmakers': []}, now, 'final')
+    merged = stamp_event(retain_missing_quotes(merged, missing), now, 'final')
+    assert api._best_price(merged, 'totals', 'Over', 2.5)['price'] == 1.4
+    assert api._best_price(merged, 'totals', 'Over', 3.5)['price'] == 2.5
+    assert market_consensus(merged, 'totals', 'Over', 2.5, now) == pytest.approx((1 / 1.4) / (1 / 1.4 + 1 / 3.0))
+    assert market_consensus(merged, 'totals', 'Over', 3.5, now) == pytest.approx((1 / 2.5) / (1 / 2.5 + 1 / 1.6))
+
+
+def test_many_refreshes_follow_replace_or_keep_rule_for_every_selection():
+    import json
+    import random
+    rng = random.Random(37)
+    now = datetime.now(timezone.utc)
+    base = event()
+    base['commence_time'] = (now + timedelta(hours=2)).isoformat()
+    selections = [('h2h', name, None) for name in ['A', 'Draw', 'B']]
+    selections += [('totals', name, line) for line in [1.5, 2.5, 3.5] for name in ['Over', 'Under']]
+    selections += [('spreads', 'A', 0.5), ('spreads', 'B', -0.5)]
+    selections += [('btts', name, None) for name in ['Yes', 'No']]
+    expected = {}
+    merged = None
+    for step in range(30):
+        fetched = now - timedelta(minutes=10 * (29 - step))
+        books = []
+        replacements = {}
+        for book_key in ['first', 'second']:
+            markets = {}
+            for key, name, point in selections:
+                if step and rng.random() < 0.6:
+                    continue
+                price = round(rng.uniform(1.2, 4.0), 2)
+                outcome = {'name': name, 'price': price}
+                if point is not None:
+                    outcome['point'] = point
+                markets.setdefault(key, []).append(outcome)
+                identity = (key, name, point)
+                replacements[identity] = max(replacements.get(identity, 0), price)
+            books.append({'key': book_key, 'last_update': fetched.isoformat(),
+                          'markets': [{'key': key, 'outcomes': outcomes} for key, outcomes in markets.items()]})
+        current = stamp_event({**base, 'bookmakers': books}, fetched, 'final')
+        merged = retain_missing_quotes(merged, current) if merged else current
+        expected.update(replacements)
+        # Include restart and repeated injection paths after every response.
+        merged = json.loads(json.dumps(merged))
+        merged = retain_missing_quotes(merged, merged)
+        for (key, name, point), price in expected.items():
+            assert api._best_price(merged, key, name, point)['price'] == price

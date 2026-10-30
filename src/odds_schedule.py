@@ -14,6 +14,44 @@ def stamp_event(event, fetched_at, stage):
     return {**event, "odds_fetched_at": fetched_at.isoformat(), "odds_stage": stage}
 
 
+def _compact_market_history(event, books):
+    """Keep at most the newest complete evidence per book, market and line.
+
+    Carried offers and probability evidence have independent lifetimes: an
+    offer survives until replaced, evidence until a newer complete group exists.
+    """
+    from .bet_selection import complete_market_groups
+    for book in books:
+        latest = {}
+        for market in book["markets"]:
+            carried = bool(market.get("carried_forward"))
+            outcomes = (market.get("historical_outcomes", market.get("outcomes", []))
+                        if carried else market.get("outcomes", []))
+            updated = market.get("last_update") or book.get("last_update")
+            try:
+                rank = (timestamp(updated), not carried)
+            except (ValueError, TypeError):
+                continue
+            for line, group in complete_market_groups(event, market.get("key"), outcomes).items():
+                identity = (market["key"], line)
+                if identity not in latest or rank > latest[identity][0]:
+                    latest[identity] = (rank, market, group, updated)
+        markets = []
+        for market in book["markets"]:
+            if market.get("carried_forward"):
+                if not market.get("outcomes"):
+                    continue
+                # Quotes do not need to keep every historical market version.
+                market = {**market, "historical_outcomes": []}
+            markets.append(market)
+        for _, market, group, updated in latest.values():
+            if market.get("carried_forward"):
+                markets.append({"key": market["key"], "last_update": updated,
+                                "carried_forward": True, "outcomes": [],
+                                "historical_outcomes": group})
+        book["markets"] = markets
+
+
 def retain_missing_quotes(previous, current):
     """Carry missing selections from the previous snapshot until kickoff.
 
@@ -78,6 +116,7 @@ def retain_missing_quotes(previous, current):
                 books.append(book)
                 by_book[identity] = book
             book["markets"].extend(market for market in retained if market not in book["markets"])
+    _compact_market_history(current, books)
     return {**current, "bookmakers": books}
 
 

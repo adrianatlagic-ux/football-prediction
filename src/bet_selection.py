@@ -21,6 +21,34 @@ def quote_is_fresh(value, now=None):
         return False
 
 
+def complete_market_groups(event, key, outcomes):
+    """Complete same-book settlement groups, indexed by their market line."""
+    if key == "h2h":
+        required = {event["home_team"], "Draw", event["away_team"]}
+    elif key == "totals":
+        required = {"Over", "Under"}
+    elif key == "btts":
+        required = {"Yes", "No"}
+    elif key == "spreads":
+        required = {event["home_team"], event["away_team"]}
+    else:
+        return {}
+    groups = {}
+    for outcome in outcomes:
+        if outcome.get("name") not in required:
+            continue
+        line = outcome.get("point") if key in ("totals", "spreads") else None
+        if key in ("totals", "spreads") and not isinstance(line, (int, float)):
+            continue
+        if key == "spreads" and outcome["name"] == event["away_team"]:
+            line = -line
+        groups.setdefault(line, []).append(outcome)
+    return {line: group for line, group in groups.items()
+            if len(group) == len(required) and {o["name"] for o in group} == required
+            and all(isinstance(o.get("price"), (int, float))
+                    and math.isfinite(o["price"]) and o["price"] > 1 for o in group)}
+
+
 def market_evidence(event, key, name, point=None, now=None, exclude_book=None, include_carried=False):
     """Devig each complete same-book market, then average the book estimates.
 
@@ -28,6 +56,7 @@ def market_evidence(event, key, name, point=None, now=None, exclude_book=None, i
     For push markets this is a conditional price signal, not P(profit).
     """
     estimates = {}
+    evidence_times = {}
     for book in event.get("bookmakers", []):
         identity = book.get("key") or book.get("title")
         if not identity or identity == exclude_book:
@@ -40,27 +69,22 @@ def market_evidence(event, key, name, point=None, now=None, exclude_book=None, i
                 continue
             outcomes = (market.get("historical_outcomes", market.get("outcomes", []))
                         if market.get("carried_forward") else market.get("outcomes", []))
-            if key == "h2h":
-                required = {event["home_team"], "Draw", event["away_team"]}
-                group = [o for o in outcomes if o.get("name") in required]
-            elif key == "totals":
-                required = {"Over", "Under"}
-                group = [o for o in outcomes if o.get("name") in required and o.get("point") == point]
-            elif key == "btts":
-                required = {"Yes", "No"}
-                group = [o for o in outcomes if o.get("name") in required]
-            else:
-                required = {event["home_team"], event["away_team"]}
-                group = [o for o in outcomes if o.get("name") in required and o.get("point") == (point if o.get("name") == name else -point)]
-            if len(group) != len(required) or {o["name"] for o in group} != required:
+            line = -point if key == "spreads" and name == event["away_team"] else point
+            group = complete_market_groups(event, key, outcomes).get(line)
+            if not group:
                 continue
             prices = [float(o["price"]) for o in group]
-            if any(not math.isfinite(p) or p <= 1 for p in prices):
-                continue
             denominator = sum(1 / p for p in prices)
             selected = next((o for o in group if o["name"] == name), None)
             if selected:
-                estimates[identity] = (1 / selected["price"]) / denominator
+                try:
+                    observed = timestamp(market.get("last_update") or book.get("last_update"))
+                except (ValueError, TypeError):
+                    continue
+                rank = (observed, not market.get("carried_forward", False))
+                if identity not in evidence_times or rank > evidence_times[identity]:
+                    evidence_times[identity] = rank
+                    estimates[identity] = (1 / selected["price"]) / denominator
     values = list(estimates.values())
     return {"books": estimates, "book_count": len(values),
             "mean": statistics.mean(values) if values else None,
