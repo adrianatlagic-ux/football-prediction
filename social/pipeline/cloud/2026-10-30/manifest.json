@@ -1,0 +1,71 @@
+{
+  "target_date": "2026-10-30",
+  "status": "reserved",
+  "daily_video_limit": 1,
+  "attempts_used": 0,
+  "coverage_key": "bundesliga:2026-10-31:bayer-leverkusen-vfb-stuttgart",
+  "selection_reason": "User explicitly selected Leverkusen–VfB as relevant fixture.",
+  "match": {
+    "home": "Bayer 04 Leverkusen",
+    "away": "VfB Stuttgart",
+    "match_date": "2026-10-31",
+    "kickoff_at": "2026-10-31T15:30:00+01:00",
+    "source": "https://www.vfb.de/de/",
+    "checked_on": "2026-10-30"
+  },
+  "research": {
+    "generation_basis": "verified_fixture_and_current_research",
+    "prediction_used": false,
+    "verified_context": "Official VfB schedule lists tomorrow's away game in Leverkusen. Current official club rosters and portraits verify Undav and Andrich. Fictional table-football challenge anticipates tomorrow's opponents; no claim of a real meeting.",
+    "sources": [
+      "https://www.vfb.de/de/",
+      "https://www.vfb.de/de/vfb/profis/kader/2627/deniz-undav/spielerprofil/",
+      "https://www.bayer04.de/de-de/player/werkself/bayer-04-leverkusen/robert-andrich"
+    ],
+    "portrait_sources": [
+      "https://www.vfb.de/?proxy=sportdb/spieler/a56ab-22_undav.png",
+      "https://b04-ep-media-prod.azureedge.net/pickerimages/Andrich_S2627_14849_926732_M.png"
+    ]
+  },
+  "story": {
+    "type": "playful_pre_match_challenge",
+    "protagonists": [
+      "Deniz Undav",
+      "Robert Andrich"
+    ],
+    "recent_settings": [
+      "studio",
+      "backstage scarf display",
+      "pitch action"
+    ],
+    "story_setting": "player lounge with table football",
+    "setting_difference": "new indoor leisure setting, no tunnel, no pitch",
+    "goal": "Andrich invites tomorrow's opponent Undav to a playful foosball challenge.",
+    "conflict": "Undav questions whether the duel starts already today.",
+    "decision": "Undav accepts and grips the rods.",
+    "visible_consequence": "Andrich drops the ball into the table and both begin.",
+    "one_sentence_audience_story": "Vor Leverkusen–Stuttgart nehmen die beiden Gegner das morgige Duell beim Tischkicker spielerisch vorweg.",
+    "spoken_language": "de",
+    "fiction_label": "KI-Fiktion in caption",
+    "on_pitch_beats": []
+  },
+  "generation": {
+    "idempotency_key": "goaliq-2026-10-30-b04-vfb-mini720-5s-v1",
+    "model": "seedance_2_0_mini",
+    "duration": 5,
+    "resolution": "720p",
+    "bitrate_mode": "high",
+    "quoted_credits_exact": 5,
+    "balance_before": 18.5,
+    "job_id": null
+  },
+  "outro": {
+    "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "trim_seconds": 2,
+    "preflight": "hash_and_visual_pass"
+  },
+  "qa": {
+    "ready": false
+  }
+}
