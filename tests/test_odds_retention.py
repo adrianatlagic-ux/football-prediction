@@ -1,13 +1,17 @@
+import pytest
+
 from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 
 from api import app as api
+from src.bet_selection import market_consensus
 from src.ai_tip_research import fresh_candidates
 from src.odds_schedule import retain_missing_quotes, stamp_event
 from tests.test_bet_selection import event, prediction
 
 
-def test_missing_bet_stays_available_and_new_quote_replaces_it():
+@pytest.mark.parametrize("new_book", ["new-book", "old-book"])
+def test_missing_bet_stays_available_and_new_quote_replaces_it(new_book):
     now = datetime.now(timezone.utc)
     old = event()
     old['commence_time'] = (now + timedelta(minutes=30)).isoformat()
@@ -18,7 +22,7 @@ def test_missing_bet_stays_available_and_new_quote_replaces_it():
         {'name': 'Under', 'point': 2.5, 'price': 1.9}]})
     old = stamp_event(old, now - timedelta(hours=8), 'daily')
     new = deepcopy(old)
-    new['bookmakers'] = [{'key': 'new-book', 'title': 'New', 'last_update': now.isoformat(),
+    new['bookmakers'] = [{'key': new_book, 'title': 'New', 'last_update': now.isoformat(),
                           'markets': [deepcopy(old['bookmakers'][0]['markets'][0])]}]
     merged = stamp_event(retain_missing_quotes(old, new), now, 'final')
     vb = api._compute_value_bets(prediction(), [merged], 'A', 'B')
@@ -35,6 +39,24 @@ def test_missing_bet_stays_available_and_new_quote_replaces_it():
     offer = api._best_price(updated, 'totals', 'Over', point=2.5)
     assert offer['price'] == 1.65 and not offer['carried_forward']
     assert api._best_price(updated, 'totals', 'Under', point=2.5)['carried_forward']
+    expected = (1 / 1.8) / (1 / 1.8 + 1 / 1.9)
+    assert market_consensus(updated, 'totals', 'Over', 2.5, now) == expected
+    assert market_consensus(updated, 'totals', 'Under', 2.5, now) == (1 / 1.9) / (1 / 1.8 + 1 / 1.9)
+    bets = api._compute_value_bets(prediction(), [updated], 'A', 'B')
+    over = next(b for b in bets['bets'] if b['market'] == 'Over/Under 2.5' and b['outcome'] == 'Over')
+    assert over['best_odds'] == 1.65 and over['market_probability'] == round(expected, 4)
+    assert over in fresh_candidates(bets)
+    # A subsequent partial refresh keeps the original evidence and timestamps.
+    again = stamp_event(retain_missing_quotes(updated, new), now, 'final')
+    assert market_consensus(again, 'totals', 'Over', 2.5, now) == expected
+    assert api._best_price(again, 'totals', 'Under', 2.5)['last_update'] == old['bookmakers'][0]['last_update']
+    # Once a complete current market exists it takes precedence over history.
+    complete = deepcopy(new)
+    complete['bookmakers'][0]['markets'][-1]['outcomes'].append(
+        {'name': 'Under', 'point': 2.5, 'price': 2.1})
+    replaced = stamp_event(retain_missing_quotes(updated, complete), now, 'final')
+    assert market_consensus(replaced, 'totals', 'Over', 2.5, now) == (1 / 1.65) / (1 / 1.65 + 1 / 2.1)
+
 
 
 def test_retention_does_not_mix_distinct_matches():

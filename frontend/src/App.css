@@ -2431,14 +2431,6 @@ body {
   font-weight: 700;
 }
 
-.bet-quote-bookmaker {
-  display: block;
-  font-size: 0.65rem;
-  font-weight: 400;
-  color: var(--text-muted);
-  overflow-wrap: anywhere;
-}
-
 .smart-bet-col-market {
   color: #9ca3af;
   font-size: 0.72rem;

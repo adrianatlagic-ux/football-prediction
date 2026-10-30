@@ -38,7 +38,8 @@ def market_evidence(event, key, name, point=None, now=None, exclude_book=None, i
                 or (include_carried and market.get("carried_forward"))
             ):
                 continue
-            outcomes = market.get("outcomes", [])
+            outcomes = (market.get("historical_outcomes", market.get("outcomes", []))
+                        if market.get("carried_forward") else market.get("outcomes", []))
             if key == "h2h":
                 required = {event["home_team"], "Draw", event["away_team"]}
                 group = [o for o in outcomes if o.get("name") in required]
