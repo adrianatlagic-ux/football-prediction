@@ -134,7 +134,7 @@ def leg_pool(value_bet_results, book=None, policy="market", allow_mixed_books=Fa
             if rules["model_filters"] and (candidate.get("high_deviation") or candidate.get("contradicts_favorite")):
                 continue
             for offered in candidate.get("bookmaker_offers", [candidate]):
-                if not book_key(offered) or not offered.get("quote_fresh"):
+                if not book_key(offered) or not (offered.get("quote_fresh") or offered.get("quote_carried_forward")):
                     continue
                 if book and book_key(offered) != book:
                     continue
@@ -176,12 +176,12 @@ def leg_pool(value_bet_results, book=None, policy="market", allow_mixed_books=Fa
                         if not same or vb.get("agent_revised") or model_p < market_probability:
                             continue
                 leg = {**{k: offered.get(k) for k in ("market", "outcome", "team", "best_odds", "bookmaker", "bookmaker_key",
-                       "probability", "market_probability", "expected_value", "quote_last_update")},
+                       "probability", "market_probability", "expected_value", "quote_last_update", "quote_carried_forward")},
                        **{k: vb.get(k) for k in ("home_team", "away_team", "commence_time", "sport_key", "event_id", "odds_fetched_at", "odds_stage")},
                        # The ranking probability: the market's estimate, or
                        # under legacy_v3 the lower of model and market.
                        "conservative_probability": ranking, "policy": policy,
-                       "market_agrees": True, "quote_fresh": True,
+                       "market_agrees": True, "quote_fresh": offered.get("quote_fresh", False),
                        "model_probability": candidate.get("model_probability_raw"),
                        "ki_agrees": ki_agrees}
                 key = (identity, None if allow_mixed_books else book_key(leg),

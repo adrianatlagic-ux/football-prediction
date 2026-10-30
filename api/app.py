@@ -1038,7 +1038,7 @@ def _retry_book_morning(events: list[dict]) -> None:
 
 def _get_odds() -> list[dict]:
     from src.bet_audit import timestamp
-    from src.odds_schedule import stamp_event
+    from src.odds_schedule import stamp_event, retain_missing_quotes
     global _odds_cache, _odds_cache_date, _odds_cache_fetched_at, _odds_daily_refresh_date
     # Serialize provider requests so concurrent page/logger calls cannot issue
     # duplicate paid refreshes. The final snapshot survives later daily loads.
@@ -1062,6 +1062,20 @@ def _get_odds() -> list[dict]:
                 events = _fetch_odds()
                 fetched = datetime.now(timezone.utc)
                 stage = "daily" if fetched.hour >= ODDS_REFRESH_HOUR_UTC else "initial"
+                previous_events = _odds_cache
+                if not previous_events:
+                    try:
+                        saved = json.loads(ODDS_SNAPSHOT_PATH.read_text(encoding="utf-8"))
+                        saved_time = timestamp(saved["fetched_at"])
+                        previous_events = [stamp_event(e, saved_time, saved.get("stage", "daily"))
+                                           for e in saved["events"]]
+                    except (OSError, ValueError, KeyError, TypeError):
+                        previous_events = []
+                previous = {(e.get("sport_key"), e.get("id"), e.get("commence_time")): e
+                            for e in (_with_book_odds(old, previous_events) for old in previous_events)}
+                events = [retain_missing_quotes(previous[key], e) if key in previous else e
+                          for e in events
+                          for key in [(e.get("sport_key"), e.get("id"), e.get("commence_time"))]]
                 _save_odds_snapshot(events, fetched, stage)
                 _odds_cache = [stamp_event(e, fetched, stage) for e in events]
                 # bet-at-home's 1X2, read right after the snapshot so the two
@@ -1098,6 +1112,9 @@ def _get_odds() -> list[dict]:
                 fetched = datetime.now(timezone.utc)
                 for fresh in fresh_events:
                     key = (sport, fresh["id"], fresh["commence_time"])
+                    prior = next((e for e in events if e.get("id") == fresh["id"]), None)
+                    if prior:
+                        fresh = retain_missing_quotes(_with_book_odds(prior, events), fresh)
                     _final_odds_cache[key] = stamp_event(fresh, fetched, "final")
                 missing = {e["id"] for e in events} - {e["id"] for e in fresh_events}
                 if missing:
@@ -1159,7 +1176,7 @@ def _available_prices(event: dict, market_key: str, outcome_name: str, point: Op
         for market in bm.get("markets", []):
             if market.get("key") != market_key:
                 continue
-            if not quote_is_fresh(market.get("last_update") or bm.get("last_update"), as_of):
+            if not market.get("carried_forward") and not quote_is_fresh(market.get("last_update") or bm.get("last_update"), as_of):
                 continue
             for outcome in market.get("outcomes", []):
                 if outcome.get("name") != outcome_name:
@@ -1172,7 +1189,8 @@ def _available_prices(event: dict, market_key: str, outcome_name: str, point: Op
                 key = bm.get("key") or bm.get("title")
                 if key and (key not in offers or price > offers[key]["price"]):
                     offers[key] = {"price": price, "bookmaker": bm.get("title"), "bookmaker_key": key,
-                                   "last_update": market.get("last_update") or bm.get("last_update")}
+                                   "last_update": market.get("last_update") or bm.get("last_update"),
+                                   "carried_forward": bool(market.get("carried_forward"))}
     return list(offers.values())
 
 
@@ -1285,22 +1303,10 @@ def _with_book_odds(event: dict, events: Optional[list] = None) -> dict:
     if not markets:
         return event
     books = [b for b in event.get("bookmakers", []) if b.get("key") != USER_BOOK_KEY]
-    return {**event, "bookmakers": books + [{"key": USER_BOOK_KEY, "title": "bet-at-home",
-                                             "last_update": h2h_time or full_time, "markets": markets}]}
-
-
-def _user_price(event, market_key, outcome_name, point=None):
-    """bet-at-home's price where it quotes this market, else the best other.
-
-    Once bet-at-home's own book covers a market, a line only other bookmakers
-    offer is dropped: it is a bet the user cannot place.
-    """
-    offers = _available_prices(event, market_key, outcome_name, point)
-    covered = any(m.get("key") == market_key for b in event.get("bookmakers", [])
-                  if b.get("key") == USER_BOOK_KEY for m in b.get("markets", []))
-    if covered:
-        return next((o for o in offers if o["bookmaker_key"] == USER_BOOK_KEY), None)
-    return max(offers, key=lambda o: o["price"], default=None)
+    current = {**event, "bookmakers": books + [{"key": USER_BOOK_KEY, "title": "bet-at-home",
+                                               "last_update": h2h_time or full_time, "markets": markets}]}
+    from src.odds_schedule import retain_missing_quotes
+    return retain_missing_quotes(event, current)
 
 
 @app.get("/odds")
@@ -1348,9 +1354,9 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
                 "exclusion": "scheduled_snapshot_expired"}
     quote_as_of = timestamp(context["odds_fetched_at"])
     candidates = []
-    # Combo construction requests every offered quote. Its candidate list must
-    # include markets even when bet-at-home covers the group but not that line.
-    price_for = _best_price if include_offers else _user_price
+    # Every fresh offered quote can be considered, regardless of bookmaker.
+    # The chosen candidate retains the book that supplied its best price.
+    price_for = _best_price
     home_outcome_name, away_outcome_name = event["home_team"], event["away_team"]
 
     # If our own model is reasonably confident about who wins (>50%), a 1X2 bet
@@ -1384,11 +1390,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
         # lines refund outright. The combo builder already excluded all three
         # for the same reason; leaving them in the single-bet list only offered
         # the reader a bet we could not describe.
-        # Draw No Bet is the one exception, and only at bet-at-home: it is a
-        # market the user can place there, and a draw returning the stake is
-        # a result anyone can read.
-        if not binary_market(market) and not (market == "Handicap 0.0"
-                                              and best.get("bookmaker_key") == USER_BOOK_KEY):
+        if not binary_market(market):
             return
         bet = {"market": market, "outcome": outcome, "team": team, "best_odds": best["price"]}
         try:
@@ -1442,6 +1444,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
             "bookmaker_key": best.get("bookmaker_key"),
             "selection_market_reference": reference,
             "quote_last_update": best.get("last_update"),
+            "quote_carried_forward": best.get("carried_forward", False),
             "model_probability_raw": round(raw_prob, 4),
             "expected_value": round(ev, 4),
             "kelly_stake_pct": round(priced["kelly_stake_pct"], 1),
@@ -1450,7 +1453,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
             "loss_probability": priced["loss_probability"],
             "payout_distribution": priced["payout_distribution"],
             "pricing_version": priced["pricing_version"],
-            "quote_fresh": quote_is_fresh(best.get("last_update"), quote_as_of),
+            "quote_fresh": not best.get("carried_forward") and quote_is_fresh(best.get("last_update"), quote_as_of),
             "quote_freshness_basis": "at_snapshot_fetch",
             "odds_fetched_at": context["odds_fetched_at"],
             "high_deviation": bool(deviation is not None and deviation > 0.15),
@@ -1465,6 +1468,8 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
                 offers.append({**candidates[-1], **offered_price, "best_odds": offer["price"],
                                "bookmaker": offer["bookmaker"], "bookmaker_key": offer["bookmaker_key"],
                                "quote_last_update": offer["last_update"],
+                               "quote_carried_forward": offer.get("carried_forward", False),
+                               "quote_fresh": not offer.get("carried_forward") and quote_is_fresh(offer.get("last_update"), quote_as_of),
                                "selection_market_reference": market_evidence(event, feed_key, feed_name, point,
                                    now=quote_as_of, exclude_book=offer["bookmaker_key"])})
             candidates[-1]["bookmaker_offers"] = offers
@@ -1714,7 +1719,7 @@ def _call_gemini_agent_pick(
 
     from src.ai_tip_research import VERSION, fresh_candidates, input_snapshot, market_changes
     candidates = fresh_candidates(value_bets)
-    research_input = input_snapshot(value_bets, candidates, prediction)
+    research_input = input_snapshot(value_bets, candidates)
     if not research_input["coverage"]["complete"]:
         return {"pick": None, "research_version": VERSION, "status": "incomplete_markets",
                 "research_input": research_input,
@@ -1731,8 +1736,21 @@ def _call_gemini_agent_pick(
     # per-bet model score and green/red display labels are not passed through.
     cand_lines = "\n".join(
         f"- market={c['market']}, outcome={c.get('team') or c['outcome']}, odds={c['best_odds']}"
+        + (f", last seen={c.get('quote_last_update')} (not included in latest fetch)" if c.get('quote_carried_forward') else "")
         for c in candidates
     )
+    baseline = research_input["market_baseline"]
+    baseline_block = ""
+    if baseline:
+        baseline_block = f"""
+MARKET COMPARISON: market={baseline['market']}, outcome={baseline.get('team') or baseline['outcome']}, \
+odds={baseline['best_odds']}, market-estimated chance={baseline['market_probability']:.1%}.
+This is the highest market-estimated chance among the quoted bets at odds from 1.30 to 2.00, \
+the same comparison shown to the reader. It is derived from bookmaker prices, not our internal model \
+and not additional independent evidence. A higher chance of winning does not automatically mean better value. \
+Use it as an explicit comparison, not a required choice. \
+{"Its quote was retained from an earlier fetch: " + str(baseline.get('quote_last_update')) + "." if baseline.get('quote_carried_forward') else ""}
+"""
 
     previous_block = ""
     if previous_eval and previous_eval.get("bet_headline"):
@@ -1743,10 +1761,14 @@ def _call_gemini_agent_pick(
             f"market={prev_pick['market']}, outcome={prev_pick.get('team') or prev_pick['outcome']}"
             if prev_pick else "none"
         )
+        # Earlier versions justified picks with our model's numbers. Do not
+        # leak those numbers back into a research-only re-check via its text.
+        previous_reasoning = (previous_eval.get("bet_reasoning", "")
+                              if previous_eval.get("research_version") == VERSION else "")
         previous_block = f"""
 
 YOUR EARLIER ASSESSMENT of this same match (from an earlier check today): \
-pick="{previous_eval['bet_headline']}" ({prev_pick_desc}), reasoning="{previous_eval.get('bet_reasoning', '')}"
+pick=({prev_pick_desc}), reasoning="{previous_reasoning}"
 Earlier quote snapshot: {(previous_eval.get('research_input') or {}).get('odds_fetched_at')}.
 Market changes since that snapshot: {json.dumps(changes, ensure_ascii=False)}.
 
@@ -1757,22 +1779,15 @@ explain which input made the alternative better. If it stays, say why it remains
 Do not change your pick merely to seem thorough."""
 
     competition = _AGENT_COMPETITION_NAMES.get(value_bets.get("sport_key"), "football")
-    model = research_input["model_context"]
-    model_analysis = json.dumps(model, ensure_ascii=False, separators=(",", ":"))
     prompt = f"""You are researching an upcoming {competition} match: {home_team} vs {away_team}.
 Kickoff: {research_input['commence_time']}. Quote snapshot: {research_input['odds_fetched_at']}.
 
-OUR QUANTITATIVE MODEL ANALYSIS (reference only, not a preselected bet):
-{model_analysis}
-This includes result probabilities, expected goals, likely scorelines, derived market probabilities, \
-and the historical team indicators behind the model. Treat it as one input to weigh against your own \
-research and the price - NOT as the answer to agree with.
-
-The bets available to pick from (all supported fresh markets and current odds only - decide for yourself \
+The bets available to pick from (all supported quoted markets; any retained older prices are marked - decide for yourself \
 which, if any, is worth backing):
-{cand_lines}{previous_block}
+{cand_lines}
+{baseline_block}{previous_block}
 
-STEP 1 - RESEARCH (use Google Search). Our stats model only sees historical results, so dig up CURRENT \
+STEP 1 - RESEARCH (use Google Search). Dig up CURRENT \
 context across as many of these angles as you can actually find information on - don't limit yourself \
 to just one or two. Search in English AND in the local languages of both teams (e.g. Croatian sports \
 media for Croatia, Georgian for Georgia, German for a Bundesliga club): team news, line-ups and \
@@ -1787,16 +1802,22 @@ already decided?
 - Any other concrete, current fact you find that could matter
 
 STEP 2 - BETTING VERDICT. Act as a disciplined value-betting analyst. Distinguish between an outcome \
-being likely and it being attractive at the current price. Compare market odds, the quantitative model \
-analysis, and your current research for every serious candidate. Do not claim an edge when those inputs \
+being likely and it being attractive at the quoted price. Compare market odds and your independently \
+researched facts for every serious candidate. Do not cite or invent probabilities from our internal model. \
+Do not claim an edge when those inputs \
 do not point clearly in one direction. Do not favour any market by default: 1X2, Handicap, Over/Under \
 and BTTS can each be best only when price and evidence support them. Based on that, decide which ONE bet \
-from the list is the best one to actually back - or none, if nothing looks good. Form this view \
-independently; do not assume the model's most-likely outcome is the right bet. Give the main reason your \
-choice beats the strongest alternative. \
-Then write bet_reasoning as exactly one \
+from the list is the best one to actually back - or none, if nothing looks good. Base this decision \
+on the quoted prices and your independently researched facts. Give the main reason your \
+choice beats the strongest alternative. When MARKET COMPARISON is supplied, explicitly compare your \
+decision with that specific bet in alternative_reasoning. If you choose it, explain why it remains \
+attractive at its price; if you choose another bet or none, explain why the market comparison is less \
+attractive based on price and researched facts. Do not substitute an unrelated alternative for this comparison. \
+Then write bet_reasoning as exactly one short \
 sentence explaining why you landed on that pick (or why none of them are worth backing - e.g. too \
-unpredictable, no real edge, the odds don't justify it). Wrap the 2-4 words/phrases in that sentence \
+unpredictable, no real edge, the odds don't justify it), at most 35 words. If your decision differs \
+from MARKET COMPARISON, briefly name that alternative and the main reason in this same sentence. \
+Wrap the 2-4 words/phrases in that sentence \
 that most directly justify the pick (the actual stat or fact doing the work, e.g. "zero goals \
 conceded", "erratic form", "unbeaten in 8") in double asterisks like **this** - not team names, not \
 filler words, only the specific evidence a reader would want to see highlighted.
@@ -1812,7 +1833,7 @@ string>", "other": "<one short sentence on anything else notable, or empty strin
 string, or null>", "bet_headline": "<2-5 words naming the pick in plain language, e.g. 'Über 2,5 \
 Tore' or 'Sieg Kroatien' - or 'Keine gute Wette' if pick is null>", "bet_reasoning": "<exactly ONE \
 sentence with your verdict>", "bet_points": ["<short supporting fact, max 8 words>", "<short \
-supporting fact, max 8 words>"], "alternative_reasoning": "<why this beats the strongest alternative>", \
+supporting fact, max 8 words>"], "alternative_reasoning": "<compare with the supplied MARKET COMPARISON; if absent, with the strongest alternative>", \
 "change_reason": "<only when the re-check changes the pick: one short sentence, max 16 words, naming the concrete new input; otherwise empty string>"}}"""
 
     try:
@@ -1854,8 +1875,8 @@ supporting fact, max 8 words>"], "alternative_reasoning": "<why this beats the s
                 pick = c
                 break
 
-    # Agreement is computed here for the UI. The AI saw headline model values,
-    # so this is a comparison on shared information, not independent evidence.
+    # Attach the backend comparison only after the AI has made its selection.
+    # No internal model outputs are included in the AI's prompt.
     model_fav = value_bets.get("model_favorite")
     agrees_with_model = bool(
         pick is not None and model_fav is not None
@@ -2425,7 +2446,7 @@ def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
             change = "unknown"
         return {**out, "status": "ai_unsure", "withheld": pick, "change": change,
                 "first_pick": agent_eval.get("first_pick")}
-    if pick.get("quote_fresh") is False:
+    if pick.get("quote_fresh") is False and not pick.get("quote_carried_forward"):
         return {**out, "status": "odds_expired", "withheld": pick}
     model = pick.get("model_probability_raw")
     if model is None:
