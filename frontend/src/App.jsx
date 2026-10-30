@@ -1014,6 +1014,7 @@ function ModelTrackRecord({ bet, bets = [], competition }) {
 // before kickoff. The server decides it (bet_tip); this is the fallback.
 function computeBetTip(betInfo, agentEval) {
   if (betInfo.bet_tip && betInfo.bet_tip.rule) return betInfo.bet_tip
+  if (agentEval?.pick_unavailable) return { tip: null, status: 'pick_unavailable' }
   const pick = agentEval?.pick
   if (!pick) return { tip: null, status: 'waiting_for_ai' }
   if (agentEval.revised_from_previous) return { tip: null, status: 'ai_unsure' }
@@ -1027,7 +1028,8 @@ function BetTipBox({ betTip }) {
   const tip = betTip?.tip
   if (!tip) {
     const why = {
-      waiting_for_ai: tr('Folgt, sobald die KI das Spiel geprüft hat (in den 15 Stunden vor Anpfiff).', 'Coming once the AI has checked the match (in the 15 hours before kickoff).'),
+      waiting_for_ai: tr('Folgt, sobald die KI das Spiel geprüft hat (in den 12 Stunden vor Anpfiff).', 'Coming once the AI has checked the match (in the 12 hours before kickoff).'),
+      pick_unavailable: tr('Die KI hat das Spiel geprüft. Für ihre ausgewählte Wette gibt es aktuell keine Quote im Angebot.', 'The AI has checked the match. Its selected bet currently has no available quote.'),
       no_selection: tr('Kein Wett-Tipp – die KI findet aktuell keine ausreichend begründete Wette.', 'No bet tip – the AI currently finds no sufficiently supported bet.'),
       incomplete_markets: tr('Noch kein Wett-Tipp – aktuelle Quoten für Sieg, Handicap oder Über/Unter fehlen.', 'No bet tip yet – current win, handicap or totals odds are missing.'),
       ai_unsure: tr('Kein Wett-Tipp – die KI hat ihren Tipp kurz vor Anpfiff geändert und ist sich nicht sicher.', 'No bet tip – the AI changed its pick shortly before kickoff and is not sure.'),
@@ -1151,7 +1153,7 @@ function SmartBetCard({ betStep, betInfo, data, onRefresh, currentTime }) {
   const TABLE_ROWS = 6
   // Draw No Bet ("Remis = Einsatz zurück", Handicap 0.0) stays out of the table.
   const allBets = ((betInfo.bets && betInfo.bets.length) ? betInfo.bets : [...greens, ...reds])
-    .filter(b => b.market !== 'Handicap 0.0')
+    .filter(b => b.market !== 'Handicap 0.0' || (agentPick && sameBet(b, agentPick)))
   // Table order: the price tip, the market's likeliest bet, the model's
   // biggest gap to the market (★, explained in its box below), the AI's pick.
   // The model's favourite is no longer marked.
@@ -1241,6 +1243,9 @@ function SmartBetCard({ betStep, betInfo, data, onRefresh, currentTime }) {
           </div>
           <p className="smart-bet-agent-text">
             {renderBoldMarkdown(agentReason, 'smart-bet-highlight-purple')}
+            {agentEval.pick_unavailable && (
+              <> {tr('Diese Auswahl stammt aus dem früheren Quotenstand und ist aktuell nicht verfügbar.', 'This selection comes from the earlier odds snapshot and is currently unavailable.')}</>
+            )}
             {agentPick && (
               <> {tr('Unser Modell sieht das bei', 'Our model puts this at')} <strong className="smart-bet-highlight-purple">{((agentPick.model_probability_raw ?? agentPick.probability) * 100).toFixed(0)}%</strong>.</>
             )}

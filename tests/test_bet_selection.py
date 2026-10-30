@@ -129,6 +129,10 @@ def test_ai_cache_distinguishes_return_fixture_and_updates_price():
         api._agent_picks_cache[key] = {"pick": {**vb["market_favorite"], "best_odds": 9}}
         assert api._get_agent_pick(vb)["pick"]["best_odds"] == vb["market_favorite"]["best_odds"]
         assert api._get_agent_pick({**vb, "event_id": "return"}) is None
+        unavailable = api._get_agent_pick({**vb, "bets": []})
+        assert unavailable["pick"] is None and unavailable["pick_unavailable"]
+        assert unavailable["selected_pick"] == api._agent_picks_cache[key]["pick"]
+        assert api._bet_tip(vb, unavailable)["status"] == "pick_unavailable"
     finally:
         api._agent_picks_cache.clear()
         api._agent_picks_cache.update(old)
