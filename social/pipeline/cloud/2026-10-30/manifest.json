@@ -1,8 +1,8 @@
 {
   "target_date": "2026-10-30",
-  "status": "reserved",
+  "status": "generation_submitted",
   "daily_video_limit": 1,
-  "attempts_used": 0,
+  "attempts_used": 1,
   "coverage_key": "bundesliga:2026-10-31:bayer-leverkusen-vfb-stuttgart",
   "selection_reason": "User explicitly selected Leverkusen–VfB as relevant fixture.",
   "match": {
@@ -57,7 +57,7 @@
     "bitrate_mode": "high",
     "quoted_credits_exact": 5,
     "balance_before": 18.5,
-    "job_id": null
+    "job_id": "c4d680be-df57-4957-8d36-20a9ad168831"
   },
   "outro": {
     "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
