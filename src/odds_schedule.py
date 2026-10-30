@@ -1,4 +1,5 @@
 """Scheduled odds snapshots: provider update time differs from fetch time."""
+import math
 from datetime import datetime, timezone, timedelta
 from .bet_audit import timestamp
 
@@ -52,11 +53,44 @@ def _compact_market_history(event, books):
         book["markets"] = markets
 
 
-def retain_missing_quotes(previous, current):
-    """Carry missing selections from the previous snapshot until kickoff.
+def _quotes_by_selection(event, as_of=None):
+    """Index each bet by (market, outcome, line), with its current book offers."""
+    from .bet_selection import quote_is_fresh
+    fresh, carried = {}, {}
+    for book in event.get("bookmakers", []):
+        identity = book.get("key") or book.get("title")
+        if not identity:
+            continue
+        for market in book.get("markets", []):
+            updated = market.get("last_update") or book.get("last_update")
+            is_carried = bool(market.get("carried_forward"))
+            if as_of is not None and not is_carried and not quote_is_fresh(updated, as_of):
+                continue
+            try:
+                observed = timestamp(updated)
+            except (ValueError, TypeError):
+                continue
+            for outcome in market.get("outcomes", []):
+                price = outcome.get("price")
+                if not isinstance(price, (int, float)) or not math.isfinite(price) or price <= 1:
+                    continue
+                key = (market.get("key"), outcome.get("name"), outcome.get("point"))
+                offers = (carried if is_carried else fresh).setdefault(key, {})
+                prior = offers.get(identity)
+                if prior and (observed, price) <= (timestamp(prior["last_update"]), prior["outcome"]["price"]):
+                    continue
+                offers[identity] = {"book": book, "outcome": outcome,
+                                    "last_update": updated, "carried_forward": is_carried}
+    # A newly fetched selection replaces every carried offer of that selection.
+    return {**carried, **fresh}
 
-    A selection seen in the new snapshot replaces all older offers for that
-    selection, even if it is now quoted by a different bookmaker.
+
+def retain_missing_quotes(previous, current):
+    """Upsert quotes by bet identity: replace fetched bets, keep absent bets.
+
+    Match identity is checked first. Within a match the key is market, outcome
+    and line; each value contains the bookmakers quoting it in the latest read.
+    Probability evidence is retained independently of these available prices.
     """
     from .bet_selection import quote_is_fresh
     if any(previous.get(key) != current.get(key) for key in
@@ -66,58 +100,46 @@ def retain_missing_quotes(previous, current):
         previous_time = timestamp(previous["odds_fetched_at"])
     except (KeyError, TypeError, ValueError):
         return current
-    books = [{**book, "markets": list(book.get("markets") or [])}
-             for book in current.get("bookmakers", [])]
-    available = {(market.get("key"), outcome.get("name"), outcome.get("point"))
-                 for book in books for market in book.get("markets", [])
-                 for outcome in market.get("outcomes", [])
-                 if isinstance(outcome.get("price"), (int, float)) and outcome["price"] > 1}
-    # Injection may pass through previously carried markets alongside new
-    # offers. A replacement must also remove those already-carried prices.
-    fresh_selections = {(market.get("key"), outcome.get("name"), outcome.get("point"))
-                        for book in books for market in book.get("markets", [])
-                        if not market.get("carried_forward")
-                        for outcome in market.get("outcomes", [])
-                        if isinstance(outcome.get("price"), (int, float)) and outcome["price"] > 1}
-    for book in books:
-        markets = []
-        for market in book["markets"]:
-            if market.get("carried_forward"):
-                outcomes = [outcome for outcome in market.get("outcomes", [])
-                            if (market.get("key"), outcome.get("name"), outcome.get("point"))
-                            not in fresh_selections]
-                if not outcomes and not market.get("historical_outcomes"):
-                    continue
-                market = {**market, "outcomes": outcomes}
-            markets.append(market)
-        book["markets"] = markets
-    by_book = {book.get("key") or book.get("title"): book for book in books}
-    for old_book in previous.get("bookmakers", []):
-        identity = old_book.get("key") or old_book.get("title")
-        if not identity:
-            continue
-        retained = []
-        for market in old_book.get("markets", []):
-            updated = market.get("last_update") or old_book.get("last_update")
-            if not market.get("carried_forward") and not quote_is_fresh(updated, previous_time):
+
+    quotes = {key: {identity: {**offer, "carried_forward": True}
+                    for identity, offer in offers.items()}
+              for key, offers in _quotes_by_selection(previous, previous_time).items()}
+    quotes.update(_quotes_by_selection(current))
+
+    # Adapt the map back to the provider format used by the table, AI and combos.
+    books, markets = {}, {}
+    for (market_key, _, _), offers in quotes.items():
+        for identity, offer in offers.items():
+            book = books.setdefault(identity, {**offer["book"], "markets": []})
+            group = (identity, market_key, offer["last_update"], offer["carried_forward"])
+            if group not in markets:
+                markets[group] = {"key": market_key, "last_update": offer["last_update"],
+                                  "carried_forward": offer["carried_forward"], "outcomes": []}
+                if offer["carried_forward"]:
+                    markets[group]["historical_outcomes"] = []
+                book["markets"].append(markets[group])
+            markets[group]["outcomes"].append(dict(offer["outcome"]))
+
+    # Historical prices are evidence only; they never re-enter the quote map.
+    for source, as_of in ((current, None), (previous, previous_time)):
+        for old_book in source.get("bookmakers", []):
+            identity = old_book.get("key") or old_book.get("title")
+            if not identity:
                 continue
-            missing = [outcome for outcome in market.get("outcomes", [])
-                       if (market.get("key"), outcome.get("name"), outcome.get("point")) not in available]
-            if market.get("historical_outcomes") or market.get("outcomes"):
-                # Keep the original complete market only as probability evidence.
-                # Its replaced prices must never become available offers again.
-                retained.append({**market, "last_update": updated, "carried_forward": True,
-                                 "outcomes": missing,
-                                 "historical_outcomes": market.get("historical_outcomes", market.get("outcomes", []))})
-        if retained:
-            book = by_book.get(identity)
-            if book is None:
-                book = {**old_book, "markets": []}
-                books.append(book)
-                by_book[identity] = book
-            book["markets"].extend(market for market in retained if market not in book["markets"])
-    _compact_market_history(current, books)
-    return {**current, "bookmakers": books}
+            for market in old_book.get("markets", []):
+                updated = market.get("last_update") or old_book.get("last_update")
+                if as_of is not None and not market.get("carried_forward") and not quote_is_fresh(updated, as_of):
+                    continue
+                outcomes = (market.get("historical_outcomes", market.get("outcomes", []))
+                            if market.get("carried_forward") else market.get("outcomes", []))
+                if outcomes:
+                    book = books.setdefault(identity, {**old_book, "markets": []})
+                    book["markets"].append({"key": market.get("key"), "last_update": updated,
+                                            "carried_forward": True, "outcomes": [],
+                                            "historical_outcomes": outcomes})
+    result = list(books.values())
+    _compact_market_history(current, result)
+    return {**current, "bookmakers": result}
 
 
 def snapshot_context(event, now=None):

@@ -246,3 +246,37 @@ def test_many_refreshes_follow_replace_or_keep_rule_for_every_selection():
         merged = retain_missing_quotes(merged, merged)
         for (key, name, point), price in expected.items():
             assert api._best_price(merged, key, name, point)['price'] == price
+
+
+@pytest.mark.parametrize('reverse_offers', [False, True])
+def test_quote_map_uses_newest_offer_and_does_not_erase_missing_or_invalid_quotes(reverse_offers):
+    now = datetime.now(timezone.utc)
+    base = event()
+    base['commence_time'] = (now + timedelta(hours=1)).isoformat()
+    old_time = now - timedelta(hours=3)
+    old = stamp_event({**base, 'bookmakers': [{'key': 'same-book', 'last_update': old_time.isoformat(),
+        'markets': [{'key': 'totals', 'outcomes': [
+            {'name': 'Over', 'point': 2.5, 'price': 1.8},
+            {'name': 'Under', 'point': 2.5, 'price': 1.9},
+            {'name': 'Over', 'point': 3.5, 'price': 2.2}]}]}]}, old_time, 'daily')
+    refreshed = [
+        {'key': 'totals', 'last_update': (now - timedelta(minutes=5)).isoformat(),
+         'outcomes': [{'name': 'Over', 'point': 2.5, 'price': 1.7}]},
+        {'key': 'totals', 'last_update': now.isoformat(),
+         'outcomes': [{'name': 'Over', 'point': 2.5, 'price': 1.4},
+                      {'name': 'Under', 'point': 2.5, 'price': None},
+                      {'name': 'Over', 'point': 3.5, 'price': float('nan')}]}]
+    if reverse_offers:
+        refreshed.reverse()
+    new = stamp_event({**base, 'bookmakers': [
+        {'key': 'same-book', 'last_update': now.isoformat(), 'markets': refreshed},
+        {'key': 'other-book', 'last_update': now.isoformat(), 'markets': [
+            {'key': 'totals', 'outcomes': [{'name': 'Over', 'point': 2.5, 'price': 1.5}]}]}]}, now, 'final')
+    original_old, original_new = deepcopy(old), deepcopy(new)
+    merged = retain_missing_quotes(old, new)
+    offers = {o['bookmaker_key']: o['price'] for o in api._available_prices(merged, 'totals', 'Over', 2.5)}
+    assert offers == {'same-book': 1.4, 'other-book': 1.5}
+    assert api._best_price(merged, 'totals', 'Over', 2.5)['price'] == 1.5
+    assert api._best_price(merged, 'totals', 'Under', 2.5)['price'] == 1.9
+    assert api._best_price(merged, 'totals', 'Over', 3.5)['price'] == 2.2
+    assert old == original_old and new == original_new
