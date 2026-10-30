@@ -1052,6 +1052,7 @@ function BetTipBox({ betTip }) {
         <span className="likely-tip-odds">{tip.best_odds.toFixed(2)}</span>
         <span className="likely-tip-chance">{pct(tip.market_probability)} {tr('Chance', 'chance')}</span>
       </div>
+      {tip.bookmaker && <div className="bet-quote-bookmaker">{tr('Quote bei', 'Odds at')} {tip.bookmaker}</div>}
       <div className="smart-bet-agree-row">
         <span className="smart-bet-agree-chip yes">◆ {tr('Modell stimmt zu', 'Model agrees')} {pct(model)} ✓</span>
       </div>
@@ -1204,6 +1205,7 @@ function SmartBetCard({ betStep, betInfo, data, onRefresh, currentTime }) {
         </span>
         <span className="smart-bet-col-odds">
           {b.best_odds.toFixed(2)}
+          {b.bookmaker && <small className="bet-quote-bookmaker">{b.bookmaker}</small>}
         </span>
         <span className="smart-bet-col-chance">
           {b.market_probability != null ? `${Math.round(b.market_probability * 100)}%` : '–'}
