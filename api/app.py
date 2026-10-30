@@ -1979,6 +1979,11 @@ def _refresh_agent_picks(odds: list[dict]) -> None:
                 pass
         if vb.get("odds_stage") == "final":
             return None
+        from src.ai_tip_research import morning_snapshot_ready
+        if not morning_snapshot_ready(vb):
+            return None
+        if not book_odds.morning_read_finished(vb.get("sport_key"), vb["odds_fetched_at"]):
+            return None
         # A call that gave no usable pick (unreadable answer, error) is not
         # repeated on every pass: an answered call is billed, search included.
         failed_at = _agent_failed_at.get(_agent_key(vb))

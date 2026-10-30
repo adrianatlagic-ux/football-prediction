@@ -462,6 +462,26 @@ def morning_retries_due(now: Optional[datetime] = None) -> list:
     return due
 
 
+def morning_read_finished(sport_key: str, snapshot_at: str) -> bool:
+    """Wait for the supplementary read (including a scheduled empty-read retry).
+
+    If the scraper is disabled, the Odds API alone supplies the candidates.
+    A terminal scraper failure also releases this gate; market coverage is
+    checked separately before sending anything to Gemini.
+    """
+    if sport_key not in LEAGUES or not os.getenv("APIFY_TOKEN"):
+        return True
+    if sport_key in _morning_retry:
+        return False
+    report = REFRESH_LOG.get(sport_key) or {}
+    try:
+        completed = datetime.fromisoformat(report["at"].replace("Z", "+00:00"))
+        snapshot = datetime.fromisoformat(snapshot_at.replace("Z", "+00:00"))
+        return report.get("kind", "").startswith("morning") and completed >= snapshot
+    except (KeyError, ValueError, TypeError, AttributeError):
+        return False
+
+
 def daily_refresh(sport_key: str, events: list, retry: bool = False) -> bool:
     """The morning read: bet-at-home's full market book for every match in
     the next DAILY_HORIZON, so the bet table and the combo have every market
@@ -484,12 +504,14 @@ def daily_refresh(sport_key: str, events: list, retry: bool = False) -> bool:
             and apify_budget.allows(items * PRICE_PER_FULL_BOOK))
     if not full and (spent_this_month() + items * PRICE_PER_MATCH > MONTHLY_BUDGET + DAILY_RESERVE
                      or not apify_budget.allows(items * PRICE_PER_MATCH)):
+        _morning_retry.pop(sport_key, None)
         _log_refresh(sport_key, "morning", items, "skipped: Apify budget")
         return False
     with _refresh_lock:
         try:
             fetched = fetch_league(sport_key, items, full_book=full)
         except Exception as exc:
+            _morning_retry.pop(sport_key, None)
             _log_refresh(sport_key, "morning", items, f"failed: {type(exc).__name__}: {exc}"[:200])
             return False
         _record_spend(items * (PRICE_PER_FULL_BOOK if full else PRICE_PER_MATCH))
@@ -511,7 +533,7 @@ def daily_refresh(sport_key: str, events: list, retry: bool = False) -> bool:
                 _log_refresh(sport_key, "morning", items, "failed: nothing usable in the read, no retry left")
             return False
         _morning_retry.pop(sport_key, None)
+        store(sport_key, fetched)
         _log_refresh(sport_key, "morning" if not retry else "morning retry", items,
                      "full book" if full else "1X2 only: Apify budget")
-        store(sport_key, fetched)
         return True

@@ -1028,7 +1028,7 @@ function BetTipBox({ betTip }) {
   const tip = betTip?.tip
   if (!tip) {
     const why = {
-      waiting_for_ai: tr('Folgt, sobald die KI das Spiel geprüft hat (in den 15 Stunden vor Anpfiff).', 'Coming once the AI has checked the match (in the 15 hours before kickoff).'),
+      waiting_for_ai: tr('Folgt nach der KI-Prüfung: innerhalb der 15 Stunden vor Anpfiff, sobald die heutigen Morgenquoten vorliegen.', 'Coming after the AI review: within 15 hours before kickoff, once today’s morning odds are ready.'),
       pick_unavailable: tr('Die KI hat das Spiel geprüft. Für ihre ausgewählte Wette gibt es aktuell keine Quote im Angebot.', 'The AI has checked the match. Its selected bet currently has no available quote.'),
       no_selection: tr('Kein Wett-Tipp – die KI findet aktuell keine ausreichend begründete Wette.', 'No bet tip – the AI currently finds no sufficiently supported bet.'),
       incomplete_markets: tr('Noch kein Wett-Tipp – aktuelle Quoten für Sieg, Handicap oder Über/Unter fehlen.', 'No bet tip yet – current win, handicap or totals odds are missing.'),

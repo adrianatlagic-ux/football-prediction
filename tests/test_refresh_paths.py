@@ -1,14 +1,53 @@
 """Regression tests for the background refresh paths that serve live picks."""
 from datetime import datetime, timedelta, timezone
+import pytest
 
 
-def test_agent_refresh_uses_cached_prediction_snapshot(monkeypatch):
+@pytest.mark.parametrize("stage,fetched,expected", [
+    ("daily", "2026-10-29T13:35:00Z", False),
+    ("initial", "2026-10-30T04:30:00Z", False),
+    ("daily", "2026-10-30T04:30:00Z", False),
+    ("daily", "2026-10-30T06:08:00Z", True),
+    ("daily", "2026-10-30T10:00:00Z", False),
+    ("final", "2026-10-30T06:08:00Z", False),
+    ("daily", None, False),
+])
+def test_first_ai_call_needs_todays_morning_snapshot(stage, fetched, expected):
+    from src.ai_tip_research import morning_snapshot_ready
+    now = datetime(2026, 10, 30, 9, tzinfo=timezone.utc)
+    assert morning_snapshot_ready({"odds_stage": stage, "odds_fetched_at": fetched}, now) is expected
+
+
+def test_first_ai_call_waits_for_supplementary_book_and_retry(monkeypatch):
+    from src import book_odds
+    sport = "soccer_germany_bundesliga"
+    monkeypatch.setenv("APIFY_TOKEN", "test-only")
+    monkeypatch.setattr(book_odds, "_morning_retry", {})
+    monkeypatch.setattr(book_odds, "REFRESH_LOG", {})
+    snapshot = "2026-10-30T06:08:00Z"
+    assert not book_odds.morning_read_finished(sport, snapshot)
+    book_odds.REFRESH_LOG[sport] = {"kind": "morning", "at": "2026-10-29T06:09:00Z"}
+    assert not book_odds.morning_read_finished(sport, snapshot)
+    book_odds.REFRESH_LOG[sport]["at"] = "2026-10-30T06:09:00Z"
+    assert book_odds.morning_read_finished(sport, snapshot)
+    book_odds._morning_retry[sport] = {"next_at": None}
+    assert not book_odds.morning_read_finished(sport, snapshot)
+    monkeypatch.delenv("APIFY_TOKEN")
+    assert book_odds.morning_read_finished(sport, snapshot)
+
+
+@pytest.mark.parametrize("morning_ready,book_ready", [(True, True), (False, True), (True, False)])
+def test_agent_refresh_uses_cached_prediction_snapshot(monkeypatch, morning_ready, book_ready):
     from api import app as api
+    from src import ai_tip_research
+    monkeypatch.setattr(ai_tip_research, "morning_snapshot_ready", lambda vb: morning_ready)
+    monkeypatch.setattr(api.book_odds, "morning_read_finished", lambda *args: book_ready)
 
     match = {"home_team": "Alpha", "away_team": "Bravo"}
     kickoff = (datetime.now(timezone.utc) + timedelta(hours=2)).isoformat()
     result = {**match, "odds_found": True, "in_play": False,
-              "commence_time": kickoff, "sport_key": "soccer_test", "event_id": "event-1"}
+              "commence_time": kickoff, "sport_key": "soccer_test", "event_id": "event-1",
+              "odds_fetched_at": datetime.now(timezone.utc).isoformat()}
 
     monkeypatch.setattr(api, "_get_prediction_index", lambda: {("alpha", "bravo"): match})
     monkeypatch.setattr(api, "_compute_value_bets", lambda *args: result)
@@ -38,7 +77,10 @@ def test_agent_refresh_uses_cached_prediction_snapshot(monkeypatch):
     api._agent_picks_last_check = 0
     api._refresh_agent_picks([])
 
-    assert api._agent_picks_cache[api._agent_key(result)]["pick"]["market"] == "1X2"
+    if morning_ready and book_ready:
+        assert api._agent_picks_cache[api._agent_key(result)]["pick"]["market"] == "1X2"
+    else:
+        assert not api._agent_picks_cache
     assert not api._agent_picks_refresh_in_progress
 
 
@@ -67,11 +109,14 @@ def test_agent_refresh_does_not_ask_gemini_again_for_a_cached_match(monkeypatch)
     different key than the one the pick is stored under re-researched every
     match on every pass."""
     from api import app as api
+    from src import ai_tip_research
+    monkeypatch.setattr(ai_tip_research, "morning_snapshot_ready", lambda vb: True)
 
     match = {"home_team": "Alpha", "away_team": "Bravo"}
     kickoff = (datetime.now(timezone.utc) + timedelta(hours=5)).isoformat()
     result = {**match, "odds_found": True, "in_play": False,
-              "commence_time": kickoff, "sport_key": "soccer_test", "event_id": "event-1"}
+              "commence_time": kickoff, "sport_key": "soccer_test", "event_id": "event-1",
+              "odds_fetched_at": datetime.now(timezone.utc).isoformat()}
     calls = []
 
     monkeypatch.setattr(api, "_get_prediction_index", lambda: {("alpha", "bravo"): match})
@@ -111,11 +156,14 @@ def test_a_failed_gemini_call_is_retried_only_after_two_hours(monkeypatch):
     """An unreadable answer is still a billed call; asking again on every
     pass would pay for it every few minutes."""
     from api import app as api
+    from src import ai_tip_research
+    monkeypatch.setattr(ai_tip_research, "morning_snapshot_ready", lambda vb: True)
 
     match = {"home_team": "Alpha", "away_team": "Bravo"}
     kickoff = (datetime.now(timezone.utc) + timedelta(hours=5)).isoformat()
     result = {**match, "odds_found": True, "in_play": False,
-              "commence_time": kickoff, "sport_key": "soccer_test", "event_id": "event-2"}
+              "commence_time": kickoff, "sport_key": "soccer_test", "event_id": "event-2",
+              "odds_fetched_at": datetime.now(timezone.utc).isoformat()}
     calls = []
     monkeypatch.setattr(api, "_get_prediction_index", lambda: {("alpha", "bravo"): match})
     monkeypatch.setattr(api, "_compute_value_bets", lambda *args: result)
