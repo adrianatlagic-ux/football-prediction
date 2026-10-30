@@ -121,3 +121,27 @@ def test_fresh_1x2_does_not_renew_stale_extra_markets(tmp_path, monkeypatch):
     vb = api._compute_value_bets(_renamed(prediction()), [_snapshot_event()], 'Aachen', 'Bochum')
     mine = [b for b in vb['bets'] if b['bookmaker_key'] == api.USER_BOOK_KEY]
     assert mine and all(b['market'] == '1X2' for b in mine)
+
+
+def test_fresh_injected_quote_replaces_carried_quote_from_other_book(tmp_path, monkeypatch):
+    from copy import deepcopy
+    now = datetime.now(timezone.utc)
+    _write_book(tmp_path, monkeypatch, now)
+    old = _snapshot_event()
+    old_time = (now - timedelta(hours=5)).isoformat()
+    old["bookmakers"][0]["markets"].append({
+        "key": "totals", "last_update": old_time, "carried_forward": True,
+        "outcomes": [{"name": "Over", "point": 1.5, "price": 1.9},
+                     {"name": "Over", "point": 3.5, "price": 2.4}]})
+    untouched = deepcopy(old)
+    merged = api._with_book_odds(old, [old])
+    offer = api._best_price(merged, "totals", "Over", 1.5)
+    assert offer["price"] == 1.3 and offer["bookmaker_key"] == api.USER_BOOK_KEY
+    assert not offer["carried_forward"]
+    missing = api._best_price(merged, "totals", "Over", 3.5)
+    assert missing["price"] == 2.4 and missing["carried_forward"]
+    assert missing["last_update"] == old_time
+    assert old == untouched
+    # Repeated injection must not reintroduce the superseded price.
+    again = api._with_book_odds(merged, [merged])
+    assert api._best_price(again, "totals", "Over", 1.5)["price"] == 1.3

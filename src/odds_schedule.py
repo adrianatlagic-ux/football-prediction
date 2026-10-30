@@ -34,6 +34,25 @@ def retain_missing_quotes(previous, current):
                  for book in books for market in book.get("markets", [])
                  for outcome in market.get("outcomes", [])
                  if isinstance(outcome.get("price"), (int, float)) and outcome["price"] > 1}
+    # Injection may pass through previously carried markets alongside new
+    # offers. A replacement must also remove those already-carried prices.
+    fresh_selections = {(market.get("key"), outcome.get("name"), outcome.get("point"))
+                        for book in books for market in book.get("markets", [])
+                        if not market.get("carried_forward")
+                        for outcome in market.get("outcomes", [])
+                        if isinstance(outcome.get("price"), (int, float)) and outcome["price"] > 1}
+    for book in books:
+        markets = []
+        for market in book["markets"]:
+            if market.get("carried_forward"):
+                outcomes = [outcome for outcome in market.get("outcomes", [])
+                            if (market.get("key"), outcome.get("name"), outcome.get("point"))
+                            not in fresh_selections]
+                if not outcomes:
+                    continue
+                market = {**market, "outcomes": outcomes}
+            markets.append(market)
+        book["markets"] = markets
     by_book = {book.get("key") or book.get("title"): book for book in books}
     for old_book in previous.get("bookmakers", []):
         identity = old_book.get("key") or old_book.get("title")
