@@ -383,9 +383,10 @@
     "post_generation_review_field": "pitch_action_review_or_not_applicable",
     "review_actual_beginning_middle_end": true,
     "missing_action": "disclose_quality_status_without_second_generation",
-    "on_pitch_beats_optional": true,
-    "story_setting_default": "choose_from_verified_story_and_recent_visual_settings",
-    "pure_dressing_room_story_can_be_ready": true
+    "on_pitch_beats_optional": false,
+    "story_setting_default": "varied_off_pitch_player_scenes",
+    "pure_dressing_room_story_can_be_ready": true,
+    "pitch_scenes_allowed": false
   },
   "cloud_editor_temporary_cloud_files_allowed": true,
   "cloud_editor_qa_and_delivery_allowed": true,
@@ -492,7 +493,7 @@
       "2026-10-10"
     ],
     "style": "photorealistic_live_action",
-    "story_duration_target_seconds": 15,
+    "story_duration_target_seconds": 5,
     "protagonists": "two_current_verified_male_professional_players_from_participating_clubs",
     "female_protagonists_allowed": false,
     "fictional_staff_or_generic_actor_substitution_allowed": false,
@@ -527,6 +528,24 @@
     ],
     "short_video_rule": "One clear on-screen action and visible consequence; do not compress a 15-second dialogue story into five seconds.",
     "stadium_rule": "If stands are visible, they must be densely and credibly filled.",
-    "opening_rule": "Immediate player action; no fixture/date pre-roll."
+    "opening_rule": "Immediate player action; no fixture/date pre-roll.",
+    "pitch_and_training_pitch_scenes_allowed": false,
+    "eligible_settings": [
+      "dressing_room",
+      "tunnel",
+      "player_lounge",
+      "team_bus",
+      "hotel",
+      "club_backstage"
+    ],
+    "override": "All scenes off the football pitch, per user 2026-10-30."
+  },
+  "short_video_production": {
+    "model": "seedance_2_0_mini",
+    "duration_seconds": 5,
+    "resolution": "720p",
+    "bitrate_mode": "high",
+    "require_exact_quote": true,
+    "approved_quote_reference_credits": 5
   }
 }
