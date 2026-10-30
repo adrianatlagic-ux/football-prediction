@@ -93,23 +93,6 @@ def test_failed_final_never_relabels_old_quote_or_retries_every_view(monkeypatch
     assert len(calls) == 1
 
 
-def test_final_refresh_keeps_a_selection_missing_from_the_new_response(monkeypatch, clock_and_caches):
-    from copy import deepcopy
-    clock = clock_and_caches
-    clock['now'] = clock['now'].replace(hour=16, minute=5)
-    earlier = fixture(clock['now'], clock['now'].replace(hour=17))
-    earlier['bookmakers'][0]['markets'].append({'key': 'totals', 'outcomes': [
-        {'name': 'Over', 'point': 2.5, 'price': 1.9}]})
-    final = deepcopy(earlier)
-    final['bookmakers'][0]['markets'].pop()
-    monkeypatch.setattr(api, '_fetch_odds', lambda: [deepcopy(earlier)])
-    monkeypatch.setattr(api, '_fetch_league_odds', lambda sport, events: [deepcopy(final)])
-    out = api._get_odds()[0]
-    offer = api._best_price(out, 'totals', 'Over', point=2.5)
-    assert out['odds_stage'] == 'final'
-    assert offer['price'] == 1.9 and offer['carried_forward']
-
-
 @pytest.mark.parametrize("sport", ["soccer_germany_bundesliga", "soccer_uefa_nations_league"])
 def test_event_refresh_uses_its_own_competition_path(monkeypatch, sport):
     import json

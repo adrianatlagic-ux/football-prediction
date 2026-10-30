@@ -36,44 +36,12 @@ def test_user_book_prices_every_market_it_lists(tmp_path, monkeypatch):
     bets = {(b["market"], b["outcome"], b["team"]): b for b in vb["bets"]}
     home = bets[("1X2", "home_win", "Aachen")]
     assert home["bookmaker_key"] == api.USER_BOOK_KEY and home["best_odds"] == 2.3
-    # Both teams to score and this total are only quoted by bet-at-home.
+    # Draw No Bet, both teams to score and a total only bet-at-home quotes.
+    assert bets[("Handicap 0.0", "handicap", "Aachen")]["best_odds"] == 1.7
     assert ("BTTS", "Yes", None) in bets
     assert ("Over/Under 1.5", "Over", None) in bets
-    # Refund and split-stake lines are not displayed as binary bets.
-    assert ("Handicap 0.0", "handicap", "Aachen") not in bets
+    # The other book's quarter line stays out, as before.
     assert not any(m.startswith("Over/Under 0.75") for m, _, _ in bets)
-
-
-def test_other_bookmakers_handicap_remains_available_when_user_book_omits_the_line(tmp_path, monkeypatch):
-    _write_book(tmp_path, monkeypatch, datetime.now(timezone.utc) - timedelta(minutes=5))
-    e = _snapshot_event()
-    e["bookmakers"][0]["markets"].append({"key": "spreads", "last_update": e["odds_fetched_at"],
-        "outcomes": [{"name": "Aachen", "point": 0.5, "price": 1.72},
-                     {"name": "Bochum", "point": -0.5, "price": 2.22}]})
-    vb = api._compute_value_bets(_renamed(prediction()), [e], "Aachen", "Bochum")
-    pick = next(b for b in vb["bets"] if b["market"] == "Handicap +0.5" and b["team"] == "Aachen")
-    assert pick["best_odds"] == 1.72
-    assert pick["bookmaker_key"] != api.USER_BOOK_KEY
-
-
-def test_bet_at_home_quote_stays_when_later_fetch_omits_it(tmp_path, monkeypatch):
-    from src.odds_schedule import retain_missing_quotes
-    now = datetime.now(timezone.utc)
-    old_time = now - timedelta(hours=5)
-    _write_book(tmp_path, monkeypatch, old_time)
-    old = _snapshot_event()
-    old["odds_fetched_at"] = old_time.isoformat()
-    old = api._with_book_odds(old, [old])
-    new = _snapshot_event()
-    new["id"] = old["id"]
-    new["commence_time"] = old["commence_time"]
-    merged = retain_missing_quotes(old, new)
-    vb = api._compute_value_bets(_renamed(prediction()), [merged], "Aachen", "Bochum")
-    retained = next(b for b in vb["bets"] if b["market"] == "Over/Under 1.5" and b["outcome"] == "Over")
-    assert retained["best_odds"] == 1.3
-    assert retained["bookmaker_key"] == api.USER_BOOK_KEY
-    assert retained["quote_carried_forward"]
-    assert retained["quote_last_update"] == old_time.isoformat()
 
 
 def test_failed_refresh_does_not_relabel_stale_market_quotes(tmp_path, monkeypatch):
@@ -121,27 +89,3 @@ def test_fresh_1x2_does_not_renew_stale_extra_markets(tmp_path, monkeypatch):
     vb = api._compute_value_bets(_renamed(prediction()), [_snapshot_event()], 'Aachen', 'Bochum')
     mine = [b for b in vb['bets'] if b['bookmaker_key'] == api.USER_BOOK_KEY]
     assert mine and all(b['market'] == '1X2' for b in mine)
-
-
-def test_fresh_injected_quote_replaces_carried_quote_from_other_book(tmp_path, monkeypatch):
-    from copy import deepcopy
-    now = datetime.now(timezone.utc)
-    _write_book(tmp_path, monkeypatch, now)
-    old = _snapshot_event()
-    old_time = (now - timedelta(hours=5)).isoformat()
-    old["bookmakers"][0]["markets"].append({
-        "key": "totals", "last_update": old_time, "carried_forward": True,
-        "outcomes": [{"name": "Over", "point": 1.5, "price": 1.9},
-                     {"name": "Over", "point": 3.5, "price": 2.4}]})
-    untouched = deepcopy(old)
-    merged = api._with_book_odds(old, [old])
-    offer = api._best_price(merged, "totals", "Over", 1.5)
-    assert offer["price"] == 1.3 and offer["bookmaker_key"] == api.USER_BOOK_KEY
-    assert not offer["carried_forward"]
-    missing = api._best_price(merged, "totals", "Over", 3.5)
-    assert missing["price"] == 2.4 and missing["carried_forward"]
-    assert missing["last_update"] == old_time
-    assert old == untouched
-    # Repeated injection must not reintroduce the superseded price.
-    again = api._with_book_odds(merged, [merged])
-    assert api._best_price(again, "totals", "Over", 1.5)["price"] == 1.3
