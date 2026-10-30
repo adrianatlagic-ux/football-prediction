@@ -36,12 +36,24 @@ def test_user_book_prices_every_market_it_lists(tmp_path, monkeypatch):
     bets = {(b["market"], b["outcome"], b["team"]): b for b in vb["bets"]}
     home = bets[("1X2", "home_win", "Aachen")]
     assert home["bookmaker_key"] == api.USER_BOOK_KEY and home["best_odds"] == 2.3
-    # Draw No Bet, both teams to score and a total only bet-at-home quotes.
-    assert bets[("Handicap 0.0", "handicap", "Aachen")]["best_odds"] == 1.7
+    # Both teams to score and this total are only quoted by bet-at-home.
     assert ("BTTS", "Yes", None) in bets
     assert ("Over/Under 1.5", "Over", None) in bets
-    # The other book's quarter line stays out, as before.
+    # Refund and split-stake lines are not displayed as binary bets.
+    assert ("Handicap 0.0", "handicap", "Aachen") not in bets
     assert not any(m.startswith("Over/Under 0.75") for m, _, _ in bets)
+
+
+def test_other_bookmakers_handicap_remains_available_when_user_book_omits_the_line(tmp_path, monkeypatch):
+    _write_book(tmp_path, monkeypatch, datetime.now(timezone.utc) - timedelta(minutes=5))
+    e = _snapshot_event()
+    e["bookmakers"][0]["markets"].append({"key": "spreads", "last_update": e["odds_fetched_at"],
+        "outcomes": [{"name": "Aachen", "point": 0.5, "price": 1.72},
+                     {"name": "Bochum", "point": -0.5, "price": 2.22}]})
+    vb = api._compute_value_bets(_renamed(prediction()), [e], "Aachen", "Bochum")
+    pick = next(b for b in vb["bets"] if b["market"] == "Handicap +0.5" and b["team"] == "Aachen")
+    assert pick["best_odds"] == 1.72
+    assert pick["bookmaker_key"] != api.USER_BOOK_KEY
 
 
 def test_failed_refresh_does_not_relabel_stale_market_quotes(tmp_path, monkeypatch):

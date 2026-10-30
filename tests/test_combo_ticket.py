@@ -331,7 +331,8 @@ def test_combo_candidates_include_an_odds_api_line_missing_at_betathome():
                   "probability_draw": .2, "probability_away_win": .6}
     singles = api._compute_value_bets(prediction, [event], "A", "B")
     combos = api._compute_value_bets(prediction, [event], "A", "B", include_offers=True)
-    assert not any(b["outcome"] == "away_win" for b in singles["bets"])
+    assert any(b["outcome"] == "away_win" and b["bookmaker_key"] == "other"
+               for b in singles["bets"])
     assert any(b["outcome"] == "away_win" and b["bookmaker_key"] == "other"
                for b in combos["bets"])
 

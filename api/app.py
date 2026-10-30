@@ -1289,20 +1289,6 @@ def _with_book_odds(event: dict, events: Optional[list] = None) -> dict:
                                              "last_update": h2h_time or full_time, "markets": markets}]}
 
 
-def _user_price(event, market_key, outcome_name, point=None):
-    """bet-at-home's price where it quotes this market, else the best other.
-
-    Once bet-at-home's own book covers a market, a line only other bookmakers
-    offer is dropped: it is a bet the user cannot place.
-    """
-    offers = _available_prices(event, market_key, outcome_name, point)
-    covered = any(m.get("key") == market_key for b in event.get("bookmakers", [])
-                  if b.get("key") == USER_BOOK_KEY for m in b.get("markets", []))
-    if covered:
-        return next((o for o in offers if o["bookmaker_key"] == USER_BOOK_KEY), None)
-    return max(offers, key=lambda o: o["price"], default=None)
-
-
 @app.get("/odds")
 def get_odds():
     try:
@@ -1348,9 +1334,9 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
                 "exclusion": "scheduled_snapshot_expired"}
     quote_as_of = timestamp(context["odds_fetched_at"])
     candidates = []
-    # Combo construction requests every offered quote. Its candidate list must
-    # include markets even when bet-at-home covers the group but not that line.
-    price_for = _best_price if include_offers else _user_price
+    # Every fresh offered quote can be considered, regardless of bookmaker.
+    # The chosen candidate retains the book that supplied its best price.
+    price_for = _best_price
     home_outcome_name, away_outcome_name = event["home_team"], event["away_team"]
 
     # If our own model is reasonably confident about who wins (>50%), a 1X2 bet
@@ -1384,11 +1370,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
         # lines refund outright. The combo builder already excluded all three
         # for the same reason; leaving them in the single-bet list only offered
         # the reader a bet we could not describe.
-        # Draw No Bet is the one exception, and only at bet-at-home: it is a
-        # market the user can place there, and a draw returning the stake is
-        # a result anyone can read.
-        if not binary_market(market) and not (market == "Handicap 0.0"
-                                              and best.get("bookmaker_key") == USER_BOOK_KEY):
+        if not binary_market(market):
             return
         bet = {"market": market, "outcome": outcome, "team": team, "best_odds": best["price"]}
         try:
