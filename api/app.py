@@ -1923,7 +1923,7 @@ _agent_picks_refresh_in_progress = False
 # (today's evening kickoffs through the early hours of the next morning).
 # Limiting the agent to that same near-term window keeps each daily refresh
 # to a handful of matches instead of the full multi-day odds list.
-AGENT_EVAL_WINDOW_HOURS = 15
+AGENT_EVAL_WINDOW_HOURS = 12
 
 
 def _refresh_agent_picks(odds: list[dict]) -> None:
@@ -1936,7 +1936,7 @@ def _refresh_agent_picks(odds: list[dict]) -> None:
     callers already handle agent_eval being None.
 
     Tracked per-match (not once-per-day globally): a match whose kickoff is
-    >15h away when the day's first pass runs would otherwise never get picked
+    >12h away when the day's first pass runs would otherwise never get picked
     up again until the separate 1-hour pre-kickoff re-check - leaving it with
     no AI pick for most of the day even though it's well within the window by
     the afternoon. Re-checking on every call (cheap: only Gemini-calls matches
