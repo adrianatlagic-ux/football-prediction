@@ -1,29 +1,38 @@
-name: Deploy to Fly
-
-# Started by hand (Actions → Deploy to Fly → Run workflow), from a phone
-# browser too. Builds on Fly's remote builder, so the runner needs nothing
-# but flyctl. Needs the repository secret FLY_API_TOKEN, a deploy token for
-# the app: fly tokens create deploy -a football-prediction
+name: One-time Mainz AI rerun
 on:
   workflow_dispatch:
-
 concurrency:
   group: fly-deploy
   cancel-in-progress: false
-
 jobs:
-  deploy:
+  rerun:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          lfs: true
-      - name: Verify LFS objects
-        run: git lfs fsck
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - name: Deploy
+      - name: Back up and clear only the Mainz-Elversberg AI selection
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         run: |
-          if [ -z "$FLY_API_TOKEN" ]; then echo "FLY_API_TOKEN is not set" >&2; exit 1; fi
-          flyctl deploy --remote-only -a football-prediction
+          flyctl ssh console -a football-prediction -C 'python3 -c '\''import json
+          from pathlib import Path
+          from datetime import datetime, timezone
+          p = Path("/app/data/jobs/agent_picks.json")
+          d = json.loads(p.read_text())
+          event = "b275fe870ec88a9f0054c9220beb2673"
+          matches = [(k, v) for k, v in d["picks"] if len(k) > 2 and k[1] == event and k[2] == "2026-10-30T19:30:00Z"]
+          assert len(matches) == 1, "Expected exactly one cached Mainz-Elversberg selection"
+          assert datetime.now(timezone.utc) < datetime(2026, 10, 30, 19, 30, tzinfo=timezone.utc), "Match already started"
+          backup = p.with_name("mainz-elversberg-before-manual-rerun-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S") + ".json")
+          backup.write_text(json.dumps(matches, ensure_ascii=False))
+          d["picks"] = [(k, v) for k, v in d["picks"] if k != matches[0][0]]
+          tmp = p.with_suffix(".manual.tmp")
+          tmp.write_text(json.dumps(d, ensure_ascii=False))
+          tmp.replace(p)
+          print("Saved previous selection and cleared exactly one fixture")
+          '\'''
+      - name: Reload the saved cache
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+        run: flyctl apps restart football-prediction
+      - name: Trigger normal AI processing with current odds
+        run: curl --retry 3 --retry-delay 5 -fsS https://football-prediction.fly.dev/all-bets -o /dev/null
