@@ -94,3 +94,35 @@ def test_daily_refresh_preserves_missing_quote_across_restart(tmp_path, monkeypa
     monkeypatch.setattr(api, '_odds_daily_refresh_date', None)
     monkeypatch.setattr(api, '_fetch_odds', lambda: (_ for _ in ()).throw(AssertionError('unexpected fetch')))
     assert api._best_price(api._get_odds()[0], 'totals', 'Over', 2.5)['carried_forward']
+
+
+def test_split_book_replacements_keep_historical_evidence_without_old_offers():
+    now = datetime.now(timezone.utc)
+    old = event()
+    old['commence_time'] = (now + timedelta(minutes=30)).isoformat()
+    old['bookmakers'] = [{'key': 'original', 'last_update': now.isoformat(), 'markets': [
+        {'key': 'totals', 'outcomes': [{'name': 'Over', 'point': 2.5, 'price': 1.8},
+                                     {'name': 'Under', 'point': 2.5, 'price': 1.9}]}]}]
+    old = stamp_event(old, now, 'final')
+    new = deepcopy(old)
+    new['bookmakers'] = [
+        {'key': side, 'last_update': now.isoformat(), 'markets': [
+            {'key': 'totals', 'outcomes': [{'name': side, 'point': 2.5, 'price': price}]}]}
+        for side, price in [('Over', 1.7), ('Under', 2.0)]]
+    expected = (1 / 1.8) / (1 / 1.8 + 1 / 1.9)
+    merged = stamp_event(retain_missing_quotes(old, new), now, 'final')
+    for _ in range(3):
+        assert market_consensus(merged, 'totals', 'Over', 2.5, now) == expected
+        assert api._best_price(merged, 'totals', 'Over', 2.5)['price'] == 1.7
+        assert api._best_price(merged, 'totals', 'Under', 2.5)['price'] == 2.0
+        # Evidence survives both a fresh response and injection-style pass-through.
+        merged = stamp_event(retain_missing_quotes(merged, new), now, 'final')
+        merged = retain_missing_quotes(merged, merged)
+    evidence_book = next(b for b in merged['bookmakers'] if b['key'] == 'original')
+    assert len(evidence_book['markets']) == 1
+    assert evidence_book['markets'][0]['outcomes'] == []
+    complete = deepcopy(new)
+    complete['bookmakers'][0]['markets'][0]['outcomes'].append(
+        {'name': 'Under', 'point': 2.5, 'price': 2.1})
+    updated = stamp_event(retain_missing_quotes(merged, complete), now, 'final')
+    assert market_consensus(updated, 'totals', 'Over', 2.5, now) == (1 / 1.7) / (1 / 1.7 + 1 / 2.1)

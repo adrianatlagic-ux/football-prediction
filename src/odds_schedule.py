@@ -48,7 +48,7 @@ def retain_missing_quotes(previous, current):
                 outcomes = [outcome for outcome in market.get("outcomes", [])
                             if (market.get("key"), outcome.get("name"), outcome.get("point"))
                             not in fresh_selections]
-                if not outcomes:
+                if not outcomes and not market.get("historical_outcomes"):
                     continue
                 market = {**market, "outcomes": outcomes}
             markets.append(market)
@@ -65,7 +65,7 @@ def retain_missing_quotes(previous, current):
                 continue
             missing = [outcome for outcome in market.get("outcomes", [])
                        if (market.get("key"), outcome.get("name"), outcome.get("point")) not in available]
-            if missing:
+            if market.get("historical_outcomes") or market.get("outcomes"):
                 # Keep the original complete market only as probability evidence.
                 # Its replaced prices must never become available offers again.
                 retained.append({**market, "last_update": updated, "carried_forward": True,
@@ -77,7 +77,7 @@ def retain_missing_quotes(previous, current):
                 book = {**old_book, "markets": []}
                 books.append(book)
                 by_book[identity] = book
-            book["markets"].extend(retained)
+            book["markets"].extend(market for market in retained if market not in book["markets"])
     return {**current, "bookmakers": books}
 
 
