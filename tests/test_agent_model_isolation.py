@@ -8,7 +8,8 @@ from src.ai_tip_research import VERSION
 
 
 @pytest.mark.parametrize('legacy_recheck', [False, True])
-def test_agent_does_not_receive_model_outputs_even_via_old_reasoning(monkeypatch, legacy_recheck):
+@pytest.mark.parametrize('with_baseline', [False, True])
+def test_agent_does_not_receive_model_outputs_even_via_old_reasoning(monkeypatch, legacy_recheck, with_baseline):
     from google import genai
     from src import gemini_usage
 
@@ -34,6 +35,11 @@ def test_agent_does_not_receive_model_outputs_even_via_old_reasoning(monkeypatch
                      'quote_fresh': True, 'model_probability_raw': .9123456789,
                      'probability': .9123456789, 'market_probability': .55})
     vb = {'bets': bets, 'commence_time': '2099-10-30T19:30:00Z', 'odds_fetched_at': '2099-10-30T06:00:00Z'}
+    if with_baseline:
+        market_pick = {**bets[-2], 'market': 'Over/Under 2.5', 'outcome': 'Over',
+                       'best_odds': 1.57, 'market_probability': .6108}
+        bets.append(market_pick)
+        vb['likely_pick'] = market_pick
     prediction = {'probability_home_win': .9123456789,
                   'score_prediction': {'home_xg': 99.987654321},
                   'explanation': {'form': 'INTERNAL_MODEL_SENTINEL'}}
@@ -50,5 +56,16 @@ def test_agent_does_not_receive_model_outputs_even_via_old_reasoning(monkeypatch
         assert secret not in prompt
     assert 'model_context' not in result['research_input']
     assert result['research_version'] == VERSION
+    if with_baseline:
+        baseline = result['research_input']['market_baseline']
+        assert baseline['market'] == 'Over/Under 2.5' and baseline['outcome'] == 'Over'
+        assert baseline['market_probability'] == .6108
+        assert 'model_probability_raw' not in baseline and 'probability' not in baseline
+        assert 'MARKET COMPARISON: market=Over/Under 2.5, outcome=Over' in prompt
+        assert 'market-estimated chance=61.1%' in prompt
+        assert 'not a required choice' in prompt
+        assert 'Do not substitute an unrelated alternative' in prompt
+    else:
+        assert result['research_input']['market_baseline'] is None
     # The selected bet still carries backend-only values for the later gate.
     assert result['pick']['model_probability_raw'] == .9123456789

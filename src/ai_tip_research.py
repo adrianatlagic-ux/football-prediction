@@ -3,7 +3,7 @@
 import math
 from datetime import datetime, timezone
 
-VERSION = "market_research_only_v5"
+VERSION = "market_research_baseline_v6"
 
 
 def fresh_candidates(vb):
@@ -41,10 +41,20 @@ def coverage(candidates):
 
 def input_snapshot(vb, candidates, now=None):
     now = now or datetime.now(timezone.utc)
+    likely = vb.get("likely_pick") or {}
+    baseline = next((bet for bet in candidates if all(
+        bet.get(key) == likely.get(key) for key in ("market", "outcome", "team"))), None) if likely else None
+    if baseline is not None:
+        probability = baseline.get("market_probability")
+        if not isinstance(probability, (int, float)) or not math.isfinite(probability) or not 0 <= probability <= 1:
+            baseline = None
     return {"version": VERSION, "at": now.isoformat(), "sport_key": vb.get("sport_key"),
             "event_id": vb.get("event_id"), "commence_time": vb.get("commence_time"),
             "odds_fetched_at": vb.get("odds_fetched_at"), "odds_stage": vb.get("odds_stage"),
             "coverage": coverage(candidates),
+            "market_baseline": {k: baseline.get(k) for k in (
+                "market", "outcome", "team", "best_odds", "market_probability",
+                "quote_last_update", "quote_carried_forward")} if baseline else None,
             "candidates": [{k: bet.get(k) for k in ("market", "outcome", "team", "best_odds",
                             "bookmaker", "quote_last_update", "quote_carried_forward", "odds_fetched_at")}
                            for bet in candidates]}
