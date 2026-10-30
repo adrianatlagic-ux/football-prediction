@@ -6,19 +6,6 @@ from datetime import datetime, timezone
 VERSION = "full_market_model_context_v4"
 
 
-def morning_snapshot_ready(vb, now=None):
-    """The first AI call must use today's completed daily odds snapshot."""
-    from src.bet_audit import timestamp
-    from src.odds_schedule import DAILY_REFRESH_HOUR_UTC
-    now = now or datetime.now(timezone.utc)
-    try:
-        fetched = timestamp(vb["odds_fetched_at"])
-    except (KeyError, TypeError, ValueError):
-        return False
-    return (vb.get("odds_stage") == "daily" and fetched <= now
-            and fetched.date() == now.date() and fetched.hour >= DAILY_REFRESH_HOUR_UTC)
-
-
 def fresh_candidates(vb):
     """Give the AI every supported, fresh, priced outcome in stable order."""
     bets = []
