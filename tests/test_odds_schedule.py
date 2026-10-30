@@ -28,28 +28,6 @@ def test_final_snapshot_stays_visible_until_kickoff_not_live():
     assert api._compute_value_bets(prediction, [event], "A", "B")["market_favorite"] is None
 
 
-def test_missing_recent_quote_survives_refresh_but_new_quote_replaces_it():
-    now = datetime.now(timezone.utc)
-    previous = fixture(now - timedelta(minutes=5), now + timedelta(hours=1))
-    current = fixture(now, now + timedelta(hours=1))
-    current["bookmakers"][0]["markets"][0]["outcomes"] = [
-        {"name": "A", "price": 2.0}, {"name": "B", "price": 4.2}]
-    carried = api._carry_recent_quotes(previous, current, now)
-    offers = api._available_prices(stamp_event(carried, now, "final"), "h2h", "Draw")
-    assert len(offers) == 1 and offers[0]["price"] == 3.4
-    assert offers[0]["last_update"] == previous["bookmakers"][0]["last_update"]
-    assert api._best_price(stamp_event(carried, now, "final"), "h2h", "A")["price"] == 2.0
-
-    current["bookmakers"][0]["markets"][0]["outcomes"].append({"name": "Draw", "price": 3.8})
-    replaced = api._carry_recent_quotes(previous, current, now)
-    assert api._best_price(stamp_event(replaced, now, "final"), "h2h", "Draw")["price"] == 3.8
-
-    stale = fixture(now - timedelta(hours=2), now + timedelta(hours=1))
-    current["bookmakers"][0]["markets"][0]["outcomes"].pop()
-    assert not api._available_prices(stamp_event(api._carry_recent_quotes(stale, current, now), now, "final"),
-                                     "h2h", "Draw")
-
-
 def test_initial_snapshot_expires_at_daily_refresh_boundary():
     # Fetched three hours before the 06:00 UTC morning read.
     fetched = datetime(2026, 9, 19, 3, tzinfo=timezone.utc)

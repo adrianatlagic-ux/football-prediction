@@ -1020,42 +1020,6 @@ def _save_odds_snapshot(events: list[dict], fetched: datetime, stage: str) -> No
         pass
 
 
-def _carry_recent_quotes(previous: dict, current: dict, fetched: datetime) -> dict:
-    """Keep briefly missing selections without renewing their provider time.
-
-    A fresh quote for the same book, market, outcome and line always wins.
-    Older quotes remain in the earlier snapshot, not in the active offer.
-    """
-    from src.bet_selection import quote_is_fresh
-    if any(previous.get(k) != current.get(k) for k in
-           ("sport_key", "id", "home_team", "away_team", "commence_time")):
-        return current
-    books = [dict(book, markets=list(book.get("markets") or [])) for book in current.get("bookmakers", [])]
-    by_book = {book.get("key") or book.get("title"): book for book in books}
-    for old_book in previous.get("bookmakers", []):
-        identity = old_book.get("key") or old_book.get("title")
-        if not identity:
-            continue
-        book = by_book.get(identity)
-        if book is None:
-            book = {**old_book, "markets": []}
-            books.append(book)
-            by_book[identity] = book
-        present = {(market.get("key"), outcome.get("name"), outcome.get("point"))
-                   for market in book["markets"] for outcome in market.get("outcomes", [])}
-        for market in old_book.get("markets", []):
-            updated = market.get("last_update") or old_book.get("last_update")
-            if not quote_is_fresh(updated, fetched):
-                continue
-            missing = [outcome for outcome in market.get("outcomes", [])
-                       if (market.get("key"), outcome.get("name"), outcome.get("point")) not in present]
-            if missing:
-                book["markets"].append({**market, "last_update": updated, "outcomes": missing})
-                present.update((market.get("key"), outcome.get("name"), outcome.get("point"))
-                               for outcome in missing)
-    return {**current, "bookmakers": books}
-
-
 def _refresh_book_daily(events: list[dict]) -> None:
     for sport in book_odds.LEAGUES:
         try:
@@ -1098,14 +1062,6 @@ def _get_odds() -> list[dict]:
                 events = _fetch_odds()
                 fetched = datetime.now(timezone.utc)
                 stage = "daily" if fetched.hour >= ODDS_REFRESH_HOUR_UTC else "initial"
-                previous = {(e.get("sport_key"), e.get("id"), e.get("commence_time")): e
-                            for e in _odds_cache}
-                merged_events = []
-                for event in events:
-                    key = (event.get("sport_key"), event.get("id"), event.get("commence_time"))
-                    old = previous.get(key)
-                    merged_events.append(_carry_recent_quotes(old, event, fetched) if old else event)
-                events = merged_events
                 _save_odds_snapshot(events, fetched, stage)
                 _odds_cache = [stamp_event(e, fetched, stage) for e in events]
                 # bet-at-home's 1X2, read right after the snapshot so the two
@@ -1142,10 +1098,6 @@ def _get_odds() -> list[dict]:
                 fetched = datetime.now(timezone.utc)
                 for fresh in fresh_events:
                     key = (sport, fresh["id"], fresh["commence_time"])
-                    prior = _final_odds_cache.get(key) or next(
-                        (e for e in events if e.get("id") == fresh["id"]), None)
-                    if prior:
-                        fresh = _carry_recent_quotes(prior, fresh, fetched)
                     _final_odds_cache[key] = stamp_event(fresh, fetched, "final")
                 missing = {e["id"] for e in events} - {e["id"] for e in fresh_events}
                 if missing:
@@ -2180,8 +2132,6 @@ def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
                         fresh_event = event
                     else:
                         fresh_event = _fetch_event_odds(event) if event else None
-                    if fresh_event and event:
-                        fresh_event = _carry_recent_quotes(event, fresh_event, datetime.now(timezone.utc))
                 except Exception:
                     fresh_event = None
                 # bet-at-home must be as fresh as Pinnacle for the price tip and
