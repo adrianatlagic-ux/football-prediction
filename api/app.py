@@ -2020,7 +2020,8 @@ def _get_agent_pick(vb) -> Optional[dict]:
     if not cached:
         return None
     pick = next((b for b in vb.get("bets", []) if same_bet(b, cached.get("pick"))), None)
-    return {**cached, "pick": pick, "pick_unavailable": bool(cached.get("pick") and pick is None)}
+    return {**cached, "pick": pick, "selected_pick": cached.get("pick"),
+            "pick_unavailable": bool(cached.get("pick") and pick is None)}
 
 
 def _same_bet(a: Optional[dict], b: Optional[dict]) -> bool:
@@ -2403,6 +2404,8 @@ def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
     if expired:
         return {**out, "status": "odds_expired"}
     agent_eval = agent_eval or {}
+    if agent_eval.get("pick_unavailable"):
+        return {**out, "status": "pick_unavailable"}
     if agent_eval.get("status") == "incomplete_markets":
         return {**out, "status": "incomplete_markets"}
     if agent_eval.get("research_input"):
