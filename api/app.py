@@ -1038,7 +1038,7 @@ def _retry_book_morning(events: list[dict]) -> None:
 
 def _get_odds() -> list[dict]:
     from src.bet_audit import timestamp
-    from src.odds_schedule import stamp_event
+    from src.odds_schedule import stamp_event, retain_missing_quotes
     global _odds_cache, _odds_cache_date, _odds_cache_fetched_at, _odds_daily_refresh_date
     # Serialize provider requests so concurrent page/logger calls cannot issue
     # duplicate paid refreshes. The final snapshot survives later daily loads.
@@ -1062,6 +1062,20 @@ def _get_odds() -> list[dict]:
                 events = _fetch_odds()
                 fetched = datetime.now(timezone.utc)
                 stage = "daily" if fetched.hour >= ODDS_REFRESH_HOUR_UTC else "initial"
+                previous_events = _odds_cache
+                if not previous_events:
+                    try:
+                        saved = json.loads(ODDS_SNAPSHOT_PATH.read_text(encoding="utf-8"))
+                        saved_time = timestamp(saved["fetched_at"])
+                        previous_events = [stamp_event(e, saved_time, saved.get("stage", "daily"))
+                                           for e in saved["events"]]
+                    except (OSError, ValueError, KeyError, TypeError):
+                        previous_events = []
+                previous = {(e.get("sport_key"), e.get("id"), e.get("commence_time")): e
+                            for e in (_with_book_odds(old, previous_events) for old in previous_events)}
+                events = [retain_missing_quotes(previous[key], e) if key in previous else e
+                          for e in events
+                          for key in [(e.get("sport_key"), e.get("id"), e.get("commence_time"))]]
                 _save_odds_snapshot(events, fetched, stage)
                 _odds_cache = [stamp_event(e, fetched, stage) for e in events]
                 # bet-at-home's 1X2, read right after the snapshot so the two
@@ -1098,6 +1112,9 @@ def _get_odds() -> list[dict]:
                 fetched = datetime.now(timezone.utc)
                 for fresh in fresh_events:
                     key = (sport, fresh["id"], fresh["commence_time"])
+                    prior = next((e for e in events if e.get("id") == fresh["id"]), None)
+                    if prior:
+                        fresh = retain_missing_quotes(_with_book_odds(prior, events), fresh)
                     _final_odds_cache[key] = stamp_event(fresh, fetched, "final")
                 missing = {e["id"] for e in events} - {e["id"] for e in fresh_events}
                 if missing:
@@ -1159,7 +1176,7 @@ def _available_prices(event: dict, market_key: str, outcome_name: str, point: Op
         for market in bm.get("markets", []):
             if market.get("key") != market_key:
                 continue
-            if not quote_is_fresh(market.get("last_update") or bm.get("last_update"), as_of):
+            if not market.get("carried_forward") and not quote_is_fresh(market.get("last_update") or bm.get("last_update"), as_of):
                 continue
             for outcome in market.get("outcomes", []):
                 if outcome.get("name") != outcome_name:
@@ -1172,7 +1189,8 @@ def _available_prices(event: dict, market_key: str, outcome_name: str, point: Op
                 key = bm.get("key") or bm.get("title")
                 if key and (key not in offers or price > offers[key]["price"]):
                     offers[key] = {"price": price, "bookmaker": bm.get("title"), "bookmaker_key": key,
-                                   "last_update": market.get("last_update") or bm.get("last_update")}
+                                   "last_update": market.get("last_update") or bm.get("last_update"),
+                                   "carried_forward": bool(market.get("carried_forward"))}
     return list(offers.values())
 
 
@@ -1285,8 +1303,10 @@ def _with_book_odds(event: dict, events: Optional[list] = None) -> dict:
     if not markets:
         return event
     books = [b for b in event.get("bookmakers", []) if b.get("key") != USER_BOOK_KEY]
-    return {**event, "bookmakers": books + [{"key": USER_BOOK_KEY, "title": "bet-at-home",
-                                             "last_update": h2h_time or full_time, "markets": markets}]}
+    current = {**event, "bookmakers": books + [{"key": USER_BOOK_KEY, "title": "bet-at-home",
+                                               "last_update": h2h_time or full_time, "markets": markets}]}
+    from src.odds_schedule import retain_missing_quotes
+    return retain_missing_quotes(event, current)
 
 
 @app.get("/odds")
@@ -1424,6 +1444,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
             "bookmaker_key": best.get("bookmaker_key"),
             "selection_market_reference": reference,
             "quote_last_update": best.get("last_update"),
+            "quote_carried_forward": best.get("carried_forward", False),
             "model_probability_raw": round(raw_prob, 4),
             "expected_value": round(ev, 4),
             "kelly_stake_pct": round(priced["kelly_stake_pct"], 1),
@@ -1432,7 +1453,7 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
             "loss_probability": priced["loss_probability"],
             "payout_distribution": priced["payout_distribution"],
             "pricing_version": priced["pricing_version"],
-            "quote_fresh": quote_is_fresh(best.get("last_update"), quote_as_of),
+            "quote_fresh": not best.get("carried_forward") and quote_is_fresh(best.get("last_update"), quote_as_of),
             "quote_freshness_basis": "at_snapshot_fetch",
             "odds_fetched_at": context["odds_fetched_at"],
             "high_deviation": bool(deviation is not None and deviation > 0.15),
@@ -1447,6 +1468,8 @@ def _compute_value_bets(prediction: dict, odds: list[dict], home_team: str, away
                 offers.append({**candidates[-1], **offered_price, "best_odds": offer["price"],
                                "bookmaker": offer["bookmaker"], "bookmaker_key": offer["bookmaker_key"],
                                "quote_last_update": offer["last_update"],
+                               "quote_carried_forward": offer.get("carried_forward", False),
+                               "quote_fresh": not offer.get("carried_forward") and quote_is_fresh(offer.get("last_update"), quote_as_of),
                                "selection_market_reference": market_evidence(event, feed_key, feed_name, point,
                                    now=quote_as_of, exclude_book=offer["bookmaker_key"])})
             candidates[-1]["bookmaker_offers"] = offers
@@ -1713,6 +1736,7 @@ def _call_gemini_agent_pick(
     # per-bet model score and green/red display labels are not passed through.
     cand_lines = "\n".join(
         f"- market={c['market']}, outcome={c.get('team') or c['outcome']}, odds={c['best_odds']}"
+        + (f", last seen={c.get('quote_last_update')} (not included in latest fetch)" if c.get('quote_carried_forward') else "")
         for c in candidates
     )
 
@@ -2407,7 +2431,7 @@ def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
             change = "unknown"
         return {**out, "status": "ai_unsure", "withheld": pick, "change": change,
                 "first_pick": agent_eval.get("first_pick")}
-    if pick.get("quote_fresh") is False:
+    if pick.get("quote_fresh") is False and not pick.get("quote_carried_forward"):
         return {**out, "status": "odds_expired", "withheld": pick}
     model = pick.get("model_probability_raw")
     if model is None:

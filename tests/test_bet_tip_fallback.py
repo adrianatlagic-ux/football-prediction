@@ -82,3 +82,8 @@ def test_expired_snapshot_never_keeps_a_cached_tip(snapshot):
 
 def test_explicitly_stale_original_cannot_be_promoted():
     assert decide({**bet(model=.8), 'quote_fresh': False}, [])['status'] == 'odds_expired'
+
+
+def test_retained_original_can_be_used_when_model_agrees():
+    pick = {**bet(model=.8), 'quote_fresh': False, 'quote_carried_forward': True}
+    assert decide(pick, [])['tip'] == pick

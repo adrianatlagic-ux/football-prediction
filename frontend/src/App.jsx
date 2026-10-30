@@ -632,6 +632,7 @@ function ComboLegRow({ leg, index, onOpenLeg }) {
         <div className="combo-leg-pick">{plainBetPhrase(leg)}</div>
         <div className="combo-leg-meta">
           {marketGroupLabel(leg.market)}{leg.bookmaker && <> · {leg.bookmaker}</>}
+          {leg.quote_carried_forward && <> · {tr('Quote aus früherem Abruf', 'Odds from earlier fetch')}</>}
         </div>
         <div className="smart-bet-agree-row combo-leg-agree">
           {/* On a phone only the signs show; the legend below the combos explains them. */}
@@ -1053,6 +1054,7 @@ function BetTipBox({ betTip }) {
         <span className="likely-tip-chance">{pct(tip.market_probability)} {tr('Chance', 'chance')}</span>
       </div>
       {tip.bookmaker && <div className="bet-quote-bookmaker">{tr('Quote bei', 'Odds at')} {tip.bookmaker}</div>}
+      {tip.quote_carried_forward && <div className="bet-quote-bookmaker">{tr('Quote aus einem früheren Abruf', 'Odds from an earlier fetch')}</div>}
       <div className="smart-bet-agree-row">
         <span className="smart-bet-agree-chip yes">◆ {tr('Modell stimmt zu', 'Model agrees')} {pct(model)} ✓</span>
       </div>
@@ -1206,6 +1208,7 @@ function SmartBetCard({ betStep, betInfo, data, onRefresh, currentTime }) {
         <span className="smart-bet-col-odds">
           {b.best_odds.toFixed(2)}
           {b.bookmaker && <small className="bet-quote-bookmaker">{b.bookmaker}</small>}
+          {b.quote_carried_forward && <small className="bet-quote-bookmaker">{tr('früherer Abruf', 'earlier fetch')}</small>}
         </span>
         <span className="smart-bet-col-chance">
           {b.market_probability != null ? `${Math.round(b.market_probability * 100)}%` : '–'}

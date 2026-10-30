@@ -44,7 +44,7 @@ def fallback_pick(pick, bets, min_odds=1.30):
                 continue
             if not all(math.isfinite(x) for x in (p, q, odds)):
                 continue
-            if not 0 <= q <= p <= 1 or odds < min_odds or not bet.get('quote_fresh'):
+            if not 0 <= q <= p <= 1 or odds < min_odds or not (bet.get('quote_fresh') or bet.get('quote_carried_forward')):
                 continue
             distance = relaxation_distance(pick, bet)
             if distance is not None:

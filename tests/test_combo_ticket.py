@@ -128,6 +128,13 @@ def test_a_stale_quote_is_still_rejected():
     assert leg_pool([vb("A", "B", [candidate(.75, 1.6, selection_market_reference=None)])]) != []
 
 
+def test_a_retained_quote_keeps_its_origin_in_the_combo():
+    retained = candidate(.75, 1.6, quote_fresh=False, quote_carried_forward=True)
+    pool = leg_pool([vb("A", "B", [retained])])
+    assert len(pool) == 1
+    assert pool[0]['quote_carried_forward'] and not pool[0]['quote_fresh']
+
+
 def test_market_probability_only_when_every_leg_has_one():
     partial = score_ticket([leg("A", "B", 0.8, 1.5, market_prob=0.65),
                             leg("C", "D", 0.8, 1.5, market_prob=None)])

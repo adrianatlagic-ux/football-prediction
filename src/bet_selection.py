@@ -21,7 +21,7 @@ def quote_is_fresh(value, now=None):
         return False
 
 
-def market_evidence(event, key, name, point=None, now=None, exclude_book=None):
+def market_evidence(event, key, name, point=None, now=None, exclude_book=None, include_carried=False):
     """Devig each complete same-book market, then average the book estimates.
 
     Never pair unrelated handicap lines or normalize incomplete markets.
@@ -33,7 +33,10 @@ def market_evidence(event, key, name, point=None, now=None, exclude_book=None):
         if not identity or identity == exclude_book:
             continue
         for market in book.get("markets", []):
-            if market.get("key") != key or not quote_is_fresh(market.get("last_update") or book.get("last_update"), now):
+            if market.get("key") != key or not (
+                (not market.get("carried_forward") and quote_is_fresh(market.get("last_update") or book.get("last_update"), now))
+                or (include_carried and market.get("carried_forward"))
+            ):
                 continue
             outcomes = market.get("outcomes", [])
             if key == "h2h":
@@ -64,7 +67,10 @@ def market_evidence(event, key, name, point=None, now=None, exclude_book=None):
 
 
 def market_consensus(event, key, name, point=None, now=None):
-    return market_evidence(event, key, name, point, now)["mean"]
+    fresh = market_evidence(event, key, name, point, now)["mean"]
+    if fresh is not None:
+        return fresh
+    return market_evidence(event, key, name, point, now, include_carried=True)["mean"]
 
 
 def price_bet(bet, prediction, fallback_probability):

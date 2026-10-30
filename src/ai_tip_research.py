@@ -14,7 +14,7 @@ def fresh_candidates(vb):
         market = bet.get("market", "")
         if (market == "1X2" or market == "BTTS" or market.startswith("Handicap ")
                 or market.startswith("Over/Under ")):
-            if (bet.get("quote_fresh") is True and isinstance(odds, (int, float))
+            if ((bet.get("quote_fresh") is True or bet.get("quote_carried_forward") is True) and isinstance(odds, (int, float))
                     and not isinstance(odds, bool) and math.isfinite(odds) and odds > 1):
                 bets.append(bet)
     return sorted(bets, key=lambda b: (b["market"], b.get("team") or b["outcome"], -b["best_odds"]))
@@ -80,7 +80,7 @@ def input_snapshot(vb, candidates, prediction=None, now=None):
             "odds_fetched_at": vb.get("odds_fetched_at"), "odds_stage": vb.get("odds_stage"),
             "coverage": coverage(candidates), "model_context": model_context(prediction or {}),
             "candidates": [{k: bet.get(k) for k in ("market", "outcome", "team", "best_odds",
-                            "bookmaker", "quote_last_update", "odds_fetched_at")}
+                            "bookmaker", "quote_last_update", "quote_carried_forward", "odds_fetched_at")}
                            for bet in candidates]}
 
 

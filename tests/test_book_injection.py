@@ -56,6 +56,26 @@ def test_other_bookmakers_handicap_remains_available_when_user_book_omits_the_li
     assert pick["bookmaker_key"] != api.USER_BOOK_KEY
 
 
+def test_bet_at_home_quote_stays_when_later_fetch_omits_it(tmp_path, monkeypatch):
+    from src.odds_schedule import retain_missing_quotes
+    now = datetime.now(timezone.utc)
+    old_time = now - timedelta(hours=5)
+    _write_book(tmp_path, monkeypatch, old_time)
+    old = _snapshot_event()
+    old["odds_fetched_at"] = old_time.isoformat()
+    old = api._with_book_odds(old, [old])
+    new = _snapshot_event()
+    new["id"] = old["id"]
+    new["commence_time"] = old["commence_time"]
+    merged = retain_missing_quotes(old, new)
+    vb = api._compute_value_bets(_renamed(prediction()), [merged], "Aachen", "Bochum")
+    retained = next(b for b in vb["bets"] if b["market"] == "Over/Under 1.5" and b["outcome"] == "Over")
+    assert retained["best_odds"] == 1.3
+    assert retained["bookmaker_key"] == api.USER_BOOK_KEY
+    assert retained["quote_carried_forward"]
+    assert retained["quote_last_update"] == old_time.isoformat()
+
+
 def test_failed_refresh_does_not_relabel_stale_market_quotes(tmp_path, monkeypatch):
     # A stale book must not acquire the current snapshot's timestamp.
     _write_book(tmp_path, monkeypatch, datetime.now(timezone.utc) - timedelta(hours=3))

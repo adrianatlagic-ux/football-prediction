@@ -14,6 +14,50 @@ def stamp_event(event, fetched_at, stage):
     return {**event, "odds_fetched_at": fetched_at.isoformat(), "odds_stage": stage}
 
 
+def retain_missing_quotes(previous, current):
+    """Carry missing selections from the previous snapshot until kickoff.
+
+    A selection seen in the new snapshot replaces all older offers for that
+    selection, even if it is now quoted by a different bookmaker.
+    """
+    from .bet_selection import quote_is_fresh
+    if any(previous.get(key) != current.get(key) for key in
+           ("sport_key", "id", "home_team", "away_team", "commence_time")):
+        return current
+    try:
+        previous_time = timestamp(previous["odds_fetched_at"])
+    except (KeyError, TypeError, ValueError):
+        return current
+    books = [{**book, "markets": list(book.get("markets") or [])}
+             for book in current.get("bookmakers", [])]
+    available = {(market.get("key"), outcome.get("name"), outcome.get("point"))
+                 for book in books for market in book.get("markets", [])
+                 for outcome in market.get("outcomes", [])
+                 if isinstance(outcome.get("price"), (int, float)) and outcome["price"] > 1}
+    by_book = {book.get("key") or book.get("title"): book for book in books}
+    for old_book in previous.get("bookmakers", []):
+        identity = old_book.get("key") or old_book.get("title")
+        if not identity:
+            continue
+        retained = []
+        for market in old_book.get("markets", []):
+            updated = market.get("last_update") or old_book.get("last_update")
+            if not market.get("carried_forward") and not quote_is_fresh(updated, previous_time):
+                continue
+            missing = [outcome for outcome in market.get("outcomes", [])
+                       if (market.get("key"), outcome.get("name"), outcome.get("point")) not in available]
+            if missing:
+                retained.append({**market, "last_update": updated, "carried_forward": True, "outcomes": missing})
+        if retained:
+            book = by_book.get(identity)
+            if book is None:
+                book = {**old_book, "markets": []}
+                books.append(book)
+                by_book[identity] = book
+            book["markets"].extend(retained)
+    return {**current, "bookmakers": books}
+
+
 def snapshot_context(event, now=None):
     now = now or datetime.now(timezone.utc)
     # Compatibility for callers supplying a fresh response directly.
