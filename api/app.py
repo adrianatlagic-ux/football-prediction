@@ -1719,7 +1719,7 @@ def _call_gemini_agent_pick(
 
     from src.ai_tip_research import VERSION, fresh_candidates, input_snapshot, market_changes
     candidates = fresh_candidates(value_bets)
-    research_input = input_snapshot(value_bets, candidates, prediction)
+    research_input = input_snapshot(value_bets, candidates)
     if not research_input["coverage"]["complete"]:
         return {"pick": None, "research_version": VERSION, "status": "incomplete_markets",
                 "research_input": research_input,
@@ -1749,10 +1749,14 @@ def _call_gemini_agent_pick(
             f"market={prev_pick['market']}, outcome={prev_pick.get('team') or prev_pick['outcome']}"
             if prev_pick else "none"
         )
+        # Earlier versions justified picks with our model's numbers. Do not
+        # leak those numbers back into a research-only re-check via its text.
+        previous_reasoning = (previous_eval.get("bet_reasoning", "")
+                              if previous_eval.get("research_version") == VERSION else "")
         previous_block = f"""
 
 YOUR EARLIER ASSESSMENT of this same match (from an earlier check today): \
-pick="{previous_eval['bet_headline']}" ({prev_pick_desc}), reasoning="{previous_eval.get('bet_reasoning', '')}"
+pick=({prev_pick_desc}), reasoning="{previous_reasoning}"
 Earlier quote snapshot: {(previous_eval.get('research_input') or {}).get('odds_fetched_at')}.
 Market changes since that snapshot: {json.dumps(changes, ensure_ascii=False)}.
 
@@ -1763,22 +1767,14 @@ explain which input made the alternative better. If it stays, say why it remains
 Do not change your pick merely to seem thorough."""
 
     competition = _AGENT_COMPETITION_NAMES.get(value_bets.get("sport_key"), "football")
-    model = research_input["model_context"]
-    model_analysis = json.dumps(model, ensure_ascii=False, separators=(",", ":"))
     prompt = f"""You are researching an upcoming {competition} match: {home_team} vs {away_team}.
 Kickoff: {research_input['commence_time']}. Quote snapshot: {research_input['odds_fetched_at']}.
 
-OUR QUANTITATIVE MODEL ANALYSIS (reference only, not a preselected bet):
-{model_analysis}
-This includes result probabilities, expected goals, likely scorelines, derived market probabilities, \
-and the historical team indicators behind the model. Treat it as one input to weigh against your own \
-research and the price - NOT as the answer to agree with.
-
-The bets available to pick from (all supported fresh markets and current odds only - decide for yourself \
+The bets available to pick from (all supported quoted markets; any retained older prices are marked - decide for yourself \
 which, if any, is worth backing):
 {cand_lines}{previous_block}
 
-STEP 1 - RESEARCH (use Google Search). Our stats model only sees historical results, so dig up CURRENT \
+STEP 1 - RESEARCH (use Google Search). Dig up CURRENT \
 context across as many of these angles as you can actually find information on - don't limit yourself \
 to just one or two. Search in English AND in the local languages of both teams (e.g. Croatian sports \
 media for Croatia, Georgian for Georgia, German for a Bundesliga club): team news, line-ups and \
@@ -1793,12 +1789,13 @@ already decided?
 - Any other concrete, current fact you find that could matter
 
 STEP 2 - BETTING VERDICT. Act as a disciplined value-betting analyst. Distinguish between an outcome \
-being likely and it being attractive at the current price. Compare market odds, the quantitative model \
-analysis, and your current research for every serious candidate. Do not claim an edge when those inputs \
+being likely and it being attractive at the quoted price. Compare market odds and your independently \
+researched facts for every serious candidate. Do not cite or invent probabilities from our internal model. \
+Do not claim an edge when those inputs \
 do not point clearly in one direction. Do not favour any market by default: 1X2, Handicap, Over/Under \
 and BTTS can each be best only when price and evidence support them. Based on that, decide which ONE bet \
-from the list is the best one to actually back - or none, if nothing looks good. Form this view \
-independently; do not assume the model's most-likely outcome is the right bet. Give the main reason your \
+from the list is the best one to actually back - or none, if nothing looks good. Base this decision \
+on the quoted prices and your independently researched facts. Give the main reason your \
 choice beats the strongest alternative. \
 Then write bet_reasoning as exactly one \
 sentence explaining why you landed on that pick (or why none of them are worth backing - e.g. too \
@@ -1860,8 +1857,8 @@ supporting fact, max 8 words>"], "alternative_reasoning": "<why this beats the s
                 pick = c
                 break
 
-    # Agreement is computed here for the UI. The AI saw headline model values,
-    # so this is a comparison on shared information, not independent evidence.
+    # Attach the backend comparison only after the AI has made its selection.
+    # No internal model outputs are included in the AI's prompt.
     model_fav = value_bets.get("model_favorite")
     agrees_with_model = bool(
         pick is not None and model_fav is not None
