@@ -4,10 +4,10 @@
   "editorial_date_timezone": "Europe/Berlin",
   "production_date": "2026-10-31",
   "produced_early_by_explicit_user_request": true,
-  "status": "reserved",
+  "status": "generation_submitted",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
-  "attempts_used": 0,
+  "attempts_used": 1,
   "coverage_key": "ucl:2049607:2026-11-03:barcelona-aston-villa",
   "match": {
     "competition": "UEFA Champions League",
@@ -101,7 +101,7 @@
   },
   "generation": {
     "idempotency_key": "goaliq-2026-11-01-ucl2049607-mini720-giantcup-v1",
-    "job_id": null,
+    "job_id": "b6931098-ffbf-45f4-afea-66f6a029d856",
     "model": "seedance_2_0_mini",
     "duration_seconds": 5,
     "resolution": "720p",
