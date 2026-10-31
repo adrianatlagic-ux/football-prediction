@@ -10,6 +10,7 @@ import TEAM_NAMES_DE from './team_names_de.json'
 import { fixtureDateTime, nextGamesFor } from './fixtureSchedule.js'
 import { matchPath, sectionPath } from './navigation.js'
 import { useSiteRoute } from './useSiteRoute.js'
+import { createComboCacheEntry, comboCacheIsCurrent } from './comboCache.js'
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? (import.meta.env.DEV ? 'http://127.0.0.1:8000' : '')
 
@@ -2151,12 +2152,11 @@ function AiComparisonPanel({ fixture, result, aiData }) {
 
 function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive, isLinked, onOpen, onCollapse }) {
   const [showAI, setShowAI] = useState(false)
-  const [expanded, setExpanded] = useState(false)
 
-  if (!expanded && !isLinked) {
+  if (!isLinked) {
     return (
       <div className="fixture-row fixture-final" id={`match-${fixture.match_id}`}
-           onClick={() => { setExpanded(true); onOpen?.() }} role="button" tabIndex={0}>
+           onClick={onOpen} role="button" tabIndex={0}>
         <div className="fixture-meta">
           <span className="fixture-date">{fixtureWhen(fixture)}</span>
           <span className="fixture-final-badge">{tr('Beendet', 'Full time')}</span>
@@ -2177,7 +2177,7 @@ function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive, i
         <span className="wm-match-id">{fixtureWhen(fixture)}</span>
         <div className="wm-card-header-right">
           <span className="wm-match-type" style={{ background: 'rgba(34,197,94,0.15)', color: '#4ade80' }}>{tr('Beendet', 'Full time')}</span>
-          <button className="wm-collapse-btn" onClick={() => { setExpanded(false); onCollapse?.() }}>{tr('Einklappen ▲', 'Collapse ▲')}</button>
+          <button className="wm-collapse-btn" onClick={onCollapse}>{tr('Einklappen ▲', 'Collapse ▲')}</button>
         </div>
       </div>
 
@@ -2248,13 +2248,15 @@ export default function App() {
   }, [])
   const [analysisStep, setAnalysisStep] = useState({})
   const [combos, setCombos] = useState({})
+  const comboCache = useRef({})
   const comboRequests = useRef(new Set())
 
   const competition = COMPETITIONS[activeCompetition]
   const currentFixtures = competition.fixtures
   const linkedFixture = route.matchId ? currentFixtures.find(f => f.match_id === route.matchId && f.date === route.matchDate) : null
   const activeGroup = linkedFixture?.group || route.group || 'next'
-  const combo = combos[activeCompetition] || null
+  const comboEntry = combos[activeCompetition]
+  const combo = comboCacheIsCurrent(comboEntry, fixtureNow.getTime()) ? comboEntry.data : null
   const comboLoading = activeGroup === 'combo' && combo === null
   const currentGroups = groupsAroundToday(currentFixtures, fixtureNow)
   const nextGames = nextGamesFor(currentFixtures, fixtureNow)
@@ -2275,15 +2277,30 @@ export default function App() {
   }, [route, wmLoading, linkedFixture])
 
   useEffect(() => {
-    if (activeGroup !== 'combo' || comboRequests.current.has(activeCompetition)) return
+    if (activeGroup !== 'combo' || comboRequests.current.has(activeCompetition)
+        || comboCacheIsCurrent(comboCache.current[activeCompetition], Date.now())) return
     comboRequests.current.add(activeCompetition)
     axios.get(`${API_BASE}/combo-ticket`, { params: { competition: competition.sportKey } })
-      .then(r => setCombos(prev => ({ ...prev, [activeCompetition]: r.data })))
-      .catch(() => {
-        comboRequests.current.delete(activeCompetition)
-        setCombos(prev => ({ ...prev, [activeCompetition]: { error: true } }))
+      .then(r => {
+        const entry = createComboCacheEntry(r.data, Date.now())
+        comboCache.current[activeCompetition] = entry
+        setCombos(prev => ({ ...prev, [activeCompetition]: entry }))
       })
-  }, [activeCompetition, activeGroup, competition.sportKey])
+      .catch(() => {
+        const entry = createComboCacheEntry({ error: true }, Date.now())
+        comboCache.current[activeCompetition] = entry
+        setCombos(prev => ({ ...prev, [activeCompetition]: entry }))
+      })
+      .finally(() => comboRequests.current.delete(activeCompetition))
+  }, [activeCompetition, activeGroup, competition.sportKey, fixtureNow])
+
+  useEffect(() => {
+    if (activeGroup !== 'combo' || !comboEntry) return
+    const delay = comboEntry.expiresAt - Date.now()
+    if (delay <= 0) return
+    const timer = setTimeout(() => setFixtureNow(new Date()), delay + 1)
+    return () => clearTimeout(timer)
+  }, [activeGroup, comboEntry])
 
   function switchCompetition(key, group = 'next') {
     navigate(sectionPath(key, group))
@@ -2622,8 +2639,8 @@ export default function App() {
                           result={realResult}
                           aiData={aiData}
                           onGenerate={() => startAnalysis(fixture.match_id)}
-                          analysisActive={analysisStep[fixture.match_id] !== undefined || route.matchId === fixture.match_id}
-                          isLinked={route.matchId === fixture.match_id}
+                          analysisActive={linkedFixture === fixture}
+                          isLinked={linkedFixture === fixture}
                           onOpen={() => navigate(matchPath(activeCompetition, fixture))}
                           onCollapse={() => navigate(sectionPath(activeCompetition, fixture.group))}
                         />
@@ -2633,7 +2650,7 @@ export default function App() {
                     if (!aiData) {
                       return <FixtureRow key={fixture.match_id} fixture={fixture} />
                     }
-                    const step = analysisStep[fixture.match_id] ?? (route.matchId === fixture.match_id ? Infinity : undefined)
+                    const step = linkedFixture === fixture ? (analysisStep[fixture.match_id] ?? Infinity) : undefined
                     if (step === undefined) {
                       return (
                         <FixtureReadyRow
