@@ -8,6 +8,9 @@ import CLUB_CRESTS from './club_crests.json'
 import TEAM_COLORS from './team_colors.json'
 import TEAM_NAMES_DE from './team_names_de.json'
 import { fixtureDateTime, nextGamesFor } from './fixtureSchedule.js'
+import { matchPath, sectionPath } from './navigation.js'
+import { useSiteRoute } from './useSiteRoute.js'
+import { createComboCacheEntry, comboCacheIsCurrent } from './comboCache.js'
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? (import.meta.env.DEV ? 'http://127.0.0.1:8000' : '')
 
@@ -775,7 +778,7 @@ function FixtureRow({ fixture }) {
     ? `${tr('Analyse ab', 'Analysis from')} ${opens.toLocaleDateString(LOCALE(), { weekday: 'short', day: 'numeric', month: 'short' })}`
     : tr('Analyse folgt', 'Analysis coming')
   return (
-    <div className="fixture-row fixture-pending">
+    <div className="fixture-row fixture-pending" id={`match-${fixture.match_id}`}>
       <div className="fixture-meta">
         <span className="fixture-date">{fixtureWhen(fixture)}</span>
         <span className="fixture-pending-badge">{label}</span>
@@ -791,7 +794,7 @@ function FixtureRow({ fixture }) {
 
 function FixtureReadyRow({ fixture, onGenerate, onBets }) {
   return (
-    <div className="fixture-row fixture-ready">
+    <div className="fixture-row fixture-ready" id={`match-${fixture.match_id}`}>
       <div className="fixture-meta">
         <span className="fixture-date">{fixtureWhen(fixture)}</span>
         <span className="fixture-ready-badge">{tr('Analyse bereit', 'Analysis ready')}</span>
@@ -2147,13 +2150,13 @@ function AiComparisonPanel({ fixture, result, aiData }) {
   )
 }
 
-function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive }) {
+function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive, isLinked, onOpen, onCollapse }) {
   const [showAI, setShowAI] = useState(false)
-  const [expanded, setExpanded] = useState(false)
 
-  if (!expanded) {
+  if (!isLinked) {
     return (
-      <div className="fixture-row fixture-final" onClick={() => setExpanded(true)} role="button" tabIndex={0}>
+      <div className="fixture-row fixture-final" id={`match-${fixture.match_id}`}
+           onClick={onOpen} role="button" tabIndex={0}>
         <div className="fixture-meta">
           <span className="fixture-date">{fixtureWhen(fixture)}</span>
           <span className="fixture-final-badge">{tr('Beendet', 'Full time')}</span>
@@ -2169,12 +2172,12 @@ function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive })
   }
 
   return (
-    <div className="card wm-card">
+    <div className="card wm-card" id={`match-${fixture.match_id}`}>
       <div className="wm-card-header">
         <span className="wm-match-id">{fixtureWhen(fixture)}</span>
         <div className="wm-card-header-right">
           <span className="wm-match-type" style={{ background: 'rgba(34,197,94,0.15)', color: '#4ade80' }}>{tr('Beendet', 'Full time')}</span>
-          <button className="wm-collapse-btn" onClick={() => setExpanded(false)}>{tr('Einklappen ▲', 'Collapse ▲')}</button>
+          <button className="wm-collapse-btn" onClick={onCollapse}>{tr('Einklappen ▲', 'Collapse ▲')}</button>
         </div>
       </div>
 
@@ -2212,7 +2215,8 @@ function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive })
 }
 
 export default function App() {
-  const [page, setPage] = useState('home')
+  const [route, navigate] = useSiteRoute()
+  const page = route.page
   // The page's language; LANG (module level) is what tr() reads, this state
   // only makes React redraw everything when it changes.
   const [lang, setLang] = useState(LANG)
@@ -2220,12 +2224,10 @@ export default function App() {
     LANG = next
     try { localStorage.setItem('goaliq-lang', next) } catch { /* private mode */ }
     document.documentElement.lang = next
-    document.title = tr('GoalIQ – KI-Prognosen für jedes Spiel', 'GoalIQ – AI predictions for every match')
     setLang(next)
   }
   useEffect(() => {
     document.documentElement.lang = LANG
-    document.title = tr('GoalIQ – KI-Prognosen für jedes Spiel', 'GoalIQ – AI predictions for every match')
   }, [])
   const [predictionsById, setPredictionsById] = useState({})
   // The landing page's counted numbers (GET /site-stats).
@@ -2233,10 +2235,9 @@ export default function App() {
   const [realResultsMap, setRealResultsMap] = useState({})
   const [realResults, setRealResults] = useState([])
   // null until someone picks a competition: the ticker then shows a mix.
-  const [tickerCompetition, setTickerCompetition] = useState(null)
+  const tickerCompetition = route.competition || null
   const [wmLoading, setWmLoading] = useState(true)
-  const [activeCompetition, setActiveCompetition] = useState('cl')
-  const [activeGroup, setActiveGroup] = useState('next')
+  const activeCompetition = route.competition || 'cl'
   const [, setFixturesVersion] = useState(0)
   const [fixtureNow, setFixtureNow] = useState(() => new Date())
   useEffect(() => {
@@ -2246,52 +2247,80 @@ export default function App() {
     return () => { clearInterval(timer); window.removeEventListener('focus', refreshClock) }
   }, [])
   const [analysisStep, setAnalysisStep] = useState({})
-  const [combo, setCombo] = useState(null)
-  const [comboLoading, setComboLoading] = useState(false)
+  const [combos, setCombos] = useState({})
+  const comboCache = useRef({})
+  const comboRequests = useRef(new Set())
 
   const competition = COMPETITIONS[activeCompetition]
   const currentFixtures = competition.fixtures
+  const linkedFixture = route.matchId ? currentFixtures.find(f => f.match_id === route.matchId && f.date === route.matchDate) : null
+  const activeGroup = linkedFixture?.group || route.group || 'next'
+  const comboEntry = combos[activeCompetition]
+  const combo = comboCacheIsCurrent(comboEntry, fixtureNow.getTime()) ? comboEntry.data : null
+  const comboLoading = activeGroup === 'combo' && combo === null
   const currentGroups = groupsAroundToday(currentFixtures, fixtureNow)
   const nextGames = nextGamesFor(currentFixtures, fixtureNow)
 
-  // Anything already loaded belongs to the competition being left, so it is
-  // dropped rather than shown under the new one.
-  function switchCompetition(key) {
-    setActiveCompetition(key)
-    setTickerCompetition(key)
-    setActiveGroup('next')
-    setCombo(null)
-    setComboLoading(false)
+  useEffect(() => {
+    const suffix = linkedFixture ? `${teamName(linkedFixture.home_team)} – ${teamName(linkedFixture.away_team)}`
+      : page === 'how-it-works' ? tr('So funktioniert’s', 'How it works')
+      : route.competition ? competition.label : ''
+    document.title = suffix ? `${suffix} | GoalIQ` : tr('GoalIQ – KI-Prognosen für jedes Spiel', 'GoalIQ – AI predictions for every match')
+    const canonical = document.querySelector('link[rel="canonical"]')
+    if (canonical) canonical.href = `https://goaliq.de${window.location.pathname}`
+  }, [route, lang, linkedFixture, page, competition.label])
+
+  useEffect(() => {
+    if (wmLoading) return
+    if (route.matchId) document.getElementById(`match-${route.matchId}`)?.scrollIntoView({ block: 'start' })
+    else if (window.location.hash === '#predictions') document.getElementById('predictions')?.scrollIntoView()
+  }, [route, wmLoading, linkedFixture])
+
+  useEffect(() => {
+    if (activeGroup !== 'combo' || comboRequests.current.has(activeCompetition)
+        || comboCacheIsCurrent(comboCache.current[activeCompetition], Date.now())) return
+    comboRequests.current.add(activeCompetition)
+    axios.get(`${API_BASE}/combo-ticket`, { params: { competition: competition.sportKey } })
+      .then(r => {
+        const entry = createComboCacheEntry(r.data, Date.now())
+        comboCache.current[activeCompetition] = entry
+        setCombos(prev => ({ ...prev, [activeCompetition]: entry }))
+      })
+      .catch(() => {
+        const entry = createComboCacheEntry({ error: true }, Date.now())
+        comboCache.current[activeCompetition] = entry
+        setCombos(prev => ({ ...prev, [activeCompetition]: entry }))
+      })
+      .finally(() => comboRequests.current.delete(activeCompetition))
+  }, [activeCompetition, activeGroup, competition.sportKey, fixtureNow])
+
+  useEffect(() => {
+    if (activeGroup !== 'combo' || !comboEntry) return
+    const delay = comboEntry.expiresAt - Date.now()
+    if (delay <= 0) return
+    const timer = setTimeout(() => setFixtureNow(new Date()), delay + 1)
+    return () => clearTimeout(timer)
+  }, [activeGroup, comboEntry])
+
+  function switchCompetition(key, group = 'next') {
+    navigate(sectionPath(key, group))
   }
 
   // Opens a competition at its next matchday and scrolls to it (the hero
   // button: Champions League, the landing card: Bundesliga).
   function openNextMatchday(key) {
-    switchCompetition(key)
     const now = new Date()
     const fixtures = COMPETITIONS[key].fixtures
     const next = COMPETITIONS[key].groups.find(g =>
       fixtures.some(f => f.group === g && fixtureDateTime(f) >= now))
-    setActiveGroup(next || 'next')
+    switchCompetition(key, next || 'next')
     setTimeout(() => document.getElementById('predictions')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80)
   }
   const openNextChampionsLeague = () => openNextMatchday('cl')
 
-  async function loadCombo() {
-    setComboLoading(true)
-    setCombo(null)
-    try {
-      const r = await axios.get(`${API_BASE}/combo-ticket`,
-                                { params: { competition: competition.sportKey } })
-      setCombo(r.data)
-    } catch {
-      setCombo({ error: true })
-    } finally {
-      setComboLoading(false)
-    }
-  }
-
   function startAnalysis(matchId, fixture) {
+    const selected = fixture || currentFixtures.find(f => f.match_id === matchId)
+    if (selected) navigate(matchPath(activeCompetition, selected))
     setAnalysisStep(prev => ({ ...prev, [matchId]: 0 }))
     let step = 0
     const interval = setInterval(() => {
@@ -2321,6 +2350,7 @@ export default function App() {
   }
 
   function collapseAnalysis(matchId) {
+    if (route.matchId === matchId) navigate(sectionPath(activeCompetition, activeGroup))
     setAnalysisStep(prev => {
       const next = { ...prev }
       delete next[matchId]
@@ -2358,8 +2388,7 @@ export default function App() {
     const [key, fixture] = findFixture(leg)
     if (!fixture) return
     const id = fixture.match_id
-    setActiveCompetition(key)
-    setActiveGroup(fixture.group)
+    navigate(matchPath(key, fixture))
     setAnalysisStep(prev => ({ ...prev, [id]: Infinity }))
     setBetStepById(prev => ({ ...prev, [id]: Infinity }))
     axios.get(`${API_BASE}/value-bets`, { params: { home_team: fixture.home_team, away_team: fixture.away_team } })
@@ -2371,6 +2400,7 @@ export default function App() {
   // Straight to the bet tips from the fixture list: the analysis opens
   // without its step-by-step reveal and the page jumps to the tips.
   function openBets(fixture) {
+    navigate(matchPath(activeCompetition, fixture))
     const id = fixture.match_id
     setAnalysisStep(prev => ({ ...prev, [id]: Infinity }))
     setBetStepById(prev => ({ ...prev, [id]: Infinity }))
@@ -2382,6 +2412,7 @@ export default function App() {
   }
 
   function startBetCheck(matchId, fixture) {
+    navigate(matchPath(activeCompetition, fixture))
     setBetStepById(prev => ({ ...prev, [matchId]: 0 }))
     axios.get(`${API_BASE}/value-bets`, { params: { home_team: fixture.home_team, away_team: fixture.away_team } })
       .then(r => setBetInfoById(prev => ({ ...prev, [matchId]: r.data })))
@@ -2451,8 +2482,8 @@ export default function App() {
           <span className="nav-title">Goal<span>IQ</span></span>
         </a>
         <div className="nav-links">
-          <a href="#predictions" onClick={() => setPage('home')}>{tr('Prognosen', 'Predictions')}</a>
-          <a href="#how-it-works" onClick={(e) => { e.preventDefault(); setPage('how-it-works') }}>{tr("So funktioniert's", 'How it works')}</a>
+          <a href={`${sectionPath(activeCompetition)}#predictions`} onClick={(e) => { e.preventDefault(); navigate(`${sectionPath(activeCompetition)}#predictions`) }}>{tr('Prognosen', 'Predictions')}</a>
+          <a href="/so-funktionierts" onClick={(e) => { e.preventDefault(); navigate('/so-funktionierts'); window.scrollTo(0, 0) }}>{tr("So funktioniert's", 'How it works')}</a>
         </div>
         <div className="lang-switch" role="group" aria-label={tr('Sprache', 'Language')}>
           <button className={lang === 'de' ? 'active' : ''} onClick={() => switchLang('de')} aria-pressed={lang === 'de'}>DE</button>
@@ -2536,20 +2567,20 @@ export default function App() {
                 <div className="group-segments" role="tablist">
                   <button role="tab" aria-selected={activeGroup === 'next'}
                           className={`group-segment ${activeGroup === 'next' ? 'active' : ''}`}
-                          onClick={() => setActiveGroup('next')}>📅 {tr('Nächste Spiele', 'Next games')}</button>
+                          onClick={() => navigate(sectionPath(activeCompetition))}>📅 {tr('Nächste Spiele', 'Next games')}</button>
                   <button role="tab" aria-selected={activeGroup === 'hot'}
                           className={`group-segment ${activeGroup === 'hot' ? 'active' : ''}`}
-                          onClick={() => setActiveGroup('hot')}>🔥 {tr('Topspiele', 'Top games')}</button>
+                          onClick={() => navigate(sectionPath(activeCompetition, 'hot'))}>🔥 {tr('Topspiele', 'Top games')}</button>
                   <button role="tab" aria-selected={activeGroup === 'combo'}
                           className={`group-segment ${activeGroup === 'combo' ? 'active' : ''}`}
-                          onClick={() => { setActiveGroup('combo'); if (combo === null && !comboLoading) loadCombo() }}>
+                          onClick={() => navigate(sectionPath(activeCompetition, 'combo'))}>
                     🎟️ {tr('Kombi-Schein', 'Combo ticket')}</button>
                 </div>
                 {currentGroups.length > 0 && (
                   <label className={`group-select ${currentGroups.includes(activeGroup) ? 'active' : ''}`}>
                     <span className="group-select-icon">📆</span>
                     <select value={currentGroups.includes(activeGroup) ? activeGroup : ''}
-                            onChange={e => e.target.value && setActiveGroup(e.target.value)}
+                            onChange={e => e.target.value && navigate(sectionPath(activeCompetition, e.target.value))}
                             aria-label={tr('Spieltag wählen', 'Choose matchday')}>
                       <option value="" disabled>{tr('Spieltag wählen', 'Choose matchday')}</option>
                       {currentGroups.map(g => <option key={g} value={g}>{groupLabel(g)}</option>)}
@@ -2580,6 +2611,9 @@ export default function App() {
 
 
               <div className="fixtures-list">
+                {route.matchId && !linkedFixture && !wmLoading && (
+                  <p className="wm-subtle">{tr('Dieses Spiel ist nicht mehr im aktuellen Spielplan verfügbar.', 'This match is no longer available in the current schedule.')}</p>
+                )}
                 {(() => {
                   let fixtures
                   if (activeGroup === 'next') {
@@ -2605,7 +2639,10 @@ export default function App() {
                           result={realResult}
                           aiData={aiData}
                           onGenerate={() => startAnalysis(fixture.match_id)}
-                          analysisActive={analysisStep[fixture.match_id] !== undefined}
+                          analysisActive={linkedFixture === fixture}
+                          isLinked={linkedFixture === fixture}
+                          onOpen={() => navigate(matchPath(activeCompetition, fixture))}
+                          onCollapse={() => navigate(sectionPath(activeCompetition, fixture.group))}
                         />
                       )
                     }
@@ -2613,7 +2650,7 @@ export default function App() {
                     if (!aiData) {
                       return <FixtureRow key={fixture.match_id} fixture={fixture} />
                     }
-                    const step = analysisStep[fixture.match_id]
+                    const step = linkedFixture === fixture ? (analysisStep[fixture.match_id] ?? Infinity) : undefined
                     if (step === undefined) {
                       return (
                         <FixtureReadyRow
@@ -2648,9 +2685,11 @@ export default function App() {
 
       {page === 'how-it-works' && (
         <main className="main flow-main">
-          <AnalysisFlowPage onBack={() => setPage('home')} />
+          <AnalysisFlowPage onBack={() => navigate(sectionPath(activeCompetition))} />
         </main>
       )}
+
+      {page === 'not-found' && <main className="main flow-main"><p>{tr('Diese Seite wurde nicht gefunden.', 'This page was not found.')}</p><a href="/">{tr('Zur Startseite', 'Back to home')}</a></main>}
 
       <footer className="footer">
         <p>GoalIQ – {tr('KI-Prognosen, nur zur Unterhaltung. Keine Wettberatung.', 'AI predictions, for entertainment only. Not betting advice.')} · <a href="mailto:kontakt@goaliq.de">kontakt@goaliq.de</a></p>
