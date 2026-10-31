@@ -4,7 +4,7 @@
   "editorial_date_timezone": "Europe/Berlin",
   "production_date": "2026-10-31",
   "produced_early_by_explicit_user_request": true,
-  "status": "generation_submitted",
+  "status": "delivered_with_disclosed_quality_limits",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
   "attempts_used": 1,
@@ -107,7 +107,11 @@
     "resolution": "720p",
     "bitrate_mode": "high",
     "quoted_credits_exact": 5,
-    "balance_before": 13.5
+    "balance_before": 13.5,
+    "status": "completed",
+    "credits_used": 5,
+    "balance_after": 8.5,
+    "source_sha256": "0a1a7108269e4b0c73d5cd9cac79b3efea3e6d59196bab0f75169223aa2b6ff1"
   },
   "outro": {
     "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
@@ -117,6 +121,39 @@
   },
   "qa": {
     "ready": false,
-    "surprise_review": "pending"
+    "status": "surprise_visual_pass_with_engraving_and_audio_review_limits",
+    "surprise_review": "Pass: oversized trophy seen in opening lift; Watkins inside it becomes visible; Raphinha reacts with surprise. Main visual gag is understandable without audio.",
+    "player_review": "Both male characters broadly resemble official reference portraits; Watkins in Villa colors, Raphinha in Barcelona kit.",
+    "setting_review": "hotel lift lobby, no real pitch/stadium/training",
+    "sharpness_review": "720x1280, 10.5Mbps; clear faces and prop in sampled frames",
+    "text_error": "Model invented nonsensical trophy engraving; not a real inscription or real award claim.",
+    "audio_review": "AAC present and source packets preserved; German wording, naturalness and lip sync not independently heard.",
+    "outro_review": "Approved German master reused for two seconds, visual layout and exact disclaimer checked.",
+    "final_fixture_check": {
+      "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
+      "id": "2049607",
+      "kickoff_at": "2026-11-03T21:00:00+01:00",
+      "status": "UPCOMING",
+      "checked_on": "2026-10-31"
+    }
+  },
+  "production": {
+    "media_id": "32dc5aa7-8bd2-40c8-91a4-dbb97b16c4ba",
+    "zip_media_id": "40b1250f-f83b-42ac-916c-0d0f3b592725",
+    "sha256": "e7a3d21469eecf8bf9adb88ddf5585e448d5958809fb86c35b8434e866ab0286",
+    "duration_seconds": 7.12,
+    "all_121_source_frames_identical": true,
+    "all_160_source_audio_packets_identical": true,
+    "zip_byte_identical": true,
+    "download_http_status": {
+      "mp4": 206,
+      "zip": 206
+    }
+  },
+  "caption": "caption.txt",
+  "production_evidence": "production-evidence.json",
+  "delivery": {
+    "delivered_in_advance_on": "2026-10-31",
+    "skip_new_generation_on_target_date": true
   }
 }
