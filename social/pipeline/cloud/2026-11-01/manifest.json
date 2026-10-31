@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "target_date": "2026-11-01",
+  "editorial_date_timezone": "Europe/Berlin",
+  "production_date": "2026-10-31",
+  "produced_early_by_explicit_user_request": true,
+  "status": "reserved",
+  "daily_video_limit": 1,
+  "video_generation_attempt_limit": 1,
+  "attempts_used": 0,
+  "coverage_key": "ucl:2049607:2026-11-03:barcelona-aston-villa",
+  "match": {
+    "competition": "UEFA Champions League",
+    "match_id": "2049607",
+    "home": "FC Barcelona",
+    "away": "Aston Villa",
+    "match_date": "2026-11-03",
+    "kickoff_at": "2026-11-03T21:00:00+01:00",
+    "official_source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
+    "verified_on": "2026-10-31"
+  },
+  "selection": {
+    "target_day_matches": [
+      "Union Berlin–Köln",
+      "Eintracht Frankfurt–Hamburg"
+    ],
+    "rejected": "No documented comparable top-match relevance for the target-day fixtures.",
+    "uefa_pages_checked": [
+      0,
+      100,
+      200
+    ],
+    "covered_skipped": [
+      "Atlético–Bayern 2026-11-03",
+      "Manchester United–Roma 2026-11-03",
+      "Dortmund–Betis 2026-11-04"
+    ],
+    "reason": "Next uncovered marquee duel chosen: Barcelona five-time European Cup winners against Aston Villa, European champions in 1981/82. Both are verified in UEFA club history.",
+    "prior_manifests_checked": "2026-10-19 through 2026-10-31 plus earlier coverage known in previous manifests"
+  },
+  "research": {
+    "generation_basis": "verified_fixture_and_current_research",
+    "prediction_used": false,
+    "context_type": "club",
+    "verified_context": "UEFA records Barcelona as five-time winners and Aston Villa as 1981/82 European Cup winners. The giant cup gag refers to both clubs having already won the trophy, not a future result.",
+    "sources": [
+      "https://www.uefa.com/uefachampionsleague/history/clubs/52683--aston-villa/",
+      "https://www.uefa.com/uefachampionsleague/history/clubs/50080--barcelona/",
+      "https://www.fcbarcelona.com/en/football/first-team/players",
+      "https://fantasy.premierleague.com/api/bootstrap-static/"
+    ],
+    "player_roster_check": "Raphinha in current official Barcelona roster; official Premier League API lists Ollie Watkins code178301 with team2 Aston Villa.",
+    "portrait_sources": [
+      "https://www.fcbarcelona.com/photo-resources/2026/07/21/52cf522f-f115-4e64-8b22-6979d3687fae/11-Raphinha-RED.jpg?width=600&height=800",
+      "https://resources.premierleague.com/premierleague/photos/players/250x250/p178301.png"
+    ]
+  },
+  "story": {
+    "creative_goal": "surprise_then_understandable_visual_payoff",
+    "candidate_concepts": [
+      {
+        "idea": "Tiny Watkins inside a trophy held by Raphinha",
+        "rejected": "Tiny face and scale change risk poor identity legibility; miniature motif not the only surprise option."
+      },
+      {
+        "idea": "Suitcase transforms into a European cup",
+        "rejected": "Transformation and two people would be difficult to read in five seconds."
+      },
+      {
+        "idea": "Hotel lift contains giant European cup with Watkins sitting inside",
+        "selected": true,
+        "reason": "One large static impossible prop, two readable faces, simple unexpected reveal and historical club connection."
+      }
+    ],
+    "story_type": "oversized_trophy_hidden_passenger",
+    "story_setting": "hotel_lift_lobby",
+    "protagonists": [
+      "Raphinha",
+      "Ollie Watkins"
+    ],
+    "recent_settings": [
+      "backstage_scarf_display",
+      "pitch_action",
+      "player_lounge_table_football"
+    ],
+    "setting_difference": "hotel lift and oversized cup, no tunnel, lounge or pitch",
+    "audience_expectation": "An ordinary hotel lift contains normal passengers.",
+    "unexpected_visual": "An oversized European Cup fills the lift and Watkins sits inside it.",
+    "first_second_hook": "Giant silver trophy handles visible between opening lift doors.",
+    "surprise_mechanism": "unexpected_reveal_with_oversized_prop",
+    "payoff": "Watkins reveals himself inside the cup as Raphinha reacts, saying 'Wir waren auch schon da.'",
+    "football_context_connection": "Villa's 1982 European Cup win challenges the assumption that only Barcelona has European champion history.",
+    "recent_surprise_mechanisms": [
+      "none_in_previous_conventional_clips"
+    ],
+    "selection_reason": "Strong visible curiosity, one feasible impossible prop, verified club history.",
+    "visual_retell_test": "Raphinha findet im Hotelaufzug einen riesigen Europapokal, in dem bereits Aston-Villa-Spieler Watkins sitzt.",
+    "spoken_language": "de",
+    "on_pitch_beats": [],
+    "fiction_label": "KI-Fiktion in caption"
+  },
+  "generation": {
+    "idempotency_key": "goaliq-2026-11-01-ucl2049607-mini720-giantcup-v1",
+    "job_id": null,
+    "model": "seedance_2_0_mini",
+    "duration_seconds": 5,
+    "resolution": "720p",
+    "bitrate_mode": "high",
+    "quoted_credits_exact": 5,
+    "balance_before": 13.5
+  },
+  "outro": {
+    "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "trim_seconds": 2,
+    "preflight": "hash_matches_verified_master"
+  },
+  "qa": {
+    "ready": false,
+    "surprise_review": "pending"
+  }
+}
