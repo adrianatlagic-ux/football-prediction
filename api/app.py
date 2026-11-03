@@ -1748,7 +1748,7 @@ odds={baseline['best_odds']}, market-estimated chance={baseline['market_probabil
 This is the highest market-estimated chance among the quoted bets at odds from 1.30 to 2.00, \
 the same comparison shown to the reader. It is derived from bookmaker prices, not our internal model \
 and not additional independent evidence. A higher chance of winning does not automatically mean better value. \
-Use it as an explicit comparison, not a required choice. \
+Use it as context when relevant; do not force a comparison into the final verdict. \
 {"Its quote was retained from an earlier fetch: " + str(baseline.get('quote_last_update')) + "." if baseline.get('quote_carried_forward') else ""}
 """
 
@@ -1808,15 +1808,13 @@ Do not claim an edge when those inputs \
 do not point clearly in one direction. Do not favour any market by default: 1X2, Handicap, Over/Under \
 and BTTS can each be best only when price and evidence support them. Based on that, decide which ONE bet \
 from the list is the best one to actually back - or none, if nothing looks good. Base this decision \
-on the quoted prices and your independently researched facts. Give the main reason your \
-choice beats the strongest alternative. When MARKET COMPARISON is supplied, explicitly compare your \
-decision with that specific bet in alternative_reasoning. If you choose it, explain why it remains \
-attractive at its price; if you choose another bet or none, explain why the market comparison is less \
-attractive based on price and researched facts. Do not substitute an unrelated alternative for this comparison. \
+on the quoted prices and your independently researched facts. Evaluate serious alternatives before \
+choosing, but mention another bet in the verdict only when that comparison explains the decision. \
+If no comparison adds useful information, leave alternative_reasoning empty. \
 Then write bet_reasoning as exactly one short \
 sentence explaining why you landed on that pick (or why none of them are worth backing - e.g. too \
-unpredictable, no real edge, the odds don't justify it), at most 35 words. If your decision differs \
-from MARKET COMPARISON, briefly name that alternative and the main reason in this same sentence. \
+unpredictable, no real edge, the odds don't justify it), at most 35 words. Lead with the strongest \
+concrete reason for your verdict rather than a routine comparison with another bet. \
 Wrap the 2-4 words/phrases in that sentence \
 that most directly justify the pick (the actual stat or fact doing the work, e.g. "zero goals \
 conceded", "erratic form", "unbeaten in 8") in double asterisks like **this** - not team names, not \
@@ -1833,7 +1831,7 @@ string>", "other": "<one short sentence on anything else notable, or empty strin
 string, or null>", "bet_headline": "<2-5 words naming the pick in plain language, e.g. 'Über 2,5 \
 Tore' or 'Sieg Kroatien' - or 'Keine gute Wette' if pick is null>", "bet_reasoning": "<exactly ONE \
 sentence with your verdict>", "bet_points": ["<short supporting fact, max 8 words>", "<short \
-supporting fact, max 8 words>"], "alternative_reasoning": "<compare with the supplied MARKET COMPARISON; if absent, with the strongest alternative>", \
+supporting fact, max 8 words>"], "alternative_reasoning": "<short comparison only if it materially explains the verdict; otherwise empty string>", \
 "change_reason": "<only when the re-check changes the pick: one short sentence, max 16 words, naming the concrete new input; otherwise empty string>"}}"""
 
     try:
