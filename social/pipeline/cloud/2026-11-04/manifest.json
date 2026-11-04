@@ -1,15 +1,31 @@
 {
   "target_date": "2026-11-04",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "blocked_insufficient_credits",
+  "status": "reserved",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
   "attempts_used": 0,
-  "coverage_key": null,
-  "match": null,
+  "coverage_key": "ucl:2049619:2026-11-04:rb-leipzig-manchester-city",
+  "match": {
+    "competition": "UEFA Champions League",
+    "home": "RB Leipzig",
+    "away": "Manchester City",
+    "kickoff_at": "2026-11-04T21:00:00+01:00",
+    "match_date": "2026-11-04",
+    "official_source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
+    "match_id": "2049619",
+    "checked_on": "2026-11-04"
+  },
   "generation": {
     "job_id": null,
-    "credits_used": 0
+    "idempotency_key": "goaliq-2026-11-04-ucl2049619-grok-lite-1s-v1",
+    "model": "grok_video_v15_lite",
+    "duration_seconds": 1,
+    "resolution": "720p",
+    "reference_media_id": "3ff49553-4877-4610-9877-204697bc7a2a",
+    "quoted_credits_exact": 1,
+    "balance_before": 1,
+    "user_authorized_one_second": true
   },
   "budget_preflight": {
     "balance_credits": 1,
@@ -30,6 +46,56 @@
   },
   "qa": {
     "ready": false,
-    "reason": "Current credit balance insufficient for quoted video generation; no job submitted."
+    "surprise_review": "pending"
+  },
+  "research": {
+    "context": "UEFA documents Haaland's five goals against Leipzig in 2022/23; today's match is a different upcoming fixture, no score or future result implied.",
+    "sources": [
+      "https://www.uefa.com/uefachampionsleague/history/h2h/52919/2603790/",
+      "https://fantasy.premierleague.com/api/bootstrap-static/"
+    ],
+    "current_players": [
+      "Erling Haaland",
+      "Phil Foden"
+    ],
+    "portrait_sources": [
+      "https://resources.premierleague.com/premierleague/photos/players/250x250/p223094.png",
+      "https://resources.premierleague.com/premierleague/photos/players/250x250/p209244.png"
+    ],
+    "start_image_id": "3ff49553-4877-4610-9877-204697bc7a2a",
+    "start_image_description": "Two current official City player portrait cutouts combined on a neutral off-pitch background; one-second model permits one start image."
+  },
+  "story": {
+    "creative_goal": "immediately surprising visual in one second",
+    "candidate_concepts": [
+      {
+        "idea": "five footballs appear between Haaland and Foden",
+        "selected": true,
+        "reason": "one visual event linked to Haaland's five historical goals; feasible in one second"
+      },
+      {
+        "idea": "a football turns into a trophy",
+        "rejected": "requires multi-step transformation"
+      },
+      {
+        "idea": "opponent hidden in suitcase",
+        "rejected": "requires third figure and reveal in one second"
+      }
+    ],
+    "audience_expectation": "Two footballers in ordinary portrait pose",
+    "unexpected_visual": "Five footballs suddenly materialize between them",
+    "first_second_hook": "Five footballs appear immediately",
+    "surprise_mechanism": "sudden_object_appearance",
+    "payoff": "Both players react to unexpected cluster of balls",
+    "football_context_connection": "Five balls refer to UEFA-documented five goals against Leipzig in 2023, not a prediction.",
+    "story_setting": "neutral indoor studio with no pitch",
+    "fiction_label": "KI-Fiktion in caption",
+    "visual_retell_test": "Fünf Bälle erscheinen plötzlich zwischen Haaland und Foden."
+  },
+  "outro": {
+    "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "trim_seconds": 2,
+    "preflight": "hash_matches"
   }
 }
