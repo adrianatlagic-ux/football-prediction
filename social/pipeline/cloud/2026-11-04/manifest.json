@@ -1,7 +1,7 @@
 {
   "target_date": "2026-11-04",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "generation_submitted",
+  "status": "delivered_with_disclosed_quality_limits",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
   "attempts_used": 1,
@@ -25,7 +25,11 @@
     "reference_media_id": "3ff49553-4877-4610-9877-204697bc7a2a",
     "quoted_credits_exact": 1,
     "balance_before": 1,
-    "user_authorized_one_second": true
+    "user_authorized_one_second": true,
+    "status": "completed",
+    "credits_used": 1,
+    "balance_after": 0,
+    "source_sha256": "7e4e3552623510c7f116f118b6ba084bf6009b7414407a83c8afc405c61ea5e7"
   },
   "budget_preflight": {
     "balance_credits": 1,
@@ -46,7 +50,17 @@
   },
   "qa": {
     "ready": false,
-    "surprise_review": "pending"
+    "surprise_review": "Six footballs suddenly appear and both players react; a surprising effect is visible, but six rather than five balls makes the historical visual analogy inaccurate.",
+    "visual_review": "Animation of two cutout player portraits on a plain background, not a coherent photorealistic indoor scene. Five planned balls became six.",
+    "audio_review": "AAC track preserved; sound cannot be independently heard.",
+    "outro_review": "Logo, goaliq.de and exact German disclaimer visually checked.",
+    "fixture_final_check": {
+      "match_id": "2049619",
+      "kickoff_at": "2026-11-04T21:00:00+01:00",
+      "status": "UPCOMING",
+      "checked_at": "2026-11-04T17:27:40Z",
+      "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100"
+    }
   },
   "research": {
     "context": "UEFA documents Haaland's five goals against Leipzig in 2022/23; today's match is a different upcoming fixture, no score or future result implied.",
@@ -97,5 +111,20 @@
     "sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
     "trim_seconds": 2,
     "preflight": "hash_matches"
-  }
+  },
+  "production": {
+    "media_id": "58763db2-2a4b-41ff-8901-cce9e19c44ba",
+    "zip_media_id": "17f2b34f-7813-4f91-bf21-5988508c9d38",
+    "sha256": "fdde859d12b8f05c23836db8c1b6b9400c4058c2dafdee367b384c8b92352490",
+    "duration_seconds": 3.064,
+    "source_all_25_frames_identical": true,
+    "source_all_50_audio_packets_identical": true,
+    "zip_byte_identical": true,
+    "mp4_http": 206,
+    "zip_http": 206,
+    "outro_master_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "outro_trim_seconds": 2
+  },
+  "caption": "caption.txt",
+  "production_evidence": "production-evidence.json"
 }
