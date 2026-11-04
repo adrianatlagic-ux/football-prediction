@@ -1,10 +1,10 @@
 {
   "target_date": "2026-11-04",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "reserved",
+  "status": "generation_submitted",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
-  "attempts_used": 0,
+  "attempts_used": 1,
   "coverage_key": "ucl:2049619:2026-11-04:rb-leipzig-manchester-city",
   "match": {
     "competition": "UEFA Champions League",
@@ -17,7 +17,7 @@
     "checked_on": "2026-11-04"
   },
   "generation": {
-    "job_id": null,
+    "job_id": "77364892-386e-47bd-8c4d-e19e9937dde8",
     "idempotency_key": "goaliq-2026-11-04-ucl2049619-grok-lite-1s-v1",
     "model": "grok_video_v15_lite",
     "duration_seconds": 1,
