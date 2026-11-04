@@ -1,0 +1,35 @@
+{
+  "target_date": "2026-11-04",
+  "editorial_date_timezone": "Europe/Berlin",
+  "status": "blocked_insufficient_credits",
+  "daily_video_limit": 1,
+  "video_generation_attempt_limit": 1,
+  "attempts_used": 0,
+  "coverage_key": null,
+  "match": null,
+  "generation": {
+    "job_id": null,
+    "credits_used": 0
+  },
+  "budget_preflight": {
+    "balance_credits": 1,
+    "preferred_model": "seedance_2_0_mini",
+    "duration_seconds": 5,
+    "resolution": "720p",
+    "bitrate_mode": "high",
+    "cost_only_quote_credits": 5,
+    "shortfall_credits": 4,
+    "quote_note": "Cost-only estimate; exact player references and fixture not selected.",
+    "cheaper_test": {
+      "duration_seconds": 4,
+      "resolution": "480p",
+      "cost_only_quote_credits": 2,
+      "shortfall_credits": 1
+    },
+    "video_free_generations_remaining": 0
+  },
+  "qa": {
+    "ready": false,
+    "reason": "Current credit balance insufficient for quoted video generation; no job submitted."
+  }
+}
