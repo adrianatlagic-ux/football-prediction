@@ -309,7 +309,7 @@ def build_tickets(legs, min_legs=MIN_LEGS, max_legs=MAX_LEGS, pool_size=FIXTURES
 
 
 def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None,
-                min_odds=MIN_COMBINED_ODDS, allow_mixed_books=False):
+                min_odds=MIN_COMBINED_ODDS, allow_mixed_books=False, pool_size=FIXTURES_PER_DAY):
     by_day = defaultdict(list)
     for leg in legs:
         by_day[match_day(leg.get("commence_time"))].append(leg)
@@ -318,7 +318,7 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None,
     days = []
     for date in sorted(d for d in by_day if d):
         day_legs = by_day[date]
-        with_near = build_tickets(day_legs, max_legs=max_legs,
+        with_near = build_tickets(day_legs, max_legs=max_legs, pool_size=pool_size,
                                   min_odds=min_odds * NEAR_MISS_MIN_ODDS / MIN_COMBINED_ODDS,
                                   allow_mixed_books=allow_mixed_books)
         # The exact product, not the rounded combined_odds: 1.33 x 1.50 is
@@ -379,12 +379,14 @@ def combo_report(value_bet_results, max_legs=MAX_LEGS, book=None, policy="market
         if date and vb.get("odds_found"):
             days.add(date)
             started[date] += bool(vb.get("in_play"))
-    tickets = [t for t in build_tickets(legs, max_legs=max_legs,
+    pool_size = None if policy == "ai_pick" else FIXTURES_PER_DAY
+    tickets = [t for t in build_tickets(legs, max_legs=max_legs, pool_size=pool_size,
                                       min_odds=min_combined(policy), allow_mixed_books=allow_mixed_books)]
     return {"version": "combo_ticket_v4", "experimental": True, "policy": policy, "min_combined_odds": min_combined(policy),
             "eligible_legs": len({fixture_key(l) for l in legs}), "recommended": tickets[0] if tickets else None,
             "alternatives": tickets[1:4], "days": day_reports(legs, max_legs, days, started,
-                                                               min_combined(policy), allow_mixed_books),
+                                                               min_combined(policy), allow_mixed_books,
+                                                               pool_size=pool_size),
             "legs_considered": legs,
             "parameters": {"min_leg_probability": POLICIES[policy].get("min_leg_probability", MIN_LEG_PROBABILITY),
                            "max_legs": max_legs,

@@ -2454,8 +2454,7 @@ def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
 
 
 def _mark_legs_off_likely(report: dict, pairs: list) -> None:
-    """A combo leg that is not its match's 🎯 pick carries that pick, so the
-    page can say the ticket chose another bet to reach its target odds."""
+    """Mark whether each combo leg matches its fixture's 🎯 pick."""
     from src.bet_audit import norm
     likely = {}
     for _, vb in pairs:

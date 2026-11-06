@@ -760,7 +760,7 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
         <span><b>◆</b> {tr('Die Modelleinschätzung zum KI-Tipp', 'The model estimate for the AI pick')}</span>
         <span><b>✨ ✓</b> {tr('Die KI stützt den Tipp nach ihrer Recherche', 'The AI backs the selection after its research')}</span>
         <span><b>🎯</b> {tr('Der wahrscheinlichste Tipp dieses Spiels', "This match's most likely selection")}</span>
-        <span><b className="combo-legend-muted">🎯 ✕</b> {tr('Nicht der wahrscheinlichste Tipp – gewählt, um die Zielquote zu erreichen', 'Not the most likely selection – chosen to reach the target odds')}</span>
+        <span><b className="combo-legend-muted">🎯 ✕</b> {tr('Der KI-Tipp weicht vom Marktfavoriten ab', 'The AI pick differs from the market favorite')}</span>
       </div>
 
       <p className="smart-bet-finePrint">
@@ -1022,7 +1022,13 @@ function computeBetTip(betInfo, agentEval) {
   if (agentEval.revised_from_previous) return { tip: null, status: 'ai_unsure' }
   if (pick.market_probability == null || pick.best_odds < 1.30)
     return { tip: null, status: 'no_agreement' }
-  return { tip: pick, status: 'ok', confirmed: agentEval.revised_from_previous === false }
+  const model = pick.model_probability_raw ?? pick.probability
+  return {
+    tip: pick,
+    status: 'ok',
+    confirmed: agentEval.revised_from_previous === false,
+    model_agrees: model == null ? null : model >= pick.market_probability,
+  }
 }
 
 function BetTipBox({ betTip }) {

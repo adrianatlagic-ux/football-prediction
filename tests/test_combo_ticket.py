@@ -410,6 +410,25 @@ def test_ai_pick_combo_uses_only_published_picks_even_when_model_disagrees():
     assert {leg["policy"] for leg in ticket["legs"]} == {"ai_pick"}
 
 
+def test_ai_pick_combo_can_use_a_fixture_outside_the_top_eight():
+    from src.combo_ticket import combo_report
+
+    rows = []
+    for i in range(9):
+        home, away = f"Home{i}", f"Away{i}"
+        odds, market = (2.20, .45) if i == 8 else (1.40, .70)
+        pick = _bet(home, odds, market, market)
+        row = _agree_vb(home, away, [pick], agent_pick=pick)
+        row[1]["published_ai_pick"] = pick
+        rows.append(row)
+
+    report = combo_report(rows, max_legs=3, policy="ai_pick", allow_mixed_books=True)
+    assert report["recommended"] is not None
+    double, triple = report["days"][0]["by_size"]
+    assert double["ticket"]["combined_odds"] == 3.08
+    assert triple["ticket"]["combined_odds"] == 4.31
+
+
 def test_agree_rule_drops_legs_the_model_rejects_and_puts_ai_backed_legs_first():
     from src.combo_ticket import combo_report
     pairs = [
