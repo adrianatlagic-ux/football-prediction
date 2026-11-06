@@ -88,6 +88,8 @@ MODEL_TOLERANCE = 0.05
 # model-supported ticket that still meets the 3.0 total-odds rule.
 AGREE_MIN_MARKET_PROBABILITY = 0.44
 POLICIES = {
+    "ai_pick": {"min_odds": MIN_LEG_ODDS, "model_filters": False, "ki_only": True,
+                "min_leg_probability": 0.0, "min_combined": 3.0},
     "agree": {"min_odds": MIN_LEG_ODDS, "model_filters": False, "agreement": True,
               "min_leg_probability": AGREE_MIN_MARKET_PROBABILITY, "min_combined": 3.0},
     "market": {"min_odds": MIN_LEG_ODDS, "model_filters": False},
@@ -126,11 +128,15 @@ def leg_pool(value_bet_results, book=None, policy="market", allow_mixed_books=Fa
         for candidate in vb.get("bets", []):
             if not binary_market(candidate.get("market")):
                 continue
+            rules = POLICIES[policy]
+            if policy == "ai_pick":
+                pick = vb.get("published_ai_pick")
+                if not pick or any(pick.get(k) != candidate.get(k) for k in ("market", "outcome", "team")):
+                    continue
             # No model-based admission: high_deviation and contradicts_favorite
             # (the ⚠ warnings) used to exclude legs here, which let the model
             # veto bets the market rates likely. Selection is the market's; the
             # model is shown beside each leg for comparison only.
-            rules = POLICIES[policy]
             if rules["model_filters"] and (candidate.get("high_deviation") or candidate.get("contradicts_favorite")):
                 continue
             for offered in candidate.get("bookmaker_offers", [candidate]):
@@ -162,7 +168,7 @@ def leg_pool(value_bet_results, book=None, policy="market", allow_mixed_books=Fa
                     if not isinstance(market_probability, (int, float)) or market_probability < floor:
                         continue
                     ranking = market_probability
-                ki_agrees = False
+                ki_agrees = policy == "ai_pick"
                 if rules.get("agreement"):
                     model_p = candidate.get("model_probability_raw", offered.get("probability"))
                     if model_p is None or model_p < market_probability - MODEL_TOLERANCE:

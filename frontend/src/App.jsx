@@ -638,7 +638,7 @@ function ComboLegRow({ leg, index, onOpenLeg }) {
         </div>
         <div className="smart-bet-agree-row combo-leg-agree">
           {/* On a phone only the signs show; the legend below the combos explains them. */}
-          {leg.policy === 'agree' && <span className="smart-bet-agree-chip yes" title={tr('Modell stimmt zu', 'Model agrees')}>◆<span className="chip-text"> {tr('Modell stimmt zu', 'Model agrees')}</span> ✓</span>}
+          {leg.model_probability != null && <span className={`smart-bet-agree-chip ${leg.model_probability >= leg.market_probability ? 'yes' : 'muted'}`} title={leg.model_probability >= leg.market_probability ? tr('Modell stimmt zu', 'Model agrees') : tr('Modell weicht ab', 'Model disagrees')}>◆<span className="chip-text"> {leg.model_probability >= leg.market_probability ? tr('Modell stimmt zu', 'Model agrees') : tr('Modell weicht ab', 'Model disagrees')}</span> {leg.model_probability >= leg.market_probability ? '✓' : '✕'}</span>}
           {leg.ki_agrees && <span className="smart-bet-agree-chip yes" title={tr('KI stimmt zu', 'AI agrees')}>✨<span className="chip-text"> {tr('KI stimmt zu', 'AI agrees')}</span> ✓</span>}
           {leg.is_likely && <span className="smart-bet-agree-chip yes" title={tr('Wahrscheinlichster Tipp', 'Most likely bet')}>🎯<span className="chip-text"> {tr('Wahrscheinlichster Tipp', 'Most likely bet')}</span></span>}
           {leg.likely_pick && (
@@ -757,7 +757,7 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
 
       <div className="combo-legend">
         <span className="combo-legend-title">{tr('Signale', 'Signals')}</span>
-        <span><b>◆ ✓</b> {tr('Unser Modell stimmt dem Tipp zu', 'Our model agrees with the selection')}</span>
+        <span><b>◆</b> {tr('Die Modelleinschätzung zum KI-Tipp', 'The model estimate for the AI pick')}</span>
         <span><b>✨ ✓</b> {tr('Die KI stützt den Tipp nach ihrer Recherche', 'The AI backs the selection after its research')}</span>
         <span><b>🎯</b> {tr('Der wahrscheinlichste Tipp dieses Spiels', "This match's most likely selection")}</span>
         <span><b className="combo-legend-muted">🎯 ✕</b> {tr('Nicht der wahrscheinlichste Tipp – gewählt, um die Zielquote zu erreichen', 'Not the most likely selection – chosen to reach the target odds')}</span>
@@ -765,8 +765,8 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
 
       <p className="smart-bet-finePrint">
         {LANG === 'en'
-          ? `How the combos are built: per day the best 2-, 3- and 4-fold, at most one selection per match. Only selections our model agrees with are used; those the AI also backs come first, then the likeliest by the market. The calculated combined odds are at least ${(combo.min_combined_odds || 3).toFixed(2)}. Each leg uses its best available fresh price, even if the bookmakers differ. The combined price is a product of singles, not a verified accumulator offer; a single ticket at that price may be unavailable. Probabilities assume independent results. Combos can share selections and are not independent bets.`
-          : `So entstehen die Kombis: pro Tag die beste 2er-, 3er- und 4er-Kombi, höchstens ein Tipp pro Spiel. Genommen werden nur Tipps, denen unser Modell zustimmt; Tipps, die auch die KI stützt, kommen zuerst, danach die laut Markt wahrscheinlichsten. Die rechnerische Gesamtquote beträgt mindestens ${(combo.min_combined_odds || 3).toFixed(2).replace('.', DEC())}. Jeder Tipp nutzt die beste verfügbare frische Einzelquote, auch wenn sie von verschiedenen Buchmachern stammt. Die Gesamtquote ist das Produkt dieser Einzelquoten, kein geprüftes Kombi-Angebot; ein einzelner Wettschein zu dieser Quote ist möglicherweise nicht verfügbar. Die Wahrscheinlichkeiten nehmen unabhängige Ergebnisse an. Kombis können sich Tipps teilen und sind keine unabhängigen Wetten.`}
+          ? `How the combos are built: per day the best 2-, 3- and 4-fold from published AI picks, at most one selection per match. Tickets are ranked by market-estimated hit chance and must reach combined odds of at least ${(combo.min_combined_odds || 3).toFixed(2)}. Each leg uses its best available fresh price, even if the bookmakers differ. The combined price is a product of singles, not a verified accumulator offer; a single ticket at that price may be unavailable. Probabilities assume independent results. Combos can share selections and are not independent bets.`
+          : `So entstehen die Kombis: pro Tag die beste 2er-, 3er- und 4er-Kombi aus den freigegebenen KI-Tipps, höchstens ein Tipp pro Spiel. Sortiert wird nach der vom Markt geschätzten Trefferchance; die rechnerische Gesamtquote beträgt mindestens ${(combo.min_combined_odds || 3).toFixed(2).replace('.', DEC())}. Jeder Tipp nutzt die beste verfügbare frische Einzelquote, auch wenn sie von verschiedenen Buchmachern stammt. Die Gesamtquote ist das Produkt dieser Einzelquoten, kein geprüftes Kombi-Angebot; ein einzelner Wettschein zu dieser Quote ist möglicherweise nicht verfügbar. Die Wahrscheinlichkeiten nehmen unabhängige Ergebnisse an. Kombis können sich Tipps teilen und sind keine unabhängigen Wetten.`}
       </p>
     </div>
   )
@@ -1012,8 +1012,7 @@ function ModelTrackRecord({ bet, bets = [], competition }) {
   )
 }
 
-// The headline tip: the AI agent's own pick, when our model rates it at least
-// as likely as the market and the agent kept it at its re-check an hour
+// The headline tip: the AI agent's own pick when it kept it at its re-check an hour
 // before kickoff. The server decides it (bet_tip); this is the fallback.
 function computeBetTip(betInfo, agentEval) {
   if (betInfo.bet_tip && betInfo.bet_tip.rule) return betInfo.bet_tip
@@ -1021,8 +1020,7 @@ function computeBetTip(betInfo, agentEval) {
   const pick = agentEval?.pick
   if (!pick) return { tip: null, status: 'waiting_for_ai' }
   if (agentEval.revised_from_previous) return { tip: null, status: 'ai_unsure' }
-  const model = pick.model_probability_raw ?? pick.probability
-  if (pick.market_probability == null || model == null || model < pick.market_probability || pick.best_odds < 1.30)
+  if (pick.market_probability == null || pick.best_odds < 1.30)
     return { tip: null, status: 'no_agreement' }
   return { tip: pick, status: 'ok', confirmed: agentEval.revised_from_previous === false }
 }
@@ -1056,7 +1054,7 @@ function BetTipBox({ betTip }) {
         <span className="likely-tip-chance">{pct(tip.market_probability)} {tr('Chance', 'chance')}</span>
       </div>
       <div className="smart-bet-agree-row">
-        <span className="smart-bet-agree-chip yes">◆ {tr('Modell stimmt zu', 'Model agrees')} {pct(model)} ✓</span>
+        {model != null && <span className={`smart-bet-agree-chip ${betTip.model_agrees === false ? 'muted' : 'yes'}`}>◆ {betTip.model_agrees === false ? tr('Modell weicht ab', 'Model disagrees') : tr('Modell stimmt zu', 'Model agrees')} {pct(model)}{betTip.model_agrees === false ? ' ✕' : ' ✓'}</span>}
       </div>
       <div className={`bet-tip-status ${betTip.confirmed ? 'is-confirmed' : ''}`}>
         {betTip.confirmed
