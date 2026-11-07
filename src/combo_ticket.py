@@ -88,6 +88,8 @@ MODEL_TOLERANCE = 0.05
 # model-supported ticket that still meets the 3.0 total-odds rule.
 AGREE_MIN_MARKET_PROBABILITY = 0.44
 POLICIES = {
+    "ai_pick": {"min_odds": MIN_LEG_ODDS, "model_filters": False, "ki_only": True,
+                "min_leg_probability": 0.0, "min_combined": 3.0},
     "agree": {"min_odds": MIN_LEG_ODDS, "model_filters": False, "agreement": True,
               "min_leg_probability": AGREE_MIN_MARKET_PROBABILITY, "min_combined": 3.0},
     "market": {"min_odds": MIN_LEG_ODDS, "model_filters": False},
@@ -126,11 +128,15 @@ def leg_pool(value_bet_results, book=None, policy="market", allow_mixed_books=Fa
         for candidate in vb.get("bets", []):
             if not binary_market(candidate.get("market")):
                 continue
+            rules = POLICIES[policy]
+            if policy == "ai_pick":
+                pick = vb.get("published_ai_pick")
+                if not pick or any(pick.get(k) != candidate.get(k) for k in ("market", "outcome", "team")):
+                    continue
             # No model-based admission: high_deviation and contradicts_favorite
             # (the ⚠ warnings) used to exclude legs here, which let the model
             # veto bets the market rates likely. Selection is the market's; the
             # model is shown beside each leg for comparison only.
-            rules = POLICIES[policy]
             if rules["model_filters"] and (candidate.get("high_deviation") or candidate.get("contradicts_favorite")):
                 continue
             for offered in candidate.get("bookmaker_offers", [candidate]):
@@ -162,7 +168,7 @@ def leg_pool(value_bet_results, book=None, policy="market", allow_mixed_books=Fa
                     if not isinstance(market_probability, (int, float)) or market_probability < floor:
                         continue
                     ranking = market_probability
-                ki_agrees = False
+                ki_agrees = policy == "ai_pick"
                 if rules.get("agreement"):
                     model_p = candidate.get("model_probability_raw", offered.get("probability"))
                     if model_p is None or model_p < market_probability - MODEL_TOLERANCE:
@@ -303,7 +309,8 @@ def build_tickets(legs, min_legs=MIN_LEGS, max_legs=MAX_LEGS, pool_size=FIXTURES
 
 
 def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None,
-                min_odds=MIN_COMBINED_ODDS, allow_mixed_books=False):
+                min_odds=MIN_COMBINED_ODDS, allow_mixed_books=False, pool_size=FIXTURES_PER_DAY,
+                diversify=False):
     by_day = defaultdict(list)
     for leg in legs:
         by_day[match_day(leg.get("commence_time"))].append(leg)
@@ -312,7 +319,7 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None,
     days = []
     for date in sorted(d for d in by_day if d):
         day_legs = by_day[date]
-        with_near = build_tickets(day_legs, max_legs=max_legs,
+        with_near = build_tickets(day_legs, max_legs=max_legs, pool_size=pool_size,
                                   min_odds=min_odds * NEAR_MISS_MIN_ODDS / MIN_COMBINED_ODDS,
                                   allow_mixed_books=allow_mixed_books)
         # The exact product, not the rounded combined_odds: 1.33 x 1.50 is
@@ -335,8 +342,21 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None,
         started = (started_by_day or {}).get(date, 0)
         # Compare like with like: the best two-fold must not hide three-/four-folds.
         by_size = []
+        used_fixtures = set()
         for size in range(MIN_LEGS, min(max_legs, MAX_LEGS) + 1):
-            ticket = next((t for t in tickets if t["leg_count"] == size), None)
+            size_tickets = [t for t in tickets if t["leg_count"] == size]
+            ticket = size_tickets[0] if size_tickets else None
+            if ticket and used_fixtures and diversify:
+                # Diversify only among tickets whose estimated hit chance is
+                # close to the best ticket of this size. Never sacrifice more
+                # than 5% relative probability just to show different games.
+                close = [t for t in size_tickets
+                         if t["ranking_score"] >= ticket["ranking_score"] * .95]
+                ticket = min(close, key=lambda t: (
+                    sum(fixture_key(l) in used_fixtures for l in t["legs"]),
+                    -t["ranking_score"], -t["combined_odds"]))
+            if ticket:
+                used_fixtures.update(fixture_key(l) for l in ticket["legs"])
             near_miss = next((t for t in near if t["leg_count"] == size), None)
             if ticket and near_miss and near_miss["ranking_score"] <= ticket["ranking_score"]:
                 near_miss = None
@@ -373,12 +393,15 @@ def combo_report(value_bet_results, max_legs=MAX_LEGS, book=None, policy="market
         if date and vb.get("odds_found"):
             days.add(date)
             started[date] += bool(vb.get("in_play"))
-    tickets = [t for t in build_tickets(legs, max_legs=max_legs,
+    pool_size = None if policy == "ai_pick" else FIXTURES_PER_DAY
+    tickets = [t for t in build_tickets(legs, max_legs=max_legs, pool_size=pool_size,
                                       min_odds=min_combined(policy), allow_mixed_books=allow_mixed_books)]
     return {"version": "combo_ticket_v4", "experimental": True, "policy": policy, "min_combined_odds": min_combined(policy),
             "eligible_legs": len({fixture_key(l) for l in legs}), "recommended": tickets[0] if tickets else None,
             "alternatives": tickets[1:4], "days": day_reports(legs, max_legs, days, started,
-                                                               min_combined(policy), allow_mixed_books),
+                                                               min_combined(policy), allow_mixed_books,
+                                                               pool_size=pool_size,
+                                                               diversify=policy == "ai_pick"),
             "legs_considered": legs,
             "parameters": {"min_leg_probability": POLICIES[policy].get("min_leg_probability", MIN_LEG_PROBABILITY),
                            "max_legs": max_legs,

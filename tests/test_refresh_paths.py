@@ -202,7 +202,7 @@ def test_the_bet_tip_is_the_ai_pick_checked_by_the_model_and_withheld_when_the_a
     changed = api._bet_tip(vb, {"pick": pick, "revised_from_previous": True})
     assert changed["status"] == "ai_unsure" and changed["tip"] is None and changed["withheld"] is pick
     below = {**pick, "model_probability_raw": .54}
-    assert api._bet_tip(vb, {"pick": below})["status"] == "no_agreement"
+    assert api._bet_tip(vb, {"pick": below})["legacy_model_would_block"] is True
 
 
 def test_the_ki_combo_takes_only_the_ai_picks_the_model_backs():

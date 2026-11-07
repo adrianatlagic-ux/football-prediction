@@ -331,7 +331,8 @@ def test_combo_candidates_include_an_odds_api_line_missing_at_betathome():
                   "probability_draw": .2, "probability_away_win": .6}
     singles = api._compute_value_bets(prediction, [event], "A", "B")
     combos = api._compute_value_bets(prediction, [event], "A", "B", include_offers=True)
-    assert not any(b["outcome"] == "away_win" for b in singles["bets"])
+    assert any(b["outcome"] == "away_win" and b["bookmaker_key"] == "other"
+               for b in singles["bets"])
     assert any(b["outcome"] == "away_win" and b["bookmaker_key"] == "other"
                for b in combos["bets"])
 
@@ -390,6 +391,56 @@ def _bet(team, odds, market_p, model_p, market="1X2", outcome="win"):
     return {"market": market, "outcome": outcome, "team": team, "best_odds": odds, "probability": model_p,
             "model_probability_raw": model_p, "market_probability": market_p, "expected_value": model_p * odds - 1,
             "bookmaker": "bet-at-home", "bookmaker_key": "betathome", "quote_fresh": True}
+
+
+def test_ai_pick_combo_uses_only_published_picks_even_when_model_disagrees():
+    from src.combo_ticket import combo_report
+    a = _bet("A", 2.0, .50, .44)
+    c = _bet("C", 1.8, .56, .48)
+    extra = _bet("B", 1.4, .72, .80, "Handicap +1.5", "handicap")
+    rows = [_agree_vb("A", "B", [a, extra], agent_pick=a),
+            _agree_vb("C", "D", [c], agent_pick=c),
+            _agree_vb("E", "F", [_bet("E", 1.7, .59, .65)])]
+    rows[0][1]["published_ai_pick"] = a
+    rows[1][1]["published_ai_pick"] = c
+    report = combo_report(rows, policy="ai_pick", allow_mixed_books=True)
+    ticket = report["recommended"]
+    assert ticket is not None and ticket["combined_odds"] == 3.6
+    assert {leg["team"] for leg in ticket["legs"]} == {"A", "C"}
+    assert {leg["policy"] for leg in ticket["legs"]} == {"ai_pick"}
+
+
+def test_ai_pick_combo_can_use_a_fixture_outside_the_top_eight():
+    from src.combo_ticket import combo_report
+
+    rows = []
+    for i in range(9):
+        home, away = f"Home{i}", f"Away{i}"
+        odds, market = (2.20, .45) if i == 8 else (1.40, .70)
+        pick = _bet(home, odds, market, market)
+        row = _agree_vb(home, away, [pick], agent_pick=pick)
+        row[1]["published_ai_pick"] = pick
+        rows.append(row)
+
+    report = combo_report(rows, max_legs=3, policy="ai_pick", allow_mixed_books=True)
+    assert report["recommended"] is not None
+    double, triple = report["days"][0]["by_size"]
+    assert double["ticket"]["combined_odds"] == 3.08
+    assert triple["ticket"]["combined_odds"] == 4.31
+
+
+def test_ai_pick_combos_use_distinct_games_when_equally_good_options_exist():
+    from src.combo_ticket import combo_report
+    rows = []
+    for i in range(9):
+        pick = _bet(f"Home{i}", 1.8, .55, .45)
+        row = _agree_vb(f"Home{i}", f"Away{i}", [pick], agent_pick=pick)
+        row[1]["published_ai_pick"] = pick
+        rows.append(row)
+    report = combo_report(rows, policy="ai_pick", allow_mixed_books=True)
+    tickets = [option["ticket"] for option in report["days"][0]["by_size"]]
+    fixtures = [leg["home_team"] for ticket in tickets for leg in ticket["legs"]]
+    assert len(fixtures) == len(set(fixtures)) == 9
 
 
 def test_agree_rule_drops_legs_the_model_rejects_and_puts_ai_backed_legs_first():

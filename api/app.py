@@ -2395,22 +2395,18 @@ def _bet_tip_v1(vb: dict, agent_eval: Optional[dict]) -> dict:
     return {"tip": tip, "status": "ok"}
 
 
-# The Wett-Tipp since 11 October: the AI agent's own pick, when our model
-# rates it at least as likely as the market does. In the Nations League log
-# the agent's picks landed 70% against the market's 52% (z +3.0, 67 picks),
-# 77% where the model rated the pick above the market (39 picks), while the
-# likeliest bet the AI merely agreed with landed under the market's estimate.
-# A pick the agent changed at its re-check an hour before kickoff landed 53%
-# (15 picks): a change of mind means it is unsure, so then there is no tip.
-BET_TIP_RULE = "ki_model_fallback_v3"
+# The Wett-Tipp is the agent's own available pick. Model disagreement is
+# recorded for forward comparison, never used as a veto. A changed pick at
+# the pre-kickoff review remains withheld until that rule is tested separately.
+BET_TIP_RULE = "ki_pick_v4"
 
 
 def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
     """{"tip", "status": "ok" | "no_agreement" | "ai_unsure" | "waiting_for_ai",
     "confirmed": the pre-kickoff re-check kept the pick, "rule"}.
 
-    A model-below-market rejection can use a strictly weaker quoted bet.
-    AI changes always withhold the tip. Original selections remain logged.
+    AI changes still withhold the tip. Model disagreement is recorded for
+    comparison, but does not veto an otherwise available AI selection.
     """
     out = {"tip": None, "rule": BET_TIP_RULE, "confirmed": False}
     expired = vb.get("snapshot_valid") is False or vb.get("in_play")
@@ -2450,23 +2446,15 @@ def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
     if model is None:
         model = pick.get("probability")
     market = pick.get("market_probability")
-    if (market is None or model is None or pick.get("best_odds", 0) < BET_TIP_MIN_ODDS):
+    if (market is None or pick.get("best_odds", 0) < BET_TIP_MIN_ODDS):
         return {**out, "status": "no_agreement", "withheld": pick}
-    if model < market:
-        from src.bet_tip import fallback_pick
-        replacement = fallback_pick(pick, vb.get("bets") or vb.get("green_bets", []) + vb.get("red_bets", []),
-                                    min_odds=BET_TIP_MIN_ODDS)
-        if replacement is None:
-            return {**out, "status": "no_agreement", "withheld": pick}
-        return {**out, "tip": replacement, "status": "ok", "is_fallback": True,
-                "original_pick": pick, "fallback_reason": "original_model_below_market",
-                "confirmed": agent_eval.get("revised_from_previous") is False}
-    return {**out, "tip": pick, "status": "ok", "confirmed": agent_eval.get("revised_from_previous") is False}
+    return {**out, "tip": pick, "status": "ok", "confirmed": agent_eval.get("revised_from_previous") is False,
+            "model_agrees": None if model is None else model >= market,
+            "legacy_model_would_block": model is not None and model < market}
 
 
 def _mark_legs_off_likely(report: dict, pairs: list) -> None:
-    """A combo leg that is not its match's 🎯 pick carries that pick, so the
-    page can say the ticket chose another bet to reach its target odds."""
+    """Mark whether each combo leg matches its fixture's 🎯 pick."""
     from src.bet_audit import norm
     likely = {}
     for _, vb in pairs:
@@ -2511,15 +2499,19 @@ def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
             continue
         # The AI agent's own pick, for the "agree" rule (a leg it backs first).
         agent = _get_agent_pick(vb) if vb.get("odds_found") else None
+        published = _bet_tip(vb, agent).get("tip") if agent else None
         vb = {**vb, "agent_pick": (agent or {}).get("pick"),
-              "agent_revised": bool((agent or {}).get("revised_from_previous"))}
+              "agent_revised": bool((agent or {}).get("revised_from_previous")),
+              "published_ai_pick": published}
         pairs.append((data, vb))
 
     # Use the best fresh quote per leg, independently of its bookmaker.
     # The resulting product is a theoretical combined price, not a verified
     # accumulator offer. Keep the logged comparison policies on this basis.
-    report = combo_report(pairs, max_legs=max_legs, policy="agree", allow_mixed_books=True)
+    report = combo_report(pairs, max_legs=max_legs, policy="ai_pick", allow_mixed_books=True)
     report["competition"] = competition
+    old_agree = combo_report(pairs, max_legs=max_legs, policy="agree", allow_mixed_books=True)
+    report["agree_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in old_agree["days"]]
     market = combo_report(pairs, max_legs=max_legs, policy="market", allow_mixed_books=True)
     report["market_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in market["days"]]
     # The rule before 26 September, computed on the same matches for the log
