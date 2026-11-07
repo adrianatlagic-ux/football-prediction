@@ -429,6 +429,20 @@ def test_ai_pick_combo_can_use_a_fixture_outside_the_top_eight():
     assert triple["ticket"]["combined_odds"] == 4.31
 
 
+def test_ai_pick_combos_use_distinct_games_when_equally_good_options_exist():
+    from src.combo_ticket import combo_report
+    rows = []
+    for i in range(9):
+        pick = _bet(f"Home{i}", 1.8, .55, .45)
+        row = _agree_vb(f"Home{i}", f"Away{i}", [pick], agent_pick=pick)
+        row[1]["published_ai_pick"] = pick
+        rows.append(row)
+    report = combo_report(rows, policy="ai_pick", allow_mixed_books=True)
+    tickets = [option["ticket"] for option in report["days"][0]["by_size"]]
+    fixtures = [leg["home_team"] for ticket in tickets for leg in ticket["legs"]]
+    assert len(fixtures) == len(set(fixtures)) == 9
+
+
 def test_agree_rule_drops_legs_the_model_rejects_and_puts_ai_backed_legs_first():
     from src.combo_ticket import combo_report
     pairs = [

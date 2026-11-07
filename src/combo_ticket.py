@@ -309,7 +309,8 @@ def build_tickets(legs, min_legs=MIN_LEGS, max_legs=MAX_LEGS, pool_size=FIXTURES
 
 
 def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None,
-                min_odds=MIN_COMBINED_ODDS, allow_mixed_books=False, pool_size=FIXTURES_PER_DAY):
+                min_odds=MIN_COMBINED_ODDS, allow_mixed_books=False, pool_size=FIXTURES_PER_DAY,
+                diversify=False):
     by_day = defaultdict(list)
     for leg in legs:
         by_day[match_day(leg.get("commence_time"))].append(leg)
@@ -341,8 +342,21 @@ def day_reports(legs, max_legs=MAX_LEGS, all_days=(), started_by_day=None,
         started = (started_by_day or {}).get(date, 0)
         # Compare like with like: the best two-fold must not hide three-/four-folds.
         by_size = []
+        used_fixtures = set()
         for size in range(MIN_LEGS, min(max_legs, MAX_LEGS) + 1):
-            ticket = next((t for t in tickets if t["leg_count"] == size), None)
+            size_tickets = [t for t in tickets if t["leg_count"] == size]
+            ticket = size_tickets[0] if size_tickets else None
+            if ticket and used_fixtures and diversify:
+                # Diversify only among tickets whose estimated hit chance is
+                # close to the best ticket of this size. Never sacrifice more
+                # than 5% relative probability just to show different games.
+                close = [t for t in size_tickets
+                         if t["ranking_score"] >= ticket["ranking_score"] * .95]
+                ticket = min(close, key=lambda t: (
+                    sum(fixture_key(l) in used_fixtures for l in t["legs"]),
+                    -t["ranking_score"], -t["combined_odds"]))
+            if ticket:
+                used_fixtures.update(fixture_key(l) for l in ticket["legs"])
             near_miss = next((t for t in near if t["leg_count"] == size), None)
             if ticket and near_miss and near_miss["ranking_score"] <= ticket["ranking_score"]:
                 near_miss = None
@@ -386,7 +400,8 @@ def combo_report(value_bet_results, max_legs=MAX_LEGS, book=None, policy="market
             "eligible_legs": len({fixture_key(l) for l in legs}), "recommended": tickets[0] if tickets else None,
             "alternatives": tickets[1:4], "days": day_reports(legs, max_legs, days, started,
                                                                min_combined(policy), allow_mixed_books,
-                                                               pool_size=pool_size),
+                                                               pool_size=pool_size,
+                                                               diversify=policy == "ai_pick"),
             "legs_considered": legs,
             "parameters": {"min_leg_probability": POLICIES[policy].get("min_leg_probability", MIN_LEG_PROBABILITY),
                            "max_legs": max_legs,

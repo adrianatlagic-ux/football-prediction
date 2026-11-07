@@ -639,7 +639,7 @@ function ComboLegRow({ leg, index, onOpenLeg }) {
         <div className="smart-bet-agree-row combo-leg-agree">
           {/* On a phone only the signs show; the legend below the combos explains them. */}
           {leg.model_probability != null && <span className={`smart-bet-agree-chip ${leg.model_probability >= leg.market_probability ? 'yes' : 'muted'}`} title={leg.model_probability >= leg.market_probability ? tr('Modell stimmt zu', 'Model agrees') : tr('Modell weicht ab', 'Model disagrees')}>◆<span className="chip-text"> {leg.model_probability >= leg.market_probability ? tr('Modell stimmt zu', 'Model agrees') : tr('Modell weicht ab', 'Model disagrees')}</span> {leg.model_probability >= leg.market_probability ? '✓' : '✕'}</span>}
-          {leg.ki_agrees && <span className="smart-bet-agree-chip yes" title={tr('KI stimmt zu', 'AI agrees')}>✨<span className="chip-text"> {tr('KI stimmt zu', 'AI agrees')}</span> ✓</span>}
+          {leg.ki_agrees && <span className="smart-bet-agree-chip yes" title={tr('KI-Tipp', 'AI pick')}>✨<span className="chip-text"> {tr('KI-Tipp', 'AI pick')}</span></span>}
           {leg.is_likely && <span className="smart-bet-agree-chip yes" title={tr('Wahrscheinlichster Tipp', 'Most likely bet')}>🎯<span className="chip-text"> {tr('Wahrscheinlichster Tipp', 'Most likely bet')}</span></span>}
           {leg.likely_pick && (
             <span className="smart-bet-agree-chip muted"
@@ -758,15 +758,15 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
       <div className="combo-legend">
         <span className="combo-legend-title">{tr('Signale', 'Signals')}</span>
         <span><b>◆</b> {tr('Die Modelleinschätzung zum KI-Tipp', 'The model estimate for the AI pick')}</span>
-        <span><b>✨ ✓</b> {tr('Die KI stützt den Tipp nach ihrer Recherche', 'The AI backs the selection after its research')}</span>
+        <span><b>✨</b> {tr('Der KI-Tipp für dieses Spiel', 'The AI pick for this match')}</span>
         <span><b>🎯</b> {tr('Der wahrscheinlichste Tipp dieses Spiels', "This match's most likely selection")}</span>
         <span><b className="combo-legend-muted">🎯 ✕</b> {tr('Der KI-Tipp weicht vom Marktfavoriten ab', 'The AI pick differs from the market favorite')}</span>
       </div>
 
       <p className="smart-bet-finePrint">
         {LANG === 'en'
-          ? `How the combos are built: per day the best 2-, 3- and 4-fold from published AI picks, at most one selection per match. Tickets are ranked by market-estimated hit chance and must reach combined odds of at least ${(combo.min_combined_odds || 3).toFixed(2)}. Each leg uses its best available fresh price, even if the bookmakers differ. The combined price is a product of singles, not a verified accumulator offer; a single ticket at that price may be unavailable. Probabilities assume independent results. Combos can share selections and are not independent bets.`
-          : `So entstehen die Kombis: pro Tag die beste 2er-, 3er- und 4er-Kombi aus den freigegebenen KI-Tipps, höchstens ein Tipp pro Spiel. Sortiert wird nach der vom Markt geschätzten Trefferchance; die rechnerische Gesamtquote beträgt mindestens ${(combo.min_combined_odds || 3).toFixed(2).replace('.', DEC())}. Jeder Tipp nutzt die beste verfügbare frische Einzelquote, auch wenn sie von verschiedenen Buchmachern stammt. Die Gesamtquote ist das Produkt dieser Einzelquoten, kein geprüftes Kombi-Angebot; ein einzelner Wettschein zu dieser Quote ist möglicherweise nicht verfügbar. Die Wahrscheinlichkeiten nehmen unabhängige Ergebnisse an. Kombis können sich Tipps teilen und sind keine unabhängigen Wetten.`}
+          ? `How the combos are built: per day a 2-, 3- and 4-fold from published AI picks, at most one selection per match. Among tickets with a similar market-estimated hit chance, different matches are preferred. Tickets must reach combined odds of at least ${(combo.min_combined_odds || 3).toFixed(2)}. Each leg uses its best available fresh price, even if the bookmakers differ. The combined price is a product of singles, not a verified accumulator offer; a single ticket at that price may be unavailable. Probabilities assume independent results. Combos can share selections when too few suitable matches are available and are not independent bets.`
+          : `So entstehen die Kombis: pro Tag eine 2er-, 3er- und 4er-Kombi aus den freigegebenen KI-Tipps, höchstens ein Tipp pro Spiel. Bei ähnlich hoher geschätzter Trefferchance werden unterschiedliche Spiele bevorzugt. Die rechnerische Gesamtquote beträgt mindestens ${(combo.min_combined_odds || 3).toFixed(2).replace('.', DEC())}. Jeder Tipp nutzt die beste verfügbare frische Einzelquote, auch wenn sie von verschiedenen Buchmachern stammt. Die Gesamtquote ist das Produkt dieser Einzelquoten, kein geprüftes Kombi-Angebot; ein einzelner Wettschein zu dieser Quote ist möglicherweise nicht verfügbar. Die Wahrscheinlichkeiten nehmen unabhängige Ergebnisse an. Bei wenigen passenden Spielen können sich Kombis Tipps teilen und sind keine unabhängigen Wetten.`}
       </p>
     </div>
   )
