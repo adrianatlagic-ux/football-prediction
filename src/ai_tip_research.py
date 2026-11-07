@@ -3,7 +3,7 @@
 import math
 from datetime import datetime, timezone
 
-VERSION = "market_research_baseline_v7"
+VERSION = "market_research_neutral_v8"
 
 
 def fresh_candidates(vb):

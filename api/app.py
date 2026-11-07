@@ -1739,19 +1739,6 @@ def _call_gemini_agent_pick(
         + (f", last seen={c.get('quote_last_update')} (not included in latest fetch)" if c.get('quote_carried_forward') else "")
         for c in candidates
     )
-    baseline = research_input["market_baseline"]
-    baseline_block = ""
-    if baseline:
-        baseline_block = f"""
-MARKET COMPARISON: market={baseline['market']}, outcome={baseline.get('team') or baseline['outcome']}, \
-odds={baseline['best_odds']}, market-estimated chance={baseline['market_probability']:.1%}.
-This is the highest market-estimated chance among the quoted bets at odds from 1.30 to 2.00, \
-the same comparison shown to the reader. It is derived from bookmaker prices, not our internal model \
-and not additional independent evidence. A higher chance of winning does not automatically mean better value. \
-Use it as context when relevant; do not force a comparison into the final verdict. \
-{"Its quote was retained from an earlier fetch: " + str(baseline.get('quote_last_update')) + "." if baseline.get('quote_carried_forward') else ""}
-"""
-
     previous_block = ""
     if previous_eval and previous_eval.get("bet_headline"):
         prev_pick = (previous_eval.get("first_pick") if previous_eval.get("status") == "incomplete_markets"
@@ -1783,9 +1770,9 @@ Do not change your pick merely to seem thorough."""
 Kickoff: {research_input['commence_time']}. Quote snapshot: {research_input['odds_fetched_at']}.
 
 The bets available to pick from (all supported quoted markets; any retained older prices are marked - decide for yourself \
-which, if any, is worth backing):
+which, if any, is worth backing; no candidate is preselected or recommended):
 {cand_lines}
-{baseline_block}{previous_block}
+{previous_block}
 
 STEP 1 - RESEARCH (use Google Search). Dig up CURRENT \
 context across as many of these angles as you can actually find information on - don't limit yourself \
