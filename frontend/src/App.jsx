@@ -763,11 +763,7 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
         <span><b className="combo-legend-muted">🎯 ✕</b> {tr('Der KI-Tipp weicht vom Marktfavoriten ab', 'The AI pick differs from the market favorite')}</span>
       </div>
 
-      <p className="smart-bet-finePrint">
-        {LANG === 'en'
-          ? `How the combos are built: per day a 2-, 3- and 4-fold from published AI picks, at most one selection per match. Among tickets with a similar market-estimated hit chance, different matches are preferred. Tickets must reach combined odds of at least ${(combo.min_combined_odds || 3).toFixed(2)}. Each leg uses its best available fresh price, even if the bookmakers differ. The combined price is a product of singles, not a verified accumulator offer; a single ticket at that price may be unavailable. Probabilities assume independent results. Combos can share selections when too few suitable matches are available and are not independent bets.`
-          : `So entstehen die Kombis: pro Tag eine 2er-, 3er- und 4er-Kombi aus den freigegebenen KI-Tipps, höchstens ein Tipp pro Spiel. Bei ähnlich hoher geschätzter Trefferchance werden unterschiedliche Spiele bevorzugt. Die rechnerische Gesamtquote beträgt mindestens ${(combo.min_combined_odds || 3).toFixed(2).replace('.', DEC())}. Jeder Tipp nutzt die beste verfügbare frische Einzelquote, auch wenn sie von verschiedenen Buchmachern stammt. Die Gesamtquote ist das Produkt dieser Einzelquoten, kein geprüftes Kombi-Angebot; ein einzelner Wettschein zu dieser Quote ist möglicherweise nicht verfügbar. Die Wahrscheinlichkeiten nehmen unabhängige Ergebnisse an. Bei wenigen passenden Spielen können sich Kombis Tipps teilen und sind keine unabhängigen Wetten.`}
-      </p>
+
     </div>
   )
 }
@@ -1012,15 +1008,13 @@ function ModelTrackRecord({ bet, bets = [], competition }) {
   )
 }
 
-// The headline tip accepts explained changes at the pre-kickoff review.
+// The headline tip accepts changes at the pre-kickoff review.
 // The server decides it (bet_tip); this is the fallback.
 function computeBetTip(betInfo, agentEval) {
   if (betInfo.bet_tip && betInfo.bet_tip.rule) return betInfo.bet_tip
   if (agentEval?.pick_unavailable) return { tip: null, status: 'pick_unavailable' }
   const pick = agentEval?.pick
   if (!pick) return { tip: null, status: 'waiting_for_ai' }
-  if (agentEval.revised_from_previous && !(typeof agentEval.change_reason === 'string' && agentEval.change_reason.trim()))
-    return { tip: null, status: 'missing_change_reason' }
   if (pick.quote_fresh === false && !pick.quote_carried_forward) return { tip: null, status: 'odds_expired' }
   if (pick.market_probability == null || pick.best_odds < 1.30)
     return { tip: null, status: 'no_agreement' }
@@ -1041,7 +1035,6 @@ function BetTipBox({ betTip }) {
       pick_unavailable: tr('Die KI hat das Spiel geprüft. Für ihre ausgewählte Wette gibt es aktuell keine Quote im Angebot.', 'The AI has checked the match. Its selected bet currently has no available quote.'),
       no_selection: tr('Kein Wett-Tipp – die KI findet aktuell keine ausreichend begründete Wette.', 'No bet tip – the AI currently finds no sufficiently supported bet.'),
       incomplete_markets: tr('Noch kein Wett-Tipp – aktuelle Quoten für Sieg, Handicap oder Über/Unter fehlen.', 'No bet tip yet – current win, handicap or totals odds are missing.'),
-      missing_change_reason: tr('Noch kein Wett-Tipp – die Begründung für den Tippwechsel fehlt.', 'No bet tip yet – the explanation for the changed selection is missing.'),
       ai_unsure: tr('Kein Wett-Tipp – der gespeicherte Tipp wurde nach der früheren Wechselregel zurückgehalten.', 'No bet tip – the saved selection was withheld under the previous change rule.'),
       no_agreement: tr('Kein Wett-Tipp – die Bedingungen für einen Tipp sind nicht erfüllt.', 'No bet tip – the conditions for a tip are not met.'),
       odds_expired: tr('Kein Wett-Tipp – die Quoten sind nicht mehr gültig. Bitte erneut laden.', 'No bet tip – the odds are no longer valid. Please reload.'),

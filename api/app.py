@@ -1819,7 +1819,7 @@ string, or null>", "bet_headline": "<2-5 words naming the pick in plain language
 Tore' or 'Sieg Kroatien' - or 'Keine gute Wette' if pick is null>", "bet_reasoning": "<exactly ONE \
 sentence with your verdict>", "bet_points": ["<short supporting fact, max 8 words>", "<short \
 supporting fact, max 8 words>"], "alternative_reasoning": "<short comparison only if it materially explains the verdict; otherwise empty string>", \
-"change_reason": "<only when the re-check changes the pick: one short sentence, max 16 words, naming the concrete new input; otherwise empty string>"}}"""
+"change_reason": "<only when the re-check changes the pick: always try to give one short sentence, max 16 words, naming the concrete input or reconsideration that caused the change; never invent a reason; otherwise empty string>"}}"""
 
     try:
         kind = "agent_recheck" if previous_eval else "agent_pick"
@@ -2095,8 +2095,8 @@ def _combine_recommendation(vb: dict, agent_eval: Optional[dict]) -> dict:
 
 
 # A second per-match check, exactly in the hour before kickoff. The AI sees
-# the current complete book and the previous selection; a changed pick needs
-# an explanation before it can become the public tip.
+# the current complete book and the previous selection; a changed pick remains
+# available, with an explanation requested whenever possible.
 _agent_prekickoff_done: set[tuple[str, str]] = set()
 _agent_prekickoff_in_progress: set[tuple[str, str]] = set()
 PREKICKOFF_WINDOW_HOURS = 1
@@ -2384,15 +2384,15 @@ def _bet_tip_v1(vb: dict, agent_eval: Optional[dict]) -> dict:
 
 # The Wett-Tipp is the agent's own available pick. Model disagreement is
 # recorded for forward comparison, never used as a veto. A changed pick at
-# the pre-kickoff review requires a recorded explanation.
-BET_TIP_RULE = "ki_reasoned_pick_v5"
+# the pre-kickoff review stays available even if its explanation is missing.
+BET_TIP_RULE = "ki_reviewed_pick_v6"
 
 
 def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
     """{"tip", "status": "ok" | "no_agreement" | "ai_unsure" | "waiting_for_ai",
     "confirmed": the pre-kickoff re-check is complete, "rule"}.
 
-    Explained AI changes are allowed. Model disagreement is recorded for
+    AI changes are allowed even if their explanation is missing. Model disagreement is recorded for
     comparison, but does not veto an otherwise available AI selection.
     """
     out = {"tip": None, "rule": BET_TIP_RULE, "confirmed": False}
@@ -2427,8 +2427,6 @@ def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
         reason = reason.strip() if isinstance(reason, str) else ""
         out.update(change=change, first_pick=agent_eval.get("first_pick"),
                    revised=True, change_reason=reason)
-        if not reason:
-            return {**out, "status": "missing_change_reason", "withheld": pick}
     if pick.get("quote_fresh") is False and not pick.get("quote_carried_forward"):
         return {**out, "status": "odds_expired", "withheld": pick}
     model = pick.get("model_probability_raw")

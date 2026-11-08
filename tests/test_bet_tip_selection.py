@@ -23,7 +23,7 @@ def test_quote_and_ai_review_still_control_publication():
             'best_odds': 1.8, 'market_probability': .55,
             'model_probability_raw': .49, 'quote_fresh': True}
     vb = {'home_team': 'A', 'away_team': 'B', 'bets': [pick]}
-    assert api._bet_tip(vb, {'pick': pick, 'revised_from_previous': True})['status'] == 'missing_change_reason'
+    assert api._bet_tip(vb, {'pick': pick, 'revised_from_previous': True})['tip'] is pick
     assert api._bet_tip(vb, {'pick': {**pick, 'best_odds': 1.29}})['tip'] is None
     assert api._bet_tip(vb, {'pick': {**pick, 'quote_fresh': False}})['tip'] is None
 
@@ -49,7 +49,7 @@ def test_reasoned_change_is_logged_and_available_for_combos():
         entry = _build_entry({**vb, 'agent_eval': agent, 'bet_tip': out}, now.isoformat())
         assert entry['agent_eval']['first_pick'] == old
         assert entry['bet_tip']['change_reason'] == agent['change_reason']
-        assert api._bet_tip(vb, {**agent, 'change_reason': '   '})['tip'] is None
+        assert api._bet_tip(vb, {**agent, 'change_reason': '   '})['tip'] is pick
         assert api._bet_tip(vb, {**agent, 'pick': {**pick, 'quote_fresh': False}})['tip'] is None
         assert api._bet_tip({**vb, 'in_play': True}, agent)['tip'] is None
         pairs.append(({}, {**vb, 'published_ai_pick': out['tip'], 'agent_revised': True}))

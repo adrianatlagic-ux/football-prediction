@@ -224,18 +224,18 @@ def test_the_ki_combo_takes_only_the_ai_picks_the_model_backs():
     assert [(l["home_team"], l["best_odds"]) for l in legs] == [("A", 1.8)]
 
 
-def test_unexplained_change_is_withheld_and_logs_whether_it_kept_the_side():
+def test_unexplained_change_is_allowed_and_logs_whether_it_kept_the_side():
     from api import app as api
     win = {"market": "1X2", "outcome": "home_win", "team": "Leipzig"}
     minus = {"market": "Handicap -1.5", "outcome": "handicap", "team": "Leipzig", "best_odds": 2.4,
              "market_probability": .45, "model_probability_raw": .50}
     plus = {**minus, "market": "Handicap +1.5"}
     other = {**minus, "team": "Frankfurt"}
-    over = {"market": "Over/Under 2.5", "outcome": "Over", "team": None}
+    over = {**minus, "market": "Over/Under 2.5", "outcome": "Over", "team": None}
     vb = {"home_team": "Leipzig", "away_team": "Frankfurt"}
     for pick, change in ((minus, "same_side"), (plus, "same_side"), (other, "changed_mind"), (over, "changed_mind")):
         tip = api._bet_tip(vb, {"pick": pick, "first_pick": win, "revised_from_previous": True})
-        assert tip["status"] == "missing_change_reason" and tip["tip"] is None
+        assert tip["status"] == "ok" and tip["tip"] is pick
         assert tip["change"] == change and tip["first_pick"] == win
     over15 = {**over, "market": "Over/Under 1.5"}
     assert api._bet_tip(vb, {"pick": over15, "first_pick": over, "revised_from_previous": True})["change"] == "same_side"
