@@ -1739,19 +1739,6 @@ def _call_gemini_agent_pick(
         + (f", last seen={c.get('quote_last_update')} (not included in latest fetch)" if c.get('quote_carried_forward') else "")
         for c in candidates
     )
-    baseline = research_input["market_baseline"]
-    baseline_block = ""
-    if baseline:
-        baseline_block = f"""
-MARKET COMPARISON: market={baseline['market']}, outcome={baseline.get('team') or baseline['outcome']}, \
-odds={baseline['best_odds']}, market-estimated chance={baseline['market_probability']:.1%}.
-This is the highest market-estimated chance among the quoted bets at odds from 1.30 to 2.00, \
-the same comparison shown to the reader. It is derived from bookmaker prices, not our internal model \
-and not additional independent evidence. A higher chance of winning does not automatically mean better value. \
-Use it as context when relevant; do not force a comparison into the final verdict. \
-{"Its quote was retained from an earlier fetch: " + str(baseline.get('quote_last_update')) + "." if baseline.get('quote_carried_forward') else ""}
-"""
-
     previous_block = ""
     if previous_eval and previous_eval.get("bet_headline"):
         prev_pick = (previous_eval.get("first_pick") if previous_eval.get("status") == "incomplete_markets"
@@ -1783,9 +1770,9 @@ Do not change your pick merely to seem thorough."""
 Kickoff: {research_input['commence_time']}. Quote snapshot: {research_input['odds_fetched_at']}.
 
 The bets available to pick from (all supported quoted markets; any retained older prices are marked - decide for yourself \
-which, if any, is worth backing):
+which, if any, is worth backing; no candidate is preselected or recommended):
 {cand_lines}
-{baseline_block}{previous_block}
+{previous_block}
 
 STEP 1 - RESEARCH (use Google Search). Dig up CURRENT \
 context across as many of these angles as you can actually find information on - don't limit yourself \
@@ -1832,7 +1819,7 @@ string, or null>", "bet_headline": "<2-5 words naming the pick in plain language
 Tore' or 'Sieg Kroatien' - or 'Keine gute Wette' if pick is null>", "bet_reasoning": "<exactly ONE \
 sentence with your verdict>", "bet_points": ["<short supporting fact, max 8 words>", "<short \
 supporting fact, max 8 words>"], "alternative_reasoning": "<short comparison only if it materially explains the verdict; otherwise empty string>", \
-"change_reason": "<only when the re-check changes the pick: one short sentence, max 16 words, naming the concrete new input; otherwise empty string>"}}"""
+"change_reason": "<only when the re-check changes the pick: always try to give one short sentence, max 16 words, naming the concrete input or reconsideration that caused the change; never invent a reason; otherwise empty string>"}}"""
 
     try:
         kind = "agent_recheck" if previous_eval else "agent_pick"
@@ -2108,8 +2095,8 @@ def _combine_recommendation(vb: dict, agent_eval: Optional[dict]) -> dict:
 
 
 # A second per-match check, exactly in the hour before kickoff. The AI sees
-# the current complete book and the previous selection; a changed pick still
-# withholds the public tip under the existing rule.
+# the current complete book and the previous selection; a changed pick remains
+# available, with an explanation requested whenever possible.
 _agent_prekickoff_done: set[tuple[str, str]] = set()
 _agent_prekickoff_in_progress: set[tuple[str, str]] = set()
 PREKICKOFF_WINDOW_HOURS = 1
@@ -2395,22 +2382,18 @@ def _bet_tip_v1(vb: dict, agent_eval: Optional[dict]) -> dict:
     return {"tip": tip, "status": "ok"}
 
 
-# The Wett-Tipp since 11 October: the AI agent's own pick, when our model
-# rates it at least as likely as the market does. In the Nations League log
-# the agent's picks landed 70% against the market's 52% (z +3.0, 67 picks),
-# 77% where the model rated the pick above the market (39 picks), while the
-# likeliest bet the AI merely agreed with landed under the market's estimate.
-# A pick the agent changed at its re-check an hour before kickoff landed 53%
-# (15 picks): a change of mind means it is unsure, so then there is no tip.
-BET_TIP_RULE = "ki_model_fallback_v3"
+# The Wett-Tipp is the agent's own available pick. Model disagreement is
+# recorded for forward comparison, never used as a veto. A changed pick at
+# the pre-kickoff review stays available even if its explanation is missing.
+BET_TIP_RULE = "ki_reviewed_pick_v6"
 
 
 def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
     """{"tip", "status": "ok" | "no_agreement" | "ai_unsure" | "waiting_for_ai",
-    "confirmed": the pre-kickoff re-check kept the pick, "rule"}.
+    "confirmed": the pre-kickoff re-check is complete, "rule"}.
 
-    A model-below-market rejection can use a strictly weaker quoted bet.
-    AI changes always withhold the tip. Original selections remain logged.
+    AI changes are allowed even if their explanation is missing. Model disagreement is recorded for
+    comparison, but does not veto an otherwise available AI selection.
     """
     out = {"tip": None, "rule": BET_TIP_RULE, "confirmed": False}
     expired = vb.get("snapshot_valid") is False or vb.get("in_play")
@@ -2435,38 +2418,30 @@ def _bet_tip(vb: dict, agent_eval: Optional[dict]) -> dict:
     if not pick:
         return {**out, "status": "no_selection" if agent_eval.get("status") == "no_pick" else "waiting_for_ai"}
     if agent_eval.get("revised_from_previous"):
-        # Any change at the re-check withholds the tip. Whether it stayed on
-        # the same side ("Leipzig to win" -> "Leipzig -1.5") is logged, to
-        # learn whether such changes deserve a tip after all.
+        # Preserve both selections and the change type for later evaluation.
         from src.price_tip import changed_its_mind
         change = "changed_mind" if changed_its_mind(agent_eval) else "same_side"
         if not agent_eval.get("first_pick"):
             change = "unknown"
-        return {**out, "status": "ai_unsure", "withheld": pick, "change": change,
-                "first_pick": agent_eval.get("first_pick")}
+        reason = agent_eval.get("change_reason")
+        reason = reason.strip() if isinstance(reason, str) else ""
+        out.update(change=change, first_pick=agent_eval.get("first_pick"),
+                   revised=True, change_reason=reason)
     if pick.get("quote_fresh") is False and not pick.get("quote_carried_forward"):
         return {**out, "status": "odds_expired", "withheld": pick}
     model = pick.get("model_probability_raw")
     if model is None:
         model = pick.get("probability")
     market = pick.get("market_probability")
-    if (market is None or model is None or pick.get("best_odds", 0) < BET_TIP_MIN_ODDS):
+    if (market is None or pick.get("best_odds", 0) < BET_TIP_MIN_ODDS):
         return {**out, "status": "no_agreement", "withheld": pick}
-    if model < market:
-        from src.bet_tip import fallback_pick
-        replacement = fallback_pick(pick, vb.get("bets") or vb.get("green_bets", []) + vb.get("red_bets", []),
-                                    min_odds=BET_TIP_MIN_ODDS)
-        if replacement is None:
-            return {**out, "status": "no_agreement", "withheld": pick}
-        return {**out, "tip": replacement, "status": "ok", "is_fallback": True,
-                "original_pick": pick, "fallback_reason": "original_model_below_market",
-                "confirmed": agent_eval.get("revised_from_previous") is False}
-    return {**out, "tip": pick, "status": "ok", "confirmed": agent_eval.get("revised_from_previous") is False}
+    return {**out, "tip": pick, "status": "ok", "confirmed": isinstance(agent_eval.get("revised_from_previous"), bool),
+            "model_agrees": None if model is None else model >= market,
+            "legacy_model_would_block": model is not None and model < market}
 
 
 def _mark_legs_off_likely(report: dict, pairs: list) -> None:
-    """A combo leg that is not its match's 🎯 pick carries that pick, so the
-    page can say the ticket chose another bet to reach its target odds."""
+    """Mark whether each combo leg matches its fixture's 🎯 pick."""
     from src.bet_audit import norm
     likely = {}
     for _, vb in pairs:
@@ -2511,15 +2486,19 @@ def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
             continue
         # The AI agent's own pick, for the "agree" rule (a leg it backs first).
         agent = _get_agent_pick(vb) if vb.get("odds_found") else None
+        published = _bet_tip(vb, agent).get("tip") if agent else None
         vb = {**vb, "agent_pick": (agent or {}).get("pick"),
-              "agent_revised": bool((agent or {}).get("revised_from_previous"))}
+              "agent_revised": bool((agent or {}).get("revised_from_previous")),
+              "published_ai_pick": published}
         pairs.append((data, vb))
 
     # Use the best fresh quote per leg, independently of its bookmaker.
     # The resulting product is a theoretical combined price, not a verified
     # accumulator offer. Keep the logged comparison policies on this basis.
-    report = combo_report(pairs, max_legs=max_legs, policy="agree", allow_mixed_books=True)
+    report = combo_report(pairs, max_legs=max_legs, policy="ai_pick", allow_mixed_books=True)
     report["competition"] = competition
+    old_agree = combo_report(pairs, max_legs=max_legs, policy="agree", allow_mixed_books=True)
+    report["agree_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in old_agree["days"]]
     market = combo_report(pairs, max_legs=max_legs, policy="market", allow_mixed_books=True)
     report["market_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in market["days"]]
     # The rule before 26 September, computed on the same matches for the log

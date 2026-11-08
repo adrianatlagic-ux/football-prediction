@@ -44,6 +44,8 @@ def entries_due(report: dict, competition: str, now: datetime) -> list:
     quote_basis = ("best_singles_mixed_books" if report.get("parameters", {}).get("same_bookmaker") is False
                    else "single_book")
     sources = [(shown, report.get("days") or []), ("legacy_v3", report.get("legacy_v3_days") or [])]
+    if report.get("agree_days") is not None:
+        sources.append(("agree", report["agree_days"]))
     if report.get("market_days") is not None:
         sources.append(("market", report["market_days"]))
     if report.get("ki_days") is not None:
