@@ -189,7 +189,7 @@ def test_the_old_bet_tip_needs_model_and_ai_and_takes_the_better_price_of_one_be
     assert api._bet_tip_v1({**vb, "bets": [doubt]}, {"pick": doubt})["status"] == "no_agreement"
 
 
-def test_the_bet_tip_is_the_ai_pick_checked_by_the_model_and_withheld_when_the_ai_wavers():
+def test_the_bet_tip_allows_explained_changes_and_records_model_disagreement():
     from api import app as api
     pick = {"market": "Over/Under 2.5", "outcome": "Under", "team": None, "best_odds": 1.72,
             "market_probability": .55, "model_probability_raw": .61, "probability": .60}
@@ -199,8 +199,9 @@ def test_the_bet_tip_is_the_ai_pick_checked_by_the_model_and_withheld_when_the_a
     assert first["status"] == "ok" and first["tip"] is pick and first["confirmed"] is False   # provisional
     kept = api._bet_tip(vb, {"pick": pick, "revised_from_previous": False})
     assert kept["confirmed"] is True
-    changed = api._bet_tip(vb, {"pick": pick, "revised_from_previous": True})
-    assert changed["status"] == "ai_unsure" and changed["tip"] is None and changed["withheld"] is pick
+    changed = api._bet_tip(vb, {"pick": pick, "revised_from_previous": True,
+                                "change_reason": "Neue Aufstellung bestätigt den Ausfall."})
+    assert changed["status"] == "ok" and changed["tip"] is pick and changed["confirmed"]
     below = {**pick, "model_probability_raw": .54}
     assert api._bet_tip(vb, {"pick": below})["legacy_model_would_block"] is True
 
@@ -223,7 +224,7 @@ def test_the_ki_combo_takes_only_the_ai_picks_the_model_backs():
     assert [(l["home_team"], l["best_odds"]) for l in legs] == [("A", 1.8)]
 
 
-def test_every_change_withholds_the_tip_and_logs_whether_it_kept_the_side():
+def test_unexplained_change_is_withheld_and_logs_whether_it_kept_the_side():
     from api import app as api
     win = {"market": "1X2", "outcome": "home_win", "team": "Leipzig"}
     minus = {"market": "Handicap -1.5", "outcome": "handicap", "team": "Leipzig", "best_odds": 2.4,
@@ -234,7 +235,7 @@ def test_every_change_withholds_the_tip_and_logs_whether_it_kept_the_side():
     vb = {"home_team": "Leipzig", "away_team": "Frankfurt"}
     for pick, change in ((minus, "same_side"), (plus, "same_side"), (other, "changed_mind"), (over, "changed_mind")):
         tip = api._bet_tip(vb, {"pick": pick, "first_pick": win, "revised_from_previous": True})
-        assert tip["status"] == "ai_unsure" and tip["tip"] is None
+        assert tip["status"] == "missing_change_reason" and tip["tip"] is None
         assert tip["change"] == change and tip["first_pick"] == win
     over15 = {**over, "market": "Over/Under 1.5"}
     assert api._bet_tip(vb, {"pick": over15, "first_pick": over, "revised_from_previous": True})["change"] == "same_side"

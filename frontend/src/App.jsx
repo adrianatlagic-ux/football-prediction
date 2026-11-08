@@ -1012,21 +1012,23 @@ function ModelTrackRecord({ bet, bets = [], competition }) {
   )
 }
 
-// The headline tip: the AI agent's own pick when it kept it at its re-check an hour
-// before kickoff. The server decides it (bet_tip); this is the fallback.
+// The headline tip accepts explained changes at the pre-kickoff review.
+// The server decides it (bet_tip); this is the fallback.
 function computeBetTip(betInfo, agentEval) {
   if (betInfo.bet_tip && betInfo.bet_tip.rule) return betInfo.bet_tip
   if (agentEval?.pick_unavailable) return { tip: null, status: 'pick_unavailable' }
   const pick = agentEval?.pick
   if (!pick) return { tip: null, status: 'waiting_for_ai' }
-  if (agentEval.revised_from_previous) return { tip: null, status: 'ai_unsure' }
+  if (agentEval.revised_from_previous && !(typeof agentEval.change_reason === 'string' && agentEval.change_reason.trim()))
+    return { tip: null, status: 'missing_change_reason' }
+  if (pick.quote_fresh === false && !pick.quote_carried_forward) return { tip: null, status: 'odds_expired' }
   if (pick.market_probability == null || pick.best_odds < 1.30)
     return { tip: null, status: 'no_agreement' }
   const model = pick.model_probability_raw ?? pick.probability
   return {
     tip: pick,
     status: 'ok',
-    confirmed: agentEval.revised_from_previous === false,
+    confirmed: typeof agentEval.revised_from_previous === 'boolean',
     model_agrees: model == null ? null : model >= pick.market_probability,
   }
 }
@@ -1039,7 +1041,8 @@ function BetTipBox({ betTip }) {
       pick_unavailable: tr('Die KI hat das Spiel geprüft. Für ihre ausgewählte Wette gibt es aktuell keine Quote im Angebot.', 'The AI has checked the match. Its selected bet currently has no available quote.'),
       no_selection: tr('Kein Wett-Tipp – die KI findet aktuell keine ausreichend begründete Wette.', 'No bet tip – the AI currently finds no sufficiently supported bet.'),
       incomplete_markets: tr('Noch kein Wett-Tipp – aktuelle Quoten für Sieg, Handicap oder Über/Unter fehlen.', 'No bet tip yet – current win, handicap or totals odds are missing.'),
-      ai_unsure: tr('Kein Wett-Tipp – die KI hat ihren Tipp kurz vor Anpfiff geändert und ist sich nicht sicher.', 'No bet tip – the AI changed its pick shortly before kickoff and is not sure.'),
+      missing_change_reason: tr('Noch kein Wett-Tipp – die Begründung für den Tippwechsel fehlt.', 'No bet tip yet – the explanation for the changed selection is missing.'),
+      ai_unsure: tr('Kein Wett-Tipp – der gespeicherte Tipp wurde nach der früheren Wechselregel zurückgehalten.', 'No bet tip – the saved selection was withheld under the previous change rule.'),
       no_agreement: tr('Kein Wett-Tipp – die Bedingungen für einen Tipp sind nicht erfüllt.', 'No bet tip – the conditions for a tip are not met.'),
       odds_expired: tr('Kein Wett-Tipp – die Quoten sind nicht mehr gültig. Bitte erneut laden.', 'No bet tip – the odds are no longer valid. Please reload.'),
     }[betTip?.status] || tr('Kein Wett-Tipp für dieses Spiel.', 'No bet tip for this match.')
