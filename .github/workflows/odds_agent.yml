@@ -1,0 +1,71 @@
+name: Quoten holen + KI-Agent
+
+# Started by hand (Actions → "Quoten holen + KI-Agent" → Run workflow), from a
+# phone browser too. The server does the work (src/jobs.run_odds_and_agent):
+#   1. reads the odds of every listed match from the Odds API now, whatever
+#      the daily schedule says (costs Odds API credits),
+#   2. reads bet-at-home's market book for the next 30 hours (Apify credit,
+#      within the app's monthly budget),
+#   3. lets the AI agent (Gemini) pick every match kicking off within the
+#      chosen number of hours that has a prediction and no pick yet.
+# Needs the repository secret PREDICTION_WRITE_TOKEN, equal to the
+# PREDICTIONS_WRITE_TOKEN secret on the Fly app.
+on:
+  workflow_dispatch:
+    inputs:
+      agent_hours:
+        description: "KI-Agent für Spiele mit Anpfiff in den nächsten X Stunden"
+        default: "48"
+      force_agent:
+        description: "Auch Spiele neu bewerten, die schon einen KI-Tipp haben"
+        type: boolean
+        default: false
+
+concurrency:
+  group: odds-agent
+  cancel-in-progress: false
+
+jobs:
+  odds-agent:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Start odds and agent on the server
+        env:
+          TOKEN: ${{ secrets.PREDICTION_WRITE_TOKEN }}
+          API: ${{ vars.API_BASE_URL || 'https://football-prediction.fly.dev' }}
+          HOURS: ${{ github.event.inputs.agent_hours || '48' }}
+          FORCE: ${{ github.event.inputs.force_agent || 'false' }}
+        # A started job is not a job that worked: wait for its report and
+        # fail the run if it recorded any error.
+        run: |
+          set -euo pipefail
+          if [ -z "$TOKEN" ]; then echo "PREDICTION_WRITE_TOKEN is not set" >&2; exit 1; fi
+          resp=$(curl -fsS -X POST -H "X-Prediction-Token: $TOKEN" \
+            "$API/jobs/odds-agent?agent_hours=$HOURS&force_agent=$FORCE")
+          echo "$resp"
+          if [ "$(echo "$resp" | jq -r .started)" != "true" ]; then
+            echo "Not started: $(echo "$resp" | jq -r .reason) - try again in a few minutes." >&2
+            exit 1
+          fi
+          requested=$(echo "$resp" | jq -r .requested_at)
+          for i in $(seq 1 180); do
+            sleep 10
+            report=$(curl -fsS "$API/jobs/status" | jq -c '.odds_agent')
+            started=$(echo "$report" | jq -r '.started_at // ""')
+            finished=$(echo "$report" | jq -r '.finished_at // ""')
+            if [[ ! "$started" < "$requested" ]] && [ -n "$finished" ]; then
+              echo "$report" | jq .
+              {
+                echo "### Quoten + KI-Agent"
+                echo "- Spiele mit Quoten: $(echo "$report" | jq -r '.odds_events // .odds_events_cached // 0')"
+                echo "- KI-Agent: \`$(echo "$report" | jq -c '.agent // {}')\`"
+                echo "- bet-at-home: \`$(echo "$report" | jq -c '.book // {}')\`"
+                echo "- Fehler: $(echo "$report" | jq -r '.errors | if length == 0 then "keine" else join("; ") end')"
+              } >> "$GITHUB_STEP_SUMMARY"
+              [ "$(echo "$report" | jq '.errors | length')" -eq 0 ] || { echo "Job reported errors" >&2; exit 1; }
+              exit 0
+            fi
+          done
+          echo "Job did not finish within 30 minutes" >&2
+          exit 1
