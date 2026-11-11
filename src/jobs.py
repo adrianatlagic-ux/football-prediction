@@ -34,6 +34,10 @@ LINEUP_STATUS = REPORTS / "lineup_status.json"
 LINEUP_STATUS_DAYS = 21
 
 _lock = threading.Lock()
+# The manual odds-and-agent job has its own lock: holding _lock for its whole
+# run (up to half an hour) would stall the server's 10-minute tick, which
+# waits on _lock for the line-ups and logs the bets before kickoff.
+_manual_lock = threading.Lock()
 
 
 def _report(name: str, report: dict) -> dict:
@@ -153,7 +157,7 @@ def run_odds_and_agent(fetch_odds: Callable, refresh_book: Callable, run_agent: 
     now = datetime.now(timezone.utc)
     report = {"started_at": now.isoformat(), "agent_hours": agent_hours,
               "force_agent": force_agent, "errors": []}
-    with _lock:
+    with _manual_lock:
         _report("odds_agent", {**report, "running": True})
         try:
             events = fetch_odds(force=True, book_in_background=False)

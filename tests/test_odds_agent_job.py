@@ -79,3 +79,36 @@ def test_endpoint_requires_the_job_token(monkeypatch):
     with pytest.raises(HTTPException) as err:
         api.job_odds_agent(agent_hours=48, force_agent=False, x_prediction_token="wrong")
     assert err.value.status_code == 401
+
+
+def test_manual_job_does_not_hold_the_routine_lock(monkeypatch, tmp_path):
+    """The server's 10-minute tick (line-ups, bet logs) waits on jobs._lock;
+    a running manual job must not make it wait."""
+    from src import jobs
+    monkeypatch.setattr(jobs, "REPORTS", tmp_path)
+    held = []
+
+    def odds(force=False, book_in_background=True):
+        held.append(jobs._lock.locked())
+        return []
+
+    jobs.run_odds_and_agent(odds, lambda e: {}, lambda e, h, f: {}, agent_hours=48)
+    assert held == [False]
+
+
+def test_failed_manual_book_read_leaves_the_morning_retry_alone(monkeypatch):
+    from src import book_odds
+    sport = next(iter(book_odds.LEAGUES))
+    kickoff = (datetime.now(timezone.utc) + timedelta(hours=3)).isoformat()
+    monkeypatch.setenv("APIFY_TOKEN", "x")
+    monkeypatch.setattr(book_odds, "fetch_league", lambda *a, **k: [])
+    monkeypatch.setattr(book_odds, "_record_spend", lambda usd: None)
+    monkeypatch.setattr(book_odds.apify_budget, "note_spend", lambda usd: None)
+    monkeypatch.setattr(book_odds.apify_budget, "allows", lambda usd: True)
+    monkeypatch.setattr(book_odds, "spent_this_month", lambda: 0.0)
+    monkeypatch.setattr(book_odds, "_log_refresh", lambda *a: None)
+    pending = {"attempts": 1, "next_at": None}
+    monkeypatch.setattr(book_odds, "_morning_retry", {sport: pending})
+
+    assert book_odds.daily_refresh(sport, [{"commence_time": kickoff}], manual=True) is False
+    assert book_odds._morning_retry == {sport: pending}

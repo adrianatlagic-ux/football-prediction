@@ -292,9 +292,9 @@ def _require_job_token(token: str) -> None:
         raise HTTPException(status_code=401, detail="Invalid job token")
 
 
-def _start_job(name: str, work) -> dict:
+def _start_job(name: str, work, lock=None) -> dict:
     from src import jobs
-    if jobs._lock.locked():
+    if (lock or jobs._lock).locked():
         return {"started": False, "reason": "another job is running"}
 
     def run():
@@ -334,7 +334,7 @@ def job_odds_agent(agent_hours: float = 48, force_agent: bool = False,
         raise HTTPException(status_code=422, detail="agent_hours must be between 0 and 240")
     from src import jobs
     return _start_job("odds_agent", lambda: jobs.run_odds_and_agent(
-        _get_odds, _refresh_book_daily, run_agent_now, agent_hours, force_agent))
+        _get_odds, _refresh_book_manual, run_agent_now, agent_hours, force_agent), lock=jobs._manual_lock)
 
 
 @app.get("/fixtures")
@@ -1038,6 +1038,19 @@ def _refresh_book_daily(events: list[dict]) -> dict:
     for sport in book_odds.LEAGUES:
         try:
             outcome[sport] = book_odds.daily_refresh(sport, [e for e in events if e.get("sport_key") == sport])
+        except Exception as exc:
+            outcome[sport] = f"{type(exc).__name__}: {exc}"
+    return outcome
+
+
+def _refresh_book_manual(events: list[dict]) -> dict:
+    """bet-at-home's read for the manual job: logged as "manual" and kept out
+    of the morning read's retry bookkeeping."""
+    outcome = {}
+    for sport in book_odds.LEAGUES:
+        try:
+            outcome[sport] = book_odds.daily_refresh(sport, [e for e in events if e.get("sport_key") == sport],
+                                                     manual=True)
         except Exception as exc:
             outcome[sport] = f"{type(exc).__name__}: {exc}"
     return outcome
