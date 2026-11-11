@@ -34,6 +34,10 @@ LINEUP_STATUS = REPORTS / "lineup_status.json"
 LINEUP_STATUS_DAYS = 21
 
 _lock = threading.Lock()
+# The manual odds-and-agent job has its own lock: holding _lock for its whole
+# run (up to half an hour) would stall the server's 10-minute tick, which
+# waits on _lock for the line-ups and logs the bets before kickoff.
+_manual_lock = threading.Lock()
 
 
 def _report(name: str, report: dict) -> dict:
@@ -140,6 +144,50 @@ def run_daily(club: Callable, national: Callable, morning_odds: Callable,
                 report["errors"].append(f"track_record: {type(exc).__name__}: {exc}")
     report["finished_at"] = datetime.now(timezone.utc).isoformat()
     return _report("daily", report)
+
+
+def run_odds_and_agent(fetch_odds: Callable, refresh_book: Callable, run_agent: Callable,
+                       agent_hours: float, force_agent: bool = False) -> dict:
+    """Started by hand (.github/workflows/odds_agent.yml): read the odds of
+    every listed match now, then bet-at-home's market book, then let the AI
+    agent pick every match kicking off within `agent_hours`.
+
+    Each step runs even when the one before failed: the agent then works on
+    the odds the server already had, and the report says so."""
+    now = datetime.now(timezone.utc)
+    report = {"started_at": now.isoformat(), "agent_hours": agent_hours,
+              "force_agent": force_agent, "errors": []}
+    with _manual_lock:
+        _report("odds_agent", {**report, "running": True})
+        try:
+            events = fetch_odds(force=True, book_in_background=False)
+            report["odds_events"] = len(events)
+        except Exception as exc:
+            report["errors"].append(f"odds: {type(exc).__name__}: {exc}")
+            try:
+                events = fetch_odds()
+                report["odds_events_cached"] = len(events)
+            except Exception as exc2:
+                report["errors"].append(f"odds_cache: {type(exc2).__name__}: {exc2}")
+                events = []
+        if events:
+            try:
+                book = refresh_book(events)
+                report["book"] = book
+                failed = [s for s, ok in (book or {}).items() if isinstance(ok, str)]
+                if failed:
+                    report["errors"].append(f"book: {', '.join(failed)}")
+            except Exception as exc:
+                report["errors"].append(f"book: {type(exc).__name__}: {exc}")
+            try:
+                # The odds again, now merged with the bet-at-home read.
+                report["agent"] = run_agent(fetch_odds(), agent_hours, force_agent)
+                if report["agent"].get("failed"):
+                    report["errors"].append(f"agent: {report['agent']['failed']} matches without a pick")
+            except Exception as exc:
+                report["errors"].append(f"agent: {type(exc).__name__}: {exc}")
+    report["finished_at"] = datetime.now(timezone.utc).isoformat()
+    return _report("odds_agent", report)
 
 
 def load_lineup_status() -> dict:

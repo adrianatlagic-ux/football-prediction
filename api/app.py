@@ -292,9 +292,9 @@ def _require_job_token(token: str) -> None:
         raise HTTPException(status_code=401, detail="Invalid job token")
 
 
-def _start_job(name: str, work) -> dict:
+def _start_job(name: str, work, lock=None) -> dict:
     from src import jobs
-    if jobs._lock.locked():
+    if (lock or jobs._lock).locked():
         return {"started": False, "reason": "another job is running"}
 
     def run():
@@ -323,6 +323,18 @@ def job_hourly(x_prediction_token: str = Header(default="")):
     _require_job_token(x_prediction_token)
     from src import jobs
     return _start_job("hourly", lambda: jobs.run_hourly(_get_predictor, _get_national_predictor))
+
+
+@app.post("/jobs/odds-agent")
+def job_odds_agent(agent_hours: float = 48, force_agent: bool = False,
+                   x_prediction_token: str = Header(default="")):
+    """Odds for every match now, then the AI agent (src/jobs.run_odds_and_agent)."""
+    _require_job_token(x_prediction_token)
+    if not 0 < agent_hours <= 240:
+        raise HTTPException(status_code=422, detail="agent_hours must be between 0 and 240")
+    from src import jobs
+    return _start_job("odds_agent", lambda: jobs.run_odds_and_agent(
+        _get_odds, _refresh_book_manual, run_agent_now, agent_hours, force_agent), lock=jobs._manual_lock)
 
 
 @app.get("/fixtures")
@@ -417,7 +429,7 @@ def ai_tip_review():
 def job_status():
     from src import jobs
     out = {}
-    for name in ("daily", "hourly", "logging"):
+    for name in ("daily", "hourly", "logging", "odds_agent"):
         try:
             out[name] = json.loads((jobs.REPORTS / f"last_{name}.json").read_text(encoding="utf-8"))
         except (OSError, ValueError):
@@ -1020,12 +1032,28 @@ def _save_odds_snapshot(events: list[dict], fetched: datetime, stage: str) -> No
         pass
 
 
-def _refresh_book_daily(events: list[dict]) -> None:
+def _refresh_book_daily(events: list[dict]) -> dict:
+    """bet-at-home's morning read per competition; returns each outcome."""
+    outcome = {}
     for sport in book_odds.LEAGUES:
         try:
-            book_odds.daily_refresh(sport, [e for e in events if e.get("sport_key") == sport])
-        except Exception:
-            pass
+            outcome[sport] = book_odds.daily_refresh(sport, [e for e in events if e.get("sport_key") == sport])
+        except Exception as exc:
+            outcome[sport] = f"{type(exc).__name__}: {exc}"
+    return outcome
+
+
+def _refresh_book_manual(events: list[dict]) -> dict:
+    """bet-at-home's read for the manual job: logged as "manual" and kept out
+    of the morning read's retry bookkeeping."""
+    outcome = {}
+    for sport in book_odds.LEAGUES:
+        try:
+            outcome[sport] = book_odds.daily_refresh(sport, [e for e in events if e.get("sport_key") == sport],
+                                                     manual=True)
+        except Exception as exc:
+            outcome[sport] = f"{type(exc).__name__}: {exc}"
+    return outcome
 
 
 def _retry_book_morning(events: list[dict]) -> None:
@@ -1036,7 +1064,11 @@ def _retry_book_morning(events: list[dict]) -> None:
                          kwargs={"retry": True}).start()
 
 
-def _get_odds() -> list[dict]:
+def _get_odds(force: bool = False, book_in_background: bool = True) -> list[dict]:
+    """The odds of every listed match. `force` reads them from the Odds API
+    now, whatever the daily schedule says (the manual odds-and-agent job);
+    a failed forced read raises instead of quietly serving the old cache.
+    `book_in_background=False` leaves the bet-at-home read to the caller."""
     from src.bet_audit import timestamp
     from src.odds_schedule import stamp_event, retain_missing_quotes
     global _odds_cache, _odds_cache_date, _odds_cache_fetched_at, _odds_daily_refresh_date
@@ -1057,7 +1089,7 @@ def _get_odds() -> list[dict]:
                 if stage == "daily":
                     _odds_daily_refresh_date = fetched.date().isoformat()
                 due = now.hour >= ODDS_REFRESH_HOUR_UTC and _odds_daily_refresh_date != today
-        if not _odds_cache or due or ttl_expired:
+        if not _odds_cache or due or ttl_expired or force:
             try:
                 events = _fetch_odds()
                 fetched = datetime.now(timezone.utc)
@@ -1082,13 +1114,14 @@ def _get_odds() -> list[dict]:
                 # line up for the bet table and the combo all day. Cheap (0.3
                 # cents a match) and in the background: a scraper must not
                 # hold up the odds every page is waiting for.
-                threading.Thread(target=_refresh_book_daily, args=(list(_odds_cache),), daemon=True).start()
+                if book_in_background:
+                    threading.Thread(target=_refresh_book_daily, args=(list(_odds_cache),), daemon=True).start()
                 _odds_cache_date = fetched.date().isoformat()
                 _odds_cache_fetched_at = time.time()
                 if stage == "daily":
                     _odds_daily_refresh_date = fetched.date().isoformat()
             except Exception:
-                if not _odds_cache:
+                if not _odds_cache or force:
                     raise
         _restore_final_odds(now)
         due_by_sport = {}
@@ -1948,7 +1981,7 @@ def _refresh_agent_picks(odds: list[dict]) -> None:
     the afternoon. Re-checking on every call (cheap: only Gemini-calls matches
     not yet in the cache) fixes that gap.
     """
-    global _agent_picks_cache, _agent_picks_refresh_in_progress, _agent_picks_last_check
+    global _agent_picks_refresh_in_progress, _agent_picks_last_check
     if _agent_picks_refresh_in_progress:
         return
     now = time.monotonic()
@@ -1963,56 +1996,97 @@ def _refresh_agent_picks(odds: list[dict]) -> None:
         return
     _agent_picks_refresh_in_progress = True
 
+    def _run():
+        global _agent_picks_refresh_in_progress
+        try:
+            _evaluate_agent_picks(odds, fixtures)
+        finally:
+            _agent_picks_refresh_in_progress = False
+
+    threading.Thread(target=_run, daemon=True).start()
+
+
+def _evaluate_agent_picks(odds: list[dict], fixtures: list[dict],
+                          window_hours: float = AGENT_EVAL_WINDOW_HOURS, force: bool = False) -> dict:
+    """The agent pass itself, run in the caller's thread. Returns how many
+    matches were picked, failed or skipped, and why.
+
+    `force` asks Gemini again for matches that already have a pick; the old
+    pick goes along as the earlier selection, as at the pre-kickoff re-check.
+    """
     def _eval_one(data):
         home, away = data["home_team"], data["away_team"]
         vb = _compute_value_bets(data, odds, home, away)
         if not vb.get("odds_found") or vb.get("in_play"):
-            return None
+            return "no_odds", None
         # The key the pick is stored under (_agent_key), not the team pair:
         # checked against the pair, a cached match never matched and was
         # sent to Gemini again on every pass.
         cached = _agent_picks_cache.get(_agent_key(vb))
-        if cached and cached.get("status") != "incomplete_markets":
-            return None
+        if cached and cached.get("status") != "incomplete_markets" and not force:
+            return "already_picked", None
         commence = vb.get("commence_time")
         if commence:
             try:
                 kickoff = datetime.fromisoformat(commence.replace("Z", "+00:00"))
                 hours_away = (kickoff - datetime.now(timezone.utc)).total_seconds() / 3600
-                if hours_away > AGENT_EVAL_WINDOW_HOURS:
-                    return None
+                if hours_away > window_hours:
+                    return "outside_window", None
             except ValueError:
                 pass
         if vb.get("odds_stage") == "final":
-            return None
+            return "pre_kickoff_check", None
         # A call that gave no usable pick (unreadable answer, error) is not
         # repeated on every pass: an answered call is billed, search included.
         failed_at = _agent_failed_at.get(_agent_key(vb))
-        if failed_at and time.time() - failed_at < AGENT_RETRY_SECONDS:
-            return None
-        agent = _call_gemini_agent_pick(data, vb, home, away)
+        if failed_at and time.time() - failed_at < AGENT_RETRY_SECONDS and not force:
+            return "failed_recently", None
+        previous = cached if force else None
+        agent = (_call_gemini_agent_pick(data, vb, home, away, previous_eval=previous) if previous
+                 else _call_gemini_agent_pick(data, vb, home, away))
         if agent is None:
             _agent_failed_at[_agent_key(vb)] = time.time()
-            return None
-        return _agent_key(vb), agent
+            return "failed", None
+        _agent_failed_at.pop(_agent_key(vb), None)
+        return ("incomplete_markets" if agent.get("status") == "incomplete_markets" else "picked"), \
+            (_agent_key(vb), agent)
 
-    def _run():
-        global _agent_picks_cache, _agent_picks_refresh_in_progress
+    def _safe(data):
         try:
-            # Each Gemini call (with search grounding) takes ~30s; a few
-            # concurrent workers keep the refresh to ~1-2 minutes instead of
-            # 8+ minutes run sequentially, without spiking rate limits the
-            # way full parallelism would.
-            with ThreadPoolExecutor(max_workers=4) as pool:
-                for result in pool.map(_eval_one, fixtures):
-                    if result is not None:
-                        key, agent = result
-                        _agent_picks_cache[key] = agent
-                        _save_agent_cache()
-        finally:
-            _agent_picks_refresh_in_progress = False
+            return _eval_one(data)
+        except Exception as exc:
+            return f"error: {type(exc).__name__}", None
 
-    threading.Thread(target=_run, daemon=True).start()
+    counts: dict[str, int] = {}
+    # Each Gemini call (with search grounding) takes ~30s; a few concurrent
+    # workers keep the refresh to ~1-2 minutes instead of 8+ minutes run
+    # sequentially, without spiking rate limits the way full parallelism would.
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        for status, result in pool.map(_safe, fixtures):
+            counts[status] = counts.get(status, 0) + 1
+            if result is not None:
+                key, agent = result
+                _agent_picks_cache[key] = agent
+                _save_agent_cache()
+    return counts
+
+
+def run_agent_now(odds: list[dict], window_hours: float, force: bool = False) -> dict:
+    """The agent pass for the manual job: waits for a running background
+    pass (up to ten minutes) instead of skipping, then runs in this thread."""
+    global _agent_picks_refresh_in_progress
+    if not GEMINI_API_KEY:
+        raise RuntimeError("GEMINI_API_KEY is not set")
+    deadline = time.monotonic() + 600
+    while _agent_picks_refresh_in_progress:
+        if time.monotonic() > deadline:
+            raise RuntimeError("a background agent pass is still running")
+        time.sleep(5)
+    _agent_picks_refresh_in_progress = True
+    try:
+        return _evaluate_agent_picks(odds, list(_get_prediction_index().values()), window_hours, force)
+    finally:
+        _agent_picks_refresh_in_progress = False
 
 
 def _agent_key(vb):
