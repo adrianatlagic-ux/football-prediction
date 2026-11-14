@@ -45,8 +45,11 @@ def _daily_done_today(now: datetime) -> bool:
         return False
 
 
-def log_bets_and_combos(all_bets, combo_ticket, now: datetime) -> dict:
-    """The bet log and the combo log, kept on the server."""
+def log_bets_and_combos(all_bets, combo_ticket, now: datetime, prekickoff_checked=None) -> dict:
+    """The bet log and the combo log, kept on the server.
+
+    A combo ticket is logged once, about an hour before its first match, when
+    the AI's pre-kickoff check of that match is done (scripts/log_combos.py)."""
     import sys
     sys.path.insert(0, str(ROOT / "scripts"))
     import log_bets
@@ -62,8 +65,9 @@ def log_bets_and_combos(all_bets, combo_ticket, now: datetime) -> dict:
               if line.strip()] if combo_path.exists() else []
     new = []
     for competition in COMBO_COMPETITIONS:
-        due = log_combos.entries_due(combo_ticket(competition=competition), competition, now)
-        new += log_combos.new_versions(due, logged + new)
+        due = log_combos.entries_at_prekickoff(combo_ticket(competition=competition), competition, now,
+                                               prekickoff_checked)
+        new += log_combos.not_yet_logged(due, logged + new)
     if new:
         with combo_path.open("a", encoding="utf-8") as fh:
             for entry in new:
@@ -71,7 +75,7 @@ def log_bets_and_combos(all_bets, combo_ticket, now: datetime) -> dict:
     return {"bets_added": added, "bets_updated": updated, "combos_added": len(new)}
 
 
-def _loop(club, national, odds, all_bets, combo_ticket, real_results=None):
+def _loop(club, national, odds, all_bets, combo_ticket, real_results=None, prekickoff_checked=None):
     from src import jobs
     while True:
         now = datetime.now(timezone.utc)
@@ -85,7 +89,7 @@ def _loop(club, national, odds, all_bets, combo_ticket, real_results=None):
         except Exception:
             pass
         try:
-            result = log_bets_and_combos(all_bets, combo_ticket, datetime.now(timezone.utc))
+            result = log_bets_and_combos(all_bets, combo_ticket, datetime.now(timezone.utc), prekickoff_checked)
             jobs._report("logging", {"at": datetime.now(timezone.utc).isoformat(), **result})
         except Exception as exc:
             jobs._report("logging", {"at": datetime.now(timezone.utc).isoformat(),
@@ -93,11 +97,11 @@ def _loop(club, national, odds, all_bets, combo_ticket, real_results=None):
         time.sleep(TICK_SECONDS)
 
 
-def start(club, national, odds, all_bets, combo_ticket, real_results=None) -> bool:
+def start(club, national, odds, all_bets, combo_ticket, real_results=None, prekickoff_checked=None) -> bool:
     global _started
     if _started or os.getenv("ENABLE_SCHEDULER") != "1":
         return False
     _started = True
-    threading.Thread(target=_loop, args=(club, national, odds, all_bets, combo_ticket, real_results),
+    threading.Thread(target=_loop, args=(club, national, odds, all_bets, combo_ticket, real_results, prekickoff_checked),
                      daemon=True, name="scheduler").start()
     return True

@@ -17,11 +17,17 @@ exists until its first leg kicks off - a started match leaves the combos -
 so the last version logged is the one still placeable at kickoff, and each
 earlier one is what the page showed in between. Odds moving on the same legs
 do not make a new version.
+
+The server (src/scheduler.py) no longer appends every version. It logs each
+ticket ONCE, about an hour before its first match, when the AI's pre-kickoff
+check of that match is done (entries_at_prekickoff; "trigger": "ki_check_done",
+or "last_resort" half an hour before if the check did not finish). This script
+still appends every version when run by hand.
 """
 import argparse
 import json
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 LOG_PATH = Path(__file__).resolve().parents[1] / "data" / "combo_log.jsonl"
@@ -68,6 +74,44 @@ def entries_due(report: dict, competition: str, now: datetime) -> list:
                     "model_probability": ticket["probability"],
                     "legs": [{k: l.get(k) for k in LEG_FIELDS} for l in ticket["legs"]],
                 })
+    return out
+
+
+# The server logs a ticket once, shortly before its first match: when the AI's
+# pre-kickoff check of that match is done (it runs in the hour before kickoff)
+# - or, should that check not finish, half an hour before as a last resort.
+PREKICKOFF_WINDOW = timedelta(hours=1)
+LAST_RESORT = timedelta(minutes=30)
+
+
+def entries_at_prekickoff(report: dict, competition: str, now: datetime, checked=None) -> list:
+    """Tickets whose first match kicks off within the hour and whose AI check
+    is done (`checked(first_leg)`), or within half an hour whatever happens."""
+    out = []
+    for e in entries_due(report, competition, now):
+        left = _kickoff(e["first_kickoff"]) - now
+        if left > PREKICKOFF_WINDOW:
+            continue
+        first_leg = min(e["legs"], key=lambda l: _kickoff(l["commence_time"]))
+        if checked is not None and checked(first_leg):
+            trigger = "ki_check_done"
+        elif left <= LAST_RESORT:
+            trigger = "last_resort"
+        else:
+            continue
+        out.append({**e, "trigger": trigger})
+    return out
+
+
+def not_yet_logged(candidates: list, logged: list) -> list:
+    """One entry per ticket slot and first kickoff: what was logged stands."""
+    slot = lambda e: _key(e) + (e["first_kickoff"],)
+    seen = {slot(e) for e in logged}
+    out = []
+    for e in candidates:
+        if slot(e) not in seen:
+            seen.add(slot(e))
+            out.append(e)
     return out
 
 

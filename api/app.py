@@ -400,7 +400,8 @@ def _start_scheduler():
     _load_agent_cache()
     book_odds.load_refresh_log()
     from src import scheduler
-    scheduler.start(_get_predictor, _get_national_predictor, _get_odds, all_bets, combo_ticket, _get_espn_results)
+    scheduler.start(_get_predictor, _get_national_predictor, _get_odds, all_bets, combo_ticket, _get_espn_results,
+                    _prekickoff_check_done)
 
 
 @app.get("/logs/{name}")
@@ -2285,6 +2286,20 @@ def _price_tip_for(odds: list[dict], home: str, away: str, prediction: dict,
 _prediction_index: dict[tuple[str, str], dict] = {}
 _prediction_index_ts: float = 0
 _PREDICTION_INDEX_TTL = 300  # seconds - cache files only change when we (re)generate predictions
+
+
+def _prekickoff_check_done(leg: dict) -> bool:
+    """Whether the AI's pre-kickoff check of a combo leg's match is complete."""
+    try:
+        kickoff = datetime.fromisoformat(leg["commence_time"].replace("Z", "+00:00"))
+        teams = (_norm(leg["home_team"]), _norm(leg["away_team"]))
+        for key in list(_agent_prekickoff_done):
+            if (_norm(key[3]), _norm(key[4])) == teams and \
+                    datetime.fromisoformat(key[2].replace("Z", "+00:00")) == kickoff:
+                return True
+    except (KeyError, TypeError, ValueError, AttributeError):
+        pass
+    return False
 
 
 def _match_key(home_team: str, away_team: str) -> tuple[str, str]:
