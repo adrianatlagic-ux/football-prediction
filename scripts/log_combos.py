@@ -2,14 +2,14 @@
 
     python3 scripts/log_combos.py --api https://football-prediction.fly.dev
 
-The combo rule changed on 26 September (market probabilities, legs from
-1.30, no model filters). One winning ticket the evening before says nothing
-either way, so both rules are logged on the same matches from now on and
-compared once enough tickets have settled (scripts/grade_combos.py):
+Two rules are logged on the same matches and compared once enough tickets
+have settled (scripts/grade_combos.py):
 
-    market     the rule the page shows
-    legacy_v3  the rule before: lower of model and market, model >= 55%,
-               legs from 1.20, the model's warnings excluded
+    ai_pick    the rule the page shows: the published AI picks
+    agree      only legs the model agrees with, the AI's picks first
+
+The older rules (market, legacy_v3, ki) are no longer logged since
+14 November; their rows stay in the log.
 
 Every version the page shows is logged: whenever a rule's ticket of a size
 changes its legs, the new version is appended with its time. A ticket
@@ -53,13 +53,11 @@ def entries_due(report: dict, competition: str, now: datetime) -> list:
     shown = report.get("policy") or "market"
     quote_basis = ("best_singles_mixed_books" if report.get("parameters", {}).get("same_bookmaker") is False
                    else "single_book")
-    sources = [(shown, report.get("days") or []), ("legacy_v3", report.get("legacy_v3_days") or [])]
+    # The rule the page shows, and "agree" beside it. market, legacy_v3 and ki
+    # are no longer logged (14 November); their old rows stay in the log.
+    sources = [(shown, report.get("days") or [])]
     if report.get("agree_days") is not None:
         sources.append(("agree", report["agree_days"]))
-    if report.get("market_days") is not None:
-        sources.append(("market", report["market_days"]))
-    if report.get("ki_days") is not None:
-        sources.append(("ki", report["ki_days"]))
     for policy, days in sources:
         for day in days:
             for option in day.get("by_size") or []:

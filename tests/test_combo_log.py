@@ -15,7 +15,7 @@ def _ticket(kickoff):
 
 def test_every_ticket_before_its_first_kickoff_is_due_and_started_ones_are_not():
     report = {"days": [{"date": "2026-09-26", "by_size": [{"ticket": _ticket(NOW + timedelta(hours=3))}]}],
-              "legacy_v3_days": [{"date": "2026-09-26", "by_size": [{"ticket": _ticket(NOW - timedelta(minutes=5))}]}]}
+              "agree_days": [{"date": "2026-09-26", "by_size": [{"ticket": _ticket(NOW - timedelta(minutes=5))}]}]}
     due = entries_due(report, "soccer_uefa_nations_league", NOW)
     assert [e["policy"] for e in due] == ["market"]
 

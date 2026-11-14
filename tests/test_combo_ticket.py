@@ -301,15 +301,10 @@ def test_api_reprices_each_offer_and_excludes_that_book_from_reference(monkeypat
             assert offered["expected_value"] == pytest.approx(.75*offered["best_odds"]-1)
             assert max(x["profit"] for x in offered["payout_distribution"]) == pytest.approx(offered["best_odds"]-1)
     report = api.combo_ticket()
-    # 1.70² = 2.89 is under the shown rule's 3.0; the market rule has a
-    # lower minimum and logs the mixed-book combination.
+    # 1.70² = 2.89 is under the shown rule's minimum of 3.0.
     assert report["recommended"] is None
-    ticket = report["market_days"][0]["by_size"][0]["ticket"]
-    assert ticket is not None
-    assert sorted(l["best_odds"] for l in ticket["legs"]) == [1.7, 1.7]
-    assert {l["bookmaker_key"] for l in ticket["legs"]} == {"betathome", "Y"}
-    assert ticket["same_bookmaker"] is False
-    assert ticket["legs_the_market_agrees_with"] == 2
+    # The comparison rules that were only logged are no longer built.
+    assert not any(k in report for k in ("market_days", "legacy_v3_days", "ki_days"))
 
 
 def test_combo_candidates_include_an_odds_api_line_missing_at_betathome():

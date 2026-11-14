@@ -56,23 +56,30 @@ Eine Zeile pro Kombi-Ticket. Neue Tickets werden **einmal** geloggt, etwa eine S
 ersten Spiel des Tickets, wenn der KI-Check vor Anpfiff dieses Spiels fertig ist
 (`trigger: ki_check_done`), spätestens 30 Minuten vorher (`trigger: last_resort`).
 
-| Feld | Bedeutung |
+| Spalte | Bedeutung |
 |---|---|
+| `logged_at` | wann das Ticket geloggt wurde |
+| `first_kickoff` | Anpfiff des ersten Spiels im Ticket (ab da ist es nicht mehr platzierbar) |
+| `date` | der Spieltag des Tickets |
+| `competition` | Wettbewerb |
 | `policy` | die Regel, nach der das Ticket gebaut wurde (siehe unten) |
 | `leg_count` | Anzahl der Tipps im Ticket (2er, 3er, 4er) |
-| `legs` | die Tipps mit Quote und Wahrscheinlichkeiten |
-| `combined_odds`, `estimated_probability` | Gesamtquote und geschätzte Trefferwahrscheinlichkeit |
-| `first_kickoff`, `logged_at`, `trigger` | wann das erste Spiel anpfeift, wann geloggt, warum |
+| `quote_basis` | `single_book` = alle Tipps beim selben Buchmacher, `best_singles_mixed_books` = beste Quote je Tipp, Buchmacher gemischt; fehlt in den ältesten Zeilen (dort gilt `single_book`) |
+| `combined_odds` | Gesamtquote des Tickets |
+| `estimated_probability` | geschätzte Trefferwahrscheinlichkeit (vorsichtig, aus dem Markt) |
+| `model_probability` | Trefferwahrscheinlichkeit laut Modell |
+| `legs` | die einzelnen Tipps mit Wette, Quote, Buchmacher und Wahrscheinlichkeiten |
+| `trigger` | warum geloggt: `ki_check_done` oder `last_resort`; fehlt in alten Zeilen |
 
 Die Regeln (`policy`):
 
 | Regel | Bedeutung |
 |---|---|
 | `ai_pick` | **die Regel, die die Seite zeigt:** nur die veröffentlichten KI-Picks, Ticket mindestens Quote 3,0, verschiedene Spiele bevorzugt |
-| `agree` | nur Tipps, bei denen das Modell zustimmt; KI-Picks zuerst, Ticket mindestens Quote 3,0 (angezeigt 4.-11. Oktober) |
-| `ki` | nur KI-Picks, bei denen das Modell zustimmt und die die KI vor Anpfiff nicht geändert hat (nur geloggt, seit 11. Oktober) |
-| `market` | die Tipps mit der höchsten Markt-Wahrscheinlichkeit, ohne Modell-Filter (Regel ab 26. September) |
-| `legacy_v3` | die alte Regel vor dem 26. September: niedrigere von Modell und Markt, Modell mindestens 55 %, Quote ab 1,20 (nur zum Vergleich geloggt) |
+| `agree` | nur Tipps, bei denen das Modell zustimmt; KI-Picks zuerst, Ticket mindestens Quote 3,0 (wird weiter geloggt) |
+| `ki` | nur KI-Picks, bei denen das Modell zustimmt und die die KI vor Anpfiff nicht geändert hat (nur alte Zeilen, seit 14. November nicht mehr geloggt) |
+| `market` | die Tipps mit der höchsten Markt-Wahrscheinlichkeit, ohne Modell-Filter (nur alte Zeilen, seit 14. November nicht mehr geloggt) |
+| `legacy_v3` | die alte Regel vor dem 26. September: niedrigere von Modell und Markt, Modell mindestens 55 %, Quote ab 1,20 (nur alte Zeilen, seit 14. November nicht mehr geloggt) |
 | `wett_tipp` | **nicht mehr in Gebrauch**; kommt nur in 7 alten Zeilen vor |
 
 Ältere Zeilen (vor dem Umbau) enthalten jede Version eines Tickets ohne `trigger`.

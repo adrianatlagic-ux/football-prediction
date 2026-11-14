@@ -2589,15 +2589,6 @@ def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
     report["competition"] = competition
     old_agree = combo_report(pairs, max_legs=max_legs, policy="agree", allow_mixed_books=True)
     report["agree_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in old_agree["days"]]
-    market = combo_report(pairs, max_legs=max_legs, policy="market", allow_mixed_books=True)
-    report["market_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in market["days"]]
-    # The rule before 26 September, computed on the same matches for the log
-    # only (scripts/log_combos.py); the page shows the market rule.
-    legacy = combo_report(pairs, max_legs=max_legs, policy="legacy_v3", allow_mixed_books=True)
-    report["legacy_v3_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in legacy["days"]]
-    # Combos of the AI's own picks only, logged beside the others (not shown).
-    ki = combo_report(pairs, max_legs=max_legs, policy="ki", allow_mixed_books=True)
-    report["ki_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in ki["days"]]
     _mark_legs_off_likely(report, pairs)
 
     from src.combo_ticket import price_tip_combos
