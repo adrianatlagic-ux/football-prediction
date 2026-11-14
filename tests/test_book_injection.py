@@ -36,11 +36,11 @@ def test_user_book_prices_every_market_it_lists(tmp_path, monkeypatch):
     bets = {(b["market"], b["outcome"], b["team"]): b for b in vb["bets"]}
     home = bets[("1X2", "home_win", "Aachen")]
     assert home["bookmaker_key"] == api.USER_BOOK_KEY and home["best_odds"] == 2.3
-    # Draw No Bet, both teams to score and a total only bet-at-home quotes.
-    assert bets[("Handicap 0.0", "handicap", "Aachen")]["best_odds"] == 1.7
+    # Both teams to score and this total are only quoted by bet-at-home.
     assert ("BTTS", "Yes", None) in bets
     assert ("Over/Under 1.5", "Over", None) in bets
-    # The other book's quarter line stays out, as before.
+    # Refund and split-stake lines are not displayed as binary bets.
+    assert ("Handicap 0.0", "handicap", "Aachen") not in bets
     assert not any(m.startswith("Over/Under 0.75") for m, _, _ in bets)
 
 
