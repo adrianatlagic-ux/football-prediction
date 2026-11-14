@@ -369,9 +369,13 @@ def site_stats():
                    if e.get("commence_time") and timestamp_or_none(e["commence_time"])
                    and timestamp_or_none(e["commence_time"]) < now - timedelta(hours=2)]
         out["settled_matches"] = len(settled)
-        out["settled_bets"] = sum(len(e.get("bets") or (e.get("green_bets", []) + e.get("red_bets", []))) for e in settled)
     except Exception:
-        out["settled_matches"] = out["settled_bets"] = None
+        out["settled_matches"] = None
+    try:
+        from src.jobs import REPORTS
+        out["hit_rate"] = json.loads((REPORTS / "last_hit_rate.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        out["hit_rate"] = None
     _site_stats_cache.update(at=time.time(), data=out)
     return out
 
@@ -393,6 +397,8 @@ def _start_scheduler():
         print(f"log migration failed: {type(exc).__name__}: {exc}")
     _load_agent_cache()
     book_odds.load_refresh_log()
+    # The landing page's numbers take a while to count; have them ready.
+    threading.Thread(target=site_stats, daemon=True, name="site-stats-warmup").start()
     from src import scheduler
     scheduler.start(_get_predictor, _get_national_predictor, _get_odds, all_bets, combo_ticket, _get_espn_results,
                     _prekickoff_check_done)

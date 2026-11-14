@@ -134,6 +134,10 @@ def run_daily(club: Callable, national: Callable, morning_odds: Callable,
         if real_results is not None:
             try:
                 results = real_results()
+                from src import hit_rate, log_store
+                report["hit_rate"] = _report("hit_rate", {
+                    **hit_rate.compute(log_store.load_tips(), results),
+                    "at": datetime.now(timezone.utc).isoformat()})["rate"]
                 from src.ai_tip_review import refresh as review
                 report["ai_tip_review_fixtures"] = review(results, ROOT)["fixtures"]
             except Exception as exc:

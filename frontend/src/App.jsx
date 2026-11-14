@@ -947,6 +947,10 @@ function impliesBet(pick, tip, home, away, sameBet) {
   return true
 }
 
+// Shown until /site-stats answers (it counts, so it takes a moment): the hit rate
+// of the Wett-Tipp when this was last updated (14 November 2026, 25 of 51).
+const DEFAULT_HIT_RATE = 0.49
+
 // The headline tip accepts changes at the pre-kickoff review.
 // The server decides it (bet_tip); this is the fallback.
 function computeBetTip(betInfo, agentEval) {
@@ -2461,8 +2465,10 @@ export default function App() {
                     <span className="hero-stat-label">{tr('Wetten pro Spiel geprüft', 'Bets checked per match')}</span>
                   </div>
                   <div className="hero-stat">
-                    <span className="hero-stat-value">{siteStats?.settled_matches ?? '–'}</span>
-                    <span className="hero-stat-label">{tr('Spiele getrackt', 'Matches tracked')}</span>
+                    <span className="hero-stat-value">
+                      {`${Math.round((siteStats?.hit_rate?.rate ?? DEFAULT_HIT_RATE) * 100)} %`}
+                    </span>
+                    <span className="hero-stat-label">{tr('Trefferquote Wett-Tipp', 'Hit rate of the main tip')}</span>
                   </div>
                 </div>
               </div>
