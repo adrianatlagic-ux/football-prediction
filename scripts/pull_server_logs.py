@@ -40,6 +40,8 @@ def merge_bets(repo, server):
         elif not log_bets.has_bets(old) and log_bets.has_bets(e):
             old.clear()
             old.update(e)
+        if old is not None and e.get("result") and not old.get("result"):
+            old["result"] = e["result"]
         if old is not None:
             from src.ai_tip_review import merge_history
             merge_history(old, previous_history + e.get("ai_review_history", []))

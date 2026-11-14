@@ -1739,9 +1739,9 @@ def _call_gemini_agent_pick(
       table situation, other) - shown in the main analysis section,
       independent of any betting angle. Empty string for categories with
       nothing worth reporting.
-    - "bet_headline" / "bet_reasoning" / "bet_points": the betting verdict -
-      a plain-language pick label, one sentence of reasoning, and a couple of
-      short supporting bullets - shown only in the Smart Bet section.
+    - "bet_headline" / "bet_reasoning": the betting verdict - a plain-language
+      pick label and two to two and a half sentences of reasoning - shown
+      only in the Smart Bet section.
 
     At the re-check the earlier selection is context; new markets, odds or
     team information may justify a documented change.
@@ -1754,7 +1754,7 @@ def _call_gemini_agent_pick(
 
     from src.ai_tip_research import VERSION, fresh_candidates, input_snapshot, market_changes
     candidates = fresh_candidates(value_bets)
-    research_input = input_snapshot(value_bets, candidates)
+    research_input = input_snapshot(value_bets, candidates, prediction)
     if not research_input["coverage"]["complete"]:
         return {"pick": None, "research_version": VERSION, "status": "incomplete_markets",
                 "research_input": research_input,
@@ -1767,10 +1767,17 @@ def _call_gemini_agent_pick(
                 "bet_reasoning": (previous_eval or {}).get("bet_reasoning"),
                 "revised_from_previous": None}
 
-    # All supported fresh quotes are neutral input. A model-selected bet,
-    # per-bet model score and green/red display labels are not passed through.
+    # Every supported quote with our model's and the market's probability for
+    # it. No bet is preselected and the green/red display labels stay out.
+    def _probabilities(c):
+        model, market = c.get("model_probability_raw"), c.get("market_probability")
+        if not all(isinstance(p, (int, float)) and math.isfinite(p) for p in (model, market)):
+            return ""
+        return f", our model {model:.0%} / market {market:.0%}"
+
     cand_lines = "\n".join(
         f"- market={c['market']}, outcome={c.get('team') or c['outcome']}, odds={c['best_odds']}"
+        + _probabilities(c)
         + (f", last seen={c.get('quote_last_update')} (not included in latest fetch)" if c.get('quote_carried_forward') else "")
         for c in candidates
     )
@@ -1778,7 +1785,10 @@ def _call_gemini_agent_pick(
     if previous_eval and previous_eval.get("bet_headline"):
         prev_pick = (previous_eval.get("first_pick") if previous_eval.get("status") == "incomplete_markets"
                      else previous_eval.get("pick"))
-        changes = market_changes(previous_eval.get("research_input"), research_input)
+        # Only markets that appeared or vanished; pure price moves were read
+        # as a reason to pick ("odds rose from 1.70 to 1.76") and stay out.
+        changes = {k: v for k, v in (market_changes(previous_eval.get("research_input"), research_input) or {}).items()
+                   if k in ("added", "removed")}
         prev_pick_desc = (
             f"market={prev_pick['market']}, outcome={prev_pick.get('team') or prev_pick['outcome']}"
             if prev_pick else "none"
@@ -1792,24 +1802,28 @@ def _call_gemini_agent_pick(
 YOUR EARLIER ASSESSMENT of this same match (from an earlier check today): \
 pick=({prev_pick_desc}), reasoning="{previous_reasoning}"
 Earlier quote snapshot: {(previous_eval.get('research_input') or {}).get('odds_fetched_at')}.
-Market changes since that snapshot: {json.dumps(changes, ensure_ascii=False)}.
+Markets added or removed since then: {json.dumps(changes, ensure_ascii=False)}.
 
-You are being asked again now, closer to kickoff, with a chance to search for newer information. \
-Compare the current complete market book with the earlier selection. A newly available market, \
-changed odds, or concrete new team news may justify a different pick. If your choice changes, \
-explain which input made the alternative better. If it stays, say why it remains best. \
+You are being asked again now, closer to kickoff, with a chance to search for newer information \
+(confirmed line-ups, late injuries). Change your pick only for a concrete football reason - new team \
+news, or a newly available market that fits your view of the match better. Odds moving up or down is \
+not a reason in itself. If your choice changes, name that reason. If it stays, say why it remains best. \
 Do not change your pick merely to seem thorough."""
 
     competition = _AGENT_COMPETITION_NAMES.get(value_bets.get("sport_key"), "football")
     prompt = f"""You are researching an upcoming {competition} match: {home_team} vs {away_team}.
 Kickoff: {research_input['commence_time']}. Quote snapshot: {research_input['odds_fetched_at']}.
 
-The bets available to pick from (all supported quoted markets; any retained older prices are marked - decide for yourself \
-which, if any, is worth backing; no candidate is preselected or recommended):
+OUR QUANTITATIVE MODEL (one input, not a preselected bet): it is trained on historical results only and \
+knows nothing about current line-ups, injuries, motivation or tactics.
+{json.dumps(research_input['model_context'], ensure_ascii=False, separators=(",", ":"))}
+
+The bets available to pick from (all supported quoted markets; any retained older prices are marked; \
+each shows our model's probability and the bookmakers' implied probability where both exist):
 {cand_lines}
 {previous_block}
 
-STEP 1 - RESEARCH (use Google Search). Dig up CURRENT \
+STEP 1 - RESEARCH (use Google Search). Our model only sees past results, so dig up CURRENT \
 context across as many of these angles as you can actually find information on - don't limit yourself \
 to just one or two. Search in English AND in the local languages of both teams (e.g. Croatian sports \
 media for Croatia, Georgian for Georgia, German for a Bundesliga club): team news, line-ups and \
@@ -1823,37 +1837,39 @@ already decided?
 - Head-to-head history or tactical matchup notes if genuinely relevant
 - Any other concrete, current fact you find that could matter
 
-STEP 2 - BETTING VERDICT. Act as a disciplined value-betting analyst. Distinguish between an outcome \
-being likely and it being attractive at the quoted price. Compare market odds and your independently \
-researched facts for every serious candidate. Do not cite or invent probabilities from our internal model. \
-Do not claim an edge when those inputs \
-do not point clearly in one direction. Do not favour any market by default: 1X2, Handicap, Over/Under \
-and BTTS can each be best only when price and evidence support them. Based on that, decide which ONE bet \
-from the list is the best one to actually back - or none, if nothing looks good. Base this decision \
-on the quoted prices and your independently researched facts. Evaluate serious alternatives before \
+STEP 2 - BETTING VERDICT. First form your own picture of how this match will go: who controls it, \
+how many goals are realistic, how the teams' styles meet (e.g. a favourite against a deep defensive \
+block), what each side needs. Use your research and weigh our model against it - where your research \
+and the model agree the case is stronger, where they disagree explain which you trust and why. \
+Then pick the ONE bet from the list that this picture supports most reliably - or none, if the match \
+is too unpredictable. Your reasons must be about football (players, form, tactics, motivation, the \
+model's numbers), not about the price: "the odds are attractive", "value", or odds having moved are \
+not reasons. Use the odds only as a check - do not back an outcome whose odds imply a higher chance \
+than you actually believe. A handicap or higher goal line is only right when you expect a clear \
+margin or many goals, not because it pays more. Do not favour any market by default. \
+Evaluate serious alternatives before \
 choosing, but mention another bet in the verdict only when that comparison explains the decision. \
 If no comparison adds useful information, leave alternative_reasoning empty. \
-Then write bet_reasoning as exactly one short \
-sentence explaining why you landed on that pick (or why none of them are worth backing - e.g. too \
-unpredictable, no real edge, the odds don't justify it), at most 35 words. Lead with the strongest \
-concrete reason for your verdict rather than a routine comparison with another bet. \
-Wrap the 2-4 words/phrases in that sentence \
+Then write bet_reasoning as two, at most two and a half, sentences (at most 60 words) explaining \
+why you landed on that pick (or why none of them are worth backing - e.g. too unpredictable, the \
+evidence points both ways): how you expect the match to go and why that makes this bet the right one. \
+Lead with the strongest concrete football reason rather than a routine comparison with another bet. \
+Wrap the 2-4 words/phrases in that text \
 that most directly justify the pick (the actual stat or fact doing the work, e.g. "zero goals \
 conceded", "erratic form", "unbeaten in 8") in double asterisks like **this** - not team names, not \
 filler words, only the specific evidence a reader would want to see highlighted.
 
 Keep everything SHORT - this renders in a small card, not an article. Respond with ONLY raw JSON, no \
 markdown formatting, no code fences, exactly this shape. Write every text value (the research \
-sentences, bet_headline, bet_reasoning, bet_points) in German for German football fans; copy \
+sentences, bet_headline, bet_reasoning) in German for German football fans; copy \
 pick_market and pick_outcome exactly as the strings above:
 {{"research": {{"lineups_injuries": "<one short sentence, or empty string if nothing found>", \
 "form": "<one short sentence, or empty string>", "table_situation": "<one short sentence, or empty \
 string>", "other": "<one short sentence on anything else notable, or empty string>"}}, \
 "pick_market": "<one of the market strings above, or null>", "pick_outcome": "<matching outcome \
 string, or null>", "bet_headline": "<2-5 words naming the pick in plain language, e.g. 'Über 2,5 \
-Tore' or 'Sieg Kroatien' - or 'Keine gute Wette' if pick is null>", "bet_reasoning": "<exactly ONE \
-sentence with your verdict>", "bet_points": ["<short supporting fact, max 8 words>", "<short \
-supporting fact, max 8 words>"], "alternative_reasoning": "<short comparison only if it materially explains the verdict; otherwise empty string>", \
+Tore' or 'Sieg Kroatien' - or 'Keine gute Wette' if pick is null>", "bet_reasoning": "<two to two \
+and a half sentences with your verdict>", "alternative_reasoning": "<short comparison only if it materially explains the verdict; otherwise empty string>", \
 "change_reason": "<only when the re-check changes the pick: always try to give one short sentence, max 16 words, naming the concrete input or reconsideration that caused the change; never invent a reason; otherwise empty string>"}}"""
 
     try:
@@ -1895,8 +1911,8 @@ supporting fact, max 8 words>"], "alternative_reasoning": "<short comparison onl
                 pick = c
                 break
 
-    # Attach the backend comparison only after the AI has made its selection.
-    # No internal model outputs are included in the AI's prompt.
+    # Agreement is computed here for the UI. Since v9 the AI sees the model's
+    # numbers, so this is a comparison on shared information, not independent evidence.
     model_fav = value_bets.get("model_favorite")
     agrees_with_model = bool(
         pick is not None and model_fav is not None
@@ -1946,7 +1962,6 @@ supporting fact, max 8 words>"], "alternative_reasoning": "<short comparison onl
         "revised_from_previous": revised_from_previous,
         "bet_headline": parsed.get("bet_headline") or "",
         "bet_reasoning": parsed.get("bet_reasoning") or "",
-        "bet_points": [p for p in (parsed.get("bet_points") or []) if p],
         "research": {
             "lineups_injuries": research.get("lineups_injuries") or "",
             "form": research.get("form") or "",

@@ -45,7 +45,7 @@ def _daily_done_today(now: datetime) -> bool:
         return False
 
 
-def log_bets_and_combos(all_bets, combo_ticket, now: datetime, prekickoff_checked=None) -> dict:
+def log_bets_and_combos(all_bets, combo_ticket, now: datetime, prekickoff_checked=None, real_results=None) -> dict:
     """The bet log and the combo log, kept on the server.
 
     A combo ticket is logged once, about an hour before its first match, when
@@ -57,9 +57,17 @@ def log_bets_and_combos(all_bets, combo_ticket, now: datetime, prekickoff_checke
     LOGS.mkdir(parents=True, exist_ok=True)
     entries = log_bets._load_log()
     added, updated = log_bets.apply(all_bets().get("all_bets", []), entries, now)
-    if added or updated:
-        log_bets.write_log(entries)
     from src import log_store
+    settled = 0
+    if real_results is not None and log_store.unsettled(entries, now):
+        # The results feed forgets a match after about a month, so the final
+        # score is written into the log as soon as it exists.
+        try:
+            settled = log_store.settle(entries, real_results(), now)
+        except Exception:
+            pass
+    if added or updated or settled:
+        log_bets.write_log(entries)
     logged = log_store.load_combos()
     new = []
     for competition in COMBO_COMPETITIONS:
@@ -68,7 +76,7 @@ def log_bets_and_combos(all_bets, combo_ticket, now: datetime, prekickoff_checke
         new += log_combos.not_yet_logged(due, logged + new)
     if new:
         log_store.append_combos(new)
-    return {"bets_added": added, "bets_updated": updated, "combos_added": len(new)}
+    return {"bets_added": added, "bets_updated": updated, "results_saved": settled, "combos_added": len(new)}
 
 
 def migrate_old_logs() -> None:
@@ -94,7 +102,8 @@ def _loop(club, national, odds, all_bets, combo_ticket, real_results=None, preki
         except Exception:
             pass
         try:
-            result = log_bets_and_combos(all_bets, combo_ticket, datetime.now(timezone.utc), prekickoff_checked)
+            result = log_bets_and_combos(all_bets, combo_ticket, datetime.now(timezone.utc), prekickoff_checked,
+                                         real_results)
             jobs._report("logging", {"at": datetime.now(timezone.utc).isoformat(), **result})
         except Exception as exc:
             jobs._report("logging", {"at": datetime.now(timezone.utc).isoformat(),

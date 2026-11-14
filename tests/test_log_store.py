@@ -92,3 +92,34 @@ def test_old_short_and_detail_files_are_merged_into_one_file_per_competition_wit
     assert not (logs / "details").exists()
     [line] = [json.loads(x) for x in (logs / "tips" / "bundesliga.jsonl").read_text().splitlines()]
     assert "wett_tipp" not in line and line["bets"] and "green_bets" not in line and "price_tip" not in line
+
+
+def test_settle_writes_the_final_score_once_and_only_for_finished_matches():
+    entries = [_tip("soccer_germany_bundesliga", "Mönchengladbach"), _tip("soccer_germany_bundesliga", "B"),
+               _tip("soccer_germany_bundesliga", "C")]
+    results = [{"home_team": "Monchengladbach", "away_team": "X", "commence_time": "2026-11-10T18:45Z",
+                "completed": True, "home_score": 2, "away_score": 1},
+               {"home_team": "B", "away_team": "X", "commence_time": "2026-11-10T18:45Z",
+                "completed": False, "home_score": None, "away_score": None},
+               {"home_team": "C", "away_team": "X", "commence_time": "2026-11-10T18:45Z", "completed": True,
+                "home_score": 3, "away_score": 3, "score_scope": "unverified"}]
+    assert log_store.settle(entries, results) == 1
+    assert entries[0]["result"]["home_score"] == 2 and entries[0]["result"]["away_score"] == 1
+    assert "result" not in entries[1] and "result" not in entries[2]
+    results[0]["home_score"] = 9
+    assert log_store.settle(entries, results) == 0 and entries[0]["result"]["home_score"] == 2
+
+
+def test_a_saved_score_still_grades_after_the_live_feed_forgot_the_match():
+    entry = _tip("soccer_germany_bundesliga", "A")
+    entry["result"] = {"home_score": 1, "away_score": 0}
+    finished = log_store.finished_map([entry], [])
+    assert finished[log_store.match_key("A", "X", entry["commence_time"])]["home_score"] == 1
+
+
+def test_only_matches_that_should_be_over_count_as_unsettled():
+    from datetime import datetime, timezone
+    entries = [_tip("soccer_germany_bundesliga", "A")]
+    now = datetime(2026, 11, 11, tzinfo=timezone.utc)
+    assert log_store.unsettled(entries, now) == entries
+    assert log_store.unsettled(entries, datetime(2026, 11, 10, 19, tzinfo=timezone.utc)) == []
