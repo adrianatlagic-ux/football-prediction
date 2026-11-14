@@ -10,7 +10,11 @@ danach nur ergänzt (z. B. wenn die KI ihren Tipp ändert). Spalten in dieser Re
 
 | Spalte | Bedeutung |
 |---|---|
-| `home_team`, `away_team`, `commence_time`, `competition`, `logged_at` | das Spiel |
+| `home_team` | Heimmannschaft |
+| `away_team` | Auswärtsmannschaft |
+| `commence_time` | Anpfiff (UTC) |
+| `competition` | Wettbewerb |
+| `logged_at` | wann das Spiel geloggt wurde |
 | `bet_tip` | der **Wett-Tipp** = der KI-Pick nach den Regeln. `tip` ist der veröffentlichte Tipp, `withheld` der zurückgehaltene Pick, `status` der Grund (`ok`, `no_agreement`, `ai_unsure` ...); `change` und `first_pick` zeigen eine Änderung der KI vor Anpfiff |
 | `model_favorite` | die **Modell-Wahl**: der vom Modell wahrscheinlichste Ausgang |
 | `likely_pick` | die **wahrscheinlichste Wette** (🎯, Markt, Quote 1,30-2,00) |
@@ -34,11 +38,22 @@ ersten Spiel des Tickets, wenn der KI-Check vor Anpfiff dieses Spiels fertig ist
 
 | Feld | Bedeutung |
 |---|---|
-| `policy` | die Regel: `agree`, `ai_pick`, `ki`, `market`, `legacy_v3`, `wett_tipp` |
+| `policy` | die Regel, nach der das Ticket gebaut wurde (siehe unten) |
 | `leg_count` | Anzahl der Tipps im Ticket (2er, 3er, 4er) |
 | `legs` | die Tipps mit Quote und Wahrscheinlichkeiten |
 | `combined_odds`, `estimated_probability` | Gesamtquote und geschätzte Trefferwahrscheinlichkeit |
 | `first_kickoff`, `logged_at`, `trigger` | wann das erste Spiel anpfeift, wann geloggt, warum |
+
+Die Regeln (`policy`):
+
+| Regel | Bedeutung |
+|---|---|
+| `ai_pick` | **die Regel, die die Seite zeigt:** nur die veröffentlichten KI-Picks, Ticket mindestens Quote 3,0, verschiedene Spiele bevorzugt |
+| `agree` | nur Tipps, bei denen das Modell zustimmt; KI-Picks zuerst, Ticket mindestens Quote 3,0 (angezeigt 4.-11. Oktober) |
+| `ki` | nur KI-Picks, bei denen das Modell zustimmt und die die KI vor Anpfiff nicht geändert hat (nur geloggt, seit 11. Oktober) |
+| `market` | die Tipps mit der höchsten Markt-Wahrscheinlichkeit, ohne Modell-Filter (Regel ab 26. September) |
+| `legacy_v3` | die alte Regel vor dem 26. September: niedrigere von Modell und Markt, Modell mindestens 55 %, Quote ab 1,20 (nur zum Vergleich geloggt) |
+| `wett_tipp` | **nicht mehr in Gebrauch**; kommt nur in 7 alten Zeilen vor |
 
 Ältere Zeilen (vor dem Umbau) enthalten jede Version eines Tickets ohne `trigger`.
 
