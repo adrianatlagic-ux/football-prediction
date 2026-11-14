@@ -6,7 +6,7 @@ The 🎯 pick and the market combo rule kept choosing big handicaps on the
 weaker side (San Marino +3.5, Croatia +1.5, North Macedonia +1.5) at 70-75%
 by the market's price, and they kept losing. Two looks:
 
-  live      every logged bet (data/logs/tips/, Nations League) graded
+  live      every logged bet (data/logs/details/, Nations League) graded
             against the result, grouped by kind of bet: hits against what
             bet-at-home's margin-free price expected
   history   Nations League 2020-21, 2022-23, 2024-25 (OddsPortal average

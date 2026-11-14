@@ -35,7 +35,8 @@ def test_migration_splits_by_competition_keeps_everything_and_archives_the_origi
     result = migrate(logs, [old], [old_combos])
 
     assert result["matches"] == 3 and result["combos"] == 2
-    assert [p.name for p in log_store.files("tips", logs)] == ["bundesliga.jsonl", "champions-league.jsonl", "sonstige.jsonl"]
+    for kind in ("tips", "details"):
+        assert [p.name for p in log_store.files(kind, logs)] == ["bundesliga.jsonl", "champions-league.jsonl", "sonstige.jsonl"]
     assert [p.name for p in log_store.files("combos", logs)] == ["bundesliga.jsonl", "nations-league.jsonl"]
     assert len(log_store.load_tips(logs)) == 3 and len(log_store.load_combos(logs)) == 2
     assert (logs / "archive" / "bet_log_full.jsonl").read_text() == original
@@ -48,9 +49,9 @@ def test_migrating_again_changes_nothing_and_a_second_old_file_is_merged(tmp_pat
     first = tmp_path / "a.jsonl"
     first.write_text(json.dumps(_tip("soccer_germany_bundesliga", "A")) + "\n")
     migrate(logs, [first], [])
-    before = log_store.as_text("tips", logs)
+    before = log_store.as_text("details", logs)
     assert migrate(logs, [first], []) == {"matches": 0, "combos": 0, "archived": []}
-    assert log_store.as_text("tips", logs) == before
+    assert log_store.as_text("details", logs) == before
     # The server's own older-layout file holds the same match and a new one.
     server = tmp_path / "bet_log.jsonl"
     server.write_text(json.dumps(_tip("soccer_germany_bundesliga", "A")) + "\n"
@@ -65,8 +66,27 @@ def test_the_logs_endpoint_serves_every_competition_under_old_and_new_names(tmp_
     monkeypatch.setattr(log_store, "LOGS", tmp_path)
     log_store.write_tips([_tip("soccer_germany_bundesliga", "A"), _tip("soccer_uefa_champs_league", "B")], tmp_path)
     client = TestClient(api.app)
-    for name in ("tips", "bet_log"):
+    for name in ("tips", "details", "bet_log"):
         lines = client.get(f"/logs/{name}").text.splitlines()
         assert len(lines) == 2
+    assert "bets" in json.loads(client.get("/logs/details").text.splitlines()[0])
+    assert "bets" not in json.loads(client.get("/logs/tips").text.splitlines()[0])
     assert client.get("/logs/combos").text == ""
     assert client.get("/logs/other").status_code == 404
+
+
+def test_the_short_view_holds_exactly_the_three_tips():
+    pick = {"market": "Handicap -1.5", "outcome": "handicap", "team": "A", "best_odds": 1.9, "bookmaker": "B",
+            "probability": .5, "model_probability_raw": .55, "market_probability": .5, "expected_value": .1,
+            "payout_distribution": [1, 2], "selection_market_reference": {"books": {}}}
+    entry = {**_tip("soccer_germany_bundesliga", "A"), "competition": "Bundesliga",
+             "bet_tip": {"status": "ok", "confirmed": True, "tip": pick, "change": "same_side", "first_pick": pick},
+             "model_favorite": {**pick, "market": "1X2"}, "likely_pick": {**pick, "market": "Over/Under 2.5"},
+             "green_bets": [pick], "red_bets": [pick], "agent_eval": {"pick": pick}, "combined": {}}
+    line = log_store.short(entry)
+    assert set(line) == {"home_team", "away_team", "commence_time", "competition", "logged_at",
+                         "wett_tipp", "modell_wahl", "wahrscheinlichste_wette"}
+    assert line["wett_tipp"]["tip"]["market"] == "Handicap -1.5" and line["wett_tipp"]["change"] == "same_side"
+    assert "expected_value" not in line["wett_tipp"]["tip"] and line["modell_wahl"]["market"] == "1X2"
+    assert line["wahrscheinlichste_wette"]["market"] == "Over/Under 2.5"
+    assert log_store.short({"home_team": "A", "away_team": "B"})["modell_wahl"] is None

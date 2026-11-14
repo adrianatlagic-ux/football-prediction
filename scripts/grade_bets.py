@@ -4,7 +4,7 @@ result - the honest, complete bilanz.
     python3 scripts/grade_bets.py
     python3 scripts/grade_bets.py --api https://football-prediction.fly.dev
 
-Reads data/logs/tips/*.jsonl. New-format entries (logged via the current
+Reads data/logs/details/*.jsonl. New-format entries (logged via the current
 log_bets.py) carry the FULL breakdown for a match - every green and red
 candidate bet, the curated top recommendation, and the agent evaluation - so
 every single one of them gets graded here, not just the one that was
@@ -21,7 +21,7 @@ import sys
 import urllib.request
 from pathlib import Path
 
-LOG_PATH = None  # the tip logs: data/logs/tips/<wettbewerb>.jsonl (src/log_store.py)
+LOG_PATH = None  # the tip logs: data/logs/details/<wettbewerb>.jsonl (src/log_store.py)
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -328,7 +328,7 @@ def main():
     from src import log_store
     entries = log_store.load_tips()
     if not entries:
-        print("Noch kein Bet-Log vorhanden (data/logs/tips/). Der Server legt es selbst an.")
+        print("Noch kein Bet-Log vorhanden (data/logs/details/). Der Server legt es selbst an.")
         return
 
     results = json.load(urllib.request.urlopen(f"{args.api}/real-results", timeout=30))["results"]

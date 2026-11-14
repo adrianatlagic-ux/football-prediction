@@ -16,7 +16,7 @@ Two sources, kept apart in the output:
   nations  Nations League 2020-21 and 2024-25, national models trained
            before each season against the average German-licensed price
            (scripts/nl_backtest.py)
-  live     every bet the site logged (data/logs/tips/) with a model and a
+  live     every bet the site logged (data/logs/details/) with a model and a
            market probability, graded against the real result
 
 Only outcomes the model rates ABOVE the market are counted - those are the
@@ -108,7 +108,7 @@ def nations_league_cases() -> list:
 def log_paths() -> list:
     """Every tip log file, one per competition (src/log_store.py)."""
     from src import log_store
-    return log_store.files("tips")
+    return log_store.files("details")
 
 
 def live_cases(api: str | None) -> list:
@@ -176,7 +176,7 @@ def build(live: list) -> dict:
               "archive": summarise(archive), "live": summarise(live),
               "combined": summarise(archive + live), "by_competition": by_competition,
               "sources": {"archive": "Bundesliga 1X2, model vs Pinnacle pre-closing, 2021-22..2025-26",
-                          "live": "data/logs/tips/, graded against /real-results"}}
+                          "live": "data/logs/details/, graded against /real-results"}}
     OUT.write_text(json.dumps(report, indent=1) + "\n")
     return report
 

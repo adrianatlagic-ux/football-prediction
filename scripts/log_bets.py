@@ -29,7 +29,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src import log_store  # noqa: E402
 
-LOG_PATH = log_store.LOGS / "tips"   # one file per competition
+LOG_PATH = log_store.LOGS / "details"   # one file per competition (tips/ is the short view)
 DEFAULT_API = "https://football-prediction.fly.dev"
 
 

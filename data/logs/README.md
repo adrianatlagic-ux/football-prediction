@@ -3,24 +3,34 @@
 Eine Datei pro Wettbewerb. Auf dem Server (Fly) und im Repository gilt dieselbe Struktur.
 Der Server schreibt sie selbst (`src/scheduler.py`); GitHub kopiert sie zweimal am Tag ins Repo.
 
-## tips/<wettbewerb>.jsonl  (bundesliga, champions-league, nations-league, ...)
+## tips/<wettbewerb>.jsonl  (bundesliga, champions-league, nations-league, sonstige)
 
-Eine Zeile pro Spiel, die einmal kurz vor Anpfiff entsteht und danach nur noch ergänzt wird
-(z. B. wenn die KI ihren Tipp ändert). Wichtige Felder:
+Die lesbare Ansicht: eine Zeile pro Spiel mit genau den drei Tipps.
 
 | Feld | Bedeutung |
 |---|---|
-| `home_team`, `away_team`, `commence_time`, `competition` | das Spiel |
-| `bet_tip` | der **Wett-Tipp**: der KI-Pick nach den Regeln. `tip` ist der veröffentlichte Tipp, `withheld` der zurückgehaltene Pick (mit `status` und Grund) |
-| `model_favorite` | die **Modell-Wahl**: der vom Modell wahrscheinlichste Ausgang |
-| `likely_pick` | die **wahrscheinlichste Wette** (🎯, Markt, Quote 1,30–2,00) |
-| `agent_eval` | die KI-Bewertung mit ihrem Pick, Begründung und Eingaben |
-| `ai_review_history` | jede Änderung des KI-Tipps vor Anpfiff |
+| `home_team`, `away_team`, `commence_time`, `competition`, `logged_at` | das Spiel |
+| `wett_tipp` | der **Wett-Tipp** = der KI-Pick nach den Regeln. `tip` ist der veröffentlichte Tipp, `withheld` der zurückgehaltene Pick, `status` der Grund (`ok`, `no_agreement`, `ai_unsure` ...). `change` und `first_pick` zeigen, wenn die KI ihren Tipp vor Anpfiff geändert hat |
+| `modell_wahl` | die **Modell-Wahl**: der vom Modell wahrscheinlichste Ausgang |
+| `wahrscheinlichste_wette` | die **wahrscheinlichste Wette** (🎯, Markt, Quote 1,30-2,00) |
+
+Jeder Tipp: `market`, `outcome`, `team`, `best_odds`, `bookmaker`, `probability` (Modell, kalibriert),
+`model_probability_raw`, `market_probability`.
+
+## details/<wettbewerb>.jsonl
+
+Dieselben Spiele mit **allem**, was geloggt wird. Daraus rechnen `grade_bets.py` und die Analyse-Skripte.
+`tips/` wird bei jedem Schreiben aus `details/` erzeugt.
+
+| Feld | Bedeutung |
+|---|---|
+| `agent_eval`, `ai_review_history` | die KI-Bewertung mit Pick, Begründung, Eingaben und jede Änderung vor Anpfiff |
 | `price_tip` | der Preistipp (bet-at-home gegen Pinnacle) |
 | `bets` | alle bepreisten Wetten des Spiels (Kandidaten) |
 | `green_bets` / `red_bets` | dieselben Wetten nach Modell-Wert: **grün** = das Modell sieht einen positiven Erwartungswert, **rot** = negativ |
 | `recommendation` | die beste grüne Wette des Modells (Top-Empfehlung) |
 | `combined` | Markt-Favorit, Game Pick und Übereinstimmung von Modell und KI |
+| `bet_tip_v1`, `safest_pick` | die alte Wett-Tipp-Regel und der sicherste Pick, zum Vergleich |
 
 ## combos/<wettbewerb>.jsonl
 
@@ -40,12 +50,12 @@ ersten Spiel des Tickets, wenn der KI-Check vor Anpfiff dieses Spiels fertig ist
 
 ## system/
 
-`alerts.jsonl` – Fehler der Preisquellen. `book_refresh.jsonl` – jeder bet-at-home-Abruf.
+`alerts.jsonl` - Fehler der Preisquellen. `book_refresh.jsonl` - jeder bet-at-home-Abruf.
 
 ## archive/
 
 Die ursprünglichen Einzeldateien (`bet_log_full.jsonl`, `combo_log_full.jsonl`), unverändert.
-Sie sind komplett in `tips/` und `combos/` enthalten und dienen nur als Sicherung.
+Sie sind komplett in `details/` und `combos/` enthalten und dienen nur als Sicherung.
 
 ## Auswerten
 

@@ -55,7 +55,7 @@ def main():
     args = parser.parse_args()
 
     repo_bets = log_store.load_tips()
-    added = merge_bets(repo_bets, fetch(args.api, "tips"))
+    added = merge_bets(repo_bets, fetch(args.api, "details"))
     log_store.write_tips(repo_bets)
 
     repo_combos = log_store.load_combos()

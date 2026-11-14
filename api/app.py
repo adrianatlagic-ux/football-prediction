@@ -416,9 +416,9 @@ def server_log(name: str):
     (scripts/pull_server_logs.py)."""
     from fastapi.responses import PlainTextResponse
     from src import log_store
-    # "tips" and "combos" are the current names; the old ones stay for scripts
-    # that still fetch them. Each returns every competition, one JSON per line.
-    kinds = {"tips": "tips", "bet_log": "tips", "combos": "combos", "combo_log": "combos"}
+    # "tips" is the short view, "details" everything logged ("bet_log" is its old
+    # name), "combos" the tickets. Each returns every competition, one JSON per line.
+    kinds = {"tips": "tips", "details": "details", "bet_log": "details", "combos": "combos", "combo_log": "combos"}
     if name not in kinds:
         raise HTTPException(status_code=404, detail="Unknown log")
     return PlainTextResponse(log_store.as_text(kinds[name]))
