@@ -49,6 +49,9 @@ def main():
     results = json.load(urllib.request.urlopen(f"{args.api}/real-results", timeout=60))["results"]
     finished = {(_norm(r["home_team"]), _norm(r["away_team"])): r
                 for r in results if r.get("completed") and r.get("home_score") is not None}
+    # Scores saved in the tip log outlive the live feed's window.
+    for key, r in log_store.finished_map(log_store.load_tips(), []).items():
+        finished.setdefault(key[:2], r)
 
     # When a match kicks off, the day's combos are rebuilt from the matches
     # left - a new ticket, not the old one minus a leg. So a slot can hold

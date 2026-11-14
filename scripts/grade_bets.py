@@ -36,9 +36,8 @@ DEFAULT_API = "https://football-prediction.fly.dev"
 
 
 def _norm(name: str) -> str:
-    n = re.sub(r"\band\b", " ", name.lower()).replace("&", " ")
-    n = re.sub(r"[^a-z]", "", n)
-    return {"usa": "unitedstates"}.get(n, n)
+    from src.log_store import norm
+    return norm(name)
 
 
 def _team_margin(team, home, away, hs, as_):
@@ -323,8 +322,8 @@ def main():
 
     results = json.load(urllib.request.urlopen(f"{args.api}/real-results", timeout=30))["results"]
     # Teams AND date: the same pairing can meet twice in a season.
-    finished = {(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
-                for r in results if r.get("completed") and r.get("home_score") is not None}
+    # The live feed forgets matches after ~a month; scores saved in the log stay.
+    finished = log_store.finished_map(entries, results)
     groups = {}
     for entry in entries:
         groups.setdefault(competition_of(entry), []).append(entry)

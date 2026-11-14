@@ -14,6 +14,7 @@ danach nur ergänzt (z. B. wenn die KI ihren Tipp ändert). Spalten in dieser Re
 | `away_team` | Auswärtsmannschaft |
 | `commence_time` | Anpfiff (UTC) |
 | `competition` | Wettbewerb |
+| `result` | das **Endergebnis** nach 90 Minuten (`home_score`, `away_score`, `source`, `settled_at`). Der Server trägt es ein, sobald das Spiel vorbei ist, denn der Ergebnis-Feed vergisst Spiele nach etwa einem Monat. Ältere Spiele wurden mit `scripts/backfill_results.py` nachgetragen. Fehlt es, ist das Spiel offen (oder ging in die Verlängerung) |
 | `logged_at` | wann das Spiel geloggt wurde |
 | `bet_tip` | der **Wett-Tipp** = der KI-Pick nach den Regeln. `tip` ist der veröffentlichte Tipp, `withheld` der zurückgehaltene Pick, `status` der Grund (`ok`, `no_agreement`, `ai_unsure` ...); `change` und `first_pick` zeigen eine Änderung der KI vor Anpfiff |
 | `model_favorite` | die **Modell-Wahl**: der vom Modell wahrscheinlichste Ausgang |
