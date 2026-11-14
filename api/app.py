@@ -363,11 +363,9 @@ def site_stats():
     except Exception:
         out["training_matches"] = None
     try:
-        import sys as _sys
-        _sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
-        from build_model_track_record import _logged_entries, log_paths
+        from src import log_store
         now = datetime.now(timezone.utc)
-        settled = [e for e in _logged_entries(log_paths())
+        settled = [e for e in log_store.load_tips()
                    if e.get("commence_time") and timestamp_or_none(e["commence_time"])
                    and timestamp_or_none(e["commence_time"]) < now - timedelta(hours=2)]
         out["settled_matches"] = len(settled)
@@ -383,16 +381,6 @@ def timestamp_or_none(value):
         return datetime.fromisoformat(str(value).replace("Z", "+00:00"))
     except ValueError:
         return None
-
-
-@app.get("/model-track-record")
-def model_track_record():
-    """How often the model was right when it rated a bet above the market,
-    by size of the disagreement (scripts/build_model_track_record.py)."""
-    try:
-        return json.loads((Path(__file__).parent.parent / "data" / "model_track_record.json").read_text())
-    except (OSError, ValueError):
-        return {"combined": []}
 
 
 @app.on_event("startup")
