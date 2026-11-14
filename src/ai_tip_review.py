@@ -131,10 +131,8 @@ def report(entries, results):
 
 def refresh(results, root):
     root = Path(root)
-    entries = []
-    for path in (root / 'data/bet_log.jsonl', root / 'data/logs/bet_log.jsonl'):
-        if path.exists():
-            entries.extend(json.loads(line) for line in path.read_text().splitlines() if line.strip())
+    from src import log_store
+    entries = log_store.load_tips(root / 'data/logs')
     output = report(entries, results.get('results', []) if isinstance(results, dict) else results)
     path = root / 'data/jobs/ai_tip_review.json'
     path.parent.mkdir(parents=True, exist_ok=True)

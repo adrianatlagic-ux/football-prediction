@@ -17,12 +17,14 @@ This reuses grade_bets.grade() so the win/loss logic stays identical.
 """
 import argparse
 import json
+import sys
 import urllib.request
 from pathlib import Path
 
 from grade_bets import grade, _norm
 
-LOG_PATH = Path(__file__).parent.parent / "data" / "bet_log.jsonl"
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from src import log_store  # noqa: E402
 DEFAULT_API = "https://football-prediction.fly.dev"
 
 
@@ -59,10 +61,7 @@ def main():
     by_group = {}  # group -> {"paired": [...], "buckets": {5:[0,0],...}}
 
     n_matches = 0
-    for line in LOG_PATH.read_text(encoding="utf-8").splitlines():
-        if not line.strip():
-            continue
-        entry = json.loads(line)
+    for entry in log_store.load_tips():
         home, away = entry["home_team"], entry["away_team"]
         res = finished.get((_norm(home), _norm(away)))
         if res is None:

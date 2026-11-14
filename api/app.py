@@ -365,9 +365,9 @@ def site_stats():
     try:
         import sys as _sys
         _sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
-        from build_model_track_record import LOG_PATHS, _logged_entries
+        from build_model_track_record import _logged_entries, log_paths
         now = datetime.now(timezone.utc)
-        settled = [e for e in _logged_entries(LOG_PATHS)
+        settled = [e for e in _logged_entries(log_paths())
                    if e.get("commence_time") and timestamp_or_none(e["commence_time"])
                    and timestamp_or_none(e["commence_time"]) < now - timedelta(hours=2)]
         out["settled_matches"] = len(settled)
@@ -397,6 +397,12 @@ def model_track_record():
 
 @app.on_event("startup")
 def _start_scheduler():
+    from src import scheduler
+    try:
+        # Before anything reads the logs: move files from the old layout over.
+        scheduler.migrate_old_logs()
+    except Exception as exc:
+        print(f"log migration failed: {type(exc).__name__}: {exc}")
     _load_agent_cache()
     book_odds.load_refresh_log()
     from src import scheduler
@@ -409,11 +415,13 @@ def server_log(name: str):
     """The server's bet and combo logs, fetched and committed by GitHub
     (scripts/pull_server_logs.py)."""
     from fastapi.responses import PlainTextResponse
-    from src.scheduler import LOGS
-    if name not in ("bet_log", "combo_log"):
+    from src import log_store
+    # "tips" and "combos" are the current names; the old ones stay for scripts
+    # that still fetch them. Each returns every competition, one JSON per line.
+    kinds = {"tips": "tips", "bet_log": "tips", "combos": "combos", "combo_log": "combos"}
+    if name not in kinds:
         raise HTTPException(status_code=404, detail="Unknown log")
-    path = LOGS / f"{name}.jsonl"
-    return PlainTextResponse(path.read_text(encoding="utf-8") if path.exists() else "")
+    return PlainTextResponse(log_store.as_text(kinds[name]))
 
 
 @app.get("/ai-tip-review")

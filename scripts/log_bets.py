@@ -26,8 +26,10 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-LOG_PATH = Path(__file__).parent.parent / "data" / "bet_log.jsonl"
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from src import log_store  # noqa: E402
+
+LOG_PATH = log_store.LOGS / "tips"   # one file per competition
 DEFAULT_API = "https://football-prediction.fly.dev"
 
 
@@ -39,7 +41,9 @@ def _norm(name: str) -> str:
 
 
 def _load_log(path=None) -> list:
-    path = path or LOG_PATH
+    """Every logged match. `path` reads one legacy single file instead."""
+    if path is None:
+        return log_store.load_tips()
     entries = []
     if path.exists():
         for line in path.read_text(encoding="utf-8").splitlines():
@@ -190,7 +194,10 @@ def apply(matches, entries, now_dt):
     return added, updated
 
 
-def write_log(entries, path=LOG_PATH):
+def write_log(entries, path=None):
+    """Write the entries to their competition files (or to one legacy `path`)."""
+    if path is None:
+        return log_store.write_tips(entries)
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as f:
         for e in entries:

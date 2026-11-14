@@ -4,7 +4,7 @@ result - the honest, complete bilanz.
     python3 scripts/grade_bets.py
     python3 scripts/grade_bets.py --api https://football-prediction.fly.dev
 
-Reads data/bet_log.jsonl. New-format entries (logged via the current
+Reads data/logs/tips/*.jsonl. New-format entries (logged via the current
 log_bets.py) carry the FULL breakdown for a match - every green and red
 candidate bet, the curated top recommendation, and the agent evaluation - so
 every single one of them gets graded here, not just the one that was
@@ -21,7 +21,7 @@ import sys
 import urllib.request
 from pathlib import Path
 
-LOG_PATH = Path(__file__).parent.parent / "data" / "bet_log.jsonl"
+LOG_PATH = None  # the tip logs: data/logs/tips/<wettbewerb>.jsonl (src/log_store.py)
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -325,8 +325,10 @@ def main():
                         help="nur diesen Wettbewerb, z.B. 'Nations League' (Standard: jeder getrennt)")
     args = parser.parse_args()
 
-    if not LOG_PATH.exists():
-        print("Noch kein Bet-Log vorhanden. Erst scripts/log_bets.py laufen lassen.")
+    from src import log_store
+    entries = log_store.load_tips()
+    if not entries:
+        print("Noch kein Bet-Log vorhanden (data/logs/tips/). Der Server legt es selbst an.")
         return
 
     results = json.load(urllib.request.urlopen(f"{args.api}/real-results", timeout=30))["results"]
@@ -334,10 +336,8 @@ def main():
     finished = {(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
                 for r in results if r.get("completed") and r.get("home_score") is not None}
     groups = {}
-    for line in LOG_PATH.read_text(encoding="utf-8").splitlines():
-        if line.strip():
-            entry = json.loads(line)
-            groups.setdefault(competition_of(entry), []).append(entry)
+    for entry in entries:
+        groups.setdefault(competition_of(entry), []).append(entry)
     for name in sorted(groups):
         if args.competition and name != args.competition:
             continue

@@ -16,7 +16,7 @@ Two sources, kept apart in the output:
   nations  Nations League 2020-21 and 2024-25, national models trained
            before each season against the average German-licensed price
            (scripts/nl_backtest.py)
-  live     every bet the site logged (data/bet_log.jsonl) with a model and a
+  live     every bet the site logged (data/logs/tips/) with a model and a
            market probability, graded against the real result
 
 Only outcomes the model rates ABOVE the market are counted - those are the
@@ -105,14 +105,17 @@ def nations_league_cases() -> list:
 
 # The committed log, and the server's own (src/scheduler.py) - on the server
 # the second is newer than the copy baked into the image.
-LOG_PATHS = [ROOT / "data" / "bet_log.jsonl", ROOT / "data" / "logs" / "bet_log.jsonl"]
+def log_paths() -> list:
+    """Every tip log file, one per competition (src/log_store.py)."""
+    from src import log_store
+    return log_store.files("tips")
 
 
 def live_cases(api: str | None) -> list:
     if not api:
         return []
     results = json.load(urllib.request.urlopen(f"{api}/real-results", timeout=60))["results"]
-    return grade_live(LOG_PATHS, results)
+    return grade_live(log_paths(), results)
 
 
 def _logged_entries(paths: list) -> list:
@@ -173,14 +176,14 @@ def build(live: list) -> dict:
               "archive": summarise(archive), "live": summarise(live),
               "combined": summarise(archive + live), "by_competition": by_competition,
               "sources": {"archive": "Bundesliga 1X2, model vs Pinnacle pre-closing, 2021-22..2025-26",
-                          "live": "data/bet_log.jsonl, graded against /real-results"}}
+                          "live": "data/logs/tips/, graded against /real-results"}}
     OUT.write_text(json.dumps(report, indent=1) + "\n")
     return report
 
 
 def refresh(results: list) -> dict:
     """The server's daily update: every log it has, graded against ESPN."""
-    return build(grade_live(LOG_PATHS, results))
+    return build(grade_live(log_paths(), results))
 
 
 def main():

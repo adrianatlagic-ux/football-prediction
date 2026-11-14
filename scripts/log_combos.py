@@ -30,7 +30,11 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-LOG_PATH = Path(__file__).resolve().parents[1] / "data" / "combo_log.jsonl"
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from src import log_store  # noqa: E402
+
+LOG_PATH = log_store.LOGS / "combos"   # one file per competition
 DEFAULT_API = "https://football-prediction.fly.dev"
 COMPETITIONS = ("soccer_uefa_champs_league", "soccer_germany_bundesliga", "soccer_uefa_nations_league")
 LEG_FIELDS = ("market", "outcome", "team", "best_odds", "bookmaker", "bookmaker_key",
@@ -147,9 +151,7 @@ def main():
     args = parser.parse_args()
     now = datetime.now(timezone.utc)
 
-    logged = []
-    if LOG_PATH.exists():
-        logged = [json.loads(line) for line in LOG_PATH.read_text(encoding="utf-8").splitlines() if line.strip()]
+    logged = log_store.load_combos()
     new = []
     for competition in COMPETITIONS:
         try:
@@ -163,10 +165,7 @@ def main():
             print(f"  + {entry['date']} {entry['policy']:9} {entry['leg_count']}-fold @ {entry['combined_odds']}")
 
     if new:
-        LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
-        with LOG_PATH.open("a", encoding="utf-8") as fh:
-            for entry in new:
-                fh.write(json.dumps(entry, ensure_ascii=False) + "\n")
+        log_store.append_combos(new)
     print(f"{len(new)} neue Kombi(s) geloggt, {len(logged) + len(new)} insgesamt.")
 
 

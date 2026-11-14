@@ -19,6 +19,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 import log_bets  # noqa: E402
 import log_combos  # noqa: E402
+from src import log_store  # noqa: E402
 
 
 def fetch(api, name):
@@ -53,21 +54,16 @@ def main():
     parser.add_argument("--api", default=log_bets.DEFAULT_API)
     args = parser.parse_args()
 
-    repo_bets = log_bets._load_log()
-    added = merge_bets(repo_bets, fetch(args.api, "bet_log"))
-    log_bets.write_log(repo_bets)
+    repo_bets = log_store.load_tips()
+    added = merge_bets(repo_bets, fetch(args.api, "tips"))
+    log_store.write_tips(repo_bets)
 
-    path = log_combos.LOG_PATH
-    repo_combos = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()
-                   if line.strip()] if path.exists() else []
+    repo_combos = log_store.load_combos()
     # One line per version: the slot, its legs and when it was logged.
     ident = lambda e: (log_combos._key(e), log_combos.signature(e), e.get("logged_at"))
     have = {ident(e) for e in repo_combos}
-    new = [e for e in fetch(args.api, "combo_log") if ident(e) not in have]
-    if new:
-        with path.open("a", encoding="utf-8") as fh:
-            for e in new:
-                fh.write(json.dumps(e, ensure_ascii=False) + "\n")
+    new = [e for e in fetch(args.api, "combos") if ident(e) not in have]
+    log_store.append_combos(new)
     print(f"{added} Wett-Eintraege, {len(new)} Kombis vom Server uebernommen.")
 
 

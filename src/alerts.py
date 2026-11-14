@@ -2,7 +2,7 @@
 
 A failed source used to show up only as a missing price on the page, and was
 noticed hours later or not at all (bugs/2026-10-13-betathome-nur-siegquoten.md).
-Each failure is written to data/logs/alerts.jsonl (on the Fly volume), at most
+Each failure is written to data/logs/system/alerts.jsonl (on the Fly volume), at most
 once per source, subject and day, and served at /alerts. A GitHub workflow
 (.github/workflows/alerts.yml) reads /alerts and opens an issue for every new
 one, so GitHub notifies the owner.
@@ -16,7 +16,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PATH = ROOT / "data" / "logs" / "alerts.jsonl"
+PATH = ROOT / "data" / "logs" / "system" / "alerts.jsonl"
 KEEP_DAYS = 14
 _lock = threading.Lock()
 

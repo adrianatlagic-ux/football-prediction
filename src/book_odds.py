@@ -332,7 +332,7 @@ WINDOW = timedelta(minutes=75)
 REFRESH_LOG: dict = {}
 # Every read, kept on the Fly volume (data/logs is linked there), so a missing
 # price can be traced after a restart (bugs/2026-10-13-betathome-nur-siegquoten.md).
-REFRESH_LOG_PATH = ROOT / "data" / "logs" / "book_refresh_log.jsonl"
+REFRESH_LOG_PATH = ROOT / "data" / "logs" / "system" / "book_refresh.jsonl"
 
 
 _SPORT_NAMES = {"soccer_uefa_champs_league": "Champions League", "soccer_germany_bundesliga": "Bundesliga",
