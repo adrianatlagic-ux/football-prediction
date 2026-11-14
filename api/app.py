@@ -371,7 +371,7 @@ def site_stats():
                    if e.get("commence_time") and timestamp_or_none(e["commence_time"])
                    and timestamp_or_none(e["commence_time"]) < now - timedelta(hours=2)]
         out["settled_matches"] = len(settled)
-        out["settled_bets"] = sum(len(e.get("green_bets", [])) + len(e.get("red_bets", [])) for e in settled)
+        out["settled_bets"] = sum(len(e.get("bets") or (e.get("green_bets", []) + e.get("red_bets", []))) for e in settled)
     except Exception:
         out["settled_matches"] = out["settled_bets"] = None
     _site_stats_cache.update(at=time.time(), data=out)

@@ -5,8 +5,7 @@
 The server logs every match itself, on time (src/scheduler.py); its disk is
 lost on a redeploy, so GitHub fetches the logs whenever it runs and commits
 them. Merging keeps every entry either side has: a match or ticket already
-in the repository stays as it is, except that a logged "no tip" takes a
-price tip logged later (the same rule as scripts/log_bets.py).
+in the repository stays as it is, .
 """
 import argparse
 import json
@@ -41,8 +40,6 @@ def merge_bets(repo, server):
         elif not log_bets.has_bets(old) and log_bets.has_bets(e):
             old.clear()
             old.update(e)
-        elif log_bets._price_tip_upgrade(old.get("price_tip"), e.get("price_tip")):
-            old["price_tip"] = e["price_tip"]
         if old is not None:
             from src.ai_tip_review import merge_history
             merge_history(old, previous_history + e.get("ai_review_history", []))

@@ -1,5 +1,7 @@
-"""Record EVERY match's full betting breakdown - not just the curated top pick -
-so we can later check honestly how every tip the system ever considered performed.
+"""Record every match once, shortly before kickoff: the three tips (Wett-Tipp,
+Modell-Wahl, wahrscheinlichste Wette), the AI evaluation and its changes, every priced
+bet and how model, AI and market agree. Not logged any more (since 14 November):
+green/red bets, the top recommendation, the safest pick, the old tip rule and the price tip.
 
 Run this regularly, e.g. hourly (a match's odds can move a lot over the days
 before kickoff, so a single run per day isn't enough - see FIRST_LOG_WINDOW_HOURS
@@ -69,14 +71,6 @@ def _fixture_key(entry) -> tuple:
             entry.get("commence_time"))
 
 
-def _price_tip_upgrade(old, new) -> bool:
-    """Whether a logged price tip should take a newer one: only when none was
-    logged, or "no tip" was and a tip is now given."""
-    if new is None:
-        return False
-    return old is None or (not old.get("tip") and bool(new.get("tip")))
-
-
 # One category per competition, so club and national results and the old
 # World Cup / Champions League entries are never pooled (scripts/grade_bets.py).
 COMPETITIONS = {
@@ -101,24 +95,14 @@ def _build_entry(m, now):
         "sport_key": m.get("sport_key"),
         # A fixed category, so the grading never pools competitions.
         "competition": _competition(m.get("sport_key")),
-        "recommendation": m.get("recommendation"),
-        "recommendation_warning": m.get("recommendation_warning"),
         # Keep every priced candidate: fallback audits need rejected lines too.
         "bets": m.get("bets", []),
-        "green_bets": m.get("green_bets", []),
-        "red_bets": m.get("red_bets", []),
         "agent_eval": m.get("agent_eval"),
         "model_favorite": m.get("model_favorite"),
-        "safest_pick": m.get("safest_pick"),
         "likely_pick": m.get("likely_pick"),
         "bet_tip": m.get("bet_tip"),
-        # The rule before 11 October, for comparison.
-        "bet_tip_v1": m.get("bet_tip_v1"),
         "odds_refreshed": m.get("odds_refreshed", False),
         "combined": m.get("combined"),
-        # The price tip as shown: the tip or "no tip" with its reason, every
-        # compared bet, and when Pinnacle's and bet-at-home's prices were read.
-        "price_tip": m.get("price_tip"),
     }
 
 
@@ -170,12 +154,6 @@ def apply(matches, entries, now_dt):
             # morning read): the first entry with bets replaces the empty one.
             old.clear()
             old.update(new_entry)
-            updated += 1
-        elif _price_tip_upgrade(old.get("price_tip"), new_entry.get("price_tip")):
-            # The first log can precede the last-hour read that decides the
-            # tip: "no tip" then may become a tip. A tip once logged stands -
-            # it is what the page showed - so only the empty side is filled.
-            old["price_tip"] = new_entry["price_tip"]
             updated += 1
         elif not _has_movement(old) and _has_movement(new_entry):
             old.update(new_entry)

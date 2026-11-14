@@ -19,18 +19,20 @@ Jeder Tipp: `market`, `outcome`, `team`, `best_odds`, `bookmaker`, `probability`
 
 ## details/<wettbewerb>.jsonl
 
-Dieselben Spiele mit **allem**, was geloggt wird. Daraus rechnen `grade_bets.py` und die Analyse-Skripte.
+Dieselben Spiele mit allem, was geloggt wird. Daraus rechnen `grade_bets.py` und die Analyse-Skripte.
 `tips/` wird bei jedem Schreiben aus `details/` erzeugt.
 
 | Feld | Bedeutung |
 |---|---|
+| `bet_tip`, `model_favorite`, `likely_pick` | die drei Tipps (Wett-Tipp, Modell-Wahl, wahrscheinlichste Wette) |
 | `agent_eval`, `ai_review_history` | die KI-Bewertung mit Pick, Begründung, Eingaben und jede Änderung vor Anpfiff |
-| `price_tip` | der Preistipp (bet-at-home gegen Pinnacle) |
 | `bets` | alle bepreisten Wetten des Spiels (Kandidaten) |
-| `green_bets` / `red_bets` | dieselben Wetten nach Modell-Wert: **grün** = das Modell sieht einen positiven Erwartungswert, **rot** = negativ |
-| `recommendation` | die beste grüne Wette des Modells (Top-Empfehlung) |
-| `combined` | Markt-Favorit, Game Pick und Übereinstimmung von Modell und KI |
-| `bet_tip_v1`, `safest_pick` | die alte Wett-Tipp-Regel und der sicherste Pick, zum Vergleich |
+| `combined` | Markt-Favorit, Game Pick und ob Modell und KI dem Tipp zustimmen |
+
+**Seit dem 14. November nicht mehr geloggt:** `green_bets`/`red_bets`, `recommendation`, `safest_pick`,
+`bet_tip_v1` und `price_tip`. In den älteren Spielen stehen sie noch, weil die Seite ihre
+Modell-Trefferquote (`/model-track-record`) daraus berechnet. grün = das Modell sah einen positiven
+Erwartungswert, rot = negativ.
 
 ## combos/<wettbewerb>.jsonl
 
@@ -59,5 +61,5 @@ Sie sind komplett in `details/` und `combos/` enthalten und dienen nur als Siche
 
 ## Auswerten
 
-    python3 scripts/grade_bets.py      # Wett-Tipps und alle anderen Tipps pro Wettbewerb
+    python3 scripts/grade_bets.py      # Wett-Tipp, Modell-Wahl, wahrscheinlichste Wette und KI-Pick pro Wettbewerb
     python3 scripts/grade_combos.py    # Kombis pro Regel und Größe
