@@ -44,7 +44,7 @@ ersten Spiel des Tickets, wenn der KI-Check vor Anpfiff dieses Spiels fertig ist
 | `competition` | Wettbewerb |
 | `policy` | die Regel, nach der das Ticket gebaut wurde (siehe unten) |
 | `leg_count` | Anzahl der Tipps im Ticket (2er, 3er, 4er) |
-| `quote_basis` | `single_book` = alle Tipps beim selben Buchmacher, `best_singles_mixed_books` = beste Quote je Tipp, Buchmacher gemischt; fehlt in den ältesten Zeilen (dort gilt `single_book`) |
+| `quote_basis` | woher die Quoten kommen. `best_singles_mixed_books` = je Tipp die beste Quote irgendeines Buchmachers, die Gesamtquote ist also nur das Produkt und nicht bei einem Buchmacher als Kombi buchbar. `single_book` = alle Tipps bei demselben Buchmacher, wirklich so buchbar; fehlt in den ältesten Zeilen (dort gilt `single_book`) |
 | `combined_odds` | Gesamtquote des Tickets |
 | `estimated_probability` | geschätzte Trefferwahrscheinlichkeit (vorsichtig, aus dem Markt) |
 | `model_probability` | Trefferwahrscheinlichkeit laut Modell |
@@ -56,7 +56,7 @@ Die Regeln (`policy`):
 | Regel | Bedeutung |
 |---|---|
 | `ai_pick` | **die Regel, die die Seite zeigt:** nur die veröffentlichten KI-Picks, Ticket mindestens Quote 3,0, verschiedene Spiele bevorzugt |
-| `agree` | nur Tipps, bei denen das Modell zustimmt; KI-Picks zuerst, Ticket mindestens Quote 3,0 (wird weiter geloggt) |
+| `agree` | **nur zum Vergleich:** wie `ai_pick`, aber mit dem alten Modell-Veto (Tipps, die das Modell klar unter dem Markt sieht, fallen raus); KI-Picks zuerst, Ticket mindestens Quote 3,0. Die Seite zeigt sie nicht, sie wird weiter geloggt |
 | `ki` | nur KI-Picks, bei denen das Modell zustimmt und die die KI vor Anpfiff nicht geändert hat (nur alte Zeilen, seit 14. November nicht mehr geloggt) |
 | `market` | die Tipps mit der höchsten Markt-Wahrscheinlichkeit, ohne Modell-Filter (nur alte Zeilen, seit 14. November nicht mehr geloggt) |
 | `legacy_v3` | die alte Regel vor dem 26. September: niedrigere von Modell und Markt, Modell mindestens 55 %, Quote ab 1,20 (nur alte Zeilen, seit 14. November nicht mehr geloggt) |
