@@ -1,9 +1,38 @@
-"""Quoted market candidates and coverage for one research-only AI call."""
+"""Quoted market candidates, coverage and model context for one AI call."""
 
 import math
 from datetime import datetime, timezone
 
-VERSION = "market_research_neutral_v8"
+# v9: football reasoning instead of value hunting, model context back in,
+# odds movements no longer fed to the re-check as news. The value framing of
+# v6-v8 led to price-argued picks (37% hit, mostly handicaps), while picks
+# where our model rated the outcome above the market returned +26% ROI.
+VERSION = "football_research_model_v9"
+
+
+def _number(value):
+    return isinstance(value, (float, int)) and not isinstance(value, bool) and math.isfinite(value)
+
+
+def model_context(prediction):
+    """The readable outputs of our quantitative model for one match.
+
+    The score matrix is left out: it is a large, redundant form of the
+    market probabilities included below.
+    """
+    result = {key: prediction[key] for key in ("probability_home_win", "probability_draw", "probability_away_win")
+              if _number(prediction.get(key))}
+    score = prediction.get("score_prediction") or {}
+    result.update({key: score[key] for key in ("home_xg", "away_xg") if _number(score.get(key))})
+    if score.get("most_likely_score"):
+        result["most_likely_score"] = score["most_likely_score"]
+    if isinstance(score.get("top_scorelines"), list):
+        result["top_scorelines"] = [{"score": row.get("score"), "probability": row.get("probability")}
+                                    for row in score["top_scorelines"][:5]
+                                    if isinstance(row, dict) and row.get("score") is not None]
+    if isinstance(prediction.get("explanation"), dict):
+        result["team_indicators"] = prediction["explanation"]
+    return result
 
 
 def fresh_candidates(vb):
@@ -39,7 +68,7 @@ def coverage(candidates):
     return {"complete": not missing, "missing_main_markets": missing, "available": available}
 
 
-def input_snapshot(vb, candidates, now=None):
+def input_snapshot(vb, candidates, prediction=None, now=None):
     now = now or datetime.now(timezone.utc)
     likely = vb.get("likely_pick") or {}
     baseline = next((bet for bet in candidates if all(
@@ -51,17 +80,21 @@ def input_snapshot(vb, candidates, now=None):
     return {"version": VERSION, "at": now.isoformat(), "sport_key": vb.get("sport_key"),
             "event_id": vb.get("event_id"), "commence_time": vb.get("commence_time"),
             "odds_fetched_at": vb.get("odds_fetched_at"), "odds_stage": vb.get("odds_stage"),
-            "coverage": coverage(candidates),
+            "coverage": coverage(candidates), "model_context": model_context(prediction or {}),
             "market_baseline": {k: baseline.get(k) for k in (
                 "market", "outcome", "team", "best_odds", "market_probability",
                 "quote_last_update", "quote_carried_forward")} if baseline else None,
             "candidates": [{k: bet.get(k) for k in ("market", "outcome", "team", "best_odds",
-                            "bookmaker", "quote_last_update", "quote_carried_forward", "odds_fetched_at")}
+                            "bookmaker", "quote_last_update", "quote_carried_forward", "odds_fetched_at",
+                            "model_probability_raw", "market_probability")}
                            for bet in candidates]}
 
 
 def market_changes(previous, current):
-    """Summarize quote changes for the single scheduled re-check prompt."""
+    """Summarize quote changes between the two checks, for the log.
+
+    Only added/removed markets reach the re-check prompt; price moves alone
+    were read by the AI as a reason to pick (v6-v8) and are kept out."""
     if not previous:
         return None
     def index(snapshot):
