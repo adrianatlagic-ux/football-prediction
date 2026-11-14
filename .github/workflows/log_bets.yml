@@ -34,6 +34,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/bet_log.jsonl data/combo_log.jsonl
-          git diff --cached --quiet || git commit -m "Log Champions League bets [skip ci]"
+          git add data/logs
+          git diff --cached --quiet || git commit -m "Update bet and combo logs [skip ci]"
           git push

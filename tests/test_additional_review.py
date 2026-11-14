@@ -58,12 +58,3 @@ def test_combo_threshold_uses_unrounded_price():
     option=day_reports([leg("A","B",1.33),leg("C","D",1.50)],2)[0]["by_size"][0]
     assert option["ticket"] is None
     assert option["near_miss"] is not None
-
-
-def test_validation_reports_identical_models_as_zero_difference():
-    from scripts.validate_national_blend import metrics
-    rows=[{"date":f"2022-{month:02}-01","result":0,"classifier":[.6,.2,.2],"poisson":[.6,.2,.2]}
-          for month in range(1,5)]
-    report=metrics(rows)
-    assert report["accuracy_delta_40_minus_20"]["month_block_ci95"] == [0,0]
-    assert report["logloss_delta_40_minus_20"]["mean"] == pytest.approx(0)

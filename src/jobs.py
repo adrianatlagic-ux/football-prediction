@@ -132,16 +132,16 @@ def run_daily(club: Callable, national: Callable, morning_odds: Callable,
         except Exception as exc:
             report["errors"].append(f"morning_odds: {type(exc).__name__}: {exc}")
         if real_results is not None:
-            # Graded here, on the server's own logs, so the page shows today's
-            # record and not the one baked into the last deploy.
             try:
                 results = real_results()
-                from scripts.build_model_track_record import refresh
-                report["track_record_live"] = sum(b["n"] for b in refresh(results)["live"])
+                from src import hit_rate, log_store
+                report["hit_rate"] = _report("hit_rate", {
+                    **hit_rate.compute(log_store.load_tips(), results),
+                    "at": datetime.now(timezone.utc).isoformat()})["rate"]
                 from src.ai_tip_review import refresh as review
                 report["ai_tip_review_fixtures"] = review(results, ROOT)["fixtures"]
             except Exception as exc:
-                report["errors"].append(f"track_record: {type(exc).__name__}: {exc}")
+                report["errors"].append(f"ai_tip_review: {type(exc).__name__}: {exc}")
     report["finished_at"] = datetime.now(timezone.utc).isoformat()
     return _report("daily", report)
 

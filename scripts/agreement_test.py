@@ -66,8 +66,8 @@ def live_cases():
     finished = {(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
                 for r in results if r.get("completed") and r.get("home_score") is not None}
     cases = []
-    for line in (ROOT / "data" / "bet_log.jsonl").read_text(encoding="utf-8").splitlines():
-        e = json.loads(line)
+    from src import log_store
+    for e in log_store.load_tips():
         if competition_of(e) != "Nations League":
             continue
         r = finished.get((_norm(e["home_team"]), _norm(e["away_team"]), str(e.get("commence_time"))[:10]))

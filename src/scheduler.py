@@ -28,7 +28,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-LOGS = ROOT / "data" / "logs"
+from src.log_store import LOGS  # data/logs, one file per competition (src/log_store.py)
 TICK_SECONDS = 600
 DAILY_AFTER = (6, 5)
 COMBO_COMPETITIONS = ("soccer_uefa_champs_league", "soccer_germany_bundesliga", "soccer_uefa_nations_league")
@@ -45,33 +45,42 @@ def _daily_done_today(now: datetime) -> bool:
         return False
 
 
-def log_bets_and_combos(all_bets, combo_ticket, now: datetime) -> dict:
-    """The bet log and the combo log, kept on the server."""
+def log_bets_and_combos(all_bets, combo_ticket, now: datetime, prekickoff_checked=None) -> dict:
+    """The bet log and the combo log, kept on the server.
+
+    A combo ticket is logged once, about an hour before its first match, when
+    the AI's pre-kickoff check of that match is done (scripts/log_combos.py)."""
     import sys
     sys.path.insert(0, str(ROOT / "scripts"))
     import log_bets
     import log_combos
     LOGS.mkdir(parents=True, exist_ok=True)
-    bet_path = LOGS / "bet_log.jsonl"
-    entries = log_bets._load_log(bet_path)
+    entries = log_bets._load_log()
     added, updated = log_bets.apply(all_bets().get("all_bets", []), entries, now)
     if added or updated:
-        log_bets.write_log(entries, bet_path)
-    combo_path = LOGS / "combo_log.jsonl"
-    logged = [json.loads(line) for line in combo_path.read_text(encoding="utf-8").splitlines()
-              if line.strip()] if combo_path.exists() else []
+        log_bets.write_log(entries)
+    from src import log_store
+    logged = log_store.load_combos()
     new = []
     for competition in COMBO_COMPETITIONS:
-        due = log_combos.entries_due(combo_ticket(competition=competition), competition, now)
-        new += log_combos.new_versions(due, logged + new)
+        due = log_combos.entries_at_prekickoff(combo_ticket(competition=competition), competition, now,
+                                               prekickoff_checked)
+        new += log_combos.not_yet_logged(due, logged + new)
     if new:
-        with combo_path.open("a", encoding="utf-8") as fh:
-            for entry in new:
-                fh.write(json.dumps(entry, ensure_ascii=False) + "\n")
+        log_store.append_combos(new)
     return {"bets_added": added, "bets_updated": updated, "combos_added": len(new)}
 
 
-def _loop(club, national, odds, all_bets, combo_ticket, real_results=None):
+def migrate_old_logs() -> None:
+    """Move logs written before the per-competition layout into it (scripts/migrate_logs.py)."""
+    import sys
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import migrate_logs
+    bets, combos = migrate_logs.legacy_files(ROOT)
+    migrate_logs.migrate(LOGS, bets, combos)
+
+
+def _loop(club, national, odds, all_bets, combo_ticket, real_results=None, prekickoff_checked=None):
     from src import jobs
     while True:
         now = datetime.now(timezone.utc)
@@ -85,7 +94,7 @@ def _loop(club, national, odds, all_bets, combo_ticket, real_results=None):
         except Exception:
             pass
         try:
-            result = log_bets_and_combos(all_bets, combo_ticket, datetime.now(timezone.utc))
+            result = log_bets_and_combos(all_bets, combo_ticket, datetime.now(timezone.utc), prekickoff_checked)
             jobs._report("logging", {"at": datetime.now(timezone.utc).isoformat(), **result})
         except Exception as exc:
             jobs._report("logging", {"at": datetime.now(timezone.utc).isoformat(),
@@ -93,11 +102,11 @@ def _loop(club, national, odds, all_bets, combo_ticket, real_results=None):
         time.sleep(TICK_SECONDS)
 
 
-def start(club, national, odds, all_bets, combo_ticket, real_results=None) -> bool:
+def start(club, national, odds, all_bets, combo_ticket, real_results=None, prekickoff_checked=None) -> bool:
     global _started
     if _started or os.getenv("ENABLE_SCHEDULER") != "1":
         return False
     _started = True
-    threading.Thread(target=_loop, args=(club, national, odds, all_bets, combo_ticket, real_results),
+    threading.Thread(target=_loop, args=(club, national, odds, all_bets, combo_ticket, real_results, prekickoff_checked),
                      daemon=True, name="scheduler").start()
     return True

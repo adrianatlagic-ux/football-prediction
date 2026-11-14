@@ -6,7 +6,7 @@ The 🎯 pick and the market combo rule kept choosing big handicaps on the
 weaker side (San Marino +3.5, Croatia +1.5, North Macedonia +1.5) at 70-75%
 by the market's price, and they kept losing. Two looks:
 
-  live      every logged bet (data/bet_log.jsonl, Nations League) graded
+  live      every logged bet (data/logs/tips/, Nations League) graded
             against the result, grouped by kind of bet: hits against what
             bet-at-home's margin-free price expected
   history   Nations League 2020-21, 2022-23, 2024-25 (OddsPortal average
@@ -57,8 +57,8 @@ def live(api: str) -> dict:
     finished = {(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
                 for r in results if r.get("completed") and r.get("home_score") is not None}
     groups = defaultdict(lambda: {"n": 0, "won": 0, "expected": 0.0, "units": 0.0})
-    for line in (ROOT / "data" / "bet_log.jsonl").read_text(encoding="utf-8").splitlines():
-        e = json.loads(line)
+    from src import log_store
+    for e in log_store.load_tips():
         if competition_of(e) != "Nations League":
             continue
         r = finished.get((_norm(e["home_team"]), _norm(e["away_team"]), str(e.get("commence_time"))[:10]))

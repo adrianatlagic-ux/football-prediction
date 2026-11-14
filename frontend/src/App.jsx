@@ -947,66 +947,9 @@ function impliesBet(pick, tip, home, away, sameBet) {
   return true
 }
 
-// How often the model was right when it rated a bet above the market by
-// about this much (GET /model-track-record, scripts/build_model_track_record.py).
-// Loaded once; the ★ box reads it.
-let MODEL_TRACK_RECORD = null
-
-const TRACK_VERDICTS = {
-  better: ['is-better', 'Hier lag das Modell öfter richtig als der Markt.'],
-  worse: ['is-worse', 'Besser dem Markt vertrauen.'],
-  same: ['is-same', 'Besser dem Markt vertrauen.'],
-}
-
-const COMPETITION_NAMES = {
-  soccer_germany_bundesliga: 'Bundesliga',
-  soccer_uefa_champs_league: 'Champions League',
-  soccer_uefa_nations_league: 'Nations League',
-}
-
-// How the model did in the past when it disagreed with the market this much -
-// in this competition only, since a Nations League tip is a different model
-// and a different market from a Bundesliga one.
-function ModelTrackRecord({ bet, bets = [], competition }) {
-  const record = MODEL_TRACK_RECORD
-  if (!record) return null
-  // A handicap on a team (Draw No Bet, +/-0.5) is judged on the same team's
-  // 1X2 win, which is what the past cases measure.
-  let basis = bet
-  if ((bet.model_probability_raw == null || bet.market_probability == null) && bet.team
-      && String(bet.market).startsWith('Handicap')) {
-    const win = bets.find(b => b.market === '1X2' && b.team === bet.team)
-    if (win && win.model_probability_raw != null && win.market_probability != null) basis = win
-  }
-  if (basis.model_probability_raw == null || basis.market_probability == null) return null
-  const name = COMPETITION_NAMES[competition] || 'diesem Wettbewerb'
-  const rows = record.by_competition?.[competition] || []
-  const gap = basis.model_probability_raw - basis.market_probability
-  const row = rows.find(r => gap >= r.from && gap < r.to)
-  const minCases = record.min_cases || 30
-  const optimism = `Das Modell ist hier ${gap >= 0.1 ? 'deutlich ' : ''}optimistischer als der Markt `
-    + `(${pct(basis.model_probability_raw)} gegenüber ${pct(basis.market_probability)}).`
-  if (!row || row.n < minCases) {
-    return (
-      <div className="model-track is-same">
-        <span className="model-track-label">Kann man dem Modell hier trauen?</span>
-        <p>{optimism} Es gibt noch zu wenige vergleichbare Fälle ({name}), um das zu sagen
-          ({row ? row.n : 0} von {minCases}); die Bilanz wächst mit jedem Spiel.</p>
-      </div>
-    )
-  }
-  const [cls, advice] = TRACK_VERDICTS[row.verdict] || TRACK_VERDICTS.same
-  return (
-    <div className={`model-track ${cls}`}>
-      <span className="model-track-label">Kann man dem Modell hier trauen?</span>
-      <p>
-        {optimism} Bei {row.n} ähnlichen Wetten ({name}) trafen {pct(row.hit_rate)}: Der Markt hatte
-        {pct(row.market_expected)} erwartet, das Modell {pct(row.model_expected)}.
-      </p>
-      <p className="model-track-advice">→ {advice}</p>
-    </div>
-  )
-}
+// Shown until /site-stats answers (it counts, so it takes a moment): the hit rate
+// of the Wett-Tipp when this was last updated (14 November 2026, 25 of 51).
+const DEFAULT_HIT_RATE = 0.49
 
 // The headline tip accepts changes at the pre-kickoff review.
 // The server decides it (bet_tip); this is the fallback.
@@ -2442,9 +2385,6 @@ export default function App() {
           // keep the bundled fixtures
         }
         axios.get(`${API_BASE}/site-stats`).then(r => setSiteStats(r.data)).catch(() => {})
-        axios.get(`${API_BASE}/model-track-record`)
-          .then(r => { MODEL_TRACK_RECORD = r.data; setFixturesVersion(v => v + 1) })
-          .catch(() => {})
         const [listResp, resultsResp] = await Promise.allSettled([
           axios.get(`${API_BASE}/predictions`),
           axios.get(`${API_BASE}/real-results`),
@@ -2525,8 +2465,10 @@ export default function App() {
                     <span className="hero-stat-label">{tr('Wetten pro Spiel geprüft', 'Bets checked per match')}</span>
                   </div>
                   <div className="hero-stat">
-                    <span className="hero-stat-value">{siteStats?.settled_matches ?? '–'}</span>
-                    <span className="hero-stat-label">{tr('Spiele getrackt', 'Matches tracked')}</span>
+                    <span className="hero-stat-value">
+                      {`${Math.round((siteStats?.hit_rate?.rate ?? DEFAULT_HIT_RATE) * 100)} %`}
+                    </span>
+                    <span className="hero-stat-label">{tr('Trefferquote Wett-Tipp', 'Hit rate of the main tip')}</span>
                   </div>
                 </div>
               </div>

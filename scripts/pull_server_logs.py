@@ -5,8 +5,7 @@
 The server logs every match itself, on time (src/scheduler.py); its disk is
 lost on a redeploy, so GitHub fetches the logs whenever it runs and commits
 them. Merging keeps every entry either side has: a match or ticket already
-in the repository stays as it is, except that a logged "no tip" takes a
-price tip logged later (the same rule as scripts/log_bets.py).
+in the repository stays as it is, .
 """
 import argparse
 import json
@@ -19,6 +18,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 import log_bets  # noqa: E402
 import log_combos  # noqa: E402
+from src import log_store  # noqa: E402
 
 
 def fetch(api, name):
@@ -40,8 +40,6 @@ def merge_bets(repo, server):
         elif not log_bets.has_bets(old) and log_bets.has_bets(e):
             old.clear()
             old.update(e)
-        elif log_bets._price_tip_upgrade(old.get("price_tip"), e.get("price_tip")):
-            old["price_tip"] = e["price_tip"]
         if old is not None:
             from src.ai_tip_review import merge_history
             merge_history(old, previous_history + e.get("ai_review_history", []))
@@ -53,21 +51,16 @@ def main():
     parser.add_argument("--api", default=log_bets.DEFAULT_API)
     args = parser.parse_args()
 
-    repo_bets = log_bets._load_log()
-    added = merge_bets(repo_bets, fetch(args.api, "bet_log"))
-    log_bets.write_log(repo_bets)
+    repo_bets = log_store.load_tips()
+    added = merge_bets(repo_bets, fetch(args.api, "tips"))
+    log_store.write_tips(repo_bets)
 
-    path = log_combos.LOG_PATH
-    repo_combos = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()
-                   if line.strip()] if path.exists() else []
+    repo_combos = log_store.load_combos()
     # One line per version: the slot, its legs and when it was logged.
     ident = lambda e: (log_combos._key(e), log_combos.signature(e), e.get("logged_at"))
     have = {ident(e) for e in repo_combos}
-    new = [e for e in fetch(args.api, "combo_log") if ident(e) not in have]
-    if new:
-        with path.open("a", encoding="utf-8") as fh:
-            for e in new:
-                fh.write(json.dumps(e, ensure_ascii=False) + "\n")
+    new = [e for e in fetch(args.api, "combos") if ident(e) not in have]
+    log_store.append_combos(new)
     print(f"{added} Wett-Eintraege, {len(new)} Kombis vom Server uebernommen.")
 
 

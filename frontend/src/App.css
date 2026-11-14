@@ -3097,16 +3097,6 @@ body {
 .combo-leg.is-clickable:hover { background: rgba(255,255,255,0.04); }
 
 /* The ★ box's track record: how the model did at this size of disagreement. */
-.model-track { margin-top: 0.6rem; padding: 0.55rem 0.7rem; border-radius: 8px; font-size: 0.78rem; line-height: 1.5; }
-.model-track p { margin: 0.15rem 0 0; color: #cbd5e1; }
-.model-track-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
-.model-track.is-better { background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.35); }
-.model-track.is-better .model-track-label { color: #4ade80; }
-.model-track.is-worse { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); }
-.model-track.is-worse .model-track-label { color: #f87171; }
-.model-track.is-same { background: rgba(148,163,184,0.08); border: 1px solid rgba(148,163,184,0.2); }
-.model-track.is-same .model-track-label { color: #94a3b8; }
-.model-track-advice { font-weight: 700; color: #e2e8f0 !important; }
 
 .lineup-box { margin: 0.8rem 0; padding: 0.7rem 0.9rem; border-radius: 10px;
   background: rgba(148,163,184,0.06); border: 1px solid rgba(148,163,184,0.18); }

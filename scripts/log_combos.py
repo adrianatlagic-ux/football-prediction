@@ -2,14 +2,14 @@
 
     python3 scripts/log_combos.py --api https://football-prediction.fly.dev
 
-The combo rule changed on 26 September (market probabilities, legs from
-1.30, no model filters). One winning ticket the evening before says nothing
-either way, so both rules are logged on the same matches from now on and
-compared once enough tickets have settled (scripts/grade_combos.py):
+Two rules are logged on the same matches and compared once enough tickets
+have settled (scripts/grade_combos.py):
 
-    market     the rule the page shows
-    legacy_v3  the rule before: lower of model and market, model >= 55%,
-               legs from 1.20, the model's warnings excluded
+    ai_pick    the rule the page shows: the published AI picks
+    agree      only legs the model agrees with, the AI's picks first
+
+The older rules (market, legacy_v3, ki) are no longer logged since
+14 November; their rows stay in the log.
 
 Every version the page shows is logged: whenever a rule's ticket of a size
 changes its legs, the new version is appended with its time. A ticket
@@ -17,14 +17,24 @@ exists until its first leg kicks off - a started match leaves the combos -
 so the last version logged is the one still placeable at kickoff, and each
 earlier one is what the page showed in between. Odds moving on the same legs
 do not make a new version.
+
+The server (src/scheduler.py) no longer appends every version. It logs each
+ticket ONCE, about an hour before its first match, when the AI's pre-kickoff
+check of that match is done (entries_at_prekickoff; "trigger": "ki_check_done",
+or "last_resort" half an hour before if the check did not finish). This script
+still appends every version when run by hand.
 """
 import argparse
 import json
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-LOG_PATH = Path(__file__).resolve().parents[1] / "data" / "combo_log.jsonl"
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from src import log_store  # noqa: E402
+
+LOG_PATH = log_store.LOGS / "combos"   # one file per competition
 DEFAULT_API = "https://football-prediction.fly.dev"
 COMPETITIONS = ("soccer_uefa_champs_league", "soccer_germany_bundesliga", "soccer_uefa_nations_league")
 LEG_FIELDS = ("market", "outcome", "team", "best_odds", "bookmaker", "bookmaker_key",
@@ -41,15 +51,11 @@ def entries_due(report: dict, competition: str, now: datetime) -> list:
     kicked off."""
     out = []
     shown = report.get("policy") or "market"
-    quote_basis = ("best_singles_mixed_books" if report.get("parameters", {}).get("same_bookmaker") is False
-                   else "single_book")
-    sources = [(shown, report.get("days") or []), ("legacy_v3", report.get("legacy_v3_days") or [])]
+    # The rule the page shows, and "agree" beside it. market, legacy_v3 and ki
+    # are no longer logged (14 November); their old rows stay in the log.
+    sources = [(shown, report.get("days") or [])]
     if report.get("agree_days") is not None:
         sources.append(("agree", report["agree_days"]))
-    if report.get("market_days") is not None:
-        sources.append(("market", report["market_days"]))
-    if report.get("ki_days") is not None:
-        sources.append(("ki", report["ki_days"]))
     for policy, days in sources:
         for day in days:
             for option in day.get("by_size") or []:
@@ -62,7 +68,7 @@ def entries_due(report: dict, competition: str, now: datetime) -> list:
                 out.append({
                     "logged_at": now.isoformat(), "first_kickoff": first.isoformat(),
                     "date": day["date"], "competition": competition,
-                    "policy": policy, "leg_count": ticket["leg_count"], "quote_basis": quote_basis,
+                    "policy": policy, "leg_count": ticket["leg_count"],
                     "combined_odds": ticket["combined_odds"],
                     "estimated_probability": ticket["conservative_probability"],
                     "model_probability": ticket["probability"],
@@ -71,8 +77,47 @@ def entries_due(report: dict, competition: str, now: datetime) -> list:
     return out
 
 
+# The server logs a ticket once, shortly before its first match: when the AI's
+# pre-kickoff check of that match is done (it runs in the hour before kickoff)
+# - or, should that check not finish, half an hour before as a last resort.
+PREKICKOFF_WINDOW = timedelta(hours=1)
+LAST_RESORT = timedelta(minutes=30)
+
+
+def entries_at_prekickoff(report: dict, competition: str, now: datetime, checked=None) -> list:
+    """Tickets whose first match kicks off within the hour and whose AI check
+    is done (`checked(first_leg)`), or within half an hour whatever happens."""
+    out = []
+    for e in entries_due(report, competition, now):
+        left = _kickoff(e["first_kickoff"]) - now
+        if left > PREKICKOFF_WINDOW:
+            continue
+        first_leg = min(e["legs"], key=lambda l: _kickoff(l["commence_time"]))
+        if checked is not None and checked(first_leg):
+            trigger = "ki_check_done"
+        elif left <= LAST_RESORT:
+            trigger = "last_resort"
+        else:
+            continue
+        out.append({**e, "trigger": trigger})
+    return out
+
+
+def not_yet_logged(candidates: list, logged: list) -> list:
+    """One entry per ticket slot and first kickoff: what was logged stands."""
+    slot = lambda e: _key(e) + (e["first_kickoff"],)
+    seen = {slot(e) for e in logged}
+    out = []
+    for e in candidates:
+        if slot(e) not in seen:
+            seen.add(slot(e))
+            out.append(e)
+    return out
+
+
 def _key(e):
     """The slot a ticket fills: one rule's ticket of one size on one day."""
+    # quote_basis is only in the oldest rows (not written since 14 November).
     return (e["date"], e["competition"], e["policy"], e["leg_count"],
             e.get("quote_basis", "single_book"))
 
@@ -103,9 +148,7 @@ def main():
     args = parser.parse_args()
     now = datetime.now(timezone.utc)
 
-    logged = []
-    if LOG_PATH.exists():
-        logged = [json.loads(line) for line in LOG_PATH.read_text(encoding="utf-8").splitlines() if line.strip()]
+    logged = log_store.load_combos()
     new = []
     for competition in COMPETITIONS:
         try:
@@ -119,10 +162,7 @@ def main():
             print(f"  + {entry['date']} {entry['policy']:9} {entry['leg_count']}-fold @ {entry['combined_odds']}")
 
     if new:
-        LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
-        with LOG_PATH.open("a", encoding="utf-8") as fh:
-            for entry in new:
-                fh.write(json.dumps(entry, ensure_ascii=False) + "\n")
+        log_store.append_combos(new)
     print(f"{len(new)} neue Kombi(s) geloggt, {len(logged) + len(new)} insgesamt.")
 
 

@@ -4,7 +4,7 @@ result - the honest, complete bilanz.
     python3 scripts/grade_bets.py
     python3 scripts/grade_bets.py --api https://football-prediction.fly.dev
 
-Reads data/bet_log.jsonl. New-format entries (logged via the current
+Reads data/logs/tips/*.jsonl. New-format entries (logged via the current
 log_bets.py) carry the FULL breakdown for a match - every green and red
 candidate bet, the curated top recommendation, and the agent evaluation - so
 every single one of them gets graded here, not just the one that was
@@ -21,7 +21,7 @@ import sys
 import urllib.request
 from pathlib import Path
 
-LOG_PATH = Path(__file__).parent.parent / "data" / "bet_log.jsonl"
+LOG_PATH = None  # the tip logs: data/logs/tips/<wettbewerb>.jsonl (src/log_store.py)
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -167,7 +167,8 @@ def grade_entries(entries, finished):
         ("bet_tip_unsure", "...zurückgehalten: KI kurz vor Anpfiff umgeschwenkt (alle)"),
         ("bet_tip_same_side", "   ...davon andere Wette, gleiche Richtung (z. B. Sieg -> -1,5)"),
         ("bet_tip_changed_mind", "   ...davon Meinungswechsel (andere Seite oder anderer Markt)"),
-        ("bet_tip_model_no", "...zurückgehalten: Modell unter Markt"))}
+        ("bet_tip_model_no", "...zurückgehalten: Modell unter Markt"),
+        ("model_choice", "Modell-Wahl (wahrscheinlichster Ausgang laut Modell)"))}
     for g in LIKELY_GROUPS:
         buckets["likely " + g] = Bucket(f"🎯 bei {g}")
     out = {"buckets": buckets, "edges": [], "no_tip": 0, "pending": 0, "rows": [], "fair_matches": 0,
@@ -179,7 +180,7 @@ def grade_entries(entries, finished):
             out["pending"] += 1
             continue
         hs, as_ = res["home_score"], res["away_score"]
-        if "green_bets" not in entry:
+        if "market" in entry and "bets" not in entry and "green_bets" not in entry:
             # Legacy flat single-tip format.
             g = grade(entry, home, away, hs, as_)
             if g is None:
@@ -246,6 +247,10 @@ def grade_entries(entries, finished):
                 g_bt = grade(bt, home, away, hs, as_)
                 if g_bt is not None:
                     buckets[key].add(g_bt, bt["best_odds"])
+        mf = entry.get("model_favorite")
+        g_mf = grade(mf, home, away, hs, as_) if mf and mf.get("best_odds") else None
+        if g_mf is not None:
+            buckets["model_choice"].add(g_mf, mf["best_odds"])
         lp = entry.get("likely_pick")
         g_lp = grade(lp, home, away, hs, as_) if lp else None
         if g_lp is not None:
@@ -272,50 +277,35 @@ def grade_entries(entries, finished):
             buckets["fair_game"].add(g_gp, gp["best_odds"])
             buckets["fair_likely"].add(g_lp, lp["best_odds"])
             out["fair_matches"] += 1
-        rec_desc = f"{rec['market']} {rec.get('team') or rec['outcome']}" if rec else "-"
-        out["rows"].append(f"  {home} {hs}-{as_} {away:18} | {len(entry.get('green_bets', [])):2} grüne Tipps | Top: {rec_desc}")
+        wt = tip_entry.get("tip") or tip_entry.get("withheld")
+        wt_desc = f"{wt['market']} {wt.get('team') or wt['outcome']}" if wt else "-"
+        out["rows"].append(f"  {home} {hs}-{as_} {away:18} | Wett-Tipp: {wt_desc}")
     return out
 
 
 def print_report(name, r):
+    """The three tips - Wett-Tipp, Modell-Wahl, wahrscheinlichste Wette - and the AI's own pick."""
     b = r["buckets"]
     print("\n" + "=" * 60)
     print(f"{name}: {len(r['rows'])} Spiele ausgewertet (noch offen: {r['pending']})")
     print("=" * 60)
     for row in r["rows"]:
         print(row)
-    print()
-    for key in ("all_green", "clean_green", "suspicious_green", "all_red", "top_rec", "consensus"):
-        print(b[key].report())
-    if b["price_tip"].decided or r["no_tip"]:
-        print("\n  -- Preistipp --")
-        print(b["price_tip"].report())
-        if r["edges"]:
-            print(f"  erwarteter Edge im Schnitt {sum(r['edges']) / len(r['edges']):+.1%} "
-                  f"- einzelne Ergebnisse schwanken weit mehr; erst viele Tipps sagen etwas.")
-        print(f"  Spiele ohne Preistipp: {r['no_tip']}")
-    for key in ("bet_tip", "bet_tip_ki", "bet_tip_unsure", "bet_tip_same_side", "bet_tip_changed_mind",
-                "bet_tip_model_no"):
-        if b[key].decided:
+    print("\n  -- Wett-Tipp (KI-Pick nach den Regeln) --")
+    for key in ("bet_tip_ki", "bet_tip_unsure", "bet_tip_same_side", "bet_tip_changed_mind", "bet_tip_model_no"):
+        if b[key].decided or key == "bet_tip_ki":
             print(b[key].report())
-    if b["likely"].decided:
-        print(b["likely"].report())
-    if any(b["likely " + g].decided for g in LIKELY_GROUPS):
-        print("\n  -- 🎯 je nachdem, ob Modell und KI zustimmen --")
-        for g in LIKELY_GROUPS:
-            if b["likely " + g].decided:
-                print(b["likely " + g].report())
+    print("\n  -- Modell-Wahl --")
+    print(b["model_choice"].report())
+    print("\n  -- Wahrscheinlichste Wette (🎯) --")
+    print(b["likely"].report())
+    for g in LIKELY_GROUPS:
+        if b["likely " + g].decided:
+            print(b["likely " + g].report())
     if r["versus_ai"]:
         print("  🎯 und KI-Tipp im selben Spiel: " + ", ".join(f"{k} {v}x" for k, v in sorted(r["versus_ai"].items())))
-    if r["fair_matches"]:
-        print(f"\n  -- Fairer Vergleich: {r['fair_matches']} Spiele mit beiden Tipps, Game Pick "
-              f"zu Quote {FAIR_MIN_ODDS:.2f}-{FAIR_MAX_ODDS:.2f} --")
-        print(b["fair_game"].report())
-        print(b["fair_likely"].report())
-    if b["agent_pick"].decided or b["agent_agrees"].decided or b["agent_disagrees"].decided:
-        print("\n  -- KI-Agent --")
-        for key in ("agent_pick", "agent_agrees", "agent_disagrees"):
-            print(b[key].report())
+    print("\n  -- KI-Pick (jeder, unabhängig von den Regeln) --")
+    print(b["agent_pick"].report())
 
 
 def main():
@@ -325,8 +315,10 @@ def main():
                         help="nur diesen Wettbewerb, z.B. 'Nations League' (Standard: jeder getrennt)")
     args = parser.parse_args()
 
-    if not LOG_PATH.exists():
-        print("Noch kein Bet-Log vorhanden. Erst scripts/log_bets.py laufen lassen.")
+    from src import log_store
+    entries = log_store.load_tips()
+    if not entries:
+        print("Noch kein Bet-Log vorhanden (data/logs/tips/). Der Server legt es selbst an.")
         return
 
     results = json.load(urllib.request.urlopen(f"{args.api}/real-results", timeout=30))["results"]
@@ -334,10 +326,8 @@ def main():
     finished = {(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
                 for r in results if r.get("completed") and r.get("home_score") is not None}
     groups = {}
-    for line in LOG_PATH.read_text(encoding="utf-8").splitlines():
-        if line.strip():
-            entry = json.loads(line)
-            groups.setdefault(competition_of(entry), []).append(entry)
+    for entry in entries:
+        groups.setdefault(competition_of(entry), []).append(entry)
     for name in sorted(groups):
         if args.competition and name != args.competition:
             continue

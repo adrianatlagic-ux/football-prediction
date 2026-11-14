@@ -20,7 +20,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from grade_bets import DEFAULT_API, _norm, grade  # noqa: E402
 from log_combos import _key  # noqa: E402
 
-LOG_PATH = Path(__file__).resolve().parents[1] / "data" / "combo_log.jsonl"
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from src import log_store  # noqa: E402
 
 
 def settle(ticket: dict, finished: dict):
@@ -41,14 +42,14 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--api", default=DEFAULT_API)
     args = parser.parse_args()
-    if not LOG_PATH.exists():
-        print("Noch kein Kombi-Log. Erst scripts/log_combos.py laufen lassen.")
+    tickets = log_store.load_combos()
+    if not tickets:
+        print("Noch kein Kombi-Log (data/logs/combos/). Der Server legt es selbst an.")
         return
     results = json.load(urllib.request.urlopen(f"{args.api}/real-results", timeout=60))["results"]
     finished = {(_norm(r["home_team"]), _norm(r["away_team"])): r
                 for r in results if r.get("completed") and r.get("home_score") is not None}
 
-    tickets = [json.loads(line) for line in LOG_PATH.read_text(encoding="utf-8").splitlines() if line.strip()]
     # When a match kicks off, the day's combos are rebuilt from the matches
     # left - a new ticket, not the old one minus a leg. So a slot can hold
     # several tickets on a day with staggered kickoffs; for each first

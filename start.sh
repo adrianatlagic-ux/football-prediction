@@ -22,7 +22,7 @@ if [ -d "$STATE" ]; then
     mkdir -p "$(dirname "/app/$dir")"
     ln -sfn "$STATE/$dir" "/app/$dir"
   done
-  for file in data/odds_snapshot.json data/model_track_record.json; do
+  for file in data/odds_snapshot.json; do
     mkdir -p "$(dirname "$STATE/$file")"
     if [ -f "/app/$file" ] && [ ! -L "/app/$file" ]; then
       [ -f "$STATE/$file" ] || cp "/app/$file" "$STATE/$file"

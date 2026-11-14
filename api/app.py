@@ -363,17 +363,19 @@ def site_stats():
     except Exception:
         out["training_matches"] = None
     try:
-        import sys as _sys
-        _sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
-        from build_model_track_record import LOG_PATHS, _logged_entries
+        from src import log_store
         now = datetime.now(timezone.utc)
-        settled = [e for e in _logged_entries(LOG_PATHS)
+        settled = [e for e in log_store.load_tips()
                    if e.get("commence_time") and timestamp_or_none(e["commence_time"])
                    and timestamp_or_none(e["commence_time"]) < now - timedelta(hours=2)]
         out["settled_matches"] = len(settled)
-        out["settled_bets"] = sum(len(e.get("green_bets", [])) + len(e.get("red_bets", [])) for e in settled)
     except Exception:
-        out["settled_matches"] = out["settled_bets"] = None
+        out["settled_matches"] = None
+    try:
+        from src.jobs import REPORTS
+        out["hit_rate"] = json.loads((REPORTS / "last_hit_rate.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        out["hit_rate"] = None
     _site_stats_cache.update(at=time.time(), data=out)
     return out
 
@@ -385,22 +387,21 @@ def timestamp_or_none(value):
         return None
 
 
-@app.get("/model-track-record")
-def model_track_record():
-    """How often the model was right when it rated a bet above the market,
-    by size of the disagreement (scripts/build_model_track_record.py)."""
-    try:
-        return json.loads((Path(__file__).parent.parent / "data" / "model_track_record.json").read_text())
-    except (OSError, ValueError):
-        return {"combined": []}
-
-
 @app.on_event("startup")
 def _start_scheduler():
+    from src import scheduler
+    try:
+        # Before anything reads the logs: move files from the old layout over.
+        scheduler.migrate_old_logs()
+    except Exception as exc:
+        print(f"log migration failed: {type(exc).__name__}: {exc}")
     _load_agent_cache()
     book_odds.load_refresh_log()
+    # The landing page's numbers take a while to count; have them ready.
+    threading.Thread(target=site_stats, daemon=True, name="site-stats-warmup").start()
     from src import scheduler
-    scheduler.start(_get_predictor, _get_national_predictor, _get_odds, all_bets, combo_ticket, _get_espn_results)
+    scheduler.start(_get_predictor, _get_national_predictor, _get_odds, all_bets, combo_ticket, _get_espn_results,
+                    _prekickoff_check_done)
 
 
 @app.get("/logs/{name}")
@@ -408,11 +409,12 @@ def server_log(name: str):
     """The server's bet and combo logs, fetched and committed by GitHub
     (scripts/pull_server_logs.py)."""
     from fastapi.responses import PlainTextResponse
-    from src.scheduler import LOGS
-    if name not in ("bet_log", "combo_log"):
+    from src import log_store
+    # "tips" is the match log ("details" and "bet_log" are its older names), "combos" the tickets. Each returns every competition, one JSON per line.
+    kinds = {"tips": "tips", "details": "tips", "bet_log": "tips", "combos": "combos", "combo_log": "combos"}
+    if name not in kinds:
         raise HTTPException(status_code=404, detail="Unknown log")
-    path = LOGS / f"{name}.jsonl"
-    return PlainTextResponse(path.read_text(encoding="utf-8") if path.exists() else "")
+    return PlainTextResponse(log_store.as_text(kinds[name]))
 
 
 @app.get("/ai-tip-review")
@@ -2287,6 +2289,20 @@ _prediction_index_ts: float = 0
 _PREDICTION_INDEX_TTL = 300  # seconds - cache files only change when we (re)generate predictions
 
 
+def _prekickoff_check_done(leg: dict) -> bool:
+    """Whether the AI's pre-kickoff check of a combo leg's match is complete."""
+    try:
+        kickoff = datetime.fromisoformat(leg["commence_time"].replace("Z", "+00:00"))
+        teams = (_norm(leg["home_team"]), _norm(leg["away_team"]))
+        for key in list(_agent_prekickoff_done):
+            if (_norm(key[3]), _norm(key[4])) == teams and \
+                    datetime.fromisoformat(key[2].replace("Z", "+00:00")) == kickoff:
+                return True
+    except (KeyError, TypeError, ValueError, AttributeError):
+        pass
+    return False
+
+
 def _match_key(home_team: str, away_team: str) -> tuple[str, str]:
     """The cache identity shared by prediction and pre-kickoff readers."""
     return (_norm(home_team), _norm(away_team))
@@ -2573,15 +2589,6 @@ def combo_ticket(competition: Optional[str] = None, max_legs: int = 4):
     report["competition"] = competition
     old_agree = combo_report(pairs, max_legs=max_legs, policy="agree", allow_mixed_books=True)
     report["agree_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in old_agree["days"]]
-    market = combo_report(pairs, max_legs=max_legs, policy="market", allow_mixed_books=True)
-    report["market_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in market["days"]]
-    # The rule before 26 September, computed on the same matches for the log
-    # only (scripts/log_combos.py); the page shows the market rule.
-    legacy = combo_report(pairs, max_legs=max_legs, policy="legacy_v3", allow_mixed_books=True)
-    report["legacy_v3_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in legacy["days"]]
-    # Combos of the AI's own picks only, logged beside the others (not shown).
-    ki = combo_report(pairs, max_legs=max_legs, policy="ki", allow_mixed_books=True)
-    report["ki_days"] = [{"date": d["date"], "by_size": d["by_size"]} for d in ki["days"]]
     _mark_legs_off_likely(report, pairs)
 
     from src.combo_ticket import price_tip_combos
