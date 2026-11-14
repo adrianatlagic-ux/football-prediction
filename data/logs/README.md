@@ -5,34 +5,26 @@ Der Server schreibt sie selbst (`src/scheduler.py`); GitHub kopiert sie zweimal 
 
 ## tips/<wettbewerb>.jsonl  (bundesliga, champions-league, nations-league, sonstige)
 
-Die lesbare Ansicht: eine Zeile pro Spiel mit genau den drei Tipps.
+Eine Datei pro Wettbewerb, eine Zeile pro Spiel. Sie entsteht einmal kurz vor Anpfiff und wird
+danach nur ergänzt (z. B. wenn die KI ihren Tipp ändert). Spalten in dieser Reihenfolge:
 
-| Feld | Bedeutung |
+| Spalte | Bedeutung |
 |---|---|
 | `home_team`, `away_team`, `commence_time`, `competition`, `logged_at` | das Spiel |
-| `wett_tipp` | der **Wett-Tipp** = der KI-Pick nach den Regeln. `tip` ist der veröffentlichte Tipp, `withheld` der zurückgehaltene Pick, `status` der Grund (`ok`, `no_agreement`, `ai_unsure` ...). `change` und `first_pick` zeigen, wenn die KI ihren Tipp vor Anpfiff geändert hat |
-| `modell_wahl` | die **Modell-Wahl**: der vom Modell wahrscheinlichste Ausgang |
-| `wahrscheinlichste_wette` | die **wahrscheinlichste Wette** (🎯, Markt, Quote 1,30-2,00) |
-
-Jeder Tipp: `market`, `outcome`, `team`, `best_odds`, `bookmaker`, `probability` (Modell, kalibriert),
-`model_probability_raw`, `market_probability`.
-
-## details/<wettbewerb>.jsonl
-
-Dieselben Spiele mit allem, was geloggt wird. Daraus rechnen `grade_bets.py` und die Analyse-Skripte.
-`tips/` wird bei jedem Schreiben aus `details/` erzeugt.
-
-| Feld | Bedeutung |
-|---|---|
-| `bet_tip`, `model_favorite`, `likely_pick` | die drei Tipps (Wett-Tipp, Modell-Wahl, wahrscheinlichste Wette) |
-| `agent_eval`, `ai_review_history` | die KI-Bewertung mit Pick, Begründung, Eingaben und jede Änderung vor Anpfiff |
+| `bet_tip` | der **Wett-Tipp** = der KI-Pick nach den Regeln. `tip` ist der veröffentlichte Tipp, `withheld` der zurückgehaltene Pick, `status` der Grund (`ok`, `no_agreement`, `ai_unsure` ...); `change` und `first_pick` zeigen eine Änderung der KI vor Anpfiff |
+| `model_favorite` | die **Modell-Wahl**: der vom Modell wahrscheinlichste Ausgang |
+| `likely_pick` | die **wahrscheinlichste Wette** (🎯, Markt, Quote 1,30-2,00) |
+| `combined` | ob Modell und KI dem Tipp zustimmen (`model_agrees`, `agent_agrees`, `agreement_count`), dazu Markt-Favorit und Game Pick |
+| `agent_eval` | die KI-Bewertung: Pick, Begründung, Eingaben |
+| `ai_review_history` | jede Änderung des KI-Tipps vor Anpfiff |
 | `bets` | alle bepreisten Wetten des Spiels (Kandidaten) |
-| `combined` | Markt-Favorit, Game Pick und ob Modell und KI dem Tipp zustimmen |
 
-**Seit dem 14. November nicht mehr geloggt:** `green_bets`/`red_bets`, `recommendation`, `safest_pick`,
-`bet_tip_v1` und `price_tip`. In den älteren Spielen stehen sie noch, weil die Seite ihre
-Modell-Trefferquote (`/model-track-record`) daraus berechnet. grün = das Modell sah einen positiven
-Erwartungswert, rot = negativ.
+Jeder Tipp hat `market`, `outcome`, `team`, `best_odds`, `bookmaker`, `probability` (Modell),
+`model_probability_raw`, `market_probability` und weitere Preisangaben.
+
+**Seit dem 14. November nicht mehr geloggt und auch aus den alten Zeilen entfernt:**
+`green_bets`/`red_bets`, `recommendation`, `safest_pick`, `bet_tip_v1`, `price_tip`.
+(In `archive/bet_log_full.jsonl` stehen sie weiter.) Ältere Spiele haben kein `bets`.
 
 ## combos/<wettbewerb>.jsonl
 
@@ -57,7 +49,7 @@ ersten Spiel des Tickets, wenn der KI-Check vor Anpfiff dieses Spiels fertig ist
 ## archive/
 
 Die ursprünglichen Einzeldateien (`bet_log_full.jsonl`, `combo_log_full.jsonl`), unverändert.
-Sie sind komplett in `details/` und `combos/` enthalten und dienen nur als Sicherung.
+Sie enthalten alles, auch die entfernten Spalten, und dienen nur als Sicherung.
 
 ## Auswerten
 

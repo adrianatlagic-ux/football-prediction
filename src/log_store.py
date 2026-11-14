@@ -2,8 +2,7 @@
 
     data/logs/
       README.md            what each file holds
-      tips/<wettbewerb>.jsonl     one line per match: the three tips, short
-      details/<wettbewerb>.jsonl  the same matches with everything logged
+      tips/<wettbewerb>.jsonl     one line per match: the three tips and the rest
       combos/<wettbewerb>.jsonl   one line per combo ticket
       system/alerts.jsonl         price-source failures
       system/book_refresh.jsonl   every bet-at-home read
@@ -79,8 +78,7 @@ def load(kind: str, logs: Path | None = None) -> list[dict]:
 
 
 def load_tips(logs: Path | None = None) -> list[dict]:
-    """Every match with everything logged (details/), for grading and analysis."""
-    return load("details", logs)
+    return load("tips", logs)
 
 
 def load_combos(logs: Path | None = None) -> list[dict]:
@@ -103,49 +101,30 @@ def _replace(path: Path, entries: list[dict]) -> None:
     os.replace(temp, path)
 
 
-_PICK = ("market", "outcome", "team", "best_odds", "bookmaker", "probability",
-         "model_probability_raw", "market_probability")
+# The columns of a tip line, in the order they are written: the match, the three
+# tips (Wett-Tipp = bet_tip, Modell-Wahl = model_favorite, wahrscheinlichste
+# Wette = likely_pick), then how model and AI agree, the AI evaluation and the
+# priced bets. Anything else follows.
+COLUMNS = ("home_team", "away_team", "commence_time", "competition", "logged_at",
+           "bet_tip", "model_favorite", "likely_pick", "combined",
+           "agent_eval", "ai_review_history", "bets")
+
+# Logged until 14 November, not wanted any more (scripts/migrate_logs.py removes them from old lines).
+DROPPED = ("green_bets", "red_bets", "recommendation", "recommendation_warning", "safest_pick",
+           "bet_tip_v1", "price_tip")
 
 
-def _pick(value):
-    """A pick reduced to what a reader needs: the bet, its odds and probabilities."""
-    if not isinstance(value, dict) or not value.get("market"):
-        return None
-    return {k: value[k] for k in _PICK if k in value}
-
-
-def short(entry: dict) -> dict:
-    """The readable line of a match: the three tips and nothing else.
-
-    wett_tipp         the AI pick after the rules (tip, or withheld with the reason)
-    modell_wahl       the model's likeliest outcome
-    wahrscheinlichste_wette  the likeliest bet at odds 1.30-2.00 (🎯)
-    """
-    tip = dict(entry.get("bet_tip") or {})
-    wett = {"status": tip.get("status"), "confirmed": tip.get("confirmed"),
-            "tip": _pick(tip.get("tip")), "withheld": _pick(tip.get("withheld"))}
-    for key in ("change", "change_reason", "model_agrees", "is_fallback", "fallback_reason"):
-        if tip.get(key) not in (None, ""):
-            wett[key] = tip[key]
-    for key in ("first_pick", "original_pick"):
-        if _pick(tip.get(key)):
-            wett[key] = _pick(tip[key])
-    return {
-        "home_team": entry.get("home_team"), "away_team": entry.get("away_team"),
-        "commence_time": entry.get("commence_time"), "competition": entry.get("competition"),
-        "logged_at": entry.get("logged_at"),
-        "wett_tipp": wett,
-        "modell_wahl": _pick(entry.get("model_favorite")),
-        "wahrscheinlichste_wette": _pick(entry.get("likely_pick")),
-    }
+def ordered(entry: dict) -> dict:
+    """The entry with its columns in the documented order."""
+    out = {k: entry[k] for k in COLUMNS if k in entry}
+    out.update({k: v for k, v in entry.items() if k not in out})
+    return out
 
 
 def write_tips(entries: list[dict], logs: Path | None = None) -> None:
-    """Rewrite the tip files from the full list of entries: the readable one
-    (tips/) and the one with everything logged (details/)."""
+    """Rewrite the tip files (one per competition) from the full list of entries."""
     for name, group in _group(entries).items():
-        _replace(_dir("details", logs) / f"{name}.jsonl", group)
-        _replace(_dir("tips", logs) / f"{name}.jsonl", [short(e) for e in group])
+        _replace(_dir("tips", logs) / f"{name}.jsonl", [ordered(e) for e in group])
 
 
 def append_combos(entries: list[dict], logs: Path | None = None) -> None:
