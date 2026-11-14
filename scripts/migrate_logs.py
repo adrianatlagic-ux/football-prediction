@@ -64,7 +64,7 @@ ersten Spiel des Tickets, wenn der KI-Check vor Anpfiff dieses Spiels fertig ist
 | `competition` | Wettbewerb |
 | `policy` | die Regel, nach der das Ticket gebaut wurde (siehe unten) |
 | `leg_count` | Anzahl der Tipps im Ticket (2er, 3er, 4er) |
-| `quote_basis` | woher die Quoten kommen. `best_singles_mixed_books` = je Tipp die beste Quote irgendeines Buchmachers, die Gesamtquote ist also nur das Produkt und nicht bei einem Buchmacher als Kombi buchbar. `single_book` = alle Tipps bei demselben Buchmacher, wirklich so buchbar; fehlt in den ältesten Zeilen (dort gilt `single_book`) |
+| `quote_basis` | nur in älteren Zeilen, wird nicht mehr geschrieben: `best_singles_mixed_books` = je Tipp die beste Quote irgendeines Buchmachers, die Gesamtquote ist also nicht bei einem Buchmacher als Kombi buchbar |
 | `combined_odds` | Gesamtquote des Tickets |
 | `estimated_probability` | geschätzte Trefferwahrscheinlichkeit (vorsichtig, aus dem Markt) |
 | `model_probability` | Trefferwahrscheinlichkeit laut Modell |

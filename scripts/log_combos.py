@@ -51,8 +51,6 @@ def entries_due(report: dict, competition: str, now: datetime) -> list:
     kicked off."""
     out = []
     shown = report.get("policy") or "market"
-    quote_basis = ("best_singles_mixed_books" if report.get("parameters", {}).get("same_bookmaker") is False
-                   else "single_book")
     # The rule the page shows, and "agree" beside it. market, legacy_v3 and ki
     # are no longer logged (14 November); their old rows stay in the log.
     sources = [(shown, report.get("days") or [])]
@@ -70,7 +68,7 @@ def entries_due(report: dict, competition: str, now: datetime) -> list:
                 out.append({
                     "logged_at": now.isoformat(), "first_kickoff": first.isoformat(),
                     "date": day["date"], "competition": competition,
-                    "policy": policy, "leg_count": ticket["leg_count"], "quote_basis": quote_basis,
+                    "policy": policy, "leg_count": ticket["leg_count"],
                     "combined_odds": ticket["combined_odds"],
                     "estimated_probability": ticket["conservative_probability"],
                     "model_probability": ticket["probability"],
@@ -119,6 +117,7 @@ def not_yet_logged(candidates: list, logged: list) -> list:
 
 def _key(e):
     """The slot a ticket fills: one rule's ticket of one size on one day."""
+    # quote_basis is only in the oldest rows (not written since 14 November).
     return (e["date"], e["competition"], e["policy"], e["leg_count"],
             e.get("quote_basis", "single_book"))
 
