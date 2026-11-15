@@ -142,6 +142,13 @@ def run_daily(club: Callable, national: Callable, morning_odds: Callable,
                 report["ai_tip_review_fixtures"] = review(results, ROOT)["fixtures"]
             except Exception as exc:
                 report["errors"].append(f"ai_tip_review: {type(exc).__name__}: {exc}")
+        # The AI's memory: yesterday's finished matches reviewed against its own
+        # pre-match arguments (src/match_memory.py), read by the shadow agent.
+        try:
+            from src import match_memory
+            report["memory"] = match_memory.update()
+        except Exception as exc:
+            report["errors"].append(f"memory: {type(exc).__name__}: {exc}")
     report["finished_at"] = datetime.now(timezone.utc).isoformat()
     return _report("daily", report)
 

@@ -168,7 +168,11 @@ def grade_entries(entries, finished):
         ("bet_tip_same_side", "   ...davon andere Wette, gleiche Richtung (z. B. Sieg -> -1,5)"),
         ("bet_tip_changed_mind", "   ...davon Meinungswechsel (andere Seite oder anderer Markt)"),
         ("bet_tip_model_no", "...zurückgehalten: Modell unter Markt"),
-        ("model_choice", "Modell-Wahl (wahrscheinlichster Ausgang laut Modell)"))}
+        ("model_choice", "Modell-Wahl (wahrscheinlichster Ausgang laut Modell)"),
+        ("shadow", "Schatten: KI mit Gedächtnis"),
+        ("shadow_real", "Wett-Tipp auf denselben Spielen"),
+        ("shadow_diff", "Schatten, nur wo er anders tippt"),
+        ("shadow_diff_real", "Wett-Tipp in diesen Spielen"))}
     for g in LIKELY_GROUPS:
         buckets["likely " + g] = Bucket(f"🎯 bei {g}")
     out = {"buckets": buckets, "edges": [], "no_tip": 0, "pending": 0, "rows": [], "fair_matches": 0,
@@ -229,6 +233,17 @@ def grade_entries(entries, finished):
             g_ai = grade(a_pick, home, away, hs, as_)
             if g_ai is not None:
                 buckets["agent_pick"].add(g_ai, a_pick["best_odds"])
+        # The shadow agent (v9 + its memory of the two teams) against the
+        # real AI pick on the same matches; only where both exist.
+        s_pick = (entry.get("agent_eval_shadow") or {}).get("pick")
+        g_s = grade(s_pick, home, away, hs, as_) if s_pick and s_pick.get("best_odds") else None
+        g_r = grade(a_pick, home, away, hs, as_) if a_pick and a_pick.get("best_odds") else None
+        if g_s is not None and g_r is not None:
+            buckets["shadow"].add(g_s, s_pick["best_odds"])
+            buckets["shadow_real"].add(g_r, a_pick["best_odds"])
+            if not _same_bet(s_pick, a_pick):
+                buckets["shadow_diff"].add(g_s, s_pick["best_odds"])
+                buckets["shadow_diff_real"].add(g_r, a_pick["best_odds"])
         # Since 11 October bet_tip follows the new rule ("rule" set) and the
         # old one is logged as bet_tip_v1; before, bet_tip was the old rule.
         tip_entry = entry.get("bet_tip") or {}
@@ -306,6 +321,10 @@ def print_report(name, r):
         print("  🎯 und KI-Tipp im selben Spiel: " + ", ".join(f"{k} {v}x" for k, v in sorted(r["versus_ai"].items())))
     print("\n  -- Wett-Tipp --")
     print(b["agent_pick"].report())
+    if b["shadow"].decided:
+        print("\n  -- Schatten-Test: KI mit Gedächtnis (nur geloggt, nicht angezeigt) --")
+        for key in ("shadow", "shadow_real", "shadow_diff", "shadow_diff_real"):
+            print(b[key].report())
 
 
 def main():

@@ -410,8 +410,10 @@ def server_log(name: str):
     (scripts/pull_server_logs.py)."""
     from fastapi.responses import PlainTextResponse
     from src import log_store
-    # "tips" is the match log ("details" and "bet_log" are its older names), "combos" the tickets. Each returns every competition, one JSON per line.
-    kinds = {"tips": "tips", "details": "tips", "bet_log": "tips", "combos": "combos", "combo_log": "combos"}
+    # "tips" is the match log ("details" and "bet_log" are its older names), "combos" the tickets,
+    # "memory" the AI's reviewed past tips (src/match_memory.py). Each returns every competition, one JSON per line.
+    kinds = {"tips": "tips", "details": "tips", "bet_log": "tips", "combos": "combos", "combo_log": "combos",
+             "memory": "memory"}
     if name not in kinds:
         raise HTTPException(status_code=404, detail="Unknown log")
     return PlainTextResponse(log_store.as_text(kinds[name]))
@@ -715,6 +717,11 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 # Agent picks are cached per match indefinitely once computed (see
 # _refresh_agent_picks) - never recomputed for a match that already has one.
 _agent_picks_cache: dict[tuple[str, str], dict] = {}
+# The shadow agent's tips (same key): v9 plus the AI's memory of these two
+# teams, made once at the pre-kickoff check and only logged, never shown.
+_agent_shadow_cache: dict[tuple, dict] = {}
+# AI_SHADOW_MEMORY=0 switches the shadow call off.
+SHADOW_MEMORY = os.getenv("AI_SHADOW_MEMORY", "1") == "1"
 # Kept on the Fly volume (data/jobs), so a deploy or restart does not send
 # every upcoming match to Gemini again. Loaded at startup.
 AGENT_CACHE_PATH = Path(__file__).parent.parent / "data" / "jobs" / "agent_picks.json"
@@ -731,6 +738,7 @@ def _save_agent_cache() -> None:
     try:
         with _agent_cache_lock:
             data = {"picks": [[list(k), v] for k, v in _agent_picks_cache.items() if keep(k)],
+                    "shadow": [[list(k), v] for k, v in _agent_shadow_cache.items() if keep(k)],
                     "prekickoff_done": [list(k) for k in _agent_prekickoff_done if keep(k)]}
             AGENT_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
             tmp = AGENT_CACHE_PATH.with_suffix(".tmp")
@@ -749,6 +757,8 @@ def _load_agent_cache() -> None:
         _agent_picks_cache.setdefault(tuple(key), value)
     for key in data.get("prekickoff_done", []):
         _agent_prekickoff_done.add(tuple(key))
+    for key, value in data.get("shadow", []):
+        _agent_shadow_cache.setdefault(tuple(key), value)
 AGENT_RETRY_SECONDS = 2 * 3600
 # Throttles how often a background pass is even considered, independent of
 # whether it finds anything to do - without this, every request would spawn a
@@ -1728,7 +1738,7 @@ _AGENT_COMPETITION_NAMES = {
 
 def _call_gemini_agent_pick(
     prediction: dict, value_bets: dict, home_team: str, away_team: str,
-    previous_eval: Optional[dict] = None,
+    previous_eval: Optional[dict] = None, memory_block: str = "", memory_cases: Optional[list] = None,
 ) -> Optional[dict]:
     """Ask Gemini to research current context our
     stats model can't see, and separately evaluate the candidate bets against it.
@@ -1745,6 +1755,10 @@ def _call_gemini_agent_pick(
 
     At the re-check the earlier selection is context; new markets, odds or
     team information may justify a documented change.
+
+    With memory_block (the shadow agent, src/match_memory.py) the AI also
+    reads its own earlier tips on these two teams before it researches; that
+    answer is only logged next to the real one, never shown.
 
     Returns None if the call fails (caller treats that as "no agent opinion",
     not block the rest of the response).
@@ -1872,8 +1886,9 @@ Tore' or 'Sieg Kroatien' - or 'Keine gute Wette' if pick is null>", "bet_reasoni
 and a half sentences with your verdict>", "alternative_reasoning": "<short comparison only if it materially explains the verdict; otherwise empty string>", \
 "change_reason": "<only when the re-check changes the pick: always try to give one short sentence, max 16 words, naming the concrete input or reconsideration that caused the change; never invent a reason; otherwise empty string>"}}"""
 
+    prompt += memory_block
     try:
-        kind = "agent_recheck" if previous_eval else "agent_pick"
+        kind = "agent_shadow" if memory_block else ("agent_recheck" if previous_eval else "agent_pick")
         from google import genai
         from google.genai import types
         client = genai.Client(api_key=GEMINI_API_KEY)
@@ -1968,6 +1983,9 @@ and a half sentences with your verdict>", "alternative_reasoning": "<short compa
             "table_situation": research.get("table_situation") or "",
             "other": research.get("other") or "",
         },
+        **({"memory_cases": list(memory_cases or []),
+            "memory_used": parsed.get("memory_used") if isinstance(parsed.get("memory_used"), list) else []}
+           if memory_block else {}),
     }
 
 
@@ -2266,6 +2284,9 @@ def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
                     _prekickoff_vb_cache[_match_key(home, away)] = fresh_vb
                     _prekickoff_event_cache[_match_key(home, away)] = fresh_event
 
+                if SHADOW_MEMORY and key not in _agent_shadow_cache:
+                    threading.Thread(target=_run_shadow_agent, args=(data, fresh_vb, home, away, key),
+                                     daemon=True).start()
                 agent = _call_gemini_agent_pick(data, fresh_vb, home, away, previous_eval=previous_eval)
                 if agent is not None:
                     _agent_picks_cache[key] = agent
@@ -2277,6 +2298,25 @@ def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
                 _save_agent_cache()
 
         threading.Thread(target=_run, daemon=True).start()
+
+
+def _run_shadow_agent(data: dict, vb: dict, home: str, away: str, key: tuple) -> None:
+    """The shadow tip: a fresh, independent first call (it never sees the real
+    tip) with the AI's own earlier cases of each team in front of it. Only for
+    matches where at least one team has a case; logged as agent_eval_shadow."""
+    try:
+        from src import match_memory
+        block, ids = match_memory.prompt_block(home, away, vb.get("commence_time") or "")
+        if not block:
+            return
+        shadow = _call_gemini_agent_pick(data, vb, home, away, memory_block=block, memory_cases=ids)
+        if shadow is not None:
+            # The memory text is rebuilt from the case ids; the log does not need it twice.
+            shadow.pop("prompt_text", None)
+            _agent_shadow_cache[key] = shadow
+            _save_agent_cache()
+    except Exception:
+        pass
 
 
 def _price_tip_for(odds: list[dict], home: str, away: str, prediction: dict,
@@ -2691,6 +2731,7 @@ def all_bets():
             "green_bets": vb.get("green_bets", []),
             "red_bets": vb.get("red_bets", []),
             "agent_eval": agent_eval,
+            "agent_eval_shadow": _agent_shadow_cache.get(_agent_key(vb)),
             "bet_tip": _bet_tip(vb, agent_eval),
             "bet_tip_v1": _bet_tip_v1(vb, agent_eval),
             "combined": _combine_recommendation(vb, agent_eval),

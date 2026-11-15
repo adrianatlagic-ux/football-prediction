@@ -4,6 +4,7 @@
       README.md            what each file holds
       tips/<wettbewerb>.jsonl     one line per match: the three tips and the rest
       combos/<wettbewerb>.jsonl   one line per combo ticket
+      memory/<wettbewerb>.jsonl   the AI's reviewed past tips (src/match_memory.py)
       system/alerts.jsonl         price-source failures
       system/book_refresh.jsonl   every bet-at-home read
       archive/                    the original single-file logs, unchanged
@@ -107,7 +108,7 @@ def _replace(path: Path, entries: list[dict]) -> None:
 # priced bets. Anything else follows.
 COLUMNS = ("home_team", "away_team", "commence_time", "competition", "result", "logged_at",
            "bet_tip", "model_favorite", "likely_pick", "combined",
-           "agent_eval", "ai_review_history", "bets")
+           "agent_eval", "agent_eval_shadow", "ai_review_history", "bets")
 
 # Logged until 14 November, not wanted any more (scripts/migrate_logs.py removes them from old lines).
 DROPPED = ("green_bets", "red_bets", "recommendation", "recommendation_warning", "safest_pick",
