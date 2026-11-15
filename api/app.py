@@ -422,6 +422,14 @@ def server_log(name: str):
     return PlainTextResponse(log_store.as_text(kinds[name]))
 
 
+@app.get("/ai-tip-result")
+def ai_tip_result(home_team: str, away_team: str, date: str):
+    """How the AI tip of a finished match turned out: the tip, every priced bet
+    graded, and the AI's own review from its memory (src/tip_result.py)."""
+    from src.tip_result import tip_result
+    return tip_result(home_team, away_team, date)
+
+
 @app.get("/ai-tip-review")
 def ai_tip_review():
     """Read the daily evaluation; never triggers research or odds requests."""

@@ -3605,3 +3605,28 @@ body {
   .legend-row { font-size: 0.98rem; }
   .legend-value { font-size: 1.02rem; }
 }
+
+/* Finished match: the outcome that happened, marked in the analysis colours. */
+.legend-row.is-correct .legend-name { color: #fff; font-weight: 800; }
+.legend-check { color: #4ade80; font-weight: 800; }
+
+/* Finished match: the Wett-Tipp box of the analysis, gold when the tip came
+   in, dark grey when not. */
+.ai-tip-result { margin-top: 1rem; }
+.ai-tip-result-head { margin-bottom: 0; }
+.ai-tip-result-head.is-miss .bet-tip-label,
+.ai-tip-result-head.is-miss .bet-tip-pick,
+.ai-tip-result-head.is-miss .likely-tip-odds { color: #9ca3af; }
+.ai-tip-result-head.is-miss .likely-tip-chance { color: #9ca3af; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.14); }
+.ai-tip-result-head.is-miss .smart-bet-agree-chip { color: #9ca3af; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.14); }
+/* Bets that came in are green, the rest fade; the AI tip is only marked with ✨. */
+.ai-tip-result-table .smart-bet-table-row.is-won { color: #4ade80; }
+.ai-tip-result-table .smart-bet-table-row.is-won .smart-bet-col-pick { font-weight: 700; }
+.ai-tip-result-table .smart-bet-table-row.is-won .smart-bet-col-chance { color: #4ade80; font-weight: 800; }
+.ai-tip-result-table .smart-bet-table-row.is-lost { opacity: 0.45; }
+.ai-tip-result-table .smart-bet-table-row.is-push { opacity: 0.7; }
+.smart-bet-card.ai-tip-result.is-grey { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.12); }
+.ai-tip-result-head .smart-bet-agree-chip.yes { color: var(--gold-light); background: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.5); }
+.ai-tip-result-head.is-miss .smart-bet-agree-chip { opacity: 1; filter: none; border: 1px solid rgba(255,255,255,0.14); }
+.ai-compare-cta { display: flex; justify-content: center; }
+.ai-compare-cta .fixture-generate-btn { align-self: center; margin-top: 0; padding: 0.8rem 1.8rem; font-size: 0.85rem; font-weight: 800; }
