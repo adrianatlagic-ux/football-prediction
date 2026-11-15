@@ -2,7 +2,7 @@
 
     python3 scripts/pull_server_logs.py --api https://football-prediction.fly.dev
 
-The server logs every match itself, on time (src/scheduler.py); its disk is
+The server logs every match itself and reviews finished ones for the AI's memory, on time (src/scheduler.py); its disk is
 lost on a redeploy, so GitHub fetches the logs whenever it runs and commits
 them. Merging keeps every entry either side has: a match or ticket already
 in the repository stays as it is, .
@@ -42,6 +42,8 @@ def merge_bets(repo, server):
             old.update(e)
         if old is not None and e.get("result") and not old.get("result"):
             old["result"] = e["result"]
+        if old is not None and e.get("agent_eval_shadow") and not old.get("agent_eval_shadow"):
+            old["agent_eval_shadow"] = e["agent_eval_shadow"]
         if old is not None:
             from src.ai_tip_review import merge_history
             merge_history(old, previous_history + e.get("ai_review_history", []))
@@ -63,7 +65,12 @@ def main():
     have = {ident(e) for e in repo_combos}
     new = [e for e in fetch(args.api, "combos") if ident(e) not in have]
     log_store.append_combos(new)
-    print(f"{added} Wett-Eintraege, {len(new)} Kombis vom Server uebernommen.")
+    # The AI's memory: the server reviews finished matches itself (src/match_memory.py).
+    from src import match_memory
+    known = {c["id"] for c in match_memory.load_cases()}
+    cases = [c for c in fetch(args.api, "memory") if c.get("id") not in known]
+    match_memory.append_cases(cases)
+    print(f"{added} Wett-Eintraege, {len(new)} Kombis, {len(cases)} Gedaechtnis-Faelle vom Server uebernommen.")
 
 
 if __name__ == "__main__":

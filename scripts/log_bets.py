@@ -86,6 +86,14 @@ def _competition(sport_key):
 
 
 def _build_entry(m, now):
+    entry = _entry_fields(m, now)
+    if entry["agent_eval_shadow"] is None:
+        # Absent rather than null, so merging an entry never wipes a logged shadow tip.
+        del entry["agent_eval_shadow"]
+    return entry
+
+
+def _entry_fields(m, now):
     return {
         "logged_at": now,
         "home_team": m["home_team"],
@@ -98,6 +106,8 @@ def _build_entry(m, now):
         # Keep every priced candidate: fallback audits need rejected lines too.
         "bets": m.get("bets", []),
         "agent_eval": m.get("agent_eval"),
+        # The shadow agent with memory (src/match_memory.py): logged, never shown.
+        "agent_eval_shadow": m.get("agent_eval_shadow"),
         "model_favorite": m.get("model_favorite"),
         "likely_pick": m.get("likely_pick"),
         "bet_tip": m.get("bet_tip"),
@@ -119,6 +129,13 @@ def _build_entry(m, now):
 # logging then captures the fully-settled pick including the movement ranking,
 # not a still-in-progress one.
 FIRST_LOG_WINDOW_HOURS = 0.5
+
+
+def _before_kickoff(entry, now_dt):
+    try:
+        return now_dt < datetime.fromisoformat(str(entry.get("commence_time")).replace("Z", "+00:00"))
+    except ValueError:
+        return False
 
 
 def has_bets(entry):
@@ -157,6 +174,13 @@ def apply(matches, entries, now_dt):
             updated += 1
         elif not _has_movement(old) and _has_movement(new_entry):
             old.update(new_entry)
+            updated += 1
+        if (old is not None and old is not new_entry and not old.get("agent_eval_shadow")
+                and new_entry.get("agent_eval_shadow")
+                and _before_kickoff(new_entry, now_dt)):
+            # The shadow tip can land after the first log line; it is added
+            # while the match has not started, never later.
+            old["agent_eval_shadow"] = new_entry["agent_eval_shadow"]
             updated += 1
     # Keep changed AI decisions without replacing earlier pre-match evidence.
     from src.ai_tip_review import capture, merge_history
