@@ -1767,6 +1767,8 @@ _VERDICT_V10 = (
     "are attractive\", \"value\", or odds having moved are not reasons. Use the odds only as a check - do not "
     "back an outcome whose odds imply a higher chance than you give it. A handicap or higher goal line is "
     "only right when you expect a clear margin or many goals, not because it pays more. ")
+_MEMORY_SHAPE = (', "memory_used": [{"case": "<case id from YOUR MEMORY>", "how": "<one short sentence>"}] '
+                 '(the cases that influenced your verdict; empty list if none)')
 _CANDIDATES_SHAPE = ('"candidates": [{"market": "<market string above>", "outcome": "<matching outcome string>", '
                      '"probability": <your own 0-100>, "reason": "<one short German sentence>"}], ')
 
@@ -1862,6 +1864,7 @@ Do not change your pick merely to seem thorough."""
 
     verdict = _VERDICT_V10 if prompt_version == "v10" else _VERDICT_V9
     candidates_shape = _CANDIDATES_SHAPE if prompt_version == "v10" else ""
+    memory_shape = _MEMORY_SHAPE if memory_block else ""
     competition = _AGENT_COMPETITION_NAMES.get(value_bets.get("sport_key"), "football")
     prompt = f"""You are researching an upcoming {competition} match: {home_team} vs {away_team}.
 Kickoff: {research_input['commence_time']}. Quote snapshot: {research_input['odds_fetched_at']}.
@@ -1873,7 +1876,7 @@ knows nothing about current line-ups, injuries, motivation or tactics.
 The bets available to pick from (all supported quoted markets; any retained older prices are marked; \
 each shows our model's probability and the bookmakers' implied probability where both exist):
 {cand_lines}
-{previous_block}
+{previous_block}{memory_block}
 
 STEP 1 - RESEARCH (use Google Search). Our model only sees past results, so dig up CURRENT \
 context across as many of these angles as you can actually find information on - don't limit yourself \
@@ -1909,9 +1912,8 @@ string>", "other": "<one short sentence on anything else notable, or empty strin
 string, or null>", "bet_headline": "<2-5 words naming the pick in plain language, e.g. 'Über 2,5 \
 Tore' or 'Sieg Kroatien' - or 'Keine gute Wette' if pick is null>", "bet_reasoning": "<two to two \
 and a half sentences with your verdict>", "alternative_reasoning": "<short comparison only if it materially explains the verdict; otherwise empty string>", \
-"change_reason": "<only when the re-check changes the pick: always try to give one short sentence, max 16 words, naming the concrete input or reconsideration that caused the change; never invent a reason; otherwise empty string>"}}"""
+"change_reason": "<only when the re-check changes the pick: always try to give one short sentence, max 16 words, naming the concrete input or reconsideration that caused the change; never invent a reason; otherwise empty string>"{memory_shape}}}"""
 
-    prompt += memory_block
     try:
         kind = "agent_shadow" if memory_block else ("agent_recheck" if previous_eval else "agent_pick")
         from google import genai

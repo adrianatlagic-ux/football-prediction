@@ -36,7 +36,7 @@ def test_each_team_gets_its_own_earlier_cases():
     assert [c["away_team"] for c in alpha] == ["Bravo", "Alpha"]          # not the later match, not Delta-Echo
     block, ids = match_memory.prompt_block("Alpha", "Foxtrot", "2026-11-14T19:45:00Z", cases)
     assert len(ids) == 2 and "Foxtrot (oldest first):\n(no earlier tips)" in block
-    assert "Alpha stärker -> yes: 2:1" in block and '"memory_used"' in block
+    assert "Alpha stärker -> yes: 2:1" in block and "list it in memory_used" in block
 
 
 def test_no_block_when_neither_team_has_a_case():
@@ -106,7 +106,8 @@ def test_the_shadow_prompt_carries_the_memory(monkeypatch):
     monkeypatch.setattr(genai, "Client", lambda api_key: SimpleNamespace(models=Models()))
     result = api._call_gemini_agent_pick(PREDICTION, VB, "Alpha", "Bravo", memory_block="\n\nYOUR MEMORY x",
                                          memory_cases=["c1"])
-    assert prompts[0].endswith("YOUR MEMORY x")
+    assert prompts[0].index("YOUR MEMORY x") < prompts[0].index("STEP 1 - RESEARCH")    # read before researching
+    assert '"memory_used": [' in prompts[0]
     assert result["memory_cases"] == ["c1"] and result["memory_used"][0]["case"] == "c1"
     plain = api._call_gemini_agent_pick(PREDICTION, VB, "Alpha", "Bravo")
     assert "memory_cases" not in plain and "YOUR MEMORY" not in prompts[1]
@@ -171,7 +172,8 @@ def test_the_shadows_candidates_are_graded_into_the_case_and_shown_later():
         ("Alpha", "win", True), ("Over", "loss", False), ("Yes", None, False)]
     case = _case(entry, candidates=graded)
     block, _ = match_memory.prompt_block("Alpha", "Charlie", "2026-11-20", [case])
-    assert "1X2 Alpha (70%, your pick) -> win" in block and "Over/Under 2.5 Over (60%) -> loss" in block
+    assert "1X2 Alpha (your estimate 70%) -> win" in block and "Over/Under 2.5 Over (your estimate 60%) -> loss" in block
+    assert "your pick" not in block and "BTTS" not in block      # the shadow's pick is not "the tip"; unpriced bets stay out
 
 
 def test_the_shadow_runs_prompt_v10_while_the_real_tip_stays_v9(monkeypatch):
@@ -193,6 +195,7 @@ def test_the_shadow_runs_prompt_v10_while_the_real_tip_stays_v9(monkeypatch):
     shadow = api._call_gemini_agent_pick(PREDICTION, VB, "Alpha", "Bravo", memory_block="\n\nYOUR MEMORY",
                                          memory_cases=[], prompt_version="v10")
     assert "how many goals are realistic" in prompts[0] and '"candidates"' not in prompts[0]
+    assert "memory_used" not in prompts[0]
     assert "most predictable" in prompts[1] and '"candidates"' in prompts[1]
     assert real["research_version"] == "football_research_model_v9" and "candidates_considered" not in real
     assert shadow["research_version"] == "football_research_model_v10" and shadow["pick_probability"] == 72

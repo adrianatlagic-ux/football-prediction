@@ -322,20 +322,23 @@ def _brief(c: dict) -> dict:
                                        for x in c.get("arguments", [])],
             "luck_or_reasoning": f"{c.get('luck_or_reasoning')}: {c.get('luck_explanation')}",
             "what_decided": c.get("what_decided", ""),
-            **({"candidates_you_weighed": [
-                f"{x['market']} {x['outcome']} ({x['probability']}%{', your pick' if x.get('picked') else ''}) -> {x['result']}"
-                for x in c["candidates"]]} if c.get("candidates") else {})}
+            # From the shadow assessment of that match; its pick can differ from
+            # the tip above, so no bet is marked as "the pick" here.
+            **({"bets_you_also_rated": [
+                f"{x['market']} {x['outcome']} (your estimate {x['probability']}%) -> {x['result']}"
+                for x in c["candidates"] if x.get("result")]} if c.get("candidates") else {})}
 
 
 MEMORY_BLOCK = """
 
 YOUR MEMORY - your own earlier tips in matches of THESE two teams, each checked after the match: how it
-went, which of your arguments came true and why, luck or reading, what decided the bet. Read them before
-you research: where you misread a team before, check that point now (e.g. whether the player who made
-the difference is available, whether the team plays the same way). One match is not a rule.
+went, which of your arguments came true and why, luck or reading, what decided the bet. Where a case
+lists "bets_you_also_rated", those are other bets of that match with the probability you gave them and
+whether they came in. Read the cases before you research (STEP 1): where you misread a team before,
+check that point now (e.g. whether the player who made the difference is available, whether the team
+plays the same way). One match is not a rule.
 If a past case actually influenced your verdict, mention it briefly and concretely in bet_reasoning
-(opponent, score, what happened); if none did, do not mention the memory.
-Add to the JSON a field "memory_used": [{{"case": "<case id>", "how": "<one short sentence>"}}] (empty list if none).
+(opponent, score, what happened) and list it in memory_used; if none did, do not mention the memory.
 
 {home} (oldest first):
 {home_cases}
