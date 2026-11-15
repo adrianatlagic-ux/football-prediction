@@ -11,8 +11,13 @@ teams it tips, each team separately, BEFORE it researches. Its tip is only
 logged next to the real one (agent_eval_shadow), never shown, so the two can
 be compared on the same matches.
 
-    data/logs/memory/<wettbewerb>.jsonl   one line per case, same layout as
-                                          the tip logs (src/log_store.py)
+    data/memory/<wettbewerb>.jsonl   one line per case, one file per
+                                     competition like the tip logs
+
+data/memory ships in the image (unlike data/logs, see .dockerignore): start.sh
+copies files the Fly volume does not have yet, so the first deploy seeds the
+server; from then on the server's own file wins and GitHub copies it back
+(scripts/pull_server_logs.py).
 
 The server adds the cases of yesterday's matches in its daily job
 (src/jobs.run_daily); scripts/build_match_memory.py fills it for old matches.
@@ -32,7 +37,7 @@ from typing import Callable, Optional
 from src import log_store
 
 ROOT = Path(__file__).resolve().parents[1]
-KIND = "memory"
+MEMORY = ROOT / "data" / "memory"
 MODEL = "gemini-3.8-flash"
 ESPN = "https://site.api.espn.com/apis/site/v2/sports/soccer/{league}"
 ESPN_LEAGUES = {
@@ -56,16 +61,28 @@ CASES_PER_TEAM = 6
 DAILY_LIMIT = 40
 
 
-def load_cases(logs: Path | None = None) -> list[dict]:
-    return log_store.load(KIND, logs)
+def load_cases(folder: Path | None = None) -> list[dict]:
+    out = []
+    for path in sorted((folder or MEMORY).glob("*.jsonl")):
+        for line in path.read_text(encoding="utf-8").splitlines():
+            try:
+                out.append(json.loads(line))
+            except ValueError:
+                continue
+    return out
 
 
-def append_cases(cases: list[dict], logs: Path | None = None) -> None:
+def as_text(folder: Path | None = None) -> str:
+    """Every case, one JSON per line, for the /logs/memory endpoint."""
+    return "".join(p.read_text(encoding="utf-8") for p in sorted((folder or MEMORY).glob("*.jsonl")))
+
+
+def append_cases(cases: list[dict], folder: Path | None = None) -> None:
     groups: dict[str, list[dict]] = {}
     for c in cases:
         groups.setdefault(log_store.slug(c), []).append(c)
     for name, group in groups.items():
-        path = (logs or log_store.LOGS) / KIND / f"{name}.jsonl"
+        path = (folder or MEMORY) / f"{name}.jsonl"
         path.parent.mkdir(parents=True, exist_ok=True)
         with path.open("a", encoding="utf-8") as f:
             for c in group:
@@ -242,11 +259,11 @@ def due(entries: list[dict], cases: list[dict]) -> list[dict]:
             and case_id(e) not in have]
 
 
-def update(entries: Optional[list[dict]] = None, limit: int = DAILY_LIMIT, logs: Path | None = None,
+def update(entries: Optional[list[dict]] = None, limit: int = DAILY_LIMIT, folder: Path | None = None,
            review_one: Callable[[dict], Optional[dict]] = review, workers: int = 4) -> dict:
     """Review finished matches that have no case yet, newest first, and store the cases."""
-    entries = log_store.load_tips(logs) if entries is None else entries
-    todo = sorted(due(entries, load_cases(logs)), key=lambda e: str(e.get("commence_time")), reverse=True)[:limit]
+    entries = log_store.load_tips() if entries is None else entries
+    todo = sorted(due(entries, load_cases(folder)), key=lambda e: str(e.get("commence_time")), reverse=True)[:limit]
     failed = []
 
     def safe(e):
@@ -262,7 +279,7 @@ def update(entries: Optional[list[dict]] = None, limit: int = DAILY_LIMIT, logs:
         # mid-run keeps every review already paid for.
         for case in pool.map(safe, todo):
             if case:
-                append_cases([case], logs)
+                append_cases([case], folder)
                 added += 1
     return {"due": len(todo), "added": added, "failed": len(todo) - added, "errors": failed[:5]}
 

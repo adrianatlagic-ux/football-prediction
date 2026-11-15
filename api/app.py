@@ -416,6 +416,9 @@ def server_log(name: str):
              "memory": "memory"}
     if name not in kinds:
         raise HTTPException(status_code=404, detail="Unknown log")
+    if kinds[name] == "memory":
+        from src import match_memory
+        return PlainTextResponse(match_memory.as_text())
     return PlainTextResponse(log_store.as_text(kinds[name]))
 
 

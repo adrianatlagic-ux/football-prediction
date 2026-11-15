@@ -4,7 +4,6 @@
       README.md            what each file holds
       tips/<wettbewerb>.jsonl     one line per match: the three tips and the rest
       combos/<wettbewerb>.jsonl   one line per combo ticket
-      memory/<wettbewerb>.jsonl   the AI's reviewed past tips (src/match_memory.py)
       system/alerts.jsonl         price-source failures
       system/book_refresh.jsonl   every bet-at-home read
       archive/                    the original single-file logs, unchanged

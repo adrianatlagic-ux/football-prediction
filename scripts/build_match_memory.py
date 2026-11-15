@@ -3,7 +3,7 @@
     GEMINI_API_KEY=... python3 scripts/build_match_memory.py              # all competitions
     GEMINI_API_KEY=... python3 scripts/build_match_memory.py --limit 20
 
-Each finished tip with an AI pick gets one case in data/logs/memory/
+Each finished tip with an AI pick gets one case in data/memory/
 (src/match_memory.py): ESPN facts plus a Gemini review with Google Search,
 about 2 cents and 2 searches per match. Matches that already have a case are
 skipped, so the script can be run again. The server does the same every day
