@@ -7,7 +7,12 @@ from datetime import datetime, timezone
 # odds movements no longer fed to the re-check as news. The value framing of
 # v6-v8 led to price-argued picks (37% hit, mostly handicaps), while picks
 # where our model rated the outcome above the market returned +26% ROI.
-VERSION = "football_research_model_v9"
+# v10: v9 asked "how many goals are realistic" and to "evaluate alternatives"
+# only in its head; it then picked Over 2.5 in 7 of 13 matches with the
+# alternatives always left empty. v10 asks what is most predictable in the
+# match and makes it write down 2-3 candidates from different markets with
+# its own probability for each - logged, so its calibration can be checked.
+VERSION = "football_research_model_v10"
 
 
 def _number(value):

@@ -1,4 +1,4 @@
-"""The agent prompt (v9): model context in, value framing and price moves out."""
+"""The agent prompt (v9/v10): model context in, value framing and price moves out, candidates logged."""
 import json
 from types import SimpleNamespace
 
@@ -45,15 +45,39 @@ def test_the_prompt_shows_the_model_and_asks_for_football_reasons(monkeypatch):
     assert "value-betting" not in prompt
     assert "bet_points" not in prompt and "bet_points" not in result
     assert result["research_input"]["model_context"]["home_xg"] == 1.9
-    assert result["research_version"] == "football_research_model_v9"
+    assert result["research_version"] == "football_research_model_v10"
 
 
 def test_the_re_check_hears_about_new_markets_but_not_price_moves(monkeypatch):
     from src.ai_tip_research import input_snapshot
     earlier = dict(VB, bets=[dict(b, best_odds=b["best_odds"] + .1) for b in VB["bets"]
                              if b["market"] != "Handicap -1.5"])
-    previous = {"bet_headline": "Sieg Alpha", "pick": VB["bets"][0], "research_version": "football_research_model_v9",
+    previous = {"bet_headline": "Sieg Alpha", "pick": VB["bets"][0], "research_version": "football_research_model_v10",
                 "bet_reasoning": "x", "research_input": input_snapshot(earlier, earlier["bets"])}
     prompt, _ = _run(monkeypatch, previous)
     assert "Handicap -1.5 / Alpha @2.3" in prompt      # newly available market
     assert "1.6 -> 1.5" not in prompt and "changed" not in prompt
+
+
+def test_v10_logs_the_candidates_it_weighed_with_its_own_probability(monkeypatch):
+    from api import app as api
+    import google.genai as genai
+
+    answer = {**ANSWER, "candidates": [
+        {"market": "1X2", "outcome": "Alpha", "probability": 72, "reason": "stärker"},
+        {"market": "Over/Under 2.5", "outcome": "Over", "probability": "viel", "reason": "Tore"},
+        "kaputt"]}
+    prompts = []
+
+    class Models:
+        def generate_content(self, model, contents, config):
+            prompts.append(contents)
+            return SimpleNamespace(text=json.dumps(answer), candidates=[], usage_metadata=None)
+
+    monkeypatch.setattr(api, "GEMINI_API_KEY", "test")
+    monkeypatch.setattr(genai, "Client", lambda api_key: SimpleNamespace(models=Models()))
+    result = api._call_gemini_agent_pick(PREDICTION, VB, "Alpha", "Bravo")
+    assert "most predictable" in prompts[0] and "how many goals are realistic" not in prompts[0]
+    assert '"candidates"' in prompts[0]
+    assert [c["probability"] for c in result["candidates_considered"]] == [72, None]
+    assert result["pick_probability"] == 72
