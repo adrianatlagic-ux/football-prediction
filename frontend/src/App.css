@@ -3625,5 +3625,6 @@ body {
 .ai-tip-result-table .smart-bet-table-row.is-won .smart-bet-col-chance { color: #4ade80; font-weight: 800; }
 .ai-tip-result-table .smart-bet-table-row.is-lost { opacity: 0.45; }
 .ai-tip-result-table .smart-bet-table-row.is-push { opacity: 0.7; }
-.ai-tip-result-review { margin-top: 0.9rem; padding: 0.85rem 1rem; }
-.ai-tip-result-luck { margin-top: 0.45rem; }
+.smart-bet-card.ai-tip-result.is-grey { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.12); }
+.ai-tip-result-head .smart-bet-agree-chip.yes { color: var(--gold-light); background: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.5); }
+.ai-tip-result-head.is-miss .smart-bet-agree-chip { opacity: 1; filter: none; border: 1px solid rgba(255,255,255,0.14); }

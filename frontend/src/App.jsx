@@ -1993,15 +1993,10 @@ function RealStats({ stats, homeTeam, awayTeam }) {
 
 function AiComparisonPanel({ fixture, result, aiData }) {
   const sp = aiData.score_prediction || {}
-  const bm = sp.betting_markets || {}
-  const ou = bm.over_under || []
-  const btts = bm.btts || {}
   const topScores = (sp.top_scorelines || []).slice(0, 3)
 
   const actualHome = result.home_score
   const actualAway = result.away_score
-  const actualBtts = actualHome > 0 && actualAway > 0
-  const actualTotal = actualHome + actualAway
   const actualWinner = actualHome > actualAway ? 'H' : actualAway > actualHome ? 'A' : 'D'
 
   const homeCorrect = actualWinner === 'H'
@@ -2013,7 +2008,6 @@ function AiComparisonPanel({ fixture, result, aiData }) {
 
   return (
     <div className="ai-prediction-inner">
-      <p className="wm-subtle" style={{ marginBottom: '0.9rem', fontSize: '0.75rem' }}>{tr('KI-Prognose vor dem Spiel', 'AI prediction before the match')}</p>
 
       {/* Winner probabilities */}
       <div className="probabilities-donut">
@@ -2060,32 +2054,6 @@ function AiComparisonPanel({ fixture, result, aiData }) {
             })}
           </div>
 
-          {/* BTTS + Over/Under */}
-          {(btts.yes != null || ou.length > 0) && (
-            <div className="stat-card">
-              <h4>{tr('Märkte', 'Markets')}</h4>
-              {btts.yes != null && (() => {
-                const hit = actualBtts === (btts.yes >= 0.5)
-                return (
-                  <div className="stat-row" style={hit ? { color: '#4ade80' } : {}}>
-                    <span className="stat-label" style={hit ? { color: '#4ade80', fontWeight: 700 } : {}}>{tr('Beide treffen', 'Both score')}: {actualBtts ? tr('Ja', 'Yes') : tr('Nein', 'No')}{hit ? ' ✓' : ''}</span>
-                    <span className="stat-val" style={hit ? { color: '#4ade80' } : {}}>{((actualBtts ? btts.yes : btts.no) * 100).toFixed(0)}%</span>
-                  </div>
-                )
-              })()}
-              {ou.filter(o => [1.5, 2.5, 3.5].includes(parseFloat(o.line))).map(o => {
-                const line = parseFloat(o.line)
-                const over = actualTotal > line
-                const hit = over === (o.over >= 0.5)
-                return (
-                  <div className="stat-row" key={o.line} style={hit ? { color: '#4ade80' } : {}}>
-                    <span className="stat-label" style={hit ? { color: '#4ade80', fontWeight: 700 } : {}}>{over ? tr('Über', 'Over') : tr('Unter', 'Under')} {deNum(o.line)} {tr('Tore', 'goals')}{hit ? ' ✓' : ''}</span>
-                    <span className="stat-val" style={hit ? { color: '#4ade80' } : {}}>{((over ? o.over : 1 - o.over) * 100).toFixed(0)}%</span>
-                  </div>
-                )
-              })}
-            </div>
-          )}
         </div>
       )}
 
@@ -2094,10 +2062,9 @@ function AiComparisonPanel({ fixture, result, aiData }) {
   )
 }
 
-// How the AI tip of a finished match turned out (GET /ai-tip-result): the tip
-// glows when it came in and is greyed out when not; below, every priced bet
-// with whether it came in, and the AI's own review of the match from its
-// memory (src/match_memory.py), written the morning after.
+// How the AI tip of a finished match turned out (GET /ai-tip-result): the
+// Wett-Tipp box, gold when it came in and dark grey when not, and below it
+// every priced bet with whether it came in.
 const RESULT_ROWS = 6
 
 function AiTipResult({ fixture }) {
@@ -2120,15 +2087,12 @@ function AiTipResult({ fixture }) {
     const own = data.bets.find(isTip)
     if (own) rows.push(own)
   }
-  const review = data.review
-  const luck = { luck: tr('Eher Glück', 'Mostly luck'), reasoning: tr('Eher Einschätzung', 'Mostly reading'),
-                 mixed: tr('Glück und Einschätzung', 'Luck and reading') }[review?.luck_or_reasoning]
 
-  const model = tip.model_probability
+  const push = tip.result === 'push'
   return (
-    // The Smart Bet card of the analysis (green), its Wett-Tipp box gold when
+    // The Smart Bet card of the analysis in grey, its Wett-Tipp box gold when
     // the tip came in and dark grey when not.
-    <div className="smart-bet-card ai-tip-result">
+    <div className="smart-bet-card ai-tip-result is-grey">
       <div className={`bet-tip ai-tip-result-head ${hit ? '' : 'is-empty is-miss'}`}>
         <span className="smart-bet-label bet-tip-label">{tr('Wett-Tipp', 'Bet tip')}</span>
         <div className="likely-tip-row">
@@ -2137,8 +2101,11 @@ function AiTipResult({ fixture }) {
           {tip.market_probability != null && <span className="likely-tip-chance">{pct(tip.market_probability)} {tr('Chance', 'chance')}</span>}
         </div>
         <div className="smart-bet-agree-row">
-          {model != null && <span className={`smart-bet-agree-chip ${tip.model_agrees === false ? 'muted' : 'yes'}`}>◆ {tip.model_agrees === false ? tr('Modell weicht ab', 'Model disagrees') : tr('Modell stimmt zu', 'Model agrees')} {pct(model)}{tip.model_agrees === false ? ' ✕' : ' ✓'}</span>}
-          <span className="smart-bet-agree-chip yes">✨ {tr('KI-Tipp', 'AI pick')}</span>
+          <span className={`smart-bet-agree-chip ${hit ? 'yes' : 'muted'}`}>
+            {hit ? tr('Wett-Tipp eingetroffen ✓', 'Bet tip won ✓')
+              : push ? tr('Einsatz zurück', 'Stake returned')
+              : tr('Wett-Tipp nicht eingetroffen ✕', 'Bet tip lost ✕')}
+          </span>
         </div>
       </div>
 
@@ -2166,21 +2133,6 @@ function AiTipResult({ fixture }) {
         </div>
       )}
 
-      <div className="smart-bet-agent ai-tip-result-review">
-        <div className="smart-bet-agent-headtitle">
-          <span className="smart-bet-agent-headline">✨ {hit ? tr('Warum der Tipp gekommen ist', 'Why the tip came in') : tr('Warum der Tipp nicht gekommen ist', 'Why the tip did not come in')}</span>
-        </div>
-        {review ? (
-          <>
-            <p className="smart-bet-agent-text">{review.what_decided}</p>
-            {luck && review.luck_explanation && (
-              <p className="smart-bet-agent-text ai-tip-result-luck"><strong>{luck}:</strong> {review.luck_explanation}</p>
-            )}
-          </>
-        ) : (
-          <p className="smart-bet-agent-text">{tr('Die KI-Nachanalyse folgt am Morgen nach dem Spiel.', "The AI's review follows the morning after the match.")}</p>
-        )}
-      </div>
     </div>
   )
 }
@@ -2230,7 +2182,7 @@ function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive, i
 
       {aiData && (
         <div className="ai-prediction-section">
-          <button className="ai-toggle-btn" onClick={() => setShowAI(v => !v)}>
+          <button className="fixture-generate-btn" onClick={() => setShowAI(v => !v)}>
             {showAI ? tr('▲ KI-Prognose ausblenden', '▲ Hide the AI prediction') : tr('▼ Mit der KI-Prognose vergleichen', '▼ Compare with the AI prediction')}
           </button>
           {showAI && <AiComparisonPanel fixture={fixture} result={result} aiData={aiData} />}

@@ -80,9 +80,6 @@ def tip_result(home: str, away: str, day: str, entries: Optional[list[dict]] = N
             "market": pick["market"], "outcome": pick.get("outcome"), "team": names.get(pick.get("team"), pick.get("team")),
             "best_odds": pick.get("best_odds"), "market_probability": pick.get("market_probability"),
             "headline": a.get("bet_headline") or "", "reasoning": a.get("bet_reasoning") or "",
-            # The model chip of the Wett-Tipp box, as it stood before kickoff.
-            "model_probability": pick.get("model_probability_raw", pick.get("probability")),
-            "model_agrees": (entry.get("bet_tip") or {}).get("model_agrees"),
             "result": match_memory._grade(pick, entry),
         },
         "bets": _graded_bets(entry, names),
