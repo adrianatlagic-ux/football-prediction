@@ -1911,15 +1911,15 @@ function tickerMinute(minute) {
 
 // The real match, told the way the old predicted ticker told it: kickoff,
 // every goal with the running score, cards, half-time and full-time.
-function RealTicker({ events, homeTeam, awayTeam, homeScore, awayScore }) {
+function RealTicker({ events, homeTeam, awayTeam }) {
   if (!events || events.length === 0) return null
   let home = 0, away = 0
   const score = () => `${home}:${away}`
   const home_ = teamName(homeTeam), away_ = teamName(awayTeam)
   const halftime = () => ({ key: 'ht', minute: tr('HZ', 'HT'), type: 'halftime', head: `⏸️ ${tr('Halbzeit', 'Half time')}`,
                             text: tr(`${home_} ${score()} ${away_} zur Pause.`, `${home_} ${score()} ${away_} at the break.`), score: score() })
-  const rows = [{ key: 'ko', minute: "1'", type: 'kickoff', head: `🟢 ${tr('Anpfiff', 'Kick-off')}`,
-                  text: tr(`${home_} gegen ${away_} läuft.`, `${home_} vs ${away_} is under way.`), score: '0:0' }]
+  // Goals, cards and half time only: no kick-off or full-time rows.
+  const rows = []
   let halftimeShown = false
   events.forEach((e, i) => {
     const t = tickerMinute(e.minute)
@@ -1944,8 +1944,6 @@ function RealTicker({ events, homeTeam, awayTeam, homeScore, awayScore }) {
   if (!halftimeShown) {
     rows.push(halftime())
   }
-  const final = homeScore != null ? `${homeScore}:${awayScore}` : score()
-  rows.push({ key: 'ft', minute: tr('Ende', 'FT'), type: 'fulltime', head: `🏁 ${tr('Abpfiff', 'Full time')}`, text: `${home_} ${final} ${away_}.`, score: final })
 
   return (
     <div className="wm-stories real-ticker">
@@ -2177,15 +2175,21 @@ function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive, i
       </div>
 
       <RealStats stats={result.stats} homeTeam={fixture.home_team} awayTeam={fixture.away_team} />
-      <RealTicker events={result.events} homeTeam={fixture.home_team} awayTeam={fixture.away_team}
-                  homeScore={result.home_score} awayScore={result.away_score} />
+      <RealTicker events={result.events} homeTeam={fixture.home_team} awayTeam={fixture.away_team} />
 
       {aiData && (
         <div className="ai-prediction-section">
-          <button className="fixture-generate-btn" onClick={() => setShowAI(v => !v)}>
-            {showAI ? tr('▲ KI-Prognose ausblenden', '▲ Hide the AI prediction') : tr('▼ Mit der KI-Prognose vergleichen', '▼ Compare with the AI prediction')}
-          </button>
-          {showAI && <AiComparisonPanel fixture={fixture} result={result} aiData={aiData} />}
+          {/* Like the analysis: one centred button that opens the comparison and
+              then goes away; the card collapses from its header. */}
+          {showAI
+            ? <AiComparisonPanel fixture={fixture} result={result} aiData={aiData} />
+            : (
+              <div className="ai-compare-cta">
+                <button className="fixture-generate-btn" onClick={() => setShowAI(true)}>
+                  {tr('Mit der KI-Prognose vergleichen', 'Compare with the AI prediction')}
+                </button>
+              </div>
+            )}
         </div>
       )}
 

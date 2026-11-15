@@ -3628,3 +3628,5 @@ body {
 .smart-bet-card.ai-tip-result.is-grey { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.12); }
 .ai-tip-result-head .smart-bet-agree-chip.yes { color: var(--gold-light); background: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.5); }
 .ai-tip-result-head.is-miss .smart-bet-agree-chip { opacity: 1; filter: none; border: 1px solid rgba(255,255,255,0.14); }
+.ai-compare-cta { display: flex; justify-content: center; }
+.ai-compare-cta .fixture-generate-btn { align-self: center; margin-top: 0; padding: 0.8rem 1.8rem; font-size: 0.85rem; font-weight: 800; }
