@@ -54,10 +54,10 @@ def test_update_reviews_each_finished_tip_once(tmp_path):
         seen.append(e["home_team"])
         return _case(e)
 
-    report = match_memory.update(entries, logs=tmp_path, review_one=fake_review, workers=1)
+    report = match_memory.update(entries, folder=tmp_path, review_one=fake_review, workers=1)
     assert report["added"] == 2 and sorted(seen) == ["Alpha", "Charlie"]
-    assert (tmp_path / "memory" / "nations-league.jsonl").exists()
-    assert match_memory.update(entries, logs=tmp_path, review_one=fake_review)["due"] == 0
+    assert (tmp_path / "nations-league.jsonl").exists()
+    assert match_memory.update(entries, folder=tmp_path, review_one=fake_review)["due"] == 0
 
 
 def test_espn_facts_reads_stats_and_goals():
@@ -145,3 +145,13 @@ def test_grading_compares_the_shadow_with_the_real_tip():
     b = grade_bets.grade_entries(entries, finished)["buckets"]
     assert (b["shadow"].wins, b["shadow_real"].wins) == (2, 2)
     assert (b["shadow_diff"].decided, round(b["shadow_diff"].units, 2)) == (1, 1.0)
+
+
+def test_the_memory_ships_in_the_image_and_reaches_the_volume():
+    """data/logs is kept out of the image; the memory must not be."""
+    root = Path(__file__).resolve().parents[1]
+    ignored = [l.strip() for l in (root / ".dockerignore").read_text().splitlines()]
+    assert match_memory.MEMORY.relative_to(root).as_posix() + "/" not in ignored
+    assert not any(match_memory.MEMORY.relative_to(root).as_posix().startswith(i.rstrip("/") + "/") for i in ignored
+                   if i and not i.startswith("#"))
+    assert "data/memory" in (root / "start.sh").read_text()

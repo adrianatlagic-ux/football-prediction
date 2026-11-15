@@ -21,7 +21,7 @@ danach nur ergänzt (z. B. wenn die KI ihren Tipp ändert). Spalten in dieser Re
 | `likely_pick` | die **wahrscheinlichste Wette** (🎯, Markt, Quote 1,30-2,00) |
 | `combined` | ob Modell und KI dem Tipp zustimmen (`model_agrees`, `agent_agrees`, `agreement_count`), dazu Markt-Favorit und Game Pick |
 | `agent_eval` | die KI-Bewertung: Pick, Begründung, Eingaben |
-| `agent_eval_shadow` | **Schatten-Test, nur geloggt, nie angezeigt:** ein zweiter, unabhängiger KI-Tipp beim Check vor Anpfiff, gleicher Prompt (v9), aber die KI liest vorher ihre früheren Fälle der beiden Teams (`memory/`). `memory_cases` sind die gezeigten Fälle, `memory_used` die, die sie laut eigener Angabe genutzt hat. Nur bei Spielen, zu denen es Fälle gibt; ausgewertet in `scripts/grade_bets.py` |
+| `agent_eval_shadow` | **Schatten-Test, nur geloggt, nie angezeigt:** ein zweiter, unabhängiger KI-Tipp beim Check vor Anpfiff, gleicher Prompt (v9), aber die KI liest vorher ihre früheren Fälle der beiden Teams (`data/memory/`). `memory_cases` sind die gezeigten Fälle, `memory_used` die, die sie laut eigener Angabe genutzt hat. Nur bei Spielen, zu denen es Fälle gibt; ausgewertet in `scripts/grade_bets.py` |
 | `ai_review_history` | jede Änderung des KI-Tipps vor Anpfiff |
 | `bets` | alle bepreisten Wetten des Spiels (Kandidaten) |
 
@@ -32,10 +32,12 @@ Jeder Tipp hat `market`, `outcome`, `team`, `best_odds`, `bookmaker`, `probabili
 `green_bets`/`red_bets`, `recommendation`, `safest_pick`, `bet_tip_v1`, `price_tip`.
 (In `archive/bet_log_full.jsonl` stehen sie weiter.) Ältere Spiele haben kein `bets`.
 
-## memory/<wettbewerb>.jsonl
+## Gedächtnis: data/memory/<wettbewerb>.jsonl (nicht in diesem Ordner)
 
 Das Gedächtnis der KI (`src/match_memory.py`): ein **Fall** pro beendetem, geloggtem Spiel mit KI-Tipp.
 Der Server legt die Fälle jeden Morgen im Tagesjob an, alte Spiele füllt `scripts/build_match_memory.py`.
+Es liegt außerhalb von `data/logs`, weil `data/logs` nicht ins Docker-Image kommt: so bringt der erste
+Deploy die Fälle auf den Server, danach gilt die Datei des Servers und GitHub kopiert sie zurück.
 Keine allgemeinen Lehren, nur was in diesem Spiel passiert ist.
 
 | Spalte | Bedeutung |

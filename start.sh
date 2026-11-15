@@ -1,14 +1,14 @@
 #!/bin/sh
 # Runtime state lives on the Fly volume mounted at /app/state, so a deploy or
 # restart keeps the logs, the job reports, the Apify spend count, the squad
-# cache, the odds and the predictions the server wrote itself. Each path under
+# cache, the odds, the predictions and the AI's memory the server wrote itself. Each path under
 # data/ becomes a link into the volume; files shipped in the image are copied
 # in only where the volume has none yet (new fixtures, new predictions), so
 # what the server wrote always wins. Without a volume (locally) nothing changes.
 set -e
 STATE=/app/state
 if [ -d "$STATE" ]; then
-  for dir in data/logs data/jobs data/squad_cache data/book_odds data/predictions_cache data/fixtures; do
+  for dir in data/logs data/jobs data/squad_cache data/book_odds data/predictions_cache data/fixtures data/memory; do
     mkdir -p "$STATE/$dir"
     if [ -d "/app/$dir" ] && [ ! -L "/app/$dir" ]; then
       (cd "/app/$dir" && find . -type f) | while read -r f; do
