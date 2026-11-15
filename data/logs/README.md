@@ -21,7 +21,7 @@ danach nur ergänzt (z. B. wenn die KI ihren Tipp ändert). Spalten in dieser Re
 | `likely_pick` | die **wahrscheinlichste Wette** (🎯, Markt, Quote 1,30-2,00) |
 | `combined` | ob Modell und KI dem Tipp zustimmen (`model_agrees`, `agent_agrees`, `agreement_count`), dazu Markt-Favorit und Game Pick |
 | `agent_eval` | die KI-Bewertung: Pick, Begründung, Eingaben |
-| `agent_eval_shadow` | **Schatten-Test, nur geloggt, nie angezeigt:** ein zweiter, unabhängiger KI-Tipp beim Check vor Anpfiff, gleicher Prompt (v9), aber die KI liest vorher ihre früheren Fälle der beiden Teams (`data/memory/`). `memory_cases` sind die gezeigten Fälle, `memory_used` die, die sie laut eigener Angabe genutzt hat. Nur bei Spielen, zu denen es Fälle gibt; ausgewertet in `scripts/grade_bets.py` |
+| `agent_eval_shadow` | **Schatten-Test, nur geloggt, nie angezeigt:** ein zweiter, unabhängiger KI-Tipp beim Check vor Anpfiff, Prompt v10 statt v9 (fragt, was im Spiel am sichersten vorhersagbar ist, und lässt die KI 2-3 Kandidaten mit eigener Wahrscheinlichkeit aufschreiben: `candidates_considered`, `pick_probability`), und die KI liest vorher ihre früheren Fälle der beiden Teams (`data/memory/`). `memory_cases` sind die gezeigten Fälle, `memory_used` die, die sie laut eigener Angabe genutzt hat. Nur bei Spielen, zu denen es Fälle gibt; ausgewertet in `scripts/grade_bets.py` |
 | `ai_review_history` | jede Änderung des KI-Tipps vor Anpfiff |
 | `bets` | alle bepreisten Wetten des Spiels (Kandidaten) |
 
@@ -52,6 +52,7 @@ Keine allgemeinen Lehren, nur was in diesem Spiel passiert ist.
 | `luck_or_reasoning`, `luck_explanation` | Glück oder richtige/falsche Einschätzung |
 | `what_decided` | was die Wette entschieden hat |
 | `sources`, `search_queries` | die Google-Quellen der Nachanalyse |
+| `candidates` | die Kandidaten des Schatten-Tipps (v10) mit eigener Wahrscheinlichkeit und ob sie gekommen sind (`result`), `picked` = gewählt |
 
 ## combos/<wettbewerb>.jsonl
 

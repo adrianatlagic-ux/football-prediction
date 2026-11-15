@@ -8,6 +8,9 @@ from datetime import datetime, timezone
 # v6-v8 led to price-argued picks (37% hit, mostly handicaps), while picks
 # where our model rated the outcome above the market returned +26% ROI.
 VERSION = "football_research_model_v9"
+# The shadow agent (logged, never shown) runs v10 with the AI's memory: see
+# api/app.py _VERDICT_V10.
+SHADOW_VERSION = "football_research_model_v10"
 
 
 def _number(value):

@@ -155,3 +155,44 @@ def test_the_memory_ships_in_the_image_and_reaches_the_volume():
     assert not any(match_memory.MEMORY.relative_to(root).as_posix().startswith(i.rstrip("/") + "/") for i in ignored
                    if i and not i.startswith("#"))
     assert "data/memory" in (root / "start.sh").read_text()
+
+
+def test_the_shadows_candidates_are_graded_into_the_case_and_shown_later():
+    entry = _entry("Alpha", "Bravo", "2026-11-16", score=(2, 0))
+    over = {"market": "Over/Under 2.5", "outcome": "Over", "team": None, "best_odds": 1.8}
+    win = {"market": "1X2", "outcome": "home_win", "team": "Alpha", "best_odds": 1.5}
+    entry["bets"] = [over, win]
+    entry["agent_eval_shadow"] = {"pick": win, "candidates_considered": [
+        {"market": "1X2", "outcome": "Alpha", "probability": 70, "reason": "stärker"},
+        {"market": "Over/Under 2.5", "outcome": "Over", "probability": 60, "reason": "Tore"},
+        {"market": "BTTS", "outcome": "Yes", "probability": 50, "reason": "nicht angeboten"}]}
+    graded = match_memory.graded_candidates(entry)
+    assert [(c["outcome"], c["result"], c["picked"]) for c in graded] == [
+        ("Alpha", "win", True), ("Over", "loss", False), ("Yes", None, False)]
+    case = _case(entry, candidates=graded)
+    block, _ = match_memory.prompt_block("Alpha", "Charlie", "2026-11-20", [case])
+    assert "1X2 Alpha (70%, your pick) -> win" in block and "Over/Under 2.5 Over (60%) -> loss" in block
+
+
+def test_the_shadow_runs_prompt_v10_while_the_real_tip_stays_v9(monkeypatch):
+    from api import app as api
+    import google.genai as genai
+    from tests.test_agent_prompt import ANSWER, PREDICTION, VB
+
+    prompts = []
+    answer = {**ANSWER, "candidates": [{"market": "1X2", "outcome": "Alpha", "probability": 72, "reason": "x"}]}
+
+    class Models:
+        def generate_content(self, model, contents, config):
+            prompts.append(contents)
+            return SimpleNamespace(text=json.dumps(answer), candidates=[], usage_metadata=None)
+
+    monkeypatch.setattr(api, "GEMINI_API_KEY", "test")
+    monkeypatch.setattr(genai, "Client", lambda api_key: SimpleNamespace(models=Models()))
+    real = api._call_gemini_agent_pick(PREDICTION, VB, "Alpha", "Bravo")
+    shadow = api._call_gemini_agent_pick(PREDICTION, VB, "Alpha", "Bravo", memory_block="\n\nYOUR MEMORY",
+                                         memory_cases=[], prompt_version="v10")
+    assert "how many goals are realistic" in prompts[0] and '"candidates"' not in prompts[0]
+    assert "most predictable" in prompts[1] and '"candidates"' in prompts[1]
+    assert real["research_version"] == "football_research_model_v9" and "candidates_considered" not in real
+    assert shadow["research_version"] == "football_research_model_v10" and shadow["pick_probability"] == 72
