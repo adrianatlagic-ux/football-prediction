@@ -2088,6 +2088,8 @@ function AiComparisonPanel({ fixture, result, aiData }) {
           )}
         </div>
       )}
+
+      <AiTipResult fixture={fixture} />
     </div>
   )
 }
@@ -2112,8 +2114,6 @@ function AiTipResult({ fixture }) {
   if (!data?.found || !data.tip) return null
   const tip = data.tip
   const hit = tip.result === 'win'
-  const push = tip.result === 'push'
-  const state = hit ? 'is-hit' : push ? 'is-push' : 'is-miss'
   const isTip = b => b.market === tip.market && b.outcome === tip.outcome && (b.team || null) === (tip.team || null)
   const rows = showAll ? data.bets : data.bets.slice(0, RESULT_ROWS)
   if (!showAll && !rows.some(isTip)) {
@@ -2124,23 +2124,22 @@ function AiTipResult({ fixture }) {
   const luck = { luck: tr('Eher Glück', 'Mostly luck'), reasoning: tr('Eher Einschätzung', 'Mostly reading'),
                  mixed: tr('Glück und Einschätzung', 'Luck and reading') }[review?.luck_or_reasoning]
 
+  const model = tip.model_probability
   return (
-    <div className="ai-tip-result">
-      <div className={`bet-tip ai-tip-result-head ${state}`}>
-        <span className="smart-bet-label bet-tip-label">✨ {tr('KI-Tipp', 'AI tip')}</span>
+    // The Smart Bet card of the analysis (green), its Wett-Tipp box gold when
+    // the tip came in and dark grey when not.
+    <div className="smart-bet-card ai-tip-result">
+      <div className={`bet-tip ai-tip-result-head ${hit ? '' : 'is-empty is-miss'}`}>
+        <span className="smart-bet-label bet-tip-label">{tr('Wett-Tipp', 'Bet tip')}</span>
         <div className="likely-tip-row">
           <span className="bet-tip-pick">{betOutcomeLabel(tip)}</span>
           {tip.best_odds && <span className="likely-tip-odds">{tip.best_odds.toFixed(2)}</span>}
+          {tip.market_probability != null && <span className="likely-tip-chance">{pct(tip.market_probability)} {tr('Chance', 'chance')}</span>}
         </div>
-        <span className={`ai-tip-result-badge ${state}`}>
-          {hit ? tr('Gekommen ✓', 'Came in ✓') : push ? tr('Einsatz zurück', 'Stake returned') : tr('Nicht gekommen ✕', 'Did not come in ✕')}
-        </span>
-        {tip.reasoning && (
-          <p className="ai-tip-result-before">
-            <span className="ai-tip-result-before-label">{tr('Vor dem Spiel:', 'Before the match:')}</span>{' '}
-            {renderBoldMarkdown(tip.reasoning, 'smart-bet-highlight-purple')}
-          </p>
-        )}
+        <div className="smart-bet-agree-row">
+          {model != null && <span className={`smart-bet-agree-chip ${tip.model_agrees === false ? 'muted' : 'yes'}`}>◆ {tip.model_agrees === false ? tr('Modell weicht ab', 'Model disagrees') : tr('Modell stimmt zu', 'Model agrees')} {pct(model)}{tip.model_agrees === false ? ' ✕' : ' ✓'}</span>}
+          <span className="smart-bet-agree-chip yes">✨ {tr('KI-Tipp', 'AI pick')}</span>
+        </div>
       </div>
 
       {data.bets.length > 0 && (
@@ -2154,7 +2153,7 @@ function AiTipResult({ fixture }) {
           {rows.map((b, i) => (
             <div key={i} className={`smart-bet-table-row ${b.result === 'win' ? 'is-won' : b.result === 'push' ? 'is-push' : 'is-lost'} ${isTip(b) ? 'is-ai-tip' : ''}`}>
               <span className="smart-bet-col-market">{marketGroupLabel(b.market)}</span>
-              <span className="smart-bet-col-pick">{isTip(b) ? '✨ ' : ''}{betOutcomeLabel(b)}</span>
+              <span className="smart-bet-col-pick">{b.likely ? '🎯 ' : ''}{isTip(b) ? '✨ ' : ''}{betOutcomeLabel(b)}</span>
               <span className="smart-bet-col-odds">{b.best_odds.toFixed(2)}</span>
               <span className="smart-bet-col-chance">{b.result === 'win' ? '✓' : b.result === 'push' ? '↺' : '✕'}</span>
             </div>
@@ -2228,8 +2227,6 @@ function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive, i
       <RealStats stats={result.stats} homeTeam={fixture.home_team} awayTeam={fixture.away_team} />
       <RealTicker events={result.events} homeTeam={fixture.home_team} awayTeam={fixture.away_team}
                   homeScore={result.home_score} awayScore={result.away_score} />
-
-      <AiTipResult fixture={fixture} />
 
       {aiData && (
         <div className="ai-prediction-section">

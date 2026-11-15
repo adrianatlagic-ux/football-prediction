@@ -46,6 +46,9 @@ def _graded_bets(entry: dict, names: dict) -> list[dict]:
         key = (b["market"], b.get("outcome"), b.get("team"))
         if key not in best or b["best_odds"] > best[key]["best_odds"]:
             best[key] = b
+    likely = entry.get("likely_pick") or {}
+    is_likely = lambda b: (b["market"], b.get("outcome"), b.get("team")) == (
+        likely.get("market"), likely.get("outcome"), likely.get("team"))
     out = []
     for b in best.values():
         outcome = match_memory._grade(b, entry)
@@ -53,7 +56,7 @@ def _graded_bets(entry: dict, names: dict) -> list[dict]:
             continue
         out.append({"market": b["market"], "outcome": b.get("outcome"), "team": names.get(b.get("team"), b.get("team")),
                     "best_odds": b["best_odds"], "market_probability": b.get("market_probability"),
-                    "result": outcome})
+                    "likely": is_likely(b), "result": outcome})
     return sorted(out, key=lambda b: -(b.get("market_probability") or 0))
 
 
@@ -77,6 +80,9 @@ def tip_result(home: str, away: str, day: str, entries: Optional[list[dict]] = N
             "market": pick["market"], "outcome": pick.get("outcome"), "team": names.get(pick.get("team"), pick.get("team")),
             "best_odds": pick.get("best_odds"), "market_probability": pick.get("market_probability"),
             "headline": a.get("bet_headline") or "", "reasoning": a.get("bet_reasoning") or "",
+            # The model chip of the Wett-Tipp box, as it stood before kickoff.
+            "model_probability": pick.get("model_probability_raw", pick.get("probability")),
+            "model_agrees": (entry.get("bet_tip") or {}).get("model_agrees"),
             "result": match_memory._grade(pick, entry),
         },
         "bets": _graded_bets(entry, names),

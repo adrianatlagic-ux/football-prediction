@@ -3610,37 +3610,15 @@ body {
 .legend-row.is-correct .legend-name { color: #fff; font-weight: 800; }
 .legend-check { color: #4ade80; font-weight: 800; }
 
-/* Finished match: did the AI tip come in? Glows when it did, greyed when not. */
-.ai-tip-result { margin-top: 1.25rem; }
-.ai-tip-result-head { position: relative; margin-bottom: 0; transition: filter 0.3s, opacity 0.3s; }
-.ai-tip-result-head.is-hit {
-  border-color: rgba(74,222,128,0.85);
-  background: linear-gradient(135deg, rgba(34,197,94,0.22), rgba(212,175,55,0.06)), #0f1510;
-  animation: aiTipGlow 2.4s ease-in-out infinite;
-}
-.ai-tip-result-head.is-hit .likely-tip-odds { color: #86efac; }
-.ai-tip-result-head.is-miss {
-  filter: grayscale(1);
-  opacity: 0.55;
-  box-shadow: none;
-}
-.ai-tip-result-head.is-push { filter: grayscale(0.6); opacity: 0.8; }
-@keyframes aiTipGlow {
-  0%, 100% { box-shadow: 0 0 0 1px rgba(74,222,128,0.15), 0 0 18px -6px rgba(74,222,128,0.55); }
-  50% { box-shadow: 0 0 0 4px rgba(74,222,128,0.18), 0 0 34px -4px rgba(74,222,128,0.85); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .ai-tip-result-head.is-hit { animation: none; box-shadow: 0 0 24px -6px rgba(74,222,128,0.7); }
-}
-.ai-tip-result-badge {
-  display: inline-block; margin-top: 0.5rem; padding: 0.15rem 0.65rem; border-radius: 50px;
-  font-size: 0.75rem; font-weight: 800; letter-spacing: 0.02em;
-}
-.ai-tip-result-badge.is-hit { color: #052e16; background: #4ade80; }
-.ai-tip-result-badge.is-miss { color: #e5e7eb; background: rgba(255,255,255,0.12); }
-.ai-tip-result-badge.is-push { color: #e5e7eb; background: rgba(255,255,255,0.12); }
-.ai-tip-result-before { margin: 0.6rem 0 0; font-size: 0.8rem; line-height: 1.5; color: #d1d5db; text-align: left; }
-.ai-tip-result-before-label { color: var(--text-muted); font-weight: 700; }
+/* Finished match: the Wett-Tipp box of the analysis, gold when the tip came
+   in, dark grey when not. */
+.ai-tip-result { margin-top: 1rem; }
+.ai-tip-result-head { margin-bottom: 0; }
+.ai-tip-result-head.is-miss .bet-tip-label,
+.ai-tip-result-head.is-miss .bet-tip-pick,
+.ai-tip-result-head.is-miss .likely-tip-odds { color: #9ca3af; }
+.ai-tip-result-head.is-miss .likely-tip-chance { color: #9ca3af; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.14); }
+.ai-tip-result-head.is-miss .smart-bet-agree-chip { color: #9ca3af; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.14); }
 .ai-tip-result-table .smart-bet-table-row.is-won { color: #4ade80; }
 .ai-tip-result-table .smart-bet-table-row.is-won .smart-bet-col-chance { color: #4ade80; font-weight: 800; }
 .ai-tip-result-table .smart-bet-table-row.is-lost { opacity: 0.45; }
