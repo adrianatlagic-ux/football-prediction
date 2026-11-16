@@ -36,7 +36,7 @@ html, body {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji';
 }
 
 .app {
@@ -286,6 +286,18 @@ body {
   margin-bottom: 1.25rem;
 }
 
+.fixture-league-tag {
+  display: block;
+  margin: 0.6rem 0 -0.4rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.combo-league-title { margin: 1.25rem 0 0.6rem; }
+
 .competition-pill {
   display: flex;
   align-items: center;
@@ -298,8 +310,14 @@ body {
   border: 1px solid var(--glass-border);
   border-radius: 50px;
   padding: 0.55rem 1.1rem;
-  cursor: default;
+  cursor: pointer;
   font-family: inherit;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.competition-pill:not(.soon):hover {
+  color: var(--gold-light);
+  border-color: rgba(212,175,55,0.35);
 }
 
 .competition-pill img {
@@ -3604,4 +3622,206 @@ body {
   .legend-title { text-align: center; }
   .legend-row { font-size: 0.98rem; }
   .legend-value { font-size: 1.02rem; }
+}
+
+/* The predictions page starts below the ticker instead of right at it. */
+#predictions.wm-section { padding-top: 2.5rem; }
+
+/* "Next games" dropdown: a tab that opens a list of matchdays by date. */
+.group-picker { position: relative; display: inline-flex; }
+.group-picker-btn { display: inline-flex; align-items: center; gap: 0.45rem; }
+.group-picker-caret { font-size: 0.7rem; transition: transform 0.2s; }
+.group-picker-caret.open { transform: rotate(180deg); }
+.group-picker-menu {
+  position: fixed;
+  z-index: 50;
+  list-style: none;
+  margin: 0;
+  padding: 0.35rem;
+  max-height: min(60vh, 360px);
+  overflow-y: auto;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(212, 175, 55, 0.08);
+  animation: pickerIn 0.14s ease-out;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.35) transparent;
+}
+.group-picker-menu::-webkit-scrollbar { width: 8px; }
+.group-picker-menu::-webkit-scrollbar-track { background: transparent; }
+.group-picker-menu::-webkit-scrollbar-thumb { background: rgba(212, 175, 55, 0.3); border-radius: 8px; }
+.group-picker-menu::-webkit-scrollbar-thumb:hover { background: rgba(212, 175, 55, 0.5); }
+@keyframes pickerIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}
+.group-picker-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-radius: 11px;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.65rem 0.8rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.group-picker-item:hover { background: rgba(212, 175, 55, 0.08); color: var(--gold-light); }
+.group-picker-item.selected { color: var(--gold-light); background: rgba(212, 175, 55, 0.12); font-weight: 700; }
+
+.group-picker-divider { height: 1px; margin: 0.3rem 0.5rem; background: var(--border); }
+.past-more {
+  align-self: center;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.past-more:hover { color: var(--gold-light); border-color: rgba(212, 175, 55, 0.35); }
+
+/* Landing example card, calmer: gold as the one accent, one type scale
+   (labels 0.68rem muted caps, body 0.9rem, nothing bolder than 700). */
+.hero-preview { box-shadow: 0 20px 60px -28px rgba(212,175,55,0.18); }
+.hero-preview-badge {
+  color: var(--gold-light);
+  background: transparent;
+  border: 1px solid rgba(212,175,55,0.35);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.hero-preview-badge-dot { background: var(--gold); animation: none; }
+.hero-preview-team { font-size: 1rem; font-weight: 700; }
+.hero-preview .legend-title,
+.hero-preview .form-rating-box h4,
+.hero-preview .hero-preview-tip-label { color: var(--text-muted); font-weight: 700; }
+.hero-preview .legend-row { font-size: 0.9rem; }
+.hero-preview .legend-name { font-weight: 600; }
+.hero-preview .legend-value { font-size: 0.9rem; font-weight: 700; color: #f1f1f2; }
+.hero-preview .form-rating-top { background: transparent; border-color: rgba(255,255,255,0.08); }
+.hero-preview .form-rating-flame { display: none; }
+.hero-preview .form-tug-name { font-size: 0.85rem; font-weight: 600; }
+.hero-preview .form-tug-value { font-size: 0.9rem; font-weight: 700; color: #f1f1f2; }
+.hero-preview .form-tug-fill-home { background: #d4af37 !important; }
+.hero-preview .form-tug-fill-away { background: #dc052d !important; }
+.hero-preview-tip-pick { font-size: 1rem; font-weight: 700; }
+.hero-preview-tip-odds { font-size: 1rem; font-weight: 700; }
+.hero-preview-tip-chance {
+  font-weight: 600; color: var(--text-muted); background: rgba(255,255,255,0.06);
+}
+.hero-preview-tip-chips span {
+  font-weight: 600; color: var(--text-muted);
+  border-color: rgba(255,255,255,0.14); background: transparent;
+}
+.hero-preview .form-rating-box h4 .wm-subtle { font-size: inherit; letter-spacing: inherit; font-weight: 700; }
+
+/* Team and league flags are images: keep them in line with the text. */
+.team-flag-emoji { margin-right: 0.4em; }
+.competition-pill .team-flag { width: 20px; height: 15px; border-radius: 2px; }
+
+/* Match lists on a laptop or PC: one wide row per match instead of narrow
+   tiles with the teams stacked. Phones keep the tiles above. */
+.fixture-actions { display: contents; }
+@media (min-width: 800px) {
+  .fixtures-list { grid-template-columns: 1fr; gap: 0.7rem; }
+  .fixture-row {
+    display: grid;
+    grid-template-columns: 8.5rem minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 1.5rem;
+    height: auto;
+    padding: 0.95rem 1.35rem;
+  }
+  .fixture-meta { display: contents; }
+  .fixture-date { grid-column: 1; grid-row: 1; font-size: 0.8rem; }
+  .fixture-teams { grid-column: 2; grid-row: 1; }
+  .fixture-pending-badge, .fixture-ready-badge { grid-column: 3; grid-row: 1; justify-self: end; white-space: nowrap; }
+  /* Two buttons would squeeze the teams: they sit centred under them. */
+  .fixture-ready { row-gap: 0.85rem; }
+  .fixture-ready .fixture-actions { grid-column: 2; grid-row: 2; display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap; }
+  .fixture-row .fixture-actions .fixture-generate-btn { margin-top: 0; white-space: nowrap; }
+  /* Home - vs - away on one line, the "vs" in the middle. */
+  .fixture-row .fixture-teams {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: 1rem;
+  }
+  .fixture-row .fixture-teams > span:first-child { justify-content: flex-end; text-align: right; }
+  .fixture-row .fixture-teams > span:last-child { justify-content: flex-start; }
+  .fixture-row .fixture-vs { align-self: center; padding-left: 0; }
+}
+
+/* Narrow phones: the three tabs have to fit without scrolling. */
+@media (max-width: 420px) {
+  .group-segment { padding: 0.55rem 0.5rem; font-size: 0.74rem; }
+  .group-segments { gap: 0; }
+  .group-picker-btn { gap: 0.3rem; }
+}
+
+/* ---- Wider pages on laptops and monitors ---------------------------------
+   The column was a fixed 860px: on a laptop that left most of the screen empty.
+   In rem it grows with the base size set in index.css. */
+.main { max-width: 67.75rem; }
+.footer { max-width: 67.75rem; }
+.navbar, .hero-grid { max-width: 68.75rem; }
+
+/* ---- "So funktioniert's": the numbered rail, further left and bigger ------- */
+.flow-section-scroll { max-width: none; }
+.flow-scroll-header { max-width: 52rem; }
+.flow-scroll-body { gap: 3rem; }
+.flow-scroll-rail {
+  --dot: 2.6rem;
+  top: max(6rem, calc(50vh - 14rem));
+  gap: 1.6rem;
+}
+.flow-scroll-rail::before { top: calc(var(--dot) / 2); bottom: calc(var(--dot) / 2); width: 3px; }
+.flow-scroll-rail-fill { top: calc(var(--dot) / 2); width: 3px; }
+.flow-rail-dot { width: var(--dot); height: var(--dot); font-size: 1rem; border-width: 2px; }
+.flow-rail-dot.active { box-shadow: 0 0 0 6px rgba(212,175,55,0.18); }
+.flow-scroll-step { gap: 4rem; }
+.flow-scroll-step-num { font-size: 0.8rem; }
+.flow-scroll-text h3 { font-size: 1.65rem; }
+.flow-scroll-text p { font-size: 1.05rem; max-width: 36rem; }
+@media (min-width: 900px) { .flow-graphic { zoom: 1.3; } }
+@media (max-width: 720px) {
+  .flow-scroll-text h3 { font-size: 1.3rem; }
+  .flow-scroll-text p { font-size: 0.95rem; }
+}
+
+/* Laptop/PC match rows: bigger type, so the wide rows are not mostly empty. */
+@media (min-width: 800px) {
+  .fixture-row .fixture-teams { font-size: 1.1rem; column-gap: 1.4rem; }
+  .fixture-row .fixture-vs { font-size: 0.75rem; }
+  .fixture-date { font-size: 0.9rem; }
+  .fixture-pending-badge, .fixture-ready-badge, .fixture-final-badge { font-size: 0.72rem; }
+  .fixture-row { padding: 1.1rem 1.5rem; }
+  .fixture-league-tag { font-size: 0.78rem; }
+  .fixture-final .fixture-teams { font-size: 1.1rem; }
+}
+
+/* The "So funktioniert's" page uses the full width: the rail sits near the
+   left edge, the steps stay in a readable column next to it. */
+.flow-main { max-width: none; padding-left: clamp(1.25rem, 4vw, 6rem); padding-right: clamp(1.25rem, 4vw, 6rem); }
+.flow-scroll-steps { max-width: 66rem; margin-inline: auto; }
+@media (max-width: 720px) {
+  .flow-main { padding-left: 1rem; padding-right: 1rem; }
+}
+.flow-section-scroll { width: 100%; }
+
+/* Landing hero on a laptop: the four numbers as 2x2 (the larger type left one
+   on a line of its own). */
+@media (min-width: 900px) {
+  .hero-stats { display: grid; grid-template-columns: repeat(2, max-content); column-gap: 3rem; row-gap: 1.5rem; }
 }
