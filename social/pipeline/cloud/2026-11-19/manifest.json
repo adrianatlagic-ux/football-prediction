@@ -1,10 +1,10 @@
 {
   "target_date": "2026-11-19",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "reserved",
+  "status": "generation_submitted",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
-  "attempts_used": 0,
+  "attempts_used": 1,
   "coverage_key": "bundesliga:83237:2026-11-20:bayern-koeln",
   "match": {
     "competition": "Bundesliga",
@@ -89,7 +89,7 @@
   },
   "generation": {
     "idempotency_key": "goaliq-2026-11-19-bl83237-mini720-goatbus-v1",
-    "job_id": null,
+    "job_id": "ea7f3ba9-e535-4506-b2a5-0cabc84a260d",
     "model": "seedance_2_0_mini",
     "duration_seconds": 5,
     "resolution": "720p",
