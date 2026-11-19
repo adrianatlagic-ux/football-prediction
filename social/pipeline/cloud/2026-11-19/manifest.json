@@ -1,0 +1,110 @@
+{
+  "target_date": "2026-11-19",
+  "editorial_date_timezone": "Europe/Berlin",
+  "status": "reserved",
+  "daily_video_limit": 1,
+  "video_generation_attempt_limit": 1,
+  "attempts_used": 0,
+  "coverage_key": "bundesliga:83237:2026-11-20:bayern-koeln",
+  "match": {
+    "competition": "Bundesliga",
+    "match_id": 83237,
+    "home": "FC Bayern München",
+    "away": "1. FC Köln",
+    "match_date": "2026-11-20",
+    "kickoff_at": "2026-11-20T20:30:00+01:00",
+    "source": "https://fc.de/aktuelles/news/faninfos-fuer-die-tour-zu-den-bayern-2026-2027",
+    "retrieved_on": "2026-11-19"
+  },
+  "selection": {
+    "reason": "Next uncovered verified top fixture involves FC Bayern; no Bundesliga or Champions League fixtures on editorial day in checked sources.",
+    "uefa_pages_checked": [
+      0,
+      100,
+      200
+    ],
+    "prior_manifests_checked": 24,
+    "prediction_used": false
+  },
+  "research": {
+    "generation_basis": "verified_fixture_and_current_research",
+    "context_type": "club",
+    "verified_context": "1. FC Köln's official club site identifies Hennes IX as its goat club mascot since 2019; official club page confirms away fixture in Munich.",
+    "sources": [
+      "https://fc.de/club/ueber-den-fc/hennes",
+      "https://fc.de/aktuelles/news/faninfos-fuer-die-tour-zu-den-bayern-2026-2027",
+      "https://fc.de/mannschaften/maenner/kader/ragnar-ache",
+      "https://www.uefa.com/uefachampionsleague/clubs/50037--bayern-munchen/squad/"
+    ],
+    "portrait_sources": [
+      "https://img.uefa.com/imgml/TP/players/1/2027/324x324/250016833.jpg",
+      "https://images.ctfassets.net/nurz7nsnha04/7apoy1CE66QjujBwWp6iWk/60dab0e3b296ad662ba1818d92bf0609/81bbbd15-c299-4c98-8f9e-69711d32a123.jpg?fm=webp&w=1080&q=75",
+      "https://images.ctfassets.net/nurz7nsnha04/iPjwewxGpRilLnpfIzTBj/73f68512486dfe1ccfb5f651b99278e4/Hennes_IX._Zoo.jpg?fm=jpg&w=600&q=75"
+    ]
+  },
+  "story": {
+    "creative_goal": "surprise_then_understandable_visual_payoff",
+    "candidate_concepts": [
+      {
+        "idea": "Hennes comfortably occupies a passenger seat in a fictional team bus",
+        "selected": true,
+        "reason": "A full-size goat in a human bus seat is immediately surprising, tied to Köln's real mascot and clear in five seconds."
+      },
+      {
+        "idea": "Hennes as hotel receptionist",
+        "rejected": "Animal behind a human desk could distort anatomy or obscure the goat."
+      },
+      {
+        "idea": "Hennes pops out of a suitcase",
+        "rejected": "Small space could appear uncomfortable and repeat the hidden-person-in-object motif."
+      }
+    ],
+    "story_type": "mascot_in_bus_seat",
+    "story_setting": "fictional team bus interior",
+    "recent_settings": [
+      "pitch_2026-10-29",
+      "lounge_table_football_2026-10-30",
+      "hotel_elevator_giant_cup_2026-11-01",
+      "studio_cutout_2026-11-04"
+    ],
+    "setting_difference": "bus seats and actual animal rather than studio, lounge or lift",
+    "protagonists": [
+      "Harry Kane",
+      "Ragnar Ache"
+    ],
+    "audience_expectation": "A passenger on a team bus is another footballer.",
+    "unexpected_visual": "Köln mascot Hennes the goat is already sitting on a bus seat like a passenger.",
+    "first_second_hook": "Immediately see the goat sitting on a coach seat between the players.",
+    "surprise_mechanism": "animal_in_unexpected_human_setting",
+    "payoff": "Kane looks bewildered; Ache grins; Hennes calmly bleats.",
+    "football_context_connection": "The goat is Hennes IX, Köln's real mascot; the bus scene is fiction.",
+    "recent_surprise_mechanisms": [
+      "oversized trophy with hidden player",
+      "football objects appearing"
+    ],
+    "visual_retell_test": "Kane discovers Köln's goat Hennes sitting in a bus seat and Ache grins.",
+    "spoken_language": "de",
+    "fiction_label": "KI-Fiktion in caption",
+    "on_pitch_beats": []
+  },
+  "generation": {
+    "idempotency_key": "goaliq-2026-11-19-bl83237-mini720-goatbus-v1",
+    "job_id": null,
+    "model": "seedance_2_0_mini",
+    "duration_seconds": 5,
+    "resolution": "720p",
+    "bitrate_mode": "high",
+    "quoted_credits_exact": 5,
+    "balance_before": 600
+  },
+  "outro": {
+    "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "master_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "trim_seconds": 2,
+    "preflight": "verified_hash"
+  },
+  "qa": {
+    "ready": false,
+    "surprise_review": "pending"
+  }
+}
