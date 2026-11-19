@@ -1,7 +1,7 @@
 {
   "target_date": "2026-11-19",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "generation_submitted",
+  "status": "delivered_with_disclosed_audio_review_limit",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
   "attempts_used": 1,
@@ -95,7 +95,11 @@
     "resolution": "720p",
     "bitrate_mode": "high",
     "quoted_credits_exact": 5,
-    "balance_before": 600
+    "balance_before": 600,
+    "status": "completed",
+    "credits_used": 5,
+    "balance_after": 595,
+    "source_sha256": "04a3fba5d1410448de1f211e45d85999aa5aae498c2491381544af3fc0c44372"
   },
   "outro": {
     "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
@@ -105,6 +109,31 @@
   },
   "qa": {
     "ready": false,
-    "surprise_review": "pending"
-  }
+    "status": "surprise_visual_pass_audio_review_limit",
+    "surprise_review": "Full-size goat calmly seated in bus from first frame; Kane reacts with surprise and Ache smiles, humorous goat passenger visible without sound.",
+    "player_review": "Kane and Ache resemble the provided official portraits in sampled frames; football kits match their clubs, visual resemblance is approximate.",
+    "setting_review": "fictional off-pitch bus interior",
+    "audio_review": "AAC track present and all source audio packets preserved; German wording, voice naturalness and lip sync not independently heard.",
+    "outro_review": "Two-second rendition of verified German master; logo, domain and exact disclaimer visible.",
+    "final_fixture_check": {
+      "source": "https://fc.de/aktuelles/news/faninfos-fuer-die-tour-zu-den-bayern-2026-2027",
+      "kickoff_at": "2026-11-20T20:30:00+01:00",
+      "checked_at": "2026-11-19T06:54:01Z"
+    }
+  },
+  "production": {
+    "media_id": "493af448-60fc-4d50-9d4f-be5f03864329",
+    "zip_media_id": "2473ff27-50c0-4d6a-9483-5b39d9cd026a",
+    "sha256": "5e94c67e729ad73388a7878a43852b493bd002a32f43533a4960aa261f25658f",
+    "duration_seconds": 7.12,
+    "all_121_source_frames_identical": true,
+    "all_160_source_audio_packets_identical": true,
+    "zip_byte_identical": true,
+    "download_http_status": {
+      "mp4": 206,
+      "zip": 206
+    }
+  },
+  "caption": "caption.txt",
+  "production_evidence": "production-evidence.json"
 }
