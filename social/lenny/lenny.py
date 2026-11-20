@@ -202,7 +202,50 @@ def settle(entry: dict, stake: float) -> dict | None:
             "profit_eur": round(profit, 2)}
 
 
+# Lenny only loses a life stage once he falls clearly below it, so a bankroll
+# hovering around a threshold does not make him move house every week.
+DOWN_BUFFER = 0.6
+
+
+def _stages(config: dict) -> list[dict]:
+    return sorted(config.get("life_stages", []), key=lambda s: s["min_eur"])
+
+
+def life_level(bankroll: float, level: int | None, config: dict) -> int | None:
+    """The life stage after a bankroll change: up as soon as he can afford it, down only with a buffer."""
+    stages = _stages(config)
+    if not stages:
+        return None
+    affordable = max(i for i, s in enumerate(stages) if bankroll >= s["min_eur"])
+    if level is None or affordable >= level:
+        return affordable
+    while level > 0 and bankroll < stages[level]["min_eur"] * DOWN_BUFFER:
+        level -= 1
+    return level
+
+
+def life_stage(level: int | None, config: dict) -> dict:
+    """Where Lenny lives, how he moves, what he wears: what the viewer actually sees change."""
+    if level is None:
+        return {"name": "unknown"}
+    return {**_stages(config)[level], "level": level}
+
+
 def next_brief(state: dict, config: dict, fixtures: list[dict], tips: list[dict], now: datetime) -> dict:
+    """The next episode. Every episode is about Lenny's life; the bet only runs alongside."""
+    brief = _decide(state, config, fixtures, tips, now)
+    if brief["type"] == "none":
+        return brief
+    before = state.get("life_level")
+    if before is None:
+        before = life_level(brief["bankroll_before_eur"], None, config)
+    after = life_level(brief["bankroll_after_eur"], before, config)
+    change = "same" if before == after or None in (before, after) else ("up" if after > before else "down")
+    return {**brief, "life_stage_before": life_stage(before, config), "life_stage": life_stage(after, config),
+            "life_change": change}
+
+
+def _decide(state: dict, config: dict, fixtures: list[dict], tips: list[dict], now: datetime) -> dict:
     bankroll = round(state["bankroll_eur"], 2)
     base = {"episode": state["episode"] + 1, "created_at": now.isoformat(), "bankroll_before_eur": bankroll,
             "mood": mood(state), "streak": streak(state), "character": config.get("character", {})}
@@ -297,6 +340,8 @@ def commit(state: dict, brief: dict) -> dict:
                                      "outcome": brief["outcome"], "profit_eur": brief["profit_eur"]})
     state["bankroll_eur"] = brief["bankroll_after_eur"]
     state["episode"] = brief["episode"]
+    if "life_stage" in brief:
+        state["life_level"] = brief["life_stage"].get("level")
     keep = {k: brief[k] for k in ("episode", "type", "created_at", "bankroll_after_eur", "matchday", "match")
             if k in brief}
     state["episodes"].append(keep)
