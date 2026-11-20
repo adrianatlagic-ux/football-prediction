@@ -1,0 +1,30 @@
+{
+  "_comment": "Lenny Zero bot settings. Bankroll is fictional; the bets and results are GoalIQ's real published tips.",
+  "start_bankroll_eur": 50.0,
+  "stake_fraction": 0.5,
+  "min_stake_eur": 5.0,
+  "comeback_refill_eur": 50.0,
+  "preview_horizon_days": 4,
+  "max_episodes_per_week": 3,
+  "competitions": ["bl", "cl"],
+  "featured_clubs": [
+    "Bayern Munich", "FC Bayern München", "Bayern München", "Borussia Dortmund", "Bayer Leverkusen", "RB Leipzig",
+    "VfB Stuttgart", "Eintracht Frankfurt", "1. FC Köln", "Hamburger SV",
+    "Real Madrid", "Barcelona", "Arsenal", "Liverpool", "Manchester City",
+    "Paris Saint-Germain", "Inter Milan", "Chelsea"
+  ],
+  "video": {
+    "model": "seedance_2_0_mini",
+    "duration_s": 10,
+    "resolution": "720p",
+    "aspect_ratio": "9:16",
+    "max_credits": 10
+  },
+  "character": {
+    "name": "Lenny Zero",
+    "higgsfield_sheet_job_id": "d7ae9407-2600-41cd-bfe0-be54744abb04",
+    "elevenlabs_voice_id": null,
+    "language": "en",
+    "accent": "light German accent"
+  }
+}
