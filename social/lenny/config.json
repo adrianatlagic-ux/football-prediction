@@ -13,21 +13,6 @@
     "Real Madrid", "Barcelona", "Arsenal", "Liverpool", "Manchester City",
     "Paris Saint-Germain", "Inter Milan", "Chelsea"
   ],
-  "life_stages": [
-    {"min_eur": 0, "name": "rock bottom", "home": "mattress on the floor of a bare flat, peeling wallpaper",
-     "transport": "on foot, broken bike", "outfit": "worn grey hoodie", "food": "instant noodles",
-     "social": "alone, mum calls"},
-    {"min_eur": 40, "name": "getting by", "home": "small tidy flatshare room", "transport": "bus and tram",
-     "outfit": "clean hoodie, new sneakers", "food": "doner kebab", "social": "his best mate"},
-    {"min_eur": 150, "name": "first upgrade", "home": "own small flat with a big TV", "transport": "used Golf",
-     "outfit": "fresh streetwear", "food": "restaurant with friends", "social": "watch parties with friends"},
-    {"min_eur": 400, "name": "good life", "home": "bright loft with a balcony", "transport": "new e-scooter and taxis",
-     "outfit": "designer jacket", "food": "rooftop dinner", "social": "invited to club nights"},
-    {"min_eur": 1000, "name": "flashy", "home": "penthouse with city view", "transport": "convertible",
-     "outfit": "tailored suit, watch", "food": "champagne brunch", "social": "VIP box guests, influencers"},
-    {"min_eur": 3000, "name": "made it", "home": "villa with pool", "transport": "sports car",
-     "outfit": "luxury fashion", "food": "private chef", "social": "yacht and private parties"}
-  ],
   "video": {
     "model": "seedance_2_0_mini",
     "duration_s": 10,

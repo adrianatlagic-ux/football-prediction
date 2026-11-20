@@ -18,33 +18,20 @@ If `type` is `none`: stop. Report the `reason` in one line. Spend nothing.
 
 ## 2. Write the script (10 seconds, about 22-26 spoken words, English)
 
-**Every episode is about Lenny's life, not about betting.** The viewer must *see*
-his life change from episode to episode. The bet is the engine in the background:
-at most **one short line**, said in passing.
+Use the brief's facts only. Never invent a tip, odds, score or amount.
 
-Build the scene from the brief's `life_stage` (`home`, `transport`, `outfit`,
-`food`, `social`). Use these exact settings so the progression stays consistent
-across episodes. If `life_change` is:
-- `up`: the episode is about the upgrade itself (moving in, first ride in the car, new crowd).
-- `down`: the episode is about losing it (moving back, selling the car, friends gone quiet).
-- `same`: an everyday moment in his current life that shows its texture.
-
-What the bet contributes per `type` (the one side line):
-
-| type | Side line about money / the bet |
+| type | What happens |
 |---|---|
-| `pilot` | None. Rock bottom, 3.12 EUR, no plan, wants a way out. |
-| `discovery` | His mate keeps being right with the GoalIQ app; Lenny sold his console for a stake. |
-| `preview` | He is in on GoalIQ's tip for `matchday.label` this weekend (tip not known yet, never invent it). |
-| `result` | The real outcome in a few words: `tip_text`, `score`, won or lost. |
-| `skip` | GoalIQ had no tip, so he sat it out. |
-| `broke` | The money is gone; side hustle, scraped `refill_eur` together. |
-| `lifestyle` | None, or a passing mention of the bankroll. |
+| `pilot` | Rock bottom. Broken flat, 3.12 EUR, no plan. Ends wanting a way out. |
+| `discovery` | His friend nails three games in a row with GoalIQ. Lenny sells his console, has `bankroll_after_eur`. |
+| `preview` | He is going in on GoalIQ's first tip of `matchday.label`, stake `stake_eur`. Name one `big_games` fixture for colour. The tip itself is NOT known yet; say it drops in the GoalIQ app before kickoff. |
+| `result` | Reveal `tip_text`, real `score`, real `odds`. `win`: celebrate, new bankroll. `loss`: crash, show it hurts. `push`: money back, relief. |
+| `skip` | GoalIQ gave no tip; he kept his money (FOMO, or discipline paying off). |
+| `broke` | Bankroll gone. Side hustle, `refill_eur` scraped together, comeback vow. |
+| `lifestyle` | No matchday ahead. Life scene matching `mood` (party when up, ramen when down). |
 
-Never invent a tip, odds, score or amount; use only the brief's facts.
-
-Beats: **0-2 s hook** (an instantly surprising image or line from his life),
-**2-8 s life scene**, **8-10 s cliffhanger**. Selfie-vlog, he talks to camera.
+Beats: **0-2 s hook** (instantly surprising image or line), **2-8 s story**,
+**8-10 s cliffhanger** to the next episode. Selfie-vlog, he talks to camera.
 
 Hard rules:
 - Never say or imply "guaranteed", "sure win", "easy money", "this is how you get rich".
