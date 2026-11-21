@@ -1602,32 +1602,27 @@ function ResultDonut({ home, draw, away, homeLabel, awayLabel, score, colors }) 
   )
 }
 
-// How many days one competition's matchday spans: Champions League rounds run
-// Tuesday to Thursday, Bundesliga Friday to Sunday (sometimes Monday). A
-// Nations League "matchday" on this site is one evening, as in its tabs.
-const MATCHDAY_SPAN_DAYS = { cl: 3, bl: 4, nl: 1 }
 const berlinDate = (iso) => new Date(iso).toLocaleDateString('sv-SE', { timeZone: 'Europe/Berlin' })
 
-function lastMatchday(results, key) {
-  const done = results
-    .filter(r => r.completed && r.sport_key === COMPETITIONS[key].sportKey)
-    .sort((a, b) => new Date(b.commence_time) - new Date(a.commence_time))
-  if (done.length === 0) return []
-  const latest = new Date(berlinDate(done[0].commence_time))
-  const span = MATCHDAY_SPAN_DAYS[key] || 1
-  return done.filter(r => (latest - new Date(berlinDate(r.commence_time))) / 86400000 < span)
+// The ticker looks back at most a week: only results of the last 7 days.
+const TICKER_DAYS = 7
+
+function lastWeek(results, key, now = new Date()) {
+  const today = new Date(berlinDate(now))
+  return results.filter(r => r.completed && r.sport_key === COMPETITIONS[key].sportKey
+    && (today - new Date(berlinDate(r.commence_time))) / 86400000 < TICKER_DAYS)
 }
 
 // Before anyone picks a competition, the ticker mixes the headline results
-// of every competition's last matchday; after, it follows the chosen one.
+// of every competition's last week; after, it follows the chosen one.
 function tickerResults(results, competitionKey) {
   if (competitionKey) {
-    return lastMatchday(results, competitionKey)
+    return lastWeek(results, competitionKey)
       .sort((a, b) => new Date(a.commence_time) - new Date(b.commence_time))
   }
   const byValue = (a, b) => (b.headline_value || 0) - (a.headline_value || 0)
   return Object.keys(COMPETITIONS)
-    .flatMap(key => lastMatchday(results, key).sort(byValue).slice(0, 5))
+    .flatMap(key => lastWeek(results, key).sort(byValue).slice(0, 5))
     .sort(byValue)
 }
 
@@ -1665,6 +1660,14 @@ const HERO_SAMPLE = {
     avg_goals_conceded: { 'Real Madrid': 1.0, 'Bayern Munich': 0.9 },
     clean_sheet_rate: { 'Real Madrid': '30%', 'Bayern Munich': '40%' },
   },
+}
+
+// The sample Wett-Tipp of the landing card, in the shape the match page gets
+// from the API, so it renders through the same BetTipBox.
+const HERO_BET_TIP = {
+  tip: { market: 'Over/Under 2.5', outcome: 'Over', best_odds: 1.55, market_probability: 0.62, model_probability_raw: 0.64 },
+  model_agrees: true,
+  confirmed: true,
 }
 
 // The landing card doubles as a call to action: a click opens the next
@@ -1709,20 +1712,8 @@ function HeroPreviewCard({ onOpen }) {
         </div>
       </div>
       <FormRating data={HERO_SAMPLE} compact />
-      {/* An example of the Wett-Tipp as the match page shows it, in the
-          card's own gold rather than the tip's green. */}
-      <div className="hero-preview-tip">
-        <span className="hero-preview-tip-label">{tr('Wett-Tipp', 'Bet tip')}</span>
-        <div className="hero-preview-tip-row">
-          <span className="hero-preview-tip-pick">{tr('Über 2,5 Tore', 'Over 2.5 goals')}</span>
-          <span className="hero-preview-tip-odds">{deNum('1.55')}</span>
-          <span className="hero-preview-tip-chance">62% {tr('Chance', 'chance')}</span>
-        </div>
-        <div className="hero-preview-tip-chips">
-          <span>◆ {tr('Modell stimmt zu', 'Model agrees')} ✓</span>
-          <span>✨ {tr('KI stimmt zu', 'AI agrees')} ✓</span>
-        </div>
-      </div>
+      {/* The Wett-Tipp exactly as the match page shows it (the same box). */}
+      <BetTipBox betTip={HERO_BET_TIP} />
     </div>
   )
 }
@@ -2567,6 +2558,12 @@ export default function App() {
           axios.get(`${API_BASE}/predictions`),
           axios.get(`${API_BASE}/real-results`),
         ])
+        // The results come first: the ticker should not wait for every prediction.
+        if (resultsResp.status === 'fulfilled') {
+          const results = resultsResp.value.data.results || []
+          setRealResultsMap(buildRealResultsMap(results))
+          setRealResults(results)
+        }
         if (listResp.status === 'fulfilled') {
           const ids = (listResp.value.data.match_ids || []).filter(id =>
             Object.values(COMPETITIONS).some(c => c.fixtures.some(f => f.match_id === id))
@@ -2577,11 +2574,6 @@ export default function App() {
           const byId = {}
           all.forEach(({ matchId, data }) => { byId[matchId] = data })
           setPredictionsById(byId)
-        }
-        if (resultsResp.status === 'fulfilled') {
-          const results = resultsResp.value.data.results || []
-          setRealResultsMap(buildRealResultsMap(results))
-          setRealResults(results)
         }
       } catch (e) {
         // non-fatal

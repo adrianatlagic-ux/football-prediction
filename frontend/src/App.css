@@ -3345,32 +3345,6 @@ body {
 }
 .fixture-generate-btn, .smart-bet-btn { transition: opacity 0.2s, transform 0.12s, box-shadow 0.25s; }
 
-/* The landing card's example Wett-Tipp, in the card's gold. */
-.hero-preview-tip {
-  border-top: 1px solid var(--border);
-  padding-top: 1rem;
-  text-align: center;
-}
-.hero-preview-tip-label {
-  display: block;
-  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--gold-light); margin-bottom: 0.3rem;
-}
-.hero-preview-tip-row { display: flex; justify-content: center; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
-.hero-preview-tip-pick { font-size: 1.25rem; font-weight: 800; color: #fff; }
-.hero-preview-tip-odds { font-size: 1.15rem; font-weight: 800; color: var(--gold-light); }
-.hero-preview-tip-chance {
-  font-size: 0.75rem; font-weight: 700; color: var(--gold-light);
-  background: rgba(212,175,55,0.12); border-radius: 999px; padding: 0.15rem 0.55rem;
-}
-/* Same spacing as the match page's Wett-Tipp (.smart-bet-agree-row/-chip). */
-.hero-preview-tip-chips { display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-top: 0.6rem; flex-wrap: wrap; }
-.hero-preview-tip-chips span {
-  font-size: 0.72rem; font-weight: 700; color: #f5e3a3;
-  border: 1px solid rgba(212,175,55,0.4); background: rgba(212,175,55,0.08);
-  border-radius: 50px; padding: 0.2rem 0.6rem;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .tug-animate, .form-rating-top .form-rating-flame, .scout-btn { animation: none !important; }
   .tip-card:hover, .smart-bet-agent:hover, .scout-btn:hover, .hero-preview.card:hover, .form-rating-box:hover,
@@ -3704,8 +3678,7 @@ body {
 .hero-preview-badge-dot { background: var(--gold); animation: none; }
 .hero-preview-team { font-size: 1rem; font-weight: 700; }
 .hero-preview .legend-title,
-.hero-preview .form-rating-box h4,
-.hero-preview .hero-preview-tip-label { color: var(--text-muted); font-weight: 700; }
+.hero-preview .form-rating-box h4 { color: var(--text-muted); font-weight: 700; }
 .hero-preview .legend-row { font-size: 0.9rem; }
 .hero-preview .legend-name { font-weight: 600; }
 .hero-preview .legend-value { font-size: 0.9rem; font-weight: 700; color: #f1f1f2; }
@@ -3715,15 +3688,6 @@ body {
 .hero-preview .form-tug-value { font-size: 0.9rem; font-weight: 700; color: #f1f1f2; }
 .hero-preview .form-tug-fill-home { background: #d4af37 !important; }
 .hero-preview .form-tug-fill-away { background: #dc052d !important; }
-.hero-preview-tip-pick { font-size: 1rem; font-weight: 700; }
-.hero-preview-tip-odds { font-size: 1rem; font-weight: 700; }
-.hero-preview-tip-chance {
-  font-weight: 600; color: var(--text-muted); background: rgba(255,255,255,0.06);
-}
-.hero-preview-tip-chips span {
-  font-weight: 600; color: var(--text-muted);
-  border-color: rgba(255,255,255,0.14); background: transparent;
-}
 .hero-preview .form-rating-box h4 .wm-subtle { font-size: inherit; letter-spacing: inherit; font-weight: 700; }
 
 /* Team and league flags are images: keep them in line with the text. */
