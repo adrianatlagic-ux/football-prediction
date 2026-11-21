@@ -977,7 +977,7 @@ function computeBetTip(betInfo, agentEval) {
   }
 }
 
-function BetTipBox({ betTip }) {
+function BetTipBox({ betTip, hideStatus = false }) {
   const tip = betTip?.tip
   if (!tip) {
     const why = {
@@ -1008,11 +1008,13 @@ function BetTipBox({ betTip }) {
       <div className="smart-bet-agree-row">
         {model != null && <span className={`smart-bet-agree-chip ${betTip.model_agrees === false ? 'muted' : 'yes'}`}>◆ {betTip.model_agrees === false ? tr('Modell weicht ab', 'Model disagrees') : tr('Modell stimmt zu', 'Model agrees')} {pct(model)}{betTip.model_agrees === false ? ' ✕' : ' ✓'}</span>}
       </div>
-      <div className={`bet-tip-status ${betTip.confirmed ? 'is-confirmed' : ''}`}>
-        {betTip.confirmed
-          ? tr('bestätigt – die KI-Prüfung vor Anpfiff ist abgeschlossen', 'confirmed – the AI review before kickoff is complete')
-          : tr('vorläufig – die KI prüft das Spiel etwa eine Stunde vor Anpfiff noch einmal', 'provisional – the AI reviews the match again about an hour before kickoff')}
-      </div>
+      {!hideStatus && (
+        <div className={`bet-tip-status ${betTip.confirmed ? 'is-confirmed' : ''}`}>
+          {betTip.confirmed
+            ? tr('bestätigt – die KI-Prüfung vor Anpfiff ist abgeschlossen', 'confirmed – the AI review before kickoff is complete')
+            : tr('vorläufig – die KI prüft das Spiel etwa eine Stunde vor Anpfiff noch einmal', 'provisional – the AI reviews the match again about an hour before kickoff')}
+        </div>
+      )}
     </div>
   )
 }
@@ -1667,7 +1669,6 @@ const HERO_SAMPLE = {
 const HERO_BET_TIP = {
   tip: { market: 'Over/Under 2.5', outcome: 'Over', best_odds: 1.55, market_probability: 0.62, model_probability_raw: 0.64 },
   model_agrees: true,
-  confirmed: true,
 }
 
 // The landing card doubles as a call to action: a click opens the next
@@ -1713,7 +1714,7 @@ function HeroPreviewCard({ onOpen }) {
       </div>
       <FormRating data={HERO_SAMPLE} compact />
       {/* The Wett-Tipp exactly as the match page shows it (the same box). */}
-      <BetTipBox betTip={HERO_BET_TIP} />
+      <BetTipBox betTip={HERO_BET_TIP} hideStatus />
     </div>
   )
 }
