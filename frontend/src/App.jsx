@@ -1537,34 +1537,48 @@ function IconArrowDown() {
   )
 }
 
+// The network of lines and points runs from the top of the landing page down
+// to the footer, in three bands (top, middle, bottom) that each keep their place
+// whatever the window's shape. Gold glow at the top and at the bottom.
+const HERO_BANDS = {
+  top: {
+    glow: [400, 60, 260],
+    lines: [[60, 40, 200, 20], [600, 30, 740, 60], [600, 30, 690, 100], [60, 40, 40, 120], [740, 60, 760, 140]],
+    dots: [[60, 40, 3], [200, 20, 2.5], [600, 30, 3], [740, 60, 2.5], [690, 100, 2.5], [40, 120, 2.5], [760, 140, 2.5]],
+  },
+  mid: {
+    lines: [[40, 40, 110, 130], [110, 130, 50, 230], [50, 230, 130, 320], [760, 30, 690, 120], [690, 120, 770, 220], [770, 220, 700, 330]],
+    dots: [[40, 40, 2.5], [110, 130, 3], [50, 230, 2.5], [130, 320, 3], [760, 30, 2.5], [690, 120, 3], [770, 220, 2.5], [700, 330, 3]],
+  },
+  bottom: {
+    glow: [420, 330, 300],
+    lines: [[60, 320, 200, 340], [200, 340, 330, 300], [600, 330, 740, 300], [600, 330, 690, 260], [60, 320, 40, 240], [740, 300, 760, 220]],
+    dots: [[60, 320, 3], [200, 340, 2.5], [330, 300, 3], [600, 330, 3], [740, 300, 2.5], [690, 260, 2.5], [40, 240, 2.5], [760, 220, 2.5]],
+  },
+}
+
 function HeroVisual() {
-  return (
-    <svg className="hero-visual" viewBox="0 0 800 360" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  return Object.entries(HERO_BANDS).map(([band, { glow, lines, dots }], bi) => (
+    <svg key={band} className={`hero-visual hero-visual-${band}`} viewBox="0 0 800 360" fill="none"
+         xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs>
-        <radialGradient id="heroGlow" cx="50%" cy="50%" r="50%">
+        <radialGradient id={`heroGlow-${band}`} cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="#d4af37" stopOpacity="0.12" />
           <stop offset="100%" stopColor="#d4af37" stopOpacity="0" />
         </radialGradient>
       </defs>
-      <circle cx="400" cy="60" r="260" fill="url(#heroGlow)" />
+      {glow && <circle cx={glow[0]} cy={glow[1]} r={glow[2]} fill={`url(#heroGlow-${band})`} />}
       <g stroke="#d4af37" strokeWidth="1" opacity="0.15">
-        <line x1="60" y1="40" x2="200" y2="20" />
-        <line x1="600" y1="30" x2="740" y2="60" />
-        <line x1="600" y1="30" x2="690" y2="100" />
-        <line x1="60" y1="40" x2="40" y2="120" />
-        <line x1="740" y1="60" x2="760" y2="140" />
+        {lines.map(([x1, y1, x2, y2], i) => <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} />)}
       </g>
       <g fill="#f4cf6e">
-        <circle cx="60" cy="40" r="3" opacity="0.4" />
-        <circle cx="200" cy="20" r="2.5" opacity="0.3" />
-        <circle cx="600" cy="30" r="3" opacity="0.4" />
-        <circle cx="740" cy="60" r="2.5" opacity="0.35" />
-        <circle cx="690" cy="100" r="2.5" opacity="0.3" />
-        <circle cx="40" cy="120" r="2.5" opacity="0.3" />
-        <circle cx="760" cy="140" r="2.5" opacity="0.3" />
+        {dots.map(([cx, cy, r], i) => (
+          <circle key={i} className="hero-visual-dot" cx={cx} cy={cy} r={r} opacity="0.35"
+                  style={{ animationDelay: `${((bi * 5 + i) * 0.7) % 6}s` }} />
+        ))}
       </g>
     </svg>
-  )
+  ))
 }
 
 function ResultDonut({ home, draw, away, homeLabel, awayLabel, score, colors }) {
@@ -1652,71 +1666,11 @@ function MatchTicker({ results, competitionKey }) {
   )
 }
 
-// The landing card's sample match, with form numbers for the tug of war.
-const HERO_SAMPLE = {
-  home_team: 'Real Madrid', away_team: 'Bayern Munich',
-  explanation: {
-    form_last_10_avg_pts: { 'Real Madrid': 2.2, 'Bayern Munich': 2.5 },
-    win_rate_last_10: { 'Real Madrid': '70%', 'Bayern Munich': '80%' },
-    avg_goals_scored: { 'Real Madrid': 2.1, 'Bayern Munich': 2.8 },
-    avg_goals_conceded: { 'Real Madrid': 1.0, 'Bayern Munich': 0.9 },
-    clean_sheet_rate: { 'Real Madrid': '30%', 'Bayern Munich': '40%' },
-  },
-}
-
 // The sample Wett-Tipp of the landing card, in the shape the match page gets
 // from the API, so it renders through the same BetTipBox.
 const HERO_BET_TIP = {
   tip: { market: 'Over/Under 2.5', outcome: 'Over', best_odds: 1.55, market_probability: 0.62, model_probability_raw: 0.64 },
   model_agrees: true,
-}
-
-// The landing card doubles as a call to action: a click opens the next
-// Bundesliga matchday.
-function HeroPreviewCard({ onOpen }) {
-  // Gold for Real Madrid, red for Bayern, grey for the draw - restrained but
-  // each side still recognisable.
-  const colors = { home: '#d4af37', draw: '#6b7280', away: '#dc052d' }
-  return (
-    <div className="hero-preview card is-clickable" role="button" tabIndex={0} onClick={onOpen}
-         onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpen?.() } }}
-         aria-label={tr('Zu den Bundesliga-Prognosen', 'Go to the Bundesliga predictions')}>
-      <div className="hero-preview-badge">
-        <span className="hero-preview-badge-dot" />
-        {tr('Beispielhafte KI-Prognose', 'Sample AI prediction')}
-      </div>
-      <div className="hero-preview-teams">
-        <span className="hero-preview-team"><TeamLabel name="Real Madrid" /></span>
-        <span className="hero-preview-vs">vs</span>
-        <span className="hero-preview-team"><TeamLabel name="Bayern Munich" /></span>
-      </div>
-      {/* The same blocks as a match page: win chances, then the form. */}
-      <div className="probabilities-donut hero-preview-probs">
-        <ResultDonut home={0.36} draw={0.24} away={0.40} score="1–2" colors={colors} />
-        <div className="probabilities-legend">
-          <span className="legend-title">{tr('Siegwahrscheinlichkeit', 'Win probability')}</span>
-          <div className="legend-row">
-            <span className="legend-dot" style={{ background: colors.home }} />
-            <span className="legend-name"><TeamLabel name="Real Madrid" /></span>
-            <span className="legend-value"><AnimatedNumber value={36} decimals={1} suffix="%" /></span>
-          </div>
-          <div className="legend-row">
-            <span className="legend-dot gray" />
-            <span className="legend-name">{tr('Remis', 'Draw')}</span>
-            <span className="legend-value"><AnimatedNumber value={24} decimals={1} suffix="%" /></span>
-          </div>
-          <div className="legend-row">
-            <span className="legend-dot" style={{ background: colors.away }} />
-            <span className="legend-name"><TeamLabel name="Bayern Munich" /></span>
-            <span className="legend-value"><AnimatedNumber value={40} decimals={1} suffix="%" /></span>
-          </div>
-        </div>
-      </div>
-      <FormRating data={HERO_SAMPLE} compact />
-      {/* The Wett-Tipp exactly as the match page shows it (the same box). */}
-      <BetTipBox betTip={HERO_BET_TIP} hideStatus />
-    </div>
-  )
 }
 
 // The seven stages of "So funktioniert's", in the page's language.
@@ -1763,19 +1717,19 @@ const flowSteps = () => [
   },
   {
     icon: <IconSpark />,
-    title: tr('KI-Einordnung', 'AI summary'),
+    title: tr('KI-Recherche mit Live-Daten', 'AI research with live data'),
     description: tr(
-      'Eine KI fasst die berechneten Zahlen in einem Satz zusammen, den Fußballfans verstehen. Sie darf nur die Zahlen des Modells verwenden – keine erfundenen Fakten –, damit der Text der Prognose nie widerspricht.',
-      'An AI sums up the calculated numbers in a sentence football fans understand. It may only use the model\'s numbers – no invented facts – so the text never contradicts the prediction.'),
-    tags: [tr('KI-Zusammenfassung', 'AI summary'), tr('Nur Modell-Zahlen', 'Model numbers only'), tr('Keine erfundenen Fakten', 'No invented facts')],
+      'Die Zahlen kennen nur die Vergangenheit. Deshalb checkt unsere KI vor jedem Spiel die aktuellen Fakten: Aufstellung, Verletzungen, Form und Quoten. Daraus macht sie eine klare Empfehlung – oder sagt ehrlich: kein Tipp. Kurz vor Anpfiff prüft sie noch einmal.',
+      'The numbers only know the past. So before every match our AI checks the latest facts: line-ups, injuries, form and odds. It turns them into one clear recommendation – or honestly says: no tip. Shortly before kickoff it checks again.'),
+    tags: [tr('Live-Daten', 'Live data'), tr('Klare Empfehlung', 'Clear recommendation'), tr('Last-Minute-Check', 'Last-minute check')],
   },
   {
     icon: <IconBroadcast />,
-    title: tr('Veröffentlichung', 'Publishing'),
+    title: tr('Veröffentlicht – und nachgeprüft', 'Published – and verified'),
     description: tr(
-      'Die fertige Analyse wird gespeichert und ist sofort auf der Website abrufbar – Wahrscheinlichkeiten, Ergebnis und Spielverlauf. Dieselben Zahlen landen automatisch als Kurzvideo auf TikTok und Instagram.',
-      'The finished analysis is stored and available on the site right away – probabilities, score and game flow. The same numbers go out automatically as a short video on TikTok and Instagram.'),
-    tags: [tr('Website', 'Website'), 'TikTok & Instagram', tr('Automatisiert', 'Automated'), tr('Sofort verfügbar', 'Instantly available')],
+      'Vor jedem Anpfiff steht die komplette Analyse samt Wett-Tipp auf der Website. Nach dem Spiel stehen die Ergebnisse bereit – und du siehst, ob der Tipp richtig lag.',
+      'Before every kickoff the full analysis, including the bet tip, is on the website. After the match the results are ready – and you see whether the tip was right.'),
+    tags: [tr('Wett-Tipp', 'Bet tip'), tr('Ergebnisse nach dem Spiel', 'Results after the match'), tr('Treffer-Check', 'Hit check')],
   },
 ]
 
@@ -1797,6 +1751,145 @@ function FlowStepGraphic({ icon, cyan }) {
         ))}
       </svg>
       <div className="flow-graphic-core">{icon}</div>
+    </div>
+  )
+}
+
+// A looping mini-demo of the app on the "So funktioniert's" page: pick a
+// league, open a match, read the analysis, see the Wett-Tipp, check it after
+// the match. Sample data only, same look as the real pages.
+const DEMO_SCENES = () => [
+  { key: 'league', caption: tr('Liga wählen', 'Pick a league') },
+  { key: 'match', caption: tr('Spiel öffnen', 'Open a match') },
+  { key: 'analysis', caption: tr('KI-Analyse lesen', 'Read the AI analysis') },
+  { key: 'bets', caption: tr('Wett-Tipps zeigen', 'Show the bet tips') },
+  { key: 'tip', caption: tr('Wett-Tipp sehen', 'See the bet tip') },
+  { key: 'result', caption: tr('Nach dem Spiel prüfen', 'Check it after the match') },
+]
+
+function AppDemo({ onStart }) {
+  const scenes = DEMO_SCENES()
+  const [scene, setScene] = useState(0)
+  // Every scene (picked by hand or not) runs 3.2 s, then the next one follows.
+  useEffect(() => {
+    const reduce = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    if (reduce) return undefined
+    const id = setTimeout(() => setScene(s => (s + 1) % scenes.length), 3200)
+    return () => clearTimeout(id)
+  }, [scene, scenes.length])
+  const colors = { home: '#d4af37', draw: '#6b7280', away: '#dc052d' }
+  const current = scenes[scene].key
+  return (
+    <div className="app-demo">
+      <div className="app-demo-phone">
+        <div className="app-demo-bar"><span /><span /><span /></div>
+        <div className="app-demo-screen" key={current}>
+          {current === 'league' && (
+            <div className="demo-pane">
+              <div className="demo-pills">
+                {['Alle', 'Champions League', 'Bundesliga', 'Nations League'].map((n, i) => (
+                  <span key={n} className={'demo-pill' + (i === 2 ? ' is-picked' : '')}>
+                    {n}{i === 2 && <span className="demo-tap" />}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+          {current === 'match' && (
+            <div className="demo-pane">
+              {[['Bayer Leverkusen', 'SC Paderborn'], ['Real Madrid', 'Bayern Munich'], ['RB Leipzig', 'Union Berlin']].map(([h, a], i) => (
+                <div key={h} className={'demo-row' + (i === 1 ? ' is-picked' : '')}>
+                  <span><TeamLabel name={h} /></span><span className="demo-vs">vs</span><span><TeamLabel name={a} /></span>
+                  {i === 1 && <span className="demo-tap" />}
+                </div>
+              ))}
+            </div>
+          )}
+          {current === 'analysis' && (
+            <div className="demo-pane demo-center">
+              <div className="probabilities-donut demo-probs">
+                <ResultDonut home={0.36} draw={0.24} away={0.40} score="1–2" colors={colors} />
+                <div className="probabilities-legend">
+                  <span className="legend-title">{tr('Siegwahrscheinlichkeit', 'Win probability')}</span>
+                  <div className="legend-row">
+                    <span className="legend-dot" style={{ background: colors.home }} />
+                    <span className="legend-name"><TeamLabel name="Real Madrid" /></span>
+                    <span className="legend-value"><AnimatedNumber value={36} decimals={1} suffix="%" /></span>
+                  </div>
+                  <div className="legend-row">
+                    <span className="legend-dot gray" />
+                    <span className="legend-name">{tr('Remis', 'Draw')}</span>
+                    <span className="legend-value"><AnimatedNumber value={24} decimals={1} suffix="%" /></span>
+                  </div>
+                  <div className="legend-row">
+                    <span className="legend-dot" style={{ background: colors.away }} />
+                    <span className="legend-name"><TeamLabel name="Bayern Munich" /></span>
+                    <span className="legend-value"><AnimatedNumber value={40} decimals={1} suffix="%" /></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+          {current === 'bets' && (
+            <div className="demo-pane demo-center">
+              <div className="demo-match-head">
+                <span><TeamLabel name="Real Madrid" /></span><span className="demo-vs">vs</span><span><TeamLabel name="Bayern Munich" /></span>
+              </div>
+              <div className="demo-btns">
+                <span className="fixture-generate-btn demo-btn">{tr('KI-Analyse starten', 'Start AI analysis')}</span>
+                <span className="fixture-generate-btn fixture-bets-btn demo-btn demo-btn-picked">
+                  {tr('Wett-Tipps zeigen', 'Show bet tips')}<span className="demo-tap" />
+                </span>
+              </div>
+            </div>
+          )}
+          {current === 'tip' && (
+            <div className="demo-pane demo-center demo-pop"><BetTipBox betTip={HERO_BET_TIP} hideStatus /></div>
+          )}
+          {current === 'result' && (
+            <div className="demo-pane demo-center">
+              <div className="demo-final"><TeamLabel name="Real Madrid" /> <b>1 – 2</b> <TeamLabel name="Bayern Munich" /></div>
+              <div className="demo-hit">{tr('Wett-Tipp eingetroffen', 'Bet tip won')} ✓</div>
+              <div className="demo-hit-sub">{tr('Über 2,5 Tore – 3 Tore gefallen', 'Over 2.5 goals – 3 goals scored')}</div>
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="app-demo-caption" aria-live="polite">
+        <span className="app-demo-step">{scene + 1}</span> {scenes[scene].caption}
+      </div>
+      <div className="app-demo-dots">
+        {scenes.map((sc, i) => (
+          <button key={sc.key} className={i === scene ? 'is-on' : ''} aria-label={sc.caption}
+                  onClick={() => setScene(i)} />
+        ))}
+      </div>
+      {onStart && (
+        <button className="app-demo-cta" onClick={onStart}>
+          {tr('Analyse jetzt starten', 'Start your analysis now')} <span aria-hidden="true">→</span>
+        </button>
+      )}
+    </div>
+  )
+}
+
+// The background of "So funktioniert's": rising data points and a gold glow that moves down with the stage you are reading.
+function FlowBackdrop({ stage, total }) {
+  const p = total > 1 ? stage / (total - 1) : 0
+  const dots = Array.from({ length: 26 }, (_, i) => ({
+    left: (i * 37 + 11) % 100,
+    size: 2 + (i % 3),
+    dur: 16 + (i % 7) * 3,
+    delay: -((i * 17) % 40),
+    drift: ((i % 5) - 2) * 14,
+  }))
+  return (
+    <div className="flow-backdrop" aria-hidden="true" style={{ '--p': p }}>
+      <div className="flow-backdrop-glow" />
+      {dots.map((d, i) => (
+        <span key={i} className="flow-backdrop-dot"
+              style={{ left: `${d.left}%`, width: d.size, height: d.size, animationDuration: `${d.dur}s`, animationDelay: `${d.delay}s`, '--drift': `${d.drift}px` }} />
+      ))}
     </div>
   )
 }
@@ -1834,16 +1927,7 @@ function AnalysisFlowPage({ onBack }) {
 
   return (
     <section className="flow-section-scroll">
-      <div className="card flow-scroll-header">
-        <span className="how-eyebrow">{tr('Hinter den Prognosen', 'Behind the predictions')}</span>
-        <h2 className="section-title">{tr('So funktioniert unsere KI-Analyse', 'How our AI analysis works')}</h2>
-        <p className="how-intro">
-          {tr('Vom ersten Datenpunkt bis zum fertigen Social-Media-Video – jede Prognose durchläuft dieselben sieben Stufen. Scroll nach unten und folge den Daten durch jede Stufe.',
-              'From the first data point to the finished social video – every prediction passes through the same seven stages. Scroll down and follow the data through each one.')}
-        </p>
-        <button className="flow-back-btn" onClick={onBack}>{tr('← Zurück zu den Prognosen', '← Back to the predictions')}</button>
-      </div>
-
+      <FlowBackdrop stage={activeIndex} total={FLOW_STEPS.length} />
       <div className="flow-scroll-body">
         <div className="flow-scroll-rail">
           <div
@@ -1858,7 +1942,7 @@ function AnalysisFlowPage({ onBack }) {
               aria-label={s.title}
               title={s.title}
             >
-              {i < activeIndex ? '✓' : i + 1}
+              {i + 1}
             </button>
           ))}
         </div>
@@ -1872,7 +1956,7 @@ function AnalysisFlowPage({ onBack }) {
             >
               <FlowStepGraphic icon={step.icon} cyan={i % 2 === 1} />
               <div className="flow-scroll-text">
-                <span className="flow-scroll-step-num">{tr('Stufe', 'Stage')} {i + 1} / {FLOW_STEPS.length}</span>
+                <span className="flow-scroll-step-num">{tr('Stufe', 'Stage')} {i + 1}</span>
                 <h3>{step.title}</h3>
                 <p>{step.description}</p>
                 <div className="flow-step-tags">
@@ -2612,8 +2696,15 @@ export default function App() {
               <div className="hero-content">
                 <h1>{tr('KI-Prognosen für jedes Spiel', 'AI predictions for every match')}</h1>
                 <p>
-                  {tr('Ein KI-Modell, trainiert auf tausenden Spielen, rechnet jede Partie durch: Siegchancen, wahrscheinlichstes Ergebnis und Spielverlauf. Nach dem Abpfiff zeigen wir ehrlich, ob die KI richtig lag.',
-                      'An AI model trained on thousands of matches works through every game: win chances, most likely score and game flow. After the final whistle we show honestly whether the AI got it right.')}
+                  {/* The full text on a desktop, a short version on phones and small tablets. */}
+                  <span className="hero-text-full">
+                    {tr('Ein KI-Modell, trainiert auf tausenden Spielen, rechnet jede Partie durch: Siegchancen, wahrscheinlichstes Ergebnis und Spielverlauf. Nach dem Abpfiff zeigen wir ehrlich, ob die KI richtig lag.',
+                        'An AI model trained on thousands of matches works through every game: win chances, most likely score and game flow. After the final whistle we show honestly whether the AI got it right.')}
+                  </span>
+                  <span className="hero-text-short">
+                    {tr('Die KI rechnet jedes Spiel durch. Nach dem Abpfiff zeigen wir ehrlich, ob sie richtig lag.',
+                        'Our AI works through every match. After the final whistle we show honestly whether it was right.')}
+                  </span>
                 </p>
                 <button className="competition-badge hero-cta" onClick={openNextChampionsLeague}>
                   <img src="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png" alt="" className="competition-badge-logo" />
@@ -2643,7 +2734,7 @@ export default function App() {
                   </div>
                 </div>
               </div>
-              <HeroPreviewCard onOpen={() => openNextMatchday('bl')} />
+              <AppDemo onStart={() => navigate(sectionPath('all'))} />
             </div>
           </header>
         </>
