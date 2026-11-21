@@ -1,0 +1,45 @@
+{
+  "target_date": "2026-11-21",
+  "job_id": "fe8f3308-fd25-42d5-b48d-b2121c62d6b5",
+  "source": {
+    "sha256": "c4550153a1b97859907078a8983f98afa1a9ca4e7917f7fe7cbcd6d3eab16749",
+    "duration_seconds": 5.088,
+    "width": 720,
+    "height": 1280,
+    "bitrate": 13267882
+  },
+  "final": {
+    "media_id": "24c158ed-c8e5-478b-b9aa-7138cc98f395",
+    "zip_media_id": "83e40491-8fd5-4abe-9204-82a5ee7808b3",
+    "sha256": "14f7e74f0c58367351a0d553ba3271f97391ff931d69e4c2745876c6cef83c26",
+    "duration_seconds": 7.12,
+    "all_121_source_frames_identical": true,
+    "all_160_source_audio_packets_identical": true,
+    "zip_byte_identical": true,
+    "download_http_status": {
+      "mp4": 206,
+      "zip": 206
+    }
+  },
+  "credits": {
+    "quoted": 5,
+    "used": 5,
+    "before": 593.88,
+    "after": 588.88
+  },
+  "qa": {
+    "ready": false,
+    "status": "not_ready_wrong_kit_wrong_scarf_audio_unverified",
+    "surprise_review": "The scarf springs out of the suitcase and settles around the BVB player; both react. The gag works visually but the colors/crest correspond to Germany rather than Gladbach, so intended football context fails.",
+    "player_review": "Two men resemble the supplied Schlotterbeck and Kleindienst references. Kleindienst wears the DFB Germany jersey from the source reference rather than Borussia Mönchengladbach kit.",
+    "setting_review": "fictional hotel luggage area, no pitch",
+    "audio_review": "AAC present and source audio packets identical; natural German dialogue and synchronization not independently heard.",
+    "outro_review": "Two-second rendition of verified German master; logo, domain and exact disclaimer visible.",
+    "final_fixture_check": {
+      "source": "https://www.bvb.de/de/de/bvb-spielplan/spiel.html/2026-2027/Fussball/Profis/Bundesliga/10/Borussia-Mgladbach-Borussia-Dortmund.html",
+      "kickoff_at": "2026-11-21T15:30:00+01:00",
+      "checked_at": "2026-11-21T09:23:42Z"
+    }
+  },
+  "no_private_media_urls_in_repository": true
+}
