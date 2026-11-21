@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "target_date": "2026-11-21",
+  "editorial_date_timezone": "Europe/Berlin",
+  "status": "reserved",
+  "daily_video_limit": 1,
+  "video_generation_attempt_limit": 1,
+  "attempts_used": 0,
+  "coverage_key": "bundesliga:83242:2026-11-21:gladbach-dortmund",
+  "match": {
+    "competition": "Bundesliga",
+    "match_id": 83242,
+    "home": "Borussia Mönchengladbach",
+    "away": "Borussia Dortmund",
+    "match_date": "2026-11-21",
+    "kickoff_at": "2026-11-21T15:30:00+01:00",
+    "official_source": "https://www.bvb.de/de/de/bvb-spielplan/spiel.html/2026-2027/Fussball/Profis/Bundesliga/10/Borussia-Mgladbach-Borussia-Dortmund.html",
+    "retrieved_on": "2026-11-21"
+  },
+  "selection": {
+    "reason": "Today's uncovered Bundesliga fixture involves Borussia Dortmund; official BVB preview describes this as the 109th Bundesliga meeting of the two Borussias.",
+    "uefa_pages_checked": [
+      0,
+      100,
+      200
+    ],
+    "prior_manifests_checked": 25,
+    "prior_duplicate_found": false
+  },
+  "research": {
+    "generation_basis": "verified_fixture_and_current_research",
+    "prediction_used": false,
+    "context_type": "match",
+    "verified_context": "Both clubs are named Borussia; official BVB preview calls the pairing the two Borussias. DFB 2026/27 Gladbach roster lists Tim Kleindienst; BVB roster/profile lists Nico Schlotterbeck.",
+    "sources": [
+      "https://www.bvb.de/de/de/aktuelles/news/news.html/2026/11/20/Was-die-Zahlen-zum-109-Bundesliga-Duell-mit-Gladbach-sagen.html",
+      "https://datencenter.dfb.de/teams/borussia-moenchengladbach",
+      "https://www.bvb.de/de/de/mannschaften/fussball/spieler/nico-schlotterbeck.html",
+      "https://datencenter.dfb.de/profil/263391"
+    ],
+    "portrait_sources": [
+      "https://s7g10.scene7.com/is/image/BORUSSIADORTMUNDGMBHANDCOKGAA/schlotterbeck-slider?wid=600&fmt=jpeg",
+      "https://assets.dfb.de/uploads/000/325/914/custom_style_1_Tim_Kleindienst_Profil.jpg?1762266011"
+    ],
+    "portrait_note": "Gladbach player's DFB portrait shows Germany shirt; reference is solely for facial appearance, prompt assigns Gladbach club kit."
+  },
+  "story": {
+    "creative_goal": "unexpected_visual_reveal_with_clear_payoff",
+    "candidate_concepts": [
+      {
+        "idea": "A Gladbach black-white-green scarf springs from Schlotterbeck's Dortmund suitcase and wraps him",
+        "selected": true,
+        "reason": "One improbable object action, connected to the shared Borussia name, clear without speech."
+      },
+      {
+        "idea": "Hotel mirror switches players to each other's kits",
+        "rejected": "Two faces and duplicate reflections risk identity errors."
+      },
+      {
+        "idea": "Two players' room keys transform into one oversized key",
+        "rejected": "The teams' shared name would require hard-to-read generated text to make the gag clear."
+      }
+    ],
+    "story_type": "wrong_borussia_surprise_scarf",
+    "story_setting": "hotel_luggage_area",
+    "protagonists": [
+      "Nico Schlotterbeck",
+      "Tim Kleindienst"
+    ],
+    "recent_settings": [
+      "hotel lift giant trophy 2026-11-01",
+      "studio portraits 2026-11-04",
+      "team bus goat 2026-11-19"
+    ],
+    "setting_difference": "Hotel baggage area, unexpected opposing-team scarf, no lift or vehicle",
+    "audience_expectation": "A Dortmund player opens his suitcase and finds his own black-yellow scarf.",
+    "unexpected_visual": "A huge black-white-green Gladbach scarf springs out and playfully wraps around him.",
+    "first_second_hook": "Oversized rival scarf already emerging from the open suitcase in the first frame.",
+    "surprise_mechanism": "unexpected_object_behavior",
+    "payoff": "Kleindienst grins while the Gladbach scarf rests around a surprised Schlotterbeck.",
+    "football_context_connection": "Both opponents are called Borussia; the surprise plays on a fictional mix-up between their club colors.",
+    "recent_surprise_mechanisms": [
+      "football objects appear",
+      "goat on bus seat"
+    ],
+    "visual_retell_test": "Schlotterbeck öffnet seinen Koffer und wird von einem Gladbach-Schal überrascht, während Kleindienst grinst.",
+    "spoken_language": "de",
+    "on_pitch_beats": [],
+    "fiction_label": "KI-Fiktion in caption"
+  },
+  "generation": {
+    "idempotency_key": "goaliq-2026-11-21-bl83242-mini720-scarf-v1",
+    "job_id": null,
+    "model": "seedance_2_0_mini",
+    "duration_seconds": 5,
+    "resolution": "720p",
+    "bitrate_mode": "high",
+    "quoted_credits_exact": 5,
+    "balance_before": 593.88
+  },
+  "outro": {
+    "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "master_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "trim_seconds": 2,
+    "preflight": "verified_hash"
+  },
+  "qa": {
+    "ready": false,
+    "surprise_review": "pending"
+  }
+}
