@@ -3,11 +3,12 @@ import assert from 'node:assert/strict'
 import { matchPath, parseRoute, sectionPath } from '../src/navigation.js'
 
 test('league and section addresses restore the selected view', () => {
-  for (const competition of ['cl', 'bl', 'nl']) {
-    for (const group of ['next', 'hot', 'combo', 'Spieltag 8', 'Round of 16', 'Größe / Phase']) {
+  for (const competition of ['all', 'cl', 'bl', 'nl']) {
+    for (const group of ['next', 'hot', 'combo', 'past', 'day:2026-11-24', 'Spieltag 8', 'Round of 16', 'Größe / Phase']) {
       assert.deepEqual(parseRoute(sectionPath(competition, group)), { page: 'home', competition, group })
     }
   }
+  assert.deepEqual(parseRoute('/'), { page: 'landing', competition: 'cl', group: 'next' })
   assert.deepEqual(parseRoute('/so-funktionierts'), { page: 'how-it-works' })
   assert.equal(parseRoute('/', '#how-it-works').page, 'how-it-works')
 })

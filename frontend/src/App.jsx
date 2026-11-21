@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { Fragment, useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import './App.css'
 import CL_FIXTURES from './cl_fixtures.json'
@@ -49,26 +49,6 @@ function fixtureWhen(f) {
   return LANG === 'en'
     ? `${weekday} ${f.date.slice(8, 10)}/${f.date.slice(5, 7)} · ${f.time}`
     : `${weekday} ${f.date.slice(8, 10)}.${f.date.slice(5, 7)}. · ${f.time}`
-}
-
-const STAGE_NAMES_DE = {
-  'League Phase': 'Ligaphase', 'Knockout Playoffs': 'K.-o.-Playoffs', 'Round of 16': 'Achtelfinale',
-  'Quarter-finals': 'Viertelfinale', 'Semi-finals': 'Halbfinale', 'Final': 'Finale',
-}
-const WEEKDAYS_DE = { Mon: 'Mo', Tue: 'Di', Wed: 'Mi', Thu: 'Do', Fri: 'Fr', Sat: 'Sa', Sun: 'So' }
-const MONTHS_DE = { Jan: 'Jan', Feb: 'Feb', Mar: 'März', Apr: 'Apr', May: 'Mai', Jun: 'Juni', Jul: 'Juli',
-                    Aug: 'Aug', Sep: 'Sep', Oct: 'Okt', Nov: 'Nov', Dec: 'Dez' }
-
-// Tab names come from the fixture feed: "Matchday 3", "Fri 02 Oct", "League Phase".
-function groupLabel(g) {
-  if (LANG === 'en') return g.length === 1 ? `Group ${g}` : g
-  if (g.length === 1) return `Gruppe ${g}`
-  if (STAGE_NAMES_DE[g]) return STAGE_NAMES_DE[g]
-  const md = g.match(/^Matchday (\d+)$/)
-  if (md) return `Spieltag ${md[1]}`
-  const day = g.match(/^(\w{3}) (\d{2}) (\w{3})$/)
-  if (day && WEEKDAYS_DE[day[1]]) return `${WEEKDAYS_DE[day[1]]} ${day[2]}. ${MONTHS_DE[day[3]] || day[3]}`
-  return g
 }
 
 // The game-flow engine labels matches in English (src/game_flow.py).
@@ -215,6 +195,31 @@ const TEAM_FLAGS = {
   'Uzbekistan': '🇺🇿',
 }
 
+// Windows draws a flag emoji as two letters ("DE"), Apple as a flag. A flag
+// image looks the same everywhere, so flags are shown as images.
+function flagUrl(emoji) {
+  const cps = [...emoji].map(c => c.codePointAt(0))
+  const isRegional = c => c >= 0x1F1E6 && c <= 0x1F1FF
+  if (cps.length === 2 && cps.every(isRegional)) {
+    return `https://flagcdn.com/w40/${String.fromCharCode(...cps.map(c => c - 0x1F1E6 + 97))}.png`
+  }
+  if (cps[0] === 0x1F3F4 && cps.length > 2) {   // England, Scotland, Wales: tag letters "gbeng"
+    const code = String.fromCharCode(...cps.slice(1, -1).map(c => c - 0xE0000))
+    return `https://flagcdn.com/w40/${code.slice(0, 2)}-${code.slice(2)}.png`
+  }
+  return null
+}
+const FLAG_ENGLAND = String.fromCodePoint(0x1F3F4, 0xE0067, 0xE0062, 0xE0065, 0xE006E, 0xE0067, 0xE007F)
+const FLAG_SPAIN = String.fromCodePoint(0x1F1EA, 0x1F1F8)
+
+// An emoji, or an image when it is a flag.
+function Emoji({ char, className = '' }) {
+  const url = flagUrl(char)
+  return url
+    ? <img src={url} alt="" className={`team-crest team-flag ${className}`} />
+    : <span className={className}>{char}</span>
+}
+
 function TeamLabel({ name }) {
   const iso = TEAM_COLORS[name]?.iso
   if (iso) {
@@ -241,7 +246,7 @@ function TeamLabel({ name }) {
     )
   }
   const flag = TEAM_FLAGS[name]
-  return <>{flag && <span style={{ marginRight: '0.4em' }}>{flag}</span>}{teamName(name)}</>
+  return <>{flag && <Emoji char={flag} className="team-flag-emoji" />}{teamName(name)}</>
 }
 
 
@@ -800,14 +805,16 @@ function FixtureReadyRow({ fixture, onGenerate, onBets }) {
         <span className="fixture-vs">vs</span>
         <span><TeamLabel name={fixture.away_team} /></span>
       </div>
-      <button className="fixture-generate-btn" onClick={onGenerate}>
-        {tr('KI-Analyse starten', 'Start AI analysis')}
-      </button>
-      {onBets && (
-        <button className="fixture-generate-btn fixture-bets-btn" onClick={onBets}>
-          {tr('Wett-Tipps zeigen', 'Show bet tips')}
+      <div className="fixture-actions">
+        <button className="fixture-generate-btn" onClick={onGenerate}>
+          {tr('KI-Analyse starten', 'Start AI analysis')}
         </button>
-      )}
+        {onBets && (
+          <button className="fixture-generate-btn fixture-bets-btn" onClick={onBets}>
+            {tr('Wett-Tipps zeigen', 'Show bet tips')}
+          </button>
+        )}
+      </div>
     </div>
   )
 }
@@ -1663,14 +1670,16 @@ const HERO_SAMPLE = {
 // The landing card doubles as a call to action: a click opens the next
 // Bundesliga matchday.
 function HeroPreviewCard({ onOpen }) {
-  const colors = getMatchColors('Real Madrid', 'Bayern Munich')
+  // Gold for Real Madrid, red for Bayern, grey for the draw - restrained but
+  // each side still recognisable.
+  const colors = { home: '#d4af37', draw: '#6b7280', away: '#dc052d' }
   return (
     <div className="hero-preview card is-clickable" role="button" tabIndex={0} onClick={onOpen}
          onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpen?.() } }}
          aria-label={tr('Zu den Bundesliga-Prognosen', 'Go to the Bundesliga predictions')}>
       <div className="hero-preview-badge">
         <span className="hero-preview-badge-dot" />
-        {tr('KI-Prognose', 'AI prediction')}
+        {tr('Beispielhafte KI-Prognose', 'Sample AI prediction')}
       </div>
       <div className="hero-preview-teams">
         <span className="hero-preview-team"><TeamLabel name="Real Madrid" /></span>
@@ -2205,6 +2214,106 @@ function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive, i
   )
 }
 
+// A single match day by its exact date ("Di 24.11.").
+const WEEKDAYS_SHORT = {
+  de: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+  en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+}
+function formatFixtureDay(date) {
+  const [y, m, d] = date.split('-').map(Number)
+  const weekday = WEEKDAYS_SHORT[LANG === 'en' ? 'en' : 'de'][new Date(Date.UTC(y, m - 1, d)).getUTCDay()]
+  return LANG === 'en'
+    ? `${weekday} ${d} ${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][m - 1]}`
+    : `${weekday} ${String(d).padStart(2, '0')}.${String(m).padStart(2, '0')}.`
+}
+
+// The days with matches from today on (three weeks ahead), what the "Next
+// games" dropdown lists after "Past games".
+const berlinDay = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Berlin' })
+function upcomingFixtureDays(fixtures, now = new Date()) {
+  const today = berlinDay.format(now)
+  const last = berlinDay.format(new Date(now.getTime() + TAB_AHEAD_DAYS * 86400000))
+  return [...new Set(fixtures.map(f => f.date).filter(d => d >= today && d <= last))].sort()
+}
+
+// The "Next games" tab as a dropdown: next games first, then every match day.
+// The list is fixed-positioned so the tab bar's horizontal scroll cannot clip it.
+function MatchdayPicker({ activeGroup, days, onSelect }) {
+  const [open, setOpen] = useState(false)
+  const [pos, setPos] = useState({ top: 0, left: 0, width: 260 })
+  const wrap = useRef(null)
+  const menu = useRef(null)
+  useEffect(() => {
+    if (!open) return
+    const close = () => setOpen(false)
+    // Scrolling the page closes the list; scrolling inside it must not.
+    const onScroll = e => { if (!menu.current?.contains(e.target)) close() }
+    const onDown = e => { if (!wrap.current?.contains(e.target)) close() }
+    const onKey = e => { if (e.key === 'Escape') close() }
+    document.addEventListener('mousedown', onDown)
+    document.addEventListener('keydown', onKey)
+    window.addEventListener('scroll', onScroll, true)
+    window.addEventListener('resize', close)
+    return () => {
+      document.removeEventListener('mousedown', onDown)
+      document.removeEventListener('keydown', onKey)
+      window.removeEventListener('scroll', onScroll, true)
+      window.removeEventListener('resize', close)
+    }
+  }, [open])
+  function toggle() {
+    if (!open && wrap.current) {
+      const r = wrap.current.getBoundingClientRect()
+      const width = Math.min(280, window.innerWidth - 32)
+      setPos({ top: r.bottom + 8, left: Math.max(16, Math.min(r.left, window.innerWidth - width - 16)), width })
+    }
+    setOpen(o => !o)
+  }
+  function pick(group) { setOpen(false); onSelect(group) }
+  const activeDay = activeGroup.startsWith('day:') ? activeGroup.slice(4) : null
+  const active = activeGroup === 'next' || activeGroup === 'past' || activeDay !== null
+  return (
+    <div className="group-picker" ref={wrap}>
+      <button role="tab" aria-selected={active} aria-haspopup="listbox" aria-expanded={open}
+              className={`group-segment group-picker-btn ${active ? 'active' : ''}`} onClick={toggle}>
+        <span>📅 {activeDay ? formatFixtureDay(activeDay) : activeGroup === 'past' ? tr('Vergangene Spiele', 'Past games') : tr('Nächste Spiele', 'Next games')}</span>
+        <span className={`group-picker-caret ${open ? 'open' : ''}`}>▾</span>
+      </button>
+      {open && (
+        <ul className="group-picker-menu" role="listbox" ref={menu} style={{ top: pos.top, left: pos.left, width: pos.width }}>
+          <li>
+            <button role="option" aria-selected={activeGroup === 'next'}
+                    className={`group-picker-item ${activeGroup === 'next' ? 'selected' : ''}`}
+                    onClick={() => pick('next')}>{tr('Nächste Spiele', 'Next games')}</button>
+          </li>
+          <li>
+            <button role="option" aria-selected={activeGroup === 'past'}
+                    className={`group-picker-item ${activeGroup === 'past' ? 'selected' : ''}`}
+                    onClick={() => pick('past')}>{tr('Vergangene Spiele', 'Past games')}</button>
+          </li>
+          {days.length > 0 && <li className="group-picker-divider" role="separator" />}
+          {days.map(day => (
+            <li key={day}>
+              <button role="option" aria-selected={activeDay === day}
+                      className={`group-picker-item ${activeDay === day ? 'selected' : ''}`}
+                      onClick={() => pick(`day:${day}`)}>{formatFixtureDay(day)}</button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  )
+}
+
+// Tab title and canonical link follow the page that is shown.
+function useDocumentTitle(title, route) {
+  useEffect(() => {
+    document.title = title
+    const canonical = document.querySelector('link[rel="canonical"]')
+    if (canonical) canonical.href = `https://goaliq.de${window.location.pathname}`
+  }, [title, route])
+}
+
 export default function App() {
   const [route, navigate] = useSiteRoute()
   const page = route.page
@@ -2226,9 +2335,11 @@ export default function App() {
   const [realResultsMap, setRealResultsMap] = useState({})
   const [realResults, setRealResults] = useState([])
   // null until someone picks a competition: the ticker then shows a mix.
-  const tickerCompetition = route.competition || null
+  const tickerCompetition = route.competition && route.competition !== 'all' ? route.competition : null
   const [wmLoading, setWmLoading] = useState(true)
   const activeCompetition = route.competition || 'cl'
+  const isAll = activeCompetition === 'all'
+  const competitionKeys = isAll ? Object.keys(COMPETITIONS) : [activeCompetition]
   const [, setFixturesVersion] = useState(0)
   const [fixtureNow, setFixtureNow] = useState(() => new Date())
   useEffect(() => {
@@ -2242,24 +2353,38 @@ export default function App() {
   const comboCache = useRef({})
   const comboRequests = useRef(new Set())
 
-  const competition = COMPETITIONS[activeCompetition]
-  const currentFixtures = competition.fixtures
+  const [pastMore, setPastMore] = useState({ key: '', n: 20 })
+  const competition = isAll ? null : COMPETITIONS[activeCompetition]
+  const currentFixtures = isAll ? competitionKeys.flatMap(k => COMPETITIONS[k].fixtures) : competition.fixtures
   const linkedFixture = route.matchId ? currentFixtures.find(f => f.match_id === route.matchId && f.date === route.matchDate) : null
-  const activeGroup = linkedFixture?.group || route.group || 'next'
-  const comboEntry = combos[activeCompetition]
-  const combo = comboCacheIsCurrent(comboEntry, fixtureNow.getTime()) ? comboEntry.data : null
-  const comboLoading = activeGroup === 'combo' && combo === null
-  const currentGroups = groupsAroundToday(currentFixtures, fixtureNow)
-  const nextGames = nextGamesFor(currentFixtures, fixtureNow)
+  // A view is next games, top games, the combo ticket or one day; an opened
+  // match in a single league shows its own day.
+  const isView = g => ['next', 'hot', 'combo', 'past'].includes(g) || (typeof g === 'string' && g.startsWith('day:'))
+  const activeGroup = isAll
+    ? (isView(route.group) ? route.group : 'next')
+    : (linkedFixture ? `day:${linkedFixture.date}` : route.group || 'next')
+  const activeDay = activeGroup.startsWith('day:') ? activeGroup.slice(4) : null
+  const comboFor = key => comboCacheIsCurrent(combos[key], fixtureNow.getTime()) ? combos[key].data : null
+  const comboExpiry = activeGroup === 'combo' ? Math.min(...competitionKeys.map(k => combos[k]?.expiresAt ?? Infinity)) : Infinity
+  const currentDays = upcomingFixtureDays(currentFixtures, fixtureNow)
+  // Past games, newest first, shown 20 at a time.
+  const pastFixtures = activeGroup === 'past'
+    ? currentFixtures.filter(f => fixtureDateTime(f) < fixtureNow).sort((a, b) => fixtureDateTime(b) - fixtureDateTime(a))
+    : []
+  const pastShown = pastMore.key === activeCompetition ? pastMore.n : 20
+  const nextGames = isAll
+    ? competitionKeys.flatMap(k => nextGamesFor(COMPETITIONS[k].fixtures, fixtureNow))
+        .sort((a, b) => fixtureDateTime(a) - fixtureDateTime(b))
+    : nextGamesFor(currentFixtures, fixtureNow)
+  const leagueOf = fixture => Object.keys(COMPETITIONS).find(k => COMPETITIONS[k].fixtures.includes(fixture))
 
-  useEffect(() => {
-    const suffix = linkedFixture ? `${teamName(linkedFixture.home_team)} – ${teamName(linkedFixture.away_team)}`
-      : page === 'how-it-works' ? tr('So funktioniert’s', 'How it works')
-      : route.competition ? competition.label : ''
-    document.title = suffix ? `${suffix} | GoalIQ` : tr('GoalIQ – KI-Prognosen für jedes Spiel', 'GoalIQ – AI predictions for every match')
-    const canonical = document.querySelector('link[rel="canonical"]')
-    if (canonical) canonical.href = `https://goaliq.de${window.location.pathname}`
-  }, [route, lang, linkedFixture, page, competition.label])
+  const pageLabel = isAll ? tr('Prognosen', 'Predictions') : competition.label
+  const titleSuffix = linkedFixture ? `${teamName(linkedFixture.home_team)} – ${teamName(linkedFixture.away_team)}`
+    : page === 'how-it-works' ? tr('So funktioniert’s', 'How it works')
+    : page === 'home' ? pageLabel : ''
+  useDocumentTitle(titleSuffix
+    ? `${titleSuffix} | GoalIQ`
+    : tr('GoalIQ – KI-Prognosen für jedes Spiel', 'GoalIQ – AI predictions for every match'), route)
 
   useEffect(() => {
     if (wmLoading) return
@@ -2268,30 +2393,35 @@ export default function App() {
   }, [route, wmLoading, linkedFixture])
 
   useEffect(() => {
-    if (activeGroup !== 'combo' || comboRequests.current.has(activeCompetition)
-        || comboCacheIsCurrent(comboCache.current[activeCompetition], Date.now())) return
-    comboRequests.current.add(activeCompetition)
-    axios.get(`${API_BASE}/combo-ticket`, { params: { competition: competition.sportKey } })
-      .then(r => {
-        const entry = createComboCacheEntry(r.data, Date.now())
-        comboCache.current[activeCompetition] = entry
-        setCombos(prev => ({ ...prev, [activeCompetition]: entry }))
-      })
-      .catch(() => {
-        const entry = createComboCacheEntry({ error: true }, Date.now())
-        comboCache.current[activeCompetition] = entry
-        setCombos(prev => ({ ...prev, [activeCompetition]: entry }))
-      })
-      .finally(() => comboRequests.current.delete(activeCompetition))
-  }, [activeCompetition, activeGroup, competition.sportKey, fixtureNow])
+    if (activeGroup !== 'combo') return
+    const keys = activeCompetition === 'all' ? Object.keys(COMPETITIONS) : [activeCompetition]
+    keys.forEach(key => {
+      if (comboRequests.current.has(key) || comboCacheIsCurrent(comboCache.current[key], Date.now())) return
+      comboRequests.current.add(key)
+      axios.get(`${API_BASE}/combo-ticket`, { params: { competition: COMPETITIONS[key].sportKey } })
+        .then(r => {
+          const entry = createComboCacheEntry(r.data, Date.now())
+          comboCache.current[key] = entry
+          setCombos(prev => ({ ...prev, [key]: entry }))
+        })
+        .catch(() => {
+          const entry = createComboCacheEntry({ error: true }, Date.now())
+          comboCache.current[key] = entry
+          setCombos(prev => ({ ...prev, [key]: entry }))
+        })
+        .finally(() => comboRequests.current.delete(key))
+    })
+  }, [activeCompetition, activeGroup, fixtureNow])
 
   useEffect(() => {
-    if (activeGroup !== 'combo' || !comboEntry) return
-    const delay = comboEntry.expiresAt - Date.now()
-    if (delay <= 0) return
+    const delay = comboExpiry - Date.now()
+    if (!Number.isFinite(delay) || delay <= 0) return
     const timer = setTimeout(() => setFixtureNow(new Date()), delay + 1)
     return () => clearTimeout(timer)
-  }, [activeGroup, comboEntry])
+  }, [comboExpiry])
+
+  // Changing the league keeps the chosen view (next / top games / combo).
+  const keepGroup = ['hot', 'combo', 'past'].includes(activeGroup) ? activeGroup : 'next'
 
   function switchCompetition(key, group = 'next') {
     navigate(sectionPath(key, group))
@@ -2470,7 +2600,7 @@ export default function App() {
           <span className="nav-title">Goal<span>IQ</span></span>
         </a>
         <div className="nav-links">
-          <a href={`${sectionPath(activeCompetition)}#predictions`} onClick={(e) => { e.preventDefault(); navigate(`${sectionPath(activeCompetition)}#predictions`) }}>{tr('Prognosen', 'Predictions')}</a>
+          <a href={`${sectionPath('all')}#predictions`} onClick={(e) => { e.preventDefault(); navigate(`${sectionPath('all')}#predictions`) }}>{tr('Prognosen', 'Predictions')}</a>
           <a href="/so-funktionierts" onClick={(e) => { e.preventDefault(); navigate('/so-funktionierts'); window.scrollTo(0, 0) }}>{tr("So funktioniert's", 'How it works')}</a>
         </div>
         <div className="lang-switch" role="group" aria-label={tr('Sprache', 'Language')}>
@@ -2479,9 +2609,9 @@ export default function App() {
         </div>
       </nav>
 
-      {page === 'home' && <MatchTicker results={realResults} competitionKey={tickerCompetition} />}
+      {(page === 'home' || page === 'landing') && <MatchTicker results={realResults} competitionKey={tickerCompetition} />}
 
-      {page === 'home' && (
+      {page === 'landing' && (
         <>
           <header className="hero">
             <HeroVisual />
@@ -2523,31 +2653,41 @@ export default function App() {
               <HeroPreviewCard onOpen={() => openNextMatchday('bl')} />
             </div>
           </header>
+        </>
+      )}
 
+      {page === 'home' && (
+        <>
           <main className="main">
             <section id="predictions" className="wm-section">
               <h2 className="section-title">{tr('Prognosen', 'Predictions')}</h2>
 
-              <div className="competition-select">
+              <div className="competition-select" role="group" aria-label={tr("Nach Liga filtern", "Filter by league")}>
+                <button
+                  className={`competition-pill ${isAll ? 'active' : ''}`}
+                  onClick={() => switchCompetition('all', keepGroup)}
+                >
+                  {tr('Alle', 'All')}
+                </button>
                 {Object.entries(COMPETITIONS).map(([key, c]) => (
                   <button
                     key={key}
                     className={`competition-pill ${activeCompetition === key ? 'active' : ''}`}
-                    onClick={() => switchCompetition(key)}
+                    onClick={() => switchCompetition(key, keepGroup)}
                   >
                     {c.logo
                       ? <img src={c.logo} alt="" />
-                      : <span className="competition-pill-emoji">{c.emoji}</span>}
+                      : <Emoji char={c.emoji} className="competition-pill-emoji" />}
                     {c.label}
                   </button>
                 ))}
                 <button className="competition-pill soon" disabled title={tr('Bald verfügbar', 'Coming soon')}>
-                  <span className="competition-pill-emoji">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
+                  <Emoji char={FLAG_ENGLAND} className="competition-pill-emoji" />
                   Premier League
                   <span className="competition-pill-soon">{tr('Bald', 'Soon')}</span>
                 </button>
                 <button className="competition-pill soon" disabled title={tr('Bald verfügbar', 'Coming soon')}>
-                  <span className="competition-pill-emoji">🇪🇸</span>
+                  <Emoji char={FLAG_SPAIN} className="competition-pill-emoji" />
                   La Liga
                   <span className="competition-pill-soon">{tr('Bald', 'Soon')}</span>
                 </button>
@@ -2555,9 +2695,18 @@ export default function App() {
 
               <div className="group-nav">
                 <div className="group-segments" role="tablist">
-                  <button role="tab" aria-selected={activeGroup === 'next'}
-                          className={`group-segment ${activeGroup === 'next' ? 'active' : ''}`}
-                          onClick={() => navigate(sectionPath(activeCompetition))}>📅 {tr('Nächste Spiele', 'Next games')}</button>
+                  {currentDays.length > 0 ? (
+                    // "Next games" opens a list of the match days around today.
+                    <MatchdayPicker
+                      activeGroup={activeGroup}
+                      days={currentDays}
+                      onSelect={group => navigate(sectionPath(activeCompetition, group))}
+                    />
+                  ) : (
+                    <button role="tab" aria-selected={activeGroup === 'next'}
+                            className={`group-segment ${activeGroup === 'next' ? 'active' : ''}`}
+                            onClick={() => navigate(sectionPath(activeCompetition))}>📅 {tr('Nächste Spiele', 'Next games')}</button>
+                  )}
                   <button role="tab" aria-selected={activeGroup === 'hot'}
                           className={`group-segment ${activeGroup === 'hot' ? 'active' : ''}`}
                           onClick={() => navigate(sectionPath(activeCompetition, 'hot'))}>🔥 {tr('Topspiele', 'Top games')}</button>
@@ -2566,18 +2715,6 @@ export default function App() {
                           onClick={() => navigate(sectionPath(activeCompetition, 'combo'))}>
                     🎟️ {tr('Kombi-Schein', 'Combo ticket')}</button>
                 </div>
-                {currentGroups.length > 0 && (
-                  <label className={`group-select ${currentGroups.includes(activeGroup) ? 'active' : ''}`}>
-                    <span className="group-select-icon">📆</span>
-                    <select value={currentGroups.includes(activeGroup) ? activeGroup : ''}
-                            onChange={e => e.target.value && navigate(sectionPath(activeCompetition, e.target.value))}
-                            aria-label={tr('Spieltag wählen', 'Choose matchday')}>
-                      <option value="" disabled>{tr('Spieltag wählen', 'Choose matchday')}</option>
-                      {currentGroups.map(g => <option key={g} value={g}>{groupLabel(g)}</option>)}
-                    </select>
-                    <span className="group-select-caret">▾</span>
-                  </label>
-                )}
               </div>
 
               {wmLoading && (
@@ -2587,12 +2724,19 @@ export default function App() {
                 </div>
               )}
 
-              {activeGroup === 'combo' && (
-                <ComboTicketView combo={combo} loading={comboLoading} onOpenLeg={openLeg} />
-              )}
+              {activeGroup === 'combo' && competitionKeys.map(key => (
+                <div key={key}>
+                  {isAll && <h3 className="fixture-league-tag combo-league-title">{COMPETITIONS[key].label}</h3>}
+                  <ComboTicketView combo={comboFor(key)} loading={comboFor(key) === null} onOpenLeg={openLeg} />
+                </div>
+              ))}
 
               {activeGroup === 'next' && nextGames.length === 0 && (
                 <p className="wm-subtle">{tr('Noch keine weiteren Spieltermine verfügbar.', 'No further fixtures available yet.')}</p>
+              )}
+
+              {activeGroup === 'past' && pastFixtures.length === 0 && (
+                <p className="wm-subtle">{tr('Noch keine vergangenen Spiele.', 'No past games yet.')}</p>
               )}
 
               {activeGroup === 'hot' && nextGames.length === 0 && (
@@ -2610,10 +2754,16 @@ export default function App() {
                     fixtures = nextGames
                   } else if (activeGroup === 'hot') {
                     fixtures = getHotFixtures(predictionsById, nextGames)
+                  } else if (activeGroup === 'past') {
+                    fixtures = pastFixtures.slice(0, pastShown)
+                  } else if (activeDay) {
+                    fixtures = currentFixtures.filter(f => f.date === activeDay)
+                      .sort((a, b) => fixtureDateTime(a) - fixtureDateTime(b))
                   } else {
                     fixtures = currentFixtures.filter(f => f.group === activeGroup)
                   }
-                  return fixtures.map(fixture => {
+                  if (isAll && linkedFixture && !fixtures.includes(linkedFixture)) fixtures = [linkedFixture, ...fixtures]
+                  const renderFixture = fixture => {
                     const realKey = `${fixture.home_team}__${fixture.away_team}__${fixture.date}`
                     const realResult = realResultsMap[realKey]
                     // Too far ahead: an older cached forecast would not know
@@ -2632,7 +2782,7 @@ export default function App() {
                           analysisActive={linkedFixture === fixture}
                           isLinked={linkedFixture === fixture}
                           onOpen={() => navigate(matchPath(activeCompetition, fixture))}
-                          onCollapse={() => navigate(sectionPath(activeCompetition, fixture.group))}
+                          onCollapse={() => navigate(sectionPath(activeCompetition, activeGroup))}
                         />
                       )
                     }
@@ -2665,9 +2815,25 @@ export default function App() {
                         onStartBetCheck={() => startBetCheck(fixture.match_id, fixture)}
                       />
                     )
-                  })
+                  }
+                  // Which league (all leagues) and, for past games, which day.
+                  const tagFor = fixture => [
+                    activeGroup === 'past' ? formatFixtureDay(fixture.date) : null,
+                    isAll ? COMPETITIONS[leagueOf(fixture)]?.label : null,
+                  ].filter(Boolean).join(' · ')
+                  return fixtures.map(fixture => tagFor(fixture) ? (
+                    <Fragment key={fixture.match_id}>
+                      <span className="fixture-league-tag">{tagFor(fixture)}</span>
+                      {renderFixture(fixture)}
+                    </Fragment>
+                  ) : renderFixture(fixture))
                 })()}
               </div>
+              {activeGroup === 'past' && pastFixtures.length > pastShown && (
+                <button className="past-more" onClick={() => setPastMore({ key: activeCompetition, n: pastShown + 20 })}>
+                  {tr('Mehr anzeigen', 'Show more')}
+                </button>
+              )}
             </section>
           </main>
         </>
