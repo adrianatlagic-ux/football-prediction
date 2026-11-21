@@ -1920,15 +1920,15 @@ function tickerMinute(minute) {
 
 // The real match, told the way the old predicted ticker told it: kickoff,
 // every goal with the running score, cards, half-time and full-time.
-function RealTicker({ events, homeTeam, awayTeam, homeScore, awayScore }) {
+function RealTicker({ events, homeTeam, awayTeam }) {
   if (!events || events.length === 0) return null
   let home = 0, away = 0
   const score = () => `${home}:${away}`
   const home_ = teamName(homeTeam), away_ = teamName(awayTeam)
   const halftime = () => ({ key: 'ht', minute: tr('HZ', 'HT'), type: 'halftime', head: `⏸️ ${tr('Halbzeit', 'Half time')}`,
                             text: tr(`${home_} ${score()} ${away_} zur Pause.`, `${home_} ${score()} ${away_} at the break.`), score: score() })
-  const rows = [{ key: 'ko', minute: "1'", type: 'kickoff', head: `🟢 ${tr('Anpfiff', 'Kick-off')}`,
-                  text: tr(`${home_} gegen ${away_} läuft.`, `${home_} vs ${away_} is under way.`), score: '0:0' }]
+  // Goals, cards and half time only: no kick-off or full-time rows.
+  const rows = []
   let halftimeShown = false
   events.forEach((e, i) => {
     const t = tickerMinute(e.minute)
@@ -1953,8 +1953,6 @@ function RealTicker({ events, homeTeam, awayTeam, homeScore, awayScore }) {
   if (!halftimeShown) {
     rows.push(halftime())
   }
-  const final = homeScore != null ? `${homeScore}:${awayScore}` : score()
-  rows.push({ key: 'ft', minute: tr('Ende', 'FT'), type: 'fulltime', head: `🏁 ${tr('Abpfiff', 'Full time')}`, text: `${home_} ${final} ${away_}.`, score: final })
 
   return (
     <div className="wm-stories real-ticker">
@@ -2002,24 +2000,21 @@ function RealStats({ stats, homeTeam, awayTeam }) {
 
 function AiComparisonPanel({ fixture, result, aiData }) {
   const sp = aiData.score_prediction || {}
-  const bm = sp.betting_markets || {}
-  const ou = bm.over_under || []
-  const btts = bm.btts || {}
   const topScores = (sp.top_scorelines || []).slice(0, 3)
 
   const actualHome = result.home_score
   const actualAway = result.away_score
-  const actualBtts = actualHome > 0 && actualAway > 0
-  const actualTotal = actualHome + actualAway
   const actualWinner = actualHome > actualAway ? 'H' : actualAway > actualHome ? 'A' : 'D'
 
   const homeCorrect = actualWinner === 'H'
   const drawCorrect = actualWinner === 'D'
   const awayCorrect = actualWinner === 'A'
+  // The same team colours as the analysis before the match; the outcome that
+  // happened is marked with a check, not recoloured.
+  const matchColors = getMatchColors(aiData.home_team, aiData.away_team)
 
   return (
     <div className="ai-prediction-inner">
-      <p className="wm-subtle" style={{ marginBottom: '0.9rem', fontSize: '0.75rem' }}>{tr('KI-Prognose vor dem Spiel', 'AI prediction before the match')}</p>
 
       {/* Winner probabilities */}
       <div className="probabilities-donut">
@@ -2028,27 +2023,23 @@ function AiComparisonPanel({ fixture, result, aiData }) {
           draw={aiData.probability_draw}
           away={aiData.probability_away_win}
           score={`${actualHome}-${actualAway}`}
-          colors={{
-            home: homeCorrect ? '#22c55e' : 'var(--gold)',
-            draw: drawCorrect ? '#22c55e' : '#9ca3af',
-            away: awayCorrect ? '#22c55e' : '#f97316',
-          }}
+          colors={matchColors}
         />
         <div className="probabilities-legend">
           <span className="legend-title">{tr('Siegwahrscheinlichkeit', 'Win probability')}</span>
-          <div className="legend-row">
-            <span className={`legend-dot ${homeCorrect ? 'hit' : 'gold'}`} />
-            <span className="legend-name"><TeamLabel name={aiData.home_team} />{homeCorrect ? ' ✓' : ''}</span>
+          <div className={`legend-row ${homeCorrect ? 'is-correct' : ''}`}>
+            <span className="legend-dot" style={{ background: matchColors.home }} />
+            <span className="legend-name"><TeamLabel name={aiData.home_team} />{homeCorrect && <span className="legend-check"> ✓</span>}</span>
             <span className="legend-value"><AnimatedNumber value={aiData.probability_home_win * 100} decimals={1} suffix="%" /></span>
           </div>
-          <div className="legend-row">
-            <span className={`legend-dot ${drawCorrect ? 'hit' : 'gray'}`} />
-            <span className="legend-name">{tr('Remis', 'Draw')}{drawCorrect ? ' ✓' : ''}</span>
+          <div className={`legend-row ${drawCorrect ? 'is-correct' : ''}`}>
+            <span className="legend-dot gray" />
+            <span className="legend-name">{tr('Remis', 'Draw')}{drawCorrect && <span className="legend-check"> ✓</span>}</span>
             <span className="legend-value"><AnimatedNumber value={aiData.probability_draw * 100} decimals={1} suffix="%" /></span>
           </div>
-          <div className="legend-row">
-            <span className={`legend-dot ${awayCorrect ? 'hit' : 'orange'}`} />
-            <span className="legend-name"><TeamLabel name={aiData.away_team} />{awayCorrect ? ' ✓' : ''}</span>
+          <div className={`legend-row ${awayCorrect ? 'is-correct' : ''}`}>
+            <span className="legend-dot" style={{ background: matchColors.away }} />
+            <span className="legend-name"><TeamLabel name={aiData.away_team} />{awayCorrect && <span className="legend-check"> ✓</span>}</span>
             <span className="legend-value"><AnimatedNumber value={aiData.probability_away_win * 100} decimals={1} suffix="%" /></span>
           </div>
         </div>
@@ -2070,34 +2061,85 @@ function AiComparisonPanel({ fixture, result, aiData }) {
             })}
           </div>
 
-          {/* BTTS + Over/Under */}
-          {(btts.yes != null || ou.length > 0) && (
-            <div className="stat-card">
-              <h4>{tr('Märkte', 'Markets')}</h4>
-              {btts.yes != null && (() => {
-                const hit = actualBtts === (btts.yes >= 0.5)
-                return (
-                  <div className="stat-row" style={hit ? { color: '#4ade80' } : {}}>
-                    <span className="stat-label" style={hit ? { color: '#4ade80', fontWeight: 700 } : {}}>{tr('Beide treffen', 'Both score')}: {actualBtts ? tr('Ja', 'Yes') : tr('Nein', 'No')}{hit ? ' ✓' : ''}</span>
-                    <span className="stat-val" style={hit ? { color: '#4ade80' } : {}}>{((actualBtts ? btts.yes : btts.no) * 100).toFixed(0)}%</span>
-                  </div>
-                )
-              })()}
-              {ou.filter(o => [1.5, 2.5, 3.5].includes(parseFloat(o.line))).map(o => {
-                const line = parseFloat(o.line)
-                const over = actualTotal > line
-                const hit = over === (o.over >= 0.5)
-                return (
-                  <div className="stat-row" key={o.line} style={hit ? { color: '#4ade80' } : {}}>
-                    <span className="stat-label" style={hit ? { color: '#4ade80', fontWeight: 700 } : {}}>{over ? tr('Über', 'Over') : tr('Unter', 'Under')} {deNum(o.line)} {tr('Tore', 'goals')}{hit ? ' ✓' : ''}</span>
-                    <span className="stat-val" style={hit ? { color: '#4ade80' } : {}}>{((over ? o.over : 1 - o.over) * 100).toFixed(0)}%</span>
-                  </div>
-                )
-              })}
+        </div>
+      )}
+
+      <AiTipResult fixture={fixture} />
+    </div>
+  )
+}
+
+// How the AI tip of a finished match turned out (GET /ai-tip-result): the
+// Wett-Tipp box, gold when it came in and dark grey when not, and below it
+// every priced bet with whether it came in.
+const RESULT_ROWS = 6
+
+function AiTipResult({ fixture }) {
+  const [data, setData] = useState(null)
+  const [showAll, setShowAll] = useState(false)
+  useEffect(() => {
+    let alive = true
+    axios.get(`${API_BASE}/ai-tip-result`, {
+      params: { home_team: fixture.home_team, away_team: fixture.away_team, date: fixture.date },
+    }).then(r => { if (alive) setData(r.data) }).catch(() => { if (alive) setData({ found: false }) })
+    return () => { alive = false }
+  }, [fixture.home_team, fixture.away_team, fixture.date])
+
+  if (!data?.found || !data.tip) return null
+  const tip = data.tip
+  const hit = tip.result === 'win'
+  const isTip = b => b.market === tip.market && b.outcome === tip.outcome && (b.team || null) === (tip.team || null)
+  const rows = showAll ? data.bets : data.bets.slice(0, RESULT_ROWS)
+  if (!showAll && !rows.some(isTip)) {
+    const own = data.bets.find(isTip)
+    if (own) rows.push(own)
+  }
+
+  const push = tip.result === 'push'
+  return (
+    // The Smart Bet card of the analysis in grey, its Wett-Tipp box gold when
+    // the tip came in and dark grey when not.
+    <div className="smart-bet-card ai-tip-result is-grey">
+      <div className={`bet-tip ai-tip-result-head ${hit ? '' : 'is-empty is-miss'}`}>
+        <span className="smart-bet-label bet-tip-label">{tr('Wett-Tipp', 'Bet tip')}</span>
+        <div className="likely-tip-row">
+          <span className="bet-tip-pick">{betOutcomeLabel(tip)}</span>
+          {tip.best_odds && <span className="likely-tip-odds">{tip.best_odds.toFixed(2)}</span>}
+          {tip.market_probability != null && <span className="likely-tip-chance">{pct(tip.market_probability)} {tr('Chance', 'chance')}</span>}
+        </div>
+        <div className="smart-bet-agree-row">
+          <span className={`smart-bet-agree-chip ${hit ? 'yes' : 'muted'}`}>
+            {hit ? tr('Wett-Tipp eingetroffen ✓', 'Bet tip won ✓')
+              : push ? tr('Einsatz zurück', 'Stake returned')
+              : tr('Wett-Tipp nicht eingetroffen ✕', 'Bet tip lost ✕')}
+          </span>
+        </div>
+      </div>
+
+      {data.bets.length > 0 && (
+        <div className="smart-bet-table ai-tip-result-table">
+          <div className="smart-bet-table-head">
+            <span>{tr('Markt', 'Market')}</span>
+            <span>{tr('Tipp', 'Pick')}</span>
+            <span>{tr('Quote', 'Odds')}</span>
+            <span>{tr('Ergebnis', 'Result')}</span>
+          </div>
+          {rows.map((b, i) => (
+            <div key={i} className={`smart-bet-table-row ${b.result === 'win' ? 'is-won' : b.result === 'push' ? 'is-push' : 'is-lost'} ${isTip(b) ? 'is-ai-tip' : ''}`}>
+              <span className="smart-bet-col-market">{marketGroupLabel(b.market)}</span>
+              <span className="smart-bet-col-pick">{b.likely ? '🎯 ' : ''}{isTip(b) ? '✨ ' : ''}{betOutcomeLabel(b)}</span>
+              <span className="smart-bet-col-odds">{b.best_odds.toFixed(2)}</span>
+              <span className="smart-bet-col-chance">{b.result === 'win' ? '✓' : b.result === 'push' ? '↺' : '✕'}</span>
             </div>
+          ))}
+          {data.bets.length > RESULT_ROWS && (
+            <button className="smart-bet-more" onClick={() => setShowAll(v => !v)}>
+              {showAll ? tr('Weniger Märkte ▲', 'Fewer markets ▲') : tr(`Alle Märkte zeigen (${data.bets.length - RESULT_ROWS} weitere) ▼`, `Show all markets (${data.bets.length - RESULT_ROWS} more) ▼`)}
+            </button>
           )}
         </div>
       )}
+
     </div>
   )
 }
@@ -2142,15 +2184,21 @@ function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive, i
       </div>
 
       <RealStats stats={result.stats} homeTeam={fixture.home_team} awayTeam={fixture.away_team} />
-      <RealTicker events={result.events} homeTeam={fixture.home_team} awayTeam={fixture.away_team}
-                  homeScore={result.home_score} awayScore={result.away_score} />
+      <RealTicker events={result.events} homeTeam={fixture.home_team} awayTeam={fixture.away_team} />
 
       {aiData && (
         <div className="ai-prediction-section">
-          <button className="ai-toggle-btn" onClick={() => setShowAI(v => !v)}>
-            {showAI ? tr('▲ KI-Prognose ausblenden', '▲ Hide the AI prediction') : tr('▼ Mit der KI-Prognose vergleichen', '▼ Compare with the AI prediction')}
-          </button>
-          {showAI && <AiComparisonPanel fixture={fixture} result={result} aiData={aiData} />}
+          {/* Like the analysis: one centred button that opens the comparison and
+              then goes away; the card collapses from its header. */}
+          {showAI
+            ? <AiComparisonPanel fixture={fixture} result={result} aiData={aiData} />
+            : (
+              <div className="ai-compare-cta">
+                <button className="fixture-generate-btn" onClick={() => setShowAI(true)}>
+                  {tr('Mit der KI-Prognose vergleichen', 'Compare with the AI prediction')}
+                </button>
+              </div>
+            )}
         </div>
       )}
 

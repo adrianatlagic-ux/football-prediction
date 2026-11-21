@@ -14,9 +14,9 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def compute(entries: list, results: list) -> dict:
     sys.path.insert(0, str(ROOT / "scripts"))
-    from grade_bets import _norm, grade_entries
-    finished = {(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
-                for r in results if r.get("completed") and r.get("home_score") is not None}
+    from grade_bets import grade_entries
+    from src import log_store
+    finished = log_store.finished_map(entries, results)
     won = lost = 0
     for entry in entries:
         bucket = grade_entries([entry], finished)["buckets"]["bet_tip_ki"]

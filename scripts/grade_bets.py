@@ -33,12 +33,12 @@ MODEL_TOLERANCE = 0.05
 LIKELY_GROUPS = ("Modell ✓ / KI ✓", "Modell ✓ / KI ✗", "Modell ✗ / KI ✓", "Modell ✗ / KI ✗",
                  "Modell ✓ / keine KI", "Modell ✗ / keine KI")
 DEFAULT_API = "https://football-prediction.fly.dev"
+WETT_TIPP_MIN_ODDS = 1.30  # api/app.py BET_TIP_MIN_ODDS
 
 
 def _norm(name: str) -> str:
-    n = re.sub(r"\band\b", " ", name.lower()).replace("&", " ")
-    n = re.sub(r"[^a-z]", "", n)
-    return {"usa": "unitedstates"}.get(n, n)
+    from src.log_store import norm
+    return norm(name)
 
 
 def _team_margin(team, home, away, hs, as_):
@@ -156,19 +156,23 @@ def grade_entries(entries, finished):
         ("all_green", "Alle grünen Wetten"), ("clean_green", "...davon saubere (nicht ⚠)"),
         ("suspicious_green", "...davon verdächtige (⚠)"), ("all_red", "Alle roten Wetten (zur Kontrolle)"),
         ("top_rec", "Nur Top-Empfehlung pro Spiel"), ("consensus", "Game Pick (Markt-Favorit, jede Quote)"),
-        ("agent_pick", "KIs eigener Pick"), ("agent_agrees", "Top-Tipp, KI stimmt zu"),
+        ("agent_pick", "Wett-Tipp (KI-Pick, Quote ab 1,30)"), ("agent_agrees", "Top-Tipp, KI stimmt zu"),
         ("agent_disagrees", "Top-Tipp, KI widerspricht"),
         ("price_tip", "💰 Preistipp (bet-at-home über Pinnacle fair)"),
         ("likely", "🎯 Wahrscheinlichster Tipp (Markt, Quote 1.30-2.00)"),
         ("fair_game", f"Game Pick, nur Quote {FAIR_MIN_ODDS:.2f}-{FAIR_MAX_ODDS:.2f}"),
         ("fair_likely", "🎯 auf denselben Spielen"),
         ("bet_tip", "Wett-Tipp alte Regel (wahrscheinlichster, Modell und KI stimmen zu)"),
-        ("bet_tip_ki", "Wett-Tipp neue Regel (KI-Tipp, Modell ≥ Markt, nicht umgeschwenkt)"),
+        ("bet_tip_ki", "Alte Regeln (veröffentlicht nach der Regel ihrer Zeit, Modell-Veto bis 7. November)"),
         ("bet_tip_unsure", "...zurückgehalten: KI kurz vor Anpfiff umgeschwenkt (alle)"),
         ("bet_tip_same_side", "   ...davon andere Wette, gleiche Richtung (z. B. Sieg -> -1,5)"),
         ("bet_tip_changed_mind", "   ...davon Meinungswechsel (andere Seite oder anderer Markt)"),
         ("bet_tip_model_no", "...zurückgehalten: Modell unter Markt"),
-        ("model_choice", "Modell-Wahl (wahrscheinlichster Ausgang laut Modell)"))}
+        ("model_choice", "Modell-Wahl (wahrscheinlichster Ausgang laut Modell)"),
+        ("shadow", "Schatten: KI mit Gedächtnis"),
+        ("shadow_real", "Wett-Tipp auf denselben Spielen"),
+        ("shadow_diff", "Schatten, nur wo er anders tippt"),
+        ("shadow_diff_real", "Wett-Tipp in diesen Spielen"))}
     for g in LIKELY_GROUPS:
         buckets["likely " + g] = Bucket(f"🎯 bei {g}")
     out = {"buckets": buckets, "edges": [], "no_tip": 0, "pending": 0, "rows": [], "fair_matches": 0,
@@ -223,12 +227,23 @@ def grade_entries(entries, finished):
                 out["edges"].append(tip["edge"])
         elif pt:
             out["no_tip"] += 1
-        # The AI's own pick, every one of them - not only those that were also
-        # one of the model's green bets.
-        if a_pick and a_pick.get("best_odds"):
+        # The Wett-Tipp: the AI's pick, shown only from odds of 1.30
+        # (api/app.py BET_TIP_MIN_ODDS); the model has no veto any more.
+        if a_pick and a_pick.get("best_odds") and a_pick["best_odds"] >= WETT_TIPP_MIN_ODDS:
             g_ai = grade(a_pick, home, away, hs, as_)
             if g_ai is not None:
                 buckets["agent_pick"].add(g_ai, a_pick["best_odds"])
+        # The shadow agent (v9 + its memory of the two teams) against the
+        # real AI pick on the same matches; only where both exist.
+        s_pick = (entry.get("agent_eval_shadow") or {}).get("pick")
+        g_s = grade(s_pick, home, away, hs, as_) if s_pick and s_pick.get("best_odds") else None
+        g_r = grade(a_pick, home, away, hs, as_) if a_pick and a_pick.get("best_odds") else None
+        if g_s is not None and g_r is not None:
+            buckets["shadow"].add(g_s, s_pick["best_odds"])
+            buckets["shadow_real"].add(g_r, a_pick["best_odds"])
+            if not _same_bet(s_pick, a_pick):
+                buckets["shadow_diff"].add(g_s, s_pick["best_odds"])
+                buckets["shadow_diff_real"].add(g_r, a_pick["best_odds"])
         # Since 11 October bet_tip follows the new rule ("rule" set) and the
         # old one is logged as bet_tip_v1; before, bet_tip was the old rule.
         tip_entry = entry.get("bet_tip") or {}
@@ -291,7 +306,7 @@ def print_report(name, r):
     print("=" * 60)
     for row in r["rows"]:
         print(row)
-    print("\n  -- Wett-Tipp (KI-Pick nach den Regeln) --")
+    print("\n  -- Alte Regeln --")
     for key in ("bet_tip_ki", "bet_tip_unsure", "bet_tip_same_side", "bet_tip_changed_mind", "bet_tip_model_no"):
         if b[key].decided or key == "bet_tip_ki":
             print(b[key].report())
@@ -304,8 +319,12 @@ def print_report(name, r):
             print(b["likely " + g].report())
     if r["versus_ai"]:
         print("  🎯 und KI-Tipp im selben Spiel: " + ", ".join(f"{k} {v}x" for k, v in sorted(r["versus_ai"].items())))
-    print("\n  -- KI-Pick (jeder, unabhängig von den Regeln) --")
+    print("\n  -- Wett-Tipp --")
     print(b["agent_pick"].report())
+    if b["shadow"].decided:
+        print("\n  -- Schatten-Test: KI mit Gedächtnis (nur geloggt, nicht angezeigt) --")
+        for key in ("shadow", "shadow_real", "shadow_diff", "shadow_diff_real"):
+            print(b[key].report())
 
 
 def main():
@@ -323,8 +342,8 @@ def main():
 
     results = json.load(urllib.request.urlopen(f"{args.api}/real-results", timeout=30))["results"]
     # Teams AND date: the same pairing can meet twice in a season.
-    finished = {(_norm(r["home_team"]), _norm(r["away_team"]), str(r.get("commence_time"))[:10]): r
-                for r in results if r.get("completed") and r.get("home_score") is not None}
+    # The live feed forgets matches after ~a month; scores saved in the log stay.
+    finished = log_store.finished_map(entries, results)
     groups = {}
     for entry in entries:
         groups.setdefault(competition_of(entry), []).append(entry)

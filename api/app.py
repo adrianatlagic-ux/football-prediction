@@ -410,11 +410,24 @@ def server_log(name: str):
     (scripts/pull_server_logs.py)."""
     from fastapi.responses import PlainTextResponse
     from src import log_store
-    # "tips" is the match log ("details" and "bet_log" are its older names), "combos" the tickets. Each returns every competition, one JSON per line.
-    kinds = {"tips": "tips", "details": "tips", "bet_log": "tips", "combos": "combos", "combo_log": "combos"}
+    # "tips" is the match log ("details" and "bet_log" are its older names), "combos" the tickets,
+    # "memory" the AI's reviewed past tips (src/match_memory.py). Each returns every competition, one JSON per line.
+    kinds = {"tips": "tips", "details": "tips", "bet_log": "tips", "combos": "combos", "combo_log": "combos",
+             "memory": "memory"}
     if name not in kinds:
         raise HTTPException(status_code=404, detail="Unknown log")
+    if kinds[name] == "memory":
+        from src import match_memory
+        return PlainTextResponse(match_memory.as_text())
     return PlainTextResponse(log_store.as_text(kinds[name]))
+
+
+@app.get("/ai-tip-result")
+def ai_tip_result(home_team: str, away_team: str, date: str):
+    """How the AI tip of a finished match turned out: the tip, every priced bet
+    graded, and the AI's own review from its memory (src/tip_result.py)."""
+    from src.tip_result import tip_result
+    return tip_result(home_team, away_team, date)
 
 
 @app.get("/ai-tip-review")
@@ -715,6 +728,11 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 # Agent picks are cached per match indefinitely once computed (see
 # _refresh_agent_picks) - never recomputed for a match that already has one.
 _agent_picks_cache: dict[tuple[str, str], dict] = {}
+# The shadow agent's tips (same key): prompt v10 plus the AI's memory of these two
+# teams, made once at the pre-kickoff check and only logged, never shown.
+_agent_shadow_cache: dict[tuple, dict] = {}
+# AI_SHADOW_MEMORY=0 switches the shadow call off.
+SHADOW_MEMORY = os.getenv("AI_SHADOW_MEMORY", "1") == "1"
 # Kept on the Fly volume (data/jobs), so a deploy or restart does not send
 # every upcoming match to Gemini again. Loaded at startup.
 AGENT_CACHE_PATH = Path(__file__).parent.parent / "data" / "jobs" / "agent_picks.json"
@@ -731,6 +749,7 @@ def _save_agent_cache() -> None:
     try:
         with _agent_cache_lock:
             data = {"picks": [[list(k), v] for k, v in _agent_picks_cache.items() if keep(k)],
+                    "shadow": [[list(k), v] for k, v in _agent_shadow_cache.items() if keep(k)],
                     "prekickoff_done": [list(k) for k in _agent_prekickoff_done if keep(k)]}
             AGENT_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
             tmp = AGENT_CACHE_PATH.with_suffix(".tmp")
@@ -749,6 +768,8 @@ def _load_agent_cache() -> None:
         _agent_picks_cache.setdefault(tuple(key), value)
     for key in data.get("prekickoff_done", []):
         _agent_prekickoff_done.add(tuple(key))
+    for key, value in data.get("shadow", []):
+        _agent_shadow_cache.setdefault(tuple(key), value)
 AGENT_RETRY_SECONDS = 2 * 3600
 # Throttles how often a background pass is even considered, independent of
 # whether it finds anything to do - without this, every request would spawn a
@@ -1726,9 +1747,36 @@ _AGENT_COMPETITION_NAMES = {
 }
 
 
+# STEP 2 of the agent prompt. v9 runs the real tip. v10 runs only in the
+# shadow (with the memory): it asks what is most predictable in the match and
+# makes the AI write down 2-3 candidates with its own probability, logged as
+# candidates_considered so its choice and calibration can be checked (v10 went
+# live on 15 November and was reverted the same night - v9 was 12 of 12).
+_VERDICT_V9 = ('STEP 2 - BETTING VERDICT. First form your own picture of how this match will go: who controls it, how many goals are realistic, how the teams\' styles meet (e.g. a favourite against a deep defensive block), what each side needs. Use your research and weigh our model against it - where your research and the model agree the case is stronger, where they disagree explain which you trust and why. Then pick the ONE bet from the list that this picture supports most reliably - or none, if the match is too unpredictable. Your reasons must be about football (players, form, tactics, motivation, the model\'s numbers), not about the price: "the odds are attractive", "value", or odds having moved are not reasons. Use the odds only as a check - do not back an outcome whose odds imply a higher chance than you actually believe. A handicap or higher goal line is only right when you expect a clear margin or many goals, not because it pays more. Do not favour any market by default. Evaluate serious alternatives before choosing, but mention another bet in the verdict only when that comparison explains the decision. If no comparison adds useful information, leave alternative_reasoning empty. ')
+_VERDICT_V10 = (
+    "STEP 2 - BETTING VERDICT. First form your own picture of this match from your research and our model: "
+    "who is stronger today, what each side needs, how their styles meet. Then ask what in THIS match is most "
+    "predictable - the winner, a margin, the number of goals, whether both teams score - or nothing; the answer "
+    "differs from match to match. Weigh our model against your research - where they agree the case is "
+    "stronger, where they disagree say which you trust and why. "
+    "Before you decide, write down your 2-3 most serious candidates from DIFFERENT kinds of market (result, "
+    "handicap, goal line, both teams to score), each with the probability YOU give it (0-100: your own "
+    "estimate from your research and our model, not the bookmakers') and its football reason. Then pick the "
+    "ONE candidate your picture supports most reliably - or none, if none convinces you. Your reasons must be "
+    "about football (players, form, tactics, motivation, the model's numbers), not about the price: \"the odds "
+    "are attractive\", \"value\", or odds having moved are not reasons. Use the odds only as a check - do not "
+    "back an outcome whose odds imply a higher chance than you give it. A handicap or higher goal line is "
+    "only right when you expect a clear margin or many goals, not because it pays more. ")
+_MEMORY_SHAPE = (', "memory_used": [{"case": "<case id from YOUR MEMORY>", "how": "<one short sentence>"}] '
+                 '(the cases that influenced your verdict; empty list if none)')
+_CANDIDATES_SHAPE = ('"candidates": [{"market": "<market string above>", "outcome": "<matching outcome string>", '
+                     '"probability": <your own 0-100>, "reason": "<one short German sentence>"}], ')
+
+
 def _call_gemini_agent_pick(
     prediction: dict, value_bets: dict, home_team: str, away_team: str,
-    previous_eval: Optional[dict] = None,
+    previous_eval: Optional[dict] = None, memory_block: str = "", memory_cases: Optional[list] = None,
+    prompt_version: str = "v9",
 ) -> Optional[dict]:
     """Ask Gemini to research current context our
     stats model can't see, and separately evaluate the candidate bets against it.
@@ -1739,12 +1787,16 @@ def _call_gemini_agent_pick(
       table situation, other) - shown in the main analysis section,
       independent of any betting angle. Empty string for categories with
       nothing worth reporting.
-    - "bet_headline" / "bet_reasoning" / "bet_points": the betting verdict -
-      a plain-language pick label, one sentence of reasoning, and a couple of
-      short supporting bullets - shown only in the Smart Bet section.
+    - "bet_headline" / "bet_reasoning": the betting verdict - a plain-language
+      pick label and two to two and a half sentences of reasoning - shown
+      only in the Smart Bet section.
 
     At the re-check the earlier selection is context; new markets, odds or
     team information may justify a documented change.
+
+    With memory_block (the shadow agent, src/match_memory.py) the AI also
+    reads its own earlier tips on these two teams before it researches; that
+    answer is only logged next to the real one, never shown.
 
     Returns None if the call fails (caller treats that as "no agent opinion",
     not block the rest of the response).
@@ -1752,9 +1804,9 @@ def _call_gemini_agent_pick(
     if not GEMINI_API_KEY:
         return None
 
-    from src.ai_tip_research import VERSION, fresh_candidates, input_snapshot, market_changes
+    from src.ai_tip_research import SHADOW_VERSION, VERSION, fresh_candidates, input_snapshot, market_changes
     candidates = fresh_candidates(value_bets)
-    research_input = input_snapshot(value_bets, candidates)
+    research_input = input_snapshot(value_bets, candidates, prediction)
     if not research_input["coverage"]["complete"]:
         return {"pick": None, "research_version": VERSION, "status": "incomplete_markets",
                 "research_input": research_input,
@@ -1767,10 +1819,17 @@ def _call_gemini_agent_pick(
                 "bet_reasoning": (previous_eval or {}).get("bet_reasoning"),
                 "revised_from_previous": None}
 
-    # All supported fresh quotes are neutral input. A model-selected bet,
-    # per-bet model score and green/red display labels are not passed through.
+    # Every supported quote with our model's and the market's probability for
+    # it. No bet is preselected and the green/red display labels stay out.
+    def _probabilities(c):
+        model, market = c.get("model_probability_raw"), c.get("market_probability")
+        if not all(isinstance(p, (int, float)) and math.isfinite(p) for p in (model, market)):
+            return ""
+        return f", our model {model:.0%} / market {market:.0%}"
+
     cand_lines = "\n".join(
         f"- market={c['market']}, outcome={c.get('team') or c['outcome']}, odds={c['best_odds']}"
+        + _probabilities(c)
         + (f", last seen={c.get('quote_last_update')} (not included in latest fetch)" if c.get('quote_carried_forward') else "")
         for c in candidates
     )
@@ -1778,7 +1837,10 @@ def _call_gemini_agent_pick(
     if previous_eval and previous_eval.get("bet_headline"):
         prev_pick = (previous_eval.get("first_pick") if previous_eval.get("status") == "incomplete_markets"
                      else previous_eval.get("pick"))
-        changes = market_changes(previous_eval.get("research_input"), research_input)
+        # Only markets that appeared or vanished; pure price moves were read
+        # as a reason to pick ("odds rose from 1.70 to 1.76") and stay out.
+        changes = {k: v for k, v in (market_changes(previous_eval.get("research_input"), research_input) or {}).items()
+                   if k in ("added", "removed")}
         prev_pick_desc = (
             f"market={prev_pick['market']}, outcome={prev_pick.get('team') or prev_pick['outcome']}"
             if prev_pick else "none"
@@ -1792,24 +1854,31 @@ def _call_gemini_agent_pick(
 YOUR EARLIER ASSESSMENT of this same match (from an earlier check today): \
 pick=({prev_pick_desc}), reasoning="{previous_reasoning}"
 Earlier quote snapshot: {(previous_eval.get('research_input') or {}).get('odds_fetched_at')}.
-Market changes since that snapshot: {json.dumps(changes, ensure_ascii=False)}.
+Markets added or removed since then: {json.dumps(changes, ensure_ascii=False)}.
 
-You are being asked again now, closer to kickoff, with a chance to search for newer information. \
-Compare the current complete market book with the earlier selection. A newly available market, \
-changed odds, or concrete new team news may justify a different pick. If your choice changes, \
-explain which input made the alternative better. If it stays, say why it remains best. \
+You are being asked again now, closer to kickoff, with a chance to search for newer information \
+(confirmed line-ups, late injuries). Change your pick only for a concrete football reason - new team \
+news, or a newly available market that fits your view of the match better. Odds moving up or down is \
+not a reason in itself. If your choice changes, name that reason. If it stays, say why it remains best. \
 Do not change your pick merely to seem thorough."""
 
+    verdict = _VERDICT_V10 if prompt_version == "v10" else _VERDICT_V9
+    candidates_shape = _CANDIDATES_SHAPE if prompt_version == "v10" else ""
+    memory_shape = _MEMORY_SHAPE if memory_block else ""
     competition = _AGENT_COMPETITION_NAMES.get(value_bets.get("sport_key"), "football")
     prompt = f"""You are researching an upcoming {competition} match: {home_team} vs {away_team}.
 Kickoff: {research_input['commence_time']}. Quote snapshot: {research_input['odds_fetched_at']}.
 
-The bets available to pick from (all supported quoted markets; any retained older prices are marked - decide for yourself \
-which, if any, is worth backing; no candidate is preselected or recommended):
-{cand_lines}
-{previous_block}
+OUR QUANTITATIVE MODEL (one input, not a preselected bet): it is trained on historical results only and \
+knows nothing about current line-ups, injuries, motivation or tactics.
+{json.dumps(research_input['model_context'], ensure_ascii=False, separators=(",", ":"))}
 
-STEP 1 - RESEARCH (use Google Search). Dig up CURRENT \
+The bets available to pick from (all supported quoted markets; any retained older prices are marked; \
+each shows our model's probability and the bookmakers' implied probability where both exist):
+{cand_lines}
+{previous_block}{memory_block}
+
+STEP 1 - RESEARCH (use Google Search). Our model only sees past results, so dig up CURRENT \
 context across as many of these angles as you can actually find information on - don't limit yourself \
 to just one or two. Search in English AND in the local languages of both teams (e.g. Croatian sports \
 media for Croatia, Georgian for Georgia, German for a Bundesliga club): team news, line-ups and \
@@ -1823,41 +1892,30 @@ already decided?
 - Head-to-head history or tactical matchup notes if genuinely relevant
 - Any other concrete, current fact you find that could matter
 
-STEP 2 - BETTING VERDICT. Act as a disciplined value-betting analyst. Distinguish between an outcome \
-being likely and it being attractive at the quoted price. Compare market odds and your independently \
-researched facts for every serious candidate. Do not cite or invent probabilities from our internal model. \
-Do not claim an edge when those inputs \
-do not point clearly in one direction. Do not favour any market by default: 1X2, Handicap, Over/Under \
-and BTTS can each be best only when price and evidence support them. Based on that, decide which ONE bet \
-from the list is the best one to actually back - or none, if nothing looks good. Base this decision \
-on the quoted prices and your independently researched facts. Evaluate serious alternatives before \
-choosing, but mention another bet in the verdict only when that comparison explains the decision. \
-If no comparison adds useful information, leave alternative_reasoning empty. \
-Then write bet_reasoning as exactly one short \
-sentence explaining why you landed on that pick (or why none of them are worth backing - e.g. too \
-unpredictable, no real edge, the odds don't justify it), at most 35 words. Lead with the strongest \
-concrete reason for your verdict rather than a routine comparison with another bet. \
-Wrap the 2-4 words/phrases in that sentence \
+{verdict}Then write bet_reasoning as two, at most two and a half, sentences (at most 60 words) explaining \
+why you landed on that pick (or why none of them are worth backing - e.g. too unpredictable, the \
+evidence points both ways): how you expect the match to go and why that makes this bet the right one. \
+Lead with the strongest concrete football reason rather than a routine comparison with another bet. \
+Wrap the 2-4 words/phrases in that text \
 that most directly justify the pick (the actual stat or fact doing the work, e.g. "zero goals \
 conceded", "erratic form", "unbeaten in 8") in double asterisks like **this** - not team names, not \
 filler words, only the specific evidence a reader would want to see highlighted.
 
 Keep everything SHORT - this renders in a small card, not an article. Respond with ONLY raw JSON, no \
 markdown formatting, no code fences, exactly this shape. Write every text value (the research \
-sentences, bet_headline, bet_reasoning, bet_points) in German for German football fans; copy \
+sentences, bet_headline, bet_reasoning) in German for German football fans; copy \
 pick_market and pick_outcome exactly as the strings above:
 {{"research": {{"lineups_injuries": "<one short sentence, or empty string if nothing found>", \
 "form": "<one short sentence, or empty string>", "table_situation": "<one short sentence, or empty \
 string>", "other": "<one short sentence on anything else notable, or empty string>"}}, \
-"pick_market": "<one of the market strings above, or null>", "pick_outcome": "<matching outcome \
+{candidates_shape}"pick_market": "<one of the market strings above, or null>", "pick_outcome": "<matching outcome \
 string, or null>", "bet_headline": "<2-5 words naming the pick in plain language, e.g. 'Über 2,5 \
-Tore' or 'Sieg Kroatien' - or 'Keine gute Wette' if pick is null>", "bet_reasoning": "<exactly ONE \
-sentence with your verdict>", "bet_points": ["<short supporting fact, max 8 words>", "<short \
-supporting fact, max 8 words>"], "alternative_reasoning": "<short comparison only if it materially explains the verdict; otherwise empty string>", \
-"change_reason": "<only when the re-check changes the pick: always try to give one short sentence, max 16 words, naming the concrete input or reconsideration that caused the change; never invent a reason; otherwise empty string>"}}"""
+Tore' or 'Sieg Kroatien' - or 'Keine gute Wette' if pick is null>", "bet_reasoning": "<two to two \
+and a half sentences with your verdict>", "alternative_reasoning": "<short comparison only if it materially explains the verdict; otherwise empty string>", \
+"change_reason": "<only when the re-check changes the pick: always try to give one short sentence, max 16 words, naming the concrete input or reconsideration that caused the change; never invent a reason; otherwise empty string>"{memory_shape}}}"""
 
     try:
-        kind = "agent_recheck" if previous_eval else "agent_pick"
+        kind = "agent_shadow" if memory_block else ("agent_recheck" if previous_eval else "agent_pick")
         from google import genai
         from google.genai import types
         client = genai.Client(api_key=GEMINI_API_KEY)
@@ -1895,8 +1953,8 @@ supporting fact, max 8 words>"], "alternative_reasoning": "<short comparison onl
                 pick = c
                 break
 
-    # Attach the backend comparison only after the AI has made its selection.
-    # No internal model outputs are included in the AI's prompt.
+    # Agreement is computed here for the UI. Since v9 the AI sees the model's
+    # numbers, so this is a comparison on shared information, not independent evidence.
     model_fav = value_bets.get("model_favorite")
     agrees_with_model = bool(
         pick is not None and model_fav is not None
@@ -1926,12 +1984,21 @@ supporting fact, max 8 words>"], "alternative_reasoning": "<short comparison onl
         revised_from_previous = None
 
     research = parsed.get("research") or {}
+    candidates_considered = []
+    for c in parsed.get("candidates") or []:
+        if not isinstance(c, dict) or not c.get("market"):
+            continue
+        prob = c.get("probability")
+        candidates_considered.append({
+            "market": str(c["market"]), "outcome": str(c.get("outcome") or ""),
+            "probability": prob if isinstance(prob, (int, float)) and not isinstance(prob, bool) else None,
+            "reason": str(c.get("reason") or "")})
     return {
         "pick": pick,
         # The pick before this re-check, kept for the log: did keeping the
         # first one do better than changing it?
         "first_pick": (previous_eval or {}).get("first_pick") or (previous_eval or {}).get("pick"),
-        "research_version": VERSION,
+        "research_version": SHADOW_VERSION if prompt_version == "v10" else VERSION,
         "status": "ok" if pick else "no_pick",
         "research_input": research_input,
         "first_research_input": (previous_eval or {}).get("first_research_input")
@@ -1946,13 +2013,20 @@ supporting fact, max 8 words>"], "alternative_reasoning": "<short comparison onl
         "revised_from_previous": revised_from_previous,
         "bet_headline": parsed.get("bet_headline") or "",
         "bet_reasoning": parsed.get("bet_reasoning") or "",
-        "bet_points": [p for p in (parsed.get("bet_points") or []) if p],
         "research": {
             "lineups_injuries": research.get("lineups_injuries") or "",
             "form": research.get("form") or "",
             "table_situation": research.get("table_situation") or "",
             "other": research.get("other") or "",
         },
+        **({"candidates_considered": candidates_considered,
+            "pick_probability": next((c["probability"] for c in candidates_considered
+                                      if pick and c["market"] == pick["market"]
+                                      and c["outcome"] == (pick.get("team") or pick["outcome"])), None)}
+           if prompt_version == "v10" else {}),
+        **({"memory_cases": list(memory_cases or []),
+            "memory_used": parsed.get("memory_used") if isinstance(parsed.get("memory_used"), list) else []}
+           if memory_block else {}),
     }
 
 
@@ -2251,6 +2325,9 @@ def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
                     _prekickoff_vb_cache[_match_key(home, away)] = fresh_vb
                     _prekickoff_event_cache[_match_key(home, away)] = fresh_event
 
+                if SHADOW_MEMORY and key not in _agent_shadow_cache:
+                    threading.Thread(target=_run_shadow_agent, args=(data, fresh_vb, home, away, key),
+                                     daemon=True).start()
                 agent = _call_gemini_agent_pick(data, fresh_vb, home, away, previous_eval=previous_eval)
                 if agent is not None:
                     _agent_picks_cache[key] = agent
@@ -2262,6 +2339,26 @@ def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
                 _save_agent_cache()
 
         threading.Thread(target=_run, daemon=True).start()
+
+
+def _run_shadow_agent(data: dict, vb: dict, home: str, away: str, key: tuple) -> None:
+    """The shadow tip: a fresh, independent first call (it never sees the real
+    tip) with the AI's own earlier cases of each team in front of it. Only for
+    matches where at least one team has a case; logged as agent_eval_shadow."""
+    try:
+        from src import match_memory
+        block, ids = match_memory.prompt_block(home, away, vb.get("commence_time") or "")
+        if not block:
+            return
+        shadow = _call_gemini_agent_pick(data, vb, home, away, memory_block=block, memory_cases=ids,
+                                         prompt_version="v10")
+        if shadow is not None:
+            # The memory text is rebuilt from the case ids; the log does not need it twice.
+            shadow.pop("prompt_text", None)
+            _agent_shadow_cache[key] = shadow
+            _save_agent_cache()
+    except Exception:
+        pass
 
 
 def _price_tip_for(odds: list[dict], home: str, away: str, prediction: dict,
@@ -2676,6 +2773,7 @@ def all_bets():
             "green_bets": vb.get("green_bets", []),
             "red_bets": vb.get("red_bets", []),
             "agent_eval": agent_eval,
+            "agent_eval_shadow": _agent_shadow_cache.get(_agent_key(vb)),
             "bet_tip": _bet_tip(vb, agent_eval),
             "bet_tip_v1": _bet_tip_v1(vb, agent_eval),
             "combined": _combine_recommendation(vb, agent_eval),

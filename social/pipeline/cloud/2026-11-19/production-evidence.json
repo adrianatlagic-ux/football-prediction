@@ -1,0 +1,45 @@
+{
+  "target_date": "2026-11-19",
+  "job_id": "ea7f3ba9-e535-4506-b2a5-0cabc84a260d",
+  "source": {
+    "sha256": "04a3fba5d1410448de1f211e45d85999aa5aae498c2491381544af3fc0c44372",
+    "duration_seconds": 5.088,
+    "width": 720,
+    "height": 1280,
+    "bitrate": 14054487
+  },
+  "final": {
+    "media_id": "493af448-60fc-4d50-9d4f-be5f03864329",
+    "zip_media_id": "2473ff27-50c0-4d6a-9483-5b39d9cd026a",
+    "sha256": "5e94c67e729ad73388a7878a43852b493bd002a32f43533a4960aa261f25658f",
+    "duration_seconds": 7.12,
+    "all_121_source_frames_identical": true,
+    "all_160_source_audio_packets_identical": true,
+    "zip_byte_identical": true,
+    "download_http_status": {
+      "mp4": 206,
+      "zip": 206
+    }
+  },
+  "credits": {
+    "quoted": 5,
+    "used": 5,
+    "before": 600,
+    "after": 595
+  },
+  "qa": {
+    "ready": false,
+    "status": "surprise_visual_pass_audio_review_limit",
+    "surprise_review": "Full-size goat calmly seated in bus from first frame; Kane reacts with surprise and Ache smiles, humorous goat passenger visible without sound.",
+    "player_review": "Kane and Ache resemble the provided official portraits in sampled frames; football kits match their clubs, visual resemblance is approximate.",
+    "setting_review": "fictional off-pitch bus interior",
+    "audio_review": "AAC track present and all source audio packets preserved; German wording, voice naturalness and lip sync not independently heard.",
+    "outro_review": "Two-second rendition of verified German master; logo, domain and exact disclaimer visible.",
+    "final_fixture_check": {
+      "source": "https://fc.de/aktuelles/news/faninfos-fuer-die-tour-zu-den-bayern-2026-2027",
+      "kickoff_at": "2026-11-20T20:30:00+01:00",
+      "checked_at": "2026-11-19T06:54:01Z"
+    }
+  },
+  "no_private_media_urls_in_repository": true
+}
