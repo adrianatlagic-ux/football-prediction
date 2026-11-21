@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "target_date": "2026-11-21",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "generation_submitted",
+  "status": "delivered_with_disclosed_quality_limits",
   "daily_video_limit": 1,
   "video_generation_attempt_limit": 1,
   "attempts_used": 1,
@@ -96,7 +96,11 @@
     "resolution": "720p",
     "bitrate_mode": "high",
     "quoted_credits_exact": 5,
-    "balance_before": 593.88
+    "balance_before": 593.88,
+    "status": "completed",
+    "credits_used": 5,
+    "balance_after": 588.88,
+    "source_sha256": "c4550153a1b97859907078a8983f98afa1a9ca4e7917f7fe7cbcd6d3eab16749"
   },
   "outro": {
     "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
@@ -106,6 +110,31 @@
   },
   "qa": {
     "ready": false,
-    "surprise_review": "pending"
-  }
+    "status": "not_ready_wrong_kit_wrong_scarf_audio_unverified",
+    "surprise_review": "The scarf springs out of the suitcase and settles around the BVB player; both react. The gag works visually but the colors/crest correspond to Germany rather than Gladbach, so intended football context fails.",
+    "player_review": "Two men resemble the supplied Schlotterbeck and Kleindienst references. Kleindienst wears the DFB Germany jersey from the source reference rather than Borussia Mönchengladbach kit.",
+    "setting_review": "fictional hotel luggage area, no pitch",
+    "audio_review": "AAC present and source audio packets identical; natural German dialogue and synchronization not independently heard.",
+    "outro_review": "Two-second rendition of verified German master; logo, domain and exact disclaimer visible.",
+    "final_fixture_check": {
+      "source": "https://www.bvb.de/de/de/bvb-spielplan/spiel.html/2026-2027/Fussball/Profis/Bundesliga/10/Borussia-Mgladbach-Borussia-Dortmund.html",
+      "kickoff_at": "2026-11-21T15:30:00+01:00",
+      "checked_at": "2026-11-21T09:23:42Z"
+    }
+  },
+  "production": {
+    "media_id": "24c158ed-c8e5-478b-b9aa-7138cc98f395",
+    "zip_media_id": "83e40491-8fd5-4abe-9204-82a5ee7808b3",
+    "sha256": "14f7e74f0c58367351a0d553ba3271f97391ff931d69e4c2745876c6cef83c26",
+    "duration_seconds": 7.12,
+    "all_121_source_frames_identical": true,
+    "all_160_source_audio_packets_identical": true,
+    "zip_byte_identical": true,
+    "download_http_status": {
+      "mp4": 206,
+      "zip": 206
+    }
+  },
+  "caption": "caption.txt",
+  "production_evidence": "production-evidence.json"
 }
