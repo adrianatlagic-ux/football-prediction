@@ -10,8 +10,10 @@ itself:
                     (src/jobs.run_hourly - each match once), and the bet and
                     combo logs (the same rules as scripts/log_bets.py and
                     scripts/log_combos.py), written to data/logs/
-  daily from 06:05  results, history, predictions for 48 hours, fixtures,
+  daily from 06:05  results, history, predictions for 3 days, fixtures,
   UTC               morning odds (src/jobs.run_daily), once per day
+  daily from 21:30  results and predictions for 3 days again, after the day's
+  UTC               matches (src/jobs.run_evening), once per day
 
 The logs live on the server's disk until GitHub fetches them
 (scripts/pull_server_logs.py) and commits them. Only started when
@@ -31,6 +33,10 @@ ROOT = Path(__file__).resolve().parents[1]
 from src.log_store import LOGS  # data/logs, one file per competition (src/log_store.py)
 TICK_SECONDS = 600
 DAILY_AFTER = (6, 5)
+# The evening run (UTC): the day's matches are over (the last Bundesliga
+# kickoff is 18:30 Berlin time), so their results go into the next days'
+# predictions straight away.
+EVENING_AFTER = (21, 30)
 COMBO_COMPETITIONS = ("soccer_uefa_champs_league", "soccer_germany_bundesliga", "soccer_uefa_nations_league")
 
 _started = False
@@ -40,6 +46,15 @@ def _daily_done_today(now: datetime) -> bool:
     from src.jobs import REPORTS
     try:
         report = json.loads((REPORTS / "last_daily.json").read_text(encoding="utf-8"))
+        return (report.get("finished_at") or "")[:10] == now.date().isoformat()
+    except (OSError, ValueError):
+        return False
+
+
+def _evening_done_today(now: datetime) -> bool:
+    from src.jobs import REPORTS
+    try:
+        report = json.loads((REPORTS / "last_evening.json").read_text(encoding="utf-8"))
         return (report.get("finished_at") or "")[:10] == now.date().isoformat()
     except (OSError, ValueError):
         return False
@@ -95,6 +110,11 @@ def _loop(club, national, odds, all_bets, combo_ticket, real_results=None, preki
         try:
             if (now.hour, now.minute) >= DAILY_AFTER and not _daily_done_today(now):
                 jobs.run_daily(club, national, odds, real_results)
+        except Exception:
+            pass
+        try:
+            if (now.hour, now.minute) >= EVENING_AFTER and not _evening_done_today(now):
+                jobs.run_evening(club, national)
         except Exception:
             pass
         try:

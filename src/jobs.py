@@ -6,8 +6,9 @@ models - GitHub would need them downloaded first, and there is nowhere
 they could be downloaded from.
 
 daily  (06:05 UTC) - append yesterday's results, let both models re-read
-                     their history, re-predict every match of the next 48
-                     hours, and take the morning odds read.
+                     their history, re-predict every match up to three days
+                     ahead (the page opens a match's analysis at 00:00, two
+                     days before its matchday), and take the morning odds read.
 hourly (xx:15)     - squad values for matches kicking off within 75 minutes,
                      once per match (the old GitHub job ran every quarter
                      hour and needed the models on GitHub's side).
@@ -26,7 +27,10 @@ from typing import Callable, Optional
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / "data" / "predictions_cache"
 REPORTS = ROOT / "data" / "jobs"
-REPREDICT_HOURS = 48
+# A match's analysis opens on the page at 00:00 Berlin time two days before its
+# matchday (frontend PREDICTION_LEAD_DAYS), so it must be predicted by the
+# morning job the day before that: every match up to three days ahead.
+REPREDICT_DAYS = 3
 SQUAD_WINDOW_MINUTES = 75
 # Per match, the line-up job's latest outcome (adjusted, or why not), kept
 # across runs and restarts; last_hourly.json only shows the latest tick.
@@ -92,40 +96,68 @@ def repredict(fixture: dict, predictor, now: datetime) -> dict:
     return result
 
 
+def predict_due(now: datetime) -> list:
+    """The matches the daily job predicts: kickoff still to come, on a Berlin
+    calendar day no more than REPREDICT_DAYS after today."""
+    from zoneinfo import ZoneInfo
+    from scripts.refresh_squad_predictions import upcoming
+    last = (now.astimezone(ZoneInfo("Europe/Berlin")).date() + timedelta(days=REPREDICT_DAYS)).isoformat()
+    return [f for f in upcoming((REPREDICT_DAYS + 1) * 24 * 60, now) if f["date"] <= last]
+
+
+def _refresh(club: Callable, national: Callable, now: datetime, report: dict) -> None:
+    """Results, fixtures, the models' history and the predictions of the next
+    three days (the part the morning and the evening run share)."""
+    from src.results_update import update_club_results, update_national_results
+    for label, step in (("club_results", update_club_results), ("national_results", update_national_results)):
+        try:
+            report[label] = len(step())
+        except Exception as exc:
+            report["errors"].append(f"{label}: {type(exc).__name__}: {exc}")
+    try:
+        from src.fixtures import write_all
+        report["fixtures"] = write_all()
+    except Exception as exc:
+        report["errors"].append(f"fixtures: {type(exc).__name__}: {exc}")
+    for label, getter in (("club_history_added", club), ("national_history_added", national)):
+        try:
+            report[label] = getter().refresh_history()
+        except Exception as exc:
+            report["errors"].append(f"{label}: {type(exc).__name__}: {exc}")
+    predicted = []
+    for fixture in predict_due(now):
+        try:
+            predictor = national() if fixture["competition"] == "nations_league" else club()
+            repredict(fixture, predictor, now)
+            predicted.append(fixture["match_id"])
+        except Exception as exc:
+            report["errors"].append(f"{fixture['match_id']}: {type(exc).__name__}: {exc}")
+    report["predicted"] = predicted
+
+
+def run_evening(club: Callable, national: Callable) -> dict:
+    """After the day's matches (src/scheduler.EVENING_AFTER): take in their
+    results and predict the next three days again, so a Tuesday match is
+    predicted with Sunday's results already in - not only from Monday
+    morning on. No odds, no logs: those stay in the morning run."""
+    now = datetime.now(timezone.utc)
+    report = {"started_at": now.isoformat(), "errors": []}
+    with _lock:
+        _report("evening", {**report, "running": True})
+        _refresh(club, national, now, report)
+    report["finished_at"] = datetime.now(timezone.utc).isoformat()
+    return _report("evening", report)
+
+
 def run_daily(club: Callable, national: Callable, morning_odds: Callable,
               real_results: Optional[Callable] = None) -> dict:
-    """Results, history, predictions for the next 48 hours, morning odds and
+    """Results, history, predictions for the next three days, morning odds and
     the model's track record."""
-    from scripts.refresh_squad_predictions import upcoming
-    from src.results_update import update_club_results, update_national_results
     now = datetime.now(timezone.utc)
     report = {"started_at": now.isoformat(), "errors": []}
     with _lock:
         _report("daily", {**report, "running": True})
-        for label, step in (("club_results", update_club_results), ("national_results", update_national_results)):
-            try:
-                report[label] = len(step())
-            except Exception as exc:
-                report["errors"].append(f"{label}: {type(exc).__name__}: {exc}")
-        try:
-            from src.fixtures import write_all
-            report["fixtures"] = write_all()
-        except Exception as exc:
-            report["errors"].append(f"fixtures: {type(exc).__name__}: {exc}")
-        for label, getter in (("club_history_added", club), ("national_history_added", national)):
-            try:
-                report[label] = getter().refresh_history()
-            except Exception as exc:
-                report["errors"].append(f"{label}: {type(exc).__name__}: {exc}")
-        predicted = []
-        for fixture in upcoming(REPREDICT_HOURS * 60, now):
-            try:
-                predictor = national() if fixture["competition"] == "nations_league" else club()
-                repredict(fixture, predictor, now)
-                predicted.append(fixture["match_id"])
-            except Exception as exc:
-                report["errors"].append(f"{fixture['match_id']}: {type(exc).__name__}: {exc}")
-        report["predicted"] = predicted
+        _refresh(club, national, now, report)
         try:
             morning_odds()
             report["morning_odds"] = True
