@@ -833,15 +833,20 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
         </div>
       ))}
 
-      <div className="combo-legend">
-        <span className="combo-legend-title">{tr('Signale', 'Signals')}</span>
-        <span><b>◆</b> {tr('Die Modelleinschätzung zum KI-Tipp', 'The model estimate for the AI pick')}</span>
-        <span><b>✨</b> {tr('Der KI-Tipp für dieses Spiel', 'The AI pick for this match')}</span>
-        <span><b>🎯</b> {tr('Der wahrscheinlichste Tipp dieses Spiels', "This match's most likely selection")}</span>
-        <span><b className="combo-legend-muted">🎯 ✕</b> {tr('Der KI-Tipp weicht vom Marktfavoriten ab', 'The AI pick differs from the market favorite')}</span>
-      </div>
+      <ComboLegend />
+    </div>
+  )
+}
 
-
+// What the signs next to the combo legs mean.
+function ComboLegend() {
+  return (
+    <div className="combo-legend">
+      <span className="combo-legend-title">{tr('Signale', 'Signals')}</span>
+      <span><b>◆</b> {tr('Die Modelleinschätzung zum KI-Tipp', 'The model estimate for the AI pick')}</span>
+      <span><b>✨</b> {tr('Der KI-Tipp für dieses Spiel', 'The AI pick for this match')}</span>
+      <span><b>🎯</b> {tr('Der wahrscheinlichste Tipp dieses Spiels', "This match's most likely selection")}</span>
+      <span><b className="combo-legend-muted">🎯 ✕</b> {tr('Der KI-Tipp weicht vom Marktfavoriten ab', 'The AI pick differs from the market favorite')}</span>
     </div>
   )
 }
@@ -2900,10 +2905,15 @@ export default function App() {
                   ? competitionKeys.filter(k => { const c = comboFor(k); return c === null || hasTicket(c) })
                   : competitionKeys
                 if (isAll && listed.length === 0) {
+                  const reason = competitionKeys.map(comboFor).find(c => c?.reason)?.reason
                   return (
-                    <p className="smart-bet-notip">
-                      <strong>{tr('Heute kein Kombi-Schein.', 'No combo ticket today.')}</strong>
-                    </p>
+                    <div className="combo-view">
+                      <p className="smart-bet-notip">
+                        <strong>{tr('Heute kein Kombi-Schein.', 'No combo ticket today.')}</strong>
+                        {reason && <><br />{tr(reason, 'No same-day ticket passes all checks.', 'Nijedan tiket za isti dan ne prolazi sve provjere.')}</>}
+                      </p>
+                      <ComboLegend />
+                    </div>
                   )
                 }
                 return listed.map(key => (
