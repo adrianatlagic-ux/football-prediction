@@ -2868,18 +2868,14 @@ export default function App() {
 
               <div className="group-nav">
                 <div className="group-segments" role="tablist">
-                  {currentDays.length > 0 ? (
-                    // "Next games" opens a list of the match days around today.
-                    <MatchdayPicker
-                      activeGroup={activeGroup}
-                      days={currentDays}
-                      onSelect={group => navigate(sectionPath(activeCompetition, group))}
-                    />
-                  ) : (
-                    <button role="tab" aria-selected={activeGroup === 'next'}
-                            className={`group-segment ${activeGroup === 'next' ? 'active' : ''}`}
-                            onClick={() => navigate(sectionPath(activeCompetition))}>📅 {tr('Nächste Spiele', 'Next games')}</button>
-                  )}
+                  {/* "Next games" opens a list: next games, past games, then the match days
+                      around today. Between matchdays (Nations League) there are no upcoming
+                      days, but the past games must stay reachable. */}
+                  <MatchdayPicker
+                    activeGroup={activeGroup}
+                    days={currentDays}
+                    onSelect={group => navigate(sectionPath(activeCompetition, group))}
+                  />
                   <button role="tab" aria-selected={activeGroup === 'hot'}
                           className={`group-segment ${activeGroup === 'hot' ? 'active' : ''}`}
                           onClick={() => navigate(sectionPath(activeCompetition, 'hot'))}>🔥 {tr('Topspiele', 'Top games')}</button>
