@@ -1872,7 +1872,6 @@ function AppDemo({ onStart }) {
   return (
     <div className="app-demo">
       <div className="app-demo-phone">
-        <div className="app-demo-bar"><span /><span /><span /></div>
         <div className="app-demo-screen" key={current}>
           {current === 'league' && (
             <div className="demo-pane">
