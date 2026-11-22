@@ -111,10 +111,11 @@ const COMPETITIONS = {
 
 // Fixtures come from the server (GET /fixtures, rebuilt daily from ESPN), so
 // a new matchday appears without a redeploy; the bundled files above are only
-// the fallback. The whole season is listed, but a prediction is shown from
-// PREDICTION_LEAD_HOURS before kickoff - the window the daily job predicts in
-// with every result up to then. Tabs cover the matchdays around today.
-const PREDICTION_LEAD_HOURS = 48
+// the fallback. The whole season is listed, but a match's analysis opens at
+// 00:00 (Berlin) PREDICTION_LEAD_DAYS before its matchday - the daily job
+// (src/jobs.REPREDICT_DAYS) has predicted it by then. Tabs cover the
+// matchdays around today.
+const PREDICTION_LEAD_DAYS = 2
 // A played matchday stays a week for its results, then leaves the list.
 const TAB_PAST_DAYS = 7
 const TAB_AHEAD_DAYS = 21
@@ -150,7 +151,8 @@ function applyServerFixtures(data) {
 }
 
 function predictionOpensAt(fixture) {
-  return new Date(fixtureDateTime(fixture).getTime() - PREDICTION_LEAD_HOURS * 3600000)
+  const day = new Date(Date.parse(`${fixture.date}T12:00:00Z`) - PREDICTION_LEAD_DAYS * 86400000).toISOString().slice(0, 10)
+  return fixtureDateTime({ date: day, time: '00:00' })
 }
 
 
