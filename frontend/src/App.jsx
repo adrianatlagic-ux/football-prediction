@@ -2893,11 +2893,11 @@ export default function App() {
               )}
 
               {activeGroup === 'combo' && (() => {
-                // On "All" only the leagues that have a ticket are listed; the
-                // empty ones stay out. A single league always shows its own view.
+                // On "All" only the leagues that have a ticket (or are still loading)
+                // are listed; the empty and failed ones stay out. A single league always shows its own view.
                 const hasTicket = c => !!c?.days?.some(d => (d.by_size || []).some(o => o.ticket))
                 const listed = isAll
-                  ? competitionKeys.filter(k => { const c = comboFor(k); return c === null || c.error || hasTicket(c) })
+                  ? competitionKeys.filter(k => { const c = comboFor(k); return c === null || hasTicket(c) })
                   : competitionKeys
                 if (isAll && listed.length === 0) {
                   return (
