@@ -2892,12 +2892,27 @@ export default function App() {
                 </div>
               )}
 
-              {activeGroup === 'combo' && competitionKeys.map(key => (
-                <div key={key}>
-                  {isAll && <h3 className="fixture-league-tag combo-league-title">{COMPETITIONS[key].label}</h3>}
-                  <ComboTicketView combo={comboFor(key)} loading={comboFor(key) === null} onOpenLeg={openLeg} />
-                </div>
-              ))}
+              {activeGroup === 'combo' && (() => {
+                // On "All" only the leagues that have a ticket are listed; the
+                // empty ones stay out. A single league always shows its own view.
+                const hasTicket = c => !!c?.days?.some(d => (d.by_size || []).some(o => o.ticket))
+                const listed = isAll
+                  ? competitionKeys.filter(k => { const c = comboFor(k); return c === null || c.error || hasTicket(c) })
+                  : competitionKeys
+                if (isAll && listed.length === 0) {
+                  return (
+                    <p className="smart-bet-notip">
+                      <strong>{tr('Heute kein Kombi-Schein.', 'No combo ticket today.')}</strong>
+                    </p>
+                  )
+                }
+                return listed.map(key => (
+                  <div key={key}>
+                    {isAll && <h3 className="fixture-league-tag combo-league-title">{COMPETITIONS[key].label}</h3>}
+                    <ComboTicketView combo={comboFor(key)} loading={comboFor(key) === null} onOpenLeg={openLeg} />
+                  </div>
+                ))
+              })()}
 
               {activeGroup === 'next' && nextGames.length === 0 && (
                 <p className="wm-subtle">{tr('Noch keine weiteren Spieltermine verfügbar.', 'No further fixtures available yet.')}</p>
