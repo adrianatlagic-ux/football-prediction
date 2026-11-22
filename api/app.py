@@ -1766,7 +1766,10 @@ _VERDICT_V10 = (
     "about football (players, form, tactics, motivation, the model's numbers), not about the price: \"the odds "
     "are attractive\", \"value\", or odds having moved are not reasons. Use the odds only as a check - do not "
     "back an outcome whose odds imply a higher chance than you give it. A handicap or higher goal line is "
-    "only right when you expect a clear margin or many goals, not because it pays more. ")
+    "only right when you expect a clear margin or many goals, not because it pays more. "
+    "Before you back a low goal line (Under), ask how many goals the stronger side can score on its own: a "
+    "clear favourite against a weak defence can reach three alone, and then Under 2.5 or 3.5 is not safe "
+    "however cautious the other side is. ")
 _MEMORY_SHAPE = (', "memory_used": [{"case": "<case id from YOUR MEMORY>", "how": "<one short sentence>"}] '
                  '(the cases that influenced your verdict; empty list if none)')
 _CANDIDATES_SHAPE = ('"candidates": [{"market": "<market string above>", "outcome": "<matching outcome string>", '
