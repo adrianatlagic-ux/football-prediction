@@ -3538,7 +3538,7 @@ body {
 }
 @media (prefers-reduced-motion: reduce) { .hero-cta { animation: none; } }
 
-/* Language switch at the top right: DE | EN. */
+/* Language switch at the top right: flag + DE | EN | BS. */
 .lang-switch {
   display: inline-flex;
   padding: 0.2rem;
@@ -3559,6 +3559,13 @@ body {
   border-radius: 999px;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.lang-switch .lang-flag { width: 16px; height: 12px; object-fit: cover; border-radius: 2px; margin: 0; flex-shrink: 0; }
+@media (max-width: 420px) {
+  .lang-switch button { padding: 0.3rem 0.5rem; gap: 0.25rem; }
 }
 .lang-switch button:hover { color: var(--gold-light); }
 .lang-switch button.active {

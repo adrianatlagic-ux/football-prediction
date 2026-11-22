@@ -7,6 +7,8 @@ import NL_FIXTURES from './nl_fixtures.json'
 import CLUB_CRESTS from './club_crests.json'
 import TEAM_COLORS from './team_colors.json'
 import TEAM_NAMES_DE from './team_names_de.json'
+import TEAM_NAMES_BS from './team_names_bs.json'
+import STRINGS_BS from './strings_bs.json'
 import { fixtureDateTime, nextGamesFor } from './fixtureSchedule.js'
 import { matchPath, sectionPath } from './navigation.js'
 import { useSiteRoute } from './useSiteRoute.js'
@@ -28,24 +30,53 @@ const GROUPS = [...new Set(CL_FIXTURES.map(f => f.group))].sort((a, b) => {
 })
 
 
-// The page's language: German by default, English on request (the switch at
-// the top right), remembered in the browser. Every text a visitor reads goes
-// through tr(german, english); changing LANG re-renders the whole app.
-let LANG = (() => { try { return localStorage.getItem('goaliq-lang') === 'en' ? 'en' : 'de' } catch { return 'de' } })()
-const tr = (de, en) => (LANG === 'en' ? en : de)
-const LOCALE = () => (LANG === 'en' ? 'en-GB' : 'de-DE')
+// The page's language: German by default, English or Bosnian on request (the
+// switch at the top right), remembered in the browser. Every text a visitor
+// reads goes through tr(german, english[, bosnian]); changing LANG re-renders
+// the whole app. The Bosnian text is looked up by its German text in
+// strings_bs.json; a third argument gives it directly (texts with numbers or
+// names in them). A text without a Bosnian version shows in English.
+const LANGS = ['de', 'en', 'bs']
+let LANG = (() => {
+  try {
+    const saved = localStorage.getItem('goaliq-lang')
+    return LANGS.includes(saved) ? saved : 'de'
+  } catch { return 'de' }
+})()
+const missingBs = new Set()
+function bosnian(de, en, bs) {
+  if (bs !== undefined) return bs
+  if (STRINGS_BS[de] !== undefined) return STRINGS_BS[de]
+  if (import.meta.env.DEV && !missingBs.has(de)) { missingBs.add(de); console.warn('[bs] missing:', de) }
+  return en
+}
+const tr = (de, en, bs) => (LANG === 'en' ? en : LANG === 'bs' ? bosnian(de, en, bs) : de)
+const LOCALE = () => ({ en: 'en-GB', bs: 'bs-BA' }[LANG] || 'de-DE')
+// A date for the reader. Browsers often lack Bosnian date data (and answer in
+// English), so Bosnian dates are written here.
+const BS_DAYS = ['nedjelja', 'ponedjeljak', 'utorak', 'srijeda', 'četvrtak', 'petak', 'subota']
+const BS_DAYS_SHORT = ['ned', 'pon', 'uto', 'sri', 'čet', 'pet', 'sub']
+const BS_MONTHS = ['jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec']
+function localeDate(date, options) {
+  if (LANG !== 'bs') return date.toLocaleDateString(LOCALE(), options)
+  const weekday = options.weekday === 'long' ? BS_DAYS[date.getDay()] : options.weekday ? BS_DAYS_SHORT[date.getDay()] : ''
+  const day = options.day ? `${date.getDate()}. ${BS_MONTHS[date.getMonth()]}` : ''
+  return [weekday, day].filter(Boolean).join(', ')
+}
 const DEC = () => (LANG === 'en' ? '.' : ',')
 
 // Teams keep their English key everywhere (fixtures, odds, colours); only
-// the name a visitor reads is German - in English the key itself.
-const teamName = name => (LANG === 'en' ? name : (TEAM_NAMES_DE[name] || name))
+// the name a visitor reads is German or Bosnian - in English the key itself.
+const teamName = name => (LANG === 'en' ? name
+  : LANG === 'bs' ? (TEAM_NAMES_BS[name] || name)
+  : (TEAM_NAMES_DE[name] || name))
 // 1.79 -> "1,79" in German, unchanged in English
 const deNum = v => String(v ?? '').replace('.', DEC())
 
 // "Do 01.10. · 20:45" / "Thu 01/10 · 20:45"
 function fixtureWhen(f) {
   const d = new Date(`${f.date}T12:00:00`)
-  const weekday = d.toLocaleDateString(LOCALE(), { weekday: 'short' }).replace('.', '')
+  const weekday = localeDate(d, { weekday: 'short' }).replace('.', '')
   return LANG === 'en'
     ? `${weekday} ${f.date.slice(8, 10)}/${f.date.slice(5, 7)} · ${f.time}`
     : `${weekday} ${f.date.slice(8, 10)}.${f.date.slice(5, 7)}. · ${f.time}`
@@ -211,6 +242,12 @@ function flagUrl(emoji) {
 }
 const FLAG_ENGLAND = String.fromCodePoint(0x1F3F4, 0xE0067, 0xE0062, 0xE0065, 0xE006E, 0xE0067, 0xE007F)
 const FLAG_SPAIN = String.fromCodePoint(0x1F1EA, 0x1F1F8)
+// The language switch: a flag and the code for each language.
+const LANG_CHOICES = [
+  { code: 'de', flag: String.fromCodePoint(0x1F1E9, 0x1F1EA), name: 'Deutsch' },
+  { code: 'en', flag: String.fromCodePoint(0x1F1EC, 0x1F1E7), name: 'English' },
+  { code: 'bs', flag: String.fromCodePoint(0x1F1E7, 0x1F1E6), name: 'Bosanski' },
+]
 
 // An emoji, or an image when it is a flag.
 function Emoji({ char, className = '' }) {
@@ -218,6 +255,20 @@ function Emoji({ char, className = '' }) {
   return url
     ? <img src={url} alt="" className={`team-crest team-flag ${className}`} />
     : <span className={className}>{char}</span>
+}
+
+// The switch at the top right: a flag and the code for each language.
+function LanguageSwitch({ lang, onChange }) {
+  return (
+    <div className="lang-switch" role="group" aria-label={tr('Sprache', 'Language')}>
+      {LANG_CHOICES.map(({ code, flag, name }) => (
+        <button key={code} className={lang === code ? 'active' : ''} onClick={() => onChange(code)}
+                aria-pressed={lang === code} aria-label={name} title={name}>
+          <Emoji char={flag} className="lang-flag" />{code.toUpperCase()}
+        </button>
+      ))}
+    </div>
+  )
 }
 
 function TeamLabel({ name }) {
@@ -485,34 +536,53 @@ function FormRating({ data, compact = false }) {
   )
 }
 
-// In English, the AI's German texts (scenario, AI tip, KI-Scout) come from
-// GET /ai-texts-en, translated once on the server and kept; fetched once per
-// match here too. Until they arrive the German text shows.
-const AI_TEXTS_EN = {}
-function useAiTextsEn(home, away) {
-  const key = `${home}__${away}`
+// In English or Bosnian, the AI's German texts (scenario, AI tip, KI-Scout)
+// come from GET /ai-texts-en?lang=..., translated once on the server and kept.
+// The server answers with a map German text -> translation for the whole
+// match; a page looks up exactly the text it shows. Whatever is still missing
+// (the AI has not written it yet, the translation failed) is asked for again
+// every 15 seconds, four times at most; until it arrives the German text shows.
+const AI_TEXTS = {}
+const AI_TEXTS_RETRY_MS = 15000
+const AI_TEXTS_TRIES = 4
+function useAiTexts(home, away, shown) {
+  const lang = LANG
+  const key = `${lang}__${home}__${away}`
   const [, redraw] = useState(0)
+  const kept = AI_TEXTS[key]
+  const missing = lang !== 'de' && shown.some(t => t && !kept?.map[t])
   useEffect(() => {
-    if (LANG !== 'en' || !home || !away || AI_TEXTS_EN[key] !== undefined) return
-    AI_TEXTS_EN[key] = null
-    axios.get(`${API_BASE}/ai-texts-en`, { params: { home_team: home, away_team: away } })
-      .then(r => { AI_TEXTS_EN[key] = r.data; redraw(x => x + 1) })
-      .catch(() => { delete AI_TEXTS_EN[key] })
+    if (!home || !away) return
+    if (!missing) { if (AI_TEXTS[key]) AI_TEXTS[key].tries = 0; return }
+    const entry = AI_TEXTS[key] || (AI_TEXTS[key] = { map: {}, busy: false, at: 0, tries: 0 })
+    if (entry.busy || entry.tries >= AI_TEXTS_TRIES) return
+    const wait = entry.at + AI_TEXTS_RETRY_MS - Date.now()
+    if (wait > 0) {
+      const timer = setTimeout(() => redraw(x => x + 1), wait)
+      return () => clearTimeout(timer)
+    }
+    entry.busy = true
+    entry.tries += 1
+    entry.at = Date.now()
+    axios.get(`${API_BASE}/ai-texts-en`, { params: { home_team: home, away_team: away, lang } })
+      .then(r => { entry.map = { ...entry.map, ...(r.data?.texts || {}) } })
+      .catch(() => {})
+      .finally(() => { entry.busy = false; redraw(x => x + 1) })
   })
-  return LANG === 'en' ? AI_TEXTS_EN[key] || null : null
+  return text => (lang === 'de' || !text ? text : kept?.map[text] ?? text)
 }
 
 function MatchScenario({ data }) {
   const bm = (data.score_prediction || {}).betting_markets
   const home = data.home_team
   const away = data.away_team
-  const en = useAiTextsEn(home, away)
+  const aiText = useAiTexts(home, away, [bm?.scenario])
   if (!bm) return null
   return (
     <div className="betting-markets">
       <div className="scenario-box">
         <h4>{tr('Wahrscheinlichstes Szenario', 'Most likely scenario')}</h4>
-        <p>{renderScenario(en?.scenario || bm.scenario, home, away)}</p>
+        <p>{renderScenario(aiText(bm.scenario), home, away)}</p>
       </div>
     </div>
   )
@@ -666,7 +736,7 @@ function ComboTicketCard({ ticket, primary, onOpenLeg }) {
   return (
     <div className={`combo-ticket ${primary ? 'is-primary' : ''}`}>
       <div className="combo-ticket-head">
-        <span className="combo-ticket-legs">{tr(`${ticket.leg_count}er-Kombi`, `${ticket.leg_count}-fold`)}</span>
+        <span className="combo-ticket-legs">{tr(`${ticket.leg_count}er-Kombi`, `${ticket.leg_count}-fold`, `Kombinacija od ${ticket.leg_count}`)}</span>
         <div className="combo-quote">
           <span className="combo-quote-label">{tr('Rechnerische Gesamtquote', 'Calculated combined odds')}</span>
           <span className="combo-ticket-odds">{ticket.combined_odds.toFixed(2)}</span>
@@ -690,7 +760,10 @@ function ComboTicketCard({ ticket, primary, onOpenLeg }) {
           geprüft. Wir erwarten mit dieser Wette keinen Gewinn – es ist nur der wahrscheinlichste Schein
           über der Zielquote.`, `Probabilities assume the results are independent of one another. Prices come from
           the individual markets; the combined offer itself has not been checked. This is not
-          a bet we expect to profit from - it is the likeliest ticket above the target odds.`)}
+          a bet we expect to profit from - it is the likeliest ticket above the target odds.`,
+          `Vjerovatnoće pretpostavljaju da su ishodi međusobno nezavisni. Kvote potiču iz pojedinačnih tržišta;
+          sama ponuda kombinacije nije provjerena. Ne očekujemo dobitak od ove oklade – to je samo
+          najvjerovatniji tiket iznad ciljane kvote.`)}
         </p>
       )}
     </div>
@@ -716,22 +789,22 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
       {!combo.recommended && (
         <p className="smart-bet-notip">
           <strong>{tr('Heute kein Kombi-Schein.', 'No combo ticket today.')}</strong><br />
-          {LANG === 'en' ? 'No same-day ticket passes all checks.' : combo.reason}
+          {tr(combo.reason, 'No same-day ticket passes all checks.', 'Nijedan tiket za isti dan ne prolazi sve provjere.')}
         </p>
       )}
 
       {combo.days?.map(day => (
         <div className="combo-day" key={day.date}>
           <span className="combo-section-label">
-            {new Date(day.date + 'T12:00:00').toLocaleDateString(LOCALE(), { weekday: 'long', day: 'numeric', month: 'short' })}
+            {localeDate(new Date(day.date + 'T12:00:00'), { weekday: 'long', day: 'numeric', month: 'short' })}
             {' · '}{day.eligible_legs} {day.eligible_legs === 1 ? tr('passendes Spiel', 'eligible match') : tr('passende Spiele', 'eligible matches')}
           </span>
 
           <div className="combo-size-grid">
             {(day.by_size || []).map(option => (
               <section className="combo-size-option" key={option.leg_count}
-                       aria-label={tr(`${option.leg_count}er-Kombi`, `${option.leg_count}-fold combo`)}>
-                <h3 className="combo-size-title">{tr(`${option.leg_count}er-Kombi`, `${option.leg_count}-fold combo`)}</h3>
+                       aria-label={tr(`${option.leg_count}er-Kombi`, `${option.leg_count}-fold combo`, `Kombinacija od ${option.leg_count}`)}>
+                <h3 className="combo-size-title">{tr(`${option.leg_count}er-Kombi`, `${option.leg_count}-fold combo`, `Kombinacija od ${option.leg_count}`)}</h3>
                 {option.ticket ? (
                   <>
                     <ComboTicketCard ticket={option.ticket} onOpenLeg={onOpenLeg} />
@@ -749,9 +822,9 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
                 ) : (
                   <div className="combo-size-empty">
                     <strong>{tr('Nicht verfügbar', 'Not available')}</strong>
-                    <p>{LANG === 'en'
-                      ? `No ${option.leg_count}-fold available: it needs ${option.leg_count} qualifying matches and the target combined odds.`
-                      : option.reason}</p>
+                    <p>{tr(option.reason,
+                      `No ${option.leg_count}-fold available: it needs ${option.leg_count} qualifying matches and the target combined odds.`,
+                      `Kombinacija od ${option.leg_count} nije dostupna: potrebne su ${option.leg_count} odgovarajuće utakmice i ciljana ukupna kvota.`)}</p>
                   </div>
                 )}
               </section>
@@ -776,7 +849,7 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
 function FixtureRow({ fixture }) {
   const opens = predictionOpensAt(fixture)
   const label = opens > new Date()
-    ? `${tr('Analyse ab', 'Analysis from')} ${opens.toLocaleDateString(LOCALE(), { weekday: 'short', day: 'numeric', month: 'short' })}`
+    ? `${tr('Analyse ab', 'Analysis from')} ${localeDate(opens, { weekday: 'short', day: 'numeric', month: 'short' })}`
     : tr('Analyse folgt', 'Analysis coming')
   return (
     <div className="fixture-row fixture-pending" id={`match-${fixture.match_id}`}>
@@ -845,7 +918,8 @@ function betOutcomeLabel(b) {
   if (b.team) return <TeamLabel name={b.team} />
   if (b.outcome === 'draw') return tr('Remis', 'Draw')
   if (b.market === 'BTTS') return tr(`Beide treffen: ${String(b.outcome).toLowerCase() === 'yes' ? 'Ja' : 'Nein'}`,
-                                     `Both teams score: ${String(b.outcome).toLowerCase() === 'yes' ? 'Yes' : 'No'}`)
+                                     `Both teams score: ${String(b.outcome).toLowerCase() === 'yes' ? 'Yes' : 'No'}`,
+                                     `Oba tima pogađaju: ${String(b.outcome).toLowerCase() === 'yes' ? 'Da' : 'Ne'}`)
   if (b.outcome === 'Over') return `${tr('Über', 'Over')} ${lineOf(b.market)}`
   if (b.outcome === 'Under') return `${tr('Unter', 'Under')} ${lineOf(b.market)}`
   return b.outcome
@@ -864,13 +938,14 @@ function marketGroupLabel(market) {
 function plainBetPhrase(b) {
   if (b.outcome === 'home_win' || b.outcome === 'away_win') return <><TeamLabel name={b.team} /> {tr('gewinnt', 'to win')}</>
   if (b.outcome === 'draw') return tr('Remis', 'Draw')
-  if (b.outcome === 'Over') return tr(`Über ${lineOf(b.market)} Tore`, `Over ${lineOf(b.market)} goals`)
-  if (b.outcome === 'Under') return tr(`Unter ${lineOf(b.market)} Tore`, `Under ${lineOf(b.market)} goals`)
+  if (b.outcome === 'Over') return tr(`Über ${lineOf(b.market)} Tore`, `Over ${lineOf(b.market)} goals`, `Preko ${lineOf(b.market)} gola`)
+  if (b.outcome === 'Under') return tr(`Unter ${lineOf(b.market)} Tore`, `Under ${lineOf(b.market)} goals`, `Ispod ${lineOf(b.market)} gola`)
   if (b.market === 'Handicap +0.5') return <><TeamLabel name={b.team} /> {tr('oder Remis (Doppelte Chance)', 'or draw (double chance)')}</>
   if (b.market === 'Handicap 0.0') return <><TeamLabel name={b.team} /> {tr('gewinnt (Remis = Einsatz zurück)', 'to win (draw no bet)')}</>
   if (b.outcome === 'handicap') return <><TeamLabel name={b.team} /> {lineOf(b.market)} Handicap</>
   if (b.market === 'BTTS') return tr(`Beide treffen: ${String(b.outcome).toLowerCase() === 'yes' ? 'Ja' : 'Nein'}`,
-                                     `Both teams score: ${String(b.outcome).toLowerCase() === 'yes' ? 'Yes' : 'No'}`)
+                                     `Both teams score: ${String(b.outcome).toLowerCase() === 'yes' ? 'Yes' : 'No'}`,
+                                     `Oba tima pogađaju: ${String(b.outcome).toLowerCase() === 'yes' ? 'Da' : 'Ne'}`)
   return b.market
 }
 
@@ -893,8 +968,8 @@ const deOdds = x => x.toFixed(2).replace('.', DEC())
 
 function AgentFactors({ research: researchDe, home, away }) {
   const [open, setOpen] = useState(false)
-  const en = useAiTextsEn(home, away)
-  const research = en ? Object.fromEntries(Object.entries(researchDe).map(([k, v]) => [k, en.research?.[k] || v])) : researchDe
+  const aiText = useAiTexts(home, away, Object.values(researchDe))
+  const research = Object.fromEntries(Object.entries(researchDe).map(([k, v]) => [k, aiText(v)]))
   const rows = [
     ['⚕', tr('Aufstellung & Verletzungen', 'Line-ups & injuries'), research.lineups_injuries],
     ['📈', tr('Form', 'Form'), research.form],
@@ -1027,6 +1102,10 @@ function LikelyTipBox({ pick }) {
         By the market the likeliest bet at odds between 1.30 and 2.00:
         {' '}<strong>{pct(pick.market_probability)}</strong> chance at odds of <strong>{deOdds(pick.best_odds)}</strong>.
         {' '}Likely does not mean worth it – the bookmaker's margin is built in.
+      </> : LANG === 'bs' ? <>
+        Prema tržištu najvjerovatnija oklada s kvotom između 1,30 i 2,00:
+        {' '}<strong>{pct(pick.market_probability)}</strong> šanse uz kvotu <strong>{deOdds(pick.best_odds)}</strong>.
+        {' '}Vjerovatno ne znači isplativo – marža kladionice je ugrađena.
       </> : <>
         Laut Markt die wahrscheinlichste Wette mit Quote zwischen 1,30 und 2,00:
         {' '}<strong>{pct(pick.market_probability)}</strong> Chance zur Quote <strong>{deOdds(pick.best_odds)}</strong>.
@@ -1038,7 +1117,9 @@ function LikelyTipBox({ pick }) {
 
 function SmartBetCard({ betStep, betInfo, data, onRefresh, currentTime }) {
   const [showAllMarkets, setShowAllMarkets] = useState(false)
-  const aiEn = useAiTextsEn(data?.home_team, data?.away_team)
+  const shownEval = betInfo?.agent_eval
+  const aiText = useAiTexts(data?.home_team, data?.away_team,
+    [shownEval?.bet_headline, shownEval?.bet_reasoning, shownEval?.revised_from_previous ? shownEval?.change_reason : ''])
 
   const analyzing = betStep < BET_STEPS.length
   if (analyzing) {
@@ -1115,8 +1196,8 @@ function SmartBetCard({ betStep, betInfo, data, onRefresh, currentTime }) {
   const betTip = computeBetTip(betInfo, agentEval)
   const changedBeforeKickoff = agentEval?.revised_from_previous && agentEval?.change_reason
   const agentReason = changedBeforeKickoff
-    ? `${tr('Vor Anpfiff geändert: ', 'Changed before kickoff: ')}${aiEn?.change_reason || agentEval.change_reason}`
-    : (aiEn?.bet_reasoning || agentEval?.bet_reasoning)
+    ? `${tr('Vor Anpfiff geändert: ', 'Changed before kickoff: ')}${aiText(agentEval.change_reason)}`
+    : aiText(agentEval?.bet_reasoning)
   const signals = [betTip.tip, priceTipPick, likelyPick, agentPick].filter(Boolean)
   const signalRank = b => { const i = signals.findIndex(x => sameBet(x, b)); return i === -1 ? signals.length : i }
   // After the marked bets, the same order the combo uses: bets both the
@@ -1182,7 +1263,7 @@ function SmartBetCard({ betStep, betInfo, data, onRefresh, currentTime }) {
           {visibleRows.map((b, i) => renderRow(b, i, 'row'))}
           {hiddenCount > 0 && (
             <button className="smart-bet-more" onClick={() => setShowAllMarkets(v => !v)}>
-              {showAllMarkets ? tr('Weniger Märkte ▲', 'Fewer markets ▲') : tr(`Alle Märkte zeigen (${hiddenCount} weitere) ▼`, `Show all markets (${hiddenCount} more) ▼`)}
+              {showAllMarkets ? tr('Weniger Märkte ▲', 'Fewer markets ▲') : tr(`Alle Märkte zeigen (${hiddenCount} weitere) ▼`, `Show all markets (${hiddenCount} more) ▼`, `Prikaži sva tržišta (još ${hiddenCount}) ▼`)}
             </button>
           )}
           <p className="smart-bet-table-note">
@@ -1194,7 +1275,7 @@ function SmartBetCard({ betStep, betInfo, data, onRefresh, currentTime }) {
       {agentEval && (
         <div className="smart-bet-agent">
           <div className="smart-bet-agent-headtitle">
-            <span className="smart-bet-agent-headline">✨ {tr('KI-Tipp', 'AI tip')}: {aiEn?.bet_headline || agentEval.bet_headline}</span>
+            <span className="smart-bet-agent-headline">✨ {tr('KI-Tipp', 'AI tip')}: {aiText(agentEval.bet_headline)}</span>
           </div>
           <p className="smart-bet-agent-text">
             {renderBoldMarkdown(agentReason, 'smart-bet-highlight-purple')}
@@ -1221,6 +1302,15 @@ function SmartBetCard({ betStep, betInfo, data, onRefresh, currentTime }) {
             {' '}<strong>⚠</strong> more likely a model error · <strong>✨</strong> after a pick: the AI agrees; grey = the model
             does not agree, odds under 1.30 or chance under 50%. <strong>+0.5</strong> = double chance, <strong>0.0</strong> = draw no bet,
             other numbers = Asian handicap.
+          </p>
+        ) : LANG === 'bs' ? (
+          <p>
+            <strong>Tip za okladu</strong> = tip AI-ja kada ga naš model ocjenjuje barem toliko vjerovatnim kao tržište (kvota od 1,30);
+            {' '}nema ga ako je AI promijenio tip neposredno prije početka · <strong>🎯</strong> prema tržištu najvjerovatnija
+            oklada (kvota 1,30–2,00; bez prednosti, marža je ugrađena) · <strong>✨</strong> tip AI-ja nakon istraživanja ·
+            {' '}<strong>⚠</strong> prije greška modela · <strong>✨</strong> iza tipa: AI se slaže; sivo = model se ne slaže,
+            kvota ispod 1,30 ili šansa ispod 50 %. <strong>+0,5</strong> = dvostruka šansa, <strong>0,0</strong> = povrat uloga kod neriješenog,
+            ostali brojevi = azijski hendikep.
           </p>
         ) : (
           <p>
@@ -1293,8 +1383,8 @@ function WmPredictionCard({ matchId, data, fixture, onCollapse, revealStep = Inf
       <div className="result-header">
         <span className="team-name"><TeamLabel name={data.home_team} /></span>
         <div className="prediction-badge">
-          {data.prediction === 'H' ? tr(`${teamName(data.home_team)} gewinnt`, `${teamName(data.home_team)} to win`) :
-           data.prediction === 'A' ? tr(`${teamName(data.away_team)} gewinnt`, `${teamName(data.away_team)} to win`) : tr('Remis', 'Draw')}
+          {data.prediction === 'H' ? tr(`${teamName(data.home_team)} gewinnt`, `${teamName(data.home_team)} to win`, `${teamName(data.home_team)} pobjeđuje`) :
+           data.prediction === 'A' ? tr(`${teamName(data.away_team)} gewinnt`, `${teamName(data.away_team)} to win`, `${teamName(data.away_team)} pobjeđuje`) : tr('Remis', 'Draw')}
         </div>
         <span className="team-name"><TeamLabel name={data.away_team} /></span>
       </div>
@@ -2002,7 +2092,7 @@ function RealTicker({ events, homeTeam, awayTeam }) {
   const score = () => `${home}:${away}`
   const home_ = teamName(homeTeam), away_ = teamName(awayTeam)
   const halftime = () => ({ key: 'ht', minute: tr('HZ', 'HT'), type: 'halftime', head: `⏸️ ${tr('Halbzeit', 'Half time')}`,
-                            text: tr(`${home_} ${score()} ${away_} zur Pause.`, `${home_} ${score()} ${away_} at the break.`), score: score() })
+                            text: tr(`${home_} ${score()} ${away_} zur Pause.`, `${home_} ${score()} ${away_} at the break.`, `${home_} ${score()} ${away_} na poluvremenu.`), score: score() })
   // Goals, cards and half time only: no kick-off or full-time rows.
   const rows = []
   let halftimeShown = false
@@ -2015,15 +2105,16 @@ function RealTicker({ events, homeTeam, awayTeam }) {
     if (e.type === 'goal') {
       if (e.team === homeTeam) home += 1; else away += 1
       const how = e.own_goal ? tr(' (Eigentor)', ' (own goal)') : e.penalty ? tr(' (Elfmeter)', ' (penalty)') : ''
-      rows.push({ key: i, minute: e.minute, type: 'goal', head: tr(`⚽ TOR für ${teamName(e.team)}!`, `⚽ GOAL for ${teamName(e.team)}!`),
-                  text: tr(`${e.player || 'Unbekannt'}${how} trifft zum ${score()}.`, `${e.player || 'Unknown'}${how} makes it ${score()}.`), score: score() })
+      rows.push({ key: i, minute: e.minute, type: 'goal', head: tr(`⚽ TOR für ${teamName(e.team)}!`, `⚽ GOAL for ${teamName(e.team)}!`, `⚽ GOL za ${teamName(e.team)}!`),
+                  text: tr(`${e.player || 'Unbekannt'}${how} trifft zum ${score()}.`, `${e.player || 'Unknown'}${how} makes it ${score()}.`, `${e.player || 'Nepoznat igrač'}${how} postiže gol: ${score()}.`), score: score() })
     } else if (e.type === 'red_card') {
       rows.push({ key: i, minute: e.minute, type: 'chance', head: `🟥 ${tr('Rote Karte', 'Red card')} – ${teamName(e.team)}`,
                   text: tr(`${e.player || 'Ein Spieler'} fliegt vom Platz. ${teamName(e.team)} spielt zu zehnt weiter.`,
-                           `${e.player || 'A player'} is sent off. ${teamName(e.team)} play on with ten men.`), score: score() })
+                           `${e.player || 'A player'} is sent off. ${teamName(e.team)} play on with ten men.`,
+                           `${e.player || 'Igrač'} je isključen. ${teamName(e.team)} nastavlja s deset igrača.`), score: score() })
     } else if (e.type === 'yellow_card') {
       rows.push({ key: i, minute: e.minute, type: 'yellow', head: `🟨 ${tr('Gelbe Karte', 'Yellow card')} – ${teamName(e.team)}`,
-                  text: tr(`${e.player || 'Ein Spieler'} sieht Gelb.`, `${e.player || 'A player'} is booked.`), score: null })
+                  text: tr(`${e.player || 'Ein Spieler'} sieht Gelb.`, `${e.player || 'A player'} is booked.`, `${e.player || 'Igrač'} dobija žuti karton.`), score: null })
     }
   })
   if (!halftimeShown) {
@@ -2210,7 +2301,7 @@ function AiTipResult({ fixture }) {
           ))}
           {data.bets.length > RESULT_ROWS && (
             <button className="smart-bet-more" onClick={() => setShowAll(v => !v)}>
-              {showAll ? tr('Weniger Märkte ▲', 'Fewer markets ▲') : tr(`Alle Märkte zeigen (${data.bets.length - RESULT_ROWS} weitere) ▼`, `Show all markets (${data.bets.length - RESULT_ROWS} more) ▼`)}
+              {showAll ? tr('Weniger Märkte ▲', 'Fewer markets ▲') : tr(`Alle Märkte zeigen (${data.bets.length - RESULT_ROWS} weitere) ▼`, `Show all markets (${data.bets.length - RESULT_ROWS} more) ▼`, `Prikaži sva tržišta (još ${data.bets.length - RESULT_ROWS}) ▼`)}
             </button>
           )}
         </div>
@@ -2294,10 +2385,11 @@ function RealResultCard({ fixture, result, aiData, onGenerate, analysisActive, i
 const WEEKDAYS_SHORT = {
   de: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
   en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+  bs: ['Ned', 'Pon', 'Uto', 'Sri', 'Čet', 'Pet', 'Sub'],
 }
 function formatFixtureDay(date) {
   const [y, m, d] = date.split('-').map(Number)
-  const weekday = WEEKDAYS_SHORT[LANG === 'en' ? 'en' : 'de'][new Date(Date.UTC(y, m - 1, d)).getUTCDay()]
+  const weekday = WEEKDAYS_SHORT[LANG][new Date(Date.UTC(y, m - 1, d)).getUTCDay()]
   return LANG === 'en'
     ? `${weekday} ${d} ${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][m - 1]}`
     : `${weekday} ${String(d).padStart(2, '0')}.${String(m).padStart(2, '0')}.`
@@ -2680,10 +2772,7 @@ export default function App() {
           <a href={`${sectionPath('all')}#predictions`} onClick={(e) => { e.preventDefault(); navigate(`${sectionPath('all')}#predictions`) }}>{tr('Prognosen', 'Predictions')}</a>
           <a href="/so-funktionierts" onClick={(e) => { e.preventDefault(); navigate('/so-funktionierts'); window.scrollTo(0, 0) }}>{tr("So funktioniert's", 'How it works')}</a>
         </div>
-        <div className="lang-switch" role="group" aria-label={tr('Sprache', 'Language')}>
-          <button className={lang === 'de' ? 'active' : ''} onClick={() => switchLang('de')} aria-pressed={lang === 'de'}>DE</button>
-          <button className={lang === 'en' ? 'active' : ''} onClick={() => switchLang('en')} aria-pressed={lang === 'en'}>EN</button>
-        </div>
+        <LanguageSwitch lang={lang} onChange={switchLang} />
       </nav>
 
       {(page === 'home' || page === 'landing') && <MatchTicker results={realResults} competitionKey={tickerCompetition} />}

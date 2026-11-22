@@ -2428,25 +2428,39 @@ def _find_cached_prediction(home_team: str, away_team: str) -> Optional[dict]:
 
 
 @app.get("/ai-texts-en")
-def ai_texts_en(home_team: str, away_team: str):
-    """The match's AI texts in English (scenario, AI tip, KI-Scout research),
-    translated once and kept (src/translate.py). Only texts the server itself
-    wrote for this match are translated - nothing sent by the visitor."""
-    from src.translate import to_english
+def ai_texts_en(home_team: str, away_team: str, lang: str = "en"):
+    """The match's AI texts in English or Bosnian (lang=en|bs: scenario, AI tip,
+    KI-Scout research), translated once per language and kept (src/translate.py).
+    Only texts the server itself wrote for this match are translated - nothing
+    sent by the visitor.
+
+    "texts" maps every German text of the match - from all its kept AI checks,
+    since the page may show an earlier or a later one - to its translation, so
+    the page looks up exactly the text it shows. "complete" is false while a
+    translation is missing (the model failed); the page asks again. The
+    single-text fields below are what older page versions read."""
+    from src.translate import LANGUAGES, is_translated, to_language
+    if lang not in LANGUAGES:
+        raise HTTPException(status_code=400, detail="lang must be en or bs")
     key = _match_key(home_team, away_team)
     prediction = _get_prediction_index().get(key) or {}
     scenario = ((prediction.get("score_prediction") or {}).get("betting_markets") or {}).get("scenario") or ""
-    agent = None
-    for k, v in _agent_picks_cache.items():
-        if (k[3], k[4]) == key and v:
-            agent = v
-    research = (agent or {}).get("research") or {}
+    agents = [v for k, v in _agent_picks_cache.items() if (k[3], k[4]) == key and v]
+    agent = agents[-1] if agents else None
     fields = ["lineups_injuries", "form", "table_situation", "other"]
-    texts = [scenario, (agent or {}).get("bet_headline") or "", (agent or {}).get("bet_reasoning") or "", \
-             (agent or {}).get("change_reason") or ""] \
-        + [research.get(f) or "" for f in fields]
-    en = to_english(texts)
-    return {"scenario": en[0], "bet_headline": en[1], "bet_reasoning": en[2],
+    german = [scenario]
+    for a in agents:
+        german += [a.get("bet_headline") or "", a.get("bet_reasoning") or "", a.get("change_reason") or ""]
+        german += [(a.get("research") or {}).get(f) or "" for f in fields]
+    german = list(dict.fromkeys(t for t in german if t))
+    translated = dict(zip(german, to_language(german, lang)))
+    research = (agent or {}).get("research") or {}
+    last = [scenario, (agent or {}).get("bet_headline") or "", (agent or {}).get("bet_reasoning") or "",
+            (agent or {}).get("change_reason") or ""] + [research.get(f) or "" for f in fields]
+    en = [translated.get(t, t) if t else t for t in last]
+    kept = {t: v for t, v in translated.items() if is_translated(t, lang)}      # no echoes of the German
+    return {"texts": kept, "complete": len(kept) == len(translated),
+            "scenario": en[0], "bet_headline": en[1], "bet_reasoning": en[2],
             "change_reason": en[3], "research": {f: en[4 + i] for i, f in enumerate(fields)}}
 
 
