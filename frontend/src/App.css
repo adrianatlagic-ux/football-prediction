@@ -3014,7 +3014,7 @@ body {
 }
 
 /* Compare ticket sizes without letting the shortest ticket hide the rest. */
-.combo-size-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; align-items: start; }
+.combo-size-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: start; }
 .combo-size-option { min-width: 0; }
 .combo-size-title { margin: 0 0 .75rem; color: var(--cyan); font-size: 1rem; }
 .combo-size-option .combo-ticket { margin: 0; padding: 1rem; }
@@ -3023,7 +3023,6 @@ body {
 .combo-size-option .bet-metrics { grid-template-columns: 1fr; }
 .combo-size-empty { padding: 1.25rem; border: 1px dashed var(--glass-border, #334155); border-radius: 14px; color: var(--text-muted, #94a3b8); }
 .combo-size-empty p { margin: .6rem 0 0; line-height: 1.6; font-size: .85rem; }
-@media (max-width: 1000px) { .combo-size-grid { grid-template-columns: 1fr; } }
 
 /* Price tip (bet-at-home vs Pinnacle fair price) */
 .price-tip.is-empty { text-align: center; padding: 0.4rem 0.2rem; }
@@ -3990,4 +3989,34 @@ body {
 @media (max-width: 899px) {
   .hero-text-full { display: none; }
   .hero-text-short { display: inline; }
+}
+
+/* Combo tickets: one below the other instead of three narrow columns side by
+   side. On a laptop or PC a ticket is a wide card: the picks on the left, the
+   numbers on the right. */
+.combo-size-option .combo-ticket-legs { font-size: 0.9rem; font-weight: 800; color: var(--cyan-light); }
+@media (min-width: 900px) {
+  .combo-size-grid { gap: 1.25rem; }
+  .combo-size-option .combo-ticket {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 17rem;
+    column-gap: 2.25rem;
+    padding: 1.25rem 1.5rem;
+  }
+  .combo-size-option .combo-ticket-head { grid-column: 1 / -1; align-items: center; margin-bottom: 0.4rem; }
+  .combo-size-option .combo-ticket-legs { font-size: 1.1rem; }
+  .combo-size-option .combo-quote { display: flex; align-items: baseline; gap: 0.9rem; }
+  .combo-size-option .combo-quote-label { font-size: 0.75rem; }
+  .combo-size-option .combo-ticket-odds { font-size: 1.9rem; }
+  .combo-size-option .combo-legs { grid-column: 1; grid-row: 2 / span 2; }
+  .combo-size-option .combo-leg { padding: 0.85rem 0; gap: 1rem; }
+  .combo-size-option .combo-leg-match { font-size: 0.95rem; }
+  .combo-size-option .combo-leg-pick { font-size: 1.05rem; }
+  .combo-size-option .combo-leg-meta { font-size: 0.78rem; }
+  .combo-size-option .combo-leg-odds { font-size: 1.15rem; }
+  .combo-size-option .combo-leg-prob { font-size: 0.78rem; }
+  .combo-size-option .probability-metrics { grid-column: 2; grid-row: 2; align-self: start; margin-top: 0.5rem; }
+  .combo-size-option .decision-metrics { grid-column: 2; grid-row: 3; align-self: start; }
+  .combo-size-option .combo-near-miss { margin-top: 0.9rem; }
+  .combo-section-label { font-size: 0.8rem; }
 }

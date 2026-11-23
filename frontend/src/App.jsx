@@ -772,7 +772,14 @@ function ComboTicketCard({ ticket, primary, onOpenLeg }) {
   )
 }
 
-function ComboTicketView({ combo, loading, onOpenLeg }) {
+// A ticket belongs to a league only when every one of its legs does. The
+// server already filters by league; this keeps a mixed ticket off the screen
+// even if it ever sends one.
+function ticketInLeague(ticket, sportKey) {
+  return !sportKey || !ticket || (ticket.legs || []).every(leg => !leg.sport_key || leg.sport_key === sportKey)
+}
+
+function ComboTicketView({ combo, loading, onOpenLeg, sportKey }) {
   if (loading) {
     return (
       <div className="analyzing-status loading-inline">
@@ -803,10 +810,17 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
           </span>
 
           <div className="combo-size-grid">
-            {(day.by_size || []).map(option => (
+            {(day.by_size || []).map(raw => {
+              const option = {
+                ...raw,
+                ticket: ticketInLeague(raw.ticket, sportKey) ? raw.ticket : null,
+                near_miss: ticketInLeague(raw.near_miss, sportKey) ? raw.near_miss : null,
+              }
+              return (
               <section className="combo-size-option" key={option.leg_count}
                        aria-label={tr(`${option.leg_count}er-Kombi`, `${option.leg_count}-fold combo`, `Kombinacija od ${option.leg_count}`)}>
-                <h3 className="combo-size-title">{tr(`${option.leg_count}er-Kombi`, `${option.leg_count}-fold combo`, `Kombinacija od ${option.leg_count}`)}</h3>
+                {/* A ticket's own header names its size; only an empty slot needs a title. */}
+                {!option.ticket && <h3 className="combo-size-title">{tr(`${option.leg_count}er-Kombi`, `${option.leg_count}-fold combo`, `Kombinacija od ${option.leg_count}`)}</h3>}
                 {option.ticket ? (
                   <>
                     <ComboTicketCard ticket={option.ticket} onOpenLeg={onOpenLeg} />
@@ -824,13 +838,14 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
                 ) : (
                   <div className="combo-size-empty">
                     <strong>{tr('Nicht verfügbar', 'Not available')}</strong>
-                    <p>{tr(option.reason,
+                    <p>{tr(option.reason || `Keine ${option.leg_count}er-Kombi verfügbar: Dafür braucht es ${option.leg_count} passende Spiele und die Zielquote.`,
                       `No ${option.leg_count}-fold available: it needs ${option.leg_count} qualifying matches and the target combined odds.`,
                       `Kombinacija od ${option.leg_count} nije dostupna: potrebne su ${option.leg_count} odgovarajuće utakmice i ciljana ukupna kvota.`)}</p>
                   </div>
                 )}
               </section>
-            ))}
+              )
+            })}
           </div>
         </div>
       ))}
@@ -2921,7 +2936,7 @@ export default function App() {
                 return listed.map(key => (
                   <div key={key}>
                     {isAll && <h3 className="fixture-league-tag combo-league-title">{COMPETITIONS[key].label}</h3>}
-                    <ComboTicketView combo={comboFor(key)} loading={comboFor(key) === null} onOpenLeg={openLeg} />
+                    <ComboTicketView combo={comboFor(key)} loading={comboFor(key) === null} onOpenLeg={openLeg} sportKey={COMPETITIONS[key].sportKey} />
                   </div>
                 ))
               })()}
