@@ -108,11 +108,11 @@
   },
   "qa": {
     "ready": false,
-    "status": "surprise_visual_pass_audio_review_limit",
+    "status": "picture_pass_english_commentary_audio_listening_unverified",
     "surprise_review": "Nwaneri-like BVB player visible inside red drink machine from opening, Saka-like Arsenal player presses button, machine opens and player steps out, both smile. The visual joke works without dialogue.",
     "player_review": "Both characters broadly resemble official player references in sampled frames; Dortmund yellow and Arsenal red-white kits are visible. Identity similarity is approximate.",
     "setting_review": "fictional indoor lounge, no real pitch",
-    "audio_review": "AAC track present and source audio packets identical; generated German wording, naturalness and lip sync not independently heard. No unquoted paid analysis ordered.",
+    "audio_review": "English commentary mixed; actual pronunciation and balance not independently heard. Original audio lowered and re-encoded.",
     "outro_review": "Two-second rendition of verified German master; logo, domain and exact German disclaimer visible.",
     "final_fixture_check": {
       "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
@@ -123,17 +123,21 @@
     }
   },
   "production": {
-    "media_id": "018b129d-e2dc-4318-b4db-a8d1a2bb8faa",
-    "zip_media_id": "8790de78-06f1-45b6-a820-8751a0d548b7",
-    "sha256": "0e9d58f46562de0b18cfda576c03eeb30badd5bc81501806ab2fd73608ce0104",
-    "duration_seconds": 7.12,
+    "media_id": "2658b4e9-bbe6-4dbb-8eac-71b754f6d68d",
+    "zip_media_id": "b1267fe3-7ca7-4de1-a005-085bc12d4ca1",
+    "sha256": "95a486bd0e5ea500e4ae1330b9b229927751a37f8f53510e62f96718348c6771",
+    "duration_seconds": 7.136,
     "all_121_source_frames_identical": true,
     "all_160_source_audio_packets_identical": true,
     "zip_byte_identical": true,
     "download_http_status": {
       "mp4": 206,
       "zip": 206
-    }
+    },
+    "all_169_video_frames_identical_to_prior_final": true,
+    "zip_mp4_sha256_matches": true,
+    "source_audio_unchanged": false,
+    "video_frames_identical_to_prior_final": true
   },
   "caption": "caption.txt",
   "production_evidence": "production-evidence.json",
@@ -149,8 +153,16 @@
     "script": "Nwaneri's back!",
     "estimated_credits": 17.8125,
     "reported_job_credit_cost": 18,
-    "status": "speech_node_completed_handoff_unavailable",
-    "handoff_review": "Completed voice node inspected, but connector did not expose the generated audio URL through the available non-polling asset lookup; no video mix/export performed.",
-    "original_video_unchanged": true
+    "status": "mixed_into_selected_final",
+    "handoff_review": "ElevenLabs completed audio retrieved via requested result display; transferred into Higgsfield Cloud and mixed successfully.",
+    "original_video_unchanged": true,
+    "final_generation_reported_credits": 15,
+    "audio_mix": "Original audio reduced to 18 percent and re-encoded, English voice begins at 1 second; video frames unchanged.",
+    "evidence": "english-commentary-evidence.json"
+  },
+  "previous_final": {
+    "media_id": "018b129d-e2dc-4318-b4db-a8d1a2bb8faa",
+    "zip_media_id": "8790de78-06f1-45b6-a820-8751a0d548b7",
+    "sha256": "0e9d58f46562de0b18cfda576c03eeb30badd5bc81501806ab2fd73608ce0104"
   }
 }
