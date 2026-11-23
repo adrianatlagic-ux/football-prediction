@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.0",
+  "target_date": "2026-11-23",
+  "editorial_date_timezone": "Europe/Berlin",
+  "status": "delivered_with_disclosed_audio_review_limit",
+  "daily_video_limit": 1,
+  "video_generation_attempt_limit": 1,
+  "attempts_used": 1,
+  "coverage_key": "ucl:2049627:2026-11-24:arsenal-dortmund",
+  "match": {
+    "competition": "UEFA Champions League",
+    "match_id": "2049627",
+    "home": "Arsenal",
+    "away": "Borussia Dortmund",
+    "match_date": "2026-11-24",
+    "kickoff_at": "2026-11-24T21:00:00+01:00",
+    "official_source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
+    "retrieved_on": "2026-11-23"
+  },
+  "selection": {
+    "reason": "No eligible Bundesliga or Champions League match today; next uncovered top match is Arsenal–Dortmund on 24 November, with a verifiable returning former Arsenal player.",
+    "uefa_pages_checked": [
+      0,
+      100,
+      200
+    ],
+    "prior_manifests_checked": 26,
+    "prior_duplicate_found": false
+  },
+  "research": {
+    "generation_basis": "verified_fixture_and_current_research",
+    "prediction_used": false,
+    "context_type": "player_history",
+    "verified_context": "BVB official profile states Nwaneri joined Arsenal's academy aged eight and played for the Arsenal first team before joining Dortmund on 1 September 2026; Arsenal lists Saka as current first-team player.",
+    "sources": [
+      "https://www.bvb.de/de/de/mannschaften/fussball/spieler/ethan-nwaneri.html",
+      "https://www.arsenal.com/men/players/bukayo-saka",
+      "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100"
+    ],
+    "portrait_sources": [
+      "https://s7g10.scene7.com/is/image/BORUSSIADORTMUNDGMBHANDCOKGAA/nwaneri-slider?wid=600&fmt=jpeg",
+      "https://assets.arsenal.com/prod/images/square_1000_1000/87fab49199d9-arsenalmenssquad26277bukayo-saka.webp"
+    ],
+    "retrieved_on": "2026-11-23"
+  },
+  "story": {
+    "creative_goal": "immediate surprising moment with comprehensible visual payoff",
+    "candidate_concepts": [
+      {
+        "idea": "Nwaneri returns in Dortmund shirt inside oversized Arsenal-red vending machine while Saka tries to get a drink",
+        "selected": true,
+        "reason": "One clear impossible situation, both recognizable players visible immediately and former Arsenal player is the unexpected return."
+      },
+      {
+        "idea": "An old Arsenal framed photo unexpectedly winks at Nwaneri",
+        "rejected": "Requires duplicate faces and makes the two-player gag hard to read in five seconds."
+      },
+      {
+        "idea": "An Arsenal jersey turns into a Dortmund jersey",
+        "rejected": "Repeats moving-clothes motif from 21 November and generated transformations risk inconsistencies."
+      }
+    ],
+    "story_type": "unexpected_return_vending_machine",
+    "story_setting": "fictional indoor player lounge",
+    "recent_settings": [
+      "bus_and_goat_2026-11-19",
+      "hotel_luggage_selfmoving_scarf_2026-11-21"
+    ],
+    "setting_difference": "open lobby vending machine with a person unexpectedly inside; no bus or luggage",
+    "protagonists": [
+      "Ethan Nwaneri",
+      "Bukayo Saka"
+    ],
+    "audience_expectation": "A vending machine contains drinks.",
+    "unexpected_visual": "Former Arsenal player Nwaneri stands inside a giant vending machine in a Dortmund shirt.",
+    "first_second_hook": "Both faces and Nwaneri visible behind the partly open transparent machine door immediately.",
+    "surprise_mechanism": "unexpected_person_reveal",
+    "payoff": "Saka opens the machine, Nwaneri steps out and both smile.",
+    "football_context_connection": "Nwaneri was Arsenal's academy player and is now at Dortmund facing his former club.",
+    "recent_surprise_mechanisms": [
+      "animal_in_bus_seat",
+      "unexpected_scarf_behavior"
+    ],
+    "visual_retell_test": "Saka entdeckt seinen früheren Arsenal-Mitspieler Nwaneri im BVB-Trikot in einem Getränkeautomaten.",
+    "spoken_language": "de",
+    "on_pitch_beats": [],
+    "fiction_label": "KI-Fiktion in caption"
+  },
+  "generation": {
+    "idempotency_key": "goaliq-2026-11-23-ucl2049627-mini720-vending-v1",
+    "job_id": "4b030ef9-d76a-4ed0-8514-aaf6f9e4a2de",
+    "model": "seedance_2_0_mini",
+    "duration_seconds": 5,
+    "resolution": "720p",
+    "bitrate_mode": "high",
+    "quoted_credits_exact": 5,
+    "balance_before": 588.88,
+    "status": "completed",
+    "credits_used": 5,
+    "balance_after": 583.88,
+    "source_sha256": "823701ed1103cd791c54b083777740ca2b8879d290b8266b8b1b1dd5f3d4d5c5"
+  },
+  "outro": {
+    "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "master_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "trim_seconds": 2,
+    "preflight": "hash_duration_and_frame_checked"
+  },
+  "qa": {
+    "ready": false,
+    "status": "picture_pass_english_commentary_audio_listening_unverified",
+    "surprise_review": "Nwaneri-like BVB player visible inside red drink machine from opening, Saka-like Arsenal player presses button, machine opens and player steps out, both smile. The visual joke works without dialogue.",
+    "player_review": "Both characters broadly resemble official player references in sampled frames; Dortmund yellow and Arsenal red-white kits are visible. Identity similarity is approximate.",
+    "setting_review": "fictional indoor lounge, no real pitch",
+    "audio_review": "English commentary mixed; actual pronunciation and balance not independently heard. Original audio lowered and re-encoded.",
+    "outro_review": "Two-second rendition of verified German master; logo, domain and exact German disclaimer visible.",
+    "final_fixture_check": {
+      "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
+      "match_id": "2049627",
+      "status": "UPCOMING",
+      "kickoff_at": "2026-11-24T21:00:00+01:00",
+      "checked_at": "2026-11-23T14:04:42Z"
+    }
+  },
+  "production": {
+    "media_id": "2658b4e9-bbe6-4dbb-8eac-71b754f6d68d",
+    "zip_media_id": "b1267fe3-7ca7-4de1-a005-085bc12d4ca1",
+    "sha256": "95a486bd0e5ea500e4ae1330b9b229927751a37f8f53510e62f96718348c6771",
+    "duration_seconds": 7.136,
+    "all_121_source_frames_identical": true,
+    "all_160_source_audio_packets_identical": true,
+    "zip_byte_identical": true,
+    "download_http_status": {
+      "mp4": 206,
+      "zip": 206
+    },
+    "all_169_video_frames_identical_to_prior_final": true,
+    "zip_mp4_sha256_matches": true,
+    "source_audio_unchanged": false,
+    "video_frames_identical_to_prior_final": true
+  },
+  "caption": "caption.txt",
+  "production_evidence": "production-evidence.json",
+  "english_commentary": {
+    "requested_after_delivery": true,
+    "provider": "ElevenLabs",
+    "flow_id": "t2vIS4YtcUMMWOiVKPla",
+    "node_id": "4U9WvIZuYw1UXp1yRzmX",
+    "generation_id": "iyovlVBKasTwIXrNu9XT",
+    "session_id": "lS8UEIEhTvG7NY4iiDb9",
+    "voice_id": "0m1WGWVzxS7KbWobXtnw",
+    "model": "eleven_v4",
+    "script": "Nwaneri's back!",
+    "estimated_credits": 17.8125,
+    "reported_job_credit_cost": 18,
+    "status": "mixed_into_selected_final",
+    "handoff_review": "ElevenLabs completed audio retrieved via requested result display; transferred into Higgsfield Cloud and mixed successfully.",
+    "original_video_unchanged": true,
+    "final_generation_reported_credits": 15,
+    "audio_mix": "Original audio reduced to 18 percent and re-encoded, English voice begins at 1 second; video frames unchanged.",
+    "evidence": "english-commentary-evidence.json"
+  },
+  "previous_final": {
+    "media_id": "018b129d-e2dc-4318-b4db-a8d1a2bb8faa",
+    "zip_media_id": "8790de78-06f1-45b6-a820-8751a0d548b7",
+    "sha256": "0e9d58f46562de0b18cfda576c03eeb30badd5bc81501806ab2fd73608ce0104"
+  }
+}

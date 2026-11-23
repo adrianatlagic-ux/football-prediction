@@ -1,0 +1,47 @@
+{
+  "target_date": "2026-11-23",
+  "job_id": "4b030ef9-d76a-4ed0-8514-aaf6f9e4a2de",
+  "source": {
+    "sha256": "823701ed1103cd791c54b083777740ca2b8879d290b8266b8b1b1dd5f3d4d5c5",
+    "duration_seconds": 5.088,
+    "width": 720,
+    "height": 1280,
+    "bitrate": 14728400
+  },
+  "final": {
+    "media_id": "018b129d-e2dc-4318-b4db-a8d1a2bb8faa",
+    "zip_media_id": "8790de78-06f1-45b6-a820-8751a0d548b7",
+    "sha256": "0e9d58f46562de0b18cfda576c03eeb30badd5bc81501806ab2fd73608ce0104",
+    "duration_seconds": 7.12,
+    "all_121_source_frames_identical": true,
+    "all_160_source_audio_packets_identical": true,
+    "zip_byte_identical": true,
+    "download_http_status": {
+      "mp4": 206,
+      "zip": 206
+    }
+  },
+  "credits": {
+    "quoted": 5,
+    "used": 5,
+    "before": 588.88,
+    "after": 583.88
+  },
+  "qa": {
+    "ready": false,
+    "status": "surprise_visual_pass_audio_review_limit",
+    "surprise_review": "Nwaneri-like BVB player visible inside red drink machine from opening, Saka-like Arsenal player presses button, machine opens and player steps out, both smile. The visual joke works without dialogue.",
+    "player_review": "Both characters broadly resemble official player references in sampled frames; Dortmund yellow and Arsenal red-white kits are visible. Identity similarity is approximate.",
+    "setting_review": "fictional indoor lounge, no real pitch",
+    "audio_review": "AAC track present and source audio packets identical; generated German wording, naturalness and lip sync not independently heard. No unquoted paid analysis ordered.",
+    "outro_review": "Two-second rendition of verified German master; logo, domain and exact German disclaimer visible.",
+    "final_fixture_check": {
+      "source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100",
+      "match_id": "2049627",
+      "status": "UPCOMING",
+      "kickoff_at": "2026-11-24T21:00:00+01:00",
+      "checked_at": "2026-11-23T14:04:42Z"
+    }
+  },
+  "no_private_media_urls_in_repository": true
+}

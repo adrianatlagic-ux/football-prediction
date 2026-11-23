@@ -197,5 +197,7 @@ def test_the_shadow_runs_prompt_v10_while_the_real_tip_stays_v9(monkeypatch):
     assert "how many goals are realistic" in prompts[0] and '"candidates"' not in prompts[0]
     assert "memory_used" not in prompts[0]
     assert "most predictable" in prompts[1] and '"candidates"' in prompts[1]
+    # The favourite question sits only in the shadow's verdict, the real tip is untouched.
+    assert "can score on its own" in prompts[1] and "can score on its own" not in prompts[0]
     assert real["research_version"] == "football_research_model_v9" and "candidates_considered" not in real
-    assert shadow["research_version"] == "football_research_model_v10" and shadow["pick_probability"] == 72
+    assert shadow["research_version"] == "football_research_model_v10_1" and shadow["pick_probability"] == 72

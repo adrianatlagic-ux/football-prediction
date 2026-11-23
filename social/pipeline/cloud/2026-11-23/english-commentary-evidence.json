@@ -1,0 +1,44 @@
+{
+  "target_date": "2026-11-23",
+  "requested_english_commentary": true,
+  "provider": "ElevenLabs",
+  "flow_id": "t2vIS4YtcUMMWOiVKPla",
+  "node_id": "4U9WvIZuYw1UXp1yRzmX",
+  "generation_id": "iyovlVBKasTwIXrNu9XT",
+  "session_id": "lS8UEIEhTvG7NY4iiDb9",
+  "voice_id": "0m1WGWVzxS7KbWobXtnw",
+  "model": "eleven_v4",
+  "script": "Nwaneri's back!",
+  "estimated_credits": 17.8125,
+  "initial_job_reported_credits": 18,
+  "final_generation_reported_credits": 15,
+  "voice_duration_seconds": 1.645714,
+  "cloud_handoff": "completed: ElevenLabs audio transferred into Higgsfield Cloud and mixed into original composite.",
+  "mix": {
+    "voice_start_seconds": 1,
+    "original_audio_gain": 0.18,
+    "voice_gain": 1.15,
+    "audio_reencoded": true,
+    "video_stream_copy": true
+  },
+  "final": {
+    "media_id": "2658b4e9-bbe6-4dbb-8eac-71b754f6d68d",
+    "zip_media_id": "b1267fe3-7ca7-4de1-a005-085bc12d4ca1",
+    "sha256": "95a486bd0e5ea500e4ae1330b9b229927751a37f8f53510e62f96718348c6771",
+    "duration_seconds": 7.136,
+    "all_169_video_frames_identical_to_prior_final": true,
+    "zip_mp4_sha256_matches": true,
+    "download_http_status": {
+      "mp4": 206,
+      "zip": 206
+    }
+  },
+  "qa": {
+    "ready": false,
+    "status": "picture_pass_audio_listening_unverified",
+    "audio_review": "Generation completed; cloud handoff, mixing and AAC audio track verified. Exact pronunciation, delivery and balance not independently heard. Original audio was intentionally lowered and re-encoded for the voiceover.",
+    "outro_review": "same video frames as original final; visual master checked",
+    "video_generation_attempts_new": 0
+  },
+  "no_private_media_urls_in_repository": true
+}
