@@ -136,5 +136,21 @@
     }
   },
   "caption": "caption.txt",
-  "production_evidence": "production-evidence.json"
+  "production_evidence": "production-evidence.json",
+  "english_commentary": {
+    "requested_after_delivery": true,
+    "provider": "ElevenLabs",
+    "flow_id": "t2vIS4YtcUMMWOiVKPla",
+    "node_id": "4U9WvIZuYw1UXp1yRzmX",
+    "generation_id": "iyovlVBKasTwIXrNu9XT",
+    "session_id": "lS8UEIEhTvG7NY4iiDb9",
+    "voice_id": "0m1WGWVzxS7KbWobXtnw",
+    "model": "eleven_v4",
+    "script": "Nwaneri's back!",
+    "estimated_credits": 17.8125,
+    "reported_job_credit_cost": 18,
+    "status": "speech_node_completed_handoff_unavailable",
+    "handoff_review": "Completed voice node inspected, but connector did not expose the generated audio URL through the available non-polling asset lookup; no video mix/export performed.",
+    "original_video_unchanged": true
+  }
 }
