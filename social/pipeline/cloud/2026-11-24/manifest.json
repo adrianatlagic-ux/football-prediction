@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "target_date": "2026-11-24",
+  "status": "reserved",
+  "daily_video_limit": 1,
+  "attempts_used": 0,
+  "coverage_key": "ucl:2049626:2026-11-24:man-city-napoli",
+  "match": {
+    "competition": "UEFA Champions League",
+    "match_id": "2049626",
+    "home": "Manchester City",
+    "away": "Napoli",
+    "match_date": "2026-11-24",
+    "kickoff_at": "2026-11-24T21:00:00+01:00",
+    "official_source": "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100"
+  },
+  "selection": {
+    "reason": "Heutiges Duell großer CL-Teams mit Rückkehr eines früheren City-Spielers; Arsenal–Dortmund bereits angekündigt.",
+    "prior_coverage_checked": true
+  },
+  "research": {
+    "verified_context": "Kevin De Bruyne steht laut UEFA im Napoli-Kader; UEFA führt seine früheren Man-City-Tore. Erling Haaland steht im City-Kader.",
+    "sources": [
+      "https://www.uefa.com/uefachampionsleague/clubs/50136--napoli/squad/",
+      "https://www.uefa.com/uefachampionsleague/clubs/52919--man-city/squad/",
+      "https://www.uefa.com/uefachampionsleague/clubs/players/250008901--kevin-de-bruyne/"
+    ],
+    "portrait_sources": [
+      "https://img.uefa.com/imgml/TP/players/1/2027/324x324/250103758.jpg",
+      "https://img.uefa.com/imgml/TP/players/1/2027/324x324/250008901.jpg"
+    ],
+    "retrieved_on": "2026-11-24",
+    "prediction_used": false
+  },
+  "story": {
+    "creative_goal": "unexpected_immediately_visible_moment_with_understandable_payoff",
+    "candidate_concepts": [
+      {
+        "idea": "De Bruyne öffnet die vertraute City-Jacke und enthüllt sein Napoli-Trikot neben Haaland.",
+        "selected": true
+      },
+      {
+        "idea": "Ein altes Mannschaftsfoto erwacht zum Leben.",
+        "selected": false,
+        "reason": "Wiederholt Personenenthüllung des Vortages."
+      },
+      {
+        "idea": "Ein Schal bewegt sich von allein.",
+        "selected": false,
+        "reason": "Wiederholt bewegtes Objekt vom 21.11."
+      }
+    ],
+    "audience_expectation": "Der frühere City-Spieler scheint weiterhin die City-Farben zu tragen.",
+    "unexpected_visual": "Unter der vertrauten City-Jacke trägt er das Napoli-Trikot.",
+    "first_second_hook": "Haaland und De Bruyne sofort erkennbar nebeneinander.",
+    "surprise_mechanism": "expectation_reversal_jersey_reveal",
+    "payoff": "De Bruyne zeigt das neue Trikot und Haaland reagiert überrascht.",
+    "football_context_connection": "De Bruyne kehrt mit Napoli zu seinem früheren Verein Manchester City zurück.",
+    "recent_surprise_mechanisms": [
+      "person_in_vending_machine",
+      "moving_scarf",
+      "animal_in_bus"
+    ],
+    "recent_settings": [
+      "player_lounge",
+      "hotel_luggage_area",
+      "team_bus"
+    ],
+    "story_setting": "fictional club photo studio",
+    "selection_reason": "Bekannte Spieler und verständlicher Bezug zu De Bruynes Vereinswechsel.",
+    "visual_retell_test": "Haaland erkennt, dass sein früherer Teamkollege heute das Napoli-Trikot trägt.",
+    "spoken_language": "en",
+    "speech": "Different team, same magic.",
+    "fiction_label": "KI-Fiktion"
+  },
+  "generation": {
+    "idempotency_key": "goaliq-2026-11-24-ucl2049626-mini720-v1",
+    "model": "seedance_2_0_mini",
+    "duration_seconds": 5,
+    "resolution": "720p",
+    "bitrate_mode": "high",
+    "quoted_credits_exact": 5,
+    "balance_before": 583.88,
+    "status": "reserved"
+  },
+  "outro": {
+    "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "master_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "trim_seconds": 2,
+    "preflight": "hash_duration_frame_checked"
+  }
+}
