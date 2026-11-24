@@ -4020,3 +4020,131 @@ body {
   .combo-size-option .combo-near-miss { margin-top: 0.9rem; }
   .combo-section-label { font-size: 0.8rem; }
 }
+
+/* The ticket size is as big as the combined odds on the right. */
+.combo-size-option .combo-ticket-legs { font-size: 1.6rem; }
+@media (min-width: 900px) {
+  .combo-size-option .combo-ticket-legs { font-size: 1.9rem; }
+}
+/* In the ticket header the number comes first, its caption below it. */
+.combo-quote { display: flex; flex-direction: column; align-items: flex-end; }
+.combo-quote .combo-ticket-odds { order: -1; }
+@media (min-width: 900px) {
+  .combo-size-option .combo-quote { flex-direction: row-reverse; align-items: baseline; }
+}
+
+/* ---- Combo legs as casino chips -------------------------------------------- */
+.combo-legs { padding: 0.9rem 0 0.4rem; }
+.combo-chips {
+  display: flex; gap: 1rem; overflow-x: auto; padding: 0.4rem 0.2rem 0.8rem;
+  scroll-snap-type: x mandatory; scrollbar-width: thin;
+}
+.combo-chip-wrap { flex: 0 0 9.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.35rem; scroll-snap-align: start; text-align: center; perspective: 700px; }
+.combo-chip {
+  position: relative; width: 9.5rem; height: 9.5rem; padding: 0; border: 0; background: none; cursor: pointer;
+  border-radius: 50%; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(.2,.7,.2,1);
+  font: inherit; color: #fff;
+}
+@media (hover: hover) { .combo-chip:hover { transform: rotateY(180deg); } }
+.combo-chip.is-flipped { transform: rotateY(180deg); }
+@media (hover: hover) { .combo-chip.is-flipped:hover { transform: rotateY(180deg); } }
+.combo-chip-face {
+  position: absolute; inset: 0; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.15rem; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  /* the edge stripes of a casino chip, then a dark centre inside a gold ring */
+  background:
+    radial-gradient(circle at center, #121212 0 56%, var(--gold) 57% 61%, transparent 62%),
+    repeating-conic-gradient(var(--gold-light) 0 14deg, #1a1406 14deg 30deg);
+  box-shadow: 0 8px 22px -10px rgba(212,175,55,0.7), inset 0 0 0 2px rgba(0,0,0,0.35);
+}
+.combo-chip-back { transform: rotateY(180deg); padding: 1.5rem 1.4rem; text-align: center; }
+.combo-chip-num { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); }
+.combo-chip-odds { font-size: 1.6rem; font-weight: 800; color: var(--gold-light); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.combo-chip-sub { font-size: 0.75rem; color: var(--text-muted); }
+.combo-chip-pick { font-size: 0.75rem; font-weight: 700; line-height: 1.25; color: #fff; }
+.combo-chip-prob { font-size: 0.75rem; color: var(--gold-light); }
+.combo-chip-signs { display: flex; gap: 0.3rem; font-size: 0.75rem; }
+.combo-chip-match { font-size: 0.75rem; color: #e2e8f0; line-height: 1.35; }
+.combo-chip-meta { font-size: 0.75rem; color: var(--text-faint); }
+.combo-chip-open { background: none; border: 0; padding: 0; font: inherit; font-size: 0.75rem; color: var(--gold-light); cursor: pointer; text-decoration: underline; }
+@media (prefers-reduced-motion: reduce) { .combo-chip { transition: none; } }
+@media (min-width: 900px) { .combo-size-option .combo-legs { grid-row: 2 / span 2; } }
+
+/* Laptop / PC: the chips wrap by themselves (no scroll bar) and the three
+   numbers sit side by side under them. On a phone they stay one below the other. */
+@media (min-width: 900px) {
+  .combo-chips { flex-wrap: wrap; overflow: visible; justify-content: space-evenly; scroll-snap-type: none; gap: 1.25rem 1.5rem; }
+  .combo-size-option .combo-ticket { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 1rem; row-gap: 0.9rem; }
+  .combo-size-option .combo-legs { grid-column: 1 / -1; grid-row: auto; }
+  .combo-size-option .probability-metrics,
+  .combo-size-option .decision-metrics { display: contents; }
+  .combo-size-option .combo-ticket-note { grid-column: 1 / -1; margin-top: 0; }
+}
+
+/* Under a chip the match always takes three lines: home team, "vs", away team. */
+.combo-chip-match { display: flex; flex-direction: column; align-items: center; line-height: 1.35; }
+
+/* Neutral badge for a team whose crest is not known. */
+.team-crest-placeholder { display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.12); color: var(--text-muted); font-size: 0.8em; width: 1.5em; height: 1.5em; line-height: 1; font-weight: 800; vertical-align: middle; }
+
+/* Folded tickets: the head is a button across the whole box. */
+.combo-ticket-head { width: 100%; background: none; border: 0; border-bottom: 1px solid transparent; font: inherit; color: inherit; text-align: left; cursor: pointer; align-items: center; gap: 1rem; padding-bottom: 0; }
+.combo-ticket.is-open .combo-ticket-head { border-bottom-color: rgba(255,255,255,0.07); padding-bottom: 0.7rem; }
+.combo-ticket-head .combo-quote { margin-left: auto; }
+.combo-ticket-chevron { color: var(--text-muted); font-size: 1rem; transition: transform 0.25s; }
+.combo-ticket.is-open .combo-ticket-chevron { transform: rotate(180deg); }
+.combo-ticket-head:hover .combo-ticket-chevron { color: var(--gold-light); }
+@media (min-width: 900px) {
+  .combo-size-option .combo-ticket:not(.is-open) { display: block; }
+}
+
+/* One type scale for the combos, the same as the "Nächste Spiele" rows:
+   names 0.95rem (1.1rem on a wide screen), details 0.8rem, the two headline
+   numbers (ticket size and combined odds) 1.15rem, the metric boxes 1.15rem. */
+.combo-chip-wrap { flex-basis: 11rem; }
+.combo-chip-match { font-size: 0.95rem; font-weight: 600; color: #fff; }
+.combo-chip-match .combo-leg-vs { font-size: 0.75rem; }
+.combo-chip-meta, .combo-chip-open { font-size: 0.8rem; }
+.combo-chip-num, .combo-chip-sub, .combo-chip-prob, .combo-chip-signs { font-size: 0.8rem; }
+.combo-chip-pick { font-size: 0.8rem; }
+.combo-chip-odds { font-size: 1.5rem; }
+.combo-size-option .combo-ticket-legs,
+.combo-size-option .combo-ticket-odds { font-size: 1.15rem; }
+.combo-size-option .combo-ticket-legs { letter-spacing: 0.06em; }
+.combo-quote-label, .combo-size-option .combo-quote-label { font-size: 0.8rem; }
+.combo-size-option .bet-metric { padding: 0.65rem 0.8rem; }
+.combo-size-option .bet-metric dt { font-size: 0.8rem; }
+.combo-size-option .bet-metric dd { font-size: 1.15rem; margin-top: 0.2rem; }
+.combo-size-option .bet-metric small { font-size: 0.75rem; margin-top: 0.2rem; }
+.combo-ticket-note { font-size: 0.8rem; }
+@media (min-width: 800px) {
+  .combo-chip-match { font-size: 1.1rem; }
+  .combo-chip-match .combo-leg-vs { font-size: 0.8rem; }
+}
+@media (min-width: 900px) {
+  .combo-size-option .combo-ticket-legs { font-size: 1.15rem; }
+  .combo-size-option .combo-ticket-odds { font-size: 1.15rem; }
+  .combo-size-option .combo-quote-label { font-size: 0.8rem; }
+}
+.combo-chip-wrap { flex-basis: 12.5rem; }
+.combo-chip-match > span { white-space: nowrap; }
+
+/* Folded ticket: everything in the one line sits on the box's vertical middle. */
+.combo-size-option .combo-ticket:not(.is-open) .combo-ticket-head { margin-bottom: 0; padding-bottom: 0; }
+.combo-size-option .combo-ticket-head .combo-quote { align-items: center; }
+.combo-ticket-head .combo-ticket-odds, .combo-ticket-head .combo-quote-label { line-height: 1.2; }
+.combo-ticket-legs { line-height: 1.2; }
+
+/* The front of a chip is the bet itself, the back its odds. */
+.combo-chip-front { padding: 1.6rem 1.5rem; text-align: center; }
+.combo-chip-front .combo-chip-pick { font-size: 0.9rem; font-weight: 700; line-height: 1.25; color: #fff; }
+
+/* More air between a chip and the match under it. */
+.combo-chip-wrap { gap: 0.35rem; }
+.combo-chip-match { margin-top: 0.9rem; }
+
+/* The signals sit in a row above the bet on the front of the chip. */
+.combo-chip-front { gap: 0.3rem; padding: 1.3rem 1.4rem; }
+.combo-chip-front .combo-chip-signs { font-size: 0.8rem; gap: 0.35rem; line-height: 1; }
+.combo-chip-front .combo-chip-pick { font-size: 0.85rem; }
+.combo-chip-muted { opacity: 0.5; filter: grayscale(1); }
