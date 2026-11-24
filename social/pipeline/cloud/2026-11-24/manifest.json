@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "target_date": "2026-11-24",
-  "status": "generation_in_progress",
+  "status": "delivered_with_disclosed_audio_review_limit",
   "daily_video_limit": 1,
   "attempts_used": 1,
   "coverage_key": "ucl:2049626:2026-11-24:man-city-napoli",
@@ -81,17 +81,42 @@
     "bitrate_mode": "high",
     "quoted_credits_exact": 5,
     "balance_before": 583.88,
-    "status": "pending",
+    "status": "completed",
     "job_id": "27127c62-2a28-4e61-a0ca-3c4a7a95a6aa",
     "reference_media_ids": [
       "0518a0ae-cbbf-44ac-813b-772d1449cd35",
       "187ee069-3e84-4ce9-956a-53ab1c5c5230"
-    ]
+    ],
+    "credits_used": 5,
+    "balance_after": 578.88
   },
   "outro": {
     "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
     "master_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
     "trim_seconds": 2,
-    "preflight": "hash_duration_frame_checked"
-  }
+    "preflight": "hash_duration_frame_checked",
+    "review": "Two-second German master confirmed by final frame"
+  },
+  "qa": {
+    "ready": false,
+    "surprise_review": "Haaland and De Bruyne approximately recognizable; jacket opened and Napoli shirt revealed.",
+    "audio_review": "Audio stream and original AAC packet payloads present; English language, precise words, naturalness and lip sync not independently heard or verified.",
+    "outro_review": "German master verified, final frame correct",
+    "source_picture": "121 decoded frames identical",
+    "source_audio": "AAC packet payloads identical; remux timing not independently verified",
+    "final_fixture_check": "2026-11-24, UEFA match 2049626 UPCOMING 21:00 Europe/Berlin"
+  },
+  "production": {
+    "media_id": "dfac1133-dd2b-45c1-aeb9-092f6f9cce66",
+    "zip_media_id": "f6f4b7ac-e5ca-4576-9454-c8da81207af4",
+    "sha256": "4e4b4a76487f2721e6ffb9e5dddbc2f418da6a8c814ca136c5990a9aa8c2685e",
+    "zip_byte_identical": true,
+    "duration_seconds": 7.12,
+    "download_http_status": {
+      "mp4": 206,
+      "zip": 206
+    }
+  },
+  "caption": "caption.txt",
+  "production_evidence": "production-evidence.json"
 }
