@@ -1,0 +1,18 @@
+{
+  "fixture_rechecked": "2026-11-24T07:10:00Z",
+  "video_job_id": "27127c62-2a28-4e61-a0ca-3c4a7a95a6aa",
+  "credits_before": 583.88,
+  "credits_after": 578.88,
+  "credits_used": 5,
+  "visual_review": "Drei Einzelbilder zeigen Haaland und De Bruyne annähernd erkennbar; Jacke öffnet sich und Neapel-Trikot wird sichtbar. Fotostudio, keine Platzszene.",
+  "audio_review": "Tonspur vorhanden und Original-Audiopaketdaten erhalten; tatsächlicher Wortlaut, Sprache, Natürlichkeit und Lippensynchronität konnten nicht angehört bzw. bestätigt werden.",
+  "outro_review": "Deutschsprachiges 3s Master mit korrektem SHA geprüft, auf 2s gekürzt; finales Bild zeigt Logo, Domain und Hinweis.",
+  "video_frame_check": "Alle 121 dekodierten Quellbilder im finalen Video identisch.",
+  "audio_packet_check": "Original AAC Audiopaketdaten identisch; Remux-Zeitstempel nicht separat geprüft.",
+  "final_media_id": "dfac1133-dd2b-45c1-aeb9-092f6f9cce66",
+  "zip_media_id": "f6f4b7ac-e5ca-4576-9454-c8da81207af4",
+  "final_sha256": "4e4b4a76487f2721e6ffb9e5dddbc2f418da6a8c814ca136c5990a9aa8c2685e",
+  "zip_sha256_matches": true,
+  "links_http": 206,
+  "fully_ready": false
+}
