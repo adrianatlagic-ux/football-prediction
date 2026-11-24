@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect, useRef } from 'react'
+import { Fragment, useState, useEffect, useRef, useSyncExternalStore } from 'react'
 import axios from 'axios'
 import './App.css'
 import CL_FIXTURES from './cl_fixtures.json'
@@ -701,60 +701,130 @@ function BetMetric({ label, value, detail, emphasis = false }) {
   )
 }
 
-// One bet of a combo as a casino chip: the front names the bet, a hover (or a
-// tap on a phone) turns it around to its odds.
-function ComboChip({ leg, index, onOpenLeg }) {
-  const [flipped, setFlipped] = useState(false)
+// One bet of a combo as a casino chip: the front shows the odds, the back the
+// market probability; the bet itself stands under it, with the signs and a
+// button that opens the match.
+function ComboChip({ leg, onOpenLeg, flipped = false, onFlip }) {
   const agrees = leg.model_probability != null && leg.model_probability >= leg.market_probability
   return (
     <div className="combo-chip-wrap">
-      <button type="button" className={`combo-chip ${flipped ? 'is-flipped' : ''}`}
-              aria-pressed={flipped} onClick={() => setFlipped(f => !f)}
-              aria-label={`${index + 1}: ${leg.home_team} - ${leg.away_team}, ${plainBetPhrase(leg)}, ${leg.best_odds.toFixed(2)}`}>
+      <button type="button" className={`combo-chip ${flipped ? 'is-flipped' : ''}`} onClick={onFlip}
+              aria-label={`${tr('Quote', 'Odds', 'Kvota')} ${leg.best_odds.toFixed(2)}, ${tr('Marktwahrscheinlichkeit', 'Market probability', 'Tržišna vjerovatnoća')} ${betPercent(leg.market_probability)}`}>
         <span className="combo-chip-face combo-chip-front">
-          <span className="combo-chip-signs">
-            {leg.model_probability != null && <span title={agrees ? tr('Modell stimmt zu', 'Model agrees') : tr('Modell weicht ab', 'Model disagrees')}>{agrees ? '◆✓' : '◆✕'}</span>}
-            {leg.ki_agrees && <span title={tr('KI-Tipp', 'AI pick')}>✨</span>}
-            {leg.is_likely && <span title={tr('Wahrscheinlichster Tipp', 'Most likely bet')}>🎯</span>}
-            {leg.likely_pick && <span className="combo-chip-muted" title={tr('Nicht der wahrscheinlichste Tipp dieses Spiels', 'Not the most likely bet of this match')}>🎯✕</span>}
-          </span>
-          <span className="combo-chip-pick">{plainBetPhrase(leg, false)}</span>
-        </span>
-        <span className="combo-chip-face combo-chip-back">
           <span className="combo-chip-odds">{leg.best_odds.toFixed(2)}</span>
           <span className="combo-chip-sub">{tr('Quote', 'Odds', 'Kvota')}</span>
         </span>
+        <span className="combo-chip-face combo-chip-back">
+          <span className="combo-chip-odds">{betPercent(leg.market_probability)}</span>
+          <span className="combo-chip-sub">{tr('Markt­wahrscheinlichkeit', 'Market probability', 'Tržišna vjerovatnoća')}</span>
+        </span>
       </button>
-      <div className="combo-chip-match">
-        <span><TeamLabel name={leg.home_team} placeholder /></span> <span className="combo-leg-vs">vs</span> <span><TeamLabel name={leg.away_team} placeholder /></span>
-      </div>
-      <div className="combo-chip-meta">{marketGroupLabel(leg.market)}{leg.bookmaker && <> · {leg.bookmaker}</>}</div>
+      <div className="combo-chip-match">{plainBetPhrase(leg)}</div>
+      <span className="combo-chip-signs">
+        {leg.model_probability != null && <span title={agrees ? tr('Modell stimmt zu', 'Model agrees') : tr('Modell weicht ab', 'Model disagrees')}>{agrees ? '◆✓' : '◆✕'}</span>}
+        {leg.ki_agrees && <span title={tr('KI-Tipp', 'AI pick')}>✨</span>}
+        {leg.is_likely && <span title={tr('Wahrscheinlichster Tipp', 'Most likely bet')}>🎯</span>}
+        {leg.likely_pick && <span className="combo-chip-muted" title={tr('Nicht der wahrscheinlichste Tipp dieses Spiels', 'Not the most likely bet of this match')}>🎯✕</span>}
+      </span>
       {onOpenLeg && <button type="button" className="combo-chip-open" onClick={() => onOpenLeg(leg)}>{tr('Spiel öffnen', 'Open match', 'Otvori utakmicu')}</button>}
     </div>
   )
 }
 
-// The chips of a ticket in a row. When they do not fit they slide on by
-// themselves, one after the other, and stop while the pointer is on them.
+const PHONE_QUERY = '(max-width: 899px)'
+const subscribePhone = cb => {
+  const mq = window.matchMedia(PHONE_QUERY)
+  mq.addEventListener('change', cb)
+  return () => mq.removeEventListener('change', cb)
+}
+const COMBO_FLIP_MS = 4000
+
+// The chips of a ticket. On a laptop they stand side by side; on a phone one
+// chip at a time slides in, on its own every 5 seconds, until the reader touches it.
 function ComboChips({ legs, onOpenLeg }) {
-  const rowRef = useRef(null)
-  const paused = useRef(false)
+  const phone = useSyncExternalStore(subscribePhone, () => window.matchMedia(PHONE_QUERY).matches, () => false)
+  return phone ? <ComboCarousel legs={legs} onOpenLeg={onOpenLeg} /> : <ComboRow legs={legs} onOpenLeg={onOpenLeg} />
+}
+
+// On a laptop all chips turn together: 3 seconds the odds, 3 seconds the market
+// probability. The turning stops while the pointer is on the chips.
+function ComboRow({ legs, onOpenLeg }) {
+  const [flipped, setFlipped] = useState(false)
+  const [hover, setHover] = useState(false)
   useEffect(() => {
-    const row = rowRef.current
-    if (!row || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return undefined
-    const timer = setInterval(() => {
-      if (paused.current || row.scrollWidth <= row.clientWidth + 4) return
-      const step = row.firstElementChild?.getBoundingClientRect().width || 150
-      const atEnd = row.scrollLeft + row.clientWidth >= row.scrollWidth - 4
-      row.scrollTo({ left: atEnd ? 0 : row.scrollLeft + step + 16, behavior: 'smooth' })
-    }, 3500)
-    return () => clearInterval(timer)
-  }, [])
+    if (hover || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return undefined
+    const timer = setTimeout(() => setFlipped(f => !f), COMBO_FLIP_MS)
+    return () => clearTimeout(timer)
+  }, [flipped, hover])
   return (
-    <div className="combo-chips" ref={rowRef}
-         onMouseEnter={() => { paused.current = true }} onMouseLeave={() => { paused.current = false }}
-         onTouchStart={() => { paused.current = true }} onFocus={() => { paused.current = true }} onBlur={() => { paused.current = false }}>
-      {legs.map((leg, i) => <ComboChip key={i} leg={leg} index={i} onOpenLeg={onOpenLeg} />)}
+    <div className="combo-chips" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+      {legs.map((leg, i) => <ComboChip key={i} leg={leg} onOpenLeg={onOpenLeg} flipped={flipped} onFlip={() => setFlipped(f => !f)} />)}
+    </div>
+  )
+}
+
+// The first chip is repeated at the end: after the last one the track slides on
+// to that copy and then jumps back to the real first, so it never runs back
+// across the others.
+function ComboCarousel({ legs, onOpenLeg }) {
+  const n = legs.length
+  const [idx, setIdx] = useState(0)
+  const [animate, setAnimate] = useState(true)
+  const [stopped, setStopped] = useState(false)
+  const [flipped, setFlipped] = useState(false)
+  const touchX = useRef(null)
+  const active = idx % n
+
+  // 3 seconds the front, then the chip turns; 3 seconds the back, then the next chip slides in.
+  useEffect(() => {
+    if (stopped || n < 2 || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return undefined
+    const timer = setTimeout(() => {
+      if (!flipped) { setFlipped(true); return }
+      setFlipped(false); setAnimate(true); setIdx(i => (i >= n ? i : i + 1))
+    }, COMBO_FLIP_MS)
+    return () => clearTimeout(timer)
+  }, [stopped, n, flipped, idx])
+
+  const go = target => { setStopped(true); setFlipped(false); setAnimate(true); setIdx(target) }
+  const prev = () => {
+    setStopped(true); setFlipped(false)
+    if (idx === 0) { setAnimate(false); setIdx(n - 1) } else { setAnimate(true); setIdx(idx - 1) }
+  }
+  const settle = () => {
+    // On the copy of the first chip: jump (without sliding) to the real first.
+    if (idx >= n) { setAnimate(false); setIdx(0) }
+  }
+
+  return (
+    <div className="combo-carousel" onPointerDown={() => setStopped(true)}
+         onTouchStart={e => { touchX.current = e.touches[0].clientX }}
+         onTouchEnd={e => {
+           if (touchX.current == null) return
+           const dx = e.changedTouches[0].clientX - touchX.current
+           touchX.current = null
+           if (dx < -40) { if (idx < n) go(idx + 1) } else if (dx > 40) prev()
+         }}>
+      <div className="combo-carousel-window">
+        <div className="combo-carousel-track"
+             style={{ transform: `translateX(-${idx * 100}%)`, transition: animate ? undefined : 'none' }}
+             onTransitionEnd={settle}>
+          {[...legs, legs[0]].map((leg, i) => (
+            <div className="combo-carousel-slide" key={i} inert={i % n !== active ? true : undefined}>
+              <ComboChip leg={leg} onOpenLeg={onOpenLeg} flipped={flipped && i % n === active} onFlip={() => { setStopped(true); setFlipped(f => !f) }} />
+            </div>
+          ))}
+        </div>
+      </div>
+      {n > 1 && (
+        <>
+          <div className="combo-carousel-dots" role="tablist">
+            {legs.map((_, i) => (
+              <button key={i} type="button" role="tab" aria-selected={i === active}
+                      aria-label={`${i + 1} / ${n}`} className={i === active ? 'is-active' : ''} onClick={() => go(i)} />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   )
 }
@@ -767,7 +837,7 @@ function ComboTicketCard({ ticket, primary, onOpenLeg }) {
       <button type="button" className="combo-ticket-head" aria-expanded={open} onClick={() => setOpen(o => !o)}>
         <span className="combo-ticket-legs">{tr(`${ticket.leg_count}er-Kombi`, `${ticket.leg_count}-fold`, `Kombinacija od ${ticket.leg_count}`)}</span>
         <span className="combo-quote">
-          <span className="combo-quote-label">{tr('Rechnerische Gesamtquote', 'Calculated combined odds')}</span>
+          <span className="combo-quote-label">{tr('Gesamtquote', 'Combined odds', 'Ukupna kvota')}</span>
           <span className="combo-ticket-odds">{ticket.combined_odds.toFixed(2)}</span>
         </span>
         <span className="combo-ticket-chevron" aria-hidden="true">▾</span>
@@ -781,9 +851,6 @@ function ComboTicketCard({ ticket, primary, onOpenLeg }) {
             <BetMetric label={tr('Chance, dass alle treffen', 'Chance all of them land')} value={betPercent(ticket.conservative_probability)}
                        detail={tr('Nach Marktpreisen, ohne Marge', "By the market's prices, margin removed")} emphasis />
             <BetMetric label={tr('Unser Modell allein', 'Our model on its own')} value={betPercent(ticket.probability)} detail={tr('Vor dem Abgleich mit dem Preis', 'Before checking against the price')} />
-          </dl>
-          <dl className="bet-metrics decision-metrics">
-            <BetMetric label={tr('Gewinn pro 1 € Einsatz', 'Profit per 1 staked')} value={ticket.returns_per_unit.toFixed(2)} detail={tr('Wenn jeder Tipp trifft', 'If every selection wins')} />
           </dl>
           {primary && (
             <p className="combo-ticket-note">
