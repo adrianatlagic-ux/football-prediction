@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
   "target_date": "2026-11-24",
-  "status": "reserved",
+  "status": "generation_in_progress",
   "daily_video_limit": 1,
-  "attempts_used": 0,
+  "attempts_used": 1,
   "coverage_key": "ucl:2049626:2026-11-24:man-city-napoli",
   "match": {
     "competition": "UEFA Champions League",
@@ -81,7 +81,12 @@
     "bitrate_mode": "high",
     "quoted_credits_exact": 5,
     "balance_before": 583.88,
-    "status": "reserved"
+    "status": "pending",
+    "job_id": "27127c62-2a28-4e61-a0ca-3c4a7a95a6aa",
+    "reference_media_ids": [
+      "0518a0ae-cbbf-44ac-813b-772d1449cd35",
+      "187ee069-3e84-4ce9-956a-53ab1c5c5230"
+    ]
   },
   "outro": {
     "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
