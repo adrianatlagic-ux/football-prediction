@@ -1,0 +1,96 @@
+{
+  "target_date": "2026-11-25",
+  "editorial_date_timezone": "Europe/Berlin",
+  "status": "reserved",
+  "attempts_used": 0,
+  "daily_video_limit": 1,
+  "coverage_key": "bundesliga:83251:2026-11-28:hsv-bayern",
+  "match": {
+    "competition": "Bundesliga",
+    "match_id": 83251,
+    "home": "Hamburger SV",
+    "away": "FC Bayern München",
+    "match_date": "2026-11-28",
+    "kickoff_at": "2026-11-28T15:30:00+01:00",
+    "official_source": "https://www.hsv.de/teams/maenner/spielplan",
+    "secondary_source": "https://api.openligadb.de/getmatchdata/bl1/2026/11"
+  },
+  "selection": {
+    "reason": "Heute zu wenig als zwei Stunden Vorlauf für Champions League; nächstes unbehandeltes Topspiel mit Bayern.",
+    "coverage_checked": true,
+    "retrieved_on": "2026-11-25"
+  },
+  "research": {
+    "generation_basis": "verified_fixture_and_current_research",
+    "prediction_used": false,
+    "verified_context": "HSV berichtet von rund 100 zusätzlichen Sitzplätzen beim kommenden Bayern-Heimspiel.",
+    "sources": [
+      "https://www.hsv.de/news/mehr-plaetze-im-volksparkstadion-zum-heimspiel-gegen-bayern",
+      "https://www.hsv.de/teams/maenner/spieler",
+      "https://www.uefa.com/uefachampionsleague/clubs/50037--bayern/squad/"
+    ],
+    "portrait_sources": [
+      "https://img.uefa.com/imgml/TP/players/1/2027/324x324/250016833.jpg",
+      "https://a.storyblok.com/f/291215624286909/3500x3800/35e7acc5cd/poulsen_portrait.png"
+    ],
+    "retrieved_on": "2026-11-25"
+  },
+  "story": {
+    "creative_goal": "unexpected immediate visual hook and clear payoff",
+    "protagonists": [
+      "Harry Kane",
+      "Yussuf Poulsen"
+    ],
+    "candidate_concepts": [
+      {
+        "idea": "Kane sitzt auf winzigem Stadionstuhl, Poulsen bietet normalen Platz.",
+        "selected": true,
+        "expectation": "Ein Stadionstuhl ist normal groß.",
+        "unexpected": "Der Platz ist für Kane winzig.",
+        "reason": "Direkter Bezug zu den neuen Plätzen, in einer Einstellung verständlich."
+      },
+      {
+        "idea": "Ein HSV-Spieler erscheint in einem Automaten.",
+        "selected": false,
+        "reason": "Wiederholt Beitrag vom 23.11."
+      },
+      {
+        "idea": "Ein Trikot verbirgt ein anderes.",
+        "selected": false,
+        "reason": "Wiederholt gestrigen Beitrag."
+      }
+    ],
+    "story_setting": "fictional stadium ticket office, no pitch",
+    "recent_settings": [
+      "photo studio",
+      "player lounge",
+      "hotel luggage area"
+    ],
+    "surprise_mechanism": "scale_mismatch_seat",
+    "audience_expectation": "normal-sized seat",
+    "unexpected_visual": "Kane tries to sit on an absurdly small stadium seat",
+    "first_second_hook": "Kane already attempts to sit in tiny seat next to Poulsen",
+    "payoff": "Poulsen offers a normal-size seat",
+    "football_context_connection": "HSV adds around 100 seats for the Bayern home match",
+    "visual_retell_test": "Kane erhält einen winzigen Sitzplatz; Poulsen bietet einen normal großen an.",
+    "spoken_language": "en",
+    "script": "Is that my seat?",
+    "fiction_label": "KI-Fiktion"
+  },
+  "generation": {
+    "idempotency_key": "goaliq-2026-11-25-hsv-bayern-mini-v1",
+    "status": "reserved",
+    "model": "seedance_2_0_mini",
+    "duration_seconds": 5,
+    "resolution": "720p",
+    "bitrate_mode": "high",
+    "quoted_credits_exact": 5,
+    "balance_before": 578.88
+  },
+  "outro": {
+    "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "master_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "trim_seconds": 2,
+    "preflight": "sha256 duration frame confirmed"
+  }
+}
