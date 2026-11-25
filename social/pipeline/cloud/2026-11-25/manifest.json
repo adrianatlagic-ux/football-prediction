@@ -1,19 +1,19 @@
 {
   "target_date": "2026-11-25",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "generation_in_progress",
+  "status": "replacement_reserved",
   "attempts_used": 1,
   "daily_video_limit": 1,
-  "coverage_key": "bundesliga:83251:2026-11-28:hsv-bayern",
+  "coverage_key": "ucl:2049639:2026-11-25:lille-bayern",
   "match": {
-    "competition": "Bundesliga",
-    "match_id": 83251,
-    "home": "Hamburger SV",
-    "away": "FC Bayern München",
-    "match_date": "2026-11-28",
-    "kickoff_at": "2026-11-28T15:30:00+01:00",
-    "official_source": "https://www.hsv.de/teams/maenner/spielplan",
-    "secondary_source": "https://api.openligadb.de/getmatchdata/bl1/2026/11"
+    "competition": "UEFA Champions League",
+    "match_id": "2049639",
+    "home": "Lille",
+    "away": "Bayern München",
+    "match_date": "2026-11-25",
+    "kickoff_at": "2026-11-25T21:00:00+01:00",
+    "source": "https://www.uefa.com/uefachampionsleague/match/2049639--lille-vs-bayern-munchen/",
+    "verified_on": "2026-11-25"
   },
   "selection": {
     "reason": "Heute zu wenig als zwei Stunden Vorlauf für Champions League; nächstes unbehandeltes Topspiel mit Bayern.",
@@ -21,65 +21,73 @@
     "retrieved_on": "2026-11-25"
   },
   "research": {
-    "generation_basis": "verified_fixture_and_current_research",
-    "prediction_used": false,
-    "verified_context": "HSV berichtet von rund 100 zusätzlichen Sitzplätzen beim kommenden Bayern-Heimspiel.",
+    "generation_basis": "verified_fixture_and_official_squads",
+    "verified_context": "UEFA lists Olivier Giroud for Lille and Harry Kane for Bayern; both are strikers.",
     "sources": [
-      "https://www.hsv.de/news/mehr-plaetze-im-volksparkstadion-zum-heimspiel-gegen-bayern",
-      "https://www.hsv.de/teams/maenner/spieler",
-      "https://www.uefa.com/uefachampionsleague/clubs/50037--bayern/squad/"
+      "https://www.uefa.com/uefachampionsleague/clubs/75797--lille/squad/",
+      "https://www.uefa.com/uefachampionsleague/clubs/50037--bayern/squad/",
+      "https://match.uefa.com/v5/matches?competitionId=1&seasonYear=2027&offset=0&limit=100"
     ],
-    "portrait_sources": [
-      "https://img.uefa.com/imgml/TP/players/1/2027/324x324/250016833.jpg",
-      "https://a.storyblok.com/f/291215624286909/3500x3800/35e7acc5cd/poulsen_portrait.png"
-    ],
-    "retrieved_on": "2026-11-25"
+    "retrieved_on": "2026-11-25",
+    "prediction_used": false
   },
   "story": {
-    "creative_goal": "unexpected immediate visual hook and clear payoff",
+    "creative_goal": "immediate visual surprise with recognizable players",
     "protagonists": [
       "Harry Kane",
-      "Yussuf Poulsen"
+      "Olivier Giroud"
     ],
     "candidate_concepts": [
       {
-        "idea": "Kane sitzt auf winzigem Stadionstuhl, Poulsen bietet normalen Platz.",
+        "idea": "Kane and Giroud encounter a football boot as tall as a person",
         "selected": true,
-        "expectation": "Ein Stadionstuhl ist normal groß.",
-        "unexpected": "Der Platz ist für Kane winzig.",
-        "reason": "Direkter Bezug zu den neuen Plätzen, in einer Einstellung verständlich."
+        "reason": "One immediately visible visual exaggeration about two recognized strikers."
       },
       {
-        "idea": "Ein HSV-Spieler erscheint in einem Automaten.",
+        "idea": "Giroud emerges from a vending machine",
         "selected": false,
-        "reason": "Wiederholt Beitrag vom 23.11."
+        "reason": "Repeats prior video."
       },
       {
-        "idea": "Ein Trikot verbirgt ein anderes.",
+        "idea": "Kane reveals rival shirt beneath jacket",
         "selected": false,
-        "reason": "Wiederholt gestrigen Beitrag."
+        "reason": "Repeats previous video."
       }
     ],
-    "story_setting": "fictional stadium ticket office, no pitch",
+    "story_setting": "fictional equipment room",
     "recent_settings": [
+      "ticket office rejected",
       "photo studio",
-      "player lounge",
-      "hotel luggage area"
+      "player lounge"
     ],
-    "surprise_mechanism": "scale_mismatch_seat",
-    "audience_expectation": "normal-sized seat",
-    "unexpected_visual": "Kane tries to sit on an absurdly small stadium seat",
-    "first_second_hook": "Kane already attempts to sit in tiny seat next to Poulsen",
-    "payoff": "Poulsen offers a normal-size seat",
-    "football_context_connection": "HSV adds around 100 seats for the Bayern home match",
-    "visual_retell_test": "Kane erhält einen winzigen Sitzplatz; Poulsen bietet einen normal großen an.",
+    "surprise_mechanism": "size_mismatch_giant_boot",
+    "first_second_hook": "Both players beside enormous boot",
+    "payoff": "Giroud attempts to lift the huge boot and reacts to Kane",
+    "football_context_connection": "Two prolific strikers from the clubs meeting in the UEFA match.",
+    "visual_retell_test": "Kane and Giroud encounter a giant football boot.",
     "spoken_language": "en",
-    "script": "Is that my seat?",
+    "speech": "Need bigger boots?",
     "fiction_label": "KI-Fiktion"
   },
   "generation": {
+    "idempotency_key": "goaliq-2026-11-25-ucl2049639-replacement-v1",
+    "status": "reserved",
+    "model": "seedance_2_0_mini",
+    "duration_seconds": 5,
+    "resolution": "720p",
+    "bitrate_mode": "high",
+    "quoted_credits_exact": 5,
+    "balance_before": 573.88
+  },
+  "outro": {
+    "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "master_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "trim_seconds": 2,
+    "preflight": "sha256 duration frame confirmed"
+  },
+  "first_generation": {
     "idempotency_key": "goaliq-2026-11-25-hsv-bayern-mini-v1",
-    "status": "pending",
+    "status": "completed_not_selected",
     "model": "seedance_2_0_mini",
     "duration_seconds": 5,
     "resolution": "720p",
@@ -90,12 +98,13 @@
     "reference_media_ids": [
       "f51203f2-b631-4a29-92e9-52122e4c689a",
       "aa46e689-878a-42e5-a2b4-ea63c0a9e79d"
-    ]
+    ],
+    "credits_used": 5
   },
-  "outro": {
-    "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
-    "master_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
-    "trim_seconds": 2,
-    "preflight": "sha256 duration frame confirmed"
+  "exception": {
+    "date": "2026-11-25",
+    "user_authorized_second_generation": true,
+    "user_authorized_less_than_two_hours_lead": true,
+    "scope": "today_only"
   }
 }
