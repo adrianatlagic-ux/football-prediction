@@ -1,7 +1,7 @@
 {
   "target_date": "2026-11-25",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "replacement_in_progress",
+  "status": "delivered_with_disclosed_audio_review_limit",
   "attempts_used": 2,
   "daily_video_limit": 1,
   "coverage_key": "ucl:2049639:2026-11-25:lille-bayern",
@@ -71,7 +71,7 @@
   },
   "generation": {
     "idempotency_key": "goaliq-2026-11-25-ucl2049639-replacement-v1",
-    "status": "pending",
+    "status": "completed",
     "model": "seedance_2_0_mini",
     "duration_seconds": 5,
     "resolution": "720p",
@@ -82,7 +82,9 @@
     "reference_media_ids": [
       "be657f27-6944-4c80-a497-07dbdbed4573",
       "aa15897f-3b1d-4ac6-af46-5f498a2e2a80"
-    ]
+    ],
+    "credits_used": 5,
+    "balance_after": 568.88
   },
   "outro": {
     "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
@@ -111,5 +113,23 @@
     "user_authorized_second_generation": true,
     "user_authorized_less_than_two_hours_lead": true,
     "scope": "today_only"
-  }
+  },
+  "qa": {
+    "ready": false,
+    "visual_review": "Sampled opening, midpoint, end: Kane- and Giroud-like players shown, abnormally large football boot in hand, smiles. Some generated shirt lettering inaccurate.",
+    "audio_review": "Audio present, native output kept via stream copy; English language, exact words, voice quality and lip sync not independently heard or verified.",
+    "outro_review": "Two-second cut from verified master, final frame checked.",
+    "source_video_review": "121 decoded source frames identical in final.",
+    "final_fixture_check": "2026-11-25 UEFA match 2049639 UPCOMING 21:00 Europe/Berlin"
+  },
+  "production": {
+    "media_id": "89a7557d-3f1c-41bf-bbff-1509af1f5440",
+    "zip_media_id": "b7fde0d6-61e8-4db0-b6a4-84ae4f12361d",
+    "sha256": "7e7482ccd8d779dc1442c3ccdacceadd8007637bdd9bed09a2e57dc78862c0ae",
+    "zip_byte_identical": true,
+    "duration_seconds": 7.12,
+    "downloads_http": 206
+  },
+  "caption": "caption.txt",
+  "production_evidence": "production-evidence.json"
 }
