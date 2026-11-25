@@ -1,8 +1,8 @@
 {
   "target_date": "2026-11-25",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "reserved",
-  "attempts_used": 0,
+  "status": "generation_in_progress",
+  "attempts_used": 1,
   "daily_video_limit": 1,
   "coverage_key": "bundesliga:83251:2026-11-28:hsv-bayern",
   "match": {
@@ -79,13 +79,18 @@
   },
   "generation": {
     "idempotency_key": "goaliq-2026-11-25-hsv-bayern-mini-v1",
-    "status": "reserved",
+    "status": "pending",
     "model": "seedance_2_0_mini",
     "duration_seconds": 5,
     "resolution": "720p",
     "bitrate_mode": "high",
     "quoted_credits_exact": 5,
-    "balance_before": 578.88
+    "balance_before": 578.88,
+    "job_id": "9990ca2c-21a3-4918-8e70-5eea41d3fe81",
+    "reference_media_ids": [
+      "f51203f2-b631-4a29-92e9-52122e4c689a",
+      "aa46e689-878a-42e5-a2b4-ea63c0a9e79d"
+    ]
   },
   "outro": {
     "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
