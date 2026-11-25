@@ -1,0 +1,17 @@
+{
+  "job_id": "e611c956-0f43-4030-9538-e998dd827350",
+  "credit_cost_replacement": 5,
+  "credit_cost_today_total": 10,
+  "balance_after": 568.88,
+  "visual_review": "Sampled opening, midpoint, end: Kane- and Giroud-like players shown, abnormally large football boot in hand, smiles. Some generated shirt lettering inaccurate.",
+  "audio_review": "Audio present, native output kept via stream copy; English language, exact words, voice quality and lip sync not independently heard or verified.",
+  "outro_review": "Two-second cut from verified master, final frame checked.",
+  "source_video_review": "121 decoded source frames identical in final.",
+  "final_fixture_check": "2026-11-25 UEFA match 2049639 UPCOMING 21:00 Europe/Berlin",
+  "final_media_id": "89a7557d-3f1c-41bf-bbff-1509af1f5440",
+  "zip_media_id": "b7fde0d6-61e8-4db0-b6a4-84ae4f12361d",
+  "final_sha256": "7e7482ccd8d779dc1442c3ccdacceadd8007637bdd9bed09a2e57dc78862c0ae",
+  "zip_matches": true,
+  "downloads_http": 206,
+  "ready": false
+}
