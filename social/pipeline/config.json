@@ -595,5 +595,18 @@
     "qa_field": "qa.surprise_review",
     "qa_basis": "actual_frames_not_prompt_intent",
     "failed_render_action": "disclose_not_ready_deliver_single_existing_clip_without_regeneration"
+  },
+  "player_cast_rotation": {
+    "effective_from": "2026-11-27",
+    "lookback_delivered_posts": 3,
+    "preference": "Choose varied well-known current players from the participating teams; avoid repeatedly selecting Harry Kane or the same pairing when suitable verified alternatives are available.",
+    "verify_squad_and_official_portrait": true,
+    "document": [
+      "recent_protagonists",
+      "selected_protagonists",
+      "casting_reason"
+    ],
+    "exception": "A documented story-specific reason or absence of suitable verified alternatives.",
+    "no_repeat_generation_for_unknown_submission": true
   }
 }
