@@ -1,8 +1,8 @@
 {
   "target_date": "2026-11-27",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "replacement_reserved",
-  "attempts_used": 0,
+  "status": "replacement_in_progress",
+  "attempts_used": 1,
   "daily_video_limit": 1,
   "coverage_key": "bundesliga:83251:2026-11-28:hsv-bayern",
   "match": {
@@ -92,14 +92,19 @@
   },
   "generation": {
     "idempotency_key": "goaliq-2026-11-27-hsv-bayern-musiala-jatta-replacement-v1",
-    "status": "reserved",
+    "status": "pending",
     "model": "seedance_2_0_mini",
     "duration_seconds": 5,
     "resolution": "720p",
     "bitrate_mode": "high",
     "quoted_credits_exact": 5,
     "balance_before": 568.88,
-    "balance_after_check": 568.88
+    "balance_after_check": 568.88,
+    "job_id": "b978fdc2-e5ea-4692-82c9-8a24f1727b61",
+    "reference_media_ids": [
+      "31b08e76-759d-4dc2-b205-8d3d33cd2660",
+      "0421e005-55ab-46cb-9221-4cd0b4cd3ad4"
+    ]
   },
   "outro": {
     "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
