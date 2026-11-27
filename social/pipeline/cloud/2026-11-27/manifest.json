@@ -1,7 +1,7 @@
 {
   "target_date": "2026-11-27",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "reserved",
+  "status": "submission_unknown",
   "attempts_used": 0,
   "daily_video_limit": 1,
   "coverage_key": "bundesliga:83251:2026-11-28:hsv-bayern",
@@ -82,13 +82,16 @@
   },
   "generation": {
     "idempotency_key": "goaliq-2026-11-27-hsv-bayern-mini-v1",
-    "status": "reserved",
+    "status": "submission_unknown",
     "model": "seedance_2_0_mini",
     "duration_seconds": 5,
     "resolution": "720p",
     "bitrate_mode": "high",
     "quoted_credits_exact": 5,
-    "balance_before": 568.88
+    "balance_before": 568.88,
+    "error": "Generate call returned no usable result to orchestrator; no job ID returned. Do not retry without reconciliation.",
+    "balance_after_check": 568.88,
+    "balance_check_note": "Unchanged balance does not prove no job was submitted."
   },
   "outro": {
     "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
