@@ -1,0 +1,10 @@
+{
+  "visual_review": "Three samples show the recognizable two players and the ticket cascade with a laughing reaction; kit lettering and number not verified.",
+  "audio_review": "Original audio packet hashes match. German dialogue prompted; actual wording and lip sync not independently heard/verified.",
+  "outro_review": "Two seconds from German canonical master, checked in final frame.",
+  "source_frames_identical": true,
+  "source_audio_packets_identical": true,
+  "fixture_rechecked": "2026-11-27, OpenLigaDB 83251, 2026-11-28T14:30:00Z, unfinished",
+  "download_http": 206,
+  "sha256": "f08762dbcff9c7f0992735867380ae417ba2f887692c665cf4c7dfa7aec0e2e8"
+}
