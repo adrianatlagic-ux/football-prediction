@@ -1,7 +1,7 @@
 {
   "target_date": "2026-11-27",
   "editorial_date_timezone": "Europe/Berlin",
-  "status": "replacement_in_progress",
+  "status": "delivered_with_disclosed_audio_review_limit",
   "attempts_used": 1,
   "daily_video_limit": 1,
   "coverage_key": "bundesliga:83251:2026-11-28:hsv-bayern",
@@ -92,7 +92,7 @@
   },
   "generation": {
     "idempotency_key": "goaliq-2026-11-27-hsv-bayern-musiala-jatta-replacement-v1",
-    "status": "pending",
+    "status": "completed",
     "model": "seedance_2_0_mini",
     "duration_seconds": 5,
     "resolution": "720p",
@@ -104,7 +104,9 @@
     "reference_media_ids": [
       "31b08e76-759d-4dc2-b205-8d3d33cd2660",
       "0421e005-55ab-46cb-9221-4cd0b4cd3ad4"
-    ]
+    ],
+    "credits_used": 5,
+    "balance_after": 563.88
   },
   "outro": {
     "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
@@ -173,5 +175,26 @@
   "exception": {
     "scope": "single replacement explicitly requested by user after unknown submission; no additional retry",
     "prior_submission_unresolved": true
-  }
+  },
+  "qa": {
+    "visual_review": "Three samples show the recognizable two players and the ticket cascade with a laughing reaction; kit lettering and number not verified.",
+    "audio_review": "Original audio packet hashes match. German dialogue prompted; actual wording and lip sync not independently heard/verified.",
+    "outro_review": "Two seconds from German canonical master, checked in final frame.",
+    "source_frames_identical": true,
+    "source_audio_packets_identical": true,
+    "fixture_rechecked": "2026-11-27, OpenLigaDB 83251, 2026-11-28T14:30:00Z, unfinished",
+    "download_http": 206,
+    "sha256": "f08762dbcff9c7f0992735867380ae417ba2f887692c665cf4c7dfa7aec0e2e8",
+    "ready": false,
+    "surprise_review": "Long strip spills across Musiala's arm, both react."
+  },
+  "production": {
+    "media_id": "a7eb8e0e-1e78-426f-88a9-019be8686e6d",
+    "zip_media_id": "9f79a993-9815-4d11-82c0-6a8ede5e7b31",
+    "duration_seconds": 7.12,
+    "zip_byte_identical": true,
+    "sha256": "f08762dbcff9c7f0992735867380ae417ba2f887692c665cf4c7dfa7aec0e2e8"
+  },
+  "caption": "caption.txt",
+  "production_evidence": "production-evidence.json"
 }
