@@ -1,0 +1,99 @@
+{
+  "target_date": "2026-11-27",
+  "editorial_date_timezone": "Europe/Berlin",
+  "status": "reserved",
+  "attempts_used": 0,
+  "daily_video_limit": 1,
+  "coverage_key": "bundesliga:83251:2026-11-28:hsv-bayern",
+  "match": {
+    "competition": "Bundesliga",
+    "match_id": 83251,
+    "home": "Hamburger SV",
+    "away": "FC Bayern München",
+    "match_date": "2026-11-28",
+    "kickoff_at": "2026-11-28T15:30:00+01:00",
+    "official_source": "https://www.hsv.de/teams/maenner/spielplan",
+    "secondary_source": "https://api.openligadb.de/getmatchdata/bl1/2026/11"
+  },
+  "selection": {
+    "reason": "Heutiges Bundesligaspiel weniger als zwei Stunden entfernt, nächstes unbehandeltes relevantes Topspiel mit Bayern. Frühere Generierung am 25.11. wurde gestoppt und nicht ausgewählt oder ausgeliefert.",
+    "prior_manifests_checked": 29,
+    "retrieved_on": "2026-11-27"
+  },
+  "research": {
+    "generation_basis": "verified_fixture_and_current_research",
+    "prediction_used": false,
+    "verified_context": "HSV berichtet von rund 100 zusätzlichen Sitzplätzen beim Bayern-Heimspiel; Poulsen ist im HSV-Kader und Kane im Bayern-Kader.",
+    "sources": [
+      "https://www.hsv.de/news/mehr-plaetze-im-volksparkstadion-zum-heimspiel-gegen-bayern",
+      "https://www.hsv.de/teams/maenner/spieler",
+      "https://www.uefa.com/uefachampionsleague/clubs/50037--bayern/squad/"
+    ],
+    "portrait_sources": [
+      "https://img.uefa.com/imgml/TP/players/1/2027/324x324/250016833.jpg",
+      "https://a.storyblok.com/f/291215624286909/3500x3800/35e7acc5cd/poulsen_portrait.png"
+    ],
+    "retrieved_on": "2026-11-27"
+  },
+  "story": {
+    "creative_goal": "unexpected immediate visual hook and clear payoff",
+    "protagonists": [
+      "Harry Kane",
+      "Yussuf Poulsen"
+    ],
+    "candidate_concepts": [
+      {
+        "idea": "Ticketautomat spuckt endlose Ticketkette aus, Kane und Poulsen reagieren.",
+        "selected": true,
+        "reason": "Überspitzt die zusätzlichen Sitzplätze, in fünf Sekunden verständlich."
+      },
+      {
+        "idea": "Riesiger Fußballschuh im Materialraum",
+        "selected": false,
+        "reason": "Wiederholt den letzten Beitrag."
+      },
+      {
+        "idea": "Spieler versteckt sich im Automaten",
+        "selected": false,
+        "reason": "Wiederholt den Beitrag vom 23.11."
+      }
+    ],
+    "audience_expectation": "Ein Ticketautomat gibt nur eine Eintrittskarte aus.",
+    "unexpected_visual": "Eine endlose Kette Tickets ergießt sich aus dem Automaten.",
+    "first_second_hook": "Tickethaufen auf dem Tresen und beide Spieler sichtbar",
+    "surprise_mechanism": "unexpected_object_behavior_endless_tickets",
+    "payoff": "Kane zieht am Ticket und der Streifen rollt weiter über seinen Arm.",
+    "football_context_connection": "Die zusätzlichen Plätze beim HSV-Bayern-Heimspiel stehen sinnbildlich für mehr Tickets.",
+    "recent_surprise_mechanisms": [
+      "oversized_boot",
+      "shirt_reveal",
+      "hidden_player"
+    ],
+    "recent_settings": [
+      "kit room",
+      "photo studio",
+      "player lounge"
+    ],
+    "story_setting": "fictional stadium ticket counter, no pitch",
+    "visual_retell_test": "Kane zieht ein Ticket und löst eine endlose Ticketkette aus.",
+    "spoken_language": "en",
+    "script": "More seats, more tickets!",
+    "fiction_label": "KI-Fiktion"
+  },
+  "generation": {
+    "idempotency_key": "goaliq-2026-11-27-hsv-bayern-mini-v1",
+    "status": "reserved",
+    "model": "seedance_2_0_mini",
+    "duration_seconds": 5,
+    "resolution": "720p",
+    "bitrate_mode": "high",
+    "quoted_credits_exact": 5,
+    "balance_before": 568.88
+  },
+  "outro": {
+    "master_id": "c8031668-6315-4582-94fd-f2a0fc7eadfa",
+    "master_sha256": "35c60a3eef991346ef9f9383195a0cdb380704e7ec8ad012749087cd35484ad2",
+    "trim_seconds": 2,
+    "preflight": "sha256 duration frame confirmed"
+  }
+}
