@@ -1,3 +1,7 @@
+## Nutzerkorrektur 27.11.2026: Abwechslung bei bekannten Spielern
+
+Für neue Videos die tatsächlich verwendeten Hauptspieler der letzten drei veröffentlichten Tagesbeiträge prüfen. Bekannte aktuelle Spieler der beteiligten Mannschaften abwechslungsreich auswählen und zuletzt wiederholt verwendete Spieler, insbesondere Harry Kane, zunächst zugunsten anderer geeigneter Spieler zurückstellen. Keine festen Standardstars und nicht immer dieselbe Kombination. Bei der Auswahl aktuelle Kaderzugehörigkeit und offizielle Bildreferenzen prüfen; die Spieler müssen zur konkreten Geschichte passen. Im Tagesmanifest zuletzt verwendete Spieler, ausgewählte Spieler und Auswahlgrund dokumentieren. Eine Ausnahme ist möglich, wenn die Geschichte einen konkreten belegten Grund für eine Wiederholung hat oder keine geeignete Alternative belegbar ist. Diese Änderung löst keine weitere Generierung für den laufenden Tagesauftrag aus; bei ungeklärtem Auftragsstatus zuerst den ursprünglichen Auftrag klären.
+
 ## Vorrangige Nutzerkorrektur 31.10.2026: Überraschung ist das kreative Hauptziel
 
 Jeder neue GoalIQ-Clip soll Zuschauer durch einen unerwarteten, sofort sichtbaren Moment abholen: Neugier („Hä, was ist das?“), danach eine verständliche visuelle Auflösung oder Pointe. Eine gewöhnliche Unterhaltung, ein Blickduell, ein Handschlag oder bekannte Kabinenhandlung allein genügen nicht. Diese Zielsetzung ist eine Nutzerpräferenz für den Content, keine belegte Reichweiten- oder Viralitätsgarantie.
