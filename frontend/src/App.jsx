@@ -858,9 +858,10 @@ function ComboTicketCard({ ticket, primary, onOpenLeg }) {
             <ComboChips legs={ticket.legs} onOpenLeg={onOpenLeg} />
           </div>
           <dl className="bet-metrics probability-metrics">
-            <BetMetric label={tr('Chance, dass alle treffen', 'Chance all of them land')} value={betPercent(ticket.conservative_probability)}
-                       detail={tr('Nach Marktpreisen, ohne Marge', "By the market's prices, margin removed")} emphasis />
-            <BetMetric label={tr('Unser Modell allein', 'Our model on its own')} value={betPercent(ticket.probability)} detail={tr('Vor dem Abgleich mit dem Preis', 'Before checking against the price')} />
+            <BetMetric label={tr('Alle treffen – laut Wettanbietern', 'All land – according to the bookmakers', 'Svi pogađaju – prema kladionicama')} value={betPercent(ticket.conservative_probability)}
+                       detail={tr('Aus den Quoten errechnet', 'Calculated from the odds', 'Izračunato iz kvota')} emphasis />
+            <BetMetric label={tr('Alle treffen – laut GoalIQ', 'All land – according to GoalIQ', 'Svi pogađaju – prema GoalIQ-u')} value={betPercent(ticket.probability)}
+                       detail={tr('Aus unserer Analyse errechnet', 'Calculated from our analysis', 'Izračunato iz naše analize')} />
           </dl>
           {primary && (
             <p className="combo-ticket-note">

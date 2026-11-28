@@ -4296,3 +4296,9 @@ body {
 .combo-legend > span.combo-legend-note { display: block; margin-top: 0.3rem; color: var(--text-muted); font-size: 0.8rem; }
 .combo-legend { gap: 0.5rem; }
 .combo-legend > span:not(.combo-legend-title):not(.combo-legend-note) { align-items: center; }
+
+/* Bigger chip so "Wahrscheinlichkeit" fits on the back on one line. */
+.combo-chip, .combo-carousel-slide .combo-chip { width: min(9.5rem, 100%); }
+.combo-chip-wrap, .combo-carousel-slide .combo-chip-wrap { flex-basis: 12.5rem; }
+.combo-chip-back .combo-chip-sub { font-size: 0.68rem; max-width: none; white-space: nowrap; }
+.combo-carousel-arrow { top: 10.5rem; }
