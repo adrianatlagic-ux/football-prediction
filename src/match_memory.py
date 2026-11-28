@@ -356,3 +356,100 @@ def prompt_block(home: str, away: str, before: str, cases: Optional[list[dict]] 
     dump = lambda xs: json.dumps([_brief(c) for c in xs], ensure_ascii=False, indent=1) if xs else "(no earlier tips)"
     ids = list(dict.fromkeys(c["id"] for c in hc + ac))
     return MEMORY_BLOCK.format(home=home, away=away, home_cases=dump(hc), away_cases=dump(ac)), ids
+
+
+# ---- The shadow's own track record, as numbers ------------------------------
+# The cases above are single matches; the shadow used them as anecdotes that
+# confirmed its view and never as feedback on its own betting (22-25 Nov:
+# own estimate ~64 %, hit rate ~45 %). The track record is that feedback:
+# its own settled picks from the tip log, per kind of bet, with the
+# probability it gave them and the one the odds implied. Numbers only - no
+# written lessons, which would pile up and contradict each other.
+RECORD_MIN_PICKS = 3
+CLEAR_FAVOURITE = 0.60
+
+
+def _kind(pick: dict) -> str:
+    m = pick["market"]
+    if m == "1X2":
+        return "result (1X2)"
+    if m.startswith("Handicap"):
+        return "handicap"
+    if m.startswith("Over/Under"):
+        return "Over (goal line)" if pick.get("outcome") == "Over" else "Under (goal line)"
+    return m
+
+
+def _favourite(entry: dict, shadow: dict) -> Optional[float]:
+    """The model's higher win probability of the two teams, from the shadow's own research input."""
+    mc = ((shadow.get("research_input") or {}).get("model_context")) or {}
+    ps = [mc.get("probability_home_win"), mc.get("probability_away_win")]
+    ps = [p for p in ps if isinstance(p, (int, float))]
+    return max(ps) if ps else None
+
+
+def track_record(entries: list[dict], before: str) -> dict:
+    """The shadow's settled picks before `before`, counted per kind of bet."""
+    rows: dict[str, dict] = {}
+
+    def add(name, hit, own, market):
+        r = rows.setdefault(name, {"n": 0, "hits": 0, "own": [], "market": []})
+        r["n"] += 1
+        r["hits"] += hit
+        if own is not None:
+            r["own"].append(own)
+        if market is not None:
+            r["market"].append(market)
+
+    for e in entries:
+        shadow = e.get("agent_eval_shadow") or {}
+        pick = shadow.get("pick")
+        if not pick or not e.get("result") or str(e.get("commence_time", "")) >= str(before):
+            continue
+        result = _grade(pick, e)
+        if result not in ("win", "loss"):
+            continue
+        hit = result == "win"
+        own = shadow.get("pick_probability")
+        own = own / 100 if isinstance(own, (int, float)) else None
+        market = pick.get("market_probability") if isinstance(pick.get("market_probability"), (int, float)) else None
+        add("all your picks", hit, own, market)
+        add(_kind(pick), hit, own, market)
+        fav = _favourite(e, shadow)
+        if _kind(pick) == "Under (goal line)" and fav is not None and fav >= CLEAR_FAVOURITE:
+            add(f"Under when one side was a clear favourite (model win chance {CLEAR_FAVOURITE:.0%}+)", hit, own, market)
+    return rows
+
+
+TRACK_RECORD_BLOCK = """
+
+YOUR TRACK RECORD - every bet YOU picked in earlier matches (all competitions), settled, with the
+probability you gave it and the one the bookmakers' odds implied:
+{lines}
+Where your own estimates have been higher than your hit rate, your probabilities run too high: take that
+into account when you write them now. A kind of bet that has come in less often than the odds implied
+needs a stronger, concrete football reason this time. This is your record, not a rule."""
+
+
+def track_record_block(before: str, entries: Optional[list[dict]] = None) -> str:
+    """The track record section for the shadow prompt; '' while there are too few settled picks."""
+    entries = log_store.load_tips() if entries is None else entries
+    rows = track_record(entries, before)
+    if rows.get("all your picks", {}).get("n", 0) < RECORD_MIN_PICKS:
+        return ""
+    mean = lambda xs: sum(xs) / len(xs) if xs else None
+    lines = []
+    order = ["all your picks", "result (1X2)", "handicap", "Over (goal line)", "Under (goal line)"]
+    order += [k for k in rows if k not in order]
+    for name in order:
+        r = rows.get(name)
+        if not r or r["n"] < RECORD_MIN_PICKS:
+            continue
+        own, market = mean(r["own"]), mean(r["market"])
+        parts = [f"{r['n']} picks, {r['hits']} came in ({r['hits'] / r['n']:.0%})"]
+        if own is not None:
+            parts.append(f"your estimate {own:.0%}")
+        if market is not None:
+            parts.append(f"odds implied {market:.0%}")
+        lines.append(f"- {name}: " + "; ".join(parts))
+    return TRACK_RECORD_BLOCK.format(lines="\n".join(lines))

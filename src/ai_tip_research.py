@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 VERSION = "football_research_model_v9"
 # The shadow agent (logged, never shown) runs v10 with the AI's memory: see
 # api/app.py _VERDICT_V10.
-SHADOW_VERSION = "football_research_model_v10_1"
+SHADOW_VERSION = "football_research_model_v10_2"
 
 
 def _number(value):
