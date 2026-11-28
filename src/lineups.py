@@ -53,6 +53,9 @@ _TRANSLIT = str.maketrans({"ø": "o", "Ø": "O", "æ": "ae", "Æ": "Ae", "ß": "
                            "þ": "th", "Þ": "Th"})
 # ESPN's names for nations that share no word with ours.
 ESPN_ALIASES = {"turkiye": "turkey", "czechia": "czech republic"}
+# Words ESPN spells in English where our fixtures keep the local name
+# ("1. FC Köln" / "FC Cologne").
+ESPN_WORDS = {"koln": "cologne", "koeln": "cologne", "munchen": "munich", "muenchen": "munich"}
 
 
 def _norm(name: str) -> str:
@@ -62,7 +65,34 @@ def _norm(name: str) -> str:
 
 def _team_words(name: str) -> set:
     n = _norm(name)
-    return {w for w in ESPN_ALIASES.get(n, n).split() if len(w) > 2}
+    return {ESPN_WORDS.get(w, w) for w in ESPN_ALIASES.get(n, n).split() if len(w) > 2}
+
+
+def _same_team(ours: str, espn_names: list, loose: bool = False) -> bool:
+    """A word in common; with `loose`, also one word the start of the other
+    ("Hamburger SV" / "Hamburg SV"). ESPN's long and short names both count."""
+    mine = _team_words(ours)
+    theirs = set().union(*(_team_words(n) for n in espn_names if n)) if espn_names else set()
+    return any(a == b or (loose and min(len(a), len(b)) >= 5 and (a.startswith(b) or b.startswith(a)))
+               for a in mine for b in theirs)
+
+
+def find_event(events: list, home: str, away: str) -> Optional[dict]:
+    """The ESPN event of this match: whole words first; a word start only when
+    exactly one event fits that way ("Bayer" starts "Bayern" too)."""
+    def fits(e, loose):
+        sides = {c["homeAway"]: _espn_names(c) for c in e["competitions"][0]["competitors"]}
+        return _same_team(home, sides.get("home", []), loose) and _same_team(away, sides.get("away", []), loose)
+    exact = [e for e in events if fits(e, False)]
+    if exact:
+        return exact[0]
+    loose = [e for e in events if fits(e, True)]
+    return loose[0] if len(loose) == 1 else None
+
+
+def _espn_names(competitor: dict) -> list:
+    team = competitor.get("team") or {}
+    return [team.get("displayName"), team.get("shortDisplayName"), team.get("location"), team.get("name")]
 
 
 def _get(url: str) -> dict:
@@ -83,13 +113,7 @@ def fetch_starters(competition: str, home: str, away: str, kickoff: datetime,
         return None
     board = _get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{league}/scoreboard"
                  f"?dates={kickoff.strftime('%Y%m%d')}")
-    event = None
-    for e in board.get("events", []):
-        sides = {c["homeAway"]: c["team"]["displayName"] for c in e["competitions"][0]["competitors"]}
-        if _team_words(home) & _team_words(sides.get("home", "")) and \
-                _team_words(away) & _team_words(sides.get("away", "")):
-            event = e
-            break
+    event = find_event(board.get("events", []), home, away)
     if not event:
         why["reason"] = "match not found at ESPN"
         return None
