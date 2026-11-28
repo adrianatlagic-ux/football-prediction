@@ -92,3 +92,25 @@ def test_espn_names_and_nordic_letters_match_ours():
     assert _team_words("Bosnia-Herzegovina") & _team_words("Bosnia and Herzegovina")
     assert _norm("Odmar Færø") == "odmar faero"
     assert matched_count(["Odmar Færø"], [{"name": "Odmar Faero"}]) == 1
+
+
+def _event(home, away, home_short=None, away_short=None):
+    side = lambda where, name, short: {"homeAway": where, "team": {"displayName": name, "shortDisplayName": short or name}}
+    return {"id": f"{home}-{away}", "competitions": [{"competitors": [side("home", home, home_short), side("away", away, away_short)]}]}
+
+
+def test_espn_events_are_found_under_espns_spellings():
+    from src import lineups
+    events = [_event("FC Cologne", "SV Elversberg", "Cologne"), _event("Hamburg SV", "Bayern Munich", "Hamburg", "Bayern"),
+              _event("Bayer Leverkusen", "SC Freiburg")]
+    assert lineups.find_event(events, "1. FC Köln", "Elversberg")["id"] == "FC Cologne-SV Elversberg"
+    assert lineups.find_event(events, "Hamburger SV", "Bayern Munich")["id"] == "Hamburg SV-Bayern Munich"
+    assert lineups.find_event(events, "Bayer Leverkusen", "SC Freiburg")["id"] == "Bayer Leverkusen-SC Freiburg"
+    assert lineups.find_event(events, "Union Berlin", "Bayern Munich") is None
+
+
+def test_a_word_start_counts_only_when_one_event_fits():
+    from src import lineups
+    # "Bayer" starts "Bayern": with two candidates the loose match refuses to guess.
+    events = [_event("Bayern Munich", "Hamburg SV"), _event("Bayer Leverkusen", "Hamburg SV")]
+    assert lineups.find_event(events, "Bayer", "Hamburger SV") is None
