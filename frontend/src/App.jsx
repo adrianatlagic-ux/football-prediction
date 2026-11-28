@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect, useRef } from 'react'
+import { Fragment, useState, useEffect, useRef, useSyncExternalStore } from 'react'
 import axios from 'axios'
 import './App.css'
 import CL_FIXTURES from './cl_fixtures.json'
@@ -273,7 +273,7 @@ function LanguageSwitch({ lang, onChange }) {
   )
 }
 
-function TeamLabel({ name }) {
+function TeamLabel({ name, placeholder = false }) {
   const iso = TEAM_COLORS[name]?.iso
   if (iso) {
     return (
@@ -299,7 +299,9 @@ function TeamLabel({ name }) {
     )
   }
   const flag = TEAM_FLAGS[name]
-  return <>{flag && <Emoji char={flag} className="team-flag-emoji" />}{teamName(name)}</>
+  // A team without a crest or flag gets a neutral badge when asked, so every name keeps its place.
+  const badge = flag ? <Emoji char={flag} className="team-flag-emoji" /> : (placeholder && <span className="team-crest team-crest-placeholder" aria-hidden="true">{String(name).trim().charAt(0)}</span>)
+  return <>{badge}{teamName(name)}</>
 }
 
 
@@ -699,80 +701,195 @@ function BetMetric({ label, value, detail, emphasis = false }) {
   )
 }
 
-function ComboLegRow({ leg, index, onOpenLeg }) {
+// One bet of a combo as a casino chip: the front shows the odds, the back the
+// market probability; the bet itself stands under it, with the signs and a
+// button that opens the match.
+// The signs are always all there: the ones that apply glow gold, the rest are grey.
+function ComboChipFlags({ leg }) {
+  const flags = [
+    { icon: '◆', on: leg.model_probability != null && leg.model_probability >= leg.market_probability,
+      label: tr('Modell stimmt zu', 'Model agrees', 'Model se slaže'), off: tr('Modell weicht ab', 'Model disagrees', 'Model se ne slaže') },
+    { icon: '✨', on: Boolean(leg.ki_agrees), label: tr('KI-Tipp', 'AI pick', 'AI tip'), off: tr('Kein KI-Tipp', 'Not the AI pick', 'Nije AI tip') },
+    { icon: '🎯', on: Boolean(leg.is_likely), label: tr('Wahrscheinlichster Tipp', 'Most likely bet', 'Najvjerovatniji tip'),
+      off: tr('Nicht der wahrscheinlichste Tipp dieses Spiels', 'Not the most likely bet of this match', 'Nije najvjerovatniji tip ove utakmice') },
+  ]
   return (
-    <div className={`combo-leg ${onOpenLeg ? 'is-clickable' : ''}`} role={onOpenLeg ? 'button' : undefined}
-         tabIndex={onOpenLeg ? 0 : undefined} onClick={onOpenLeg ? () => onOpenLeg(leg) : undefined}
-         title={onOpenLeg ? tr('Dieses Spiel mit der Wette öffnen', 'Open this match with the bet') : undefined}>
-      <span className="combo-leg-num">{index + 1}</span>
-      <div className="combo-leg-body">
-        <div className="combo-leg-match">
-          <TeamLabel name={leg.home_team} /> <span className="combo-leg-vs">vs</span> <TeamLabel name={leg.away_team} />
-        </div>
-        <div className="combo-leg-pick">{plainBetPhrase(leg)}</div>
-        <div className="combo-leg-meta">
-          {marketGroupLabel(leg.market)}{leg.bookmaker && <> · {leg.bookmaker}</>}
-        </div>
-        <div className="smart-bet-agree-row combo-leg-agree">
-          {/* On a phone only the signs show; the legend below the combos explains them. */}
-          {leg.model_probability != null && <span className={`smart-bet-agree-chip ${leg.model_probability >= leg.market_probability ? 'yes' : 'muted'}`} title={leg.model_probability >= leg.market_probability ? tr('Modell stimmt zu', 'Model agrees') : tr('Modell weicht ab', 'Model disagrees')}>◆<span className="chip-text"> {leg.model_probability >= leg.market_probability ? tr('Modell stimmt zu', 'Model agrees') : tr('Modell weicht ab', 'Model disagrees')}</span> {leg.model_probability >= leg.market_probability ? '✓' : '✕'}</span>}
-          {leg.ki_agrees && <span className="smart-bet-agree-chip yes" title={tr('KI-Tipp', 'AI pick')}>✨<span className="chip-text"> {tr('KI-Tipp', 'AI pick')}</span></span>}
-          {leg.is_likely && <span className="smart-bet-agree-chip yes" title={tr('Wahrscheinlichster Tipp', 'Most likely bet')}>🎯<span className="chip-text"> {tr('Wahrscheinlichster Tipp', 'Most likely bet')}</span></span>}
-          {leg.likely_pick && (
-            <span className="smart-bet-agree-chip muted"
-                  title={`${tr('🎯 dieses Spiels', "🎯 of this match")}: ${plainBetPhrase(leg.likely_pick)} ${tr('zu', 'at')} ${leg.likely_pick.best_odds?.toFixed(2)}`}>
-              🎯<span className="chip-text"> {tr('Nicht der wahrscheinlichste', 'Not the most likely')}</span><span className="chip-x"> ✕</span>
-            </span>
-          )}
-        </div>
+    <span className="combo-chip-flags">
+      {flags.map(f => <span key={f.icon} className={`combo-flag ${f.on ? 'is-on' : ''}`} title={f.on ? f.label : f.off}>{f.icon}</span>)}
+    </span>
+  )
+}
+
+// One bet of a combo as a casino chip: the front shows the odds, the back the
+// market probability; it turns when the pointer is on it (or on a tap). Above
+// it stands the match, below it the bet in two fixed lines, the signs and a
+// button that opens the match.
+function ComboChip({ leg, onOpenLeg, flipped = false, onFlip }) {
+  return (
+    <div className="combo-chip-wrap">
+      <div className="combo-chip-game" title={`${teamName(leg.home_team)} – ${teamName(leg.away_team)}`}>
+        <span><TeamLabel name={leg.home_team} /></span>
+        <span><TeamLabel name={leg.away_team} /></span>
       </div>
-      <div className="combo-leg-numbers">
-        <span className="combo-leg-odds">{leg.best_odds.toFixed(2)}</span>
-        <span className="combo-leg-prob">{betPercent(leg.probability)} {tr('Modell', 'model')}</span>
-      </div>
+      <button type="button" className={`combo-chip ${flipped ? 'is-flipped' : ''}`} onClick={onFlip}
+              aria-label={`${tr('Quote', 'Odds', 'Kvota')} ${leg.best_odds.toFixed(2)}, ${tr('Wahrscheinlichkeit', 'Probability', 'Vjerovatnoća')} ${betPercent(leg.market_probability)}`}>
+        <span className="combo-chip-face combo-chip-front">
+          <span className="combo-chip-odds">{leg.best_odds.toFixed(2)}</span>
+          <span className="combo-chip-sub">{tr('Quote', 'Odds', 'Kvota')}</span>
+        </span>
+        <span className="combo-chip-face combo-chip-back">
+          <span className="combo-chip-odds">{betPercent(leg.market_probability)}</span>
+          <span className="combo-chip-sub">{tr('Wahrscheinlichkeit', 'Probability', 'Vjerovatnoća')}</span>
+        </span>
+      </button>
+      <div className="combo-chip-bet">{plainBetPhrase(leg, false)}</div>
+      <ComboChipFlags leg={leg} />
+      {onOpenLeg && <button type="button" className="combo-chip-open" onClick={() => onOpenLeg(leg)}>{tr('Spiel öffnen', 'Open match', 'Otvori utakmicu')}</button>}
     </div>
   )
 }
 
-function ComboTicketCard({ ticket, primary, onOpenLeg }) {
+const PHONE_QUERY = '(max-width: 899px)'
+const subscribePhone = cb => {
+  const mq = window.matchMedia(PHONE_QUERY)
+  mq.addEventListener('change', cb)
+  return () => mq.removeEventListener('change', cb)
+}
+
+// The chips of a ticket. On a laptop they stand side by side; on a phone one
+// chip at a time slides in, on its own every 5 seconds, until the reader touches it.
+function ComboChips({ legs, onOpenLeg }) {
+  const phone = useSyncExternalStore(subscribePhone, () => window.matchMedia(PHONE_QUERY).matches, () => false)
+  return phone ? <ComboCarousel legs={legs} onOpenLeg={onOpenLeg} /> : <ComboRow legs={legs} onOpenLeg={onOpenLeg} />
+}
+
+// On a laptop the chips stand side by side and turn when the pointer is on
+// them (see the CSS); a click still turns one for touch screens.
+function ComboRow({ legs, onOpenLeg }) {
+  const [flipped, setFlipped] = useState({})
   return (
-    <div className={`combo-ticket ${primary ? 'is-primary' : ''}`}>
-      <div className="combo-ticket-head">
-        <span className="combo-ticket-legs">{tr(`${ticket.leg_count}er-Kombi`, `${ticket.leg_count}-fold`, `Kombinacija od ${ticket.leg_count}`)}</span>
-        <div className="combo-quote">
-          <span className="combo-quote-label">{tr('Rechnerische Gesamtquote', 'Calculated combined odds')}</span>
-          <span className="combo-ticket-odds">{ticket.combined_odds.toFixed(2)}</span>
+    <div className="combo-chips">
+      {legs.map((leg, i) => <ComboChip key={i} leg={leg} onOpenLeg={onOpenLeg} flipped={Boolean(flipped[i])} onFlip={() => setFlipped(f => ({ ...f, [i]: !f[i] }))} />)}
+    </div>
+  )
+}
+
+// The first chip is repeated at the end: after the last one the track slides on
+// to that copy and then jumps back to the real first, so it never runs back
+// across the others.
+function ComboCarousel({ legs, onOpenLeg }) {
+  const n = legs.length
+  const [idx, setIdx] = useState(0)
+  const [animate, setAnimate] = useState(true)
+  const [stopped, setStopped] = useState(false)
+  const [flipped, setFlipped] = useState(false)
+  const touchX = useRef(null)
+  const active = idx % n
+
+  // Every 5 seconds the next chip slides in, until the reader touches the carousel.
+  useEffect(() => {
+    if (stopped || n < 2 || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return undefined
+    const timer = setTimeout(() => { setFlipped(false); setAnimate(true); setIdx(i => (i >= n ? i : i + 1)) }, 5000)
+    return () => clearTimeout(timer)
+  }, [stopped, n, idx])
+
+  const go = target => { setStopped(true); setFlipped(false); setAnimate(true); setIdx(target) }
+  const prev = () => {
+    setStopped(true); setFlipped(false)
+    if (idx === 0) { setAnimate(false); setIdx(n - 1) } else { setAnimate(true); setIdx(idx - 1) }
+  }
+  const settle = () => {
+    // On the copy of the first chip: jump (without sliding) to the real first.
+    if (idx >= n) { setAnimate(false); setIdx(0) }
+  }
+
+  return (
+    <div className="combo-carousel" onPointerDown={() => setStopped(true)}
+         onTouchStart={e => { touchX.current = e.touches[0].clientX }}
+         onTouchEnd={e => {
+           if (touchX.current == null) return
+           const dx = e.changedTouches[0].clientX - touchX.current
+           touchX.current = null
+           if (dx < -40) { if (idx < n) go(idx + 1) } else if (dx > 40) prev()
+         }}>
+      <div className="combo-carousel-window">
+        <div className="combo-carousel-track"
+             style={{ transform: `translateX(-${idx * 100}%)`, transition: animate ? undefined : 'none' }}
+             onTransitionEnd={settle}>
+          {[...legs, legs[0]].map((leg, i) => (
+            <div className="combo-carousel-slide" key={i} inert={i % n !== active ? true : undefined}>
+              <ComboChip leg={leg} onOpenLeg={onOpenLeg} flipped={flipped && i % n === active} onFlip={() => { setStopped(true); setFlipped(f => !f) }} />
+            </div>
+          ))}
         </div>
       </div>
-      <div className="combo-legs">
-        {ticket.legs.map((leg, i) => <ComboLegRow key={i} leg={leg} index={i} onOpenLeg={onOpenLeg} />)}
-      </div>
-      <dl className="bet-metrics probability-metrics">
-        <BetMetric label={tr('Chance, dass alle treffen', 'Chance all of them land')} value={betPercent(ticket.conservative_probability)}
-                   detail={tr('Nach Marktpreisen, ohne Marge', "By the market's prices, margin removed")} emphasis />
-        <BetMetric label={tr('Unser Modell allein', 'Our model on its own')} value={betPercent(ticket.probability)} detail={tr('Vor dem Abgleich mit dem Preis', 'Before checking against the price')} />
-      </dl>
-      <dl className="bet-metrics decision-metrics">
-        <BetMetric label={tr('Gewinn pro 1 € Einsatz', 'Profit per 1 staked')} value={ticket.returns_per_unit.toFixed(2)} detail={tr('Wenn jeder Tipp trifft', 'If every selection wins')} />
-      </dl>
-      {primary && (
-        <p className="combo-ticket-note">
-          {tr(`Die Wahrscheinlichkeiten nehmen an, dass die Ergebnisse unabhängig voneinander sind. Die Quoten
-          stammen aus den Einzelmärkten; das Kombi-Angebot selbst wurde nicht
-          geprüft. Wir erwarten mit dieser Wette keinen Gewinn – es ist nur der wahrscheinlichste Schein
-          über der Zielquote.`, `Probabilities assume the results are independent of one another. Prices come from
-          the individual markets; the combined offer itself has not been checked. This is not
-          a bet we expect to profit from - it is the likeliest ticket above the target odds.`,
-          `Vjerovatnoće pretpostavljaju da su ishodi međusobno nezavisni. Kvote potiču iz pojedinačnih tržišta;
-          sama ponuda kombinacije nije provjerena. Ne očekujemo dobitak od ove oklade – to je samo
-          najvjerovatniji tiket iznad ciljane kvote.`)}
-        </p>
+      {n > 1 && (
+        <>
+          <button type="button" className="combo-carousel-arrow is-prev" aria-label={tr('Vorheriger Tipp', 'Previous bet', 'Prethodni tip')} onClick={prev}>‹</button>
+          <button type="button" className="combo-carousel-arrow is-next" aria-label={tr('Nächster Tipp', 'Next bet', 'Sljedeći tip')} onClick={() => { if (idx < n) go(idx + 1) }}>›</button>
+          <div className="combo-carousel-dots" role="tablist">
+            {legs.map((_, i) => (
+              <button key={i} type="button" role="tab" aria-selected={i === active}
+                      aria-label={`${i + 1} / ${n}`} className={i === active ? 'is-active' : ''} onClick={() => go(i)} />
+            ))}
+          </div>
+        </>
       )}
     </div>
   )
 }
 
-function ComboTicketView({ combo, loading, onOpenLeg }) {
+function ComboTicketCard({ ticket, primary, onOpenLeg }) {
+  // Folded, a ticket is one line: its size and the combined odds. A click opens it.
+  const [open, setOpen] = useState(false)
+  return (
+    <div className={`combo-ticket ${primary ? 'is-primary' : ''} ${open ? 'is-open' : ''}`}>
+      <button type="button" className="combo-ticket-head" aria-expanded={open} onClick={() => setOpen(o => !o)}>
+        <span className="combo-ticket-legs">{tr(`${ticket.leg_count}er-Kombi`, `${ticket.leg_count}-fold`, `Kombinacija od ${ticket.leg_count}`)}</span>
+        <span className="combo-quote">
+          <span className="combo-quote-label">{tr('Gesamtquote', 'Combined odds', 'Ukupna kvota')}</span>
+          <span className="combo-ticket-odds">{ticket.combined_odds.toFixed(2)}</span>
+        </span>
+        <span className="combo-ticket-chevron" aria-hidden="true">▾</span>
+      </button>
+      {open && (
+        <>
+          <div className="combo-legs">
+            <ComboChips legs={ticket.legs} onOpenLeg={onOpenLeg} />
+          </div>
+          <dl className="bet-metrics probability-metrics">
+            <BetMetric label={tr('Alle treffen – laut Wettanbietern', 'All land – according to the bookmakers', 'Svi pogađaju – prema kladionicama')} value={betPercent(ticket.conservative_probability)}
+                       detail={tr('Aus den Quoten errechnet', 'Calculated from the odds', 'Izračunato iz kvota')} emphasis />
+            <BetMetric label={tr('Alle treffen – laut GoalIQ', 'All land – according to GoalIQ', 'Svi pogađaju – prema GoalIQ-u')} value={betPercent(ticket.probability)}
+                       detail={tr('Aus unserer Analyse errechnet', 'Calculated from our analysis', 'Izračunato iz naše analize')} />
+          </dl>
+          {primary && (
+            <p className="combo-ticket-note">
+              {tr(`Die Wahrscheinlichkeiten nehmen an, dass die Ergebnisse unabhängig voneinander sind. Die Quoten
+              stammen aus den Einzelmärkten; das Kombi-Angebot selbst wurde nicht
+              geprüft. Wir erwarten mit dieser Wette keinen Gewinn – es ist nur der wahrscheinlichste Schein
+              über der Zielquote.`, `Probabilities assume the results are independent of one another. Prices come from
+              the individual markets; the combined offer itself has not been checked. This is not
+              a bet we expect to profit from - it is the likeliest ticket above the target odds.`,
+              `Vjerovatnoće pretpostavljaju da su ishodi međusobno nezavisni. Kvote potiču iz pojedinačnih tržišta;
+              sama ponuda kombinacije nije provjerena. Ne očekujemo dobitak od ove oklade – to je samo
+              najvjerovatniji tiket iznad ciljane kvote.`)}
+            </p>
+          )}
+        </>
+      )}
+    </div>
+  )
+}
+
+// A ticket belongs to a league only when every one of its legs does. The
+// server already filters by league; this keeps a mixed ticket off the screen
+// even if it ever sends one.
+function ticketInLeague(ticket, sportKey) {
+  return !sportKey || !ticket || (ticket.legs || []).every(leg => !leg.sport_key || leg.sport_key === sportKey)
+}
+
+function ComboTicketView({ combo, loading, onOpenLeg, sportKey }) {
   if (loading) {
     return (
       <div className="analyzing-status loading-inline">
@@ -803,10 +920,17 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
           </span>
 
           <div className="combo-size-grid">
-            {(day.by_size || []).map(option => (
+            {(day.by_size || []).map(raw => {
+              const option = {
+                ...raw,
+                ticket: ticketInLeague(raw.ticket, sportKey) ? raw.ticket : null,
+                near_miss: ticketInLeague(raw.near_miss, sportKey) ? raw.near_miss : null,
+              }
+              return (
               <section className="combo-size-option" key={option.leg_count}
                        aria-label={tr(`${option.leg_count}er-Kombi`, `${option.leg_count}-fold combo`, `Kombinacija od ${option.leg_count}`)}>
-                <h3 className="combo-size-title">{tr(`${option.leg_count}er-Kombi`, `${option.leg_count}-fold combo`, `Kombinacija od ${option.leg_count}`)}</h3>
+                {/* A ticket's own header names its size; only an empty slot needs a title. */}
+                {!option.ticket && <h3 className="combo-size-title">{tr(`${option.leg_count}er-Kombi`, `${option.leg_count}-fold combo`, `Kombinacija od ${option.leg_count}`)}</h3>}
                 {option.ticket ? (
                   <>
                     <ComboTicketCard ticket={option.ticket} onOpenLeg={onOpenLeg} />
@@ -824,13 +948,14 @@ function ComboTicketView({ combo, loading, onOpenLeg }) {
                 ) : (
                   <div className="combo-size-empty">
                     <strong>{tr('Nicht verfügbar', 'Not available')}</strong>
-                    <p>{tr(option.reason,
+                    <p>{tr(option.reason || `Keine ${option.leg_count}er-Kombi verfügbar: Dafür braucht es ${option.leg_count} passende Spiele und die Zielquote.`,
                       `No ${option.leg_count}-fold available: it needs ${option.leg_count} qualifying matches and the target combined odds.`,
                       `Kombinacija od ${option.leg_count} nije dostupna: potrebne su ${option.leg_count} odgovarajuće utakmice i ciljana ukupna kvota.`)}</p>
                   </div>
                 )}
               </section>
-            ))}
+              )
+            })}
           </div>
         </div>
       ))}
@@ -845,10 +970,10 @@ function ComboLegend() {
   return (
     <div className="combo-legend">
       <span className="combo-legend-title">{tr('Signale', 'Signals')}</span>
-      <span><b>◆</b> {tr('Die Modelleinschätzung zum KI-Tipp', 'The model estimate for the AI pick')}</span>
-      <span><b>✨</b> {tr('Der KI-Tipp für dieses Spiel', 'The AI pick for this match')}</span>
-      <span><b>🎯</b> {tr('Der wahrscheinlichste Tipp dieses Spiels', "This match's most likely selection")}</span>
-      <span><b className="combo-legend-muted">🎯 ✕</b> {tr('Der KI-Tipp weicht vom Marktfavoriten ab', 'The AI pick differs from the market favorite')}</span>
+      <span><b className="combo-flag is-on">◆</b> {tr('Die Modelleinschätzung zum KI-Tipp', 'The model estimate for the AI pick')}</span>
+      <span><b className="combo-flag is-on">✨</b> {tr('Der KI-Tipp für dieses Spiel', 'The AI pick for this match')}</span>
+      <span><b className="combo-flag is-on">🎯</b> {tr('Der wahrscheinlichste Tipp dieses Spiels', "This match's most likely selection")}</span>
+      <span className="combo-legend-note">{tr('Golden leuchtet ein Zeichen, wenn es zutrifft, grau, wenn nicht.', 'A sign glows gold when it applies, grey when it does not.')}</span>
     </div>
   )
 }
@@ -942,14 +1067,16 @@ function marketGroupLabel(market) {
 }
 
 // Plain-language phrasing of a bet for the combo legs.
-function plainBetPhrase(b) {
-  if (b.outcome === 'home_win' || b.outcome === 'away_win') return <><TeamLabel name={b.team} /> {tr('gewinnt', 'to win')}</>
+// crests=false names the team in plain text (inside a chip there is no room for a crest).
+function plainBetPhrase(b, crests = true) {
+  const who = crests ? <TeamLabel name={b.team} /> : teamName(b.team)
+  if (b.outcome === 'home_win' || b.outcome === 'away_win') return <>{who} {tr('gewinnt', 'to win')}</>
   if (b.outcome === 'draw') return tr('Remis', 'Draw')
   if (b.outcome === 'Over') return tr(`Über ${lineOf(b.market)} Tore`, `Over ${lineOf(b.market)} goals`, `Preko ${lineOf(b.market)} gola`)
   if (b.outcome === 'Under') return tr(`Unter ${lineOf(b.market)} Tore`, `Under ${lineOf(b.market)} goals`, `Ispod ${lineOf(b.market)} gola`)
-  if (b.market === 'Handicap +0.5') return <><TeamLabel name={b.team} /> {tr('oder Remis (Doppelte Chance)', 'or draw (double chance)')}</>
-  if (b.market === 'Handicap 0.0') return <><TeamLabel name={b.team} /> {tr('gewinnt (Remis = Einsatz zurück)', 'to win (draw no bet)')}</>
-  if (b.outcome === 'handicap') return <><TeamLabel name={b.team} /> {lineOf(b.market)} Handicap</>
+  if (b.market === 'Handicap +0.5') return <>{who} {tr('oder Remis (Doppelte Chance)', 'or draw (double chance)')}</>
+  if (b.market === 'Handicap 0.0') return <>{who} {tr('gewinnt (Remis = Einsatz zurück)', 'to win (draw no bet)')}</>
+  if (b.outcome === 'handicap') return <>{who} {lineOf(b.market)} Handicap</>
   if (b.market === 'BTTS') return tr(`Beide treffen: ${String(b.outcome).toLowerCase() === 'yes' ? 'Ja' : 'Nein'}`,
                                      `Both teams score: ${String(b.outcome).toLowerCase() === 'yes' ? 'Yes' : 'No'}`,
                                      `Oba tima pogađaju: ${String(b.outcome).toLowerCase() === 'yes' ? 'Da' : 'Ne'}`)
@@ -2940,12 +3067,14 @@ export default function App() {
                     </div>
                   )
                 }
-                return listed.map(key => (
+                return <>
+                  {listed.map(key => (
                   <div key={key}>
                     {isAll && <h3 className="fixture-league-tag combo-league-title">{COMPETITIONS[key].label}</h3>}
-                    <ComboTicketView combo={comboFor(key)} loading={comboFor(key) === null} onOpenLeg={openLeg} />
+                    <ComboTicketView combo={comboFor(key)} loading={comboFor(key) === null} onOpenLeg={openLeg} sportKey={COMPETITIONS[key].sportKey} />
                   </div>
-                ))
+                  ))}
+                </>
               })()}
 
               {activeGroup === 'next' && nextGames.length === 0 && (

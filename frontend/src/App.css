@@ -3014,7 +3014,7 @@ body {
 }
 
 /* Compare ticket sizes without letting the shortest ticket hide the rest. */
-.combo-size-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; align-items: start; }
+.combo-size-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: start; }
 .combo-size-option { min-width: 0; }
 .combo-size-title { margin: 0 0 .75rem; color: var(--cyan); font-size: 1rem; }
 .combo-size-option .combo-ticket { margin: 0; padding: 1rem; }
@@ -3023,7 +3023,6 @@ body {
 .combo-size-option .bet-metrics { grid-template-columns: 1fr; }
 .combo-size-empty { padding: 1.25rem; border: 1px dashed var(--glass-border, #334155); border-radius: 14px; color: var(--text-muted, #94a3b8); }
 .combo-size-empty p { margin: .6rem 0 0; line-height: 1.6; font-size: .85rem; }
-@media (max-width: 1000px) { .combo-size-grid { grid-template-columns: 1fr; } }
 
 /* Price tip (bet-at-home vs Pinnacle fair price) */
 .price-tip.is-empty { text-align: center; padding: 0.4rem 0.2rem; }
@@ -3991,3 +3990,315 @@ body {
   .hero-text-full { display: none; }
   .hero-text-short { display: inline; }
 }
+
+/* Combo tickets: one below the other instead of three narrow columns side by
+   side. On a laptop or PC a ticket is a wide card: the picks on the left, the
+   numbers on the right. */
+.combo-size-option .combo-ticket-legs { font-size: 0.9rem; font-weight: 800; color: var(--cyan-light); }
+@media (min-width: 900px) {
+  .combo-size-grid { gap: 1.25rem; }
+  .combo-size-option .combo-ticket {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 17rem;
+    column-gap: 2.25rem;
+    padding: 1.25rem 1.5rem;
+  }
+  .combo-size-option .combo-ticket-head { grid-column: 1 / -1; align-items: center; margin-bottom: 0.4rem; }
+  .combo-size-option .combo-ticket-legs { font-size: 1.1rem; }
+  .combo-size-option .combo-quote { display: flex; align-items: baseline; gap: 0.9rem; }
+  .combo-size-option .combo-quote-label { font-size: 0.75rem; }
+  .combo-size-option .combo-ticket-odds { font-size: 1.9rem; }
+  .combo-size-option .combo-legs { grid-column: 1; grid-row: 2 / span 2; }
+  .combo-size-option .combo-leg { padding: 0.85rem 0; gap: 1rem; }
+  .combo-size-option .combo-leg-match { font-size: 0.95rem; }
+  .combo-size-option .combo-leg-pick { font-size: 1.05rem; }
+  .combo-size-option .combo-leg-meta { font-size: 0.78rem; }
+  .combo-size-option .combo-leg-odds { font-size: 1.15rem; }
+  .combo-size-option .combo-leg-prob { font-size: 0.78rem; }
+  .combo-size-option .probability-metrics { grid-column: 2; grid-row: 2; align-self: start; margin-top: 0.5rem; }
+  .combo-size-option .decision-metrics { grid-column: 2; grid-row: 3; align-self: start; }
+  .combo-size-option .combo-near-miss { margin-top: 0.9rem; }
+  .combo-section-label { font-size: 0.8rem; }
+}
+
+/* The ticket size is as big as the combined odds on the right. */
+.combo-size-option .combo-ticket-legs { font-size: 1.6rem; }
+@media (min-width: 900px) {
+  .combo-size-option .combo-ticket-legs { font-size: 1.9rem; }
+}
+/* In the ticket header the number comes first, its caption below it. */
+.combo-quote { display: flex; flex-direction: column; align-items: flex-end; }
+.combo-quote .combo-ticket-odds { order: -1; }
+@media (min-width: 900px) {
+  .combo-size-option .combo-quote { flex-direction: row-reverse; align-items: baseline; }
+}
+
+/* ---- Combo legs as casino chips -------------------------------------------- */
+.combo-legs { padding: 0.9rem 0 0.4rem; }
+.combo-chips {
+  display: flex; gap: 1rem; overflow-x: auto; padding: 0.4rem 0.2rem 0.8rem;
+  scroll-snap-type: x mandatory; scrollbar-width: thin;
+}
+.combo-chip-wrap { flex: 0 0 9.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.35rem; scroll-snap-align: start; text-align: center; perspective: 700px; }
+.combo-chip {
+  position: relative; width: 9.5rem; height: 9.5rem; padding: 0; border: 0; background: none; cursor: pointer;
+  border-radius: 50%; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(.2,.7,.2,1);
+  font: inherit; color: #fff;
+}
+.combo-chip.is-flipped { transform: rotateY(180deg); }
+.combo-chip-face {
+  position: absolute; inset: 0; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.15rem; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  /* the edge stripes of a casino chip, then a dark centre inside a gold ring */
+  background:
+    radial-gradient(circle at center, #121212 0 56%, var(--gold) 57% 61%, transparent 62%),
+    repeating-conic-gradient(var(--gold-light) 0 14deg, #1a1406 14deg 30deg);
+  box-shadow: 0 8px 22px -10px rgba(212,175,55,0.7), inset 0 0 0 2px rgba(0,0,0,0.35);
+}
+.combo-chip-back { transform: rotateY(180deg); padding: 1.5rem 1.4rem; text-align: center; }
+.combo-chip-num { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); }
+.combo-chip-odds { font-size: 1.6rem; font-weight: 800; color: var(--gold-light); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.combo-chip-sub { font-size: 0.75rem; color: var(--text-muted); }
+.combo-chip-pick { font-size: 0.75rem; font-weight: 700; line-height: 1.25; color: #fff; }
+.combo-chip-prob { font-size: 0.75rem; color: var(--gold-light); }
+.combo-chip-signs { display: flex; gap: 0.3rem; font-size: 0.75rem; }
+.combo-chip-match { font-size: 0.75rem; color: #e2e8f0; line-height: 1.35; }
+.combo-chip-meta { font-size: 0.75rem; color: var(--text-faint); }
+.combo-chip-open { background: none; border: 0; padding: 0; font: inherit; font-size: 0.75rem; color: var(--gold-light); cursor: pointer; text-decoration: underline; }
+@media (prefers-reduced-motion: reduce) { .combo-chip { transition: none; } }
+@media (min-width: 900px) { .combo-size-option .combo-legs { grid-row: 2 / span 2; } }
+
+/* Laptop / PC: the chips wrap by themselves (no scroll bar) and the three
+   numbers sit side by side under them. On a phone they stay one below the other. */
+@media (min-width: 900px) {
+  .combo-chips { flex-wrap: wrap; overflow: visible; justify-content: space-evenly; scroll-snap-type: none; gap: 1.25rem 1.5rem; }
+  .combo-size-option .combo-ticket { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 1rem; row-gap: 0.9rem; }
+  .combo-size-option .combo-legs { grid-column: 1 / -1; grid-row: auto; }
+  .combo-size-option .probability-metrics,
+  .combo-size-option .decision-metrics { display: contents; }
+  .combo-size-option .combo-ticket-note { grid-column: 1 / -1; margin-top: 0; }
+}
+
+/* Under a chip the match always takes three lines: home team, "vs", away team. */
+.combo-chip-match { display: flex; flex-direction: column; align-items: center; line-height: 1.35; }
+
+/* Neutral badge for a team whose crest is not known. */
+.team-crest-placeholder { display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.12); color: var(--text-muted); font-size: 0.8em; width: 1.5em; height: 1.5em; line-height: 1; font-weight: 800; vertical-align: middle; }
+
+/* Folded tickets: the head is a button across the whole box. */
+.combo-ticket-head { width: 100%; background: none; border: 0; border-bottom: 1px solid transparent; font: inherit; color: inherit; text-align: left; cursor: pointer; align-items: center; gap: 1rem; padding-bottom: 0; }
+.combo-ticket.is-open .combo-ticket-head { border-bottom-color: rgba(255,255,255,0.07); padding-bottom: 0.7rem; }
+.combo-ticket-head .combo-quote { margin-left: auto; }
+.combo-ticket-chevron { color: var(--text-muted); font-size: 1rem; transition: transform 0.25s; }
+.combo-ticket.is-open .combo-ticket-chevron { transform: rotate(180deg); }
+.combo-ticket-head:hover .combo-ticket-chevron { color: var(--gold-light); }
+@media (min-width: 900px) {
+  .combo-size-option .combo-ticket:not(.is-open) { display: block; }
+}
+
+/* One type scale for the combos, the same as the "Nächste Spiele" rows:
+   names 0.95rem (1.1rem on a wide screen), details 0.8rem, the two headline
+   numbers (ticket size and combined odds) 1.15rem, the metric boxes 1.15rem. */
+.combo-chip-wrap { flex-basis: 11rem; }
+.combo-chip-match { font-size: 0.95rem; font-weight: 600; color: #fff; }
+.combo-chip-match .combo-leg-vs { font-size: 0.75rem; }
+.combo-chip-meta, .combo-chip-open { font-size: 0.8rem; }
+.combo-chip-num, .combo-chip-sub, .combo-chip-prob, .combo-chip-signs { font-size: 0.8rem; }
+.combo-chip-pick { font-size: 0.8rem; }
+.combo-chip-odds { font-size: 1.5rem; }
+.combo-size-option .combo-ticket-legs,
+.combo-size-option .combo-ticket-odds { font-size: 1.15rem; }
+.combo-size-option .combo-ticket-legs { letter-spacing: 0.06em; }
+.combo-quote-label, .combo-size-option .combo-quote-label { font-size: 0.8rem; }
+.combo-size-option .bet-metric { padding: 0.65rem 0.8rem; }
+.combo-size-option .bet-metric dt { font-size: 0.8rem; }
+.combo-size-option .bet-metric dd { font-size: 1.15rem; margin-top: 0.2rem; }
+.combo-size-option .bet-metric small { font-size: 0.75rem; margin-top: 0.2rem; }
+.combo-ticket-note { font-size: 0.8rem; }
+@media (min-width: 800px) {
+  .combo-chip-match { font-size: 1.1rem; }
+  .combo-chip-match .combo-leg-vs { font-size: 0.8rem; }
+}
+@media (min-width: 900px) {
+  .combo-size-option .combo-ticket-legs { font-size: 1.15rem; }
+  .combo-size-option .combo-ticket-odds { font-size: 1.15rem; }
+  .combo-size-option .combo-quote-label { font-size: 0.8rem; }
+}
+.combo-chip-wrap { flex-basis: 12.5rem; }
+.combo-chip-match > span { white-space: nowrap; }
+
+/* Folded ticket: everything in the one line sits on the box's vertical middle. */
+.combo-size-option .combo-ticket:not(.is-open) .combo-ticket-head { margin-bottom: 0; padding-bottom: 0; }
+.combo-size-option .combo-ticket-head .combo-quote { align-items: center; }
+.combo-ticket-head .combo-ticket-odds, .combo-ticket-head .combo-quote-label { line-height: 1.2; }
+.combo-ticket-legs { line-height: 1.2; }
+
+/* The front of a chip is the bet itself, the back its odds. */
+.combo-chip-front { padding: 1.6rem 1.5rem; text-align: center; }
+.combo-chip-front .combo-chip-pick { font-size: 0.9rem; font-weight: 700; line-height: 1.25; color: #fff; }
+
+/* More air between a chip and the match under it. */
+.combo-chip-wrap { gap: 0.35rem; }
+.combo-chip-match { margin-top: 0.9rem; }
+
+/* The signals sit in a row above the bet on the front of the chip. */
+.combo-chip-front { gap: 0.3rem; padding: 1.3rem 1.4rem; }
+.combo-chip-front .combo-chip-signs { font-size: 0.8rem; gap: 0.35rem; line-height: 1; }
+.combo-chip-front .combo-chip-pick { font-size: 0.85rem; }
+.combo-chip-muted { opacity: 0.5; filter: grayscale(1); }
+
+.combo-chip-match { flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.3rem; text-align: center; }
+.combo-chip-signs { font-size: 0.8rem; gap: 0.35rem; line-height: 1; }
+.combo-chip-open {
+  margin-top: 0.4rem; padding: 0.45rem 1rem; border-radius: 999px; cursor: pointer;
+  border: 1px solid rgba(212,175,55,0.5); background: rgba(212,175,55,0.1);
+  color: var(--gold-light); font: inherit; font-size: 0.8rem; font-weight: 700; text-decoration: none;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.combo-chip-open:hover { background: rgba(212,175,55,0.2); box-shadow: 0 6px 18px -10px rgba(212,175,55,0.8); }
+
+/* Phone: two chips share the row evenly and sit in the middle; more than two
+   slide (and snap to the middle). */
+.combo-chip { width: min(9.5rem, 100%); height: auto; aspect-ratio: 1; }
+.combo-chips { justify-content: safe center; }
+@media (max-width: 899px) {
+  .combo-chips { scroll-snap-type: x mandatory; }
+  .combo-chip-wrap { flex: 0 0 min(12.5rem, calc((100% - 1rem) / 2)); scroll-snap-align: center; }
+}
+
+/* Phone: one chip at a time, dots underneath. */
+.combo-carousel { position: relative; }
+.combo-carousel-window { overflow: hidden; }
+.combo-carousel-track { display: flex; transition: transform 1.5s cubic-bezier(.45,.05,.25,1); }
+.combo-carousel-slide { flex: 0 0 100%; min-width: 0; display: flex; justify-content: center; padding: 0.4rem 0 0.2rem; }
+.combo-carousel-slide .combo-chip-wrap { flex: 0 0 auto; width: 100%; max-width: 16rem; }
+.combo-carousel-slide .combo-chip { width: min(11rem, 100%); }
+.combo-carousel-dots { display: flex; justify-content: center; gap: 0.5rem; padding: 0.6rem 0 0.2rem; }
+.combo-carousel-dots button { width: 0.55rem; height: 0.55rem; padding: 0; border-radius: 50%; border: 0; cursor: pointer; background: rgba(255,255,255,0.22); transition: background 0.2s, transform 0.2s; }
+.combo-carousel-dots button.is-active { background: var(--gold-light); transform: scale(1.25); }
+@media (prefers-reduced-motion: reduce) { .combo-carousel-track { transition: none; } }
+
+/* The profit per 1 EUR stake sits next to the combined odds in the ticket head;
+   the two chances stand side by side below the chips. */
+.combo-profit { font-size: 0.8rem; color: var(--text-muted); text-align: right; line-height: 1.3; }
+.combo-profit strong { color: var(--gold-light); font-size: 0.95rem; }
+.combo-ticket-head { flex-wrap: wrap; row-gap: 0.4rem; }
+.combo-ticket-head .combo-quote { margin-left: auto; }
+.combo-ticket-head .combo-ticket-chevron { order: 5; }
+.combo-size-option .combo-ticket .probability-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 900px) {
+  .combo-size-option .combo-ticket { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .combo-size-option .combo-ticket .probability-metrics { grid-template-columns: none; }
+  .combo-ticket-head .combo-profit { margin-left: 0.5rem; }
+}
+
+/* Ticket head: size on the left; on the right, in the corner, two figures side by
+   side, each with its caption above it. */
+.combo-ticket-head { flex-wrap: nowrap; gap: 1.1rem; }
+.combo-size-option .combo-ticket-head .combo-quote,
+.combo-ticket-head .combo-quote { display: flex; flex-direction: column; align-items: flex-end; text-align: right; margin-left: 0; gap: 0.1rem; }
+.combo-ticket-head .combo-ticket-legs + .combo-quote { margin-left: auto; }
+.combo-ticket-head .combo-quote .combo-ticket-odds { order: 0; }
+.combo-ticket-head .combo-quote-label { font-size: 0.75rem; line-height: 1.2; }
+.combo-ticket-odds.is-profit { color: #fff; }
+.combo-ticket-head .combo-ticket-chevron { order: 5; }
+@media (max-width: 480px) { .combo-ticket-head { gap: 0.7rem; } .combo-ticket-head .combo-quote-label { font-size: 0.7rem; } }
+.combo-size-option .combo-ticket-head { flex-wrap: nowrap; }
+.combo-quote-prefix { display: inline; }
+@media (max-width: 480px) { .combo-quote-prefix { display: none; } .combo-ticket-head .combo-quote-label { max-width: 6.5rem; } .combo-size-option .combo-ticket-legs { letter-spacing: 0.03em; } }
+.combo-ticket-legs, .combo-ticket-head .combo-quote-label { white-space: nowrap; }
+@media (max-width: 480px) {
+  .combo-ticket-head .combo-quote-label { max-width: none; }
+  .combo-ticket-head { gap: 0.55rem; }
+  .combo-size-option .combo-ticket-legs { font-size: 1rem; letter-spacing: 0.02em; }
+}
+
+/* Ticket head, final: the two figures sit on the same line as the ticket size, in
+   the same size and gold; each has its caption centred underneath. */
+.combo-size-option .combo-ticket-head { align-items: flex-start; }
+.combo-ticket-head .combo-quote,
+.combo-size-option .combo-ticket-head .combo-quote { align-items: center; text-align: center; gap: 0.15rem; }
+.combo-ticket-head .combo-quote .combo-ticket-odds { order: -1; font-size: 1.15rem; line-height: 1.2; color: var(--gold-light); }
+.combo-size-option .combo-ticket-head .combo-ticket-odds { font-size: 1.15rem; }
+.combo-ticket-head .combo-ticket-legs { line-height: 1.2; }
+.combo-ticket-head .combo-ticket-chevron { align-self: flex-start; line-height: 1.2; font-size: 1.15rem; }
+@media (max-width: 480px) {
+  .combo-size-option .combo-ticket-head .combo-ticket-odds, .combo-ticket-head .combo-ticket-chevron { font-size: 1rem; }
+}
+
+/* One figure on the right now: the ticket size and the arrow sit on the vertical middle of the box. */
+.combo-size-option .combo-ticket-head { align-items: center; }
+.combo-ticket-head .combo-ticket-chevron { align-self: center; }
+
+/* The chip turns again: front = odds, back = market probability in gold with its caption. */
+.combo-chip { cursor: pointer; transform-style: preserve-3d; transition: transform 1.5s cubic-bezier(.45,.05,.25,1); }
+.combo-chip.is-flipped { transform: rotateY(180deg); }
+.combo-chip-face { backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  background:
+    radial-gradient(circle at center, #121212 0 56%, var(--gold) 57% 61%, transparent 62%),
+    repeating-conic-gradient(var(--gold-light) 0 14deg, #1a1406 14deg 30deg); }
+.combo-chip-front, .combo-chip-back { padding: 0; gap: 0.15rem; text-align: center; }
+.combo-chip-back { transform: rotateY(180deg); }
+.combo-chip-back .combo-chip-sub { font-size: 0.7rem; line-height: 1.2; max-width: 6.4rem; hyphens: manual; }
+.combo-chip { width: min(11rem, 100%); }
+@media (prefers-reduced-motion: reduce) { .combo-chip { transition: none; } }
+
+.combo-chip-back .combo-chip-sub { font-size: 0.65rem; max-width: 5.6rem; }
+
+/* ---- Chip v2: calm gold chip, match as a header, fixed-height texts, signs --- */
+.combo-chip, .combo-carousel-slide .combo-chip { width: min(8rem, 100%); }
+.combo-chip-wrap, .combo-carousel-slide .combo-chip-wrap { flex-basis: 12rem; gap: 0.55rem; }
+.combo-chip { transition: transform 0.9s cubic-bezier(.45,.05,.25,1); }
+.combo-chip.is-flipped { transform: none; }
+/* A mouse turns the chip while the pointer is on it; a touch screen turns it on a tap. */
+@media (hover: hover) { .combo-chip:hover { transform: rotateY(180deg); } }
+@media (hover: none) { .combo-chip.is-flipped { transform: rotateY(180deg); } }
+
+/* The match above the chip: two fixed lines, home over away, each with its crest. */
+.combo-chip-game {
+  display: flex; flex-direction: column; justify-content: center; gap: 2px; width: 100%; height: 2.7rem;
+  font-size: 0.82rem; font-weight: 600; color: #fff; text-align: center; line-height: 1.25;
+}
+.combo-chip-game > span { display: flex; align-items: center; justify-content: center; gap: 0.35rem; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.combo-chip-game .team-crest { width: 1.1rem; height: 1.1rem; flex: none; }
+
+/* The bet under the chip: always two lines high, centred, longer text is cut with an ellipsis. */
+.combo-chip-bet {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+  height: 2.7em; line-height: 1.35; font-size: 0.95rem; font-weight: 700; color: #fff; text-align: center; width: 100%;
+}
+
+/* The signs: all three always there; gold ring and glow when they apply, grey when they do not. */
+.combo-chip-flags { display: flex; gap: 0.5rem; justify-content: center; }
+.combo-flag {
+  display: inline-flex; align-items: center; justify-content: center; width: 1.9rem; height: 1.9rem; border-radius: 50%;
+  font-size: 0.9rem; line-height: 1; background: rgba(255,255,255,0.06); filter: grayscale(1); opacity: 0.3;
+  transition: opacity 0.2s, box-shadow 0.2s;
+}
+.combo-flag.is-on {
+  filter: none; opacity: 1; color: #fff; background: rgba(212,175,55,0.18);
+  box-shadow: 0 0 0 1.5px var(--gold), 0 0 12px rgba(212,175,55,0.45);
+}
+.combo-legend b.combo-flag { width: 1.6rem; height: 1.6rem; font-size: 0.8rem; margin-right: 0.35rem; }
+
+/* Arrows on a phone: step through the chips by hand. They sit left and right of the chip. */
+.combo-carousel-arrow {
+  position: absolute; top: 9.5rem; z-index: 2; width: 2.4rem; height: 2.4rem; padding: 0 0 0.15rem; border-radius: 50%;
+  border: 1px solid rgba(212,175,55,0.5); background: rgba(20,20,23,0.85); color: var(--gold-light);
+  font-size: 1.6rem; line-height: 1; cursor: pointer; display: grid; place-items: center;
+}
+.combo-carousel-arrow.is-prev { left: 0.2rem; }
+.combo-carousel-arrow.is-next { right: 0.2rem; }
+.combo-carousel-arrow:active { background: rgba(212,175,55,0.25); }
+
+/* Legend: the icon sits in the narrow column, the note under the rows takes the full width. */
+.combo-legend b.combo-flag { align-self: center; justify-self: start; margin-right: 0; }
+.combo-legend > span.combo-legend-note { display: block; margin-top: 0.3rem; color: var(--text-muted); font-size: 0.8rem; }
+.combo-legend { gap: 0.5rem; }
+.combo-legend > span:not(.combo-legend-title):not(.combo-legend-note) { align-items: center; }
+
+/* Bigger chip so "Wahrscheinlichkeit" fits on the back on one line. */
+.combo-chip, .combo-carousel-slide .combo-chip { width: min(9.5rem, 100%); }
+.combo-chip-wrap, .combo-carousel-slide .combo-chip-wrap { flex-basis: 12.5rem; }
+.combo-chip-back .combo-chip-sub { font-size: 0.68rem; max-width: none; white-space: nowrap; }
+.combo-carousel-arrow { top: 10.5rem; }
