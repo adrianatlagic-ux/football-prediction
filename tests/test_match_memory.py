@@ -200,4 +200,41 @@ def test_the_shadow_runs_prompt_v10_while_the_real_tip_stays_v9(monkeypatch):
     # The favourite question sits only in the shadow's verdict, the real tip is untouched.
     assert "can score on its own" in prompts[1] and "can score on its own" not in prompts[0]
     assert real["research_version"] == "football_research_model_v9" and "candidates_considered" not in real
-    assert shadow["research_version"] == "football_research_model_v10_1" and shadow["pick_probability"] == 72
+    assert shadow["research_version"] == "football_research_model_v10_2" and shadow["pick_probability"] == 72
+
+
+def _shadow_entry(day, hs, as_, pick, own, fav=0.5):
+    return {"commence_time": f"{day}T18:00:00Z", "home_team": "Alpha", "away_team": "Bravo",
+            "result": {"home_score": hs, "away_score": as_},
+            "agent_eval_shadow": {"pick": pick, "pick_probability": own,
+                                  "research_input": {"model_context": {"probability_home_win": fav,
+                                                                       "probability_away_win": 0.2}}}}
+
+
+def test_the_track_record_counts_the_shadows_own_settled_picks():
+    under = {"market": "Over/Under 2.5", "outcome": "Under", "best_odds": 2.0, "market_probability": 0.5}
+    home = {"market": "1X2", "outcome": "home_win", "team": "Alpha", "best_odds": 1.8, "market_probability": 0.55}
+    entries = [
+        _shadow_entry("2026-11-20", 3, 0, under, 70, fav=0.7),   # Under with a clear favourite: lost
+        _shadow_entry("2026-11-21", 2, 1, under, 60, fav=0.7),   # lost
+        _shadow_entry("2026-11-22", 1, 0, under, 65, fav=0.7),   # won
+        _shadow_entry("2026-11-23", 1, 0, home, 60),             # won
+        _shadow_entry("2026-11-30", 0, 0, home, 60),             # after the match being tipped: left out
+    ]
+    block = match_memory.track_record_block("2026-11-29T00:00:00Z", entries)
+    assert "- all your picks: 4 picks, 2 came in (50%); your estimate 64%; odds implied 51%" in block
+    assert "- Under (goal line): 3 picks, 1 came in (33%); your estimate 65%; odds implied 50%" in block
+    assert "Under when one side was a clear favourite (model win chance 60%+): 3 picks, 1 came in" in block
+    assert "result (1X2)" not in block                        # fewer than three picks of that kind
+    assert match_memory.track_record_block("2026-11-21T00:00:00Z", entries) == ""   # too few yet
+
+
+def test_the_shadow_prompt_carries_its_track_record(monkeypatch):
+    from api import app as api
+    from src import match_memory as mm
+    monkeypatch.setattr(mm, "prompt_block", lambda home, away, before: ("\n\nYOUR MEMORY ...", ["c1"]))
+    monkeypatch.setattr(mm, "track_record_block", lambda before: "\n\nYOUR TRACK RECORD ...")
+    seen = {}
+    monkeypatch.setattr(api, "_call_gemini_agent_pick", lambda *a, **kw: seen.update(kw) or None)
+    api._run_shadow_agent({}, {"commence_time": "2026-11-29T18:00:00Z"}, "Alpha", "Bravo", ("k",))
+    assert seen["memory_block"] == "\n\nYOUR MEMORY ...\n\nYOUR TRACK RECORD ..." and seen["prompt_version"] == "v10"

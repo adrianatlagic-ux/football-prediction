@@ -2346,13 +2346,17 @@ def _maybe_prekickoff_refresh(odds: list[dict]) -> None:
 
 def _run_shadow_agent(data: dict, vb: dict, home: str, away: str, key: tuple) -> None:
     """The shadow tip: a fresh, independent first call (it never sees the real
-    tip) with the AI's own earlier cases of each team in front of it. Only for
-    matches where at least one team has a case; logged as agent_eval_shadow."""
+    tip) with the AI's own earlier cases of each team and its own track record
+    in front of it. Only for matches where at least one team has a case;
+    logged as agent_eval_shadow."""
     try:
         from src import match_memory
         block, ids = match_memory.prompt_block(home, away, vb.get("commence_time") or "")
         if not block:
             return
+        # Its own settled picks as numbers, so it can correct how it bets, not
+        # only read single matches (src/match_memory.track_record_block).
+        block += match_memory.track_record_block(vb.get("commence_time") or "")
         shadow = _call_gemini_agent_pick(data, vb, home, away, memory_block=block, memory_cases=ids,
                                          prompt_version="v10")
         if shadow is not None:

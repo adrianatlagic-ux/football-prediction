@@ -49,10 +49,35 @@ FIXTURE_COMPETITION = {"cl": "champions_league", "bl": "bundesliga", "nl": "nati
 DEFAULT_WINDOW_MINUTES = 75
 
 
+class Registry(dict):
+    """Team name -> Transfermarkt id, found under another spelling too.
+
+    The fixtures and Transfermarkt spell clubs differently ("Augsburg" /
+    "FC Augsburg", "1. FSV Mainz 05" / "1.FSV Mainz 05", "Bayer Leverkusen" /
+    "Bayer 04 Leverkusen"); an exact lookup missed most Bundesliga clubs, so
+    their line-ups never moved a prediction. Names are compared by their
+    letters; a name contained in exactly one other name counts too."""
+
+    def get(self, team, default=None):
+        if team in self:
+            return self[team]
+        from src.log_store import norm
+        key = norm(team or "")
+        if not key:
+            return default
+        same = {v for k, v in self.items() if norm(k) == key}
+        if len(same) == 1:
+            return same.pop()
+        if len(key) < 4:
+            return default
+        part = {v for k, v in self.items() if key in norm(k) or norm(k) in key}
+        return part.pop() if len(part) == 1 else default
+
+
 def load_registry(competition_key: str) -> dict:
     with REGISTRY.open(encoding="utf-8") as fh:
-        return {r["team"]: r["transfermarkt_id"] for r in csv.DictReader(fh)
-                if r["competition"] == competition_key}
+        return Registry({r["team"]: r["transfermarkt_id"] for r in csv.DictReader(fh)
+                         if r["competition"] == competition_key})
 
 
 def upcoming(window_minutes: int, now: datetime) -> list:

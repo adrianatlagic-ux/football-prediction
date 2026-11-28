@@ -2751,12 +2751,34 @@ export default function App() {
           const ids = (listResp.value.data.match_ids || []).filter(id =>
             Object.values(COMPETITIONS).some(c => c.fixtures.some(f => f.match_id === id))
           )
-          const all = await Promise.all(
-            ids.map(id => axios.get(`${API_BASE}/predictions/${id}`).then(r => ({ matchId: id, data: r.data })))
-          )
+          // The server holds every match of the season (hundreds). The page must
+          // not wait for all of them: the matches of the next days and the last
+          // day or two load first, a few at a time, and the page opens when
+          // those are in; the older ones fill in behind.
+          const times = new Map(Object.values(COMPETITIONS).flatMap(c =>
+            c.fixtures.map(f => [f.match_id, fixtureDateTime(f).getTime()])))
+          const now = Date.now()
+          const soon = id => times.get(id) >= now - 36 * 3600000 && times.get(id) <= now + 4 * 86400000
+          const first = ids.filter(soon).sort((a, b) => times.get(a) - times.get(b))
+          const rest = ids.filter(id => !soon(id)).sort((a, b) => times.get(b) - times.get(a))
           const byId = {}
-          all.forEach(({ matchId, data }) => { byId[matchId] = data })
-          setPredictionsById(byId)
+          let sinceFlush = 0
+          const loadInto = async list => {
+            let next = 0
+            const worker = async () => {
+              while (next < list.length) {
+                const id = list[next++]
+                try {
+                  byId[id] = (await axios.get(`${API_BASE}/predictions/${id}`)).data
+                } catch { /* this one stays out; the page works without it */ }
+                if (++sinceFlush >= 25) { sinceFlush = 0; setPredictionsById({ ...byId }) }
+              }
+            }
+            await Promise.all(Array.from({ length: 6 }, worker))
+          }
+          await loadInto(first)
+          setPredictionsById({ ...byId })
+          loadInto(rest).then(() => setPredictionsById({ ...byId }))
         }
       } catch (e) {
         // non-fatal
