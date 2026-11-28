@@ -4244,3 +4244,55 @@ body {
 @media (prefers-reduced-motion: reduce) { .combo-chip { transition: none; } }
 
 .combo-chip-back .combo-chip-sub { font-size: 0.65rem; max-width: 5.6rem; }
+
+/* ---- Chip v2: calm gold chip, match as a header, fixed-height texts, signs --- */
+.combo-chip, .combo-carousel-slide .combo-chip { width: min(8rem, 100%); }
+.combo-chip-wrap, .combo-carousel-slide .combo-chip-wrap { flex-basis: 12rem; gap: 0.55rem; }
+.combo-chip { transition: transform 0.9s cubic-bezier(.45,.05,.25,1); }
+.combo-chip.is-flipped { transform: none; }
+/* A mouse turns the chip while the pointer is on it; a touch screen turns it on a tap. */
+@media (hover: hover) { .combo-chip:hover { transform: rotateY(180deg); } }
+@media (hover: none) { .combo-chip.is-flipped { transform: rotateY(180deg); } }
+
+/* The match above the chip: two fixed lines, home over away, each with its crest. */
+.combo-chip-game {
+  display: flex; flex-direction: column; justify-content: center; gap: 2px; width: 100%; height: 2.7rem;
+  font-size: 0.82rem; font-weight: 600; color: #fff; text-align: center; line-height: 1.25;
+}
+.combo-chip-game > span { display: flex; align-items: center; justify-content: center; gap: 0.35rem; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.combo-chip-game .team-crest { width: 1.1rem; height: 1.1rem; flex: none; }
+
+/* The bet under the chip: always two lines high, centred, longer text is cut with an ellipsis. */
+.combo-chip-bet {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+  height: 2.7em; line-height: 1.35; font-size: 0.95rem; font-weight: 700; color: #fff; text-align: center; width: 100%;
+}
+
+/* The signs: all three always there; gold ring and glow when they apply, grey when they do not. */
+.combo-chip-flags { display: flex; gap: 0.5rem; justify-content: center; }
+.combo-flag {
+  display: inline-flex; align-items: center; justify-content: center; width: 1.9rem; height: 1.9rem; border-radius: 50%;
+  font-size: 0.9rem; line-height: 1; background: rgba(255,255,255,0.06); filter: grayscale(1); opacity: 0.3;
+  transition: opacity 0.2s, box-shadow 0.2s;
+}
+.combo-flag.is-on {
+  filter: none; opacity: 1; color: #fff; background: rgba(212,175,55,0.18);
+  box-shadow: 0 0 0 1.5px var(--gold), 0 0 12px rgba(212,175,55,0.45);
+}
+.combo-legend b.combo-flag { width: 1.6rem; height: 1.6rem; font-size: 0.8rem; margin-right: 0.35rem; }
+
+/* Arrows on a phone: step through the chips by hand. They sit left and right of the chip. */
+.combo-carousel-arrow {
+  position: absolute; top: 9.5rem; z-index: 2; width: 2.4rem; height: 2.4rem; padding: 0 0 0.15rem; border-radius: 50%;
+  border: 1px solid rgba(212,175,55,0.5); background: rgba(20,20,23,0.85); color: var(--gold-light);
+  font-size: 1.6rem; line-height: 1; cursor: pointer; display: grid; place-items: center;
+}
+.combo-carousel-arrow.is-prev { left: 0.2rem; }
+.combo-carousel-arrow.is-next { right: 0.2rem; }
+.combo-carousel-arrow:active { background: rgba(212,175,55,0.25); }
+
+/* Legend: the icon sits in the narrow column, the note under the rows takes the full width. */
+.combo-legend b.combo-flag { align-self: center; justify-self: start; margin-right: 0; }
+.combo-legend > span.combo-legend-note { display: block; margin-top: 0.3rem; color: var(--text-muted); font-size: 0.8rem; }
+.combo-legend { gap: 0.5rem; }
+.combo-legend > span:not(.combo-legend-title):not(.combo-legend-note) { align-items: center; }

@@ -704,28 +704,46 @@ function BetMetric({ label, value, detail, emphasis = false }) {
 // One bet of a combo as a casino chip: the front shows the odds, the back the
 // market probability; the bet itself stands under it, with the signs and a
 // button that opens the match.
+// The signs are always all there: the ones that apply glow gold, the rest are grey.
+function ComboChipFlags({ leg }) {
+  const flags = [
+    { icon: '◆', on: leg.model_probability != null && leg.model_probability >= leg.market_probability,
+      label: tr('Modell stimmt zu', 'Model agrees', 'Model se slaže'), off: tr('Modell weicht ab', 'Model disagrees', 'Model se ne slaže') },
+    { icon: '✨', on: Boolean(leg.ki_agrees), label: tr('KI-Tipp', 'AI pick', 'AI tip'), off: tr('Kein KI-Tipp', 'Not the AI pick', 'Nije AI tip') },
+    { icon: '🎯', on: Boolean(leg.is_likely), label: tr('Wahrscheinlichster Tipp', 'Most likely bet', 'Najvjerovatniji tip'),
+      off: tr('Nicht der wahrscheinlichste Tipp dieses Spiels', 'Not the most likely bet of this match', 'Nije najvjerovatniji tip ove utakmice') },
+  ]
+  return (
+    <span className="combo-chip-flags">
+      {flags.map(f => <span key={f.icon} className={`combo-flag ${f.on ? 'is-on' : ''}`} title={f.on ? f.label : f.off}>{f.icon}</span>)}
+    </span>
+  )
+}
+
+// One bet of a combo as a casino chip: the front shows the odds, the back the
+// market probability; it turns when the pointer is on it (or on a tap). Above
+// it stands the match, below it the bet in two fixed lines, the signs and a
+// button that opens the match.
 function ComboChip({ leg, onOpenLeg, flipped = false, onFlip }) {
-  const agrees = leg.model_probability != null && leg.model_probability >= leg.market_probability
   return (
     <div className="combo-chip-wrap">
+      <div className="combo-chip-game" title={`${teamName(leg.home_team)} – ${teamName(leg.away_team)}`}>
+        <span><TeamLabel name={leg.home_team} /></span>
+        <span><TeamLabel name={leg.away_team} /></span>
+      </div>
       <button type="button" className={`combo-chip ${flipped ? 'is-flipped' : ''}`} onClick={onFlip}
-              aria-label={`${tr('Quote', 'Odds', 'Kvota')} ${leg.best_odds.toFixed(2)}, ${tr('Marktwahrscheinlichkeit', 'Market probability', 'Tržišna vjerovatnoća')} ${betPercent(leg.market_probability)}`}>
+              aria-label={`${tr('Quote', 'Odds', 'Kvota')} ${leg.best_odds.toFixed(2)}, ${tr('Wahrscheinlichkeit', 'Probability', 'Vjerovatnoća')} ${betPercent(leg.market_probability)}`}>
         <span className="combo-chip-face combo-chip-front">
           <span className="combo-chip-odds">{leg.best_odds.toFixed(2)}</span>
           <span className="combo-chip-sub">{tr('Quote', 'Odds', 'Kvota')}</span>
         </span>
         <span className="combo-chip-face combo-chip-back">
           <span className="combo-chip-odds">{betPercent(leg.market_probability)}</span>
-          <span className="combo-chip-sub">{tr('Markt­wahrscheinlichkeit', 'Market probability', 'Tržišna vjerovatnoća')}</span>
+          <span className="combo-chip-sub">{tr('Wahrscheinlichkeit', 'Probability', 'Vjerovatnoća')}</span>
         </span>
       </button>
-      <div className="combo-chip-match">{plainBetPhrase(leg)}</div>
-      <span className="combo-chip-signs">
-        {leg.model_probability != null && <span title={agrees ? tr('Modell stimmt zu', 'Model agrees') : tr('Modell weicht ab', 'Model disagrees')}>{agrees ? '◆✓' : '◆✕'}</span>}
-        {leg.ki_agrees && <span title={tr('KI-Tipp', 'AI pick')}>✨</span>}
-        {leg.is_likely && <span title={tr('Wahrscheinlichster Tipp', 'Most likely bet')}>🎯</span>}
-        {leg.likely_pick && <span className="combo-chip-muted" title={tr('Nicht der wahrscheinlichste Tipp dieses Spiels', 'Not the most likely bet of this match')}>🎯✕</span>}
-      </span>
+      <div className="combo-chip-bet">{plainBetPhrase(leg, false)}</div>
+      <ComboChipFlags leg={leg} />
       {onOpenLeg && <button type="button" className="combo-chip-open" onClick={() => onOpenLeg(leg)}>{tr('Spiel öffnen', 'Open match', 'Otvori utakmicu')}</button>}
     </div>
   )
@@ -737,7 +755,6 @@ const subscribePhone = cb => {
   mq.addEventListener('change', cb)
   return () => mq.removeEventListener('change', cb)
 }
-const COMBO_FLIP_MS = 4000
 
 // The chips of a ticket. On a laptop they stand side by side; on a phone one
 // chip at a time slides in, on its own every 5 seconds, until the reader touches it.
@@ -746,19 +763,13 @@ function ComboChips({ legs, onOpenLeg }) {
   return phone ? <ComboCarousel legs={legs} onOpenLeg={onOpenLeg} /> : <ComboRow legs={legs} onOpenLeg={onOpenLeg} />
 }
 
-// On a laptop all chips turn together: 3 seconds the odds, 3 seconds the market
-// probability. The turning stops while the pointer is on the chips.
+// On a laptop the chips stand side by side and turn when the pointer is on
+// them (see the CSS); a click still turns one for touch screens.
 function ComboRow({ legs, onOpenLeg }) {
-  const [flipped, setFlipped] = useState(false)
-  const [hover, setHover] = useState(false)
-  useEffect(() => {
-    if (hover || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return undefined
-    const timer = setTimeout(() => setFlipped(f => !f), COMBO_FLIP_MS)
-    return () => clearTimeout(timer)
-  }, [flipped, hover])
+  const [flipped, setFlipped] = useState({})
   return (
-    <div className="combo-chips" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-      {legs.map((leg, i) => <ComboChip key={i} leg={leg} onOpenLeg={onOpenLeg} flipped={flipped} onFlip={() => setFlipped(f => !f)} />)}
+    <div className="combo-chips">
+      {legs.map((leg, i) => <ComboChip key={i} leg={leg} onOpenLeg={onOpenLeg} flipped={Boolean(flipped[i])} onFlip={() => setFlipped(f => ({ ...f, [i]: !f[i] }))} />)}
     </div>
   )
 }
@@ -775,15 +786,12 @@ function ComboCarousel({ legs, onOpenLeg }) {
   const touchX = useRef(null)
   const active = idx % n
 
-  // 3 seconds the front, then the chip turns; 3 seconds the back, then the next chip slides in.
+  // Every 5 seconds the next chip slides in, until the reader touches the carousel.
   useEffect(() => {
     if (stopped || n < 2 || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return undefined
-    const timer = setTimeout(() => {
-      if (!flipped) { setFlipped(true); return }
-      setFlipped(false); setAnimate(true); setIdx(i => (i >= n ? i : i + 1))
-    }, COMBO_FLIP_MS)
+    const timer = setTimeout(() => { setFlipped(false); setAnimate(true); setIdx(i => (i >= n ? i : i + 1)) }, 5000)
     return () => clearTimeout(timer)
-  }, [stopped, n, flipped, idx])
+  }, [stopped, n, idx])
 
   const go = target => { setStopped(true); setFlipped(false); setAnimate(true); setIdx(target) }
   const prev = () => {
@@ -817,6 +825,8 @@ function ComboCarousel({ legs, onOpenLeg }) {
       </div>
       {n > 1 && (
         <>
+          <button type="button" className="combo-carousel-arrow is-prev" aria-label={tr('Vorheriger Tipp', 'Previous bet', 'Prethodni tip')} onClick={prev}>‹</button>
+          <button type="button" className="combo-carousel-arrow is-next" aria-label={tr('Nächster Tipp', 'Next bet', 'Sljedeći tip')} onClick={() => { if (idx < n) go(idx + 1) }}>›</button>
           <div className="combo-carousel-dots" role="tablist">
             {legs.map((_, i) => (
               <button key={i} type="button" role="tab" aria-selected={i === active}
@@ -959,10 +969,10 @@ function ComboLegend() {
   return (
     <div className="combo-legend">
       <span className="combo-legend-title">{tr('Signale', 'Signals')}</span>
-      <span><b>◆</b> {tr('Die Modelleinschätzung zum KI-Tipp', 'The model estimate for the AI pick')}</span>
-      <span><b>✨</b> {tr('Der KI-Tipp für dieses Spiel', 'The AI pick for this match')}</span>
-      <span><b>🎯</b> {tr('Der wahrscheinlichste Tipp dieses Spiels', "This match's most likely selection")}</span>
-      <span><b className="combo-legend-muted">🎯 ✕</b> {tr('Der KI-Tipp weicht vom Marktfavoriten ab', 'The AI pick differs from the market favorite')}</span>
+      <span><b className="combo-flag is-on">◆</b> {tr('Die Modelleinschätzung zum KI-Tipp', 'The model estimate for the AI pick')}</span>
+      <span><b className="combo-flag is-on">✨</b> {tr('Der KI-Tipp für dieses Spiel', 'The AI pick for this match')}</span>
+      <span><b className="combo-flag is-on">🎯</b> {tr('Der wahrscheinlichste Tipp dieses Spiels', "This match's most likely selection")}</span>
+      <span className="combo-legend-note">{tr('Golden leuchtet ein Zeichen, wenn es zutrifft, grau, wenn nicht.', 'A sign glows gold when it applies, grey when it does not.')}</span>
     </div>
   )
 }
